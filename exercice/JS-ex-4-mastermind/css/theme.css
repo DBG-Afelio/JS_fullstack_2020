@@ -93,16 +93,16 @@ button:hover {
     );
 }
 
-.color0 {
+.color8 {
 	background-color: transparent;
 }
 
-div.color0 {
+div.color8 {
 	background-color: black;
 	border: none;
 	width: 10px;
 	height: 10px;
-	margin: 20px 25px;
+	margin: 18px 23px;
 }
 
 .colorWhite {
@@ -220,10 +220,7 @@ header {
 	background-color: black;
 	z-index: 10;
 	height: 70px;
-}/*
-#secret {
-	width: 260px;
-}*/
+}
 
 #sequency {
 	position: absolute;
@@ -238,13 +235,11 @@ footer:before {
 	bottom: -1300px;
 }
 
-
 #sequency, #secretPlace{
 	background: #45484d; /* Old browsers */
 	background: -moz-linear-gradient(top, #000000 0%,#45484d 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #000000 0%,#45484d 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, #000000 0%,#45484d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
 }
 
 #sequency {
@@ -269,4 +264,9 @@ td.seq, td.result {
 
 .button0, #keyboard, #sequency, #secretPlace {
 	display: none;
+}
+
+#levels button.activeLevel {
+	background-color: rgb(92, 18, 40);
+	color: white
 }

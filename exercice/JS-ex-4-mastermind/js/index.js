@@ -9,34 +9,28 @@ const oSecret = document.getElementById('secret');
 const oSequency = document.getElementById('sequency');
 const oKey = document.getElementById('keyboard');
 const oColors = oKey.getElementsByTagName('button');
+const oLevels = document.getElementById('levels').getElementsByClassName('level');
 
-document.getElementById('level1').addEventListener('click', function() {
-	level = 1;
-	restartAll();
-})
-
-document.getElementById('level2').addEventListener('click', function() {
-	level = 2;
-	alert('niveau non disponible');
-})
-
-document.getElementById('level3').addEventListener('click', function() {
-	level = 3;
-	alert('niveau non disponible');
-})
+// placement des écouteurs des 3 boutons Levels
+for (let i = 0 ; i < oLevels.length; i++) {
+	oLevels[i].addEventListener('click', function() {
+		level = Number(oLevels[i].value);
+		activeLevel();
+		restartAll();
+	});
+}
 
 // placement des écouteurs des boutons submit et clear
 document.getElementById('clear').addEventListener('click', clear);
 document.getElementById('submit').addEventListener('click', submit);
+
+// placement des écouteurs des boutons Color
 for (let i = 0 ; i < oColors.length; i++) {
 	oButton = oColors[i];
-	if (!oButton.disabled) {
-		oButton.addEventListener('click', function() {
-			insert(Number(this.getAttribute('data-number')));
-		});
-	}
+	oButton.addEventListener('click', function() {
+		insert(Number(this.getAttribute('data-number')));
+	});
 }
-
 
 function startGame() {
 	generateKeyboard();
@@ -45,14 +39,20 @@ function startGame() {
 	step = 0;
 	oSequency.style.display = 'flex';
 	oKey.style.display = 'flex';
-
 	disableButton(true, 'submit');
+}
+
+function activeLevel() {
+	for (let i = 0 ; i < oLevels.length; i++) {
+		oLevels[i].classList.remove('activeLevel');
+	}
+	oLevels[level-1].classList.add('activeLevel');
 }
 
 //mise à jour de clavier en fonction du niveau
 // placement des écouteurs sur chaque bouton du clavier
 function generateKeyboard() {
-	let oEmpty = document.getElementById('button0');
+	let oEmpty = document.getElementById('button8');
 	oEmpty.disabled = (level === 1) ? true : false;
 	oEmpty.style.display = (level === 1) ? 'none' : 'flex';
 }
@@ -63,11 +63,11 @@ function generateSecret() {
 	oSecretPlace.style.display = "none";
 	while (arr.length < secretLength) {
 		let num = Math.floor(Math.random()*nbColor)+1;
-		if (level !== 1 || arr.indexOf(num) === -1) {
+		if (level === 3 || arr.indexOf(num) === -1) {
 			arr.push(num);
 		}
 	}
-
+console.log("level : "+ level +" - secret : "+arr.join(''));
 	return arr;
 }
 
@@ -135,10 +135,11 @@ function submit() {
 	clear();
 }
 
+// Vérifie les cases noires (éléments à la bonne position)
 function checkBlack() {
-	let notBlack = [];
+	let notBlack = []; // stock des non noirs
 	
-	for (let i=0 ; i<secret.length; i++) {
+	for (let i =  0 ; i < secret.length ; i++) {
 		if (secret[i] === test[i]) {
 			addResult('Black');
 		} else {
@@ -153,8 +154,9 @@ function checkBlack() {
 	}
 }
 
+// vérifier les cases blanches (éléments à la mauvaise position)
 function checkWhite(notBlack) {
-	for (let i=0 ; i<test.length; i++) {
+	for (let i=0 ; i < test.length; i++) {
 		let position = notBlack.indexOf(test[i]);
 		if (position !== -1) {
 			addResult('White');
@@ -192,7 +194,7 @@ function addResult(result) {
 
 
 function restartAll() {
-	for (let i=1; i<= stepMax; i++) {
+	for (let i = 1; i<= stepMax; i++) {
 		let oTr = document.getElementById('step'+i);	
 		oTr.getElementsByClassName('seq')[0].innerHTML ='';
 		oTr.getElementsByClassName('result')[0].innerHTML ='';
@@ -208,7 +210,7 @@ function showSecret(secret) {
 	oSecretPlace.style.display= 'block';
 	oSecret.innerHTML = '';
 
-	for (i = 0; i<secret.length; i++) {
+	for (i = 0; i < secret.length; i++) {
 		let oDiv = document.createElement('div');
 		oDiv.setAttribute('class', 'color'+secret[i]);
 		oSecret.appendChild(oDiv);
