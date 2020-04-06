@@ -1,0 +1,150 @@
+
+body {
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	font-size: 0.85vw;
+}
+
+@media screen and (min-width: 1825px) {
+  body {
+     font-size: 16px;
+  }
+}
+
+
+
+main {
+	width: 70%;
+	max-width: 1280px;
+	margin: 30px auto 100px auto;
+	display: grid;
+	grid-template-columns: repeat(3, 32.33%);
+	grid-gap: 1.505%;
+	min-height: 300px;
+	box-sizing: border-box;
+}
+
+header, footer {
+	display: none;
+}
+
+section {
+	display: inline-block;
+	color: #4B4D4D;
+	background-color: #eee; 
+  	position: relative; 
+  	overflow: hidden;
+  	border: 2px solid silver;
+	box-sizing: border-box;
+}
+
+section.square {
+	width: 100%;
+  	padding-top: 100%; 
+  	height: 0;
+}
+
+section.horizontal {
+	width: 100%;
+  	padding-top: 48.86%; 
+  	height: 0;
+}
+
+section.vertical {
+	width: 100%;
+  	
+}
+
+#vendre-votre-bien {
+	background: url('../img/background/architecture-1477098_1280.jpg') no-repeat 0 0 ;
+	background-size: auto 100%;
+}
+
+#nouvelles-constructions {
+	grid-area: 1 / 2 / 2 / 4;
+	background: url('../img/background/architecture-1477041_1280.jpg') no-repeat 0 bottom ;
+	background-size: 100%;
+}
+
+#gerer-votre-bien {
+	grid-area: 2 / 1 / 3 / 3;
+	background: url('../img/background/architecture-1477099_1280.jpg') no-repeat 0 0 ;
+	background-size: 100%;
+}
+
+#trouver-une-residence-secondaire {
+	grid-area: 2 / 3 / 4 / 4;
+	background: url('../img/background/living-2882718_1920.jpg') no-repeat 0 0 ;
+	background-size: auto 100%;
+}
+
+#investir-dans-l-immobilier {
+	background: url('../img/background/architecture-1477103_1280.jpg') no-repeat 0 0 ;
+	background-size: auto 100%;
+}
+
+#eviter-les-surprises {
+	background: url('../img/background/floor-plan-1474454_1920.jpg') no-repeat 0 0 ;
+	background-size: auto 100%;
+}
+
+article {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 20px;
+	text-align: center;
+	box-sizing: border-box;
+	
+}
+
+article.white {
+	background-color: rgba(255, 255, 255, 0.8); 
+}
+
+article.gold {
+	background-color: rgba(191, 158, 96, 0.8); 
+}
+
+article.transparent {
+	background-color: transparent; 
+}
+
+#gerer-votre-bien article {
+	position: absolute;
+	top: 5%;
+	left: 2%;
+	bottom: 5%;
+	right: 51.5%;
+} 
+
+article * {
+	width: 100%;
+}
+
+article h2, article p {
+	margin: 3px 0;
+	padding: 0;
+}
+
+article img {
+	width: 24%;
+	margin: 0 38%;
+}
+
+article.transparent {
+	color: white;
+	justify-content: flex-start;
+	align-content: flex-end;
+	text-align: left;
+}
+
+article.transparent * {
+	text-align: left;
+}
+
