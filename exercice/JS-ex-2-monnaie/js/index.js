@@ -6,7 +6,7 @@ const values = [
 	50, 20, 10,
 	5, 2, 1
 ];
-const stock = generateStock(); // tableau avec les différents stocks de coupures
+let stock = generateStock(); // tableau avec les différents stocks de coupures
 let sum = 0;
 let reste;
 let quantities ; // Stokage des diiférentes quantités de coupures nécessaires
@@ -33,9 +33,9 @@ function submitSum(){
 
 //création d'un stock aléatoire 
 function generateStock() {
-	let arr = [];
+	const arr = [];
 	for (let i = 0; i < values.length; i++) {
-		let item = Math.floor(Math.random()*21); // nombre aléatoire entre 0 et 20;
+		const item = Math.floor(Math.random()*21); // nombre aléatoire entre 0 et 20;
 		arr.push(item);
 		document.getElementById('item'+values[i]).getElementsByClassName('stock')[0].innerHTML = item;
 	}
