@@ -3,9 +3,7 @@ americain-full-mayo
 Jambon-fromage-mayo
 Dagobert
 poulet-curry (pierre-cast)
-<<<<<<< HEAD
 pita sauce samourai :D (thomas.K)
-=======
 sandwish au beurre (Nicolas)
 dago sans jambon (Benoit)
->>>>>>> 9135a01ea8f1d2f198c21381a6ad1855e289712c
+ 
