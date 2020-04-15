@@ -1,8 +1,9 @@
-git add + --set-upstream + origin +  => ajouter fichier subversionné
+git add + --set-upstream + origin + (nom de branche) => ajouter fichier subversionné
+
 git commit + -m "commentaire" => ajoute les fichiers modifiés dans mon point de sauvegarde + -mgit status "commentaire"
 git push => envoyer tous les commits créés.
 git status => vérifier l'état du serveur.
 git fetch => mise à jour des infos (commit, branches) dans le dossier local
 git checkout + (branche) => changer de branche
 git pull => mise à jour des fichier (pas les infos branches et commit ?) 
-git pull + origin + (nom de branche) => merger la branche actuelle avec celle désignée.
+git pull + origin + (nom de branche) => merger la branche actuelle avec celle désigné
