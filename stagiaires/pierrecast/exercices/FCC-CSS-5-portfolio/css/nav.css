@@ -1,0 +1,57 @@
+
+header {
+	position: fixed;
+	top: 0;
+	height: 50px;
+	background-color: #606060;
+	width: 100%;
+	z-index: 10;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	right: -175px;
+	display: block;
+	padding-top: 90px;
+}
+
+nav a {
+	display: block;
+	width : 300px;
+	height: 50px;
+	text-transform: uppercase;
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	text-decoration: none;
+	text-align: right;
+	padding-right: 30px;
+}
+
+nav a:hover {
+	margin-right: 175px;
+}
+
+nav a:nth-child(1) {
+	background: linear-gradient(-105deg, #606060  79%, transparent 79%);
+	border: 5px solid transparent;
+	border-right: none;
+	background-clip: padding-box;
+
+}
+
+nav a:nth-child(2) {
+	background: linear-gradient(-105deg, #606060  75%, transparent 75%);
+	border: 5px solid transparent;
+	border-right: none;
+	background-clip: padding-box;
+}
+
+nav a:nth-child(3) {
+	background: linear-gradient(-105deg, #606060  71%, transparent 71%);
+	border: 5px solid transparent;
+	border-right: none;
+	background-clip: padding-box;
+
+}
