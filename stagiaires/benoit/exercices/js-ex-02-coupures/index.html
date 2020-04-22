@@ -1,0 +1,137 @@
+<!-- This software asks for a price, and then return the equivalent amount
+// in banknotes of 500, 200, 100, 50, 20, 10, 5, 2, 1 -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="./css/screen.css" rel="stylesheet" media="all" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="./images/favicon.ico"/>
+	<script type="text/javascript"></script>
+	<title> Monnaie Monnaie </title>
+</head>
+
+<body>
+	<main>
+		<div>
+			<img src="./images/Money.jpg" alt="Man holding Money">
+		</div>
+		<div class="montant">
+			<p class="m_message">
+				Mettez un montant, on vous calculera le nombre de pièces et billets dont vous avez besoin.
+			</p>
+			<form id="which_amount">
+				<label for="montant">Montant</label>
+				<input name="montant" id="montant" required>
+				<button id="submit">Calcule!</button>
+				<div>
+					<span id="message"></span>
+				</div>
+			</form>
+			<table>
+				<tr>
+					<td>
+						Nombre de billets de 200 :
+					</td>
+					<td>
+						<output id="billets200"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de billets de 100 :
+					</td>
+					<td>
+						<output id="billets100"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de billets de 50 :
+					</td>
+					<td>
+						<output id="billets50"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de billets de 20 :
+					</td>
+					<td>
+						<output id="billets20"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de billets de 10 :
+					</td>
+					<td>
+						<output id="billets10"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de billets de 5 :
+					</td>
+					<td>
+						<output id="billets5"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 2 :
+					</td>
+					<td>
+						<output id="pieces2euros"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 1 :
+					</td>
+					<td>
+						<output id="pieces1euros"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 50 cents :
+					</td>
+					<td>
+						<output id="pieces50cents"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 20 cents :
+					</td>
+					<td>
+						<output id="pieces20cents"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 10 cents :
+					</td>
+					<td>
+						<output id="pieces10cents"></output>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nombre de pièces de 5 cents :
+					</td>
+					<td>
+						<output id="pieces5cents"></output>
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</main>
+	<script src="./js/main.js"></script>
+</body>
+
+</html>
