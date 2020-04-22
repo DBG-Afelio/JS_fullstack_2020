@@ -1,0 +1,139 @@
+body{
+	background-color:#e1e1e1;
+	font-size: 10px;
+	max-width: 1000px;
+	margin:50px;
+}
+main{
+	display: grid;
+	width: 70%;
+	max-width: 1280px;
+    grid-gap: 10px;
+    grid-auto-rows: 350px;
+    grid-auto-columns: 350px; 
+}
+/*image*/
+img{
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	z-index: 1;
+}
+/*H1 H2*/
+.cont{
+	z-index: 2;
+	position:absolute;
+	box-sizing: 350px;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+/*.........................................................................................*/
+/*Case vendre*/
+#vendre{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1;
+	grid-row: 1;
+	text-align: center;
+	
+}
+#vendre img{
+	opacity: 50%;
+	border: 1px solid grey;
+}
+#vendre .cont{
+	width:350px;
+    height: 350px;
+    padding: 15px;
+}
+/*.........................................................................................*/
+/*Case Nouvelle*/
+#nouvelle{
+	display: flex;
+	align-items: end;
+	grid-column: 2/4;
+	grid-row: 1;
+	color:white;
+}
+#nouvelle .cont{
+	align-items:flex-start;
+    background-color:transparent;
+    color:white;
+    padding: 10px;
+}
+/*.........................................................................................*/
+/*Case gerer*/
+#gerer{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1/3;
+	grid-row: 2/3;
+	text-align: center;
+	color:white;
+}
+#gerer .cont{
+	width:180px;
+    height:180px;
+    margin-right: 200px;
+    padding: 15px;
+}
+/*.........................................................................................*/
+/*Case investir*/
+#investir{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1;
+	grid-row: 3;
+	text-align: center;
+	color:white;
+}
+#investir .cont{
+	background-color: rgba(168, 162, 155, 0.7);
+    color:white;
+    width:200px;
+    height: 200px;
+    padding: 15px;
+}
+/*.........................................................................................*/
+/*Case eviter*/
+#eviter{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 2/3;
+	grid-row: 3;
+	text-align: center;
+}
+#eviter img{
+	opacity: 50%;
+	border: 1px solid grey;
+}
+#eviter .cont{
+	width:200px;
+    height: 200px;
+    padding: 15px;
+
+}
+/*.........................................................................................*/
+/*Case trouver*/
+#trouver{
+	display:flex;
+	align-items: end;
+	grid-column: 3/4;
+	grid-row: 2/4;
+	color:white;
+}
+#trouver .cont{
+	align-items:flex-start;
+    background-color:rgba(169,127,79,0.2);
+    color:white;
+    max-width: 200px;
+    text-align: left;
+    padding: 10px;
+
+}
