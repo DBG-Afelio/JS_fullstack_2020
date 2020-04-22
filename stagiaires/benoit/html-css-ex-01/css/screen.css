@@ -1,0 +1,226 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*****************
+**** NOT RESET ***
+*****************/
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 20px;
+}
+
+main{
+    background-color: #FFEECC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+h1{
+    font-size: 1.1rem;
+}
+
+h2{
+    font-size: 0.6rem;
+}
+
+.the_grid{
+    width: 70vw;
+    height: auto;
+    max-width: 1280px;
+    display: block;
+    background-color: #BFFF94;
+    padding: 10px;
+    margin: 2rem 0;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.the_grid>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.golden_div{
+    background-color: rgb(245, 223, 101);
+    background-blend-mode: overlay;
+}
+
+.white_div{
+    background-color: rgb(181, 181, 187);
+    background-blend-mode: overlay;
+}
+
+.first_box{
+    height: 30vh;
+    background-image:url("../images/mushroom.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: gold;
+    background-blend-mode: screen;
+}
+
+.long_box_1{
+    height: 30vh;
+    background-image:url("../images/palace.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    backdrop-filter: blur(50px);
+}
+
+.long_box_2{
+    height: 30vh;
+    background-image:url("../images/book.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.high_box{
+    height: 30vh;
+    background-color: yellow;
+    background-image:url("../images/cat.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.fift_box{
+    height: 30vh;
+    background-image:url("../images/leaf.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sixth_box{
+    height: 30vh;
+    background-image:url("../images/orange.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+footer{
+    font-size: 0.7rem;
+    background-color: #7BE8A6;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.f_link{
+    color: #BFFF94;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 600px) {
+    main{
+        min-height: 95vh;
+    }
+
+    .the_grid{
+        height: 70vw;
+        display: grid;;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-gap: 10px;
+    }
+    .the_grid>div{
+        height: auto;
+    }
+
+    .first_box {
+        position: relative;
+      }
+      .module::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url(graphic-to-be-filtered.jpg);
+        filter: grayscale(100%);
+      }
+
+
+    .high_box{
+        height: 40vh;
+    }
+    .long_box_1{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+    .long_box_2{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    .high_box{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        height: 40vh;
+    }
+    footer{
+        height: 5vh;
+    }
+    
+}
