@@ -26,7 +26,7 @@ section {
 
 #finalResult {
 	min-height :30px;
-}; 
+}
 
 #sum {
 	width: 200px;
@@ -41,4 +41,14 @@ section {
 #sectionSum > * {
 	padding : 12px 5px;
 	background-color: silver;
+}
+
+h2 {
+	font-size: 16px;
+	line-height: normal;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
 }
