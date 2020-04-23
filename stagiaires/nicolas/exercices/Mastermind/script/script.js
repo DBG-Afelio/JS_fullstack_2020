@@ -8,8 +8,18 @@ const playerSeq = document.getElementById("playerSeq");
 const submit = document.getElementById("submit");
 
 let levelSelected = levelSelect.options[levelSelect.selectedIndex].value;
+let colorBalls = [];
+for (let index = 0; index < document.getElementsByClassName('colorBall').length; index++) {
+    const element = document.getElementsByClassName('colorBall').item(index).getAttribute("data-color");
+    colorBalls.push(element);
+}
 
-let colorBalls = document.getElementsByClassName('colorBall');
+// ES6
+// let colorBalls = Array.from(document.getElementsByClassName('colorBall'))
+//                     .map((divColorBall) => {
+//                          return divColorBall.getAttribute("data-color");
+//                      });
+
 let playerSeqSlot = document.querySelectorAll(".slot");
 
 let playerSeqValue=[];
@@ -124,71 +134,54 @@ levelSelect.addEventListener('change',()=>{
 
 /*--------------------------------------------------Fonctions------------------------------------------------------------*/
 
-function genRandomSeq () {
+function genRandomSeq (levelSelected, colorBalls) {
 
-    randomSeq = [];
-    randomSeq.push(colorBalls[Math.floor(Math.random()*colorBalls.length)].getAttribute("data-color"));
+    let randomSeq = [];
+    randomSeq.push(colorBalls[Math.floor(Math.random()*colorBalls.length)]);
     
-    let numberOfColors=1;
+    let numberOfColors =4 ;
+    let settedColors = 1;
+    while (settedColors < numberOfColors) {
     
-    for(i=0;i<numberOfColors;i++){
+        //génération d'un nombre aléatoire entre 0 et la longueur de la liste colorBalls
+        let nbalea = Math.floor(Math.random()*colorBalls.length);
+        let randomColor = colorBalls[nbalea];
         
-        if(numberOfColors<4){
-            
-            //génération d'un nombre aléatoire entre 0 et la longueur de la liste colorBalls
-            let nbalea = Math.floor(Math.random()*colorBalls.length);
-            let randomColor = colorBalls[nbalea].getAttribute("data-color");
-            
-            switch(levelSelected) {
-                    
-                case 'level1':
-                case 'level2':
-
-                    if(!randomSeq.includes(randomColor)){
-                        randomSeq.push(randomColor);
-                        numberOfColors++;
-                    }else{
-                        i--;
-                    }
-                    break;
-                case 'level3':
-
+        switch(levelSelected) {
+            case 'level1':
+            case 'level2':
+                if(!randomSeq.includes(randomColor)){
                     randomSeq.push(randomColor);
-                    numberOfColors++;
-                    break;
-            }           
-        }      
+                    settedColors++;
+                }
+                break;
+            case 'level3':
+                randomSeq.push(randomColor);
+                settedColors++;
+                break;
+        }           
+            
     }
+    return randomSeq;
 }
 
-function addEmptyBall () {
+function addEmptyBall (colorBalls) {
     
     const emptyBall = document.getElementById("empty");
+    colorBalls = colorBalls.filter((colorName) => colorName != emptyBall.dataset.color);
     
     switch(levelSelected) {
-        
         case 'level1':
- 
-            if(emptyBall.className = "colorBall"){
-                
-                emptyBall.className = "emptyBall";
-                
-                
-            }
-            
+            emptyBall.classList.add("emptyBall");
             break;
            
         case 'level2':
         case 'level3':
-
-            if(emptyBall.className = "emptyBall"){
-                
-             emptyBall.className = "colorBall";
-                
-            }
-            
+            emptyBall.classList.remove("emptyBall");
+            colorBalls.push(emptyBall.dataset.color);
             break;
     }
+    return colorBalls;
 }
 
 function reload (){ 
@@ -218,13 +211,13 @@ function reload (){
     }
     */
     //on ajoute ou on supprime la colorball "vide"
-    addEmptyBall();
+    colorBalls = addEmptyBall(colorBalls);
     
     //On affiche la difficulté sélectionnée"
     switchRulesText();
     
     //On génère une nouvelle séquence aléatoire
-    genRandomSeq();
+    randomSeq = genRandomSeq(levelSelected, colorBalls);
     
     
     console.log("réponse : " + randomSeq);
