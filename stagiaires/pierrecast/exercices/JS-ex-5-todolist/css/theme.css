@@ -1,0 +1,234 @@
+
+/* #ff948c; /* pink */
+/* #82649a; /* purpleLight */
+/* #644080; /* purpleMedium */
+/* #4f3167; /* purpleDark */
+
+/* #e2e5ea; /* grayLight */
+/* #7f7e87; /* grayMedium */
+/* #1c1825; /* grayDark */
+
+/* #fed488; /* orangePale */
+html, 
+body {
+    height: 100%;
+}
+
+body {
+	background: linear-gradient(165deg,  #fed488 0 , #ff948c 100% ) no-repeat;
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	border: 1px solid transparent;
+}
+
+main {
+	max-width: 600px;
+	min-width: 250px;
+	margin: 80px auto;
+	background-color: white;
+	width: 95%;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 12px rgba(0,0,0, .4);
+}
+
+header, footer, content {
+	padding: 15px;
+}
+
+/* HEADER */
+header {
+	color: white;
+	text-transform: uppercase;
+	padding-bottom: 0;
+	background: linear-gradient(0,  #d4645d 0 , #f6a165 100% ) 
+}
+
+header h1 {
+	padding-left: 30px;
+}
+
+header #filter {
+	display: flex;
+	justify-content: space-around;
+}
+
+header #filter .filter {
+	width: 30%;
+	border: 1px solid transparent;
+	border-bottom: 5px solid transparent;
+	padding: 6px 0 3px 0;
+	color: white;
+	background-color: rgba(255,255,255, 0.3);
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+header #filter .filter.active {
+	border-bottom: 5px solid #f4546a;
+}
+
+header #filter .filter:hover,
+header #filter .filter:active,
+header #filter .filter:focus {
+	border-bottom: 5px solid #fb6479;
+}
+
+/* FOOTER */
+footer {
+	background-color: #f6f5f5; /* purpleLight */
+	color: #4b4d4d;
+	text-transform: uppercase;
+	padding-top: 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+footer button {
+	border: 1px solid transparent;
+	border-top: 5px solid transparent;
+	padding: 3px 0 6px 0;
+	color: #4B4D4D;
+	background-color: rgba(0,0,0, 0.05);
+	text-transform: uppercase;
+	cursor: pointer;
+	width: 30%;
+}
+
+footer button:hover,
+footer button:active,
+footer button:focus {
+	border-top: 5px solid #fb6479;
+}
+
+footer #itemsLeft {
+	width: 60%;
+	border: 1px solid transparent;
+	border-top: 5px solid transparent;
+	padding: 3px 0 6px 0;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+}
+
+/* CONTENT */
+#content {
+	display: block;
+	padding: 25px;
+}
+
+#content form {
+	display: grid;
+	grid-template-columns: 60px auto 60px;
+	width: 100%;
+	margin:  0 0 10px 0;
+	border: 1px solid #f4546a;
+	border-radius: 35px;
+	height: 60px;
+}
+
+#content form > * {
+	border: 1px solid transparent;
+	background: transparent;
+	font: 30px/50px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#content #submit {
+	background-color: #f4546a;
+	color: white;
+	border-radius: 0 35px 35px 0;
+}
+
+#content form #input {
+	height: 55px;
+	color: #1c1825;
+	width: 100%;
+}
+
+#content form #input::placeholder {
+	color: silver;
+}
+
+#content ul#toDoList {
+	display: block;
+	width: 100%;
+	padding: 10px 0 0 0;
+}
+
+#content ul#toDoList li {
+	
+	display: block;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 60px auto 60px;
+	height: 60px;
+	background-color: white;
+}
+
+#content ul#toDoList li.hide {
+	display: none;
+}
+
+#content ul#toDoList li:hover {
+	transform: scale(1.01);
+	background-color: rgba(0,0,0,.05);
+}
+
+#content ul#toDoList li button:first-child {
+	border-radius: 50%;
+	border: 3px solid #f4546a;
+	display: block;
+	height: 30px;
+	width: 30px;
+	justify-self: center;
+	align-self: center;
+}
+
+#content ul#toDoList li[data-status='done'] button:first-child {
+	background-color: #f4546a;
+}
+#content ul#toDoList li[data-status='undone'] button:first-child{
+	background-color: transparent;
+}
+
+#content ul#toDoList li input  {
+	font: 30px/50px "Roboto", Helvetica, Arial, sans-serif;
+	border: 1px solid transparent;
+	background-color: transparent;
+	padding-left: 30px;
+	border-bottom: 1px solid rgba(252, 100, 123,.6);
+}
+
+#content ul#toDoList li[data-status='done'] input  {
+	text-decoration: line-through;
+	text-decoration-color: #f4546a;
+	text-decoration-thickness: 3px;
+	color: silver;
+}
+
+#content ul#toDoList li[data-status='undone'] input  {	
+	color: #1c1825;
+}
+
+#content ul#toDoList li button:last-child {
+	opacity: 0;
+}
+
+#content ul#toDoList li:hover button:last-child,
+#content ul#toDoList li:active button:last-child:active,  
+#content ul#toDoList li:focus button:last-child:focus {
+	opacity: 1;
+	font: 30px/50px Arial, helvetica, sans-serif;
+	border: 1px solid transparent;
+	background-color: transparent;
+	color: #f4546a;
+	cursor: pointer;
+}
+
+#content ul#toDoList li:hover button:first-child,
+#content ul#toDoList li:active button:last-child:active,  
+#content ul#toDoList li:focus button:first-child:focus {
+	cursor: pointer;
+}
+
+input {
+	overflow: hidden;
+}
