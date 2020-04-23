@@ -1,0 +1,267 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Initiation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/initiation.css" rel="Stylesheet" type="text/css"/>
+    
+  </head>
+  <body>
+    <div id="content">
+      <h1>Initiation à la programmation Javascript</h1>
+      <p id="accroche">
+        Il s'agit ici d'un premier exercice pour initier l'apprentissage de la programmation Javascript dans un browser.<br/>
+        Pour chaque exemple, il faut trouver le bon évènement et la bonne propriété DOM à modifier.</br>
+      </p>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui se vide lorsque l'on entre dedans.
+          <br>Event : focus, blur
+          <br>Property : value
+        </p>
+        <form action="javascript:void(0)">
+          <input type="text" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui se vide lorsque l'on entre dedans et qui remet la valeur initiale si le champ est vide lorsqu'on le quitte.
+          <br>Event : focus, blur
+          <br>Property : value, defaultValue
+        </p>
+        <form action="javascript:void(0)">
+          <input type="text" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ dont la taille augmente lorsque l'on appuye sur une touche et qu'on est dedans.
+          <br>Event : keydown
+          <br>Property : size
+        </p>
+        <form action="javascript:void(0)">
+          <input type="text" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui affiche les caractères quand la case est cochée, les masque sinon.
+          <br>Event : click
+          <br>Property : checked, type
+        </p>
+        <form action="javascript:void(0)">
+          <label for="cb1">Afficher le mot de passe : </label><input type="checkbox" name="cb1" />
+          <input type="password" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui affiche les caractères quand on maintient la souris enfoncé sur le carré, les masque sinon.
+          <br>Event : mousedown, mouseup
+          <br>Property : checked, type
+        </p>
+        <form action="javascript:void(0)">
+          <label for="cb1">Afficher le mot de passe : </label><span class="enfonce"></span>
+          <input type="password" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui jete le focus quand essaye de lui donner.
+          <br>Event : focus
+          <br>Method : blur()
+        </p>
+        <form action="javascript:void(0)">
+          <input type="text" name="ch1" value="Texte initial"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Un champ qui jete le focus quand essaye de lui donner et que la case à cochée n'est pas activée.<br/>
+          Si le champ est rempli et que l'on décoche la case, on vide le champ.
+          Si on coche la case, on amène le focus dans le champ, et on place la valeur 0;
+        </p>
+        <form action="javascript:void(0)">
+          <input type="checkbox" name="cb1" />
+          <input type="text" name="ch1" value=""/>
+        </form>
+      </div>
+      <div class="exercice">
+          <p class="ennonce">
+            Un champ non modifiable qui s'incrémente ou se décrémente selon l'option sélectionnée
+            <br>Event : click
+            <br>Property : checked, value
+          </p>
+          <form action="javascript:void">
+                <label for="rb1_1">Incrémente : </label>
+                    <input type="radio" name="rb1" value="+1" id="rb1_1">
+                <label for="rb1_2">Décrémente : </label>
+                <input type="radio" name="rb1" value="-1" id="rb1_2"><br>
+                <input type="text" name="ch1" value="0"/>
+                <input type="button" value="Action!" name="b1">
+          </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Le bouton "sauve" place la valeur actuelle du champ comme valeur par défaut.
+          Le bouton "reset" fait son boulot...
+          <br>Event : click
+          <br>Property : value, defaultValue
+        </p>
+        <form action="javascript:void(0)">
+           <input type="text" name="ch1" value="Texte initial"/>
+           <input type="button" name="b1" value="sauve" />
+           <input type="reset" name="b2" value="reset"/>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Place la valeur et le texte de l'option sélectionnée à l'intérieur des champs correspondants.
+          <br>Event : click
+          <br>Property : options(array), selectedOption, text, value
+        </p>
+        <form action="javascript:void(0)">
+          <label for="ch1">Valeur : </label><input type="text" name="ch1" /><br/>
+          <label for="ch2">Texte : </label><input type="text" name="ch2" /><br/>
+          <select name="s1">
+            <option value="1">item 1</option>
+            <option value="2">item 2</option>
+            <option value="3">item 3</option>
+            <option value="4">item 4</option>
+            <option value="5">item 5</option>
+          </select>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Place <b>les valeurs et les textes des options sélectionnées</b> à l'intérieur des champs correspondants .
+        </p>
+        <form action="javascript:void(0)">
+          <label for="ch1">Valeur : </label><input type="text" name="ch1" /><br/>
+          <label for="ch2">Texte : </label><input type="text" name="ch2" /><br/>
+          <select name="s1" multiple>
+            <option value="1">item 1</option>
+            <option value="2">item 2</option>
+            <option value="3">item 3</option>
+            <option value="4">item 4</option>
+            <option value="5">item 5</option>
+          </select>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          Permutte les valeurs des différents champs dans le sens de la flèche (en boucle).
+        </p>
+        <form action="javascript:void(0)">
+          <div class="data-controls">
+            <input type="text" name="c1" value="1" size="2"/>
+            <input type="text" name="c1" value="2" size="2"/>
+            <input type="text" name="c1" value="3" size="2"/>
+            <input type="text" name="c1" value="4" size="2"/>
+            <input type="text" name="c1" value="5" size="2"/>
+          </div>
+          <div class="button-controls">
+            <button name="gauche" id="gauche">&lt;==</button> 
+            <button name="droite" id="droite">==></button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="exercice">
+        <p class="ennonce">
+           Faire basculer les items sélectionnés entre les deux listes.
+        </p>
+        <form action="javascript:void(0)">
+          <select multiple size="5" name="s1">
+            <option value="1">Item 1</option>
+            <option value="2">Item 2</option>
+            <option value="3">Item 3</option>
+            <option value="4">Item 4</option>
+            <option value="5">Item 5</option>
+            <option value="6">Item 6</option>
+          </select>
+          <button name="gauche" id="gauche2"><==</button> 
+          <button name="droite" id="droite2">==></button>
+          <select multiple size="5" name="s2">
+            
+          </select>
+        </form>
+      </div>
+      <div class="exercice">
+        <p class="ennonce">
+          3 Champs de 5 caractères qui ne sont accesibles que si les champs précédents sont remplis(genre entrée de clé)
+        </p>
+        <form action="javascript:void(0)">
+          <input type="text" size="5" maxlength="5" name="c01" />
+          <input type="text" size="5" maxlength="5" name="c02" />
+          <input type="text" size="5" maxlength="5" name="c03" />
+        </form>
+      </div>
+      
+      <div class="exercice">
+          <p class="ennonce">
+          Elément qui disparait lorsque l'on coche la case. Il réapparait lorsque l'on décoche(style.display).
+          </p>
+          <form action="javascript:void">
+             <label for="cb1">Apprait/Disparait : </label>
+             <input type="checkbox" name="cb1"><br>
+              <input type="text" name="ch1">
+            </form>
+      </div>
+      <div class="exercice">
+          <p class="ennonce">
+              Un champ qui augmente en hauteur et en largeur de 1OOpx à chaque fois que l'on entre le focus dedans (parseInt() et style.height). Il retourne à son état initial en sortant.
+          </p>
+          <form action="javascript:void">
+              <input type="text" name="ch1">
+          </form>
+      </div>
+      <div class="exercice"  id="ex17">
+          <p class="ennonce">
+              Soit 4 carrés de couleur. Si on clique sur un on lui ajoute la classe checked et on l'enlève à celui qui l'avait <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">Ref</a>.
+          </p>
+          <div>
+              <div class="carre rouge checked"></div>
+              <div class="carre vert"></div>
+              <div class="carre bleu"></div>
+              <div class="carre jaune"></div>
+          </div>
+      </div>
+      <div class="exercice" id="ex18">
+          <p class="ennonce">Idem que le précédent mais on ajoute aussi la classe de couleur à un autre carré.(setAttribute(),getAttribute()))</p>
+          <div>
+              <div class="carre rouge checked" data-color="rouge"></div>
+              <div class="carre vert" data-color="vert"></div>
+              <div class="carre bleu" data-color="bleu"></div>
+              <div class="carre jaune" data-color="jaune"></div>
+          </div>
+          <div>
+              <div class="carre" id="out"></div>
+          </div>  
+      </div>
+      <div class="exercice" id="ex19">
+        <p class="ennonce">
+           **BONUS**
+            <ul>
+                <li>Soit on clique sur l'image à droite pour lui donner le src de la dernière image de gauche sur la quelle on a cliquer</li>
+                <li>Soit on porte l'image de gauche dans la zone de droite (<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_and_drop">Ref</a>).</li>
+            </ul>
+          
+        </p>
+        <div class="gauche">
+            <img src="https://dummyimage.com/300x150/cab/1" height="150px" name="i1" />
+            <img src="https://dummyimage.com/300x150/abc/1" height="150px" name="i2" />
+            <img src="https://dummyimage.com/300x150/acb/1" height="150px" name="i3" />
+            <img src="https://dummyimage.com/300x150/bac/1" height="150px" name="i4" />
+        </div>
+        <div class="droite">
+            <img src="http://placekitten.com/g/200/300" id="idroite" width="100px" height="150px"/></div>
+      </div>
+    </div>
+    <script src="js/initiation.js"></script>
+  </body>
+</html>

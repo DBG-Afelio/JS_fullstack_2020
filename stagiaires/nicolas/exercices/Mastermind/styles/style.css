@@ -1,0 +1,183 @@
+
+body{
+    font-size: 15pt;
+}
+main{
+
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-auto-rows: minmax(120px, auto);
+    align-items: center;
+    justify-content: center;
+    background-color: #bfd8d9;
+    border-style: ridge;
+    width:600px;
+    border-radius:50px;
+}
+#title{
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 500px;
+    background-color:cadetblue;
+    border-style: outset;
+    justify-self: center;
+    border-radius:10px;
+}
+#options{
+    background-color: white;
+    display: flex;
+    grid-row: 2;
+    height : 100%;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 10% / 50%;
+   
+}
+#level{
+    display: flex;
+    background-color: cadetblue;
+    border-radius: 20% / 50%;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    flex-direction: column;
+}
+#levelRules{
+    font-size: 10pt;
+    max-width: 150px;
+}
+#reset{
+    font-size: 15pt;
+    background-color:cadetblue;
+    border-radius: 20% / 50%;
+    width: 100%;
+    
+}
+.ballSlot{
+    
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#colorBalls{
+    
+    grid-column: 1;
+    display:flex;
+    justify-content: flex-start;
+    width: 500px;
+    padding: 20px;
+    background-color:cadetblue;
+    border-radius:10% / 50%;
+    grid-row: 4;
+    border-style: outset;
+    margin-bottom: 20px;
+}
+.colorBall{
+    cursor: grab;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+.colorBall:active {
+    cursor: grabbing;
+}
+.blueBall{
+    background-color:blue;
+}
+.redBall{
+    background-color:red;
+}
+.yellowBall{
+    background-color:yellow;
+}
+.greenBall{
+    background-color:green;
+}
+.purpleBall{
+    background-color:purple;
+}
+.orangeBall{
+    background-color:orange;
+}
+.pinkBall{
+    background-color:pink;
+}
+.blackBall{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background-color:black;
+    justify-self: flex-end;
+    border-style: solid;
+}
+.whiteBall{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background-color:antiquewhite;
+    justify-self: flex-end;
+    border-style: solid;
+}
+#playerSeq {
+    grid-row: 3;
+    display: grid;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.entry {
+    border-style: outset;
+    padding: 40px;
+    display:flex;
+    justify-content: flex-start;
+    width: 500px ;
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 1;
+    background-color:white;
+    border-radius:10% / 50%;
+}
+.slot{
+
+    width:50px;
+    height:50px;
+    border: 1px solid;
+    border-radius: 50%;
+    overflow:hidden;
+    margin-right: 10px;
+    
+}
+.empty {
+    display:none;
+}
+#submit {
+    
+    font-size: 15pt;
+    margin-right:10px;
+    background-color:cadetblue;
+    justify-self: flex-end;
+    grid-column: 1;
+    grid-row: 1;
+    border-radius: 30% / 50%;
+    width: 100px;
+    height: 60px;
+    
+    
+}
+.static{
+    opacity: 0.6;
+    
+}
+.static > div > div{
+    cursor:auto;
+}
+.static > div > div:active{
+    cursor:auto;
+}
+#levelSelect{
+    border-radius : 5px;
+}
