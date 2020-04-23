@@ -10,7 +10,7 @@ document.getElementById('reset').addEventListener('click', () => {
 
 // récupère la valeur et vérifie sa validité
 function submitNum() {
-	let num = parseFloat(document.getElementById("num").value); 
+	let num = Number(document.getElementById("num").value); 
 
 	if (!isNaN(num) && Number.isInteger(num)) {
 		list.push(num);
