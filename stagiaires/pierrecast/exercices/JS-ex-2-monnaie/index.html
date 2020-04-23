@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="css/theme.css">
-		<title>Décomposition d'une somme en espèces</title>
+		<title>Décomposition d'une somme en espèce</title>
 	</head>
 	<body>
 		<h1>Décomposition d'une somme en espèces</h1>
@@ -11,95 +11,95 @@
 			
 			<div class="item">
 				<div class="name"><h2>coupures</h2></div>
-				<div class="result">Résultat</div>
-				<div class="stock">Stock</div>
+				<output class="result">Résultat</output>
+				<output class="stock">Stock</output>
 			</div>
 			<div id="item50000" class="item">
 				<div class="name">Nb de billets de 500 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item20000" class="item">
 				<div class="name">Nb de billets de 200 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item10000" class="item">
 				<div class="name">Nb de billets de 100 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item5000" class="item">
 				<div class="name">Nb de billets de 50 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item2000" class="item">
 				<div class="name">Nb de billets de 20 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item1000" class="item">
 				<div class="name">Nb de billets de 10 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item500" class="item">
 				<div class="name">Nb de billets de 5 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item200" class="item">
 				<div class="name">Nb de pièces de 2 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item100" class="item">
 				<div class="name">Nb de pièces de 1 €</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item50" class="item">
 				<div class="name">Nb de pièces de 50 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item20" class="item">
 				<div class="name">Nb de pièces de 20 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item10" class="item">
 				<div class="name">Nb de pièces de 10 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 
 			<div id="item5" class="item">
 				<div class="name">Nb de pièces de 5 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item2" class="item">
 				<div class="name">Nb de pièces de 2 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 			<div id="item1" class="item">
 				<div class="name">Nb de pièces de 1 ct</div>
-				<div class="result"></div>
-				<div class="stock"></div>
+				<output class="result"></output>
+				<output class="stock"></output>
 			</div>
 		</section>
 
 		<section id="sectionSum">
 			<h2>Résultats</h2>
 			<form action="#" method="post">
-				<input type="text" id="sum" placeholder="Entrer une somme. Ex: 745.23">
+				<input type="number" id="sum" step="0.01" placeholder="Entrer une somme. Ex: 745.23">
 				<button id="submit">Envoyer</button>
 			</form>
 			
-			<div id="finalResult"></div>
+			<output id="finalResult"></output>
 		</section>
 
 		<script src="js/index.js"></script>

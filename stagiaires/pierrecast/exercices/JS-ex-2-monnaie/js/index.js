@@ -22,7 +22,7 @@ document.getElementById('submit').addEventListener('click', function (e) {
 function submitSum(){
 	init();
 	quantities = [];
-	sum = Number(document.getElementById('sum').value)*100;
+	sum = Math.round(Number(document.getElementById('sum').value)*100);
 	reste = sum;
 	if (Number.isInteger(sum) && sum > 0) {
 		calculate();
