@@ -1,0 +1,272 @@
+body {
+	background-color: #7a5100;
+	background-image: url('../img/wood-pattern.png');
+}
+#keyboard, #levels {
+	background-color: rgba(255,255,255, .1);
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 5px 10px;
+	padding: 0;
+	display: inline-block;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.color1 {
+	background-color: yellow;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      yellow 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color2 {
+	background-color: orange;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      orange 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color3 {
+	background-color: red;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      red 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color4 {
+	background-color: cyan;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      cyan 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color5 {
+	background-color: blue;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      blue 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color6 {
+	background-color: violet;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      violet 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color7 {
+	background-color: green;
+	background: radial-gradient(
+      circle at top 15px right 15px,
+      white,
+      green 40%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.color8 {
+	background-color: transparent;
+}
+
+div.color8 {
+	background-color: black;
+	border: none;
+	width: 10px;
+	height: 10px;
+	margin: 18px 23px;
+}
+
+.colorWhite {
+	background-color: white;
+	background: radial-gradient(
+      circle at top 5px right 5px,
+      white,
+      white 30%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.colorBlack {
+	background-color: black;
+	background: radial-gradient(
+      circle at top 5px right 5px,
+      white,
+      black 50%,
+      rgba(0,0,0, .5)
+    );
+}
+
+.colorWhite, .colorBlack {
+	width: 15px;
+	height: 15px;
+	margin: 2px 5px;
+}
+
+button.clear {
+	background-color: white;
+}
+
+td {
+	height: 60px;
+	margin: 2px;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+td.step, td.result {
+	width: 60px;
+	padding: 0 5px;
+	box-sizing: border-box;
+}
+
+td.seq {
+	width: 240px;
+}
+
+td > div, #secret > div {
+	box-shadow: -1px 1px 1px rgba(0,0,0, .3);
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	margin: 5px 10px;
+	padding: 0;
+	display: inline-block;
+	text-align: center;
+	line-height: 36px;
+}
+
+td.step > * {
+	border: 2px solid white; 
+	background-color: rgba(255,255,255, .5);
+}
+.disabled {
+	opacity: 0.2;
+}
+
+footer, header {
+	position: fixed;
+	left:0;
+	width: 100%;
+	height: auto;
+	padding: 8px;
+	background-color: #a5a5a5;
+	z-index: 5;
+
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+footer {
+	bottom: 0;
+}
+header {
+	top: 0;
+}
+
+#boardgame {
+	margin: 170px auto 220px auto;
+	padding: 80px 40px;
+	border-radius: 80px;
+	box-shadow:  1px 3px 3px rgba(0,0,0, 0.3);
+
+	background-color: black;
+	background: radial-gradient(
+      circle at top 5px right 5px,
+      #3d3d3e,
+      #292a2c 20%,
+      #111 60%
+    );
+}
+
+#boardgame td {
+	box-shadow: inset 1px 3px 3px rgba(0,0,0, 0.3);
+}
+
+#secretPlace {
+	position: absolute;
+	bottom: -65px;
+	left: 50%;
+	margin-left: -187px;
+	background-color: black;
+	z-index: 10;
+	height: 70px;
+}
+
+#sequency {
+	position: absolute;
+	top: -115px;
+	left: 50%;
+	margin-left: -295px;
+	z-index: 10;
+	background-color: black;
+}
+
+footer:before {
+	bottom: -1300px;
+}
+
+#sequency, #secretPlace{
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top, #000000 0%,#45484d 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #000000 0%,#45484d 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #000000 0%,#45484d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#sequency {
+	padding: 40px 40px 5px 40px;
+	border-radius: 40px 40px 0 0;
+}
+#secretPlace {
+	padding: 0 0 40px 0;
+	border-radius:  0 0 40px 40px;
+}
+
+#sequency button, #levels button  {
+	border: 2px solid white; 
+	background-color: rgba(255,255,255, .5);
+	width: 100px;
+	border-radius: 18px; 
+}
+
+td.seq, td.result {
+	padding-top:5px;
+}
+
+.button0, #keyboard, #sequency, #secretPlace {
+	display: none;
+}
+
+#levels button.activeLevel {
+	background-color: rgb(92, 18, 40);
+	color: white
+}
