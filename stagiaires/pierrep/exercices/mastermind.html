@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+    <title> Masterblind </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="mastermind.css" rel="Stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<div id="defaultColors"> 
+
+	<div id="c1" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c2" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c3" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c4" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c5" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c6" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c7" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	<div id="c8" class="colorList" onclick="userSelection(this.style.backgroundColor)"> </div>
+	
+
+</div>
+
+<div id="firstGuess" class="firstGuess">
+
+	<div id="c11" class="firstGuessList"> </div>
+	<div id="c12" class="firstGuessList"> </div>
+	<div id="c13" class="firstGuessList"> </div>
+	<div id="c14" class="firstGuessList"> </div>
+	<div id="f11" class="visualfeedbackList"> </div>
+	<div id="f12" class="visualfeedbackList"> </div>
+	<div id="f13" class="visualfeedbackList"> </div>
+	<div id="f14" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="secondGuess" class="secondGuess">
+
+	<div id="c21" class="secondGuessList"> </div>
+	<div id="c22" class="secondGuessList"> </div>
+	<div id="c23" class="secondGuessList"> </div>
+	<div id="c24" class="secondGuessList"> </div>
+	<div id="f21" class="visualfeedbackList"> </div>
+	<div id="f22" class="visualfeedbackList"> </div>
+	<div id="f23" class="visualfeedbackList"> </div>
+	<div id="f24" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="thirdGuess" class="thirdGuess">
+
+	<div id="c31" class="thirdGuessList"> </div>
+	<div id="c32" class="thirdGuessList"> </div>
+	<div id="c33" class="thirdGuessList"> </div>
+	<div id="c34" class="thirdGuessList"> </div>
+	<div id="f31" class="visualfeedbackList"> </div>
+	<div id="f32" class="visualfeedbackList"> </div>
+	<div id="f33" class="visualfeedbackList"> </div>
+	<div id="f34" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="fourthGuess" class="fourthGuess">
+
+	<div id="c41" class="fourthGuessList"> </div>
+	<div id="c42" class="fourthGuessList"> </div>
+	<div id="c43" class="fourthGuessList"> </div>
+	<div id="c44" class="fourthGuessList"> </div>
+	<div id="f41" class="visualfeedbackList"> </div>
+	<div id="f42" class="visualfeedbackList"> </div>
+	<div id="f43" class="visualfeedbackList"> </div>
+	<div id="f44" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="fifthGuess" class="fifthGuess">
+
+	<div id="c51" class="fifthGuessList"> </div>
+	<div id="c52" class="fifthGuessList"> </div>
+	<div id="c53" class="fifthGuessList"> </div>
+	<div id="c54" class="fifthGuessList"> </div>
+	<div id="f51" class="visualfeedbackList"> </div>
+	<div id="f52" class="visualfeedbackList"> </div>
+	<div id="f53" class="visualfeedbackList"> </div>
+	<div id="f54" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="sixthGuess" class="sixthGuess">
+
+	<div id="c61" class="sixthGuessList"> </div>
+	<div id="c62" class="sixthGuessList"> </div>
+	<div id="c63" class="sixthGuessList"> </div>
+	<div id="c64" class="sixthGuessList"> </div>
+	<div id="f61" class="visualfeedbackList"> </div>
+	<div id="f62" class="visualfeedbackList"> </div>
+	<div id="f63" class="visualfeedbackList"> </div>
+	<div id="f64" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="seventhGuess" class="seventhGuess">
+
+	<div id="c71" class="seventhGuessList"> </div>
+	<div id="c72" class="seventhGuessList"> </div>
+	<div id="c73" class="seventhGuessList"> </div>
+	<div id="c74" class="seventhGuessList"> </div>
+	<div id="f71" class="visualfeedbackList"> </div>
+	<div id="f72" class="visualfeedbackList"> </div>
+	<div id="f73" class="visualfeedbackList"> </div>
+	<div id="f74" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="eigthGuess" class="eigthGuess">
+
+	<div id="c81" class="eigthGuessList"> </div>
+	<div id="c82" class="eigthGuessList"> </div>
+	<div id="c83" class="eigthGuessList"> </div>
+	<div id="c84" class="eigthGuessList"> </div>
+	<div id="f81" class="visualfeedbackList"> </div>
+	<div id="f82" class="visualfeedbackList"> </div>
+	<div id="f83" class="visualfeedbackList"> </div>
+	<div id="f84" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="ninthGuess" class="ninthGuess">
+
+	<div id="c91" class="ninthGuessList"> </div>
+	<div id="c92" class="ninthGuessList"> </div>
+	<div id="c93" class="ninthGuessList"> </div>
+	<div id="c94" class="ninthGuessList"> </div>
+	<div id="f91" class="visualfeedbackList"> </div>
+	<div id="f92" class="visualfeedbackList"> </div>
+	<div id="f93" class="visualfeedbackList"> </div>
+	<div id="f94" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="tenthGuess" class="tenthGuess">
+
+	<div id="c101" class="tenthGuessList"> </div>
+	<div id="c102" class="tenthGuessList"> </div>
+	<div id="c103" class="tenthGuessList"> </div>
+	<div id="c104" class="tenthGuessList"> </div>
+	<div id="f101" class="visualfeedbackList"> </div>
+	<div id="f102" class="visualfeedbackList"> </div>
+	<div id="f103" class="visualfeedbackList"> </div>
+	<div id="f104" class="visualfeedbackList"> </div>
+
+</div>
+
+<div id="randomPicks" class="randomPicks">
+
+	<div id="r1" class="randomPicksList"> </div>
+	<div id="r2" class="randomPicksList"> </div>
+	<div id="r3" class="randomPicksList"> </div>
+	<div id="r4" class="randomPicksList"> </div>
+
+</div> 
+
+
+</div> 
+
+<div id="difficulty" class="difficulty">
+ 	<div>
+		<input type="checkbox" id="holes" name="holes" value="holes">
+		<label for="holes"> Ajouter la possibilité de trous </label> <br>
+	</div>
+	<div>
+		<input type="checkbox" id="repeat" name="repeat" value="repeat">
+		<label for="repeat"> Ajouter la possibilité d'avoir des répétitions </label> <br>
+	</div>
+
+</div>
+
+<div id="correction" class="correction"> 
+	<button type="button" onclick="effacer()"> Effacer </button>
+
+
+<script src="mastermind.js"></script>
+
+</body>
+
+</html>
