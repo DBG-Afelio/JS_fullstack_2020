@@ -65,21 +65,22 @@ repeat.onchange = function() {
 // et si on constate que le tableau newArr ne comprend pas déjà la valeur arr[rdm], alors on 
 // l'ajoute dans le nouveau tableau avec push
 
-function randomPicks(arr, newArr) {
-  if(repeat.checked){
+function randomPicks(arr, withRepeat) {
+  const newArr = [];
+  if(withRepeat) {
     for (var i = 0; i < 4; i++) {
-    newArr.push(arr[Math.floor(Math.random() * arr.length)]);
-  }
-}
-  else{
-      while (newArr.length < 4){
-    let rdm = Math.floor(Math.random() * arr.length);
-    if(!newArr.includes(arr[rdm])){
-       newArr.push(arr[rdm]);
+      newArr.push(arr[Math.floor(Math.random() * arr.length)]);
+    }
+  } else {
+    while (newArr.length < 4){
+      let rdm = Math.floor(Math.random() * arr.length);
+      if (!newArr.includes(arr[rdm])) {
+        newArr.push(arr[rdm]);
+      }
     }
   }
-  }
-  }
+  return newArr;
+}
 
 
 // TEST DU RESULTAT - COMPARAISON DES DEUX TABLEAUX 
@@ -98,7 +99,8 @@ function randomPicks(arr, newArr) {
 // puisque ça correspond ici à l'ordre alphabétique)  
 
 function resultCheck(arr1, arr2){
-  if(JSON.stringify(arr1)==JSON.stringify(arr2)){
+  const feedback = [];
+  if( JSON.stringify(arr1) === JSON.stringify(arr2)){
     console.log("Feedback : Bravo, vous avez réussi !");
     feedback = ["black", "black", "black", "black"];
     alert("Bravo, vous avez réussi !");
@@ -106,10 +108,9 @@ function resultCheck(arr1, arr2){
   }  
   else{
     for (var i = 0; i < 4; i++){
-      if (arr1[i]==arr2[i]){
+      if (arr1[i]===arr2[i]) {
         feedback.push("black");
-      }
-      else {
+      } else {
         if (arr1.includes(arr2[i])) {
           feedback.push("white");
         }
@@ -117,6 +118,7 @@ function resultCheck(arr1, arr2){
     }
   }
   feedback.sort();
+  return feedback;
 }
 
 
@@ -129,14 +131,12 @@ function resultCheck(arr1, arr2){
 // c8 qui correspond à la valeur trou
 
 if(holes.checked){
-randomPicks(colorsNholes, selectedColors);
-
+  selectedColors = randomPicks(colorsNholes, repeat.checked);
 }
 else{
-randomPicks(colors, selectedColors);
-document.getElementById("c8").style.display="none";
-console.log("COULEUR A DEVINER : " + selectedColors);
-
+  selectedColors = randomPicks(colors, selectedColors, repeat.checked);
+  document.getElementById("c8").style.display="none";
+  console.log("COULEUR A DEVINER : " + selectedColors);
 }
 
 
@@ -149,8 +149,11 @@ console.log("COULEUR A DEVINER : " + selectedColors);
 // l'associant à une variable nommée idSelector, puis on fait correspondre la couleur de cet
 // élément à la couleur correspondante dans le tableau. 
 
-document.body.onload = colorize();
-function colorize () { 
+// document.body.onload = colorize; // ne permet qu'un seul écouteur
+// document.body.onload = () => colorize(); // ne permet qu'un seul écouteur
+// document.body.addEventListener('load', () => colorize());
+document.body.addEventListener('load', colorize);
+function colorize() { 
   for (var i = 1; i < colorsNholes.length + 1; i++){
       var id = "c" + i;
       var idSelector = document.getElementById(id);
@@ -163,7 +166,7 @@ function colorize () {
     var idSelector = document.getElementById(id);
     idSelector.style.backgroundColor = selectedColors[i-1];
   }
-  }
+}
 
 
   
@@ -174,7 +177,7 @@ let colorSelectionIndex = 0;
 function userSelection(currentColor) {
 
 
-  if(repeat.checked){
+if(repeat.checked){
     console.log("REPETITIONS ACTIVEES")
     colorSelectionIndex ++;
     var id = "c" + userAttempts + colorSelectionIndex;
@@ -184,25 +187,21 @@ function userSelection(currentColor) {
 
 
       if(colorSelectionIndex == 4){
-      console.log(selectedHumanColors);
-      colorSelectionIndex = 0;
-      userAttempts ++;
-      resultCheck(selectedColors, selectedHumanColors);
-      selectedHumanColors = [];
-  
-      feedbackDisplay();
-      feedback = [];
-
+        console.log(selectedHumanColors);
+        colorSelectionIndex = 0;
+        userAttempts ++;
+        feedback = resultCheck(selectedColors, selectedHumanColors);
+        selectedHumanColors = []; 
+        feedbackDisplay();
+        feedback = [];
       }
 
-      if(userAttempts == 11){
+      if(userAttempts === 11){
         alert("Gameover :'( ;-)")
         document.location.reload(false);
       } 
 
-  }
-
-  else{
+  } else {
     
     colorSelectionIndex ++;
     var id = "c" + userAttempts + colorSelectionIndex;
@@ -213,15 +212,14 @@ function userSelection(currentColor) {
       changingColor.style.backgroundColor = currentColor;
       selectedHumanColors.push(currentColor);
 
-            if(colorSelectionIndex == 4){
-      colorSelectionIndex = 0;
-      userAttempts ++;
-      resultCheck(selectedColors, selectedHumanColors);
-      selectedHumanColors = [];
-    
-      feedbackDisplay();
-      feedback = [];
-
+      if(colorSelectionIndex == 4){
+        colorSelectionIndex = 0;
+        userAttempts ++;
+        feedback = resultCheck(selectedColors, selectedHumanColors);
+        selectedHumanColors = [];
+      
+        feedbackDisplay();
+        feedback = [];
       }
 
       if(userAttempts == 11){
