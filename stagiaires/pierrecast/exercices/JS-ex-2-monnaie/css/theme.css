@@ -1,0 +1,54 @@
+.item, #sectionSum > *  {
+	display: grid;
+	grid-template-columns: 60% 19% 19%;
+	grid-gap: 1%;
+	max-width: 500px;
+	margin: 5px auto;
+}
+
+.item div {
+	display: inline-block;
+	padding: 3px;
+}
+
+.item:nth-child(even){
+background-color: #ddd;
+}
+
+.item:nth-child(odd){
+background-color: #eee;
+}
+
+section {
+	width: 100%;
+	padding: 50px 0;
+}
+
+#finalResult {
+	min-height :30px;
+}
+
+#sum {
+	width: 200px;
+	padding: 5px 20px;
+}
+
+#submit {
+	width: 100px;
+	padding: 5px 20px;
+}
+
+#sectionSum > * {
+	padding : 12px 5px;
+	background-color: silver;
+}
+
+h2 {
+	font-size: 16px;
+	line-height: normal;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+}
