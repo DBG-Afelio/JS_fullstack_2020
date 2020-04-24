@@ -1,4 +1,3 @@
-
 document.getElementById('pair').addEventListener('click',executepair);
 document.getElementById('biss').addEventListener('click',executebissextile);
 document.getElementById('conv').addEventListener('click',executeconvertisseur);
@@ -11,69 +10,109 @@ document.getElementById('Div').addEventListener('click',executedivision);
 document.getElementById('Divr').addEventListener('click',executedivisionetreste);
 document.getElementById('Exp').addEventListener('click',executeexposant);
 
-
 function executepair() {
-	const nbre1=Number(document.getElementById('nbp').value);
-	document.getElementById("Nbpair").value = pair(nbre1);
+	const nbrepAsString = document.getElementById('nbp').value;
+	if (nbrepAsString !== "" && Number.isInteger(Number(nbrepAsString))) {
 
+		const nbre1=Number(document.getElementById('nbp').value);
+		document.getElementById("Nbpair").value = pair(nbre1);
+	}
 }
 
 function executebissextile(){
-	const nbre2=Number(document.getElementById('nbi').value);
-	document.getElementById("Bissextile").value = bissextile(nbre2);
+	const nbrebAsString = document.getElementById('nbi').value;
+	if (nbrebAsString !== "" && Number.isInteger(Number(nbrebAsString))) {
+		const nbre2=Number(document.getElementById('nbi').value);
+		document.getElementById("Bissextile").value = bissextile(nbre2);
+	}
 }
 
 function executeconvertisseur(){
-	const nbre3=Number(document.getElementById('nbc').value);
-	document.getElementById("Convertisseur").value = convertisseur(nbre3);
+	const nbrecAsString = document.getElementById('nbc').value;
+	if (nbrecAsString !== "" && Number.isInteger(Number(nbrecAsString))) {
+		const nbre3=Number(document.getElementById('nbc').value);
+		document.getElementById("Convertisseur").value = convertisseur(nbre3);
+	}
 }
 
 function executeequation(){
-	const nbre4=Number(document.getElementById('a').value);
-	const nbre5=Number(document.getElementById('b').value);
-	document.getElementById("Equation").value = equation(nbre4, nbre5);
+	const nbreeq1AsString = document.getElementById('a').value;
+	const nbreeq2AsString = document.getElementById('a').value;
+	if (nbreeq1AsString !== "" && nbreeq2AsString !== "" && Number.isInteger(Number(nbreeq1AsString, nbreeq2AsString))) {
+		const nbre4=Number(document.getElementById('a').value);
+		const nbre5=Number(document.getElementById('b').value);
+		document.getElementById("Equation").value = equation(nbre4, nbre5);
+	}
 }
 
 function executesommedeuxnombres(){
-	const nbre6=Number(document.getElementById('nbs1').value);
-	const nbre7=Number(document.getElementById('nbs2').value);
-	document.getElementById("Somme2nombres").value = somdeuxnombres(nbre6, nbre7);
+	const nbresn1AsString = document.getElementById('nbs1').value;
+	const nbresn2AsString = document.getElementById('nbs2').value;
+	if (nbresn1AsString !== "" && nbresn2AsString !== "" && Number.isInteger(Number(nbresn1AsString, nbresn2AsString))) {
+		const nbre6=Number(document.getElementById('nbs1').value);
+		const nbre7=Number(document.getElementById('nbs2').value);
+		document.getElementById("Somme2nombres").value = somdeuxnombres(nbre6, nbre7);
+	}
 }
 
 function executeaddition(){
-	const nbre8=Number(document.getElementById('nbad1').value);
-	const nbre9=Number(document.getElementById('nbad2').value);
-	document.getElementById("Adcalculette").value = addition(nbre8, nbre9);
+	const nbres1AsString = document.getElementById('nbad1').value;
+	const nbres2AsString = document.getElementById('nbad2').value;
+	if (nbres1AsString !== "" && nbres2AsString !== "" && Number.isInteger(Number(nbres1AsString, nbres2AsString))) {
+		const nbre8=Number(document.getElementById('nbad1').value);
+		const nbre9=Number(document.getElementById('nbad2').value);
+		document.getElementById("Adcalculette").value = addition(nbre8, nbre9);
+	}
 }
 
 function executesoustraction(){
-	const nbre10=Number(document.getElementById('nbsous1').value);
-	const nbre11=Number(document.getElementById('nbsous2').value);
-	document.getElementById("Souscalculette").value = soustraction(nbre10, nbre11);
+	const nbresous1AsString = document.getElementById('nbsous1').value;
+	const nbresous2AsString = document.getElementById('nbsous2').value;
+	if (nbresous1AsString !== "" && nbresous2AsString !== "" && Number.isInteger(Number(nbresous1AsString, nbresous2AsString))) {
+		const nbre10=Number(document.getElementById('nbsous1').value);
+		const nbre11=Number(document.getElementById('nbsous2').value);
+		document.getElementById("Souscalculette").value = soustraction(nbre10, nbre11);
+	}
 }
 
 function executemultiplication(){
-	const nbre12=Number(document.getElementById('nbmult1').value);
-	const nbre13=Number(document.getElementById('nbmult2').value);
-	document.getElementById("Multcalculette").value = multiplication(nbre12, nbre13);
+	const nbremult1AsString = document.getElementById('nbmult1').value;
+	const nbremult2AsString = document.getElementById('nbmult2').value;
+	if (nbremult1AsString !== "" && nbremult2AsString !== "" && Number.isInteger(Number(nbremult1AsString, nbremult2AsString))) {
+		const nbre12=Number(document.getElementById('nbmult1').value);
+		const nbre13=Number(document.getElementById('nbmult2').value);
+		document.getElementById("Multcalculette").value = multiplication(nbre12, nbre13);
+	}
 }
 
 function executedivision(){
-	const nbre14=Number(document.getElementById('nbdiv1').value);
-	const nbre15=Number(document.getElementById('nbdiv2').value);
-	document.getElementById("Divcalculette").value = division(nbre14, nbre15);
+	const nbrediv1AsString = document.getElementById('nbdiv1').value;
+	const nbrediv2AsString = document.getElementById('nbdiv2').value;
+	if (nbrediv1AsString !== "" && nbrediv2AsString !== "" && Number.isInteger(Number(nbrediv1AsString, nbrediv2AsString))) {
+		const nbre14=Number(document.getElementById('nbdiv1').value);
+		const nbre15=Number(document.getElementById('nbdiv2').value);
+		document.getElementById("Divcalculette").value = division(nbre14, nbre15);
+	}
 }
 
 function executedivisionetreste(){
-	const nbre16=Number(document.getElementById('nbdivr1').value);
-	const nbre17=Number(document.getElementById('nbdivr2').value);
-	document.getElementById("Divrcalculette").value = divisionreste(nbre16, nbre17);
+	const nbredivr1AsString = document.getElementById('nbdivr1').value;
+	const nbredivr2AsString = document.getElementById('nbdivr2').value;
+	if (nbredivr1AsString !== "" && nbredivr2AsString !== "" && Number.isInteger(Number(nbredivr1AsString, nbredivr2AsString))) {
+		const nbre16=Number(document.getElementById('nbdivr1').value);
+		const nbre17=Number(document.getElementById('nbdivr2').value);
+		document.getElementById("Divrcalculette").value = divisionreste(nbre16, nbre17);
+	}
 }
 
 function executeexposant(){
-	const nbre18=Number(document.getElementById('nbexp1').value);
-	const nbre19=Number(document.getElementById('nbexp2').value);
-	document.getElementById("Expcalculette").value = exposant(nbre18, nbre19);
+	const nbreexp1AsString = document.getElementById('nbexp1').value;
+	const nbreexp2AsString = document.getElementById('nbexp2').value;
+	if (nbreexp1AsString !== "" && nbreexp2AsString !== "" && Number.isInteger(Number(nbreexp1AsString, nbreexp2AsString))) {
+		const nbre18=Number(document.getElementById('nbexp1').value);
+		const nbre19=Number(document.getElementById('nbexp2').value);
+		document.getElementById("Expcalculette").value = exposant(nbre18, nbre19);
+	}
 
 }
 
