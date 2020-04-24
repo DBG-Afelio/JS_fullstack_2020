@@ -1,63 +1,80 @@
-let double;
-let annees;
-let conver;
-let degres;
-let deuxnombres;
-let calad;
-let calsous;
-let caldiv;
-let calmult;
-let caldivr;
-let calexp;
+
+document.getElementById('pair').addEventListener('click',executepair);
+document.getElementById('biss').addEventListener('click',executebissextile);
+document.getElementById('conv').addEventListener('click',executeconvertisseur);
+document.getElementById('equa').addEventListener('click',executeequation);
+document.getElementById('som').addEventListener('click',executesommedeuxnombres);
+document.getElementById('Ad').addEventListener('click',executeaddition);
+document.getElementById('Sous').addEventListener('click',executesoustraction);
+document.getElementById('Mult').addEventListener('click',executemultiplication);
+document.getElementById('Div').addEventListener('click',executedivision);
+document.getElementById('Divr').addEventListener('click',executedivisionetreste);
+document.getElementById('Exp').addEventListener('click',executeexposant);
 
 
-document.getElementById('pair').addEventListener('click',execute);
-document.getElementById('biss').addEventListener('click',execute);
-document.getElementById('conv').addEventListener('click',execute);
-document.getElementById('equa').addEventListener('click',execute);
-document.getElementById('som').addEventListener('click',execute);
-document.getElementById('Ad').addEventListener('click',execute);
-document.getElementById('Sous').addEventListener('click',execute);
-document.getElementById('Mult').addEventListener('click',execute);
-document.getElementById('Div').addEventListener('click',execute);
-document.getElementById('Divr').addEventListener('click',execute);
-document.getElementById('Exp').addEventListener('click',execute);
-
-
-function execute() {
+function executepair() {
 	const nbre1=Number(document.getElementById('nbp').value);
+	document.getElementById("Nbpair").value = pair(nbre1);
+
+}
+
+function executebissextile(){
 	const nbre2=Number(document.getElementById('nbi').value);
+	document.getElementById("Bissextile").value = bissextile(nbre2);
+}
+
+function executeconvertisseur(){
 	const nbre3=Number(document.getElementById('nbc').value);
+	document.getElementById("Convertisseur").value = convertisseur(nbre3);
+}
+
+function executeequation(){
 	const nbre4=Number(document.getElementById('a').value);
 	const nbre5=Number(document.getElementById('b').value);
+	document.getElementById("Equation").value = equation(nbre4, nbre5);
+}
+
+function executesommedeuxnombres(){
 	const nbre6=Number(document.getElementById('nbs1').value);
 	const nbre7=Number(document.getElementById('nbs2').value);
+	document.getElementById("Somme2nombres").value = somdeuxnombres(nbre6, nbre7);
+}
+
+function executeaddition(){
 	const nbre8=Number(document.getElementById('nbad1').value);
 	const nbre9=Number(document.getElementById('nbad2').value);
+	document.getElementById("Adcalculette").value = addition(nbre8, nbre9);
+}
+
+function executesoustraction(){
 	const nbre10=Number(document.getElementById('nbsous1').value);
 	const nbre11=Number(document.getElementById('nbsous2').value);
+	document.getElementById("Souscalculette").value = soustraction(nbre10, nbre11);
+}
+
+function executemultiplication(){
 	const nbre12=Number(document.getElementById('nbmult1').value);
 	const nbre13=Number(document.getElementById('nbmult2').value);
+	document.getElementById("Multcalculette").value = multiplication(nbre12, nbre13);
+}
+
+function executedivision(){
 	const nbre14=Number(document.getElementById('nbdiv1').value);
 	const nbre15=Number(document.getElementById('nbdiv2').value);
+	document.getElementById("Divcalculette").value = division(nbre14, nbre15);
+}
+
+function executedivisionetreste(){
 	const nbre16=Number(document.getElementById('nbdivr1').value);
 	const nbre17=Number(document.getElementById('nbdivr2').value);
+	document.getElementById("Divrcalculette").value = divisionreste(nbre16, nbre17);
+}
+
+function executeexposant(){
 	const nbre18=Number(document.getElementById('nbexp1').value);
 	const nbre19=Number(document.getElementById('nbexp2').value);
+	document.getElementById("Expcalculette").value = exposant(nbre18, nbre19);
 
-	double = pair(nbre1);
-	annees = bissextile(nbre2);
-	conver = convertisseur(nbre3);
-	degres = equation(nbre4, nbre5);
-	deuxnombres = somdeuxnombres(nbre6, nbre7);
-	calad = addition(nbre8, nbre9);
-	calsous = soustraction(nbre10, nbre11);
-	calmult = multiplication(nbre12, nbre13);
-	caldiv = division(nbre14, nbre15);
-	caldivr = divisionreste(nbre16, nbre17);
-	calexp = exposant(nbre18, nbre19);
-
-	writeResponse();
 }
 
 function pair(nbre1) {
@@ -202,18 +219,4 @@ function exposant(nbre18, nbre19){
 	Rexp = Math.pow(nbre18, nbre19);
 
 	return Rexp;
-}
-
-function writeResponse() {
-	document.getElementById("Nbpair").value = double;
-	document.getElementById("Bissextile").value = annees;
-	document.getElementById("Convertisseur").value = conver;
-	document.getElementById("Equation").value = degres;
-	document.getElementById("Somme2nombres").value = deuxnombres;
-	document.getElementById("Adcalculette").value = calad;
-	document.getElementById("Souscalculette").value = calsous;
-	document.getElementById("Multcalculette").value = calmult;
-	document.getElementById("Divcalculette").value = caldiv;
-	document.getElementById("Divrcalculette").value = caldivr;
-	document.getElementById("Expcalculette").value = calexp;
 }
