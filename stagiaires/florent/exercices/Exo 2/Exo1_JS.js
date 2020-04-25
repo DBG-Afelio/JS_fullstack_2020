@@ -179,33 +179,28 @@ function equation(nbre4, nbre5) {
 }
 
 function somdeuxnombres(nbre6, nbre7){
-	let temp;
-	let temp2;
+	let Max;
+	let Min;
 	let somme = 0;
 	let total;
 
-	temp = nbre6;
-	temp2 = nbre7;
-
-	if (nbre6>nbre7){
-	    while (nbre6>=nbre7){
-	        somme=somme+nbre7;
-	        nbre6=nbre6-1;
-	    }
+	if (nbre6 > nbre7) {
+		Max = nbre6;
+		Min = nbre7;
+	} else {
+		Max = nbre7;
+		Min = nbre6;
 	}
 
-	if (nbre7>nbre6){
-	    while (nbre7>=nbre6){
-	        somme=somme+nbre7;
-	        nbre7=nbre7-1;
-	    }
+	while (Max >= Min){
+		somme = somme + Max;
+		Max = Max - 1;
 	}
-
+	
 	if (nbre6==nbre7){
 	    total = ("La somme des nombres compris entre " + nbre6 + " et " + nbre7 + " est 0 ")
-	}
-	else{
-	    total = ("La somme des nombres compris entre " + temp + " et " + temp2 + " est " + somme)
+	} else {
+	    total = ("La somme des nombres compris entre " + nbre6 + " et " + nbre7 + " est " + somme)
 	}
 
 	return total;
