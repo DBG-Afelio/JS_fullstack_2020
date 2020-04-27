@@ -1,20 +1,20 @@
 "use strict";
 /*--------------------------------------------------Variables------------------------------------------------------------*/
-var inputNbre = document.getElementById('inputNbre');
+const inputNbre = document.getElementById('inputNbre');
 
-var submitBtn = document.getElementById('submit');
-var resetBtn = document.getElementById('reset');
+const submitBtn = document.getElementById('submit');
+const resetBtn = document.getElementById('reset');
 
-var nNInput = document.getElementById('nN');
-var sNInput = document.getElementById('sN');
-var gNInput = document.getElementById('gN');
-var pNInput = document.getElementById('pN');
-var mNInput = document.getElementById('mN');
-var lNInput = document.getElementById('lN');
-var gsNInput = document.getElementById('gsN');
+const nNInput = document.getElementById('nN');
+const sNInput = document.getElementById('sN');
+const gNInput = document.getElementById('gN');
+const pNInput = document.getElementById('pN');
+const mNInput = document.getElementById('mN');
+const lNInput = document.getElementById('lN');
+const gsNInput = document.getElementById('gsN');
 
-var listNum = [];
-var croissant = [];
+let listNum = [];
+let croissant = [];
 /*--------------------------------------------------Fonctions------------------------------------------------------------*/
 //Réinitialisation des valeurs.
 function resetNumbers () {
@@ -37,7 +37,7 @@ function plusGrandeSeq(liste) {
     let plusGrandeSeqActuelle = [liste[0]];
     let seqActuelle = [liste[0]];
     
-    for (let index=0; index < liste.length; index++){
+    for (let index=1; index < liste.length; index++){
         if(liste[index] >= liste[index - 1]){
             
             seqActuelle.push(liste[index]);
@@ -56,8 +56,6 @@ function plusGrandeSeq(liste) {
     return plusGrandeSeqActuelle;
 }
 /*--------------------------------------------------Evenements------------------------------------------------------------*/
-//Au chargement de la page => fonction "resetNumbers".
-window.addEventListener("load", resetNumbers);
 
 //quand on click sur recommencer => fonction "resetNumbers".
 resetBtn.addEventListener('click', resetNumbers);
@@ -85,3 +83,6 @@ submitBtn.addEventListener('click', function () {
         gsNInput.value = plusGrandeSeq(listNum).join(', ');
     }
 });
+
+//On réinitialise toutes les données
+resetNumbers();
