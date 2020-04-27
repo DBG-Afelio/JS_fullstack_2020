@@ -1,0 +1,56 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  input, ::placeholder {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  ::placeholder {
+    padding-left: 0.5em;
+  }
+  
+  input {
+    display: block;
+    margin: 1em 0.5rem;
+    background: none;
+  }
+
+  .input {
+    padding: 0.5em;
+    border: 1px solid gray;
+    border-radius: 6px;
+    appearance: none;
+    outline: none;
+  }
+  
+  .commands {
+    display: flex;
+  }
+
+  .submit, .reset {
+    padding: 0.5em 1em;
+    border: 2px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .submit:hover {
+    background: rgba(0, 255, 34, 0.2);
+  }
+
+  .reset:hover {
+    background: rgba(255, 145, 0, 0.4);
+  }
+
+  .resultat {
+    margin-top: 1.5em;
+  }
+

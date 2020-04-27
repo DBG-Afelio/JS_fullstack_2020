@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
+    <title>Numbers</title>
+</head>
+<body>
+<!-- INTERFACE -->
+    <div class="tableau">
+        <!-- ENTREE UTILISATEUR -->
+        <div class="entry-user">
+            <p>Entrez un nombre entier :</p>
+            <input type="text" name="entry" class="user-input" placeholder="Entier">
+            <div class="submit-number">Soumettre</div>
+            <div class="restart">Recommencer</div>
+        </div>
+        <!-- RESULTATS -->
+        <div class="entries">
+            <div class="total-entries">
+                <span>Le nombre de nombres entres : </span>
+                <div class="result total-entries-result"></div>
+            </div>
+
+            <div class="sum-entries">
+                <span>Le somme des nombres entres : </span>
+                <div class="result sum-entries-result"></div>
+            </div>
+
+            <div class="max-entries">
+                <span>Le plus grand des nombres entres : </span>
+                <div class="result max-entries-result"></div>
+            </div>
+
+            <div class="min-entries">
+                <span>Le plus petit des nombres entres : </span>
+                <div class="result min-entries-result"></div>
+            </div>
+
+            <div class="average-entries">
+                <span>La moyenne de nombres entres : </span>
+                <div class="result average-entries-result"></div>
+            </div>
+
+            <div class="list-of-entries">
+                <span>La liste de nombres entres : </span>
+                <div class="result list-of-entries-result"></div>
+            </div>
+
+            <div class="sequence-entries">
+                <span>La plus grande sequence de nombres entres : </span>
+                <div class="result sequence-entries-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
