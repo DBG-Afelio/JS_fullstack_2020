@@ -1,0 +1,19 @@
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+form{
+width: 70%;
+}
+#affichage label{
+    display: inline-block;
+margin: 5px;
+
+}
+#affichage input{
+    float:right;
+}
+input{
+    border-radius: 5px;
+}
