@@ -32,18 +32,29 @@ function resetNumbers () {
     gsNInput.value = "";
 }
 
-//Calcule la moyenne des nombres d'un tableau.
-/*function moyenneNbre(a) {
-    var b = a.length;
-    var c = 0;
-    var i;
+function plusGrandeSeq(liste) {
     
-    for (i = 0; i < b; i++) {
-        c += a[i];
+    let plusGrandeSeqActuelle = [liste[0]];
+    let seqActuelle = [liste[0]];
+    
+    for (let index=0; index < liste.length; index++){
+        if(liste[index] >= liste[index - 1]){
+            
+            seqActuelle.push(liste[index]);
+            
+        }else{
+            
+            seqActuelle = [liste[index]];
+            
+        }
+        if(seqActuelle.length > plusGrandeSeqActuelle.length){
+            
+            plusGrandeSeqActuelle = [...seqActuelle];
+            
+        }
     }
-    return c / b;
-}*/
-
+    return plusGrandeSeqActuelle;
+}
 /*--------------------------------------------------Evenements------------------------------------------------------------*/
 //Au chargement de la page => fonction "resetNumbers".
 window.addEventListener("load", resetNumbers);
@@ -69,15 +80,8 @@ submitBtn.addEventListener('click', function () {
         gNInput.value = Math.max(...listNum);
         pNInput.value = Math.min(...listNum);
         
-        //on assigne la fonction "moyenneNbre" à son input avec la liste "listNum" comme argument.
-        mNInput.value = sNInput.value/listNum.length; /* moyenneNbre(listNum);*/
+        mNInput.value = sNInput.value/listNum.length;
         
-        //Si le nombre entré est plus grand ou égale au plus grand des nombres du tableau "listNum".
-        if (inputNbre.valueAsNumber>=Math.max(...listNum)){
-            
-            //On ajoute la nombre entré au tableau "croissant" et on l'affiche.
-            croissant.push(inputNbre.valueAsNumber);
-            gsNInput.value = croissant.join(',');
-        }
+        gsNInput.value = plusGrandeSeq(listNum).join(', ');
     }
 });
