@@ -1,0 +1,108 @@
+body {
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: row;
+}
+
+.colorList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.firstGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.secondGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.thirdGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.fourthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.fifthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.sixthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.seventhGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.eigthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.ninthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.tenthGuessList {
+	width : 75px;
+	height: 75px;
+	border-radius: 50%;
+	background-color: grey;
+
+}
+
+.randomPicksList {
+	width : 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: white;
+
+}
+
+.visualfeedbackList {
+	width : 60px;
+	height: 60px;
+	border: 2px solid lightgrey;
+	background-color: lightgrey;
+}
+
