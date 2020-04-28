@@ -11,14 +11,18 @@ let pNInput = document.getElementById('pN');
 let mNInput = document.getElementById('mN');
 let lNInput = document.getElementById('lN');
 let gsNInput = document.getElementById('gsN');
-
-let listNum = [];
+let tableau=[];
+let listNum=[];
+let tab1=[];
 let tab2=[];
+
 
 function resetNumbers() {
 
-    listNum.splice(0);
+    tab1.splice(0);
     tab2.splice(0);
+    tableau.splice(0)
+    listNum.splice(0)
     
     inputNbre.value = "";
     nNInput.value= "";
@@ -33,9 +37,8 @@ function resetNumbers() {
 function moyenneNbre(a) {
     let b = a.length;
     let c = 0;
-    let i;
     
-    for (i = 0; i < b; i++) {
+    for (let i = 0; i < b; i++) {
         c += a[i];
     }
     return c / b;
@@ -62,11 +65,30 @@ submitBtn.addEventListener('click', function () {
         gNInput.value = Math.max(...listNum);
         pNInput.value = Math.min(...listNum);
         mNInput.value = moyenneNbre(listNum);
-        if(inputNbre.valueAsNumber>=Math.max(...listNum)){
-            tab2.push(inputNbre.valueAsNumber);
-            gsNInput.value=tab2.join(",");
-        }
+        /*if(inputNbre.valueAsNumber>=Math.max(...listNum)){
+            tableau.push(inputNbre.valueAsNumber);
+            gsNInput.value=tableau.join(",");
+        }*/
+        gsNInput.value= plusGrandeSeq(listNum);
     }
+
 });
+function plusGrandeSeq(suite){
+	let tab1 = [suite[0]];
+	let tab2=[suite[0]];
+
+	for (var i = 0; i < suite.length; i++) {
+		if(suite[i]>=suite[i-1]){
+			tab2.push(suite[i]);
+
+		}else{
+			tab2=[suite[i]]
+		}
+		if(tab2.length>tab1.length){
+			tab1=[...tab2];
+		}
+	}
+	return tab1;
+}
 
 
