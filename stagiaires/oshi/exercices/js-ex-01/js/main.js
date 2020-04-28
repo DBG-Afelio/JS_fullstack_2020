@@ -15,9 +15,9 @@ const value5 = document.getElementById("value5");
 const value6 = document.getElementById("value6");
 const value7 = document.getElementById("value7");
 //On crée les écoutes des évenements
-document.getElementById("submit").addEventListener("click", function(){ moyenne(); });
-document.getElementById("restart").addEventListener("click", function(){ reset(); });
-document.getElementById("auto").addEventListener("click", function(){ randomnumb(); });
+document.getElementById("submit").addEventListener("click", moyenne);
+document.getElementById("restart").addEventListener("click", reset);
+document.getElementById("auto").addEventListener("click", randomnumb);
 document.getElementById("formsub").addEventListener("submit", function(e){ e.preventDefault();moyenne(); });
 //Fonction lorsqu'un nombre est entrer
 function moyenne(xxx) {
@@ -30,7 +30,7 @@ function moyenne(xxx) {
         newvalue = Number(xxx);
     }
     //On vérifie si le nombre entré est bien entier
-    if(Number.isInteger(newvalue)== true) {
+    if(Number.isInteger(newvalue)) {
         //On vérifie si ce n'est pas la première fois qu'on envoie un nombre
         if(Number(value1.innerHTML) === 0) {
             //Dans ce cas on met simplement le nouveau nombre pour
@@ -54,7 +54,11 @@ function moyenne(xxx) {
         //On fait une moyenne des nombres entrés
         value5.innerHTML = value2.innerHTML/value1.innerHTML;
         //Si le nouveau nombre es plus grand que l'ancien ou rajoute 1 au compteur et on ajoute le nouveau nombre à la séquence actuelle, dans le cas contraire on remet le compteur à 1 et on rénistialise la table en laissant uniquement le nouveau nombre entré
-        if(newvalue > lastvalue) {count++;actualseq.push(newvalue);} else {count = 1;actualseq = [newvalue];}
+        if(newvalue > lastvalue) {
+            count++;actualseq.push(newvalue);
+        } else {
+            count = 1;actualseq = [newvalue];
+        }
         //Si le compteur est plus grand que l'ancien record de la plus grande séquence de nombre croissant on sauvegarde le nouveau record et on affiche le nouveau record
         if(count > lastmc) { lastmc = count;value7.innerHTML = actualseq; }
         //On sauvegarde le nouveau nombre dans une autre variable afin de le réutiliser pour la prochaine fois

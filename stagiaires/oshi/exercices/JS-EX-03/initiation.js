@@ -219,12 +219,12 @@ request.responseType = 'json';
 request.send();
 let last_img_clicked;
 function add_Img_exo() {
-  const imgs = request.response;
+  const imgs = request.response.hits;
   const new_img = document.createElement("img");
   const img = Math.floor(Math.random() * 200);
-  new_img.src = imgs.hits[img].webformatURL;
-  new_img_width = Number(imgs.hits[img].webformatWidth/2);
-  new_img_height = Number(imgs.hits[img].webformatHeight/2);
+  new_img.src = imgs[img].webformatURL;
+  new_img_width = Number(imgs[img].webformatWidth/2);
+  new_img_height = Number(imgs[img].webformatHeight/2);
   new_img.style.width = new_img_width+"px";
   new_img.style.height = new_img_height+"px";
   new_img.addEventListener('click', () => {
@@ -286,7 +286,5 @@ document.addEventListener("drop", function(event) {
     exobonusImgDroite.src = dragged.src;
     exobonusImgDroite.height = dragged.height;
     exobonusImgDroite.width = dragged.width;
-    exobonusImgDroite.style.opacity = "1";
   }
-
 }, false);
