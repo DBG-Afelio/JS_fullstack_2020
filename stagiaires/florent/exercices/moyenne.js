@@ -35,6 +35,7 @@ function recom() {
 	petit=0;
 	nbremoy=0;
 	nbrecb=0;
+	p=0;
 	suite=0;
 
 	writeResponse();
@@ -89,7 +90,7 @@ function plusGrandeSequance(tab) {
 	let suiteActuelle = [tab[0]];
 
 	for (var i = 1; i < tab.length; i++) {
-		if (tab[i] <= tab[i - 1]) {
+		if (tab[i] >= tab[i - 1]) {
 			suiteActuelle.push(tab[i]);
 		} else {
 			suiteActuelle = [tab[i]];
