@@ -1,6 +1,6 @@
 const exo=document.forms;
 
-exo[0].ch1.addEventListener('focus', () => {        
+exo[0].ch1.addEventListener('focus', () => {
   exo[0].ch1.value="";
 })
 
@@ -20,7 +20,7 @@ exo[2].ch1.addEventListener('keydown', () => {
 
 exo[3].cb1.addEventListener('click', () => {
   if(exo[3].cb1.checked) {
-    exo[3].ch1.type="text";  
+    exo[3].ch1.type="text";
   } else {
     exo[3].ch1.type="password";
   }
@@ -59,7 +59,7 @@ exo[7].b1.addEventListener('click', () => {
     let value = Number(exo[7].ch1.value);
     const checkedelement = document.getElementById("rb1_"+i);
     if(checkedelement.checked) {
-      exo[7].ch1.value = value + Number(checkedelement.value); 
+      exo[7].ch1.value = value + Number(checkedelement.value);
     }
   }
 })
@@ -69,8 +69,7 @@ exo[8].b1.addEventListener('click', () => {
 })
 
 exo[8].b2.addEventListener('click', () => {
-  exo[8].ch1.defaultValue = "Texte initial";
-  exo[8].ch1.value = "Texte initial";
+  exo[8].ch1.value = exo[8].ch1.defaultValue;
 })
 
 exo[9].s1.addEventListener('change', () => {
