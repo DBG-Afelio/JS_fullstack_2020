@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+	<title> html-css-ex-01 </title>
+	<link = rel="stylesheet" href="index.css">
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+<table>
+
+<tr>
+<td> <p> Entrez un nombre entier </p> </td>
+<td><input required placeholder="Nombre entier" class="nbEntier" id="nbEntier" > </td>
+<td><button type="submit" onclick="submitF()"> Soumettre </button></td> </div>
+<td><button type="submit"> Recommencer </button></td>
+</tr>
+
+<tr>
+<td> Tableau aléatoire : </td>
+<td> <input id="randomArrT" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> Le nombre de nombres entrés : </td>
+<td> <input id="nOfNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La somme des nombres entrés </td>
+<td> <input id="sumOfNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> Le plus grand des nombres entrés : </td>
+<td> <input id="bigNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> Le plus petit des nombres entrés : </td>
+<td> <input id="smallNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La moyenne des nombres entrés : </td>
+<td> <input id="avNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La liste de tous les nombres entrés : </td>
+<td> <input id="allNTag" placeholder="0" readonly> </td>
+</tr>
+
+<tr>
+<td> La plus grande séquence de nombres <br> croissants entrés : </td>
+<td> <input id="hSeqNTag" placeholder="0" readonly> </td>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+
+	//Tableau aléatoire
+
+	var randomArr = Array.from({length: 10}, () => Math.floor(Math.random() * 100));
+	document.getElementById("randomArrT").value = randomArr;
+	nOfN = randomArr.length;
+	sumOfN = randomArr.reduce(function(a, b){return a + b;}, 0);
+	bigN = Math.max(...randomArr);
+	smallN = Math.min(...randomArr);
+	avN = sumOfN / randomArr.length;
+	allN = randomArr;
+	newArr = [];
+	counter = 1;
+	sliceEnd = 0;
+	sliceStart = 0;
+	hSeqN = [];
+	lastNofSeq = [];
+
+	document.getElementById("nOfNTag").value = nOfN;
+	document.getElementById("sumOfNTag").value = sumOfN;	
+	document.getElementById("bigNTag").value = bigN;
+	document.getElementById("smallNTag").value = smallN;
+	document.getElementById("avNTag").value = avN;
+	document.getElementById("allNTag").innerHTML = allN; 
+
+
+		for (var i = 0; i <= randomArr.length - 1; i++){
+		if (randomArr[i] < randomArr[i+1]){
+			counter ++;
+			console.log(counter);
+
+		}
+
+		else {
+			newArr.push(counter);
+			lastNofSeq.push(randomArr.indexOf(randomArr[i]));
+			sliceEnd = lastNofSeq[newArr.indexOf(Math.max(...newArr))] + 1;
+			sliceStart = sliceEnd - Math.max(...newArr);
+			hSeqN = randomArr.slice(sliceStart, sliceEnd);
+			document.getElementById("hSeqNTag").value = hSeqN;
+			counter = 1;
+		}
+	}
+
+var arrNumbers = [];
+
+function submitF(){
+
+	var newN = document.getElementById("nbEntier").value;
+
+	if (!isNaN(parseInt(newN))){
+	arrNumbers.push(+newN);
+	console.log(arrNumbers);
+
+	calculX();
+
+	}
+
+	else{
+	window.alert("Veuillez entrer un nombre entier.");
+	console.log("La donnée encodée suiante n'a pas été ajoutée au tableau : " + newN);
+	}
+
+	}
+
+function calculX(){
+	var nOfN, sumOfN, bigN, smallN, avN, allN, hSeqN; 
+
+
+	//Nombre de nombres entrés
+	nOfN = arrNumbers.length;
+	document.getElementById("nOfNTag").value = nOfN;
+
+	//Somme des nombres entrés
+	sumOfN = arrNumbers.reduce(function(a, b){return a + b;}, 0);
+	document.getElementById("sumOfNTag").value = sumOfN;
+
+	//Plus grand des nombres entrés 
+	bigN = Math.max(...arrNumbers);
+	document.getElementById("bigNTag").value = bigN;
+
+	//Plus petit des nombres entrés
+	smallN = Math.min(...arrNumbers);
+	document.getElementById("smallNTag").value = smallN;
+
+	//Moyenne des nombres entrés
+	avN = sumOfN / arrNumbers.length;
+	document.getElementById("avNTag").value = avN;
+
+	//Liste de tous les nombres entrés
+	allN = arrNumbers;
+	document.getElementById("allNTag").innerHTML = allN; 
+
+	//Plus grande séquence de nombres croissants entrés
+
+	newArr = [];
+	counter = 1;
+	sliceEnd = 0;
+	sliceStart = 0;
+	hSeqN = [];
+	lastNofSeq = [];
+
+	for (var i = 0; i < arrNumbers.length; i++){
+		if (arrNumbers[i] < arrNumbers[i+1]){
+			counter ++;
+			console.log(counter);
+
+		}
+
+		else {
+			newArr.push(counter);
+			lastNofSeq.push(arrNumbers.indexOf(arrNumbers[i]));
+			sliceEnd = lastNofSeq[newArr.indexOf(Math.max(...newArr))] + 1;
+			sliceStart = sliceEnd - Math.max(...newArr);
+			hSeqN = arrNumbers.slice(sliceStart, sliceEnd);
+
+			document.getElementById("hSeqNTag").value = hSeqN;
+
+			counter = 1;
+		}
+	}
+
+			
+
+}
+
+	</script>
+
+</body>
+
+</html>
