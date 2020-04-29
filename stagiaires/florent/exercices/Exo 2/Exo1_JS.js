@@ -241,7 +241,7 @@ function divisionreste(nbre16, nbre17){
 
 	R = nbre16%nbre17;
 	Rdivr = Math.trunc(nbre16/nbre17);
-	reponse = ( Rdivr + " R= " + Rdivr );
+	reponse = ( Rdivr + " Reste = " + Rdivr );
 
 
 	return reponse;
