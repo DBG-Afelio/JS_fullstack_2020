@@ -1,0 +1,81 @@
+/* 
+    Document   : initiation
+    Created on : 26 août 2014, 14:59:54
+    Modify     : 26 février 2015, 10:25:33
+    Author     : denis
+    Description:
+        Feuille de style attachée à l'exercice 1 d'initiation.
+*/
+
+
+root { 
+    display: block;
+}
+body{
+    font-family: "Times New Roman",Times,Georgia,serif;
+    font-size: 1;
+}
+#content{
+    width : 90%;
+    margin: 5px auto;
+}
+
+#content>div{
+    clear: both;
+    overflow: hidden;
+    margin : 5px;
+    padding: 5px;
+    background-color: #eeeecc;
+    border: 2px solid #e8e8c7;
+    border-radius: 2px;
+    
+}
+
+div.droite{
+    margin:0px;
+    width:48%;
+    text-align: center;
+    float:right;
+    clear:right;
+}
+div.gauche{
+    margin:0px;
+    width:50%;
+    float:left;
+    border-right:1px solid #aaa;
+}
+img#idroite{
+    border:1px solid #aaa;
+    
+}
+.carre{
+    display: inline-block;
+    width:50px;
+    height:50px;
+    border: 1px solid black;
+}
+.rouge{
+    background-color: #ff3333;
+}
+.vert{
+    background-color: #33ff33;
+}
+.jaune{
+    background-color: #ffff33;
+}
+.bleu{
+    background-color: #3333ff;
+}
+.checked{
+    border: 5px solid black;
+}
+
+.enfonce{
+    display: inline-block;
+    background-color: rgb(12,12,12);
+    width: 10px;
+    height:10px;
+}
+.enfonce.down{
+    background-color: rgb(120,120,120);
+}
