@@ -3,7 +3,7 @@ document.getElementById('sub').addEventListener('click',execute);
 function execute(){
 	const nbre = document.getElementById('monnaie').value;
 
-	if (nbre !== "" && Number.isInteger(Number(nbre))) {
+	if (nbre !== "" && nbre >= 0 && Number.isInteger(Number(nbre))) {
 		
 		let nbre001;
 		let nbre002;
