@@ -1,10 +1,10 @@
 document.getElementById('sub').addEventListener('click',execute);
 
 function execute(){
-	const nbreAsString = document.getElementById('monnaie').value;
+	const nbre = document.getElementById('monnaie').value;
 
-	if (nbreAsString !== "" && Number.isInteger(Number(nbreAsString))) {
-		const nbre=Number(document.getElementById('monnaie').value);
+	if (nbre !== "" && Number.isInteger(Number(nbre))) {
+		
 		let nbre001;
 		let nbre002;
 		let nbre005;
