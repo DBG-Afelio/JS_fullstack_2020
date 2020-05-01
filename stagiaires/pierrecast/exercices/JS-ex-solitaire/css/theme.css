@@ -42,7 +42,7 @@ header h1 {
     display: flex;
     width: 80%;
     justify-content: space-between;
-    margin : 30px auto 0 auto;
+    margin : 230px auto 0 auto;
 }
 
 #pilesColor {
@@ -52,6 +52,15 @@ header h1 {
     position: absolute;
     top: 50px;
     right: 50px;
+}
+
+#pilesStart {
+    display: flex;
+    width: 17%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50px;
+    left: 50px;
 }
 
 .pile {

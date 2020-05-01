@@ -2,7 +2,8 @@ const values = [ 'A', '2', '3' , '4', '5', '6' ,'7', '8', '9' ,'10', 'V', 'D' ,'
 const colors = [ 'coeur', 'pique', 'carreau', 'trefle'];
 const colorCode = { coeur:'\u2665', pique:'\u2660', carreau:'\u2666', trefle:'\u2663'};
 let deck, card, piles;
-
+const oPileO = document.querySelector('div[data-name="O"]');
+const oPileS = document.querySelector('div[data-name="S"]');
 const oDeck = document.getElementById('deck'); 
 
 const dblclick = function(e) {    
@@ -14,16 +15,40 @@ const dblclick = function(e) {
     moveCard(nameFrom, nameTo);
 };
 
+const clickTop = function() {
+    if (piles.S.length === 0 && piles.O.length === 0) {
+        //retire l'écouteur click
+        oPileO.removeEventListener('click', clickTop);
+
+    } else if (piles.O.length === 0) {
+        // rechargement
+        for (let i = piles.S.length-1; i >= 0; i--) {
+            let oCard = oPileS.children[i];
+
+            // rendre invisible 
+            returnCard(oCard, piles['S'][i], false);
+            oPileO.appendChild(oCard);
+        };
+        piles.O = [...piles.S];
+        piles.S = [];
+        console.log(piles.O, piles.S);
+    } else {
+        moveCard('O', 'S');
+    }
+    
+}
+
 startGame();
 
 function startGame() {
     piles = { 
-        deck: generateDeck(),             
-        A: [],      B: [],        C: [],        D: [],        E: [],        F: [],        G: [],
-        O: [],      W: [],        X: [],        Y: [],        Z: [],    
+        O: [],      S: [],      deck: generateDeck(),             
+        A: [],      B: [],      C: [],        D: [],        E: [],        F: [],        G: [],
+        W: [],      X: [],      Y: [],        Z: [],    
     };
     showDeck();
     distribute();
+    placeListenerO();
 }
 
 // crée le paquet de cartes initial
@@ -124,12 +149,15 @@ function moveCard(nameFrom, nameTo) {
             case 'Z':
                 oCard.style.top = "0";         
                 break;
+            case 'S':
+                returnLastCardFromPile('S');
+                break;
         }
 
-       if (nameFrom !== 'deck') {
+       if (nameFrom !== 'deck' && nameFrom !== 'O') {
            returnLastCardFromPile(nameFrom);
            checkWinGame();
-       }
+       } 
 
        if (nameTo === 'W' || nameTo === 'X' || nameTo === 'Y' || nameTo === 'Z') {
             oCard.removeEventListener('dblclick', dblclick, true);
@@ -165,6 +193,11 @@ function verifyMove(nameFrom, nameTo) {
         }
     }
 
+    // O vers S
+    if (nameFrom === 'O' && nameTo === 'S' ) {
+        return true;
+    }
+
     return false;
 }
 
@@ -173,27 +206,30 @@ function returnCard(oCard, card, visible) {
     card.visible = visible;
     if (visible) {
         oCard.classList.remove('invisible');
-        oCard.classList.add('visible');
+        oCard.classList.add('visible');    
+        oCard.classList.add(card.color);
 
         // Placement des écouteurs drag'n drop et double click
         oCard.addEventListener('dblclick', dblclick, true);
+        let oValueTop = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
+        let oValueCenter = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
+        let oValueBottom = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
+        oCard.querySelector('.top').appendChild(oValueTop);
+        oCard.querySelector('.center').appendChild(oValueCenter);
+        oCard.querySelector('.bottom').appendChild(oValueBottom);
     } else {
         oCard.classList.remove('visible');
         oCard.classList.add('invisible');
+        oCard.classList.remove(card.color);
+        oCard.querySelector('.top').innerHTML = '';
+        oCard.querySelector('.center').innerHTML = '';
+        oCard.querySelector('.bottom').innerHTML = '';
         
         // Suppression des écouteurs drag'n drop et double click
         oCard.removeEventListener('dblclick', dblclick, true);
     }
     
-    oCard.classList.remove('invisible');
-    oCard.classList.add('visible');
-    oCard.classList.add(card.color);
-    let oValueTop = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
-    let oValueCenter = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
-    let oValueBottom = document.createTextNode(card.visible ? card.value+" "+getColorCode(card.color) : '');
-    oCard.querySelector('.top').appendChild(oValueTop);
-    oCard.querySelector('.center').appendChild(oValueCenter);
-    oCard.querySelector('.bottom').appendChild(oValueBottom);
+    
 }
 
 // Dévoile la dernière carte d'une pile
@@ -244,4 +280,8 @@ function getColorPile(namePile) {
     } else {
         return piles[namePile][0].color;
     }
+}
+
+function placeListenerO() {
+    oPileO.addEventListener('click', clickTop);
 }
