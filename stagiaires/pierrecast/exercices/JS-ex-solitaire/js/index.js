@@ -5,6 +5,15 @@ let deck, card, piles;
 
 const oDeck = document.getElementById('deck'); 
 
+const dblclick = function(e) {    
+    let oPile = e.target.closest('.pile');
+    let nameFrom = oPile.getAttribute('data-name');
+    let card = piles[nameFrom][piles[nameFrom].length-1];
+    let nameTo = getGoodPile(card.color);
+
+    moveCard(nameFrom, nameTo);
+};
+
 startGame();
 
 function startGame() {
@@ -26,8 +35,6 @@ function generateDeck() {
                 value: value,
                 color: color,
                 visible: false,
-                /*position: null,
-                zIndex: null,*/
             };
 
             deck.splice(Math.floor(Math.random()*deck.length), 0, card);
@@ -41,7 +48,6 @@ function generateDeck() {
 function showDeck() {
     piles.deck.forEach(card => {
         createCard(card);
-        //placeCardToDeck();
     });
 }
 
@@ -63,7 +69,7 @@ function createCard(card) {
     oCard.appendChild(oBottom);
 
     oCard.classList.add('card');
-    oCard.classList.add(card.visible ? 'visible' : 'invisible');
+    oCard.classList.add('invisible');
     oDeck.appendChild(oCard);
 }
 
@@ -71,14 +77,6 @@ function createCard(card) {
 function getColorCode(color) {
     return colorCode[color];
 }
-
-//
-/*function placeCardToDeck() {
-    piles.deck.forEach((item, index) => {
-        item.position = 0;
-        item.zIndex = index;
-    })
-}*/
 
 // distribution initiale des cartes
 function distribute() {
@@ -89,12 +87,10 @@ function distribute() {
             moveCard('deck', namePile);
         }
         
-        if (namePile !== 'O') {
-            let card = piles[namePile][piles[namePile].length-1];
-            returnCard(card, namePile);// retourne la dernière carte
+        if (namePile !== 'O') {  
+            returnLastCardFromPile(namePile);// retourne la dernière carte
         }
     }
-    console.log(piles);
 }
 
 // déplace une carte d'une pile à l'autre
@@ -122,25 +118,73 @@ function moveCard(nameFrom, nameTo) {
             case 'G':
                 oCard.style.top = (position*20)+"px";         
                 break;
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
+                oCard.style.top = "0";         
+                break;
         }
-        
+
+       if (nameFrom !== 'deck') {
+           returnLastCardFromPile(nameFrom);
+           checkWinGame();
+       }
+
+       if (nameTo === 'W' || nameTo === 'X' || nameTo === 'Y' || nameTo === 'Z') {
+            oCard.removeEventListener('dblclick', dblclick, true);
+       }
     } 
 }
 
 // vérifier si le deplacement de la carte est autorisé
 function verifyMove(nameFrom, nameTo) {
+    // depuis le deck (1ere distribution)
     if (nameFrom === 'deck') {
         return true;
+    }
+
+    let cardFrom = (piles[nameFrom].length !== 0) ? piles[nameFrom][piles[nameFrom].length-1] : null;
+    let cardTo = (piles[nameTo].length !== 0) ? piles[nameTo][piles[nameTo].length-1] : null;
+    
+    // vers les piles finales
+    if (nameTo === 'W' || nameTo === 'X' || nameTo === 'Y' || nameTo === 'Z' ) {
+        if (cardTo === null) {
+           // alert (cardFrom.value);
+            if (cardFrom.value === 'A') {
+                return true;
+            }
+        } else {
+           // alert (cardFrom.value, cardTo.value);
+            if (cardFrom.color === cardTo.color) {
+                let positionFrom = values.indexOf(cardFrom.value);
+                if (values[positionFrom-1] = cardTo.value) {
+                    return true;
+                }
+            }
+        }
     }
 
     return false;
 }
 
-// Dévoile une carte 
-function returnCard(card, namePile) {
-    card.visible = true;
-    let oCard = getLastCardFrom(namePile);
+// Dévoile/cache une carte 
+function returnCard(oCard, card, visible) {
+    card.visible = visible;
+    if (visible) {
+        oCard.classList.remove('invisible');
+        oCard.classList.add('visible');
 
+        // Placement des écouteurs drag'n drop et double click
+        oCard.addEventListener('dblclick', dblclick, true);
+    } else {
+        oCard.classList.remove('visible');
+        oCard.classList.add('invisible');
+        
+        // Suppression des écouteurs drag'n drop et double click
+        oCard.removeEventListener('dblclick', dblclick, true);
+    }
+    
     oCard.classList.remove('invisible');
     oCard.classList.add('visible');
     oCard.classList.add(card.color);
@@ -152,6 +196,52 @@ function returnCard(card, namePile) {
     oCard.querySelector('.bottom').appendChild(oValueBottom);
 }
 
+// Dévoile la dernière carte d'une pile
+function returnLastCardFromPile(namePile) {
+    let pile = piles[namePile];
+    if (pile.length !== 0) {
+        let oCard = getLastCardFrom(namePile);
+        let card = pile[pile.length-1]; 
+
+        returnCard(oCard, card, true);
+    }
+}
+
 function getLastCardFrom(namePile) {
     return document.querySelector('div[data-name="'+namePile+'"] .card:last-of-type');
+}
+
+function checkWinGame() {
+    if (piles.W.length === 13 && piles.X.length === 13 && piles.Y.length === 13 && piles.Z.length === 13 ) {
+        //retirer les 4 écouteurs dblclick
+        getLastCardFrom('W').removeEventListener('dblclick', dblclick);
+        getLastCardFrom('X').removeEventListener('dblclick', dblclick);
+        getLastCardFrom('Y').removeEventListener('dblclick', dblclick);
+        getLastCardFrom('Z').removeEventListener('dblclick', dblclick);
+
+        alert ('Bravo !');
+        return true;
+    }
+
+    return false;
+}
+
+function getGoodPile(color) {
+    let goodPile = '';
+    let pileTop = ['W', 'X', 'Y' ,'Z'];
+    let pileColor = pileTop.map(namePile => getColorPile(namePile)) ;
+
+    if (pileColor.includes(color)) {
+        return pileTop[pileColor.indexOf(color)];
+    } else {
+        return pileTop[pileColor.indexOf(null)];
+    }
+}
+
+function getColorPile(namePile) {
+    if (piles[namePile].length === 0) {
+        return null;
+    } else {
+        return piles[namePile][0].color;
+    }
 }

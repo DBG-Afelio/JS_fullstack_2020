@@ -19,7 +19,6 @@ footer, header {
 	padding: 8px;
 	background-color: #a5a5a5;
 	z-index: 5;
-
 	background: #45484d; /* Old browsers */
 	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
@@ -43,7 +42,7 @@ header h1 {
     display: flex;
     width: 80%;
     justify-content: space-between;
-    margin : 100px auto 0 auto;
+    margin : 30px auto 0 auto;
 }
 
 #pilesColor {
@@ -58,8 +57,8 @@ header h1 {
 .pile {
     position: relative;
     border: 3px dotted black;
-    width : 120px;
-    height : 200px;
+    width : 130px;
+    height : 210px;
     border-radius: 10px;
     box-sizing: border-box;
 }
@@ -143,3 +142,12 @@ header h1 {
     display: block;
 }
 
+.card, 
+.card .top, 
+.card .bottom,
+.card .center {
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none;
+}
