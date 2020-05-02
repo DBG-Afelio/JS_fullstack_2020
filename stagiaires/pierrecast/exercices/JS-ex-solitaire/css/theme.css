@@ -160,3 +160,13 @@ header h1 {
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
     user-select: none;
 }
+
+.pile.dropZone {
+    background-color: rgba(0,0,0, .5);
+    border: 3px solid white;
+}
+
+.card.dropZone {
+    background-color: ivory;
+    border: 3px solid white;
+}
