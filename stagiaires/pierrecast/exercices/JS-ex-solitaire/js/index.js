@@ -18,7 +18,7 @@ const dblclick = function(e) {
     let card = piles[nameFrom][piles[nameFrom].length-1];
     let nameTo = getGoodPile(card.color);
 
-    moveCard(nameFrom, nameTo);
+    moveCard(nameFrom, nameTo, 1);
 };
 
 const clickTop = function() {
@@ -38,9 +38,12 @@ const clickTop = function() {
         piles.O = [...piles.S];
         piles.S = [];
     } else {
-        moveCard('O', 'S');
-    }
-    
+        for (let i = 0; i < 3; i++) {
+            if (piles.O.length !== 0) {
+                moveCard('O', 'S');
+            }
+        }       
+    }    
 }
 
 const dragStart = function(e) {
@@ -72,9 +75,13 @@ const drop = function(e) {
     }
 }
 
-startGame();
+newGame.addEventListener('click', function() {
+    startGame();
+});
 
+startGame();
 function startGame() {
+    cleanAll();
     piles = { 
         O: [],      S: [],      deck: generateDeck(),             
         A: [],      B: [],      C: [],        D: [],        E: [],        F: [],        G: [],
@@ -193,7 +200,7 @@ function moveCard(nameFrom, nameTo, nbCard = 1) {
            checkWinGame();
        } 
 
-       if (nameTo === 'W' || nameTo === 'X' || nameTo === 'Y' || nameTo === 'Z') {
+       if (pileEnd.includes(nameTo)) {
             oCard.removeEventListener('dblclick', dblclick, true);
        }
     } 
@@ -211,55 +218,60 @@ function multipleMove(nameFrom, nameTo, nbCard) {
 // vérifier si le deplacement de la carte est autorisé
 function verifyMove(nameFrom, nameTo, nbCard = 1) {
     if (nameFrom !== null && nameTo !== null && nameFrom !== nameTo) {
-        // depuis le deck (1ere distribution)
-        if (nameFrom === 'deck') {
-            return true;
-        }
-            
         let cardFrom = (piles[nameFrom].length !== 0) ? piles[nameFrom][piles[nameFrom].length-nbCard] : null;
         let cardTo = (piles[nameTo].length !== 0) ? piles[nameTo][piles[nameTo].length-nbCard] : null;
 
-        // vers les piles finales
-        if (pileEnd.includes(nameTo)) {
-            if (cardTo === null) {
-                if (cardFrom.value === 'A') {
+        switch (nameFrom) {
+            // depuis le deck (1ere distribution)
+            case 'deck':
+                return true;
+                break;
+            case 'O': 
+                // O vers S
+                if (nameTo === 'S' ) {
                     return true;
                 }
-            } else {
-                if (cardFrom.color === cardTo.color) {
-                    let positionFrom = values.indexOf(cardFrom.value);
-                    if (values[positionFrom-1] = cardTo.value) {
-                        return true;
+                break;
+            default:      
+                // vers les piles finales
+                if (pileEnd.includes(nameTo)) {
+                    if (cardTo === null) {
+                        if (cardFrom.value === 'A') {
+                            return true;
+                        }
+                    } else {
+                        if (cardFrom.color === cardTo.color) {
+                            let positionFrom = values.indexOf(cardFrom.value);
+                            if (values[positionFrom-1] === cardTo.value) {
+                                return true;
+                            }
+                        }
                     }
                 }
-            }
-        }
 
-        // vers les piles centrales 
-        if (pileMiddle.includes(nameTo)) {
-            let cardFrom = piles[nameFrom][piles[nameFrom].length-nbCard];  
-            if (piles[nameTo].length === 0) {
-                if (cardFrom.value === 'R') {
-                    return true;
+                // vers les piles centrales 
+                if (pileMiddle.includes(nameTo)) {
+                    let cardFrom = piles[nameFrom][piles[nameFrom].length-nbCard];  
+                    if (piles[nameTo].length === 0) {
+                        if (cardFrom.value === 'R') {
+                            return true;
+                        }
+                    } else {
+                        let cardTo = piles[nameTo][piles[nameTo].length-1];   
+                        let colorTo = redColors.includes(cardTo.color) ? 'red' : 'black';  
+                        let colorFrom = redColors.includes(cardFrom.color) ? 'red' : 'black';     
+                        let expectedValue =  cardFrom.value !== 'R' ? values[values.indexOf(cardFrom.value)+1] : null;  
+                        
+                        if (colorFrom !== colorTo && expectedValue === cardTo.value) {
+                            return true;
+                        }
+                    }
                 }
-            } else {
-                let cardTo = piles[nameTo][piles[nameTo].length-1];   
-                let colorTo = redColors.includes(cardTo.color) ? 'red' : 'black';  
-                let colorFrom = redColors.includes(cardFrom.color) ? 'red' : 'black';     
-                let expectedValue =  cardFrom.value !== 'R' ? values[values.indexOf(cardFrom.value)+1] : null;  
-                
-                if (colorFrom !== colorTo && expectedValue === cardTo.value) {
-                    return true;
-                }
-            }
-        }
-
-        // O vers S
-        if (nameFrom === 'O' && nameTo === 'S' ) {
-            return true;
+                break;
+            
         }
     }
-    
+    console.log('NO -> ', nameFrom, nameTo, nbCard);
     return false;
 }
 
@@ -281,7 +293,7 @@ function returnCard(oCard, card, visible) {
         oCard.querySelector('.top').appendChild(oValueTop);
         oCard.querySelector('.center').appendChild(oValueCenter);
         oCard.querySelector('.bottom').appendChild(oValueBottom);
-        oCard.setAttribute('draggable' , true);
+        oCard.setAttribute('draggable', true);
 
         // Placement des écouteurs drag'n drop et double click
         oCard.addEventListener('dblclick', dblclick);
@@ -325,7 +337,6 @@ function checkWinGame() {
         //retirer les 4 écouteurs dblclick
         pileEnd.forEach(namePile => {
             let oCard = getLastCardFrom(namePile);
-            oCard.removeEventListener('dblclick', dblclick);
             oCard.removeEventListener('dblclick', dblclick);
             oCard.removeEventListener('dragstart', dragStart, true);   
             oCard.removeEventListener('dragend', dragEnd, true);
@@ -396,4 +407,11 @@ function getNbCard(child) {
         i++;
     }
     return i;
+}
+
+function cleanAll() {
+    let allPiles = document.querySelectorAll('.pile');
+    allPiles.forEach(pile => {
+        pile.innerHTML = '';
+    });
 }

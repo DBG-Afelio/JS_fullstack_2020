@@ -1,6 +1,7 @@
 body {
     background-color: #7a5100;
 	background-image: url('../img/wood-pattern.png');
+	font-family: Helvetica, Arial, "Roboto", sans-serif;
 }
 
 main {
@@ -28,13 +29,18 @@ footer, header {
 footer {
 	bottom: 0;
 }
+
 header {
 	top: 0;
 }
+
 header h1 {
     font-size: 20px;
     color: white;
-    margin: 0;
+    margin: 0 0 0 25px;
+    position: absolute;
+    font: 25px/40px  "Roboto", Helvetica, Arial, sans-serif;;
+    text-transform: uppercase;
 }
 
 /* PILES */
@@ -87,7 +93,7 @@ header h1 {
 
 .card .center {
     position: absolute;
-    font-size: 40px;
+    font-size: 38px;
     text-align: center;
     display: block;
     top: 50%;
@@ -168,5 +174,30 @@ header h1 {
 
 .card.dropZone {
     background-color: ivory;
-    border: 3px solid white;
+    border: 2px solid black;
+}
+
+#newGame {
+	background-color: rgba(255,255,255, .1);
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+#newGame button {
+	height: 40px;
+	margin: 5px 10px;
+	padding: 0;
+	display: inline-block;
+	border: 2px solid white; 
+	background-color: rgba(255,255,255, .5);
+	width: 150px;
+	border-radius: 18px; 
+}
+
+#newGame button:hover {
+    cursor: pointer;
+    background-color: rgb(92, 18, 40);
+	color: white;
 }
