@@ -63,7 +63,7 @@ main{
     background-color: #FFEECC;
     display: flex;
     justify-content: center;
-    align-items: center;
+
     height: auto;
 }
 
@@ -137,7 +137,7 @@ h2{
     background-size: 100% 100%;
 }
 
-.fift_box{
+.fifth_box{
     height: 30vh;
     background-image:url("../images/leaf.jpg");
     background-repeat: no-repeat;
