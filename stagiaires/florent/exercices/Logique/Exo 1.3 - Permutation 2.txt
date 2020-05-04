@@ -1,10 +1,10 @@
 Début programme
-	Début Zone variable
-		Var x = 3
-		Var y = 5
-		Var z = 0
-	Fin Zone variable
-	z = x
-	x = Y
-	y = z
+	Variable locale
+		Var x :N <- 3
+		Var y :N <- 5
+		Var z :N <- 0
+	Fin variable locale
+	z <- x
+	x <- Y
+	y <- z
 Fin de programme
