@@ -1,0 +1,4 @@
+1. Debut ex1                    a=/ b=/
+2. variable locales             a=/ b=/
+3. var a                        a=1 b=/
+4. fin variable                 a=1 b=2
