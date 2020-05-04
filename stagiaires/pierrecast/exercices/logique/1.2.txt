@@ -1,22 +1,16 @@
-Ecrire le programme qui affiche les énoncés et les réponses des opérations arithmétiques suivantes :
-◦ 150-92
-◦ ( 89 - 18 ) + ( 25*2 ) - 13
-◦ ( 15*3) / 2
-◦ 15 / (2 * 3)
-◦ ( 15 + 3 ) / 2
-◦ ( 15 / 2) + 3
-
-debut ex1-2
-const rep1 : N <- 150-92
-const rep2 : N <- ( 89 - 18 ) + ( 25*2 ) - 13
-const rep3 : N <- ( 15*3) / 2
-const rep4 : N <- 15 / (2 * 3)
-const rep5 : N <- (15 + 3 ) / 2
-const rep6 : N <- (15 / 2) + 3
-afficher "150-92 = ", rep1
-afficher "( 89 - 18 ) + ( 25*2 ) - 13 = ", rep2
-afficher "(15*3) / 2 = ", rep3
-afficher "15 / (2 * 3) = ", rep4
-afficher "(15 + 3 ) / 2 = ", rep5
-afficher "(15 / 2) + 3 = ", rep6
-fin ex1-2
+Debut ex1-2
+    VARIABLES LOCALES :
+        const rep1 :N <- 150-92
+        const rep2 :N <- (89 - 18) + (25*2) - 13
+        const rep3 :N <- (15*3) / 2
+        const rep4 :N <- 15 / (2 * 3)
+        const rep5 :N <- (15 + 3) / 2
+        const rep6 :N <- (15 / 2) + 3
+    FIN VARIABLES LOCALES
+    Afficher "150-92 = ", rep1
+    Afficher "(89 - 18) + (25*2) - 13 = ", rep2
+    Afficher "(15*3) / 2 = ", rep3
+    Afficher "15 / (2 * 3) = ", rep4
+    Afficher "(15 + 3 ) / 2 = ", rep5
+    Afficher "(15 / 2) + 3 = ", rep6
+Fin ex1-2
