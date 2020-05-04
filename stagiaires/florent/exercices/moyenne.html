@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Moyenne</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="moyenne.css">
+	</head>
+	<body>
+	 	<div class="tableau">
+	        <div class="entry-user">
+	            Entrez un nombre entier :
+	            <input type="number" name="entry" class="user-input" id="nbr" placeholder="Entier">
+	            <input type="submit" id="sub" name="click" value="Soumettre">
+	            <input type="submit" id="subre" name="recom" value="Recommencer">
+	        </div>
+	        <hr>
+	        <div class="entries">
+	            <div class="total-entre">
+	                Le nombre de nombres entrés : <output id="nbrenbr"></output>
+	            </div>
+
+	            <div class="sum-entre">
+	                Le somme des nombres entrés : <output id="somme"></output>
+	            </div>
+
+	            <div class="max-entre">
+	                Le plus grand des nombres entrés : <output id="nbremax"></output>
+	            </div>
+
+	            <div class="min-entre">
+	                Le plus petit des nombres entrés : <output id="nbremin"></output>
+	            </div>
+
+	            <div class="average-entre">
+	                La moyenne de nombres entrés: <output id="nbremoyenne"></output>
+	            </div>
+
+	            <div class="list-of-entre">
+	                La liste de nombres entrés : <output id="nbrenbre"></output>
+	            </div>
+
+	            <div class="sequence-entre">
+	                La plus grande sequence de nombres entrés : <output id="nbresuite"></output>
+	            </div>
+	        </div>
+	    </div>
+
+	    <script src="moyenne.js"></script>
+	</body>
+</html>
