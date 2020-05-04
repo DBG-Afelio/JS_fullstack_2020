@@ -153,6 +153,7 @@ function restart() {
     });
     user_try = 0;
     success = false;
+    used = false;
 }
 
 function verification_response(gen_colors, user_colors) {
@@ -162,10 +163,10 @@ function verification_response(gen_colors, user_colors) {
     user_colors.forEach((color, i) => {
         result[user_try].getElementsByClassName("btn-circle")[i].style.backgroundColor = color;
         if(color===gen_colors[i]) {
-            good_position_index.push(1);
+            good_position_index.push(true);
             response.push("black");
         } else {
-            good_position_index.push(0);
+            good_position_index.push(false);
             bad_colors.push(gen_colors[i]);
         }
         if(response.length === gen_colors.length) {
@@ -173,7 +174,7 @@ function verification_response(gen_colors, user_colors) {
         }
     });
     user_colors.forEach((color, i) => {
-        if(bad_colors.includes(color) && good_position_index[i] === 0) {
+        if(bad_colors.includes(color) && !good_position_index[i]) {
             response.push("white");
         }
     });
@@ -231,6 +232,7 @@ function alert_confirmed(mode) {
             success = false;
             break;
         case "reset":
+            success = false;
             used = false;
             restart();
             break;
