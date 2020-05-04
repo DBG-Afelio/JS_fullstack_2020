@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="exercice Js" content="">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <main>
+            <img id="title" src="img/mastermind.png">
+            <div id="options">
+                <div id="level" >
+                    <div>
+                        <label for="levelSelect">Difficulté : </label>
+
+                        <select name="levels" id="levelSelect">
+
+                            <option value="level1">Niveau 1</option>
+                            <option value="level2">Niveau 2</option>
+                            <option value="level3">Niveau 3</option>
+
+                        </select>
+                    </div>         
+                    <ul id="levelRules">
+                        <li id="rule1"></li>
+                        <li id="rule2"></li>
+                    </ul>
+                </div>
+
+                <button id="reset" type="button">Nouvelle partie</button>
+            </div>
+            
+            <div id="playerSeq">
+                <div class="entry">
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                    <div class="slot"></div>
+                </div>
+                <button id="submit" type="button">Valider</button>
+            </div>
+            <div id="colorBalls">
+                <div class="ballSlot">
+                    <div class="colorBall redBall" data-color="red" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall blueBall" data-color="blue" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall yellowBall" data-color="yellow" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall greenBall" data-color="green" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall purpleBall" data-color="purple" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall orangeBall" data-color="orange" draggable="true"></div>
+                </div>
+                <div class="ballSlot">
+                    <div class="colorBall pinkBall" data-color="pink" draggable="true"></div>
+                </div>
+                <div class="ballSlot empty" id="emptyBallSlot">
+                    <div id="empty" class="colorBall" data-color="empty"></div>
+                </div>
+                
+            </div>
+            
+        </main>
+        
+     <script type="text/javascript" src="script/script.js"></script>
+     <script type="text/javascript" src="script/DragNDrop.js"></script>
+     <script type="text/javascript" src="script/test.js"></script>
+    </body>
+</html>
