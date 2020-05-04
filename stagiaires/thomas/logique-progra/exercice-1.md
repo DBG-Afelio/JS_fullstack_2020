@@ -12,6 +12,6 @@ Pour cet exercice, il s'agit de remplir un tableau d'évolution des variables po
      8.    b <- a + b                      |        8 |    2       |     5      |
      9.    a <- b – a                      |        9 |    3       |     5      |
      10.    b <- a + b                     |       10 |    3       |     8      |
-     11.    a <- b – a                     |       11 |    5       |     3      |
+     11.    a <- b – a                     |       11 |    5       |     8      |
      12.  Fin ex1                          |       12 |    5       |     8      |
                                            |----------+------------+------------|
