@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+    <title>Consommation d'eau</title>
+</head>
+
+<body>
+
+    <form action="javascript: watercost()">
+        <div>
+            Mettez votre consommation d'eau et nous vous en donnerons son coût.<br>
+            Détails de facturation :
+            <ul>
+                <li>Les 10 premiers m3 sont gratuits</li>
+                <li>Les volumes allant de 10 à 35m3: 0,5€/m3</li>
+                <li>Les volumes allant de 35 à 50m3: 0,4€/m3</li>
+                <li>Les volumes suivants : 0,25€/m3</li>
+                <li>Avec un forfait de 15€ et une TVA de 21%</li>
+            </ul>
+        </div>
+        <input type="number" id="water_used" name="water_used" placeholder="Consommation" required>
+        <input type="submit" id="submit" name="button_submit">
+        <output name="total_price"></output>
+        <span name="message"></span>
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
