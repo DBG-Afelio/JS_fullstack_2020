@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercice Moyenne</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="moyenne.css" rel="Stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div>
+            <form name="myForm">Entrez un nombre entier:
+                <input id="myInput" type="text" placeholder="Entier" class="inputField">
+                <input id="button-submit" type="button">Soumettre</input>
+                <input id="button-reset" type="button">Recommencer</input>
+            </form> 
+        </div><hr>
+        <div id="outputBloc">
+            <div>Le nombre de nombres entrés:</div>
+            <div class="allData" id="nbInputs" type="text"></div>
+        
+            <div>La somme des nombres entrés:</div>
+            <div class="allData" id="sum"></div>
+            
+            <div>Le plus grand des nombres entrés:</div> 
+            <div class="allData" id="bigOne"></div>
+
+            <div>Le plus petit des nombres entrés:</div>
+            <div class="allData" id="smallOne"></div>
+
+            <div>La moyenne des nombres entrés:</div>
+            <div class="allData" id="average"></div>
+
+            <div>La liste de tous les nombres entrés:</div>
+            <div class="allData" id="listInputs"></div>
+
+            <div>La plus grande sequence de nombres croissants entrés:</div>
+            <div class="allData" id="sequence"></div>
+        </div>
+        <script src="moyenne.js"></script>
+    </body>
+</html>
