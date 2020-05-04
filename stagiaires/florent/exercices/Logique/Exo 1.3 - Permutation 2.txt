@@ -1,0 +1,10 @@
+Début programme
+	Début Zone variable
+		Var x = 3
+		Var y = 5
+		Var z = 0
+	Fin Zone variable
+	z = x
+	x = Y
+	y = z
+Fin de programme
