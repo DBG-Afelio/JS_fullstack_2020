@@ -11,7 +11,7 @@ Début exercice6
 		saisir x
 		affiche "veuillez indiquer une seconde valeur"
 		saisir y
-		affiche "veuillez indiquer une troisème valeur"
+		affiche "veuillez indiquer une troisième valeur"
 		saisir z
 		affiche "La moyenne de vos nombres est égale à :" , (x+y+z)/3
 Fin exercice6
