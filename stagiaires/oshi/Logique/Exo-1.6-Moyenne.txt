@@ -1,20 +1,16 @@
 Début programme
 	Variable locale
 		Var x :N <- 0
-		Var y :A <- []
+		Var y :N <- 0
+		Var z :A <- 0
 		Var a :N <- 0
 	Fin variable locale
 	Afficher "Saisir un nombre"
 	Saisir x
-	Pousser x dans y
 	Afficher "Saisir un second nombre"
-	Saisir x
-	Pousser x dans y
+	Saisir y
 	Afficher "Saisir un troisième nombre"
-	Saisir x
-	Pousser x dans y
-	Début du forEach de x
-		a <- a + x
-	Fin du forEach
-	a <- a / x.lenght
+	Saisir z
+	a <- (x + y + z) / 3
+	Afficher a
 Fin de programme

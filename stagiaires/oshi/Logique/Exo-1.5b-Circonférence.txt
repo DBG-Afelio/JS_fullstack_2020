@@ -4,7 +4,5 @@ Début programme
 	Fin variable locale
 	Afficher "Saisir le rayon"
 	Saisir x
-	Début création svg
-		circle <- r <- x
-	Fin du svg
+	circle <- r <- x
 Fin de programme

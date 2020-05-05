@@ -4,4 +4,5 @@ Début programme
 	Fin variable locale
 	Saisir x
 	y <- 2π * x
+	Afficher y
 Fin de programme
