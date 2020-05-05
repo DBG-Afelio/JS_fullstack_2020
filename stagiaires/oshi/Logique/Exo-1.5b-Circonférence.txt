@@ -1,7 +1,9 @@
 Début programme
 	Variable locale
-		Var x :N <- input
+		Var x :N <- x
 	Fin variable locale
+	Afficher "Saisir le rayon"
+	Saisir x
 	Début création svg
 		circle <- r <- x
 	Fin du svg

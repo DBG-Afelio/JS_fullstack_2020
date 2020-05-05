@@ -1,6 +1,7 @@
 Début programme
 	Variable locale
-		Var x :N <- input
+		Var x :N <- 0
 	Fin variable locale
+	Saisir x
 	y <- 2π * x
 Fin de programme
