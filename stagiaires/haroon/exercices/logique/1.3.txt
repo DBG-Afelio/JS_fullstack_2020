@@ -1,0 +1,10 @@
+Ecrire le programme qui permet de permuter les valeurs de X et de Y.
+La valeur de X vaut 3 et la valeur de Y vaut 5.
+
+Debut declareVar
+VARIABLES LOCALES :
+VAR X :N <- 3
+VAR Y :N <- 5 
+fin variables locales
+Fin declareVar
+
