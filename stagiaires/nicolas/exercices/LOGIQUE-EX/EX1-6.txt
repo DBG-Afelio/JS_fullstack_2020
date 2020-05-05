@@ -1,0 +1,14 @@
+Ecrire le programme qui calcule et affiche la moyenne de 3 nombres entrés au clavier.
+
+Début exercice6
+
+	Variables locales
+		var x :N
+		var y :N
+		var z :N
+	Fin variable locales
+		saisir x
+		saisir y
+		saisir z
+		affiche "La moyenne de vos nombres est égale à :" , (x+y+z)/3
+Fin exercice6
