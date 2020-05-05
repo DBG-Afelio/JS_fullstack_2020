@@ -1,0 +1,8 @@
+début ex1.5
+	Variables locales
+		Var pi :N <- 3.14
+        Var r :N
+	Fin variables locales
+        saisir rayon
+        affiche "la circonférence du cercle en rayon est :", "est égale à" , 2*pi*r
+fin ex1.5
