@@ -1,0 +1,16 @@
+Ecrire le programme qui permute les valeurs de 3 variables.
+
+Debut declareVar
+VARIABLES LOCALES :
+VAR X :N <- 10
+VAR Y :N <- 20
+Var Z :N <- 30
+fin variables locales
+temp < - X   (10)
+X <- Y   	(20)
+Z <- X		(10)
+Y <- Z		(30)
+
+
+
+Fin declareVar
