@@ -9,8 +9,8 @@ Var temp : <- 0
 fin variables locales
 temp < - X   (10)
 X <- Y   	(20)
-Z <- temp		(10)
 Y <- Z		(30)
+Z <- temp		(10)
 
 
 
