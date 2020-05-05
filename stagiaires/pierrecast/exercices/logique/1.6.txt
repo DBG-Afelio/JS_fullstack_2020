@@ -1,0 +1,19 @@
+// Ecrire le programme qui calcule et affiche la moyenne de 3 nombres entrés au clavier.
+
+Debut ex1-6
+    VARIABLES LOCALES :
+        var X :N <- 0
+        var Y :N <- 0
+        var Z :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez 3 nombres"
+    Afficher "X : "
+    Saisir X
+    Afficher "Y : "
+    Saisir Y
+    Afficher "Z : "
+    Saisir Z
+    Afficher "La moyenne vaut : ", X+Y+Z
+    
+Fin ex1-6
