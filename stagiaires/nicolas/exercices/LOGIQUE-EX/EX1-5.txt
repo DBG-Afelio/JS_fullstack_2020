@@ -6,6 +6,7 @@ Début exercice3
 		var PI :N <- 3.14
 		var R :N
 	Fin variable locales
+		affiche "veuillez indiquer le rayon du cercle"
 		saisir rayon
 		affiche "La cicronférence du cercle de rayon :" , R , "est égale à" , 2*PI*R
 Fin exercice3
