@@ -1,0 +1,27 @@
+// Ecrire le programme qui calcule et affiche la moyenne de 3 nombres entrés au clavier.
+
+
+Debut moyenne
+
+	VARIABLES LOCALES
+		var number_user : N <- 0 
+		var total_amount: N <-0
+		var average: N <- 0
+		var counter: N <- 0
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, donnez-moi trois nombres et je vous en donnerai la moyenne"
+	TANT QUE(counter<3)
+
+	Saisir number_user 
+
+	total_amount<- total_amount + number_user
+
+	counter <- counter+1
+	FIN TANT QUE
+
+	average <- total_amount/3
+
+	Afficher "La moyenne des 3 nombres est ", average
+	
+Fin moyenne
