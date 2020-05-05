@@ -1,0 +1,12 @@
+debut moyenne
+variables locales
+var a:N<=1
+var b:N<=2
+var c:N<=3
+var moyenne:N<=0
+fin variables locales
+afficher "Entrez les trois valeur"
+Saisir a,b,c
+moyenne<=(a+b+c)/3
+afficher moyenne
+fin moyenne
