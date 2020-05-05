@@ -2,7 +2,7 @@ Ecrire le programme qui permet de permuter les valeurs de X et de Y.
 La valeur de X vaut 3 et la valeur de Y vaut 5.
 
 --------------------------------------------
-Debut permuter
+Debut permuter_ex1.3
     VARIABLE LOCALES :
         VAR X :N <- 3
         VAR Y :N <- 5
@@ -11,4 +11,4 @@ Debut permuter
     p <- X
     X <- Y
     Y <- p
-Fin permute
+Fin permute_ex1.3 

@@ -6,7 +6,7 @@ Ecrire le programme qui affiche les énoncés et les réponses des opérations a
 ◦ ( 15 + 3 ) / 2
 ◦ ( 15 / 2) + 3
 
-----------
+-----
 
 Debut ex1.2
     Afficher "150-92 = ", 150-92
