@@ -1,0 +1,8 @@
+Début programme
+	Variable locale
+		Var x :N <- x
+	Fin variable locale
+	Afficher "Saisir le rayon"
+	Saisir x
+	circle <- r <- x
+Fin de programme
