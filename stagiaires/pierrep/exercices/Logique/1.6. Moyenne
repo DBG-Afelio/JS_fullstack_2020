@@ -1,0 +1,9 @@
+début ex1.6
+	Variables locales
+		Var av :N <- (a + b + c) / 3
+	Fin variables locales
+        saisir a
+        saisir b
+        saisir c
+        affiche "la moyenne des trois nombres entrés est : ", av
+fin ex1.6
