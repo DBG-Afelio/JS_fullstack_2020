@@ -1,0 +1,8 @@
+Début programme
+	Variable locale
+		Var x :N <- 3
+		Var y :N <- 5
+	Fin variable locale
+	x <- y
+	y <- (y-2)
+Fin de programme

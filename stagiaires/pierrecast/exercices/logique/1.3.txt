@@ -1,0 +1,10 @@
+Debut ex1-3
+    VARIABLES LOCALES :
+        var X :N <- 3
+        var Y :N <- 5
+        var Z :N <- 0
+    FIN VARIABLES LOCALES
+    Z <- X
+    X <- Y
+    Y <- Z
+Fin ex1-3
