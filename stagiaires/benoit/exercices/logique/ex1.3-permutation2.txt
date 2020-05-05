@@ -11,8 +11,8 @@ Debut permutation
 
 	FIN VARIABLES LOCALES
 
-	X = X+Y
-	Y = X-Y
-	X = X-Y
+	X <- X+Y
+	Y <- X-Y
+	X <- X-Y
 
 Fin permutation
