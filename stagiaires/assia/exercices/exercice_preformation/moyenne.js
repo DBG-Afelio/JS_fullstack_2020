@@ -32,13 +32,13 @@ submitButtonEl.addEventListener("click", myFct_submit);
 resetButtonEl.addEventListener("click", myFct_reset);
 
 function myFct_submit() {
-    var newUserInput_var = Number(newUserInputEl.value);
+    var newUserInput_var = newUserInputEl.value;
     if (isNaN(newUserInput_var) || newUserInput_var == '' || newUserInput_var % 1 !== 0) {
-        //input = Nan OR empty OR float
+        //input = Nan OR empty OR float   
         alert("This is not a number Dude !");
     }
     else {
-        allUserInput_arr.push(newUserInput_var);
+        allUserInput_arr.push(Number(newUserInput_var));
         outNbInputs = allUserInput_arr.length;  
         outSum = outBig = outSmall = outAverage = outList_string = newUserInput_var;
         //outSequence = newUserInput_var;
