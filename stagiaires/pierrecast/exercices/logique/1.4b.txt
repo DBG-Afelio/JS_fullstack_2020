@@ -1,0 +1,18 @@
+//Ecrire le programme qui permute les valeurs de 3 variables sans variables supplementaires
+
+Debut ex1-4
+    VARIABLES LOCALES :
+        var X :N <- 3
+        var Y :N <- 5
+        var Z :N <- 7
+    FIN VARIABLES LOCALES
+
+    X <- X + Y  // 8 5 7
+    Y <- X - Y  // 8 3 7
+    X <- X - Y  // 5 3 7
+
+    Y <- Y + Z  // 5 10 7
+    Z <- Y - Z  // 5 10 3
+    Y <- Y - Z  // 5 7 3
+    
+Fin ex1-4
