@@ -4,11 +4,9 @@ Début programme
 		Var y :N <- 5
 		Var z :N <- 4
 		Var a :N <- 0
-		Var b :N <- 0
 	Fin variable locale
 	a <- x
-	b <- y
-	x <- z
-	y <- a
-	z <- b
+	x <- y
+	y <- z
+	z <- a
 Fin de programme
