@@ -1,0 +1,19 @@
+début ex1.6
+	Variables locales
+        var n0fN :N <- 0
+        var nU :N <- 0
+        var tot :N <- 0
+        var av :N <- 0
+        var count :N <- 0
+	Fin variables locales
+
+        affiche "entrez le nombre de nombre que vous voulez entrer"
+        saisir nOfN
+        tant que(count<nOfN)
+        saisir nU
+        tot <- tot + nU
+        count <- count + 1
+        fin tant que
+        av <- tot/nOfN
+        affiche "la moyenne des trois nombres entrés est : ", av
+fin ex1.6

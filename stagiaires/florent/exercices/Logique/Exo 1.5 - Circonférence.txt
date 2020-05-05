@@ -1,0 +1,11 @@
+Début programme
+	Variables locales
+		Const PI :N <- π
+		Var Circonference :N <- 0
+		Var Rayon :N <- 0
+	Fin variables locales
+	Afficher "Entrez la valeur du rayon: "
+	Saisir Rayon
+	Circonference <- 2*π*Rayon
+	Afficher "La circonférence du cercle est " , Circonference
+Fin programme
