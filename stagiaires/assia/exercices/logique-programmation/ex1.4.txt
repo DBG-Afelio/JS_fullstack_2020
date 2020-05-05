@@ -1,0 +1,14 @@
+Ecrire le programme qui permute les valeurs de 3 variables.
+-----------------------
+
+Debut permuter
+    VARIABLE LOCALES :
+        VAR X :N <- 3
+        VAR Y :N <- 5
+        VAR Z :N <- 2
+    FIN VARIABLES LOCALES
+    X <- X + Y + Z
+    Y <- X - Y - Z
+    Z <- X - Y - Z
+    X <- X - Y - Z
+Fin permute

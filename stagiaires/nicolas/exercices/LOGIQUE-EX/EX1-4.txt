@@ -1,0 +1,17 @@
+Ecrire le programme qui permute les valeurs de 3 variables.
+
+Début exercice4
+
+	Variables locales
+		var x :N <- 2
+		var y :N <- 4
+		var z :N <- 6
+	Fin variable locales
+		y <- y + z
+		z <- y - z
+		y <- y - z
+
+		x <- x + y
+		y <- x - y
+		x <- x - y            x=6,y=2,z=4
+Fin exercice4
