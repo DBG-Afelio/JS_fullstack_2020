@@ -1,0 +1,18 @@
+Ecrire le programme qui permet de permuter les valeurs de X et de Y.
+La valeur de X vaut 3 et la valeur de Y vaut 5.
+
+--------------------------------
+
+Debut permutation
+
+	VARIABLES LOCALES:
+		var X : N <- 3
+		var Y : N <- 5
+
+	FIN VARIABLES LOCALES
+
+	X <- X+Y
+	Y <- X-Y
+	X <- X-Y
+
+Fin permutation
