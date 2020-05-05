@@ -1,0 +1,8 @@
+Début programme
+	Variable locale
+		Var x :N <- input
+	Fin variable locale
+	Début création svg
+		circle <- r <- x
+	Fin du svg
+Fin de programme

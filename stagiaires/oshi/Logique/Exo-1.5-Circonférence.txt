@@ -1,0 +1,6 @@
+Début programme
+	Variable locale
+		Var x :N <- input
+	Fin variable locale
+	y <- 2π * x
+Fin de programme
