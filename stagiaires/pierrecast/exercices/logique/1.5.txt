@@ -1,0 +1,11 @@
+// Ecrire le programme qui affiche la circonférence d'un cercle. La valeur du rayon est rentrée au clavier (Circonférence = 2PIR).
+
+Debut ex1-5
+    VARIABLES LOCALES :
+        var R :N <- 0
+        var PI : N <- 3.14
+    FIN VARIABLES LOCALES
+    Afficher "Entrer la valeur du rayon : "
+    Saisir  R
+    Afficher "Circonférence = (2PIR) = ", 2*PI*R
+Fin ex1-5
