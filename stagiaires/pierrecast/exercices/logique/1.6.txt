@@ -14,6 +14,6 @@ Debut ex1-6
     Saisir Y
     Afficher "Z : "
     Saisir Z
-    Afficher "La moyenne vaut : ", X+Y+Z
+    Afficher "La moyenne vaut : ", (X+Y+Z)/3
     
 Fin ex1-6
