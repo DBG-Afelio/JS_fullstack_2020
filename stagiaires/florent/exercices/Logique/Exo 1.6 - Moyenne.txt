@@ -1,0 +1,15 @@
+Début de programme
+	Variables locales
+		Var A :N <- 0
+		Var B :N <- 0
+		Var C :N <- 0
+		Var moyenne :N <-0
+	Fin variables locales
+	Afficher "Entrez la première valeur: "
+	Saisir A
+	Afficher "Entrez la seconde valeur: "
+	Saisir B
+	Afficher "Entrez la troisième et dernière valeur: "
+	moyenne <- (A+B+C)/3
+	Afficher "La moyenne est de " , moyenne
+Fin de programme
