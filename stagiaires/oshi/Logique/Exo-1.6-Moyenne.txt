@@ -1,0 +1,10 @@
+Début programme
+	Variable locale
+		Var x :N <- [input,input,input]
+		Var a :N <- 0
+	Fin variable locale
+	Début du forEach de x
+		a <- a + x
+	Fin du forEach
+	a <- a / x.lenght
+Fin de programme
