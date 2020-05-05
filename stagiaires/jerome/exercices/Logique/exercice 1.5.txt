@@ -1,0 +1,11 @@
+debut circonf
+variables locales
+var c:N<=0
+var pi:N<=3.1416
+var d:N<=0
+fin variables locales
+afficher "Entrez le diametre"
+Saisir d
+c<= pi*d
+Afficher "la circonference du cercle est de" , c , "cmý
+fin circonf
