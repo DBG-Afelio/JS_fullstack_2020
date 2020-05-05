@@ -2,7 +2,7 @@ Début ex1-3
 VARIABLES LOCALES
     var x :N <- 3
     var y :N <- 5
-    var x :N <- 0
+    var z :N <- 0
 
     FIN VARIABLES LOCALES
     z <- x
