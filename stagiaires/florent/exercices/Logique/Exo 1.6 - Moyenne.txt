@@ -10,6 +10,7 @@ Début de programme
 	Afficher "Entrez la seconde valeur: "
 	Saisir B
 	Afficher "Entrez la troisième et dernière valeur: "
+	Saisir C
 	moyenne <- (A+B+C)/3
 	Afficher "La moyenne est de " , moyenne
 Fin de programme
