@@ -6,5 +6,9 @@ VARIABLES LOCALES :
 VAR X :N <- 3
 VAR Y :N <- 5 
 fin variables locales
+X <- Y + X       ( 8 )
+Y <- X - Y       ( 3 )
+X <- X - Y 	 ( 5 )
+
 Fin declareVar
 
