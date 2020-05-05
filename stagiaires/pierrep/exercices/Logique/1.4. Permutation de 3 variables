@@ -5,7 +5,6 @@ Debut ex1-4
         var Z :N <- 7
         var W :N <- 0
     FIN VARIABLES LOCALES
-
     W <- X
     X <- Y
     Y <- Z
