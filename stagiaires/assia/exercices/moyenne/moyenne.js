@@ -86,6 +86,8 @@ function myFct_reset() {
 
 
 
+
+
 /* pourquoi ca ne marche pas avec tag name ???
 
     document.getElementsByTagName("input").value;
