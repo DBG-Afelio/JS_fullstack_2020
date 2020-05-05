@@ -7,7 +7,8 @@ Debut permuter
         VAR Y :N <- 5
         VAR Z :N <- 2
     FIN VARIABLES LOCALES
-    Z <- X
-    X <- Y
-    Y <- Z
+    X <- X + Y + Z
+    Y <- X - Y - Z
+    Z <- X - Y - Z
+    X <- X - Y - Z
 Fin permute
