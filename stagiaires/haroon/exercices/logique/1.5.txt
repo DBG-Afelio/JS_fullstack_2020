@@ -3,6 +3,7 @@ Ecrire le programme qui affiche la circonférence d'un cercle. La valeur du rayo
 Debut circule
 VARIABLES LOCALES
 VAR Rayon : N <- 0
+VAR result : N <- 0
 FIN VARIABLES LOCALES 
 AFFICHER "S.V.P Entres Rayon :"
 Saiser Rayon 
