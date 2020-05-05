@@ -7,8 +7,11 @@ Début exercice6
 		var y :N
 		var z :N
 	Fin variable locales
+		affiche "veuillez indiquer une première valeur"
 		saisir x
+		affiche "veuillez indiquer une seconde valeur"
 		saisir y
+		affiche "veuillez indiquer une troisème valeur"
 		saisir z
 		affiche "La moyenne de vos nombres est égale à :" , (x+y+z)/3
 Fin exercice6
