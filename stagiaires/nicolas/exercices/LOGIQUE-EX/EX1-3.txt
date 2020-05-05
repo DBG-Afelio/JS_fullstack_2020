@@ -5,7 +5,7 @@ Début exercice3
 
 	Variables locales
 		var x :N <- 3
-		var x :N <- 5
+		var y :N <- 5
 	Fin variable locales
 		x <- x + y
 		y <- x - y
