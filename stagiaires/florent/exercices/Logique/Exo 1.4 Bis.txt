@@ -1,0 +1,11 @@
+Début programme
+	Variables locales 
+		Var A :N <- 2
+		Var B :N <- 5
+		Var C :N <- 7
+	Fin variables locales 
+	A <- A+B+C
+	C <- A-B-C
+	B <- A-B-C
+	A <- A-B-C
+Fin du programme
