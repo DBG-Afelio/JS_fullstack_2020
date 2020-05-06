@@ -36,14 +36,13 @@
     FAUX   ET  (FAUX OU VRAI)
     FAUX   ET  VRAI
     => FAUX
+
    --------------------------------------------
    27 = 28 ET NON (15 < 2 ) OU VRAI
     FAUX   ET NON (FAUX) OU VRAI
     FAUX ET VRAI OU VRAI 
-    => FAUX 
-
-
-
+    => FAUX
+    
    --------------------------------------------
    27 = 28 ET NON ( 15 < 2 OU VRAI )
     FAUX   ET NON (FAUX OU VRAI)
