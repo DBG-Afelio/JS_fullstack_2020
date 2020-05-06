@@ -1,0 +1,64 @@
+1. 27 + 3 = 30 ET 15 + 2 < 16
+    30 = 30 ET 17 < 16
+        VRAI ET FAUX
+            FAUX
+-------------------------------------------
+2. 27 = 27 OU 15 < 2
+    VRAI OU FAUX
+        VRAI
+-------------------------------------------
+3. 27 = 27 OU NON (15 < 2)
+    VRAI OU VRAI
+        VRAI
+-------------------------------------------
+4. 27 = 28 ET NON 15 < 2
+    FAUX ET VRAI
+        FAUX
+-------------------------------------------
+5. 27 = 27 ET 15 < 2 OU VRAI
+    VRAI ET FAUX OU VRAI
+        FAUX OU VRAI
+            VRAI
+-------------------------------------------
+6. 27 = 28 ET ( 15 < 2 OU VRAI )
+    FAUX ET (FAUX OU VRAI)
+        FAUX ET VRAI
+            FAUX
+-------------------------------------------
+7. 27 = 28 ET NON (15 < 2 ) OU VRAI
+    FAUX ET VRAI OU VRAI
+        FAUX OU VRAI
+            VRAI
+-------------------------------------------
+8. 27 = 28 ET NON ( 15 < 2 OU VRAI )
+    FAUX ET NON (FAUX OU VRAI)
+        FAUX ET NON (VRAI)
+            FAUX ET FAUX
+                FAUX
+-------------------------------------------
+9. NON ( 15 - 5 = 12 ET VRAI )
+    NON ( 10 = 12 ET VRAI)
+        NON (FAUX ET VRAI)
+            NON (FAUX)
+                VRAI
+-------------------------------------------
+10. NON ( 15 - 5 = 12 ) ET VRAI
+    NON ( 10 = 12 ) ET VRAI
+        VRAI ET VRAI
+            VRAI
+-------------------------------------------
+11. NON ( 27 = 28 ) OU NON ( 15 < 2 )
+    NON (FAUX) OU NON (FAUX)
+        VRAI OU VRAI
+            VRAI
+-------------------------------------------
+12. ( 27 = 27 ) ET NON ( 15 > 2 )
+    VRAI ET NON VRAI
+        VRAI ET FAUX
+            FAUX
+-------------------------------------------
+13. ( 27 = 15 ) OU VRAI ET FAUX
+    FAUX OU VRAI ET FAUX
+        FAUX OU FAUX
+            FAUX
+-------------------------------------------

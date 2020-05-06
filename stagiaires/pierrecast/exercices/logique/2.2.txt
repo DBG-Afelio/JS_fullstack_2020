@@ -1,0 +1,10 @@
+L'expression "non A et non B" est-elle équivalente à "non(A ou B)" ?
+
+          | A | B | non A | non B | non A et non B | A ou B | Non(A ou B) |
+          |---+---+-------+-------+----------------+--------+-------------|
+          | 0 | 0 |   1   |   1   |       1        |   0    |     1       |
+          | 0 | 1 |   1   |   0   |       0        |   1    |     0       |
+          | 1 | 0 |   0   |   1   |       0        |   1    |     0       |
+          | 1 | 1 |   0   |   0   |       0        |   1    |     0       |
+
+réponse -> oui !
