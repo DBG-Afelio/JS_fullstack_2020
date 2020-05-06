@@ -1,12 +1,11 @@
 Début programme
 	Variable locale
-		Var x :N <- 3
-		Var y :N <- 5
-		Var z :N <- 4
-		Var a :N <- 0
+		Var x :N <- 13
+		Var y :N <- 36
+		Var z :N <- 24
 	Fin variable locale
-	a <- x
-	x <- y
-	y <- z
-	z <- a
+	x <- x + y + z
+	y <- x - y - z
+	z <- x - z - y
+	x <- x - y - z
 Fin de programme
