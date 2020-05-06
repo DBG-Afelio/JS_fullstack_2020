@@ -7,5 +7,6 @@ VAR result : N <- 0
 FIN VARIABLES LOCALES 
 AFFICHER "S.V.P Entres Rayon :"
 Saiser Rayon 
-AFFICHER   Rayon ,"*" , 3.14 , result
+result <- Rayon *  3.14 
+Afficher result
 Fin circule
