@@ -17,7 +17,7 @@
 -------------------------------------------
 5. 27 = 27 ET 15 < 2 OU VRAI
     VRAI ET FAUX OU VRAI
-        VRAI ET VRAI
+        FAUX OU VRAI
             VRAI
 -------------------------------------------
 6. 27 = 28 ET ( 15 < 2 OU VRAI )
@@ -27,8 +27,8 @@
 -------------------------------------------
 7. 27 = 28 ET NON (15 < 2 ) OU VRAI
     FAUX ET VRAI OU VRAI
-        FAUX ET VRAI
-            FAUX
+        FAUX OU VRAI
+            VRAI
 -------------------------------------------
 8. 27 = 28 ET NON ( 15 < 2 OU VRAI )
     FAUX ET NON (FAUX OU VRAI)
