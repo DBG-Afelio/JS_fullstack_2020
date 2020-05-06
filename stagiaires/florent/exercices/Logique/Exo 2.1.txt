@@ -1,34 +1,30 @@
 1. 27 + 3 = 30 ET 15 + 2 < 16
 	30		17<16
-	vrai =	vrai ET faux
-	vrai =	    faux
+	vrai ET faux
     Réponse: Faux
 
 2. 27 = 27 OU 15 < 2
-     vrai OU faux
+    vrai OU faux
     Réponse: faux
 
 3. 27 = 27 OU NON (15 < 2)
-	vrai = vrai OU NON (Faux)
+	vrai OU NON (Faux)
 	vrai OU vrai
     Réponse: vrai
 
 4. 27 = 28 ET NON 15 < 2
-    vrai = vrai ET NON faux
+    vrai ET NON faux
     vrai ET vrai
     Réponse: vrai
 
 5. 27 = 27 ET 15 < 2 OU VRAI
-    27 = 27 ET faux OU vrai
-    27 = 27 ET faux
-    vrai = vrai ET faux
-    vrai = faux
+    vrai ET faux OU vrai
+    vrai OU faux
     Réponse: faux
 
 6. 27 = 28 ET ( 15 < 2 OU VRAI )
-    27 = 28 ET (faux OU VRAI)
-    vrai = vrai ET faux
-    vrai = faux
+    faux ET (faux OU VRAI)
+    faux ET faux
     Réponse: faux
 
 7. 27 = 28 ET NON (15 < 2 ) OU VRAI
@@ -38,9 +34,9 @@
     Réponse: vrai
 
 8. 27 = 28 ET NON ( 15 < 2 OU VRAI )
-    vrai = vrai ET NON (faux OU vrai)
-    vrai ET NON (faux)
-    vrai ET vrai
+    faux ET NON (faux OU vrai)
+    fAUX ET NON (faux)
+    faux ET vrai
     Réponse: vrai
 
 9. NON ( 15 - 5 = 12 ET VRAI )
