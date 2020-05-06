@@ -3,8 +3,12 @@ La valeur de X vaut 3 et la valeur de Y vaut 5.
 
 DEBUT PROGRAMME
 
+ VARIABLES LOCALE
+
     var x :N <- 3
     var y :N <- 5
+
+  VARIABLES LOCALE
 
     x <- x - y
     y <- x + y
