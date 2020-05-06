@@ -4,6 +4,7 @@
 Debut circonference
 
 	VARIABLES LOCALES
+		var number_user: N <- 0
 		var rayon_cercle : N <- 0
 		var circonference_cercle : N <- 0 
 
