@@ -4,16 +4,14 @@
 Debut circonference
 
 	VARIABLES LOCALES
-		var number_user: N <- 0
 		var rayon_cercle : N <- 0
 		var circonference_cercle : N <- 0 
-
 	Fin VARIABLES LOCALES
 
 	Afficher "Bonjour, rentrez le rayon d'un cercle et je vous renverrai sa circonférence"
 	Saisir rayon_cercle 
 
-	circonference_cercle = 2PI number_user
+	circonference_cercle = 2 * PI * rayon_cercle
 
 	Afficher circonference_cercle 
 	
