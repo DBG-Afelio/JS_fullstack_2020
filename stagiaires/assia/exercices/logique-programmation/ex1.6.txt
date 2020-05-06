@@ -1,0 +1,17 @@
+Ecrire le programme qui calcule et affiche la moyenne de 3 nombres entrés au clavier.
+------------
+
+Debut Moyenne
+    VARIABLE LOCALES :
+        VAR nb1 :N <- 0
+        VAR nb2 :N <- 0
+        VAR nb3 :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Saisir le 1er nombre :"
+    Saisir nb1
+    Afficher "Saisir le 2eme nombre :"
+    Saisir nb2
+    Afficher "Saisir le 3eme nombre :"
+    Saisir nb3
+    Afficher "La moyenne des 3 nombres entrés est de :", (nb1 + nb2 + nb3) / 3
+Fin Moyenne
