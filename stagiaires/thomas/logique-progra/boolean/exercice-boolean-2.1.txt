@@ -39,9 +39,8 @@
 
    --------------------------------------------
    27 = 28 ET NON (15 < 2 ) OU VRAI
-    FAUX   ET NON (FAUX) OU VRAI
-    FAUX ET VRAI OU VRAI 
-    => FAUX
+    FAUX OU VRAI
+    => VRAI
     
    --------------------------------------------
    27 = 28 ET NON ( 15 < 2 OU VRAI )
