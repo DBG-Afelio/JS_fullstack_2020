@@ -5,4 +5,9 @@ L'expression "non A et non B" est-elle équivalente à "non(A ou B)" ?
           | 0 | 0 |  vrai |  vrai |      vrai      |   faux |      vrai   |
           | 0 | 1 |  vrai |  faux |      faux      |   vrai |      faux   |
           | 1 | 0 |  faux |  vrai |      faux      |   vrai |      faux   |
-          | 1 | 1 |  faux |  faux |      vrai      |   vrai |      faux   |
+          | 1 | 1 |  faux |  faux |      faux      |   vrai |      faux   |
+
+equivalent
+
+
+
