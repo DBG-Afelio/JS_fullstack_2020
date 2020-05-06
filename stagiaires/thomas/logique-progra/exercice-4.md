@@ -9,7 +9,7 @@ Permutation des 3 variables
     var c :N <- 3
     var temp :N <- 0
 
-    FIN VARIABLES LOCALES
+    FIN VARIABLES LOCALE
 
     temp <- c;
     c <- b;
