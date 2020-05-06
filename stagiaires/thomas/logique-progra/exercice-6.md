@@ -4,9 +4,9 @@ PROGRAMME
 
     VARIABLE LOCALE
 
-    var note1 <- 0
-    var note2 <- 0
-    var note3 <- 0
+    var note1 :N <- 0
+    var note2 :N <- 0
+    var note3 :N <- 0
 
     FIN VARIABLE LOCALE
 

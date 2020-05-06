@@ -4,8 +4,8 @@
 
     VARIABLE LOCALE
 
-    var rayon <- 0
-    var PI <- 3.14
+    var rayon :N <- 0
+    var PI :N <- 3.14
 
     FIN VARIABLE LOCALE
 
