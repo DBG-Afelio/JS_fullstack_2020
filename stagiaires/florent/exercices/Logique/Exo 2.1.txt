@@ -5,7 +5,7 @@
 
 2. 27 = 27 OU 15 < 2
     vrai OU faux
-    Réponse: faux
+    Réponse: vrai
 
 3. 27 = 27 OU NON (15 < 2)
 	vrai OU NON (Faux)
@@ -13,14 +13,13 @@
     Réponse: vrai
 
 4. 27 = 28 ET NON 15 < 2
-    vrai ET NON faux
-    vrai ET vrai
-    Réponse: vrai
+    vrai ET err
+    Réponse: err
 
 5. 27 = 27 ET 15 < 2 OU VRAI
     vrai ET faux OU vrai
     vrai OU faux
-    Réponse: faux
+    Réponse: vrai
 
 6. 27 = 28 ET ( 15 < 2 OU VRAI )
     faux ET (faux OU VRAI)
@@ -37,7 +36,7 @@
     faux ET NON (faux OU vrai)
     fAUX ET NON (faux)
     faux ET vrai
-    Réponse: vrai
+    Réponse: faux
 
 9. NON ( 15 - 5 = 12 ET VRAI )
     NON(10 = 12 ET vrai)
