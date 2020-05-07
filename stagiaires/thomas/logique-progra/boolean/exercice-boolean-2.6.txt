@@ -1,0 +1,22 @@
+Nombre pair
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var nombre :N <- 0
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Entrer nombre")
+
+SAISIR nombre 
+
+    SI (nombre / 2 === 0)
+    ALORS AFFICHER("Bon nombre")
+
+    SINON AFFICHER("Mauvais nombre")
+        
+FIN SI 
+
+FIN PROGRAMME
