@@ -4,7 +4,7 @@ Nombre pair
 
     VARIABLE LOCALE
 
-    var nombre :N <- 0
+    var nombre :N
 
     FIN VARIABLE LOCALE
 
