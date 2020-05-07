@@ -1,0 +1,2 @@
+saisir nb
+    si nb > 4 ET nb < 95 ET (nb < 10 ET nb > 10)
