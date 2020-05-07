@@ -8,7 +8,7 @@ afficher "entrez un nombre entier"
 
 Saisir nombre
 
-Si nombre mod 1 =0
+Si nombre-([nombre/1]*1)=0
    alors
    Afficher "Nombre entier"
 
