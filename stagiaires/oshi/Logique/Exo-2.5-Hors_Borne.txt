@@ -1,0 +1,10 @@
+Début programme
+	Variable locale
+        Var nombre :N <- 0
+        Var si_est_entre_et_different :B <- FAUX
+	Fin variable locale
+	Afficher "Veuillez entrer un nombre :"
+	Saisir nombre
+	si_est_entre_et_different <- nombre > 5 ET nombre < 95 ET NON (nombre = 10)
+	Afficher "Le nombre est-il strictement compris entre 5 et 95 et différent de 10? :", si_est_entre_et_different
+Fin de programme
