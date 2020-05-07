@@ -4,7 +4,7 @@ Début de programme
     Fin Variables locales
     Afficher "Entrez votre âge: "
     Saisir age
-    Si age>6 et age ange<78
+    Si age>6 et age<78
         Afficher "Votre âge est compris entre 7 et 77."
     Sinon
          Afficher "Votre âge n'est pas compris entre 7 et 77."
