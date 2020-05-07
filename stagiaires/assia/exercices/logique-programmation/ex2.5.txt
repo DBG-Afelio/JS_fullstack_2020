@@ -1,0 +1,16 @@
+Écrire une expression qui teste si un nombre est strictement compris 
+entre 5 et 95 (bornes non incluses) et différent de 10.
+
+Debut HorsBornes
+    VARIABLE LOCALES :
+        CONST min :N <- 5
+        CONST max :N <- 95
+        CONST alpha :N <- 10
+        VAR nb :N <- 0
+        VAR result :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un nombre entre ", min, " et ", max, " (bornes NON incluses) et different de ", alpha, " : "
+    Saisir nb
+    result <- nb ≠ alpha ET (nb < max OU nb > min)
+    "Le nombre saisi est-il compris dans les bornes :", result
+Fin HorsBornes

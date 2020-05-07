@@ -1,4 +1,4 @@
-Tintin 
+Pas Tintin 
 
  PROGRAMME
 
@@ -12,7 +12,7 @@ AFFICHER("Veuillez entrer votre age")
 
 SAISIR age 
 
-SI (age >= 7 ET age <= 77)
+SI non(age >= 7 ET age <= 77)
  ALORS AFFICHER("age correct")
 
 SINON
