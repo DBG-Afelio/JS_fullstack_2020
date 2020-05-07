@@ -1,0 +1,17 @@
+// Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonction des variables suivantes :
+
+Debut ex2-9
+    VARIABLES LOCALES :
+        var A :B // Hugo a fini ses devoirs
+        var B :B // Hugo a assez d'argent
+        var C :B // Les transport en communs ne sont pas en grève
+        var D :B // La voiture du père de Hugo est disponible
+    FIN VARIABLES LOCALES
+
+    SI (A ET ( (B ET C) OU D))
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-9
