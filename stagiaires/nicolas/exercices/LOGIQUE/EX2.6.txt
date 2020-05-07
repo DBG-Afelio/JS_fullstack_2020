@@ -12,8 +12,8 @@ Debut EXNOMBREENTIER
     AFFICHER "veuillez entrez un nombre :"
     SAISIR nombre
 
-    isInt <- nombre - ((1 / nombre)x 1) = 0
+    isInt <- DIV 1 = nombre / 1
 
-    AFFICHER "Le nombre est-il un entier? :", isBetween
+    AFFICHER "Le nombre est-il un entier? :", isInt 
 
 fin EXNOMBREENTIER
