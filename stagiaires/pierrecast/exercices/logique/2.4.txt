@@ -3,12 +3,11 @@
 Debut ex2-4
     VARIABLES LOCALES :
         var age :N <- 0
-        var expression :B <- NON(age >= 7 ET age <= 77)
     FIN VARIABLES LOCALES
     
     Afficher "Entrer votre age : "
     Saisir  age
-    SI expression
+    SI NON(age >= 7 ET age <= 77)
         ALORS
         Afficher "Vous ne pouvez pas lire Tintin"
         SINON
