@@ -11,6 +11,6 @@ Debut HorsBornes
     FIN VARIABLES LOCALES
     Afficher "Saisir un nombre entre ", min, " et ", max, " (bornes NON incluses) et different de ", alpha, " : "
     Saisir nb
-    result <- nb ≠ alpha ET (nb < max OU nb > min)
-    "Le nombre saisi est-il compris dans les bornes :", result
+    result <- nb ≠ alpha ET nb < max ET nb > min
+    "Le nombre saisi est-il compris entre 5 et 95 (bornes NON incluses) et different de 10 ? :", result
 Fin HorsBornes
