@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un âge est compris entre 7 et 77 (bornes incluses).
+Debut Age
+
+VARIABLES LOCALES :
+VAR Age :N <- 0
+
+Fin VARIABLES LOCALES
+
+Afficher "S.V.P entrez Age:"
+Saiser Age
+
+Si Age > 7 et Age < 77 
+ALORS 
+AFFICHER VRAI
+ 
+SINON   
+AFFICHER FAUX 
+
+Fin Boolean
+
