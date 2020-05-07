@@ -7,7 +7,7 @@ Debut ex2-7
  
     Afficher "Entrer un age : "
     Saisir age
-    SI (age <=1 ET age >=18) OU (age <= 65 ET age >= 90)
+    SI (age >=1 ET age <=18) OU (age >= 65 ET age <= 90)
         ALORS
         Afficher "OK"
         SINON
