@@ -1,0 +1,16 @@
+// Écrire une expression qui teste si un nombre est entier
+
+Debut ex2-6
+    VARIABLES LOCALES :
+        var number :N <- 0
+    FIN VARIABLES LOCALES
+ 
+    Afficher "Entrer un nombre : "
+    Saisir  number
+    SI (number DIV 10) = (number / 10)
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-6
