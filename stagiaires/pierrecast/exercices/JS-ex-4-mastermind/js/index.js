@@ -15,8 +15,10 @@ const oLevels = document.getElementById('levels').getElementsByClassName('level'
 for (let i = 0 ; i < oLevels.length; i++) {
 	oLevels[i].addEventListener('click', function() {
 		level = Number(oLevels[i].value);
-		activeLevel();
-		restartAll();
+		if (confirm("Une nouvelle partie de niveau "+level+" ?")) {
+			activeLevel();
+			restartAll();
+		}
 	});
 }
 
@@ -49,7 +51,7 @@ function activeLevel() {
 	oLevels[level-1].classList.add('activeLevel');
 }
 
-//mise à jour de clavier en fonction du niveau
+// mise à jour de clavier en fonction du niveau
 // placement des écouteurs sur chaque bouton du clavier
 function generateKeyboard() {
 	let oEmpty = document.getElementById('button8');
@@ -63,7 +65,7 @@ function generateSecret() {
 	oSecretPlace.style.display = "none";
 	while (arr.length < secretLength) {
 		let num = Math.floor(Math.random()*nbColor)+1;
-		if (level === 3 || arr.indexOf(num) === -1) {
+		if (level === 3 || (level ===2 && num === 8) || arr.indexOf(num) === -1) {
 			arr.push(num);
 		}
 	}
@@ -83,7 +85,7 @@ function insert(color) {
 		oSeq.appendChild(oDiv);
 		test.push(color);
 
-		if (level !== 3) {
+		if (level === 1 || (level === 2 && color !== 8 )) {
 			document.getElementById('button'+color).disabled = true;
 		}
 
