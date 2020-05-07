@@ -5,7 +5,7 @@ Tintin
     VARIABLE LOCALE
 
     var age :N <- 0
-    var condition_a_tester :B <- !(age >= 7 && age <= 77)
+    var condition_a_tester :B <- non(age >= 7 ET age <= 77)
 
     FIN VARIABLE LOCALE
 
