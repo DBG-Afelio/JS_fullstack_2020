@@ -7,7 +7,7 @@ Debut ex2-6
  
     Afficher "Entrer un nombre : "
     Saisir  number
-    SI (number DIV 10) = (number / 10)
+    SI (number DIV 1) = (number / 1)
         ALORS
         Afficher "OK"
         SINON
