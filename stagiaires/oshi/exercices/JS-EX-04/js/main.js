@@ -157,26 +157,32 @@ function restart() {
 }
 
 function verification_response(gen_colors, user_colors) {
-    const good_position_index = [];
     const response = [];
     const bad_colors = [];
-    user_colors.forEach((color, i) => {
-        result[user_try].getElementsByClassName("btn-circle")[i].style.backgroundColor = color;
-        if(color===gen_colors[i]) {
-            good_position_index.push(true);
+    const index_verify = [];
+    gen_colors.forEach((color, i) => {
+        result[user_try].getElementsByClassName("btn-circle")[i].style.backgroundColor = user_colors[i];
+        if(color===user_colors[i]) {
             response.push("black");
+            index_verify.push(0);
         } else {
-            good_position_index.push(false);
-            bad_colors.push(gen_colors[i]);
-        }
-        if(response.length === gen_colors.length) {
-            success = true;
+            bad_colors.push(user_colors[i]);
+            index_verify.push(1);
         }
     });
-    user_colors.forEach((color, i) => {
-        if(bad_colors.includes(color) && !good_position_index[i]) {
-            response.push("white");
-        }
+    if(response.length === gen_colors.length) {
+        success = true;
+    }
+    gen_colors.forEach((color, i) => {
+        bad_colors.forEach((b_color, i2) => {
+            if(b_color === color) {
+                if(index_verify[i] === 1) {
+                    response.push("white");
+                    index_verify[i] = 0;
+                }
+                console.log(index_verify[i]);
+            }
+        });
     });
     return response;
 }
