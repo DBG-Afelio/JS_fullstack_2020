@@ -1,0 +1,21 @@
+// Écrire une expression qui teste si un nombre est entier
+
+Debut estEntier
+
+	VARIABLES LOCALES
+		var user_number: N <- 0 
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, donnez-moi un nombre"
+
+	Saisir user_number
+
+	SI ((user_number % 2 = 0) OU (user_number % 2 = 1))
+	ALORS	
+		Afficher "Le nombre est un nombre entier"
+	SINON
+		Afficher "Le nombre n'est pas un nombre entier"
+	FINSI
+
+Fin estEntier
