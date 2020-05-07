@@ -1,0 +1,19 @@
+Écrire une expression qui teste si un nombre est entier
+
+Debut EXNOMBREENTIER
+
+    VARIABLES LOCALES
+
+        VAR nombre :N <- 0
+        VAR isInt :B <- FAUX
+
+    FIN VARIABLES LOCALES
+
+    AFFICHER "veuillez entrez un nombre :"
+    SAISIR nombre
+
+    isInt <- nombre - ((1 / nombre)x 1) = 0
+
+    AFFICHER "Le nombre est-il un entier? :", isBetween
+
+fin EXNOMBREENTIER
