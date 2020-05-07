@@ -1,0 +1,28 @@
+Écrire l'expression décroche. 
+En fonction des variables suivantes :
+
+- Var a :B _// le téléphone sonne_
+- Var b :B _// j'ai envie de répondre_
+- Var c :B _// j'ai envie d'appeler quelqu'un_
+
+// Je ne DECROCHE que si le tel sonne et que j'ai envie de repondre,
+OU si j'ai envie d'appeler. le reste du temps DECROCHE = 0
+------
+
+
+Debut DECROCHE
+    VARIABLE LOCALES :
+        VAR a :B <- FAUX
+        VAR b :B <- FAUX
+        VAR c :B <- FAUX
+        VAR dec :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "le téléphone sonne ? : "
+    Saisir A
+    Afficher "j'ai envie de répondre ? : "
+    Saisir B
+    Afficher "j'ai envie d'appeler quelqu'un ? : "
+    Saisir C
+    dec <- A ET B ET NON C OU NON A ET NON B ET C
+    "Hugo peut-il sortir ce soir ? : ", dec
+Fin DECROCHE
