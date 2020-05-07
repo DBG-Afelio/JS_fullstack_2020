@@ -1,0 +1,15 @@
+// Écrire une expression pour faire un « ou » exclusif entre deux booléens.
+
+Debut ex2-8
+    VARIABLES LOCALES :
+        var X :B 
+        var Y :B 
+    FIN VARIABLES LOCALES
+
+    SI (X = VRAI ET Y = FAUX) OU (Y = VRAI ET X = FAUX))
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-8
