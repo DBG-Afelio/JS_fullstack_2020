@@ -12,7 +12,7 @@ AFFICHER("Entrer nombre")
 
 SAISIR nombre 
 
-    SI (nombre > 5 ET nombre < 95 ET DIFFERENT DE 10)
+    SI (nombre > 5 ET nombre < 95 ET nombre !== 10)
     ALORS AFFICHER("Bon nombre")
 
     SINON AFFICHER("Mauvais nombre")
