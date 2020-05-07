@@ -180,7 +180,6 @@ function verification_response(gen_colors, user_colors) {
                     response.push("white");
                     index_verify[i] = 0;
                 }
-                console.log(index_verify[i]);
             }
         });
     });
