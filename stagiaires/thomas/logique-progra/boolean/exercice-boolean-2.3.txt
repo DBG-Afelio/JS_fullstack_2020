@@ -5,7 +5,6 @@ Tintin
     VARIABLE LOCALE
 
     var age :N <- 0
-    var condition_a_tester :B <- non(age >= 7 ET age <= 77)
 
     FIN VARIABLE LOCALE
 
@@ -13,7 +12,7 @@ AFFICHER("Veuillez entrer votre age")
 
 SAISIR age 
 
-SI condition_a_tester 
+SI non(age >= 7 ET age <= 77)
  ALORS AFFICHER("age correct")
 
 SINON
