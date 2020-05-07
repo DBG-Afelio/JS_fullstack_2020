@@ -4,3 +4,5 @@
           | faux | vrai | vrai  |  faux |     faux       |  vrai  |     faux    |
           | vrai | faux | faux  |  vrai |     faux       |   vrai |     faux    |
           | vrai | vrai | faux  |  faux |     faux       |   vrai |     faux    |
+
+          => OUI
