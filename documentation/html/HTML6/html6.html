@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    </head>
+	<body>
+        <header>
+            <h1>HTML6</h1>
+        </header>
+        <article>
+            <p>page wiki :<a href="https://fr.wikipedia.org/wiki/Hypertext_Markup_Language#L'avenir_du_HTML_:_sans_num%C3%A9ro_de_version_?">"L'avenir du HTML : sans numéro de version ?"</a></p>
+
+            <a href="https://blog.whatwg.org/html-is-the-new-html5">https://blog.whatwg.org/html-is-the-new-html5</a>
+            <p>
+                Un site qui vérifie la compatibilité de son navigateur avec le HTML6 :
+                <a href="http://html6test.com/">http://html6test.com/</a>
+            </p>
+
+            <p>Proposition d'une page en HTML6 par Bobby Mozumder sur le site du W3C :</p>
+            <pre> 
+
+                Example web page:
+                ----
+                &lt;DOCTYPE html&gt;
+                &lt;HTML LANG=“en”&gt;
+                &lt;HEAD&gt;
+                &lt;FIXTURES lang=“xml”&gt;
+                    &lt;model class=“MyArticleData”&gt;
+                        &lt;rsp stat=“ok"&gt;
+                            &lt;article label=“one” id=“1"&gt;
+                                &lt;headline&gt;"Big News!”&lt;/headline&gt;
+                                &lt;body&gt;"&lt;p&gt;This is the first article intro.&lt;/p&gt;&lt;p&gt;This is the second paragraph.&lt;/p&gt;"&lt;/body&gt;
+                            &lt;/article&gt;
+                            &lt;article label=“two” id=“2"&gt;
+                                &lt;headline&gt;"Not so big news"&lt;/headline&gt;
+                                &lt;body&gt;"&lt;p&gt;This is the &lt;em&gt;second&lt;/em&gt; article.&lt;/p&gt;"&lt;/body&gt;
+                            &lt;/article&gt;
+                        &lt;/rsp&gt;
+                    &lt;/model&gt;
+                    &lt;model class=“MyImageData”&gt;
+                        &lt;rsp stat=“ok"&gt;
+                            &lt;image label="Square" width="75" height="75" source="<a href="https://mycontentserver.com/image_s.jpg">https://mycontentserver.com/image_s.jpg</a>" id=“3"/&gt;
+                            &lt;image label=“Tall" width=“300" height=“200" source="<a href="https://mycontentserver.com/image_l.jpg">https://mycontentserver.com/image_l.jpg</a>" id=“4"/&gt;
+                        &lt;/rsp&gt;
+                        &lt;rsp stat=“loading"&gt;
+                            &lt;image label="Square" width="75" height="75" source="<a href="https://mycontentserver.com/loading_image_s.jpg">https://mycontentserver.com/loading_image_s.jpg</a>" id=“1"/&gt;
+                        &lt;/rsp&gt;
+                        &lt;rsp stat=“some_error"&gt;
+                            &lt;image label="Square" width="75" height="75" source="<a href="https://mycontentserver.com/error_image_s.jpg">https://mycontentserver.com/error_image_s.jpg</a>" id=“2"/&gt;
+                            &lt;message
+                        &lt;/rsp&gt;
+                    &lt;/model&gt;
+                &lt;/FIXTURES&gt;
+                &lt;/HEAD&gt;
+                &lt;BODY&gt;
+                    &lt;MENU class=“controller”&gt;
+                        &lt;A href=“<a href="http://api.mywebsite.com/api/load-new-article”">http://api.mywebsite.com/api/load-new-article”</a> model=“MyArticleData"&gt;Click here to replace the articles with different articles.&lt;/A&gt;
+                        &lt;A href=“<a href="http://api.mywebsite.com/api/load-new-image”">http://api.mywebsite.com/api/load-new-image”</a> model=“MyImageData"&gt;Click here to replace the picture with a different picture.&lt;/A&gt;
+                    &lt;/MENU&gt;
+                    &lt;MAIN class=“viewer”&gt;
+                        &lt;ARTICLE class=“center"&gt;
+                            &lt;H1 model=“MyArticleData.rsp.article(label=‘one’).headline” /&gt;
+                            &lt;SPAN model="MyArticleData.rsp.article(label=’one’).body” /&gt;
+                        &lt;/ARTICLE&gt;
+                        &lt;ARTICLE class=“sidebar"&gt;
+                            &lt;H1 model=“MyArticleData.rsp.article(label=’two’).headline” /&gt;
+                            &lt;SPAN model=“MyArticleData.rsp.article(label=’two’).body” /&gt;
+                        &lt;/ARTICLE&gt;
+                        &lt;IMG src=“model:MyImageData.rsp.image(label=‘Square’)#source” width=“model:MyImageData.rsp.image(label=‘Square’)#width” height=“model:MyImageData.rsp.image(label=’Square’)#height”&gt;
+                    &lt;/MAIN&gt;
+                &lt;/BODY&gt;
+                &lt;/HTML&gt;
+
+            </pre>
+        </article>    
+    </body>
+</html>
