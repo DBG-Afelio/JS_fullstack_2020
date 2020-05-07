@@ -9,7 +9,7 @@ Fin VARIABLES LOCALES
 Afficher "S.V.P entrez Age:"
 Saiser Age
 
-Si Age > 7 et Age < 77 
+Si Age => 7 et Age <= 77 
 ALORS 
 AFFICHER VRAI
  
