@@ -20,6 +20,6 @@ reste <- nombre MOD 1
 
     SINON AFFICHER("Nombre entier")
         
-FIN SI
+    FIN SI
 
 FIN PROGRAMME
