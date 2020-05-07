@@ -3,12 +3,12 @@
 Debut ex2-3
     VARIABLES LOCALES :
         var age :N <- 0
-        var expression :B <- (age >= 7 ET age <= 77)
+
     FIN VARIABLES LOCALES
 
     Afficher "Entrer votre age : "
     Saisir  age
-    SI expression
+    SI age >= 7 ET age <= 77
         ALORS
         Afficher "Vous pouvez lire Tintin"
         SINON
