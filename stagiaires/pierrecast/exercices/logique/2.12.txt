@@ -1,0 +1,27 @@
+// Ecrire l'expression pour savoir si la personne peut entrer ou non.
+Sachant que:
+
+    Les variables suivantes représentent les caractéristiques de la personne.
+        Var a : B // la personne a un ticket
+        Var b : B // la personne a un ticket réduit
+        Var age : N // âge de la personne.
+    Un enfant de moins de 6 ans peut entrer gratuitement,
+    Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+    Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+
+
+Debut ex2-12
+    VARIABLES LOCALES :
+        var pluie :B // Il pleut pour le moment
+        var manteau :B // Julie porte un manteau
+       
+    FIN VARIABLES LOCALES
+
+    SI (age < 6 OU (age >= 6 ET age < 12 ET b = VRAI) OU (age >12 ET a = VRAI))   // parenthèses inutiles mais c'est plus clair pour moi !
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-12
