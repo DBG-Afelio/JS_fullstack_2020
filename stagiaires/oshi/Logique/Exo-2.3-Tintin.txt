@@ -1,7 +1,7 @@
 Début programme
 	Variable locale
-        Let age :N <- 0
-        Let si_est_entre :B <- FAUX
+        Var age :N <- 0
+        Var si_est_entre :B <- FAUX
 	Fin variable locale
 	Afficher "Veuillez entrer votre age :"
 	Saisir age
