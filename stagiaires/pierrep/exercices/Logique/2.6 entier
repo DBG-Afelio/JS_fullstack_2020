@@ -1,5 +1,5 @@
     var locales 
         var nb :N <- 0 
     fin var locales
-        si nb MOD 2 = 0
+        si nb MOD 2 = 0 et nb MOD 1 = 0
 
