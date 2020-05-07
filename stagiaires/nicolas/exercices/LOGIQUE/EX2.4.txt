@@ -13,7 +13,7 @@ Debut ExAGE2
     AFFICHER "veuillez entrez votre age :"
     SAISIR age
 
-    isNotBetween <- age < 7 ET age > 77
+    isNotBetween <- age < 7 OU age > 77
     
     AFFICHER "L'age est-il compris entre 7 et 77 ans ? :", NOT isNotBetween
 
