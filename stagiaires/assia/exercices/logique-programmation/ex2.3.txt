@@ -1,0 +1,18 @@
+Tintin
+Écrire une expression qui teste si un âge est compris entre 7 et 77 
+(bornes incluses).
+
+------
+
+Debut AGE
+    VARIABLE LOCALES :
+        CONST min :N <- 7
+        CONST max :N <- 77
+        VAR age :N <- 0
+        VAR bool_in :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un age entre 7 et 77 ans (inclus)"
+    Saisir age
+    bool_in <- age >= min ET age <= max
+    "L'age saisi est-il compris entre 7 et 77 ans ? :", bool_in
+Fin AGE
