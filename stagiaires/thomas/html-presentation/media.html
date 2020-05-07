@@ -16,7 +16,7 @@
     <hr>
     <p>Liste des balises media : </p>
     <p>
-     <b>Audio</b> : Cette balise permet l’affichage et la prise en charge de contenu audio, sous différents formats.
+      <b>Audio</b> : Cette balise permet l’affichage et la prise en charge de contenu audio, sous différents formats.
     </p>
     <p>Pour spécifier la piste audio, on peut utiliser l’attribut <b>src</b> ou la balise <b>source</b>.
       L’attribut <b>controls</b> met à disposition de l’utilisateur une interface pour la lecture du média.
@@ -29,5 +29,36 @@
     <p><b>Formats audio</b> : mp4, avi, mov, rm, mkv, divx...</p>
     <p><b>Attributs utiles</b> : autoplay, loop, muted, preload</p>
     <hr>
+    <p><b> Embed </b> (balise orpheline) : La balise embed permet d'intégrer un média ou une application sur la page HTML </p>
+    <p><b>Quelques attributs qui l’accompagne</b> (conseillé de toutes les définir et spécifier): height, src, type, width</p>
+    <hr>
+    <p><b>Source</b> (balise orpheline) : La balise source sert à définir une ou plusieurs ressources média pour sa lecture (s’accompagne avec la balise <b>audio</b> ou <b>vidéo</b>)</p>
+    <p><b>Quelques attributs utiles</b> : media, sizes, src, srcset, type</p>
+    <hr>
+    <p><b>Picture</b>: Cette balise agit comme les balises <b>audio</b> et <b>vidéo</b> et mais pour les images</p>
+    <p><b>Quelques attributs utiles </b>: media, sizes, src, srcset, type</p>
+    <hr>
+    <p><b>img</b> (balise orpheline) : Affiche une image. </p>
+    <p><b>Petite précision CSS </b>:  Les images sont définies en mode <b>display</b>: <b>inline</b> par défaut</p>
+    <p><b>Format d’images prise en charge</b> : jpeg, png, svg, tiff, gif, webP, bmp…</p>
+    <p><b>Attributs pris en charge</b> : alt, crossorigin, sync, async, ismap, size, src, srcset, width..</p>
+    <hr>
+    <p><b>object</b> permet d'insérer une ressource de type media, application ou plugin. </p>
+    <p><b>Petite précision </b>: Les nouveaux navigateurs ne sont plus compatible avec Adobe Flash, ActiveX, les applets et plugins Java</p>
+    <p><b>Attributs pris en charge </b>: data, form, width, height, type, name... </p>
+    <hr>
+    <p><b>param</b> sert à définir les paramètres qui peuvent être employés dans un élément qui a pour balise <b>object</b>.</p>
+    <p><b>Attributs</b> : value, name</p>
+    <hr>
+    <p><b>track</b> permet d’ajouter des sous-titres dans un média de type audio et vidéo.</p>
+    <p><b>Attributs</b> : default, kind (subtitles, captions, descriptions, chapters, metadata), label, src, srclang
+    </p>
+    <hr>
+    <p><b>canvas</b></p>
+    <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du code javascript (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des graphes, voir même de la 3D (via l’API webGL).</p>
+    <hr>
+    <p><b>svg</b></p>
+    <p> La balise SVG permet d'insérer du code SVG de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...) , des dessins et même des animations.</p>
+
   </body>
 </html>
