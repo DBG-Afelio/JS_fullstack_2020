@@ -12,7 +12,7 @@ Debut EXNOMBRE
     AFFICHER "veuillez entrez un nombre :"
     SAISIR nombre
 
-    isBetween <- nombre > 5 ET nombre < 95
+    isBetween <- nombre > 5 ET nombre < 95 ET NOT (number = 10)
 
     AFFICHER "Le nombre est-il compris entre 5 et 95 ? :", isBetween
 
