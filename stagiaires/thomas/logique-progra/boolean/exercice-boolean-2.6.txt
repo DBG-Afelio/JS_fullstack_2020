@@ -17,6 +17,6 @@ SAISIR nombre
 
     SINON AFFICHER("Nombre non-entier")
         
-FIN SI s
+FIN SI
 
 FIN PROGRAMME
