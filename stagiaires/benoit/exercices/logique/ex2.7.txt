@@ -1,0 +1,22 @@
+// Écrire une expression qui teste si un âge est compris 
+// entre 1 et 18 ans ou entre 65 et 90 ans.
+
+Debut age2.7
+
+	VARIABLES LOCALES
+		var user_age: N <- 0 
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, donnez-moi un âge"
+
+	Saisir user_age: 
+
+	SI ((user_age<18 ET user_age>1) OU (user_age<90 ET user_age>65)
+	ALORS	
+		Afficher "L'age est correct"
+	SINON
+		Afficher "L'age n'est pas correct"
+	FINSI
+
+Fin age2.7
