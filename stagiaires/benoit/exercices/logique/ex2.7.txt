@@ -7,8 +7,8 @@ Debut age2.7
 		var user_age: N <- 0 
 		const max_1: N <- 18
 		const min_1: N <- 1
-		const max_2: N <- 65
-		const min_2: N <- 90
+		const max_2: N <- 90
+		const min_2: N <- 65
 
 	Fin VARIABLES LOCALES
 	
