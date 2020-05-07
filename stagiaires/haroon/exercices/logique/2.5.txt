@@ -1,0 +1,26 @@
+Écrire une expression qui teste si un nombre est strictement compris entre 5 et 95 (bornes non incluses) et différent de 10.
+
+
+Debut Comparaison
+
+VARIABLES LOCALES :
+
+VAR Nombre :N <- 0
+
+Fin VARIABLES LOCALES
+
+Afficher "S.V.P entrez Nombre:"
+
+Saiser Nombre
+
+Si (Nombre > 5 et Nombre < 95) et (Nombre != 10)
+
+ALORS 
+
+AFFICHER VRAI
+ 
+SINON  
+ 
+AFFICHER FAUX 
+
+Fin Comparaison

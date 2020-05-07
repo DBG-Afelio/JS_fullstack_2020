@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un âge est compris entre 1 et 18 ans ou entre 65 et 90 ans.
+Debut Age3lavengeance
+Variable locales
+ var age:N<-0
+fin variable locales
+
+afficher "entrez votre age:"
+
+Saisir age
+
+Si age>1 et age<18 ou age>65 et age<90
+   alors
+   Afficher "Vous avez le bon age"
+
+   sinon
+   afficher "vous n'avez pas le bon age"
+fin de si
+
+fin Age3lavengeance
+

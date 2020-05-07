@@ -1,0 +1,25 @@
+// Écrire une expression qui teste si un nombre est strictement compris
+// entre 5 et 95 (bornes non incluses) et différent de 10.
+
+Debut horsborne
+
+	VARIABLES LOCALES
+		var user_number: N <- 0
+		const max: N <- 95
+		const min: N <- 5 
+		const number_not_good: N <- 10
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, donnez-moi un nombre"
+
+	Saisir user_number
+
+	SI ((user_number < max ET user_number > min) ET user_number != number_not_good)
+	ALORS	
+		Afficher "Le nombre est entre ", min, " et ", max, " et n'est pas égal à ", number_not_good
+	SINON
+		Afficher "Le nombre n'est pas entre ", min, " et ", max, " ou est égal à ", number_not_good
+	FINSI
+
+Fin horsborne
