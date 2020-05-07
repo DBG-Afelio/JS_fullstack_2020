@@ -4,7 +4,7 @@ Début programme
     Fin vrariables locales
     Afficher "Entrez un nombre : "
     Saisir nbre
-    SI nbre modulo 1 = 0
+    SI nbre - (nbre DIV 1 ) = 0
         Afficher "Votre nombre est un entier
     SINON
         Afficher "Votre nombre n'est pas un entier"
