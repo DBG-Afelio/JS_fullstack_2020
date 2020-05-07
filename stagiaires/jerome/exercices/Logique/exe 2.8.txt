@@ -1,0 +1,8 @@
+Écrire une expression pour faire un « ou » exclusif entre deux booléens.
+
+Table de vérité de XOR
+A 	B 	R = A ⊕ B
+0 	0 	0
+0 	1 	1
+1 	0 	1
+1 	1 	0 
