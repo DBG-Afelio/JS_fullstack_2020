@@ -12,11 +12,11 @@ AFFICHER("Entrer nombre")
 
 SAISIR nombre 
 
-    SI (nombre / 2 === 0)
-    ALORS AFFICHER("Bon nombre")
+    SI (nombre MOD 2 = 0)
+    ALORS AFFICHER("Nombre entier")
 
-    SINON AFFICHER("Mauvais nombre")
+    SINON AFFICHER("Nombre non-entier")
         
-FIN SI 
+FIN SI s
 
 FIN PROGRAMME
