@@ -6,8 +6,8 @@ Debut pastintin
 
 	VARIABLES LOCALES
 		var age_user : N <- 0 
-		var max: N <- 77
-		var min: N <- 7
+		const max: N <- 77
+		const min: N <- 7
 	Fin VARIABLES LOCALES
 	
 	Afficher "Bonjour, quel âge avez-vous?"
