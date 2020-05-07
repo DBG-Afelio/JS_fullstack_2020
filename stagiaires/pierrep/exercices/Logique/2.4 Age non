@@ -3,10 +3,10 @@
 Debut ex2.3
 
     var locales 
-        var min :N <- 7
-        var max :N <- 77
+        const min :N <- 7
+        const max :N <- 77
         var age :N <- 0
-        var bCheck :B <- 0
+        const bCheck :B <- FAUX
     fin var locales
 
    affiche "entrez votre age : "
