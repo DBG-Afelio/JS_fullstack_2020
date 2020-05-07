@@ -5,9 +5,11 @@ Début programme
 	Fin variable locale
 	Afficher "Veuillez entrer un nombre :"
 	Saisir nombre
-	SI nombre modulo 1 = 0
+	SI nombre / 1 = nombre DIV 1
+	ALORS
 		si_entier <- VRAI
 	SINON
 		si_entier <- FAUX
-	Afficher "Le nombre est-il entier ? :", si_est_entre
+	FINSI
+	Afficher "Le nombre est-il entier ? :", si_entier
 Fin de programme
