@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un âge n’est pas compris entre 7 et 77.
+
+Debut ExAGE2
+
+
+    VARIABLES LOCALES
+
+        VAR age :N <- 0
+        VAR isNotBetween :B <- FAUX
+
+    FIN VARIABLES LOCALES
+
+    AFFICHER "veuillez entrez votre age :"
+    SAISIR age
+
+    isNotBetween <- age < 7 ET age > 77
+    
+    AFFICHER "L'age est-il compris entre 7 et 77 ans ? :", NOT isNotBetween
+
+fin ExAGE2
