@@ -1,0 +1,25 @@
+Écrire une expression qui teste si un âge est compris entre 1 et 18 ans ou entre 65 et 90 ans.
+
+Debut AgePrograme
+
+VARIABLES LOCALES :
+
+VAR Age :N <- 0
+
+Fin VARIABLES LOCALES
+
+Afficher "S.V.P entrez Age:"
+
+Saiser Age
+
+Si Age >= 1 et Age <= 18 ou Age >= 65 et Age <= 90  
+
+ALORS 
+
+AFFICHER VRAI
+ 
+SINON  
+ 
+AFFICHER FAUX 
+
+Fin AgePrograme

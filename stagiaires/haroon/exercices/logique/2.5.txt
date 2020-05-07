@@ -13,7 +13,7 @@ Afficher "S.V.P entrez Nombre:"
 
 Saiser Nombre
 
-Si ((Nombre > 5) et (Nombre < 95)) et (Nombre != 10)
+Si (Nombre > 5 et Nombre < 95) et (Nombre != 10)
 
 ALORS 
 
