@@ -1,7 +1,7 @@
 Début programme
 	Variable locale
         Var nombre :N <- 0
-        Var si_est_entre :B <- FAUX
+        Var si_est_entre_et_different :B <- FAUX
 	Fin variable locale
 	Afficher "Veuillez entrer un nombre :"
 	Saisir nombre
