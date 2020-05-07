@@ -1,0 +1,24 @@
+Tintin 
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var age :N <- 0
+    var condition_a_tester :B <- !(age >= 7 && age <= 77)
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Veuillez entrer votre age")
+
+SAISIR age 
+
+SI condition_a_tester 
+ ALORS AFFICHER("age correct")
+
+SINON
+    AFFICHER("age non-correct")
+
+FIN SI 
+
+FIN PROGRAMME
