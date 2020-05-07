@@ -1,0 +1,16 @@
+// Écrire une expression qui teste si un âge est compris entre 1 et 18 ans ou entre 65 et 90 ans.
+
+Debut ex2-7
+    VARIABLES LOCALES :
+        var age :N <- 0
+    FIN VARIABLES LOCALES
+ 
+    Afficher "Entrer un age : "
+    Saisir age
+    SI (age <=1 ET age >=18) OU (age <= 65 ET age >= 90)
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-7
