@@ -1,0 +1,58 @@
+Ecrire l'expression qui teste si Hugo peut sortir 
+avec ses amis ce soir, en fonction des variables suivantes :
+
+- Var a :B _// Hugo a fini ses devoirs_
+- Var b :B _// Hugo a assez d'argent_
+- Var c :B _// Les transport en communs ne sont pas en grève_
+- Var d :B _// La voiture du père de Hugo est disponible_
+
+//  Je pars sur la logique que Hugo peut sortir si :
+- les devoirs sont faits et qu'un moyen de transport est dispo, le reste etant supposé facultatif :
+    a=1 obligatoirement, si a=0 => resultat = 0
+    et
+    b=1 ou 0 (pas bloquant il peut sortir meme sans argent ;)
+    et
+    (c ou d)=1 (resultat = 1 si au moins une des 2 solutions est dispo)
+//
+
+Debut Sortie_Hugo
+    VARIABLE LOCALES :
+        VAR A :B <- FAUX
+        VAR B :B <- FAUX
+        VAR C :B <- FAUX
+        VAR D :B <- FAUX
+        VAR SORTIE :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Hugo a fini ses devoirs ? : "
+    Saisir A
+    Afficher "Hugo a assez d'argent ? : "
+    Saisir B
+    Afficher "Les transport en communs ne sont pas en grève ? : "
+    Saisir C
+    Afficher "La voiture du père de Hugo est disponible ? : "
+    Saisir D
+    SORTIE <- A ET (B OU NON B) ET (C OU D) 
+    "Hugo peut-il sortir ce soir ? : ", SORTIE
+Fin Sortie_Hugo
+
+// 2eme solution si B (argent) est obligatoire pour autoriser la sortie alors :
+
+Debut Sortie_Hugo
+    VARIABLE LOCALES :
+        VAR A :B <- FAUX
+        VAR B :B <- FAUX
+        VAR C :B <- FAUX
+        VAR D :B <- FAUX
+        VAR SORTIE :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Hugo a fini ses devoirs ? : "
+    Saisir A
+    Afficher "Hugo a assez d'argent ? : "
+    Saisir B
+    Afficher "Les transport en communs ne sont pas en grève ? : "
+    Saisir C
+    Afficher "La voiture du père de Hugo est disponible ? : "
+    Saisir D
+    SORTIE <- A ET B ET (C OU D) 
+    "Hugo peut-il sortir ce soir ? : ", SORTIE
+Fin Sortie_Hugo
