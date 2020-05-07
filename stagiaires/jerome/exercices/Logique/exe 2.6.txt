@@ -8,7 +8,7 @@ afficher "entrez un nombre entier"
 
 Saisir nombre
 
-Si nombre-([nombre/1]*1)=0
+Si nombre DIV 1 = nombre / 1
    alors
    Afficher "Nombre entier"
 
