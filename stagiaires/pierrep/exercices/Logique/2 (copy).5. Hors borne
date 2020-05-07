@@ -1,0 +1,5 @@
+    var locales 
+        var nb :N <- 0 
+    fin var locales
+        si nb/nb = 1
+
