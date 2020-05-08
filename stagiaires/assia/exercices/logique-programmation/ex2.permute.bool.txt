@@ -6,6 +6,6 @@ Debut Permute_booleen
         CONST b :B <- 0  
     FIN VARIABLES LOCALES
     a <- b
-    b <- NON ( NON a . b )
+    b <- NON ( NON a ET b )
 
 Fin Permute_booleen
