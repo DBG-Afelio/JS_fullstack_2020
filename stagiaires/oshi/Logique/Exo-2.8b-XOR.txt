@@ -3,8 +3,8 @@ Début programme
         Var a :B <- FAUX
         Var b :B <- VRAI
 	Fin variable locale
-	a <- a = NON b					//VRAI
-	b <- a = NON b					//FAUX
-	a <- a = NON b					//VRAI
+	a <- a = NON b
+	b <- a = NON b
+	a <- a = NON b
 	Afficher a, b
 Fin de programme
