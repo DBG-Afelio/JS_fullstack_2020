@@ -1,0 +1,15 @@
+Début programme
+    Variables locales
+        Var a :B // la personne a un ticket
+        Var b :B // la personne a un ticket réduit
+        Var age :N // âge de la personne.
+    Fin variables locales
+    SI N<6
+        ALORS Afficher "Bienvenu!"
+    SINONSI (N>=6 ET N<12) ET b
+        ALORS Afficher "Bienvenu!"
+    SINONSI N>12 ET a
+        ALORS Afficher "Bienvenu!"
+    SINON
+        Afficher "Veuillez vous procurer un ticket merci"
+Fin de programme
