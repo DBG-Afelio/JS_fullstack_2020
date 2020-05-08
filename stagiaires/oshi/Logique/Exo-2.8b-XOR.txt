@@ -1,0 +1,8 @@
+Début programme
+	Variable locale
+        Var a :B <- VRAI
+        Var b :B <- FAUX
+	Fin variable locale
+	a <- a ET NON b OU NON a ET b
+	Afficher "Le OU exclusif vaut ? :", a
+Fin de programme
