@@ -1,0 +1,20 @@
+Decroche
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var a :B // le téléphone sonne
+    var b :B // j'ai envie de répondre
+    var c :B // j'ai envie d'appeler quelqu'un
+
+    FIN VARIABLE LOCALE
+
+
+    SI ((a ET b) OU c) 
+        alors AFFICHER("decroche") 
+    SINON AFFICHER("none") 
+
+    FIN SI
+
+FIN PROGRAMME
