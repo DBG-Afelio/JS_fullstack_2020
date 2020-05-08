@@ -2,10 +2,10 @@
 
 var locales
 
-var a :B <- 0 // le téléphone sonne_
-var b :B <- 0 // j'ai envie de répondre_
-var c :B <- 0 // j'ai envie d'appeler quelqu'un_
-var decroche <- 1
+var a :B <- FAUX // le téléphone sonne_
+var b :B <- FAUX // j'ai envie de répondre_
+var c :B <- FAUX // j'ai envie d'appeler quelqu'un_
+var decroche :B <- VRAI
 
-decroche <- (a <- 1 et b <- 1)
+decroche <- (!a et !b)
 
