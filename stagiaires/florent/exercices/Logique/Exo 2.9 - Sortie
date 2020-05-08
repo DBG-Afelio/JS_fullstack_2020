@@ -1,0 +1,12 @@
+Début programme
+    Variables locales
+        var A :B // Hugo a fini ses devoirs
+        var B :B // Hugo a assez d'argent
+        var C :B // Les transport en communs ne sont pas en grève
+        var D :B // La voiture du père de Hugo est disponible
+    Fin variables locales
+    SI A ET ((B ET (C OU D))
+        ALORS afficher "Tu peux y aller"
+    SINON
+        afficher "Ce sera pour une autre fois!"
+Fin de programme
