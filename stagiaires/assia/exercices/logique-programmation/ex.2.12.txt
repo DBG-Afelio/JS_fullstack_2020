@@ -1,0 +1,56 @@
+Ecrire l'expression pour savoir si la personne peut entrer ou non.
+Sachant que:
+
+-  Les variables suivantes représentent les caractéristiques de la personne.
+  +  Var a : B // la personne a un ticket
+  +  Var b : B // la personne a un ticket réduit
+  +  Var age : N // âge de la personne.
+- Un enfant de moins de 6 ans peut entrer gratuitement,
+- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+****************************************************************************************************************************************
+    a   b   c   d       E
+pas de ticket, only (-6ans =1 ET -12ans = 0)
+1   0   0   0   0   |   0    
+2   0   0   0   1   |   0
+3   0   0   1   0   |   1    = ( /a . /b . c . /d ) = m0   \
+4   0   0   1   1   |   0                                   |
+----------------------------                                |
+ticket reduit ET (-12ans ou -6ans)                          |-- = /a . [ (/b . c . /d) + (b . /c . d) + (b . c . /d) + (b . c . d) ]
+5   0   1   0   0   |   0                                   |   = /a . [ (/b . c . /d) +  b . [ (/c . d) + (c . /d) + (c . d) ] ]
+6   0   1   0   1   |   1    = ( /a . b . /c . d )  = m1    |   = /a . [ (/b . c . /d) +  b . [ (/c . d) + c . (/d + d) ] ]
+7   0   1   1   0   |   0    = ( /a . b . c . /d )  = m2    |   = /a . [ (/b . c . /d) +  b . [ (/c . d) + c . (   1  ) ] ]
+8   0   1   1   1   |   1    = ( /a . b . c . d )   = m3   /    = /a . [ (/b . c . /d) +  b . (/c . d + c) ]
+----------------------------                                      \_________________________________________/
+ticket (qqsoit l'age)                                             /
+9   1   0   0   0   |   1   |                                    /
+10  1   0   0   1   |   1   |                                   /
+11  1   0   1   0   |   1   |                                  /
+12  1   0   1   1   |   1   } = a ____________________________/===> E = a + /a . [ (/b . c . /d) +  b . (/c . d + c) ]
+13  1   1   0   0   |   1   |
+14  1   1   0   1   |   1   |
+15  1   1   1   0   |   1   |
+16  1   1   1   1   |   1   |
+****************************************************************************************************************************************  
+
+Debut Entrer
+    VARIABLE LOCALES :
+        CONST a :B <- 0  //ticket
+        CONST b :B <- 0  //ticket reduit
+        CONST c :B <- 0  //age < 6 ans
+        CONST d :B <- 0  //6 ans < age < 12 ans
+        VAR age :B <- 0
+        VAR pass :B <- 0 //resultat
+    FIN VARIABLES LOCALES
+    Afficher "la personne a un ticket ? : "
+    Saisir a
+    Afficher "la personne a un ticket réduit ? : "
+    Saisir b
+    Afficher "âge de la personne ? : "
+    Saisir age
+    c <- N ≤ 6
+    d <- N ≤ 12 ET N > 6
+    pass <- a + NON a . [ (NON b . c . NON d) +  b . (NON c . d + c) ]
+    "le resultat OU EXCLUSIVE des 2 booleens saisis est :", pass
+Fin Entrer
