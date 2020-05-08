@@ -1,0 +1,11 @@
+Début programme
+	Variable locale
+        Var a :B // Hugo a fini ses devoirs
+		Var b :B // Hugo a assez d'argent
+		Var c :B // Les transport en communs ne sont pas en grève
+		Var d :B // La voiture du père de Hugo est disponible
+		Var x :B <- FAUX
+	Fin variable locale
+	x <- a ET b ET c ET d
+	Afficher "Hugo peut-il sortir avec ses amis ce soir ? :", x
+Fin de programme
