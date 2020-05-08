@@ -1,0 +1,50 @@
+//Ecrire l'expression pour savoir si la personne peut entrer ou non.
+//Sachant que:
+
+//-  Les variables suivantes représentent les caractéristiques de la personne.
+//  +  Var a : B // la personne a un ticket
+//  +  Var b : B // la personne a un ticket réduit
+//  +  Var age : N // âge de la personne.
+//- Un enfant de moins de 6 ans peut entrer gratuitement,
+//- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+//- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+
+Debut entrerOuPas
+
+	VARIABLES LOCALES
+		Var ticket :B = FAUX // la personne a un ticket?
+		Var ticket_reduit :B = FAUX // la personne a un ticket réduit?
+		Var age : N = 0 _// âge de la personne
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, vous avez un ticket?"
+
+	Saisir ticket 
+
+	Afficher "Le ticket est-il un ticket réduit?"
+
+	Saisir ticket_reduit 
+
+	Afficher "Vous avez quel âege?"
+
+	Saisir age
+
+	SI (ticket_reduit et age<12)
+		Afficher "Vous pouvez entrer"
+		
+	SINONSI (ticket_reduit et age>=12)
+		Afficher "C'est un ticket à prix réduit, ça devrait être un tarif plein"
+			
+	SINONSI (ticket et age>=12)
+		Afficher "Vous pouvez entrer"
+
+	SINONSI (age<6)
+		Afficher "Vous pouvez entrer"
+	SINON
+		Afficher "Vous avez besoin d'un ticket pour pouvoir entrer"
+	FINSI
+
+
+Fin entrerOuPas
