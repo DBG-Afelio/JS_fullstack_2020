@@ -1,0 +1,15 @@
+Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonction des variables suivantes :
+
+- Var a :B _// Hugo a fini ses devoirs_
+- Var b :B _// Hugo a assez d'argent_
+- Var c :B _// Les transport en communs ne sont pas en grève_
+- Var d :B _// La voiture du père de Hugo est disponible_
+
+var locales
+
+    const a :B = 0
+    const b :B = 0
+    const c :B = 0
+    const d :B = 0
+
+a = 1 && b = 1 && c = 1 && d = 1
