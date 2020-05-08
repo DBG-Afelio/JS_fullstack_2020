@@ -1,0 +1,25 @@
+Nombre pair
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var nombre :N
+    var reste :N
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Entrer nombre")
+
+SAISIR nombre 
+
+reste <- nombre MOD 1
+
+    SI (reste > 0)
+    ALORS AFFICHER("Nombre non-entier")
+
+    SINON AFFICHER("Nombre entier")
+        
+    FIN SI
+
+FIN PROGRAMME
