@@ -13,6 +13,27 @@ avec ses amis ce soir, en fonction des variables suivantes :
     b=1 ou 0 (pas bloquant il peut sortir meme sans argent ;)
     et
     (c ou d)=1 (resultat = 1 si au moins une des 2 solutions est dispo)
+
+il y a 2e4 possibilitees mais :si a = 0, qqsoit b c et d => sortie = 0)
+si
+a   b   c   d   sortie
+1   0   0   0       
+1   0   0   1     1 = (a . /b . /c . d)
+1   0   0   0       
+1   0   0   1     1 = (a)
+1   0   1   0     1  
+1   0   1   1     1 
+1   0   1   0     1
+1   0   1   1     1
+1   1   0   0      
+1   1   0   1     1 
+1   1   0   0       
+1   1   0   1     1 
+1   1   1   0     1  
+1   1   1   1     1 
+1   1   1   0     1 
+1   1   1   1     1 
+
 //
 
 Debut Sortie_Hugo
