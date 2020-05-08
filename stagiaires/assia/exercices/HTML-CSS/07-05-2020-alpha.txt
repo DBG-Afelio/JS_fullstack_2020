@@ -68,9 +68,52 @@ https://www.numelion.com/tableau-html.html
 LISTE
 
 1. Comment utiliser les listes HTML
+
+    Les  listes pour mettre en forme du texte, aérer ce dernier et le rendre
+    plus agréable à lire. Il existe trois possibilités pour créer une liste HTML. 
+    On va trouver une liste à puces, une liste numérotée ou une liste de définitions. 
+    Nous allons presenter les trois possibilités en détail, puis voir comment modifier 
+    le design d’une liste HTML>
+
     1.1. Liste à puces
+        
+        Chaque liste a puces (ou unordered list) commence par une balise 
+        d'ouverture <ul> et se termine par une balise de fermeture </ul>. 
+        Chaque element (ou list item) de la liste commencera par une balise <li> 
+        et se terminera par </li> .
+
+        Exemple liste a puces : https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_unordered
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul> 
+
+        NB: par defaut, le symbole de la puce est le "point noir".
+        Il est possible de modifier le symbole, nous le verrons plus loin.
+
     1.2. Liste numérotée
+        
+        La liste numerotée (ou ordered list) sera utile pour definir un ordre precis entre
+        chaque items. Une balise d'ouverture <ol> et fermeture </ol> permetteent de definir les limites
+        de la liste et chaque element qui la compose commence par une balise d'ouverture <li>
+        et une balise de fermeture </li>.
+
+        Exemple liste numerotee (ou ordonnee) : https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_ordered
+        <ol>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+
+        NB: Par defaut, le type de numerotation utilisera des chiffres classiques (1,2,..). 
+        Il est possible de modifier la numerotation, nous le verrons plus loin.
+
     1.3. Liste de définition
+
+        La liste de definition sera utile pour structurer un contenu en titre et sous-titres        
+
+
     1.4. Imbriquer une liste à puces
 2. ??? Mise en forme d’une liste HTML
     2.1. Modifier l’apparence des puces d’une liste HTML
@@ -88,12 +131,6 @@ https://developer.mozilla.org/fr/docs/Learn/CSS/Styling_text/Styling_lists
 
 
 ------------
-? doit-on les integrer ?
-
-https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Le_fonctionnement_du_Web
-	Des clients et des serveurs
-	Les autres composants du Web
-	Donc que se passe-t-il, exactement ?
 
 
 
