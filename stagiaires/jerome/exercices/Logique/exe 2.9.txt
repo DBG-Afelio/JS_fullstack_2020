@@ -15,22 +15,7 @@ Variable locales
 fin variable locales
 
 
-Si a=vrai
-   alors
-   Afficher "Hugo peut sortir"
-fin de si
-
-   Si b=vrai
-   alors
-   Afficher "Hugo peut sortir"
-fin de si
-
-Si c=vrai
-   alors
-   Afficher "Hugo peut sortir"
-fin de si
-
-Si d=vrai
+Si a ET b ET c OU b
    alors
    Afficher "Hugo peut sortir"
 fin de si
