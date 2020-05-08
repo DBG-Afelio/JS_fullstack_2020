@@ -6,6 +6,6 @@ Début programme
 		Var d :B // La voiture du père de Hugo est disponible
 		Var x :B <- FAUX
 	Fin variable locale
-	x <- a ET b ET c ET d
+	x <- a ET ((b ET c) OU D)
 	Afficher "Hugo peut-il sortir avec ses amis ce soir ? :", x
 Fin de programme
