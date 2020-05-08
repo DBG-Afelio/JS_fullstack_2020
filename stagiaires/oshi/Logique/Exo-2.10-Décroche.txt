@@ -5,6 +5,6 @@ Début programme
 		Var c :B // j'ai envie d'appeler quelqu'un
 		Var decroche :B <- FAUX
 	Fin variable locale
-	decroche <- a ET b ET NON c
+	decroche <- a ET b OU c
 	Afficher "Est ce que je décroche ? :", decroche
 Fin de programme
