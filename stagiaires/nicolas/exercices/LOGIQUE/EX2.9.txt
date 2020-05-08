@@ -1,0 +1,18 @@
+// Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonction des variables suivantes :
+
+Debut exSORTIE
+    VARIABLES LOCALES :
+
+        var a :B // Hugo a fini ses devoirs
+        var b :B // Hugo a assez d'argent
+        var c :B // Les transport en communs ne sont pas en grève
+        var d :B // La voiture du père de Hugo est disponible
+
+	var Autorise :B <- false
+	
+    FIN VARIABLES LOCALES
+
+    	Autorise <- a ET b ET c OU d
+	AFFICHE <- "Hugo peut-il sortir ?", Autorise
+
+Fin exSORTIE
