@@ -1,0 +1,18 @@
+XOR
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var val1 :B <- vrai
+    var val2 :B <- faux
+    var result :B <- faux
+
+    FIN VARIABLE LOCALE
+
+    result <- (val1 ET non(val2)) OU (non(val1) ET val2)
+    
+    AFFICHER(result)
+
+
+FIN PROGRAMME
