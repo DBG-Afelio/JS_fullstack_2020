@@ -2,7 +2,6 @@ Début programme
     Variables locales
         Var XOR :B <- 0
         Var B :B <- 0
-        Var XOR :B <- 0
     Fin variables locales
     Afficher "Entrez un booleen: "
     Saisir A
