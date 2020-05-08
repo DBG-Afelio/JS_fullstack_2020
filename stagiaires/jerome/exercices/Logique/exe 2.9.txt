@@ -15,7 +15,7 @@ Variable locales
 fin variable locales
 
 
-Si a ET b ET c OU b
+Si a ET ( (b ET c) OU d)
    alors
    Afficher "Hugo peut sortir"
 fin de si
