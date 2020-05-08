@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>html-documentation</title>
+    <link rel="stylesheet" href="css/screen.css" />
+  </head>
+
+  <body>
+    <h1>Les balises multimédia</h1>
+    <p>Les balises multimédia permettent de lire du contenu audio et vidéo sur le navigateur et une d’elle, donne le droit à l’utilisateur de dessiner des motifs et des formes sur une zone spécifique du navigateur.
+    </p>
+    <hr>
+    
+    <p><b>Liste des balises media :</b></p>
+    <p>
+      <b>&ltAudio&gt</b> : Cette balise permet l’affichage et la prise en charge de contenu audio, sous différents formats.
+    </p>
+    <p>Pour spécifier la piste audio, on peut utiliser l’attribut <b>src</b> ou la balise <b>source</b>.
+      L’attribut <b>controls</b> met à disposition de l’utilisateur une interface pour la lecture du média.
+    </p>
+    <p><b>Quelques formats audio</b> : mp3, ogg, wav, flac... </p>
+    <p><b>Quelques attributs utiles</b> : autoplay, loop, muted, preload</p>
+    <hr>
+    <p><b>&ltVideo&gt</b> : Permet de lire du contenu vidéo sous plusieurs formats. Comme la balise <b>audio</b>, l’attribut src et la balise <b>source</b>.</p>
+    <p>De même, L’attribut <b>controls</b> peut être spécifié pour disposer de l’interface de contrôle.</p>
+    <p><b>Formats audio</b> : mp4, avi, mov, rm, mkv, divx...</p>
+    <p><b>Attributs utiles</b> : autoplay, loop, muted, preload</p>
+    <hr>
+    <p><b>&ltSource&gt</b> (balise orpheline) : La balise source sert à définir une ou plusieurs ressources média pour sa lecture (s’accompagne avec la balise <b>audio</b> ou <b>vidéo</b>)</p>
+    <p><b>Quelques attributs utiles</b> : media, sizes, src, srcset, type</p>
+    <hr>
+    <p><b>&ltEmbed&gt</b> (balise orpheline) : La balise embed permet d'intégrer un média ou une application sur la page HTML </p>
+    <p><b>Quelques attributs qui l’accompagne</b> (conseillé de toutes les définir et spécifier): height, src, type, width</p>
+    <hr>
+    <p><b>&ltPicture&gt</b>: Cette balise agit comme les balises <b>audio</b> et <b>vidéo</b> et mais pour les images</p>
+    <p><b>Quelques attributs utiles </b>: media, sizes, src, srcset, type</p>
+    <hr>
+    <p><b>&ltimg&gt</b> (balise orpheline) : Affiche une image. </p>
+    <p><b>Petite précision CSS </b>:  Les images sont définies en mode <b>display</b>: <b>inline</b> par défaut</p>
+    <p><b>Format d’images prise en charge</b> : jpeg, png, svg, tiff, gif, webP, bmp…</p>
+    <p><b>Attributs pris en charge</b> : alt, crossorigin, sync, async, ismap, size, src, srcset, width..</p>
+    <hr>
+    <p><b>&ltobject&gt</b> permet d'insérer une ressource de type media, application ou plugin. </p>
+    <p><b>Petite précision </b>: Les nouveaux navigateurs ne sont plus compatible avec Adobe Flash, ActiveX, les applets et plugins Java</p>
+    <p><b>Attributs pris en charge </b>: data, form, width, height, type, name... </p>
+    <hr>
+    <p><b>&ltparam&gt</b> sert à définir les paramètres qui peuvent être employés dans un élément qui a pour balise <b>object</b>.</p>
+    <p><b>Attributs</b> : value, name</p>
+    <hr>
+    <p><b>&lttrack&gt</b> permet d’ajouter des sous-titres dans un média de type audio et vidéo.</p>
+    <p><b>Attributs</b> : default, kind (subtitles, captions, descriptions, chapters, metadata), label, src, srclang
+    </p>
+    <hr>
+    <p><b>&ltcanvas&gt</b></p>
+    <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du code javascript (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des graphes, voir même de la 3D (via l’API webGL).</p>
+    <hr>
+    <p><b>&ltsvg&gt</b></p>
+    <p> La balise SVG permet d'insérer du code SVG de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...) , des dessins et même des animations.</p>
+    <hr>
+    <h1>Les balises de description de document</h1>
+    <p>Les balises de description de document servent à ajouter des informations à une page html pour l’enrichir, faciliter la recherche et l’indexation par les robots de moteur de recherche.</p>
+    <hr>
+    <p><b>Liste des balises de description :</b></p>
+    <p><b>&ltmeta&gt</b> Les balises META servent à placer des métadonnées dans une page HTML. On placera ces informations dans l’élément head, et elles ne seront pas affichées sur la page.</p>
+    <p><b>Exemple d’utilisation de balises meta :</b></p>
+    <p>- Définir le jeu de caractère d’un document (meta charset=”UTF-8”)</p>
+    <p>- (Sur mobile) Bloquer le zoom d’une page pour garder le contrôle en cas de zoom de l’utilisateur (meta name="viewport" content="width=device-width, initial-scale=1.0")</p>
+
+  </body>
+</html>
