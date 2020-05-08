@@ -1,0 +1,36 @@
+Écrire l'expression décroche. En fonction des variables suivantes :
+
+    Var a :B // le téléphone sonne
+    Var b :B // j'ai envie de répondre
+    Var c :B // j'ai envie d'appeler quelqu'un
+
+Debut Programme
+
+VARIABLES LOCALES :
+
+VAR A : N < - 0
+VAR B : N <- 0
+VAR C : N <-0
+
+VAR result : N <- 0 
+
+
+Fin VARIABLES LOCALES: 
+
+Afficher "S.V.P entrez A:"
+
+Saiser A
+
+Afficher "S.V.P entrez B:"
+
+Saiser B
+
+Afficher "S.V.P entrez C:"
+
+Saiser C
+ 
+result <- A et B et NON C
+
+Afficher  result 
+
+Fin Programme
