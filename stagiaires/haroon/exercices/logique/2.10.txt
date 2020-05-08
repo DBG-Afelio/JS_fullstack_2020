@@ -29,7 +29,7 @@ Afficher "S.V.P entrez C:"
 
 Saiser C
  
-result <- A ou B et  C
+result <- A et B  ou  C
 
 Afficher  result 
 
