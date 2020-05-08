@@ -7,9 +7,10 @@ Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonc
 
 var locales
 
-    const a :B <- 0
-    const b :B <- 0
-    const c :B <- 0
-    const d :B <- 0
+    var a :B <- 0
+    var b :B <- 0
+    var c :B <- 0
+    var d :B <- 0
+    var out :B <- 1
 
-(a <- 1 ET b <- 1) ET (c <- 1 OU d <- 1)
+out <- (a <- 1 ET b <- 1) ET (c <- 1 OU d <- 1)
