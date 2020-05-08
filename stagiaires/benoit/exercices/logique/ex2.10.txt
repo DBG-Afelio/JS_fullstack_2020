@@ -1,0 +1,42 @@
+//Écrire l'expression décroche. En fonction des variables suivantes :
+
+//- Var a :B _// le téléphone sonne?
+//- Var b :B _// j'ai envie de répondre?
+//- Var c :B _// j'ai envie d'appeler quelqu'un?
+
+
+Debut telephone
+
+	VARIABLES LOCALES
+		Var a :B = FAUX _// le téléphone sonne?
+		Var b :B = FAUX _// j'ai envie de répondre?
+		Var c :B = FAUX _// j'ai envie d'appeler quelqu'un?
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, le téléphone sonne?"
+
+	Saisir a 
+
+
+	SI ( a=VRAI)
+	ALORS	
+		Afficher "j'ai envie de répondre?"
+
+		Saisir b 
+
+		Afficher "j'ai envie d'appeler quelqu'un?"
+
+		Saisir c
+
+		SI (b=VRAI OU c=VRAI)
+		ALORS
+			Afficher "on va décrocher"
+		SINON 
+			Afficher "on ne va pas décrocher"
+		FINSI
+	SINON
+		Afficher "Le téléphone ne sonne pas"
+	FINSI
+
+Fin telephone
