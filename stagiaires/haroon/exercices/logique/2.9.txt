@@ -30,7 +30,7 @@ Saiser C
 Afficher "S.V.P entrez D:"
 Saiser D
 
-SORTER <- A et (B ou C ou D)
+SORTER <- A et (B et C ou D)
 
 Afficher SORTER 
 
