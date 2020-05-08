@@ -1,3 +1,13 @@
 Début programme
-    
+    Variables locales
+        Var XOR :B <- 0
+        Var B :B <- 0
+        Var XOR :B <- 0
+    Fin variables locales
+    Afficher "Entrez un booleen: "
+    Saisir A
+    Afficher "Entrez un second booleen: "
+    Saisir B 
+    XOR <- A ET NON B OU NON A ET B 
+    Afficher "Le OU exclusif vous donne le résultat suivant: " , XOR
 Fin de programme
