@@ -11,6 +11,8 @@ XOR
     FIN VARIABLE LOCALE
 
     result <- (val1 ET non(val2)) OU (non(val1) ET val2)
+    
+    AFFICHER(result)
 
 
 FIN PROGRAMME
