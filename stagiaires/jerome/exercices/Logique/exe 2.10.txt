@@ -1,0 +1,15 @@
+Écrire l'expression décroche. En fonction des variables suivantes :
+
+- Var a :B _// le téléphone sonne_
+- Var b :B _// j'ai envie de répondre_
+- Var c :B _// j'ai envie d'appeler quelqu'un_
+debut programme décroche
+debut var loc
+var a:B
+var b:B
+var c:B
+fin var loc
+if ((a ET b) OU c)
+alors afficher "je prend le telephone"
+fin de si
+fin programme décroche
