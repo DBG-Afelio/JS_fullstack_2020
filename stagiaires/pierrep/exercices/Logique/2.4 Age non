@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un âge n'est pas compris entre 7 et 77 (bornes incluses).
+
+Debut ex2.3
+
+    var locales 
+        const min :N <- 7
+        const max :N <- 77
+        var age :N <- 0
+        const bCheck :B <- FAUX
+    fin var locales
+
+   affiche "entrez votre age : "
+   saisie age
+   bCheck <- age < min ou age > max
+  
+   affiche "il est ", bCheck
+   affiche "que votre age n'est pas compris entre 7 et 77 ans"
+   
+
+Fin ex2.3

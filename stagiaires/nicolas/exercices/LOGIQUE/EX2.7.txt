@@ -1,0 +1,19 @@
+Écrire une expression qui teste si un âge est compris entre 1 et 18 ans ou entre 65 et 90 ans.
+
+Debut EXAge2
+
+    VARIABLES LOCALES
+
+        VAR age :N <- 0
+        VAR isBetween :B <- FAUX
+
+    FIN VARIABLES LOCALES
+
+    AFFICHER "veuillez entrez votre age :"
+    SAISIR nombre
+
+    isBetween <- age >= 1 ET age <= 18 OU age >= 65 ET age <= 90
+
+    AFFICHER "Age ok ? :", isBetween
+
+fin EXAge2

@@ -1,0 +1,19 @@
+Écrire une expression qui teste si un âge est compris entre 7 et 77 (bornes incluses).
+
+Debut ExAGE
+
+    VARIABLES LOCALES
+
+        VAR age :N <- 0
+        VAR isBetween :B <- FAUX
+
+    FIN VARIABLES LOCALES
+
+    AFFICHER "veuillez entrez votre age :"
+    SAISIR age
+
+    isBetween <- age >= 7 ET age <= 77
+
+    AFFICHER "L'age est-il compris entre 7 et 77 ans ? :", isBetween
+
+fin ExAGE

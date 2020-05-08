@@ -1,0 +1,14 @@
+Écrire une expression qui teste si un nombre est entier
+
+Debut TestEntier
+    VARIABLE LOCALES :
+        CONST nb_saisi :N <- 0
+        VAR nb_comp :N <- 0
+        VAR isINT  :B <- FAUX
+
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un nombre ENTIER : "
+    Saisir nb_saisi
+    isINT <- nb_saisi DIV 1 = nb_saisi
+    "Le nombre saisi est-il un entier ? :", isINT
+Fin TestEntier

@@ -1,0 +1,11 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+    Fin Variables locales
+    Afficher "Entrez un nombre : "
+    Saisir nbre
+    Si nbre != 10 ET nbre>5 ET nbre<95
+        Afficher "Votre nombre est compris entre 5 et 95 et différent de 10"
+    SINON
+        Afficher "Votre nombre n'est pas compris entre 5 et 95 ou est égal 10"
+Fin de programme

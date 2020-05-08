@@ -1,0 +1,13 @@
+Faites la table de vérité de l'expression non x ou non (y et z ou x) et z
+
+
+X |  Y |  Z | NON X | Y ET Z | Y ET Z OU X | NON(Y ET Z OU X) | NON(Y ET Z OU X) ET Z | NON X OU NON(Y ET Z OU X) ET Z
+------------------------------------------------------------------------------------------------------------------------
+0    0    0     1       0           0               1                       0                           1
+0    0    1     1       0           0               1                       1                           1
+0    1    0     1       0           0               1                       0                           1
+0    1    1     1       1           1               0                       0                           1
+1    0    0     0       0           1               0                       0                           0
+1    0    1     0       0           1               0                       0                           0
+1    1    0     0       0           1               0                       0                           0
+1    1    1     0       1           1               0                       0                           0
