@@ -4,7 +4,7 @@
     Var b :B // j'ai envie de répondre
     Var c :B // j'ai envie d'appeler quelqu'un
 
-Debut Programme
+Debut ProgrammeTéléphone
 
 VARIABLES LOCALES :
 
@@ -33,4 +33,4 @@ result <- A et B  ou  C
 
 Afficher  result 
 
-Fin Programme
+Fin ProgrammeTéléphone
