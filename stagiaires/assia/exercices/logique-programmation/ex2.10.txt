@@ -7,13 +7,13 @@ En fonction des variables suivantes :
 
 a   b   c   DECROCHE
 0   0   0       0
-0   0   1       1 = c
+0   0   1       1 = (/a . /b . c)
 0   1   0       0 pas de sens
 0   1   1       0 pas de sens
 1   0   0       0
 1   0   1       0 supposant qu'on ne peut pas appeler tant que le tel sonne_
-1   1   0       1 = a . b
-1   1   1       1 = a . b . c 
+1   1   0       1 = (a . b . /c)
+1   1   1       1 = (a . b . c)
 
 DECROCHE = (/a . /b . c) + (a . b . /c) + (a . b . c)
 DECROCHE = (/a . /b . c) +      (a . b) . (/c + c)
