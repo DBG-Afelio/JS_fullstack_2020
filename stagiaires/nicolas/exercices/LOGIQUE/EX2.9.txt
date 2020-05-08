@@ -12,7 +12,7 @@ Debut exSORTIE
 	
     FIN VARIABLES LOCALES
 
-    	Autorise <- a ET b ET c OU d
+    	Autorise <- (a ET b) ET (c OU d)
 	AFFICHE <- "Hugo peut-il sortir ?", Autorise
 
 Fin exSORTIE
