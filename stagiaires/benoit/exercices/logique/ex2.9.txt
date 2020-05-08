@@ -9,10 +9,10 @@
 Debut hugo
 
 	VARIABLES LOCALES
-		Var a :B _// Hugo a fini ses devoirs?
-		Var b :B _// Hugo a assez d'argent?
-		Var c :B _// Les transport en communs ne sont pas en grève?
-		Var d :B _// La voiture du père de Hugo est disponible?
+		Var a :B = FAUX _// Hugo a fini ses devoirs?
+		Var b :B = FAUX _// Hugo a assez d'argent?
+		Var c :B = FAUX _// Les transport en communs ne sont pas en grève?
+		Var d :B = FAUX _// La voiture du père de Hugo est disponible?
 
 	Fin VARIABLES LOCALES
 	
