@@ -7,10 +7,10 @@ Ecrire l'expression pour savoir si Julie peut sortir, en sachant que :
 
 var locales
 
-    var pluie :B <- 0
-    var manteau :B <- 0
-    var out :B <- 0
+    var pluie :B
+    var manteau :B
+    var out :B
 
 fin var locales
 
-out <- 1 et (pluie <- 1 et manteau <- 1)
+out <- (non pluie et non manteau) ou (pluie et manteau)

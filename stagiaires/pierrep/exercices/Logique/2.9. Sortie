@@ -1,5 +1,8 @@
 Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonction des variables suivantes :
 
+argent nécessaire uniquement s'il doit prendre le bus
+
+
 - Var a :B _// Hugo a fini ses devoirs_
 - Var b :B _// Hugo a assez d'argent_
 - Var c :B _// Les transport en communs ne sont pas en grève_
@@ -7,10 +10,12 @@ Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonc
 
 var locales
 
-    var a :B <- 0
-    var b :B <- 0
-    var c :B <- 0
-    var d :B <- 0
-    var out :B <- 1
+    var a :B 
+    var b :B 
+    var c :B 
+    var d :B 
+    var out :B 
 
-out <- (a <- 1 ET b <- 1) ET (c <- 1 OU d <- 1)
+out <- (a et b et c) ou (a et d)
+
+
