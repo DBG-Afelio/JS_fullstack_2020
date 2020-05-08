@@ -5,8 +5,22 @@ En fonction des variables suivantes :
 - Var b :B _// j'ai envie de répondre_
 - Var c :B _// j'ai envie d'appeler quelqu'un_
 
-// Je ne DECROCHE que si le tel sonne et que j'ai envie de repondre,
-OU si j'ai envie d'appeler. le reste du temps DECROCHE = 0
+a   b   c   DECROCHE
+0   0   0       0
+0   0   1       1 = c
+0   1   0       0 pas de sens
+0   1   1       0 pas de sens
+1   0   0       0
+1   0   1       0 supposant qu'on ne peut pas appeler tant que le tel sonne_
+1   1   0       1 = a . b
+1   1   1       1 = a . b . c 
+
+DECROCHE = (/a . /b . c) + (a . b . /c) + (a . b . c)
+DECROCHE = (/a . /b . c) +      (a . b) . (/c + c)
+DECROCHE = (/a . /b . c) +      (a . b) .    1
+DECROCHE = (/a + a).(/a + b).(/b + a).(/b + b).(c + a).(c + b)
+DECROCHE =    1    .        1        .    1   .   c + (a . b)
+DECROCHE = a . b + c
 ------
 
 
@@ -18,11 +32,11 @@ Debut DECROCHE
         VAR dec :B <- FAUX
     FIN VARIABLES LOCALES
     Afficher "le téléphone sonne ? : "
-    Saisir A
+    Saisir a
     Afficher "j'ai envie de répondre ? : "
-    Saisir B
+    Saisir b
     Afficher "j'ai envie d'appeler quelqu'un ? : "
-    Saisir C
-    dec <- A ET B ET NON C OU NON A ET NON B ET C
+    Saisir c
+    dec <- a ET b OU c
     "Hugo peut-il sortir ce soir ? : ", dec
 Fin DECROCHE
