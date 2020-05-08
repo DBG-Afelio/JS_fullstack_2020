@@ -1,0 +1,30 @@
+//Écrire l'expression qui intervertit les valeurs de deux variables booléennes
+
+
+
+Debut switch_booleans
+
+	VARIABLES LOCALES
+		Var a :B -> VRAI
+		Var b :B -> FAUX
+
+
+	Fin VARIABLES LOCALES
+
+
+
+	SI (a=VRAI)
+	ALORS	
+		a = FAUX
+	SINON SI (a=FAUX)
+		a = VRAI
+	FINSI
+
+	SI (b=VRAI)
+	ALORS	
+		b = FAUX
+	SINON SI (b=FAUX)
+		b = VRAI
+	FINSI
+
+Fin switch_booleans
