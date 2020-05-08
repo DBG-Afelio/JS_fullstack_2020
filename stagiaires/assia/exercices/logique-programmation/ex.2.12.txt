@@ -52,5 +52,5 @@ Debut Entrer
     c <- N ≤ 6
     d <- N ≤ 12 ET N > 6
     pass <- a + NON a . [ (NON b . c . NON d) +  b . (NON c . d + c) ]
-    "le resultat OU EXCLUSIVE des 2 booleens saisis est :", pass
+    "Autorisation a entrer ? REponse :", pass
 Fin Entrer
