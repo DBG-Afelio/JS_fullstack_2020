@@ -15,6 +15,6 @@ Decroche
         alors AFFICHER("decroche") 
     SINON AFFICHER("none") 
 
-    SI
+    FIN SI
 
 FIN PROGRAMME
