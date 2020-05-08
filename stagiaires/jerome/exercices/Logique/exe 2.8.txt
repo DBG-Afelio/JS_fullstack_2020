@@ -6,3 +6,14 @@ A 	B 	R = A ⊕ B
 0 	1 	1
 1 	0 	1
 1 	1 	0 
+
+debut programme bool
+variable locales
+var a:B<-0
+var b:B<-0
+var xor:B<-0
+fin variable locales
+si a ET NON b OU NON a ET b
+alors
+affiche xor
+fin programme bool
