@@ -1,0 +1,21 @@
+Nombre pair
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var age :N 
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Entrer age")
+
+SAISIR age 
+
+    SI (age >= 1 ET age <= 18 OU age >= 65 ET age <= 90)
+
+     ALORS AFFICHER("Age compris entre 1 et 18 ans ou entre 65 et 90 ans !")
+        
+    FIN SI
+
+FIN PROGRAMME
