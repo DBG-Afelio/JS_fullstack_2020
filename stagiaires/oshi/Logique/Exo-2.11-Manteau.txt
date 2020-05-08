@@ -1,0 +1,6 @@
+Début programme
+	Variable locale
+        Var a :B <- VRAI//Il pleut pour le moment
+	Fin variable locale
+	Afficher "Julie doit-elle avoir un manteau ? :", a
+Fin de programme
