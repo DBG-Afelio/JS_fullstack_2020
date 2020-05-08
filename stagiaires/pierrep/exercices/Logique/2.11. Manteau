@@ -13,4 +13,4 @@ var locales
 
 fin var locales
 
-out <- (non pluie et non manteau) ou (pluie et manteau)
+out <- non pluie ou (pluie et manteau)
