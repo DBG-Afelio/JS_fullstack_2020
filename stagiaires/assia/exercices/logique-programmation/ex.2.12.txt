@@ -51,6 +51,6 @@ Debut Entrer
     Saisir age
     c <- N ≤ 6
     d <- N ≤ 12 ET N > 6
-    pass <- a + NON a . [ (NON b . c . NON d) +  b . (NON c . d + c) ]
+    pass <- a OU NON a ET [ (NON b ET c ET NON d) OU b ET (NON c ET d OU c) ]
     "Autorisation a entrer ? REponse :", pass
 Fin Entrer
