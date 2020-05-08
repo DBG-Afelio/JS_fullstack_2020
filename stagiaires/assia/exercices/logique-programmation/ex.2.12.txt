@@ -40,7 +40,7 @@ Debut Entrer
         CONST b :B <- 0  //ticket reduit
         CONST c :B <- 0  //age < 6 ans
         CONST d :B <- 0  //6 ans < age < 12 ans
-        VAR age :B <- 0
+        VAR age :N <- 0
         VAR pass :B <- 0 //resultat
     FIN VARIABLES LOCALES
     Afficher "la personne a un ticket ? : "
