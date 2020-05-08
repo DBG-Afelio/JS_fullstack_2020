@@ -1,0 +1,44 @@
+//Ecrire l'expression qui teste si Hugo peut sortir avec ses amis ce soir, en fonction des variables suivantes :
+
+//- Var a :B _// Hugo a fini ses devoirs?
+//- Var b :B _// Hugo a assez d'argent?
+//- Var c :B _// Les transport en communs ne sont pas en grève?
+//- Var d :B _// La voiture du père de Hugo est disponible?
+
+
+Debut hugo
+
+	VARIABLES LOCALES
+		Var a :B _// Hugo a fini ses devoirs?
+		Var b :B _// Hugo a assez d'argent?
+		Var c :B _// Les transport en communs ne sont pas en grève?
+		Var d :B _// La voiture du père de Hugo est disponible?
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, Hugo a fini ses devoirs?"
+
+	Saisir a 
+
+	Afficher "Hugo a assez d'argent?"
+
+	Saisir b 
+
+	Afficher "Les transport en communs ne sont pas en grève?"
+
+	Saisir c 
+
+	Afficher "La voiture du père de Hugo est disponible?"
+
+	Saisir d 
+
+
+	SI ( a= VRAI ET ( c= VRAI ou D = VRAI) ET (B = VRAI ou B = FAUX) ) // qu'il ait de l'argent ou pas, il y va
+
+	ALORS	
+		Afficher "Hugo peut sortir"
+	SINON
+		Afficher "Hugo ne peut pas sortir"
+	FINSI
+
+Fin hugo
