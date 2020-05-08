@@ -7,13 +7,20 @@ en sachant que :
   + Var manteau : B // Julie porte un manteau
 
 pluie   manteau     sortie
-0           0           1
-0           1           1
+0           0           1 = /p . /m = m0
+0           1           1 = /p . m = m1
 1           0           0
-1           1           1
+1           1           1 = p . m = m2
 
-1 = (NON pluie ET NON manteau) OU (NON pluie ET manteau) OU (pluie ET manteau)
-1 =       NON pluie OU (NON manteau ET manteau)          OU (pluie ET manteau)
+sortie = m0 + m1 + m2
+sortie = (/p . /m) + (/p . m) + (p . m)
+sortie =    /p . (/m + m)     + (p . m)
+sortie =    /p .     1        + (p . m)
+sortie =    /p + (p . m)
+sortie = (/p + p) . (/p + m)
+sortie =     1    . (/p + m)
+sortie = /p + m
+
 ---------------------------------------------
 
 Debut Julie
@@ -26,6 +33,6 @@ Debut Julie
     Saisir pluie
     Afficher "Julie porte un manteau : "
     Saisir manteau
-    sortie <-  NON pluie OU (NON manteau ET manteau) OU (pluie ET manteau)
+    sortie <-  NON pluie OU manteau
     "Julie peut-elle sortir ? Reponse : ", sortie
 Fin Julie
