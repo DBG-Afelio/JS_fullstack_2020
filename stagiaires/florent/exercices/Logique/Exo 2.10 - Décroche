@@ -1,0 +1,11 @@
+Début programme
+    Variables locales
+        Var a :B // le téléphone sonne
+        Var b :B // j'ai envie de répondre
+        Var c :B // j'ai envie d'appeler quelqu'un
+    Fin variables locales
+    SI a ET (b OU C)
+        ALORS Afficher "Je décroche"
+    SINON
+        Afficher "Je ne décroche pas"
+Fin de programme
