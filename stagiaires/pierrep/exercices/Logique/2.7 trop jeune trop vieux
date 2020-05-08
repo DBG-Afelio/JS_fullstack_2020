@@ -1,0 +1,2 @@
+saisir nb
+si (nb > 1 ET nb < 18) OU (nb > 65 ET nb < 90)
