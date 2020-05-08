@@ -6,7 +6,7 @@ Debut ex2-8
         var Y :B 
     FIN VARIABLES LOCALES
 
-    SI (X = VRAI ET Y = FAUX) OU (Y = VRAI ET X = FAUX))
+    SI (X = NON Y)
         ALORS
         Afficher "OK"
         SINON
