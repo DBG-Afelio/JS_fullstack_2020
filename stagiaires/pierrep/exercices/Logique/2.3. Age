@@ -1,0 +1,18 @@
+Écrire une expression qui teste si un âge est compris entre 7 et 77 (bornes incluses).
+
+Debut ex2.3
+
+    var locales 
+        var age :N <- 0
+    fin var locales
+
+   affiche "entrez votre age : "
+   saisie age
+   si age >= 7 ET age <= 77
+   alors
+   affiche "vous pouvez lire tintin"
+   sinon
+   affiche "vous ne pouvez pas lire tintin"
+   finsi
+
+Fin ex2.3

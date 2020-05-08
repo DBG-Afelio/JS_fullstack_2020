@@ -1,0 +1,11 @@
+Début de programme
+    Variables locales
+        Var age :N <- 0
+    Fin Variables locales
+    Afficher "Entrez votre âge: "
+    Saisir age
+    Si age<7 ou age>77
+        Afficher "Votre âge n'est pas compris entre 7 et 77."
+    Sinon
+        Afficher "Votre âge est compris entre 7 et 77."
+Fin de programme

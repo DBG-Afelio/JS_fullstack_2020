@@ -1,0 +1,11 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+    Fin Variables locales
+    Afficher "Entrez un nombre: "
+    Saisir nbre
+    SI (nbre>1 ET nbre<18) OU (nbre>65 ET nbr<90)
+        Afficher "Votre âge est valide"
+    SINON
+        Afficher "Votre age n'est pas valide"
+Fin de programme
