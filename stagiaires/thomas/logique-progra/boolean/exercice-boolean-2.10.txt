@@ -11,7 +11,7 @@ Decroche
     FIN VARIABLE LOCALE
 
 
-    SI (a ET b ET non(c)) 
+    SI ((a ET b) OU c) 
         alors AFFICHER("decroche") 
     SINON AFFICHER("none") 
 
