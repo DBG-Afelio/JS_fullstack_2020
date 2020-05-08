@@ -1,0 +1,10 @@
+Début programme
+	Variable locale
+        Var a :B // le téléphone sonne
+		Var b :B // j'ai envie de répondre
+		Var c :B // j'ai envie d'appeler quelqu'un
+		Var decroche :B <- FAUX
+	Fin variable locale
+	decroche <- a ET b ET NON c
+	Afficher "Est ce que je décroche ? :", decroche
+Fin de programme
