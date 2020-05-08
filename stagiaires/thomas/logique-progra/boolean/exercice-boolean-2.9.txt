@@ -12,9 +12,9 @@ Hugo
     FIN VARIABLE LOCALE
 
 
-    SI (a ET (b ET c) OU d) 
-        ALORS AFFICHER("Hugo peut sortir") 
+    SI ((a ET b) ET c OU d) 
+        alors AFFICHER("Hugo peut sortir") 
     SINON AFFICHER("Hugo ne peut pas sortir") 
-    FINSI
+    SI
 
 FIN PROGRAMME
