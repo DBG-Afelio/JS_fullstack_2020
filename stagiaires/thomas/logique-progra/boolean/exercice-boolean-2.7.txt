@@ -1,0 +1,23 @@
+Nombre pair
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var age :N 
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Entrer age")
+
+SAISIR age 
+
+    SI (age >= 1 ET age <= 18)
+     ALORS AFFICHER("Trop jeune !")
+
+    SINON SI (age >= 65 ET age <= 90)
+     ALORS AFFICHER("Trop vieux !")
+        
+    FIN SI
+
+FIN PROGRAMME
