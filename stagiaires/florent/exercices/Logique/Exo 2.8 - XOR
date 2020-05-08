@@ -1,6 +1,7 @@
 Début programme
     Variables locales
         Var XOR :B <- 0
+        Var A :B <- 0
         Var B :B <- 0
     Fin variables locales
     Afficher "Entrez un booleen: "
