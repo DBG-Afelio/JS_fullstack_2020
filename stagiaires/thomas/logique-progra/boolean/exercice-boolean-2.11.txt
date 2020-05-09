@@ -1,0 +1,19 @@
+Decroche
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var pluie :B // Il pleut pour le moment
+    var manteau :B // Julie porte un manteau
+
+    FIN VARIABLE LOCALE
+
+
+    SI ((pluie OU non(pluie)) ET manteau ) 
+        alors AFFICHER("Julie peut sortir") 
+    SINON AFFICHER("Julie ne peut pas sortir") 
+
+    FIN SI
+
+FIN PROGRAMME
