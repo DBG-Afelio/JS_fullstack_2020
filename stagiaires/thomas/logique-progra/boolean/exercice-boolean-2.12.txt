@@ -8,7 +8,7 @@ PROGRAMME
 
     FIN VARIABLE LOCALE
 
-c("Entrez age : ") 
+AFFICHER("Entrez age : ") 
 
 SAISIR age
 
