@@ -58,27 +58,36 @@
     <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du code javascript (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des graphes, voir même de la 3D (via l’API webGL).</p>
     <hr>
     <p><b>&ltsvg&gt</b></p>
-    <p> La balise SVG permet d'insérer du code SVG de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...) , des dessins et même des animations.</p>
+    <p> La balise &ltSVG&gt permet d'insérer du code SVG de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...) , des dessins et même des animations.</p>
     <hr>
     <h1>Les balises de description de document</h1>
     <p>Les balises de description de document servent à ajouter des informations à une page html pour l’enrichir, faciliter la recherche et l’indexation par les robots de moteur de recherche.</p>
     <hr>
     <p><b>Liste des balises de description :</b></p>
-    <p><b>&ltmeta&gt</b> Les balises META servent à placer des métadonnées dans une page HTML. On placera ces informations dans l’élément head, et elles ne seront pas affichées sur la page.</p>
+    <p><b>&ltmeta&gt</b> Les balises &ltMETA&gt servent à placer des métadonnées dans une page HTML. On placera ces informations dans l’élément head, et elles ne seront pas affichées sur la page.</p>
     <p><b>Exemple d’utilisation de balises meta :</b></p>
     <p>- Définir le jeu de caractère d’un document (meta charset=”UTF-8”)</p>
     <p>- (Sur mobile) Bloquer le zoom d’une page pour garder le contrôle en cas de zoom de l’utilisateur (meta name="viewport" content="width=device-width, initial-scale=1.0")</p>
     <p><b>Attributs</b> : charset,  content,  refresh, name, color-scheme</p>
     <hr>
-    <p><b>&ltlink&gt</b> La balise link sert à définir un lien vers une ressource externe (une feuille de style, un fichier de script javascript, un média...)</p>
+    <p><b>&ltlink&gt</b> La balise &ltlink&gt sert à définir un lien vers une ressource externe (une feuille de style, un fichier de script javascript, un média...)</p>
     <p><b>Attributs</b> : href, media, rel, sizes, title, type....</p>
     <hr>
-    <p><b>&lttitle&gt</b>La balise title définit le nom du document HTML(Celui-ci sera repris sur le titre de l’onglet actuel sur votre navigateur)</p>
+    <p><b>&lttitle&gt</b>La balise &lttitle&gt définit le nom du document HTML(Celui-ci sera repris sur le titre de l’onglet actuel sur votre navigateur)</p>
     <p><b>SEO</b>: Le titre de la page est un des premiers éléments scanne par les robots d’indexation.</p>
     <hr>
     <p><b>&ltscript&gt</b> Permet d'intégrer du code javascript au pages HTML : </p>
     <p>- A l'intérieur des balises (&ltscript&gt&lt/script&gt)</p>
     <p>- A l’aide d’un fichier externe ( &ltscript src=”main.js”&gt&lt/script&gt )</p>
     <p><b>Attributs</b>: async, defer, src, type... </p>
+    <hr>
+    <p><b>&ltnoscript&gt</b> La balise &ltnoscript&gt définit un autre contenu si le navigateur ne prend pas en charge Javascript ou si Javascript a été désactivé..</p>
+    <p><b>Attributs</b> : non spécifique à cette balise mais des <b>attributs universels</b> peuvent être utilisés</p>
+    <p><b>Quelques attributs universels</b>: accesskey, class (pour le CSS), contenteditable</p>
+    <hr>
+    <p><b>&ltbase&gt</b> La balise &ltbase&gt spécifie la base URL / cible pour toutes les urls relatives dans un document.</p>
+    <p><b>Attributs </b>: uniquement href et target</p>
+    <hr>
+    <p><b>&ltstyle&gt</b> La balise &ltstyle&gt permet d’injecter du code CSS pour la mise en forme de page HTML</p>
   </body>
 </html>
