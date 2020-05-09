@@ -1,0 +1,103 @@
+Ecrire l'expression qui teste si Hugo peut sortir 
+avec ses amis ce soir, en fonction des variables suivantes :
+
+- Var a :B _// Hugo a fini ses devoirs_
+- Var b :B _// Hugo a assez d'argent_
+- Var c :B _// Les transport en communs ne sont pas en grève_
+- Var d :B _// La voiture du père de Hugo est disponible_
+
+//  Je pars sur la logique que Hugo peut sortir si :
+- les devoirs sont faits et qu'un moyen 1 des 2 moyens de transport est dispo, 
+l'argent etant supposé facultatif/non bloquant :
+
+il y a 2e4=16 possibilitees mais :si a = 0, qqsoit b c et d => sortie = 0)
+ => le resultat se joue donc sur 8 dernieres possibilites :
+a   b   c   d   sortie
+0   0   0   0     -  
+0   0   0   1     -
+0   0   1   0     - 
+0   0   1   1     -
+0   1   0   0     -  
+0   1   0   1     - 
+0   1   1   0     -
+0   1   1   1     -
+  -------------------
+1 | 0   0   0  || 0
+1 | 0   0   1  || 1 = (/b . /c . d) = m0
+1 | 0   1   0  || 1 = (/b . c . /d) = m1
+1 | 0   1   1  || 1 = (/b . c . d)  = m2
+1 | 1   0   0  || 0  
+1 | 1   0   1  || 1 = (b . /c . d)  = m3 
+1 | 1   1   0  || 1 = (b . c . /d)  = m4
+1 | 1   1   1  || 1 = (b . c . d)   = m5
+  -------------------
+
+sortie = a . (m0 + m1 + m2 + m3 + m4 + m5)
+    
+    m' = m0 + m1 + m2                               m" = m3 + m4 + m5
+       = /b . [ (/c . d) + (c . /d) + (c . d) ]        = b . [ (/c . d) + (c . /d) + (c . d) ]
+       = /b . X                                        = b . X
+
+    m' + m" = X . ( /b + b )
+            = X .      1
+            = X
+
+sortie = a . ( m' + m" ) 
+       = a . X
+       = a . [ (/c . d) + (c . /d) + (c . d) ]
+       = a . [ (/c . d) +   c . (/d +  d) ]
+       = a . [ (/c . d) +  c .     1     ]
+       = a . ( /c . d + c )
+
+//
+
+Debut Sortie_Hugo
+    VARIABLE LOCALES :
+        VAR A :B <- FAUX
+        VAR B :B <- FAUX
+        VAR C :B <- FAUX
+        VAR D :B <- FAUX
+        VAR SORTIE :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Hugo a fini ses devoirs ? : "
+    Saisir A
+    Afficher "Hugo a assez d'argent ? : "
+    Saisir B
+    Afficher "Les transport en communs ne sont pas en grève ? : "
+    Saisir C
+    Afficher "La voiture du père de Hugo est disponible ? : "
+    Saisir D
+    SORTIE <- A ET (NON C ET D OU C) 
+    "Hugo peut-il sortir ce soir ? : ", SORTIE
+Fin Sortie_Hugo
+
+// 2eme solution si B (argent) est obligatoire pour autoriser la sortie alors :
+sortie se joue sur les 4 dernieres possibillites only et donc sur m" = m3 + m4 + m5 
+
+sortie = a . m" 
+       = a . b . X
+       = a . b . [ (/c . d) + (c . /d) + (c . d) ]
+       = a . b . [ (/c . d) +   c . (/d +  d) ]
+       = a . b . [ (/c . d) +   c .     1     ]
+       = a . b . ( /c . d + c )
+
+
+Debut Sortie_Hugo
+    VARIABLE LOCALES :
+        VAR A :B <- FAUX
+        VAR B :B <- FAUX
+        VAR C :B <- FAUX
+        VAR D :B <- FAUX
+        VAR SORTIE :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Hugo a fini ses devoirs ? : "
+    Saisir A
+    Afficher "Hugo a assez d'argent ? : "
+    Saisir B
+    Afficher "Les transport en communs ne sont pas en grève ? : "
+    Saisir C
+    Afficher "La voiture du père de Hugo est disponible ? : "
+    Saisir D
+    SORTIE <- A ET B ET (NON C ET D OU C) 
+    "Hugo peut-il sortir ce soir ? : ", SORTIE
+Fin Sortie_Hugo

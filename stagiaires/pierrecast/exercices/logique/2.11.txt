@@ -1,0 +1,19 @@
+// Ecrire l'expression pour savoir si Julie peut sortir, en sachant que :
+
+    S'il pleut Julie doit avoir son manteau
+    La situation est représentée par les variables suivantes
+
+Debut ex2-11
+    VARIABLES LOCALES :
+        var pluie :B // Il pleut pour le moment
+        var manteau :B // Julie porte un manteau
+       
+    FIN VARIABLES LOCALES
+
+    SI (pluie = FAUX OU pluie = VRAI ET manteau = VRAI)
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-11

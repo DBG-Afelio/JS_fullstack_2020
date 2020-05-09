@@ -1,0 +1,20 @@
+Hugo
+
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+    var a :B
+    var b :B
+    var c :B
+    var d :B 
+
+    FIN VARIABLE LOCALE
+
+
+    SI (a ET ((b ET c) OU d)) 
+        alors AFFICHER("Hugo peut sortir") 
+    SINON AFFICHER("Hugo ne peut pas sortir") 
+    SI
+
+FIN PROGRAMME

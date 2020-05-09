@@ -1,0 +1,10 @@
+var locales
+    const x :B <- 0
+    const y :B <- 0
+    const z :B <- 0
+fin var locales
+
+saisie x
+saisie y
+
+z <- x et non y OU non x et y

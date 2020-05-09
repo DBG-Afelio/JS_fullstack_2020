@@ -1,0 +1,10 @@
+Début programme
+	Variable locale
+        Var age :N <- 0
+        Var si_est_entre :B <- FAUX
+	Fin variable locale
+	Afficher "Veuillez entrer votre age :"
+	Saisir age
+	si_est_entre <- age >= 1 ET age <= 18 OU age >= 65 ET age <= 90
+	Afficher "L'age est-il compris entre 1 et 18 ans ou 65 et 90 ans ? :", si_est_entre
+Fin de programme

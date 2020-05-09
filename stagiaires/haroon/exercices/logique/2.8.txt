@@ -1,0 +1,29 @@
+Écrire une expression pour faire un « ou » exclusif entre deux booléens.
+
+Debut ExclusifPrograme
+
+VARIABLES LOCALES :
+
+VAR premièreBooléens : N < - 0
+
+VAR deuxièmeBooléens : N <- 0
+
+VAR result : N <- 0 
+
+
+Fin VARIABLES LOCALES: 
+
+Afficher "S.V.P entrez premièreBooléens:"
+
+Saiser premièreBooléens
+
+Afficher "S.V.P entrez deuxièmeBooléens:"
+
+SaiserdeuxièmeBooléens
+
+ 
+result <-  premièreBooléens et NON deuxièmeBooléens ou NON  premièreBooléens et deuxièmeBooléens
+
+Afficher  result 
+
+Fin ExclusifPrograme
