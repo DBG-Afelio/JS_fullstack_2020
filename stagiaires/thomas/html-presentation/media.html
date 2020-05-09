@@ -11,7 +11,7 @@
 
   <body>
     <!-- BALISES MULTIMEDIA -->
-    <h1>Les balises multimédia</h1>
+    <h2>Les balises multimédia</h2>
       <p>Les balises multimédia permettent de lire du contenu audio et vidéo sur le navigateur et une d’elle, donne le droit à l’utilisateur de dessiner des motifs et des formes sur une zone spécifique du navigateur.
       </p>
     <hr>
@@ -30,7 +30,12 @@
     <p>
       <b>Quelques attributs utiles</b> : autoplay, loop, muted, preload</p>
     <code>
-      <!--  -->
+      <audio
+        controls
+        src="/media/examples/t-rex-roar.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+      </audio>
     </code>
     <hr>
     <p>
@@ -44,7 +49,16 @@
       <b>Attributs utiles</b> : autoplay, loop, muted, preload
     </p>
     <code>
-      <!--  -->
+      <video controls width="250">
+
+        <source src="/media/examples/flower.webm"
+                type="video/webm">
+    
+        <source src="/media/examples/flower.mp4"
+                type="video/mp4">
+    
+        Sorry, your browser doesn't support embedded videos.
+      </video>
     </code>
     <hr>
     <p>
@@ -54,21 +68,39 @@
       <b>Quelques attributs utiles</b> : media, sizes, src, srcset, type
     </p>
     <code>
-      <!--  -->
-    </code>
+      <video controls
+        width="250"
+        height="200"
+        muted>
+        <source src="/media/examples/flower.webm"
+                type="video/webm">
+        <source src="/media/examples/flower.mp4"
+                type="video/mp4">
+        This browser does not support the HTML5 video element.
+    </video>
+</code>
     <hr>
     <p>
       <b>&ltEmbed&gt</b> (balise orpheline) : La balise embed permet d'intégrer un média ou une application sur la page HTML. 
     </p>
     <p><b>Quelques attributs qui l’accompagne</b> (conseillé de toutes les définir et spécifier): height, src, type, width</p>
-    <code></code>
+    <code>
+      <embed type="video/webm"
+       src="/media/examples/flower.mp4"
+       width="250"
+       height="200">
+    </code>
     <hr>
     <p>
       <b>&ltPicture&gt</b>: Cette balise agit comme les balises <b>audio</b> et <b>vidéo</b> et mais pour les images.
     </p>
     <p><b>Quelques attributs utiles </b>: media, sizes, src, srcset, type</p>
     <code>
-      <!--  -->
+      <picture>
+        <source srcset="/media/examples/surfer-240-200.jpg"
+                media="(min-width: 800px)">
+        <img src="/media/examples/painted-hand-298-332.jpg" />
+      </picture>
     </code>
     <hr>
     <p>
@@ -82,7 +114,9 @@
     <p>
       <b>Attributs pris en charge</b> : alt, crossorigin, sync, async, ismap, size, src, srcset, width..</p>
     <code>
-      <!--  -->
+      <img class="fit-picture"
+     src="/media/examples/grapefruit-slice-332-332.jpg"
+     alt="Grapefruit slice atop a pile of other slices">
     </code>
     <hr>
     <p>
@@ -95,7 +129,11 @@
       <b>Attributs pris en charge </b>: data, form, width, height, type, name... 
     </p>
     <code>
-      <!--  -->
+      <object type="application/pdf"
+    data="/media/examples/In-CC0.pdf"
+    width="250"
+    height="200">
+      </object>
     </code>
     <hr>
     <p>
@@ -105,7 +143,9 @@
       <b>Attributs</b> : value, name
     </p>
     <code>
-      <!--  -->
+      <object data="animation.swf" type="application/x-shockwave-flash">
+        <param name="param11" value="valeurConf">
+      </object> 
     </code>
     <hr>
     <p>
@@ -115,7 +155,15 @@
       <b>Attributs</b> : default, kind (subtitles, captions, descriptions, chapters, metadata), label, src, srclang
     </p>
     <code>
-      <!--  -->
+      <video controls width="250"
+       src="/media/examples/friday.mp4">
+
+    <track default kind="captions"
+           srclang="en"
+           src="/media/examples/friday.vtt"/>
+
+    Sorry, your browser doesn't support embedded videos.
+      </video>
     </code>
     <hr>
     <p>
@@ -123,7 +171,9 @@
     </p>
     <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du code javascript (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des graphes, voir même de la 3D (via l’API webGL).</p>
     <code>
-      <!--  -->
+      <canvas id="canvas" width="300" height="300">
+        Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+      </canvas>
     </code>
     <hr>
     <p>
@@ -131,11 +181,16 @@
     </p>
     <p> La balise &ltSVG&gt permet d'insérer du code SVG de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...) , des dessins et même des animations.</p>
     <code>
-      <!--  -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+     width="150" height="100" viewBox="0 0 3 2">
+        <rect width="1" height="2" x="0" fill="#008d46" />
+        <rect width="1" height="2" x="1" fill="#ffffff" />
+        <rect width="1" height="2" x="2" fill="#d2232c" />
+      </svg>
     </code>
     <hr>
     <!-- DESCRIPTION DE DOCUMENT -->
-    <h1>Les balises de description de document</h1>
+    <h2>Les balises de description de document</h2>
     <p>
       Les balises de description de document servent à ajouter des informations à une page html pour l’enrichir, faciliter la recherche et l’indexation par les robots de moteur de recherche.
     </p>
@@ -155,7 +210,9 @@
       <b>Attributs</b> : charset,  content,  refresh, name, color-scheme
     </p>
     <code>
-      <!--  -->
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </code>
     <hr>
     <p>
@@ -165,7 +222,7 @@
       <b>Attributs</b> : href, media, rel, sizes, title, type....
     </p>
     <code>
-      <!--  -->
+      <link rel="stylesheet" href="css/screen.css" />
     </code>
     <hr>
     <p>
@@ -175,7 +232,7 @@
       <b>SEO</b>: Le titre de la page est un des premiers éléments scanne par les robots d’indexation.
     </p>
     <code>
-      <!--  -->
+      <title>html-documentation</title>
     </code>
     <hr>
     <p>
@@ -187,7 +244,7 @@
       <b>Attributs</b>: async, defer, src, type... 
     </p>
     <code>
-      <!--  -->
+      <script src="./app.js"></script>
     </code>
     <hr>
     <p> 
@@ -210,7 +267,28 @@
       <b>Attributs </b>: uniquement href et target
     </p>
     <code>
-      <!--  -->
+      <noscript> 
+        <style> 
+            body {
+              overflow: auto!important;
+            }
+            body: after {
+              display: none!important;
+            }
+            #main > .inner {
+              opacity: 1.0!important;
+            }
+            #main {
+              opacity: 1.0!important; - moz - transform: none!important; - webkit - transform: none!important; - ms - transform: none!important;transform: none!important; - moz - transition: none!important; - webkit - transition: none!important; - ms - transition: none!important;transition: none!important; - moz - filter: none!important; - webkit - filter: none!important; - ms - filter: none!important;filter: none!important;
+            }
+            #main > .inner > section {
+              opacity: 1.0!important; - moz - transform: none!important; - webkit - transform: none!important; - ms - transform: none!important;transform: none!important; - moz - transition: none!important; - webkit - transition: none!important; - ms - transition: none!important;transition: none!important; - moz - filter: none!important; - webkit - filter: none!important; - ms - filter: none!important;filter: none!important;
+            }
+            #main > .inner > section > * {
+              opacity: 1.0!important; - moz - transform: none!important; - webkit - transform: none!important; - ms - transform: none!important;transform: none!important; - moz - transition: none!important; - webkit - transition: none!important; - ms - transition: none!important;transition: none!important; - moz - filter: none!important; - webkit - filter: none!important; - ms - filter: none!important;filter: none!important;
+            } 
+        </style> 
+      </noscript>
     </code>
     <hr>
     <p>
@@ -224,13 +302,20 @@
     <p>
       <b>Attributs </b>:  media, nonce, type, title</p>
     <code>
-      <!--  -->
+      <style> 
+        #main > .inner > section {
+          opacity: 1.0!important; - moz - transform: none!important; - webkit - transform: none!important; - ms - transform: none!important;transform: none!important; - moz - transition: none!important; - webkit - transition: none!important; - ms - transition: none!important;transition: none!important; - moz - filter: none!important; - webkit - filter: none!important; - ms - filter: none!important;filter: none!important;
+        }
+        #main > .inner > section > * {
+          opacity: 1.0!important; - moz - transform: none!important; - webkit - transform: none!important; - ms - transform: none!important;transform: none!important; - moz - transition: none!important; - webkit - transition: none!important; - ms - transition: none!important;transition: none!important; - moz - filter: none!important; - webkit - filter: none!important; - ms - filter: none!important;filter: none!important;
+        } 
+    </style> 
     </code>
     <hr>
     <!-- SEO -->
-    <h1>
+    <h2>
       <b>Une touche de SEO</b>
-    </h1>
+    </h2>
     <p>
       <b>Definition : SEO (Search Engine Optimization)</b>
     </p>
@@ -238,7 +323,7 @@
       <b>Introduction</b>
     </p>
     <p>Les balises HTML (ou <b>balises SEO</b>) sont un moyen pour les algorithmes des moteurs de recherche de comprendre et de différencier les données d’un contenu Web.</p>
-    <p>Les balises qui favorisent le SEO sont essentiellement <b>les balises d'en tête &lth1&gt et les sous-titres de &lth2&gt jusqu'à &lth6&gt, la balise &lttitle&gt, et les meta tags.</b></p>
+    <p>Les balises qui favorisent le SEO sont essentiellement <b>les balises d'en tête &lth2&gt et les sous-titres de &lth2&gt jusqu'à &lth6&gt, la balise &lttitle&gt, et les meta tags.</b></p>
     <p>Certaines balises ont été introduites pour <b>fournir des données supplémentaires à d’autres applications</b>, comme le texte qui ne s’affiche pas directement sur la page, mais qui apparaissent dans les résultats des moteurs de recherche.</p>
     <p>
       Celles-ci sont appelées les <b>“méta-tags”</b>.</p>
