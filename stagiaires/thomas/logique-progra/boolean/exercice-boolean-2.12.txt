@@ -1,0 +1,22 @@
+PROGRAMME
+
+    VARIABLE LOCALE
+
+        var a : B // la personne a un ticket
+        var b : B // la personne a un ticket réduit
+        var age : N // âge de la personne.
+
+    FIN VARIABLE LOCALE
+
+c("Entrez age : ") 
+
+SAISIR age
+
+SI (age < 6 OU ((age > 6 ET age < 12) ET b) OU a)
+  ALORS AFFICHER("Vous pouvez entrer.")
+SINON SI
+  ALORS AFFICHER("Vous ne pouvez pas entrer.") 
+
+FIN SI 
+
+FIN PROGRAMME
