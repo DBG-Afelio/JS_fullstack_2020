@@ -56,7 +56,7 @@
                     
                     <h2>Structure de base</h2>
                     
-                    <p>L'élément HTML &lt;iframe&gt; permet d'intégrer un page HTML dans la page courante.</p>
+                    <p>L'élément HTML &lt;iframe&gt; représente un contexte de navigation imbriqué qui permet en fait d'obtenir une page HTML intégrée dans la page courante. Le contexte de navigation qui contient le contenu intégré est appelé « contexte de navigation parent ». Le contexte de navigation le plus élevé (qui n'a pas de contexte parent) correspond généralement à la fenêtre du navigateur (cf. Window).</p>
                     <p>Exemple :</p>
                         <code>
                             &lt;iframe&gt; src="iframes.html" &gt;&lt;/iframe&gt;
@@ -70,42 +70,63 @@
                     
                     <h2>Principaux attribut</h2>
                     
-                    <h3>scolling</h3>
-                    <p>Détermine l'utilisation de barre de scroll au sein de l'iframe</p>
-                    <h4>Valeurs</h4>
                     <ul>
-                        <li>Yes => </li>
-                        <li>No => </li>
-                        <li>Auto => </li>
+                        <li>allow: L'attribut allow permet de définir une politique de fonctionnalité pour l'iframe.</li>
+                        <li>allowfullscreen : Cet attribut, lorsqu'il vaut true(vrai) indique que l'iframe intégré peut être passé en plein écran via la méthodeElement.requestFullscreen().</li>
+                        <li>allowpaymentrequest : Cet attribut, lorsqu'il vaut true, permet à l'iframe intégré d'appeler l'API Payment Request.</li>
+                        <li>height : L'attribut csp définit la politique de sécurité du contenu que le document intégré doit respecter.</li>
+                        <li>referrerpolicy : Une chaîne de caractères qui indique le référent (referrer) à utiliser lors de la récupération de la ressource</li>
+                        <li>sandbox : Cet attribut permet d'appliquer des restrictions sur le contenu qui peut apparaître dans l'iframe.</li>
+                        <li>width : Cet attribut indique la largeur de l'iframe en pixels CSS. Par défaut, cet attribut vaut 300</li>
                     </ul>
-                    <h3>object-position et object-fit.</h3>
+                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">Ici</a></p>
                 </article>
             </section>
             
             <section>
-                <header><h1>Frames et sécurité</h1></header>
-                
+                <header><h1>Frames et frameset</h1></header>
+                <p>Attention ces deux balises sont considérées comme obsolètes.</p>
                 <article>
-                    <h2>L'attribut sandbox</h2>
-                    <p></p>
+                    <h2>La balise &lt;frame&gt;</h2>
+
+                    <p>C'est un élément HTML qui définit une zone particulière dans laquelle un autre document HTML est affiché. Une &lt;frame&gt; doit être utilisée dans un élément &lt;frameset&gt;.</p>
+                    <p>Utiliser l'élément &lt;frame&gt; est déconseillé en raison de certains inconvénients tels que des problèmes de performance, et un manque d'accessibilité pour les utilisateurs de lecteurs d'écran.</p>
+                    <h2>Les Attributs</h2>
+                    <ul>
+                        <li>src</li>
+                        <li>name</li>
+                        <li>noresize</li>
+                        <li>scrolling</li>
+                        <li>marginheight</li>
+                        <li>margin width</li>
+                        <li>frameborder</li>
+                    </ul>
+                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame">Ici</a></p>
                 </article>
                 <article>
-                    
-                    <h2>L'attribut allow</h2>
-                    
-                    <p></p>
-                    
+                    <p>C'est un élément HTML utilisé pour contenir les éléments &lt;frame&gt;.</p>
+                    <p>Comme tous les autres éléments HTML, cet élément prend en charge les attributs universels.(cols,rows)</p>
                 </article>
+            </section>
+
+            <section>
+                <header>La sécurité</header>
                 <article>
-                    
-                    <h2>Les entêtes</h2>
-                    
+                    <p>La connexion de l’utilisateur au serveur hébergeant le contenu de l’iFRAME s’effectuant à son insu, il est facile pour un individu malveillant d’exploiter cette propriété afin de compromettre sa victime. L’objectif de l’utilisation de la balise iFRAME par une personne malintentionnée est bien souvent la propagation de codes malveillants.</p>
+                    <p>La sécurité d’un site est en grande partie liée à son mode de conception et elle doit y être intégrée dès le départ. Afin de limiter les risques de compromission via une faiblesse de conception, il est recommandé de :</p>
+                    <ul>
+                        <li>contrôler les variables passées en paramètre lors de l’utilisation de langage de programmation comme PHP ou ASP, par exemple ;</li>
+                        <li>contrôler le format des variables si le site possède du contenu dynamique (forum, blog, …) ;</li>
+                        <li>éviter l’utilisation de langage de programmation dynamique (JavaScript, Flash, …) si cela n’est pas indispensable.</li>
+                    </ul>
+                    <p>La balise iFRAME peut permettre à une personne malintentionnée de forcer la connexion de l’utilisateur vers un site malveillant. Cette connexion peut permettre la compromission de la machine du visiteur soit par le téléchargement d’un code malveillant, soit par l’interprétation de code dynamique exploitant des vulnérabilités du navigateur. De plus, il est récurrent de constater l’imbrication d’iFRAME ce qui complique l’identification de la (ou des) machine(s) malveillante(s). Il est courant de constater qu’une iFRAME contient une ou plusieurs autres iFRAME. Cette cascade d’iFRAME pourrait permettre de mieux dissimuler les codes malveillants et faciliter l’ajout ou la suppression de vulnérabilités à exploiter.</p>
+                    <p>Exemple :</p>
                     <p>L'en-tête de réponse <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/X-Frame-Options">HTTP X-Frame-Options</a> peut être utilisé afin d'indiquer si un navigateur devrait être autorisé à afficher une page au sein d'un élément &lt;frame&gt;, &lt;iframe&gt;, &lt;embed&gt; ou &lt;object&gt;.</p>
+                    <p>Plus d'information : <a href="https://www.cert.ssi.gouv.fr/information/CERTA-2008-INF-001/">Ici</a></p>
+
                     
                 </article>
             </section>
-            
-            
         </main>
         <footer></footer>
     </body>
