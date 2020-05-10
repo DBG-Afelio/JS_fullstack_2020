@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>Documentation HTML</title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <header> </header>
+
+    <nav>
+        <ul>
+            <li>
+                <h4>Html : documentation commune .</h4>
+            </li>
+
+            <li>
+                <h4>Introduction : syntaxe générale .</h4>
+            </li>
+
+            <li>
+                <h4>Balises de structure : </h4>
+            </li>
+            <p>Les pages Web ont deux conteneurs de base: la <strong>&lt;head&gt;&lt;/head&gt;</strong> et le
+                <strong>&lt;body&gt;&lt;/body&gt;</strong>:<br>
+                La balise <strong>&lt;head&gt;&lt;head&gt;</strong>, qui contient des informations ou des métadonnées
+                (Metadata) sur la page Web,<br>
+                comme un titre <strong>&lt;title&gt;&lt;/title&gt;</strong> pour la page, des javascripts, des styles
+                <strong>(CSS)</strong>des métadonnées (Metadata),<br>
+                etc.<u>Tout ce qui se trouve à l'intérieur de la balise <strong>&lt;head&gt;&lt;/head&gt;</strong> ne
+                    s'affiche pas sur la page Web elle-même.</u></p>
+            <p>La balise <strong>&lt;body&gt;&lt;/body&gt;</strong>, <u> le contenu qui s'affiche réellement dans un
+                    navigateur</u> par exemple ( Internet explorer , Mozilla Firefox , Google Chrome , etc ) .</p>
+            <p>La balise <strong>&lt;title&gt;&lt;/title&gt; </strong>définit le titre du document affiché dans la barre
+                de titre d'un navigateur ou l'onglet d'une page.<br>
+                <u>Il ne contient que du texte; les balises de l'élément sont ignorées .</u> </p><br>
+            La balise <strong>&lt;header&gt;&lt;header&gt;</strong>élément représente un conteneur de contenu
+            d'introduction ou un ensemble de liens de navigation.<br><br>
+            La balise <strong>&lt;main&gt;&lt;main&gt;</strong> représente le contenu dominant du
+            <strong>&lt;body&gt;</strong> d'un document. La zone de contenu principale se compose de contenu qui est
+            directement lié ou<br>
+            développe le sujet central d'un document ou la fonctionnalité centrale d'une application.<br> <br>
+            La balise <strong>&lt;footer&gt;&lt;footer&gt;</strong>balise définit un pied de page pour un document ou
+            une section.
+
+            <li>
+                <h4>Balises de texte</h4>
+
+            <li>
+                <h4>Tableau et listes .</h4>
+            </li>
+
+            <li>
+                <h4>Lien et anchors .</h4>
+            </li>
+
+            <li>
+                <h4>Balises de formulaire .</h4>
+            </li>
+
+            <li>
+                <h4>Balises de média .</h4>
+            </li>
+
+            <li>
+                <h4>Fraime et i frame .</h4>
+            </li>
+
+            <li>
+                <h4>Balises de description .</h4>
+            </li>
+
+            <li>
+                <h4>Cohérence visuelle du document et CSS .</h4>
+            </li>
+        </ul>
+
+    </nav>
+
+    <main>
+
+        <section>
+
+            <header>
+                <h1>Liens et ancres</h1>
+            </header>
+
+            <article>
+                <h2><a id="liens">Liens</a></h2>
+                <p>Ceci est un <a href="https://www.w3schools.com/tags/tag_a.asp" target="_blank">lien</a></p>
+                <p>Et en code:</p>
+                <div>
+                    <p>
+                        Ceci est un &lt;a href="https://www.w3schools.com/tags/tag_a.asp"
+                        target="_blank"&gt;lien&lt;/a&gt;
+                    </p>
+                </div>
+                <p>Le <span class="keyword">&lt;a&gt;</span> est la <span class="keyword">balise du lien hypertexte</span>, le <span class="keyword">href</span> est l'attribut le plus important qui amène sur
+                    une autre page.</p>
+                <p>
+                    Par défaut on clique sur un lien, il s'ouvrira dans la fenêtre actuelle. Pour changer cela il faut
+                    modifier l'attribut <span class="keyword">"target"</span>.
+                </p>
+
+                <p>Il existe <span class="keyword">9 attributs</span> dont vous pouvez trouver la liste sur
+                    <a href="https://www.w3schools.com/tags/tag_a.asp" target="_blank">w3schools</a>, mais voici une
+                    courte liste des attributs principaux
+                </p>
+
+                <table>
+                    <tr>
+                        <td>Attributs</td>
+                        <td>Valeurs</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword">href</span></td>
+                        <td></td>
+                        <td>URL sur laquelle est amené le visiteur</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword">target</span></td>
+                        <td>
+                            <ul>
+                                <li>_blank</li>
+                                <li>_parent</li>
+                                <li>_self</li>
+                                <li>_top</li>
+                                <li>framename</li>
+                            </ul>
+                        </td>
+                        <td>Spécifie où l'url sera ouverte</td>
+                    </tr>
+                    <tr>
+                        <td><span class="keyword">download</span></td>
+                        <td>filename</td>
+                        <td>Spécifie que la cible du lien sera downloadée quand on clique dessus</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Ancres</h2>
+                </header>
+                <p>
+                    Une <span class="keyword">ancre</span> est un lien vers une partie de la page sur laquelle se trouve le visiteur.
+                    Ce <a href="#liens">lien</a> vous amènera sur la partie sur les liens de cette page.
+                </p>
+                <p>Et en code:</p>
+                <div>
+                    <p>
+                        Cette &lt;a href="#liens" &gt;ancre&lt;/a&gt; vous amènera sur la partie sur les liens de cette
+                        page.
+                    </p>
+                </div>
+                <p>
+                    Pour faire une ancre il faut:
+                <ul>
+                    <li>Créer l'ancre en elle-même: <span class="keyword">&lt;a id="liens"&gt;Liens&lt;/a&gt;</span></li>
+                    <li>Faire le lien avec l'ancre: Ce <span class="keyword">&lt;a href="#liens"&gt;lien&lt;/a&gt;</span> vous amènera(...)</li>
+                </ul>
+                </p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer> </footer>
+
+
+</body>
+<script type="text/javascript" src="script/script.js"></script>
+
+</html>
