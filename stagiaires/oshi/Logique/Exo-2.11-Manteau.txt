@@ -4,6 +4,6 @@ Début programme
 		Var manteau :B <- VRAI//Julie porte un manteau
 		Var sortie :B <- FAUX
 	Fin variable locale
-	sortie <- pluie ET manteau OU NON pluie
+	sortie <- manteau OU NON pluie
 	Afficher "Julie doit-elle avoir un manteau ? :", sortie
 Fin de programme
