@@ -1,0 +1,27 @@
+Ecrire l'expression pour savoir si la personne peut entrer ou non.
+Sachant que:
+
+-  Les variables suivantes représentent les caractéristiques de la personne.
+  +  Var a : B // la personne a un ticket
+  +  Var b : B // la personne a un ticket réduit
+  +  Var age : N // âge de la personne.
+- Un enfant de moins de 6 ans peut entrer gratuitement,
+- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+
+Debut entrée
+    variable loc 
+        var a : B 
+        var b : B 
+        var age : N 
+       
+    fin variable loc
+
+    si age < 6 OU age < 12 et b ou a  
+      alors
+      Afficher "la personne peut entrer
+      sinon
+      Afficher "la personne ne peut pas entrer"
+    fin de si
+Fin entrée
