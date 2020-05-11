@@ -1,0 +1,17 @@
+Début programme
+    Variable locales
+        var a :N <- 0
+        var b :N <- 0
+    Fin variables locales
+    Afficher "Résolution de l'équation ax + b = 0"
+    Afficher "Entrez la valeur de a"
+    Saisir a
+    Afficher "Entrez la valeur de b"
+    Saisir b
+    SI a = 0 ET b != 0
+        Afficher "Solutions impossible"
+    SINONSI a = 0 ET b = 0
+        Afficher "x peut prendre n'importe quelle valeur"
+    SINON
+        Afficher "x vaut" , -b/a
+Fin de programme
