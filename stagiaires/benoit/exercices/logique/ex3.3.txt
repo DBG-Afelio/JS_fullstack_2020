@@ -1,0 +1,102 @@
+// Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+// Coupures disponibles :
+
+// - Billets : 100€, 50€, 20€, 5€
+// - Pièces : 2€, 1€, 0,5€ , 0,2€
+// Contraintes :
+
+// - Le total de la décomposition sera plus grand ou égale à la somme entrée
+// - Le nombre de coupures de la décomposition sera le plus petite possible
+
+// Exemple:
+// 254,18 € se décompose en :
+
+// -  2 billets de 100 €,
+// -  1 billet de 50 €,
+// -  2 pièces de 2 €,
+// -  1 pièce de 0,2 €.
+
+
+Debut decomposerSomme
+
+	VARIABLES LOCALES
+
+		var somme: N <- 0
+
+		var billets100: N <- 0
+		var billets50: N <- 0
+		var billets20: N <- 0
+		var billets5: N <- 0
+
+		var pieces2: N <- 0
+		var pieces1: N <- 0
+		var pieces50cents: N <- 0
+		var pieces20cents: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez la somme que vous voulez décomposer"
+
+	Saisir somme
+
+        SI (somme>100)
+        	ALORS
+			billets100 = somme DIV 100
+        		sommme = somme * billets100
+    	FINSI
+
+        SI (somme>50)
+        	ALORS
+			billets50 = somme DIV 50
+        		sommme = somme * billets50 
+	FINSI
+
+        SI (somme>20)
+        	ALORS
+			billets20 = somme DIV 20
+        		sommme = somme * billets20 
+	FINSI
+
+
+        SI (somme>5)
+        	ALORS
+			billets5 = somme DIV 5
+        		sommme = somme * billets5 
+	FINSI
+
+        SI (somme>2)
+        	ALORS
+			pieces2 = somme DIV 2
+        		sommme = somme * pieces2
+	FINSI
+
+        SI (somme>1)
+        	ALORS
+			pieces1 = somme DIV 1
+        		sommme = somme * pieces1
+	FINSI
+
+        SI (somme>0.5)
+        	ALORS
+			pieces50cents = somme DIV 0.5
+        		sommme = somme * pieces50cents
+	FINSI
+
+        SI (somme>0.2)
+        	ALORS
+			pieces20cents = somme DIV 0.2
+        		sommme = somme * pieces20cents
+	FINSI
+
+	Si (somme>0.2)
+		ALORS
+			pieces20cents = pieces20cents + 1
+	FINSI
+
+	Afficher "Nombre de billets de 100: ", billets100, "Nombre de billets de 50: ", billets50, "Nombre de billets de 20: ", billets20, "Nombre de billets de 5: ", billets5, 
+			"Nombre de pièces de 2 euros: ",pieces2, "Nombre de pièces de 1 euro: ", pieces1, "Nombre de pièces de 50 cents: ", pieces50cents, 
+			"Nombre de pièces de 20 cents: ", pieces20cents
+
+
+
+Fin decomposerSomme
