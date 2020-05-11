@@ -1,0 +1,33 @@
+// Écrire le programme qui compare deux nombres et qui indique 
+// quel est le plus grand ou s’ils sont égaux.
+
+Debut comparaisonNombres
+
+	VARIABLES LOCALES
+
+		var a: N <- 0
+		var b: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez la valeur de a"
+
+	Saisir a
+
+	Afficher "Rentrez la valeur de b"
+
+	Saisir b
+
+
+        SI (a = b)
+        	ALORS
+        		Afficher "a est égal à b"
+        	SINON
+        		Si (a>b)
+				AFFICHER "a est plus grand que b"
+			Sinon
+				AFFICHER "b est plus grand que a"
+			FINSI
+    	FINSI
+
+Fin comparaisonNombres

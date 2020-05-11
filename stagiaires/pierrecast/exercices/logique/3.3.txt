@@ -1,0 +1,152 @@
+Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+Coupures disponibles :
+
+    Billets : 100€, 50€, 20€, 5€
+
+    Pièces : 2€, 1€, 0,5€ , 0,2€
+    Contraintes :
+
+    Le total de la décomposition sera plus grand ou égale à la somme entrée
+    Le nombre de coupures de la décomposition sera le plus petite possible
+
+Exemple:
+254,18 € se décompose en :
+
+    2 billets de 100 €,
+    1 billet de 50 €,
+    2 pièces de 2 €,
+    1 pièce de 0,2 €.
+
+Debut ex3-3
+    VARIABLES LOCALES :
+        var somme : N <- 0
+        var reste :N <- 0
+        var quantite :N <- 0
+        var total :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez la valeur de somme"
+    Saisir somme
+    
+    Afficher somme, " € se décompose en :"
+    reste <- somme
+    quantite <- reste DIV 100
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " billet de 100 €"
+            SINON
+            Afficher quantite, " billets de 100 €"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 100
+    reste <- reste MOD 100
+    quantite <- reste DIV 50
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " billet de 50 €"
+            SINON
+            Afficher quantite, " billets de 50 €"
+        FIN SI
+    FINSI
+
+
+    total <- total + quantite * 50
+    reste <- reste MOD 50
+    quantite <- reste DIV 20
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " billet de 20 €"
+            SINON
+            Afficher quantite, " billets de 20 €"
+        FIN SI
+    FINSI
+
+
+    total <- total + quantite * 20
+    reste <- reste MOD 20
+    quantite <- reste DIV 5
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " billet de 5 €"
+            SINON
+            Afficher quantite, " billets de 5 €"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 5
+    reste <- reste MOD 5
+    quantite <- reste DIV 2
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " pièce de 2 €"
+            SINON
+            Afficher quantite, " pièces de 2 €"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 2
+    reste <- reste MOD 2
+    quantite <- reste DIV 1
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " pièce de 1 €"
+            SINON
+            Afficher quantite, " pièces de 1 €"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 1
+    reste <- reste MOD 1
+    quantite <- reste DIV 0.5
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " pièce de 50 Ct"
+            SINON
+            Afficher quantite, " pièces de 50 Ct"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 0.5
+    reste <- reste MOD 0.5
+    quantite <- reste DIV 0.2
+
+    reste <- reste MOD 0.2
+    SI (reste > 0) 
+        ALORS
+            quantite <- quantite +1
+    FIN SI
+
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " pièce de 20 Ct"
+            SINON
+            Afficher quantite, " pièces de 20 Ct"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 0.2
+    
+    SI (total >= somme)
+        ALORS
+        Afficher "Le total de la décomposition est plus grand ou égale à la somme entrée"
+    FIN SI
+
+Fin ex3-3
+ 
