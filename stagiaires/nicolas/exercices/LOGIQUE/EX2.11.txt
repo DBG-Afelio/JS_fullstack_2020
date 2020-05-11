@@ -16,6 +16,6 @@ début sortir
 
     	FIN VARIABLES LOCALES
 	
-	sortir <- (pluie ET manteau) OU (manteau ET (NON pluie OU pluie))
+	sortir <- pluie ET manteau OU NON pluie
 	
 fin sortir
