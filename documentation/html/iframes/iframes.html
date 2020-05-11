@@ -79,7 +79,71 @@
                         <li>sandbox : Cet attribut permet d'appliquer des restrictions sur le contenu qui peut apparaître dans l'iframe.</li>
                         <li>width : Cet attribut indique la largeur de l'iframe en pixels CSS. Par défaut, cet attribut vaut 300</li>
                     </ul>
-                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">Ici</a></p>
+                
+                </article>
+                <article>
+                <h2>L'attribut sandbox</h2>
+                    
+                    <p>Cet attribut permet d'appliquer des restrictions sur le contenu qui peut apparaître dans l'iframe.</p>  
+                      <table>
+                          <tbody>
+                           
+                              <tr>
+                                  <th>value</th>
+                                  <th>Description</th>
+                              </tr>
+                              <tr>
+                                <td>(<em>aucune valeur</em>)</td>
+                                <td>Applique toutes les restrictions</td>
+                              </tr>
+                              <tr>
+                                <td>allow-forms</td>
+                                <td>Autorise la soumisson de formulaires</td>
+                              </tr>
+                              <tr>
+                                <td>allow-modals</td>
+                                <td>Autorise l'ouverture d'une fenêtre modale</td>
+                              </tr>
+                              <tr>
+                                <td>allow-orientation-lock</td>
+                                <td>Autorise la désactivation de l'orientation de l'écran </td>
+                              </tr>
+                              <tr>
+                                <td>allow-pointer-lock</td>
+                                <td>Autorise l'utilisation de <a href="https://developer.mozilla.org/fr/docs/WebAPI/Pointer_Lock">l'API Pointer Lock</a></td>
+                              </tr>
+                              <tr>
+                                <td>allow-popups</td>
+                                <td>Autorise les popups</td>
+                              </tr>
+                              <tr>
+                                <td>allow-popups-to-escape-sandbox</td>
+                                <td>Autorise l'ouverture d'une nouvelle fenêtre par les popups</td>
+                              </tr>
+                              <tr>
+                                <td>allow-presentation</td>
+                                <td>Autorise le début d'une session de présentation</td>
+                              </tr>
+                              <tr>
+                                <td>allow-same-origin</td>
+                                <td>Autorise le traitement du contenu de l'iframe comme si il possédait la même origine</td>
+                              </tr>
+                              <tr>
+                                <td>allow-scripts</td>
+                                <td>Autorise le lancement de scripts</td>
+                              </tr>
+                              <tr>
+                                <td>allow-top-navigation</td>
+                                <td>Autorise le chargement de contenu depuis le contexte de navigation de plus haut niveau</td>
+                              </tr>
+                              <tr>
+                                <td>allow-top-navigation-by-user-activation</td>
+                                <td>Autorise le chargement de contenu depuis le contexte de navigation de plus haut niveau, uniquement si l'action provient de l'utilisateur</td>
+                              </tr>
+                              
+                         </tbody>
+                    </table>
+                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">L'iframe et ses attributs</a> et <a href="https://www.w3schools.com/tags/att_iframe_sandbox.asp">l'attribut sandbox (anglais)</a></p>
                 </article>
             </section>
             
@@ -91,6 +155,25 @@
 
                     <p>C'est un élément HTML qui définit une zone particulière dans laquelle un autre document HTML est affiché. Une &lt;frame&gt; doit être utilisée dans un élément &lt;frameset&gt;.</p>
                     <p>Utiliser l'élément &lt;frame&gt; est déconseillé en raison de certains inconvénients tels que des problèmes de performance, et un manque d'accessibilité pour les utilisateurs de lecteurs d'écran.</p>
+                    
+                    <p>Exemple :</p>
+
+                        <code>
+                            &lt;frameset cols="50%,50%"&gt;<br>
+                            
+                                &lt;frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" /&gt;<br>
+                                &lt;frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" /&gt;<br>
+                            
+                            &lt;/frameset&gt;
+
+                        </code>
+                        
+                    
+                        <frameset cols="50%,50%">
+                            <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" />
+                            <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" />
+                        </frameset>
+                    
                     <h2>Les Attributs</h2>
                     <ul>
                         <li>src</li>
