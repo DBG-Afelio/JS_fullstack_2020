@@ -124,6 +124,13 @@ Debut ex3-3
     total <- total + quantite * 0.5
     reste <- reste MOD 0.5
     quantite <- reste DIV 0.2
+
+    reste <- reste MOD 0.2
+    SI (reste > 0) 
+        ALORS
+            quantite <- quantite +1
+    FIN SI
+
     SI (quantite > 0)
         ALORS
         SI (quantite = 1)
@@ -135,7 +142,7 @@ Debut ex3-3
     FINSI
 
     total <- total + quantite * 0.2
-
+    
     SI (total >= somme)
         ALORS
         Afficher "Le total de la décomposition est plus grand ou égale à la somme entrée"
