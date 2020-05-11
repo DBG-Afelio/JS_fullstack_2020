@@ -1,6 +1,6 @@
 var a :N <- 0
 var b :N <- 0
-var x :N <- -b/a
+var x :N <- 0
 
 saisie a
 saisie b
@@ -11,6 +11,8 @@ saisie b
         saisie a
     
     sinon
+
+        x <- (-b/a)
         
         affiche x
 
