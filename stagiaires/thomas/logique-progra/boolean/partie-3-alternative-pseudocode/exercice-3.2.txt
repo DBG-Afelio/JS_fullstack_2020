@@ -18,5 +18,6 @@ SAISIR nb2
     SINON SI (nb1 < nb2)
      ALORS AFFICHER("Le nombre 2 est plus grand")
     SINON AFFICHER("Les 2 nombres sont egaux")
+    FIN SI 
 
 FIN PROGRAMME
