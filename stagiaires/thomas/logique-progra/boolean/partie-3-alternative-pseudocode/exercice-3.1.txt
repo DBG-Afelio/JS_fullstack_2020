@@ -14,7 +14,11 @@ SAISIR a
 AFFICHER("saisir b") 
 SAISIR b
 	
-	x <- -b / a 
+	SI (x = 0)
+		x <- b 
+	SINON 
+		x <- -b / a 
+	FIN SI 
 
 	AFFICHER("la valeur de x est de : ", x)
 
