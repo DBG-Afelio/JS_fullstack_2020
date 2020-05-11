@@ -12,10 +12,12 @@ début NOMBRE
 	
 	SI a != b
 
-		CAS OU a < b
+		SI a < b
 			AFFICHE a ,"est plus petit que",b
-		CAS OU a > b
+		SINON
 			AFFICHE a ,"est plus grand que",b
+			
+		FINSI
 
 
 	SINON 
