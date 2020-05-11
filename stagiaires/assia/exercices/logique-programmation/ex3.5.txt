@@ -1,0 +1,42 @@
+Ecrire un programme qui demande à l'utilisateur de choisir un taux de TVA et d'entrer un prix(hors TVA). Le programme affiche le taux choisi, le montant de la TVA et le prix TVA comprise.
+
+Tva 6% (1)
+Tva 12% (2)
+Tva 21% (3)
+Tva 0 % (4)
+Sortie (0)
+Votre Choix :__
+Prix (hors TVA) : ____
+Le taux de TVA vaut : XXX
+Le montant de la TVA est : XXX
+Le prix T.V.A.C vaut : XXX
+
+-----
+
+Debut Exercice_TVA
+    VARIABLE LOCALES :
+        VAR taux :N <- 0
+        VAR choix :N <- 0
+        VAR Phtva :N <- 0
+        VAR Ptvac :N <- 0
+        VAR tva :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Choisir le taux TVA a appliquer : 1- TVA 6% ou 2- TVA 12% ou 3- TVA 21% ou 4- TVA 0%"
+    Saisir choix
+    Afficher "Entrer le prix (Hors TVA)"
+    Saisir Phtva
+    CAS OU choix
+    CAS 1
+        taux <- 0.06
+    CAS 2
+        taux <- 0.12
+    CAS 3
+        taux <- 0.21
+    CAS 4
+        taux <- 0
+    AUTRE CAS
+    FIN CAS OU
+    tva = taux * Phtva
+    Ptvac <- Phtva + tva
+    Afficher "Le taux de TVA vaut : ", taux, ", le montant de la TVA est : ", tva, "Le prix T.V.A.C vaut : ", Ptvac
+Fin Exercice_TVA
