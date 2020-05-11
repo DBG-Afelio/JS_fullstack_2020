@@ -19,8 +19,6 @@ Exemple:
 Debut COMPARE
     VARIABLE LOCALES :
         VAR a :N <- 0 //argent
-        VAR rest :N <- 0
-        VAR int :N <-0
         VAR b100 :N <- 0
         VAR b50 :N <- 0
         VAR b20 :N <- 0
