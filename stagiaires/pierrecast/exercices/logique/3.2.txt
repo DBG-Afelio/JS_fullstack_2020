@@ -1,0 +1,26 @@
+// Écrire le programme qui compare deux nombres et qui indique quel est le plus grand ou s’ils sont égaux.
+
+Debut ex3-2
+    VARIABLES LOCALES :
+        var A :N <- 0
+        var B :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez la valeur de A"
+    Saisir A
+    Afficher "Entrez la valeur de B"
+    Saisir B
+
+    SI (A = B)
+        ALORS
+        Afficher "A et B sont égaux"
+        SINON
+            SI (A < B)
+                ALORS
+                Afficher "A est plus petit que B"
+                SINON
+                Afficher "A est plus grand que B"
+            FIN SI
+    FINSI
+Fin ex3-2
+ 
