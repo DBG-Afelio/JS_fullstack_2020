@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Documentation HTML</title>
+		<meta charset="UTF-8">
+        <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>      
+        <header></header>
+            <nav> 
+                <ul>
+                    <li><h4>Html : documentation commune .</h4></li>
+
+                    <li><h4>Introduction : syntaxe générale .</h4></li>
+
+                    <li><h4>Balises de structure : </h4></li>
+                        <p>Les pages Web ont deux conteneurs de base: la <strong>&lt;head&gt;&lt;/head&gt;</strong> et le <strong>&lt;body&gt;&lt;/body&gt;</strong>:<br>
+                        La balise <strong>&lt;head&gt;&lt;head&gt;</strong>, qui contient des informations ou des métadonnées (Metadata) sur la page Web,<br>
+                        comme un titre <strong>&lt;title&gt;&lt;/title&gt;</strong> pour la page, des javascripts, des styles <strong>(CSS)</strong>des métadonnées (Metadata),<br>
+                        etc.<u>Tout ce qui se trouve à l'intérieur de la balise <strong>&lt;head&gt;&lt;/head&gt;</strong> ne s'affiche pas sur la page Web elle-même.</u></p>
+                        <p>La balise <strong>&lt;body&gt;&lt;/body&gt;</strong>, <u> le contenu qui s'affiche réellement dans un navigateur</u> par exemple ( Internet explorer , Mozilla Firefox , Google Chrome , etc ) .</p>
+                        <p>La balise <strong>&lt;title&gt;&lt;/title&gt; </strong>définit le titre du document affiché dans la barre de titre d'un navigateur ou l'onglet d'une page.<br>
+                            <u>Il ne contient que du texte; les balises de l'élément sont ignorées .</u> </p><br>
+                        La balise <strong>&lt;header&gt;&lt;header&gt;</strong>élément représente un conteneur de contenu d'introduction ou un ensemble de liens de navigation.<br><br>
+                        La balise <strong>&lt;main&gt;&lt;main&gt;</strong> représente le contenu dominant du <strong>&lt;body&gt;</strong> d'un document. La zone de contenu principale se compose de contenu qui est directement lié ou<br>
+                        développe le sujet central d'un document ou la fonctionnalité centrale d'une application.<br> <br>
+                        La balise <strong>&lt;footer&gt;&lt;footer&gt;</strong>balise définit un pied de page pour un document ou une section.
+
+                    <li><h4>Balises de texte</h4>
+
+                    <li><h4>Tableau et listes .</h4></li>
+
+                    <li><h4>Lien et anchors .</h4></li>
+
+                    <li><h4>Balises de formulaire .</h4></li>
+
+                    <li><h4>Balises de média .</h4></li>
+
+                    <li><h4>Fraime et i frame .</h4></li>
+
+                    <li><h4>Balises de description .</h4></li>
+
+                    <li><h4>Cohérence visuelle du document et CSS .</h4></li>
+                </ul>
+            </nav>
+
+        <aside></aside>
+        <main> 
+            <header>
+                <h1>Les frames </h1>
+            </header>
+
+            <section>
+                <header><h1>La balise &lt;iframe&gt;</h1></header>
+                <article>
+                    
+                    <h2>Structure de base</h2>
+                    
+                    <p>L'élément HTML &lt;iframe&gt; représente un contexte de navigation imbriqué qui permet en fait d'obtenir une page HTML intégrée dans la page courante. Le contexte de navigation qui contient le contenu intégré est appelé « contexte de navigation parent ». Le contexte de navigation le plus élevé (qui n'a pas de contexte parent) correspond généralement à la fenêtre du navigateur (cf. Window).</p>
+                    <p>Exemple :</p>
+                        <code>
+                            &lt;iframe&gt; src="iframes.html" &gt;&lt;/iframe&gt;
+                        </code>
+                    <p>Résultat :</p>
+                        <iframe src="iframes.html" ></iframe>
+                    
+                    <p></p>
+                </article>
+                <article>
+                    
+                    <h2>Principaux attribut</h2>
+                    
+                    <ul>
+                        <li>allow: L'attribut allow permet de définir une politique de fonctionnalité pour l'iframe.</li>
+                        <li>allowfullscreen : Cet attribut, lorsqu'il vaut true(vrai) indique que l'iframe intégré peut être passé en plein écran via la méthodeElement.requestFullscreen().</li>
+                        <li>allowpaymentrequest : Cet attribut, lorsqu'il vaut true, permet à l'iframe intégré d'appeler l'API Payment Request.</li>
+                        <li>height : L'attribut csp définit la politique de sécurité du contenu que le document intégré doit respecter.</li>
+                        <li>referrerpolicy : Une chaîne de caractères qui indique le référent (referrer) à utiliser lors de la récupération de la ressource</li>
+                        <li>sandbox : Cet attribut permet d'appliquer des restrictions sur le contenu qui peut apparaître dans l'iframe.</li>
+                        <li>width : Cet attribut indique la largeur de l'iframe en pixels CSS. Par défaut, cet attribut vaut 300</li>
+                    </ul>
+                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe">Ici</a></p>
+                </article>
+            </section>
+            
+            <section>
+                <header><h1>Frames et frameset</h1></header>
+                <p>Attention ces deux balises sont considérées comme obsolètes.</p>
+                <article>
+                    <h2>La balise &lt;frame&gt;</h2>
+
+                    <p>C'est un élément HTML qui définit une zone particulière dans laquelle un autre document HTML est affiché. Une &lt;frame&gt; doit être utilisée dans un élément &lt;frameset&gt;.</p>
+                    <p>Utiliser l'élément &lt;frame&gt; est déconseillé en raison de certains inconvénients tels que des problèmes de performance, et un manque d'accessibilité pour les utilisateurs de lecteurs d'écran.</p>
+                    <h2>Les Attributs</h2>
+                    <ul>
+                        <li>src</li>
+                        <li>name</li>
+                        <li>noresize</li>
+                        <li>scrolling</li>
+                        <li>marginheight</li>
+                        <li>margin width</li>
+                        <li>frameborder</li>
+                    </ul>
+                    <p>Plus d'information : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame">Ici</a></p>
+                </article>
+                <article>
+                    <p>C'est un élément HTML utilisé pour contenir les éléments &lt;frame&gt;.</p>
+                    <p>Comme tous les autres éléments HTML, cet élément prend en charge les attributs universels.(cols,rows)</p>
+                </article>
+            </section>
+
+            <section>
+                <header>La sécurité</header>
+                <article>
+                    <p>La connexion de l’utilisateur au serveur hébergeant le contenu de l’iFRAME s’effectuant à son insu, il est facile pour un individu malveillant d’exploiter cette propriété afin de compromettre sa victime. L’objectif de l’utilisation de la balise iFRAME par une personne malintentionnée est bien souvent la propagation de codes malveillants.</p>
+                    <p>La sécurité d’un site est en grande partie liée à son mode de conception et elle doit y être intégrée dès le départ. Afin de limiter les risques de compromission via une faiblesse de conception, il est recommandé de :</p>
+                    <ul>
+                        <li>contrôler les variables passées en paramètre lors de l’utilisation de langage de programmation comme PHP ou ASP, par exemple ;</li>
+                        <li>contrôler le format des variables si le site possède du contenu dynamique (forum, blog, …) ;</li>
+                        <li>éviter l’utilisation de langage de programmation dynamique (JavaScript, Flash, …) si cela n’est pas indispensable.</li>
+                    </ul>
+                    <p>La balise iFRAME peut permettre à une personne malintentionnée de forcer la connexion de l’utilisateur vers un site malveillant. Cette connexion peut permettre la compromission de la machine du visiteur soit par le téléchargement d’un code malveillant, soit par l’interprétation de code dynamique exploitant des vulnérabilités du navigateur. De plus, il est récurrent de constater l’imbrication d’iFRAME ce qui complique l’identification de la (ou des) machine(s) malveillante(s). Il est courant de constater qu’une iFRAME contient une ou plusieurs autres iFRAME. Cette cascade d’iFRAME pourrait permettre de mieux dissimuler les codes malveillants et faciliter l’ajout ou la suppression de vulnérabilités à exploiter.</p>
+                    <p>Exemple :</p>
+                    <p>L'en-tête de réponse <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/X-Frame-Options">HTTP X-Frame-Options</a> peut être utilisé afin d'indiquer si un navigateur devrait être autorisé à afficher une page au sein d'un élément &lt;frame&gt;, &lt;iframe&gt;, &lt;embed&gt; ou &lt;object&gt;.</p>
+                    <p>Plus d'information : <a href="https://www.cert.ssi.gouv.fr/information/CERTA-2008-INF-001/">Ici</a></p>
+
+                    
+                </article>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+    <script type="text/javascript" src="script/script.js"></script>
+</html>
