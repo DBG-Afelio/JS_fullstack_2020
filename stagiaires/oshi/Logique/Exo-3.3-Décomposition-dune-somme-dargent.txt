@@ -19,10 +19,10 @@ Début programme
         Afficher "Nombre de billet de 20 € est de", (a - (a % 20)) / 20
         a <- a % 20
     FINSI
-    SI a % 5 != a
+    SI a % 10 != a
     ALORS
-        Afficher "Nombre de billet de 5 € est de", (a - (a % 5)) / 5
-        a <- a % 5
+        Afficher "Nombre de billet de 10 € est de", (a - (a % 10)) / 10
+        a <- a % 10
     FINSI
     SI a % 5 != a
     ALORS
