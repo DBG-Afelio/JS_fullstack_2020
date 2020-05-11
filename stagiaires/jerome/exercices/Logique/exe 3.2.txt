@@ -1,0 +1,16 @@
+Écrire le programme qui compare deux nombres et qui indique quel est le plus grand ou s’ils sont égaux.
+debut compare
+var loc
+var a:N<-0
+var b:N<-0
+fin var loc
+Afficher"entrez deux nombre"
+Saisie a, b
+si a=b 
+alors afficher a"="b
+sinon 
+Si a>b
+Alors afficher a">"b
+Sinon afficher a"<"b
+fin de si
+fin compare
