@@ -1,0 +1,60 @@
+// Écrire le programme qui compare 3 nombres entre eux.
+// Tenir compte d’une égalité possible des nombres.
+// Attention :
+// « 5 < 8 > 4 » n’indique pas la comparaison entre le 1er et le 3ème nombre.
+// On préférera par exemple « 4 < 5 < 8 ».
+
+Debut comparaisonNombres
+
+	VARIABLES LOCALES
+
+		var a: N <- 0
+		var b: N <- 0
+		var c: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez la valeur de a"
+
+	Saisir a
+
+	Afficher "Rentrez la valeur de b"
+
+	Saisir b
+
+	Afficher "Rentrez la valeur de c"
+
+	Saisir c
+
+        SI (a = b ET b = c)
+        	ALORS
+        		Afficher "a est égal à b qui est égal à c"
+        	SINON
+        		Si (a>b>c)
+				Afficher "a est plus grand que b qui est plus grand c"
+			FINSI
+
+        		Si (a>c>b)
+				Afficher "a est plus grand que c qui est plus grand b"
+			FINSI
+    	
+        		Si (b>a>c)
+				Afficher "b est plus grand que a qui est plus grand c"
+			FINSI
+
+        		Si (b>c>a)
+				Afficher "b est plus grand que c qui est plus grand a"
+			FINSI
+
+        		Si (c>b>a)
+				Afficher "c est plus grand que b qui est plus grand a"
+			FINSI
+
+
+        		Si (c>a>b)
+				Afficher "c est plus grand que a qui est plus grand b"
+			FINSI
+
+	FINSI
+
+Fin comparaisonNombres
