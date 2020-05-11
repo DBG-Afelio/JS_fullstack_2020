@@ -14,9 +14,6 @@ SAISIR a
 AFFICHER("saisir b") 
 SAISIR b
 	
-	x <- a * x + b // ax + b = 0 
-	b <- (-b)
-	x <- a * x // passe de l'autre cote de l'egalite => ax = -b
 	x <- -b / a 
 
 	AFFICHER("la valeur de x est de : ", x)
