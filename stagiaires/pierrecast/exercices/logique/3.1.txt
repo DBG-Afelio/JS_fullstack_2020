@@ -1,0 +1,22 @@
+// Écrire le programme qui résout l’équation du 1er degré: ax + b = 0
+// Le programme demande à l'utilisateur une valeur pour a et pour b et donne si possible la valeur de x.
+
+Debut ex3-1
+    VARIABLES LOCALES :
+        var A :N <- 0
+        var B :N <- 0
+        var X :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez la valeur de A"
+    Saisir A
+    Afficher "Entrez la valeur de B"
+    Saisir B
+
+    SI (A = 0)
+        ALORS
+        Afficher "Impossible de résoudre l'équation"
+        SINON
+        Afficher "X vaut -B/A soit ", -B/A
+    FINSI
+Fin ex3-1
