@@ -9,9 +9,9 @@ Début programme
     Afficher "Entrez la valeur de b"
     Saisir b
     SI a = 0 ET b != 0
-        Afficher "Solutions impossible"
-    SINONSI a = 0 ET b = 0
-        Afficher "x peut prendre n'importe quelle valeur"
+        ALORS Afficher "Solutions impossible"
+    SI a = 0 ET b = 0
+        ALORS Afficher "x peut prendre n'importe quelle valeur"
     SINON
         Afficher "x vaut" , -b/a
 Fin de programme
