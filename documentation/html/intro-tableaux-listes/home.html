@@ -1,0 +1,1593 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Documentation HTML</title>
+		<meta charset="UTF-8">
+        <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-global.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-local.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+
+<header> </header>
+
+<nav>
+<ul>
+    <li><h4>Html : documentation commune .</h4></li>
+
+    <li><h4>Introduction : syntaxe générale .</h4></li>
+
+    <li><h4>Balises de structure : </h4></li>
+        <p>Les pages Web ont deux conteneurs de base: la <strong>&lt;head&gt;&lt;/head&gt;</strong> et le <strong>&lt;body&gt;&lt;/body&gt;</strong>:<br>
+        La balise <strong>&lt;head&gt;&lt;head&gt;</strong>, qui contient des informations ou des métadonnées (Metadata) sur la page Web,<br>
+        comme un titre <strong>&lt;title&gt;&lt;/title&gt;</strong> pour la page, des javascripts, des styles <strong>(CSS)</strong>des métadonnées (Metadata),<br>
+        etc.<u>Tout ce qui se trouve à l'intérieur de la balise <strong>&lt;head&gt;&lt;/head&gt;</strong> ne s'affiche pas sur la page Web elle-même.</u></p>
+        <p>La balise <strong>&lt;body&gt;&lt;/body&gt;</strong>, <u> le contenu qui s'affiche réellement dans un navigateur</u> par exemple ( Internet explorer , Mozilla Firefox , Google Chrome , etc ) .</p>
+        <p>La balise <strong>&lt;title&gt;&lt;/title&gt; </strong>définit le titre du document affiché dans la barre de titre d'un navigateur ou l'onglet d'une page.<br>
+            <u>Il ne contient que du texte; les balises de l'élément sont ignorées .</u> </p><br>
+        La balise <strong>&lt;header&gt;&lt;header&gt;</strong>élément représente un conteneur de contenu d'introduction ou un ensemble de liens de navigation.<br><br>
+        La balise <strong>&lt;main&gt;&lt;main&gt;</strong> représente le contenu dominant du <strong>&lt;body&gt;</strong> d'un document. La zone de contenu principale se compose de contenu qui est directement lié ou<br>
+        développe le sujet central d'un document ou la fonctionnalité centrale d'une application.<br> <br>
+        La balise <strong>&lt;footer&gt;&lt;footer&gt;</strong>balise définit un pied de page pour un document ou une section.
+
+    <li><h4>Balises de texte</h4>
+
+    <li><h4>Tableau et listes .</h4></li>
+
+    <li><h4>Lien et anchors .</h4></li>
+
+    <li><h4>Balises de formulaire .</h4></li>
+
+    <li><h4>Balises de média .</h4></li>
+
+    <li><h4>Fraime et i frame .</h4></li>
+
+    <li><h4>Balises de description .</h4></li>
+
+    <li><h4>Cohérence visuelle du document et CSS .</h4></li>
+</ul>
+
+</nav>
+
+<aside> </aside>
+
+<main>
+    <section id="alpha-intro">
+		<header>
+			<h1>Introduction</h1>
+		</header>
+		<article id="Intro">
+			<header>
+				<h2>1 - Definition de HTML</h2>
+			</header>
+			<p>Le HTML(HyperText Markup Language) est un langage informatique utilisé pour representer les pages Web.
+				Ce n’est pas un langage de programmation. La traduction littérale de l’anglais serait « langage de balisage
+				 d’hypertexte ». Ce langage tire son nom des hyperliens qu’il permet d’insérer dans du texte pour créer de
+				 l'hypertexte dont le contenu repose sur un langage de balisage.</p>
+			<p>HTML permet également de structurer sémantiquement et logiquement et de mettre en forme le contenu des pages,
+				d’inclure des ressources multimédias, des formulaires de saisie et des programmes informatiques. Il permet de
+				créer des documents interopérables avec des équipements très variés de manière conforme aux exigences de
+				l’accessibilité du web. Il est souvent utilisé conjointement avec le langage de programmation JavaScript et
+				des feuilles de style en cascade (CSS).</p>
+        </article>
+        <article id="contexte-historique">
+			<header>
+				<h2>2 - Évolution de HTML dans son contexte historique</h2>
+			</header>
+			<p>HTML est une des trois inventions à la base du World Wide Web, avec le HyperText Transfer Protocol (HTTP)
+				et les adresses web, début des années 90. HTML a été découvert pour pouvoir écrire des documents hypertextuels,
+				liant les différentes ressources d'Internet avec des hyperliens, nommés «page web».
+			Cet HTML primitif contient déjà divers éléments comme le titre du document, les hyperliens, la structuration du
+			texte en titres, sous-titres, listes ou texte brut. Tout est prêt mais il manque des instruments qui permettraient
+			aux usagers de voir et consulter les pages - il fallait des navigateurs web.</p>
+			<h3>2.1 - Origine</h3>
+
+			<p>HTML est une des trois inventions à la base du World Wide Web, avec le HyperText Transfer Protocol (HTTP) et
+				les adresses web, début des années 90. HTML a été découvert pour pouvoir écrire des documents hypertextuels,
+				liant les différentes ressources d'Internet avec des hyperliens, nommés «page web».
+			Cet HTML primitif contient déjà divers éléments comme le titre du document, les hyperliens, la structuration du
+			texte en titres, sous-titres, listes ou texte brut. Tout est prêt mais il manque des instruments qui permettraient
+			aux usagers de voir et consulter les pages - il fallait des navigateurs web.</p>
+
+            <h3>2.2 - Premiers pas</h3>
+				<p>L’état de HTML correspond alors à ce que l’on pourrait appeler HTML 1.0. Il n’existe cependant aucune spécification
+				portant ce nom, notamment parce que le langage est alors en pleine évolution. Un effort de normalisation est alors
+				initié. De nombreux éléments de présentation (attributs de texte, clignotement, centrage, etc.) vont être définis et
+				implémentes par différents navigateurs au fur et à mesure. Malgré l'effort de normalisation initié, et jusqu'à la fin
+				des années 1990, HTML est essentiellement défini par les implémentations des navigateurs. C’est ainsi que nait le besoin
+				de standardisation.</p>
+
+			<h3>2.3 - Standardisation du web : W3C</h3>
+
+			<p>Pour accompagner l’évolution technologique divergente, le <a href="https://www.w3.org">W3C (World Wide Web Consortium)</a> , un organisme de
+				normalisation sans but lucratif fondé en 1994 aura pour mission de promouvoir des normes ouvertes et d'assurer
+				la compatibilité des technologies du Web. Au début de 1997, le W3C publie la norme HTML 3.2 qui décrit la pratique
+				courante en 1996, un ramassis de ce que les navigateurs web du moment peuvent faire. Il contient des éléments en
+				prévision du support des styles et des scripts.</br>
+			HTML 4.0 suit peu après à la fin de 1997 et apporte différentes améliorations pour l’accessibilité des contenus
+			dont principalement la possibilité d’une séparation plus explicite entre structure et présentation du document.
+			HTML 4.01, une révision de HTML 4.0, entre ensuite en vigueur en 1999.</p>
+
+			<h3>2.4 - 1997 – 2007 : Révolution technologique vs. Stagnation des standards</h3>
+
+			<p>Évolution ou révolution ? HTML5, la future version, attise autant la curiosité, l’envie, que la méfiance.
+					Il est le successeur de HTML4, normalisé parle W3C.</br>
+			Le Web est donc resté plus d’une décennie sans évolution de son standard fondateur, une éternité durant laquelle
+			les sites ont évolué, parfois de manière non standard. Pendant ce temps, le W3C s’est d'abord focalisé sur XHTML 1.0
+			(la XML-isation de HTML 4), XHTML 1.1 (la même chose modularisée et qui n'intéresse quasiment personne) et surtout
+			XHTML 2 en 2001.</br>Le HTML était laissé sur le bord de la route, tous les retours sur HTML4 et même les demandes
+			d'harmonisation avec des standards plus récents (la programmation objet (DOM) par exemple) étaient rejetées.
+			Certaines personnes, mécontentes de l’inertie du W3C et du temps que prenait le développement de nouveaux standards
+			et qui voyaient du potentiel dans le HTML ont alors décidé de continuer son évolution en formant un groupe nommé
+			le WHATWG. Ce comité sera activement soutenu par Mozilla, Google, Apple et Opera.</p>
+
+				<h3>Naissance de WHATWG et HTML5</h3>
+
+				<p>Cree en 2004, le comité WHATWG va permettre de relancer le développement du format HTML et répondre aux nouveaux
+					besoins sur une base technologique jugée plus facilement implémentable que celle du XHTML 2.0 en cours de conception.
+					Ceci s'inscrit dans le contexte d'une contestation plus générale du mode de fonctionnement du W3C, connu trop fermé
+					par une partie des développeurs et designers web.</br>En mars 2007, tirant la conséquence des réticences d'une partie
+					 de l'industrie et des concepteurs de contenus web, le W3C abandonne le XHTML 2 au profit d’un travail sur HTML5,
+					 initié par le WHAT WG.</br>Les travaux du WHATWG sont formellement adoptés en mai 2007 comme point de départ d'une nouvelle
+					 spécification HTML 5/<p>
+            </article>
+            <article id="naissance-de-WHATWG-et-HTML5">
+
+			<header>
+				<h2>3 - "Un seul web partout et pour tous" - Exigences et Standards</h2>
+			</header>
+				<p>Il est très important pour un développeur de se tenir au courant des nouveautés pour d’une part exploiter toutes les
+					possibilités des langages et d’autre part savoir lorsque certains codes ou pratiques sont dépréciés, c’est-à-dire lorsque
+					le support d’un certain élément de langage est abandonné pour pouvoir mettre à jour les parties du code d’un site les utilisant
+					et éviter les bugs sur le site en question.</p>
+
+
+				<h3>3.1 - Quid du WHATWG ?</h3>
+
+			<p>Le travail en commun avec le <a href="https://whatwg.org">W3C</a> a fonctionné jusqu’en 2011, date à laquelle l’écart entre
+			les objectifs et les méthodes des deux groupes est devenu trop grand.</br>En effet, le WHATWG milite pour un « Living Standard »
+			pour le HTML, c’est-à-dire des améliorations constantes et immédiatement intégrées tandis que le W3C préfère mettre à jour le
+			HTML dès que beaucoup d’avancées ont été faites et après s’être assuré que chaque nouveau composant fonctionne parfaitement.</br>
+			Ces spécifications sont disponibles gratuitement sur leur <a href="https://html.spec.whatwg.org/multipage/">site</a>.</br>
+			En 2019, WHATWG et W3C signent un accord dans le but de collaborer sur une seule version de HTML. Ce travail est en cours.</p>
+
+
+				<h3>3.2 - W3C</h3>
+
+			<p>Aujourd’hui, on se retrouve donc dans une situation conflictuelle où le WHATWG avance beaucoup plus vite que le W3C et
+				accuse le W3C de voler les différents standards créés par le WHATWG pour les porter à leur crédit. Les recommandations
+				du W3C restent celles les plus communément admises et elles reprennent (c’est un fait) la majorité du travail du WHATWG,
+				avec un peu de retard certes mais ce « retard » laisse le temps aux navigateurs d’intégrer les changements.</p>
+			<p>Le W3C définit trois états d’avancement pour ses différents documents qui vont chacun traiter d’un aspect d’un langage :</p>
+			<ul>
+				<li>Le statut de recommandation, ce qui veut dire que le document sert de standard et que le support pour les éléments
+					ou pratiques qu’il définit doit être intégré par les navigateurs ;</li>
+				<li>Le statut de candidat à la recommandation, ce qui signifie que les points abordés dans le document sont à priori
+					fixés et attendent une dernière validation ;</li>
+				<li>Le statut « travail en cours », ce qui signifie que le document possède encore des zones d’ombre à mettre au clair, etc.</li>
+            </article>
+
+            <article id="interoperabilte">
+
+                <header>
+                    <h2>4 - Interopérabilté</h2>
+                </header>
+                <p>Pour vous aider à saisir les enjeux d'une telle normalisation, nous avons résumé ici les avantages des standards émis par le W3C.</p>
+
+                        <h3>4.1 - Pour l'avenir du Web !</h3>
+                        <p>L'apparition de nouveaux terminaux d'Accès au Web, le Web sémantique sont autant de micro révolutions qui promettent de nouveaux usages.
+                            Mais tout cela ne sera rendu possible que si les fondations du Web sont solides.</p>
+
+                        <h3>4.2 - Pour une interopérabilité et une portabilité certifiée</h3>
+                        <p>L'interopérabilité et l'accessibilité correspondent avant tout au droit fondamental de l'utilisateur d'utiliser le navigateur Web de
+                             son choix ou celui qui correspond le mieux à ses besoins, tout en obtenant une expérience à peu près équivalente sur le Web.
+                             En construisant des documents Web selon les standards du W3C , le développeur obtient la garantie que tous les navigateurs conçus
+                             selon les normes de l'industrie afficheront de manière équivalente son travail. De plus, la portabilité de technologies issues de
+                             ces mêmes standards facilite grandement l'échange de données entre divers environnements.</p>
+
+                        <h3>4.3 - Pour une accessibilité universelle aux contenus</h3>
+                        <p>La presque totalité des sites Web actuels n'est accessible qu'au moyen de navigateurs graphiques traditionnels, empêchant
+                            ainsi leur accès par des personnes atteintes d'un handicap physique, moteur ou neurophysiologique. Les normes du W3C intègrent
+                            ces considérations dans les standards et facilitent grandement la création de sites universellement accessibles.</p>
+
+                        <h3>4.4 - Pour la production de contenu Web à moindre coût</h3>
+                        <p>Lors de la création de nouveaux sites Web, la séparation du contenu structuré et de sa présentation est une aubaine incroyable.
+                            En effet, il est maintenant possible de créer des CSS qui s'appliqueront globalement à un ou plusieurs documents, permettant ainsi
+                            de changer radicalement l'apparence entière d'un site en quelques minutes à peine, en modifiant tout simplement la feuille de style
+                            qui y est associée. Par ailleurs, le recours aux feuilles de style bénéficie également à l'utilisateur, qui peut alors configurer
+                            son expérience du site en fonction de ses goûts personnels, de ses besoins, de son handicap ou tout simplement de son matériel.</p>
+
+                        <h3>4.5 - Pour un contrôle qualité optimisé du travail fourni par les prestataires</h3>
+                        <p>Pour s'assurer que des documents Web sont conformes aux standards du W3C , il suffit de leur faire passer un test de validation
+                            auprès de l'outil du Consortium prévu à cet effet. Le recours au validateur, en plus d'être très formateur, permet aux développeurs
+                            de garantir la cohérence et la qualité de leur code, tout en assurant la stabilité et la simplification de sa maintenance.
+                            L'application des normes garantit que quiconque sera appelé à prendre la relève sur un projet existant pourra s'y plonger rapidement,
+                            plutôt que de perdre un temps précieux à essayer d'en reconstituer les lignes directrices.</br>De plus, le niveau de développement
+                            du projet sera plus en accord avec les pratiques courantes du marché.</p>
+
+                        <h3>4.6 - Pour une réduction considérable du volume des documents</h3>
+                        <p>L'utilisation des standards du W3C permet une réduction substantielle du poids des documents Web en éliminant les redondances dans
+                             le code et en minimisant le HTML nécessaire à sa structuration. Les tests confirment que le recours aux feuilles de style pour la
+                             présentation d'un document Web, de préférence aux éléments HTML dépréciés, réduisait le poids total du document dans un ratio allant
+                             de 25% à 50%. Une telle économie est significative, non seulement pour l'utilisateur qui attend moins longtemps pour le téléchargement
+                             des pages, mais aussi pour le propriétaire du site en question qui voit les coûts reliés à l'utilisation de la bande passante considérablement réduits.</p>
+
+                        <h3>4.7 - Pour un référencement plus efficace dans les moteurs de recherche</h3>
+                        <p>Au niveau de l'indexation des documents Web, le fait de les avoir codés de manière à les rendre conformes aux standards du W3C
+                            leur garantit de meilleurs résultats de classement et de reconnaissance, d'où une visibilité accrue dans les moteurs de recherche.
+                            Les documents conformes aux standards sont non seulement indexés plus précisément dans les registres grâce à leur structure
+                            informationnelle plus logique, mais sont également plus susceptibles de répondre aux attentes des moteurs de recherche, ce qui en favorise
+                            l'accessibilité et l'évaluation au moment des prises en charge de classification.</p>
+
+                        <h3>4.8 - Pour la pérennité des documents</h3>
+                        <p>Pensez seulement à toutes ces entreprises qui, à une certaine époque, ont entrepris de normaliser leur bureautique sur l'outil « standard »
+                            du moment qui était alors le format (pourtant propriétaire) de WordPerfect. Lors de la disparition de ce format quelques années plus tard,
+                            ces mêmes entreprises ont dû effectuer une migration longue et coûteuse vers la nouvelle norme, tout aussi propriétaire qu'est Microsoft Word…</p>
+
+                        <h3>4.9 - Pour une rétro compatibilité avec les anciens navigateurs</h3>
+                        <p>Tenter de reproduire un site pour qu'il s'affiche de manière identique dans tous les navigateurs demande un travail énorme et pose toujours
+                            de sérieux problèmes de conception, principalement parce qu'anciens et nouveaux navigateurs parlent un langage différent.</p>
+
+                        <h3>Conclusion</h3>
+                        <p>Que ce soit à l'occasion de la refonte d'un site ou de la création d'un nouveau service ou module, le recours aux standards permettra
+                            de conjuguer les contraintes de tous types rencontrées lors d'une production. Suivre les standards établis par le W3C est la seule façon de
+                            se prévaloir d'un Web plus stable et plus solide, où les applications dont on ne peut encore que rêver aujourd'hui seront converties en autant
+                            de réalités de demain.</p>
+                </article>
+
+                <article id="outils-validation">
+                    <header>
+                        <h2>5 - Quelques outils utiles</h2>
+                    </header>
+                        <h3>W3C Markup Validation Service</h3>
+                        <p>Le <a href="https://validator.w3.org">W3C Markup Validation Service</a> vérifie la validité du balisage des documents Web en HTML, XHTML, SMIL, MathML, etc.
+                            Pour valider un contenu spécifique tel que des <a href="https://validator.w3.org/feed/">flux RSS / Atom</a> ou des
+                            <a href="http://jigsaw.w3.org/css-validator/">feuilles de style CSS</a>, du <a href="https://www.w3.org/2016/11/mobile-checker-disabled/">contenu MobileOK</a>,
+                                ou pour trouver des <a href="https://validator.w3.org/checklink">liens brisés</a>, il existe d'<a href="https://w3c.github.io/developers/tools/">autres validateurs et outils disponibles</a>,
+                                    centralisés sur le site W3C.</p>
+
+
+                        <h3>CanIUse</h3>
+                        <p>Le site <a href="https://caniuse.com">CanIUse</a> vous permet de voir rapidement si la propriété que vous voulez utiliser va fonctionner
+                            sur les versions que vous souhaitez, et ce n’est pas tout ! En fonction de chaque version, vous pouvez voir le pourcentage de la population
+                            qui utilise celle-ci dans le monde ou simplement en France par exemple. Un outil parfait donc juger quelle version de quel navigateur prendre
+                            en charge ou non.</p>
+
+            </article>
+
+
+        <article id="pourquoi-faut-il-structurer-un-document">
+            <header>
+                <h2>6. Pourquoi faut-il structurer un document ?</h2>
+            </header>
+            <p>Sans la structure du contenu, le navigateur ne sait pas différencier ce qui est un titre d'un paragraphe.</p>
+
+            <div class="img">
+                <img src="img/alpha/texte-sans-structure.png" alt="texte sans structure">
+            </div>
+
+            <p>Une bonne structure permet de :</p>
+            <ul>
+                <li>Faciliter la lecture d'un document et accèder rapidement à certaines parties d'un document.</li>
+                <li>Ajouter correctement des feuilles de styles et de scripts (CSS et JS) sur des éléments précis du code.</li>
+                <li>Améliorer le référencement car les moteurs de recherche, lorsqu'ils indexent votre page, prennent en considération les titres en tant que mots‑clés.</li>
+            </ul>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Introduction_%C3%A0_HTML/
+                HTML_text_fundamentals#Pourquoi_faut-il_structurer_un_document ">Voir le lien</a>
+            </p>
+            <p>D'autres situations où la structure claire est indispensable :</p>
+
+            <h3>6.1 - Mode Lecture simplifiée (Mode Zen)</h3>
+            <p>Le mode lecture est une fonctionnalité qui élimine l'encombrement visuel de la page web : boutons, publicités, images de fond, etc. Ce mode permet en outre de modifier la taille du texte, le contraste et la mise en page pour vous offrir une meilleure lisibilité. Il est propre à chaque navigateur.</p>
+
+            <div class="img">
+                <img src="img/alpha/mode-normal.png" alt="sans-mode-lecture">
+                <img src="img/alpha/mode-lecture.png" alt="avec-mode-lecture">
+            </div>
+
+            <p>
+                <a href="https://www.futura-sciences.com/tech/questions-reponses/navigateurs-activer-mode-lecture-votre-navigateur-11982/">Voir le lien</a>
+            </p>
+
+            <h3>6.2 - Accessibilité</h3>
+            <p>Un lecteur d'écran (également appelé revue d'écran) est un logiciel d’assistance technique destiné aux personnes « empêchées de lire » (aveugles, fortement malvoyantes, dyslexiques, dyspraxiques…) : il retranscrit par synthèse vocale et/ou sur un afficheur braille ce qui est affiché sur l'écran d'un ordinateur tant en termes de contenu que de structure et permet d'interagir avec le système d’exploitation et les logiciels applications. </p>
+
+            <p>
+                <a href="https://fr.wikipedia.org/wiki/Lecteur_d%27%C3%A9cran">Voir le lien</a>
+            </p>
+
+            <p>Le bon fonctionnement d’un lecteur d’écran repose sur des applications correctement construites, qui interagissent avec le système d’exploitation via les API d’accessibilité. Les documents élaborés à l’aide de ces applications doivent également être correctement structurés. Exempleq : VoiceOver, Jaws, etc</p>
+
+            <h3>6.3 - Navigateurs sans tête</h3>
+
+            <p>Un navigateur headless, littéralement « navigateur sans tête », est un navigateur web sans interface graphique.</p>
+
+            <p>Les navigateurs sans tête permettent d'automatiser les contrôles d'une page web dans un environnement similaire à certains navigateurs populaires sur le marché en ligne de commande. Exemple:  Phantom.js</p>
+
+            <p>
+                <a href="https://fr.wikipedia.org/wiki/Navigateur_sans_t%C3%AAte">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="anatomie-d-un-element-html">
+            <header>
+                <h2>7. Anatomie d'un élément HTML</h2>
+            </header>
+            <h3>7.1 - Prinicipe des balises </h3>
+            <p>L'élément : Il est composé de la balise ouvrante, de la balise fermante et du contenu.</p>
+
+            <p>&lt;balise&gt; &lt;/balise&gt;: elles s'ouvrent et se ferment pour délimiter le contenu (début et fin d'un titre, par exemple).</p>
+
+            <p>&lt;balise /&gt;: balises orphelines (on ne les insère qu'en un seul exemplaire), elles permettent d'insérer un élément à un endroit précis (par exemple une image).</p>
+
+            <p>Les liens ci-dessous reprennent la liste de toutes les balises existantes </p>
+            <p>
+                <a href="https://www.w3schools.com/tags/default.asp">Voir le lien</a>
+                <a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5">Voir le lien</a>
+            </p>
+
+            <h3>7.2 - Balises et les différents navigateurs</h3>
+            <p>Le site « Can I Use » fournit des tableaux de prise en charge de navigateur à jour pour la prise en charge des technologies Web frontales sur les navigateurs Web de bureau et mobiles.</p>
+
+            <p>Il permet de détecter, pour chaque balise, les versions des différents navigateurs qui prennent en charge cette balise.</p>
+
+            <p>
+                <a href="https://caniuse.com/#home">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="balise-imbriquee-et-heritage">
+            <header>
+                <h2>8. Balise imbriquée et héritage</h2>
+            </header>
+
+            <h3>4.1 Imbrication</h3>
+            <p>Vous pouvez placer des éléments au sein d'autres éléments, c'est ce qu'on appelle l'imbrication.</p>
+
+            <h4>8.1.1 L’ordre de fermeture</h4>
+            <p>L’ordre de fermeturedes balises suit une logique bien précise. Un premier ensemble « petit texte » qui sera encadré par les balises <span class="keyword">&lt;strong&gt;</span> et <span class="keyword">&lt;/strong&gt;</span> qui sera lui même encadré par les balises <span class="keyword">&lt;p&gt;</span> et <span class="keyword">&lt;/p&gt;</span>.</p>
+
+            <h4>8.1.2 - L’héritage </h4>
+            <p>Les balises <span class="keyword">&lt;strong&gt;</span> et <span class="keyword">&lt;/strong&gt;</span> étant imbriquées dans les balises <span class="keyword">&lt;p&gt;</span> et <span class="keyword">&lt;/p&gt;</span>, on dit que la balise <span class="keyword">&lt;strong&gt;</span> appartient à la balise <span class="keyword">&lt;p&gt;</span>. Dans ce cas, la balise <span class="keyword">&lt;strong&gt;</span> hérite des propriétés de la balise <span class="keyword">&lt;p&gt;</span></p>
+
+            <h3>8.2 Catégories de contenu et hiérarchie structurale</h3>
+            <p>Chaque élément HTML est membre d'un certain nombre de catégories de contenu qui regroupent des éléments partageant un ensemble de caractéristiques.</p>
+            <p>Quelques exemples :</p>
+            <ul>
+                <li>
+                    <p>Contenu de flux  : Les éléments appartenant à la catégorie de contenu de flux contiennent généralement du texte ou du contenu intégré. </p>
+                    <p><span class="keyword">&lt;a&gt;</span>, <span class="keyword">&lt;abbr&gt;</span>, <span class="keyword">&lt;address&gt;</span>, <span class="keyword">&lt;article&gt;</span>,   <span class="keyword">&lt;div&gt;</span>, <span class="keyword">&lt;dl&gt;</span>, <span class="keyword">&lt;em&gt;</span>, <span class="keyword">&lt;embed&gt;</span>, <span class="keyword">&lt;fieldset&gt;</span>, <span class="keyword">&lt;figure&gt;</span>, <span class="keyword">&lt;footer&gt;</span>, <span class="keyword">&lt;form&gt;</span>, <span class="keyword">&lt;h1&gt;</span>, <span class="keyword">&lt;header&gt;</span>...</p>
+                </li>
+                <li>
+                    <p>
+                        Contenu sectionnant créant une nouvelle section dans le plan du document qui définit la portée des éléments <span class="keyword">&lt;header&gt;</span>, des éléments <span class="keyword">&lt;footer&gt;</span> et du contenu de titre.
+                    </p>
+                    <p>
+                        Les éléments appartenant à cette catégorie sont les éléments <span class="keyword">&lt;article&gt;</span>, <span class="keyword">&lt;aside&gt;</span>, <span class="keyword">&lt;nav&gt;</span> et <span class="keyword">&lt;section&gt;</span>...
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       Contenu de titre Le contenu de titre définit le titre d'une section, qu'elle soit marquée par un contenu sectionnant de manière explicite ou qu'elle soit définie de manière implicite par le contenu de titre lui-même.</p>
+                    <p>Les éléments appartenant à cette catégorie sont <span class="keyword">&lt;h1&gt;</span>, <span class="keyword">&lt;h2&gt;</span>, <span class="keyword">&lt;h3&gt;</span>, <span class="keyword">&lt;h4&gt;</span>, <span class="keyword">&lt;h5&gt;</span>, <span class="keyword">&lt;h6&gt;</span> et <span class="keyword">&lt;hgroup&gt;</span></p>
+                    </p>
+                </li>
+            </ul>
+
+
+            <p>Le site MDN Web docs rassemble l'ensemble de ces élements HTML et, pour chacun d'entre, répertorie, sous forme d'un résumé technique, le type de contenu, les parents les enfants autorisés</p>
+
+            <p>Quelques exemples:  L'élement div peut contenir des éléments a, idem pour p et sup et pour section et li. Mais l'inverse n'est pas vrai !</p>
+
+            <p>
+                <a href="https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content">Voir le lien</a>
+                <a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Catégories_de_contenu">Voir le lien</a>
+            </p>
+
+            <div class="img">
+                <img src="img/alpha/Content_categories_venn.png" alt="caégorie de contenu">
+                <img src="img/alpha/hierarchie.png" alt="hierarchie">
+            </div>
+
+            <h3>8.3 Le DOM</h3>
+
+            <p>L'imbrication s'effectue selon les règles de hiérarchie de contenu. L'ensemble de cette hierarchie représente le DOM, une représentation sous forme d'arbre des éléments HTML qui seront rendus sur la page.</p>
+            <p>Le DOM (Document Object Model) est une interface pour vos pages web. C'est une API permettant aux programmes de lire et de manipuler le contenu de la page, sa structure et ses styles.</p>
+
+            <div class="img">
+                <img src="img/alpha/Example-of-DOM-Node-Tree.png" alt="DOM tree">
+            </div>
+
+            <p>
+                <a href="https://www.w3schools.com/whatis/whatis_htmldom.asp">Voir le lien</a>
+                <a href="https://la-cascade.io/le-dom-cest-quoi-exactement/">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="anatomie-d-un-document-html">
+            <header>
+                <h2>9. Anatomie d'un document HTML</h2>
+            </header>
+
+            <h3>9.1 - <span class="keyword">&lt;!DOCTYPE html&gt;</span></h3>
+            <p>Le doctype. Au début de HTML, dans les années 1991-1992, les doctypes étaient utilisés pour faire référence à des ensembles de règles qu'on pouvait utiliser pour dire qu'un document était du HTML « valide » et détecter les erreurs de balisage. Cependant, ceux-ci ne sont plus utilisés aujourd'hui et sont juste présents pour s'assurer que la page puisse fonctionner y compris sur les anciens navigateurs. Pour le moment, c'est tout ce qu'il y a à savoir à propos des doctypes.</p>
+
+            <h3>9.2 - <span class="keyword">&lt;html&gt;</span><span class="keyword">&lt;/html&gt;</span></h3>
+            <p>L'élément <span class="keyword">&lt;html&gt;</span>. Cet élément encadre tout le contenu de la page. Cet élément est parfois appelé l'élément racine.</p>
+
+            <h3>9.3 - <span class="keyword">&lt;head&gt;</span><span class="keyword">&lt;/head&gt;</span></h3>
+            <p>L'élément <span class="keyword">&lt;head&gt;</span>. Cet élément est utilisé comme un container pour toutes les choses qui font partie de la page HTML mais qui ne sont pas du contenu affiché. C'est dans cet élément qu'on mettra des mots-clés, une description de la page qui apparaîtra sur les moteurs de recherche, les liens vers les fichiers CSS à utiliser pour la mise en forme, les déclarations des jeux de caractères à utiliser et ainsi de suite.</p>
+
+            <h3>9.4 - <span class="keyword">&lt;body&gt;</span><span class="keyword">&lt;/body&gt;</span></h3>
+            <p>L'élément <span class="keyword">&lt;body&gt;</span>. Cet élément est celui qui contient tout le contenu que vous souhaitez afficher pour qu'il soit vu par les visiteurs : cela peut être du texte, des images, des vidéos, des jeux, des pistes audio jouables, et ainsi de suite.</p>
+
+            <h3>9.5 - <span class="keyword">&lt;meta charset="utf-8"&gt;</span></h3>
+            <p>Cet élément définit le jeu de caractères qui devrait être utilisé pour le document et indique que c'est utf-8. utf-8 regroupe l'ensemble des caractères connus utilisés dans les différents langages humains. Généralement, utf-8 permet de gérer n'importe quel texte que vous pourriez utiliser sur la page. Il n'y a pas de raison de ne pas le définir, et il permet d'éviter certains problèmes plus tard.</p>
+
+            <h3>9.6 - <span class="keyword">&lt;title&gt;</span><span class="keyword">&lt;/title&gt;</span></h3>
+
+            <p>L'élément <span class="keyword">&lt;title&gt;</span> définit le titre de votre page. C'est ce titre qui apparaîtra sur l'onglet lorsque la page sera chargée. C'est également ce titre qui sera utilisé pour décrire la page lorsque vous la placez dans vos marques-pages.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/Commencer_avec_le_web/Les_bases_HTML#Anatomie_dun_document_HTML">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="les-attributs-de-balises">
+            <header>
+                <h2>10. Les attributs de balises</h2>
+            </header>
+            <h3>10.1 - Attributs généraux et spécifiques</h3>
+            <p>Les attributs sont un peu les options des balises. Ils viennent les compléter pour donner des informations supplémentaires. L'attribut se place après le nom de la balise ouvrante et a le plus souvent une valeur, comme ceci :</p>
+
+            <p>&lt;balise attribut="valeur"&gt;</p>
+
+            <p>Certains attributs s’appliquent à presque tous les éléments (class, id,  data-attribute, etc.), d'autres attributs sont propres à un élément unique, ou des éléments similaires (alt pour une img, href pour un lien, etc.)</p>
+
+            <h3>10.2 - Différence entre Class et Id</h3>
+
+            <p>Chaque terme permet de créer des propriétés CSS personnalisées, que vous pouvez appliquer à vos balises, mais il existe des différences entre une classe (.toto) et un id (#toto)</p>
+            <p>On peut utiliser indifféremment les attributs id et class pour appliquer des styles CSS aux éléments d'une page et interagir avec eux en JavaScript, mais...</p>
+
+            <ul>
+                <li>un id s'applique à un objet unique : il ne peut pas y avoir deux mêmes id dans une page</li>
+                <li>une classe peut caractériser plusieurs objets (identiques ou non)</li>
+            </ul>
+            <p>
+                <a href="https://www.w3schools.com/html/html_id.asp">Voir le lien</a>
+                <a href="https://www.w3schools.com/html/html_classes.asp">Voir le lien</a>
+                <a href="https://www.alsacreations.com/article/lire/535-quelle-est-la-difference-entre-une-classe-class-et-un-id.html">Voir le lien</a>
+            </p>
+
+            <h3>10.3 - Attribut Event</h3>
+            <p>Le HTML a la possibilité de laisser des événements déclencher des actions dans un navigateur, comme démarrer un JavaScript lorsqu'un utilisateur clique sur un élément.</p>
+            <p>Voici certains attributs d'événements globaux qui peuvent être ajoutés aux éléments HTML pour définir des actions d'événement : onclick, on change, on resize, onfocus...</p>
+
+            <p>
+                <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="valider-son-site-aux-standards-du-web">
+            <header>
+                <h2>11. Valider son site aux standards du Web</h2>
+            </header>
+
+            <h3>11.1 - Etre conforme aux standards W3C</h3>
+            <p>Pour être conforme aux standards W3C, votre site Internet doit prendre en compte plusieurs paramètres :</p>
+            <ul>
+                <li>Déclarer un doctype reconnu par le W3C</li>
+                <li>Le respect de la sémantique</li>
+                <li>Rendre son site accessible selon les spécifications WCAG (Web Content Accessibility Guidelines)</li>
+            </ul>
+            <p>
+                <a href="https://jaetheme.com/blog/valider-site-w3c/">Voir le lien</a>
+                <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Voir le lien</a>
+            </p>
+
+            <h3>11.2 - Liste de validateurs</h3>
+
+            <p>Liste de validateurs</p>
+            <ul>
+                <li>Tester le code HTML : <a href="http://validator.w3.org/">validator.w3.org/</a></li>
+                <li>Tester le code CSS : <a href="http://validator.w3.org/"></a>jigsaw.w3.org/css/</li>
+                <li>Tester ses couleurs : Extension firefox</li>
+                <li>Tester HTML5 + WAI-ARIA : <a href="http://validator.w3.org/">about.validator.nu/</a></li>
+                <li>Tester le code pour les flux RSS : <a href="http://validator.w3.org/">validator.w3.org/feed/</a></li>
+                <li>Tester les liens : <a href="http://validator.w3.org/">validator.w3.org/checklink/</a></li>
+            </ul>
+
+        </article>
+
+        <article id="les-symboles-et-les-entités-HTML">
+            <header>
+                <h2> 12. Les Symboles et les entités HTML</h2>
+            </header>
+
+            <h3>12.1 - Les entités HTML</h3>
+            <p>Certains caractères sont réservés en HTML.</p>
+            <p>Si vous utilisez les signes inférieur à (&lt;) ou supérieur à (&gt;) dans votre texte, le navigateur peut les mélanger avec des balises.</p>
+            <p>Les entités de caractère sont utilisées pour afficher les caractères réservés en HTML.</p>
+            <table class="symbol">
+                <tr><td>&lt;</td><td>less than</td><td>&amp;lt;</td><td>&amp;#60;</td></tr>
+                <tr><td>&lt;</td><td>greater than</td><td>&amp;gt;</td><td>&amp;#62;</td></tr>
+                <tr><td>&lt;</td><td>ampersand</td><td>&amp;amp;</td><td>&amp;#38;</td></tr>
+            </table>
+            <table class="symbol">
+                <tr><td>&Aacute;</td><td>&amp;Aacute;</td><td>acute pour l'accent aigu</td></tr>
+                <tr><td>&Acirc;</td><td>&amp;Acirc;</td><td>circ pour l'accent circonflexe</td></tr>
+                <tr><td>&Agrave;</td><td>&amp;Agrave;</td><td>grave pour l'accent grave</td></tr>
+                <tr><td>&Ccedil;</td><td>&amp;Ccedil;</td><td>cedil pour la cédille</td></tr>
+                <tr><td>&Oslash;</td><td>&amp;Oslash;</td><td>slash pour la barre oblique</td></tr>
+            </table>
+            <p>
+                <a href="https://www.w3schools.com/html/html_entities.asp">Voir le lien</a>
+            </p>
+
+            <h3>12.2 - Les symboles HTML</h3>
+            <p>De nombreux symboles mathématiques, techniques et monétaires ne sont pas présents sur un clavier normal.</p>
+            <p>Pour ajouter de tels symboles à une page HTML, vous pouvez utiliser un nom d'entité HTML.</p>
+            <p>Si aucun nom d'entité n'existe, vous pouvez utiliser un numéro d'entité, une référence décimale ou hexadécimale.</p>
+            <table class="symbol">
+                <tr><td>&part;</td><td>&amp;part;</td><td>&amp;#8706;</td><td>PARTIAL DIFFERENTIAL</td></tr>
+                <tr><td>&exist;</td><td>&amp;exist;</td><td>&amp;#8706;</td><td>THERE EXISTS</td></tr>
+                <tr><td>&empty;</td><td>&amp;empty;</td><td>&amp;#8709;</td><td>EMPTY SETS</td></tr>
+                <tr><td>&Gamma;</td><td>&amp;Gamma;</td><td>&amp;#915;</td><td>GREEK CAPITAL LETTER GAMMA</td></tr>
+                <tr><td>&Delta;</td><td>&amp;Delta;</td><td>&amp;#916;</td><td>GREEK CAPITAL LETTER DELTA</td></tr>
+                <tr><td>&copy;</td><td>&amp;copy;</td><td>&amp;#169;</td><td>COPYRIGHT SIGN</td></tr>
+                <tr><td>&reg;</td><td>&amp;reg;</td><td>&amp;#174;</td><td>REGISTERED SIGN</td></tr>
+                <tr><td>&spades;</td><td>&amp;spades;</td><td>&amp;#9824;</td><td>BLACK SPADE SUIT</td></tr>
+                <tr><td>&clubs;</td><td>&amp;clubs;</td><td>&amp;#9827;</td><td>BLACK CLUB SUIT</td></tr>
+                <tr><td>&hearts;</td><td>&amp;hearts;</td><td>&amp;#9829;</td><td>BLACK HEART SUIT</td></tr>
+                <tr><td>&diams;</td><td>&amp;diams;</td><td>&amp;#9830;</td><td>BLACK DIAMOND SUIT</td></tr>
+            </table>
+            <p>
+                <a href="https://www.w3schools.com/html/html_symbols.asp">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="introduction-a-l-accessibilite-du-web">
+            <header>
+                <h2>13. Introduction à l'accessibilité du web</h2>
+            </header>
+            <div class="img">
+                <img src="img/alpha/handicap.png" alt="Handicap" class="vertical-img">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/20SHvU2PKsM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+            <p>Lorsqu’un site ou un outil web est bien conçu et bien codé, les personnes handicapées peuvent l’utiliser. Cependant, beaucoup de sites et d’outils développés actuellement contiennent des problèmes d’accessibilité, ce qui les rend dificiles ou impossibles à utiliser par certaines personnes.</p>
+            <p>
+                Rendre le web accessible est un avantage pour les internautes, les entreprises et la société. Les standards du web internationaux définissent ce qui est nécessaire pour l’accessibilité.
+            </p>
+
+            <h3>13.1 - Le contexte de l’accessibilité</h3>
+            <p> L’accessibilité est essentielle pour les développeurs et les organismes qui veulent créer des sites et des outils web de haute qualité, et ne pas exclure des personnes de l’utilisation de leurs produits et services.</p>
+            <h3>13.2 - Qu’est-ce que l’accessibilité du web</h3>
+            <p>L’accessibilité du web comprend tous les handicaps affectant l’accès au web, en particulier le handicap : auditif, cognitif, neurologique, physique, de la parole, visuel. Elle bénéficie également aux personnes sans handicap, comme par exemple :</p>
+
+            <ul>
+                <li>les personnes utilisant un téléphone mobile, une montre connectée, une télévision connectée, et autres périphériques ayant des petits écrans, différents modes de saisie, etc.</li>
+                <li>les personnes âgées dont les capacités changent avec l’âge</li>
+                <li>les personnes ayant un « handicap temporaire » tel qu’un bras cassé ou perdu leurs lunettes</li>
+                <li>les personnes ayant « une limitation situationnelle » comme être en plein soleil ou dans un environnement où elles ne peuvent pas écouter l’audio</li>
+                <li>les personnes utilisant une connexion internet lente ou ayant une bande passante limitée ou onéreuse</li>
+            </ul>
+
+            <h3>13.3 - L’accessibilité est importante pour les internautes, les entreprises, la société</h3>
+
+            <p>L’accès à l’information et aux technologies de communication, y compris le web, est défini comme un droit humain fondamental dans la convention des Nations Unies relative aux droits des personnes handicapées. L’accessibilité du web est exigée par la loi dans beaucoup de situations.</p>
+
+            <h3>13.4 - Évaluer l’accessibilité</h3>
+            <p>Lors du développement ou de la refonte d’un site web, évaluez l’accessibilité dès le début et pendant le processus de développement afin d’identifier rapidement les problèmes d’accessibilité, parce qu’il est facile de les corriger. </p>
+
+            <p>Il existe des outils qui peuvent aider à l’évaluation. Cependant, aucun outil seul ne peut déterminer si un site est conforme aux règles d’accessibilité. L’évaluation par un humain est nécessaire pour déterminer si un site est accessible.</p>
+
+            <p>
+                <a href="https://www.w3.org/WAI/Resources/">Voir le lien</a>
+                <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/fr">Voir le lien</a>
+            </p>
+        </article>
+
+    </section>
+
+
+    <section id="alpha-les-tableaux">
+        <header>
+            <h1>Les tableaux</h1>
+        </header>
+
+        <article id="Qu-est-ce-qu-un-tableau">
+            <header>
+                <h2>1 - Définition - Qu'est-ce qu'un tableau ?</h2>
+            </header>
+
+            <p>Un tableau est un ensemble structuré de données (table de données) présentées en lignes et colonnes. Un tableau vous permet de retrouver rapidement et facilement des valeurs au croisement entre différents types de données.</p>
+            <p>L'information est facilement interprétée par  des associations visuelles entre les en‑têtes de lignes et colonnes.</p>
+
+            <div class="exemple">
+                <code>
+                    <table>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 3</td>
+                            <td>Cellule 4</td>
+                        </tr>
+                    </table>
+                </code>
+
+<pre>
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+</pre>
+        </div>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Quest-ce_quun_tableau">voir l'article</a>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Comment_fonctionne_un_tableau">voir l'article</a>
+            </p>
+        </article>
+
+        <article id="composition">
+            <header>
+                <h2>2 - Composition</h2>
+            </header>
+
+            <div class="exemple">
+                <code>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Titre Ligne1</th>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                        </tr>
+                        <tr>
+                            <th>Titre Ligne2</th>
+                            <td>Cellule 3</td>
+                            <td>Cellule 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Pied de tableau 1</th>
+                            <th>Pied de tableau 2</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Ligne1&lt;/th&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Ligne2&lt;/th&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;Pied de tableau 1&lt;/th&gt;
+            &lt;th&gt;Pied de tableau 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+
+            <h3>2.1 - L'élément <span class="keyword">table<span></h3>
+            <p>L'élément HTML <span class="keyword">table</span> permet de représenter un tableau de données, c'est-à-dire des informations exprimées sur un tableau en deux dimensions.<p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table">Voir le lien</a>
+            </p>
+
+            <h4>2.1.1 - Ajouter un titre - L'élément <span class="keyword">caption</span></h4>
+
+            <p>Vous pouvez intituler un tableau en mettant son titre dans un élément <span class="keyword">caption<span> et en englobant le tout dans un élément <span class="keyword">table</span>.</p>
+            <p>Le titre est placé directement sous la balise <span class="keyword">table</span>.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Ajouter_un_titre_aux_tableaux_avec_%3Ccaption%3E">Voir le lien</a>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/caption">Voir le lien</a>
+            </p>
+
+            <h4>2.2 - Structure de la table - Les éléments <span class="keyword">thead</span>, <span class="keyword">tbody</span> et <span class="keyword">tfoot</span></h4>
+
+            <p>il est utile d'améliorer la définition des tables lorsqu'elles deviennent plus complexes. Une façon claire d'y parvenir consiste à utiliser les éléments <thead>, <tfoot> et <tbody>, qui vous permettent de marquer l'en-tête, le pied et le corps du tableau.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Ajout_dune_structure_avec_%3Cthead%3E_%3Ctfoot%3E_et_%3Ctbody%3E">Voir le lien</a>
+            </p>
+
+            <h5>2.2.1 - L'élément <span class="keyword">thead</span></h5>
+            <p>L'élément <span class="keyword">thead</span> définit un ensemble de lignes qui définit l'en-tête des colonnes d'un tableau. Cet élément est optionnel.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/thead">Voir le lien</a>
+            </p>
+
+            <h5>2.2.2 - L'élément <span class="keyword">tbody</span></h5>
+            <p>L’élément HTML <span class="keyword">tbody</span> permet de regrouper un ou plusieurs éléments <span class="keyword">tr</span> afin de former le corps d'un tableau HTML (<span class="keyword">table</span>). Cet élément est toujours inclus dans tous les tableaux, implicitement si vous ne l'avez pas spécifié dans votre code.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tbody">Voir le lien</a>
+            </p>
+
+            <h5>2.2.3 - L'élément <span class="keyword">tfoot</span></h5>
+            <p>L'élément HTML <span class="keyword">tfoot</span> permet de définir un ensemble de lignes qui résument les colonnes d'un tableau. Cet élément est optionnel.
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tfoot">Voir le lien</a>
+            </p>
+
+            <h4>2.3 - L'élément <span class="keyword">th</span></h4>
+            <p>L'élément HTML <span class="keyword">th</span> définit une cellule d'un tableau comme une cellule d'en-tête pour un groupe de cellule. La nature de ce groupe est définie grâce aux attributs scope et headers.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/th">Voir le lien</a>
+            </p>
+
+            <h5>2.3.1 - L'attribut scope</h5>
+            <p>Cet attribut référence les cellules auxquelles l'élément <span class="keyword">th</span> est lié. Cet attribut est un attribut à valeur contrainte qui peut prendre les valeurs suivantes : row, col, rowgroup, colgroup ou auto.</p>
+
+            <h5>2.3.2 - Les attributs headers</h5>
+
+            <p>Cet attribut est une liste de chaînes de caractères séparées par des espace. Chacune correspond à l'attribut id de l'élément <span class="keyword">th</span> qui s'applique à cet élément.</p>
+
+            <h5>2.3.3 - Pourquoi les en-têtes sont-ils utiles ?</h5>
+
+            <h4>2.4 - L'élément <span class="keyword">tr</span></h4>
+            <p>L'élément HTML <span class="keyword">tr</span> définit une ligne de cellules dans un tableau. Une ligne peut être constituée d'éléments <span class="keyword">td</span> (les données des cellules) et <span class="keyword">th</span> (les cellules d'en-têtes).</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tr">Voir le lien</a>
+            </p>
+
+            <h4>2.5 - L'élément <span class="keyword">td</span></h4>
+            <p>L'élément HTML <span class="keyword">td</span> définit une cellule d'un tableau qui contient des données.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/td">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="fusion-de-cellules">
+            <header>
+                <h2>3 - Les attributs rowspan et colspan -  Fusion de cellules</h2>
+            </header>
+            <p>Les attributs rowspan et colspan permettent d'étendre des cellules sur plusieurs lignes ou colonnes.</p>
+            <div class="exemple">
+            <code>
+                <table>
+                    <tr>
+                        <th>Titre Ligne1</th>
+                        <td rowspan="2">Cellule 1</td>
+                        <td colspan="2">Cellule 2</td>
+                    </tr>
+                    <tr>
+                        <th>Titre Ligne2</th>
+                        <td>Cellule 3</td>
+                        <td>Cellule 4</td>
+                    </tr>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Titre Ligne1&lt;/th&gt;
+        &lt;td rowspan="2"&gt;Cellule 1&lt;/td&gt;
+        &lt;td colspan="2"&gt;Cellule 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Titre Ligne2&lt;/th&gt;
+        &lt;td&gt;Cellule 3&lt;/td&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+            </div>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#%C3%89tendre_des_cellules_sur_plusieurs_lignes_ou_colonnes">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="attribuer-un-style-commun-aux-colonnes">
+            <header>
+                <h2>4. Les éléments <span class="keyword">col</span> et <span class="keyword">colgroup</span> - Attribuer un style commun aux colonnes</h2>
+            </header>
+
+            <p>les éléments <span class="keyword">col</span> and <span class="keyword">colgroup</span> permettent d'attribuer un style commun aux colonnes. Nous pouvons préciser l'information une seule fois dans un élément <span class="keyword">col</span>. Les éléments <span class="keyword">col</span> sont utilisés dans un conteneur <span class="keyword">colgroup</span> juste en-dessous de la balise <span class="keyword">table</span></p>
+    <div class="exemple">
+            <code>
+                <table>
+                    <col style="width: 150px;background-color: grey">
+                    <colgroup style="width: 80px">
+                        <col >
+                        <col style="background-color: orange">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                            <th>Titre Colonne 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                            <td>Cellule 3</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 4</td>
+                            <td>Cellule 5</td>
+                            <td>Cellule 6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;col style="width: 150px;background-color: grey"&gt;
+    &lt;colgroup style="width: 80px"&gt;
+        &lt;col &gt;
+        &lt;col style="background-color: orange"&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 2&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 3&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+            &lt;td&gt;Cellule 5&lt;/td&gt;
+            &lt;td&gt;Cellule 6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Attribuer_un_style_commun_aux_colonnes">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="attribut-html">
+            <header>
+                <h2>5. Style de tableau & Attribut HTML</h2>
+            </header>
+            <p>Chaque éléments constituant un tableau possèdent une série d'attributs permettant de créer un style de tableau sans utiliser de feuille de style. Voici quelques exemples : align, bgcolor, border, cell-spacing, cell-padding... </p>
+
+            <p>Ils sont dépréciés à l'heure actuelle et donc à éviter !</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table#Attributs">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="tableaux-imbriques">
+            <header>
+                <h2>6. Tableaux imbriqués</h2>
+            </header>
+            <p>
+                Il est possible d'inclure un tableau dans un autre, à condition d'en spécifier la structure complète, y compris l'élément <span class="keyword">table</span>. Ce n'est généralement pas vraiment conseillé !
+            </p>
+    <div class="exemple">
+            <code>
+                <table>
+                    <tr>
+                        <td>Cellule 1</td>
+                        <td>Cellule 2</td>
+                    </tr>
+                    <tr>
+
+                        <td>Cellule 3
+                            <table>
+                                <tr>
+                                    <td>Cell. A</td>
+                                    <td>Cell. B</td>
+                                    <td>Cell. C</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>Cellule 4</td>
+                    </tr>
+
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 1&lt;/td&gt;
+        &lt;td&gt;Cellule 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+
+        &lt;td&gt;Cellule 3
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Cell. A&lt;/td&gt;
+                    &lt;td&gt;Cell. B&lt;/td&gt;
+                    &lt;td&gt;Cell. C&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_imbriqu%C3%A9s">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="tableaux-pour-utilisateurs-malvoyants">
+            <header>
+                <h2>7. Tableaux pour utilisateurs malvoyants</h2>
+            </header>
+
+            <code>
+                <table>
+                    <caption>Titre Tableau<span>Voici le résumé du tableau ci-dessus</span></caption>
+                    <thead>
+                        <tr>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                            <th>Titre Colonne 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                            <td>Cellule 3</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 4</td>
+                            <td>Cellule 5</td>
+                            <td>Cellule 6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </code>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants">Voir le lien</a>
+            </p>
+
+            <h3>7.1 - Ajouter un titre aux tableaux avec <span class="keyword">caption</span> pour accessibilité</h3>
+            <p>Les légendes et les résumés fournissent des informations qui peuvent aider les utilisateurs à trouver, parcourir et comprendre les tableaux.</p>
+<div class="exemple">
+            <code>
+                <table>
+                    <caption>Titre Tableau<br/><span>Voici le résumé du tableau ci-dessus</span></caption>
+                    <tr>
+                        <td>Cellule 1</td>
+                        <td>Cellule 2</td>
+                        <td>Cellule 3</td>
+                    </tr>
+                    <tr>
+                        <td>Cellule 4</td>
+                        <td>Cellule 5</td>
+                        <td>Cellule 6</td>
+                    </tr>
+                    </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;caption&gt;
+        Titre Tableau&lt;br/&gt;
+        &lt;span&gt;Voici le résumé du tableau
+        ci-dessus&lt;/span&gt;
+    &lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 1&lt;/td&gt;
+        &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;td&gt;Cellule 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;td&gt;Cellule 5&lt;/td&gt;
+        &lt;td&gt;Cellule 6&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://www.w3.org/WAI/tutorials/tables/caption-summary/">Voir le lien</a>
+            </p>
+
+            <h3>7.2 - Utilisation des en-têtes de colonnes et de lignes</h3>
+            <p>Les lecteurs d'écran identifieront tous les en-têtes et les utiliseront pour réaliser automatiquement les associations entre ces en-têtes et les cellules correspondantes. </p>
+            <p>Ainsi, les utilisateurs de lecteurs d'écran peuvent accéder aux données d'une façon similaire à celle des utilisateurs voyants.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Utilisation_des_en-t%C3%AAtes_de_colonnes_et_de_lignes">Voir le lien</a>
+            </p>
+
+            <h3>7.3 - L'attribut scope </h3>
+            <p>L'attribut scope peut être mentionné dans un élément <span class="keyword">th</span> pour indiquer précisément à un lecteur d'écran si la cellule contient un en-tête de colonne ou de ligne.</p>
+<div class="exemple">
+    <code>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Titre Colonne 1</th>
+                    <th scope="col">Titre Colonne 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Ligne 1</th>
+                    <td>Cellule 1</td>
+                    <td>Cellule 2</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ligne 2</th>
+                    <td>Cellule 3</td>
+                    <td>Cellule 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </code>
+    <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th scope="col"&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th scope="col"&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Ligne 1&lt;/th&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Ligne 2&lt;/th&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+    </pre>
+</div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Lattribut_scope">Voir le lien</a>
+            </p>
+
+            <h3>7.4 - Les attributs id et headers</h3>
+            <p>Une alternative à l'usage de l'attribut scope est l'utilisation des attributs id et headers pour créer une association entre en-têtes et cellules. Ils sont utilisés de la manière suivante :</p>
+            <div class="exemple">
+                <code>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th id="col1">Titre Colonne 1</th>
+                                <th id="col2">Titre Colonne 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th id="row1">Ligne 1</th>
+                                <td headers="col1 row1">Cellule 1</td>
+                                <td headers="col2 row1">Cellule 2</td>
+                            </tr>
+                            <tr>
+                                <th id="row2">Ligne 2</th>
+                                <td headers="col1 row2">Cellule 3</td>
+                                <td headers="col2 row2">Cellule 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </code>
+                <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th id="col1"&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th id="col2"&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th id="row1"&gt;Ligne 1&lt;/th&gt;
+            &lt;td headers="col1 row1"&gt;Cellule 1&lt;/td&gt;
+            &lt;td headers="col2 row1"&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="row2"&gt;Ligne 2&lt;/th&gt;
+            &lt;td headers="col1 row2"&gt;Cellule 3&lt;/td&gt;
+            &lt;td headers="col2 row2"&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                </pre>
+            </div>
+            <p>Vous ajoutez un identifiant unique id à chaque élément <span class="keyword">th</span>. Vous ajoutez un attribut headers à chaque élément  <span class="keyword">td</span> . Chaque attribut headers doit contenir une liste des id de tous les éléments <span class="keyword">th</span> qu'il contient, séparés par des espaces.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Les_attributs_id_et_headers">Voir le lien</a>
+                <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/fr#standards">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="quand-ne-pas-utiliser-de-tableaux-en-html">
+            <header>
+                <h2>8. Quand NE PAS utiliser de tableaux en HTML ?</h2>
+            </header>
+            <p>Les tableaux HTML ne doivent être utilisés que pour des données tabulaires — c'est pour cela qu'ils sont conçus.</p>
+            <p>Utiliser les tableaux pour la mise en page au lieu des techniques des CSS est une mauvaise idée ! En voici les principales raisons :</p>
+            <ul>
+                <li>Les tableaux de mise en page diminuent l'accessibilité aux malvoyants </li>
+                <li>Les tables produisent de la bouillie</li>
+                <li>Les tableaux ne s'adaptent pas automatiquement</li>
+            </ul>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Quand_NE_PAS_utiliser_de_tableaux_en_HTML">Voir le lien</a>
+            </p>
+        </article>
+    </section>
+
+    <section id="alpha-les-listes">
+    	<header>
+        <h1>Les listes</h1>
+      </header>
+			<article id="introduction-aux-listes-HTML">
+				<header>
+					<h2>1 - Introduction aux listes HTML</h2>
+				</header>
+
+				<p>HTML offre plusieurs moyens d’établir des listes d'informations.
+					Toutes les listes doivent contenir un élément de liste ou plus.
+					Celles-ci peuvent présenter des informations non-ordonnées, ordonnées ou des définitions.
+					Nous allons voir ici comment les construire.</p>
+
+	      	<header>
+						<h3>1.1 - Les listes ordonnées et non-ordonnées</h3>
+					</header>
+        	<p>Les listes non-ordonnées n'ont pas de notion d'ordre et on peut mélanger leurs éléments
+						sans que cela modifie leur sens. Elles apparaissent parfois à des endroits inattendus :
+						les barres de navigation sont par exemple des listes non-ordonnées auxquelles on a appliqué
+						quelques règles CSS pour la mise en forme. Lorsque les éléments de la liste doivent être
+						lus ou réalisés dans un ordre précis, on utilisera la liste ordonnée.</p>
+
+					<p>Syntaxe HTML :</p>
+					<p>Toute la liste sera placée dans les balises &lt;ol&gt; pour les listes ordonnées ou &lt;ul&gt;
+						pour les listes non-ordonnées. Les balises fermentes &lt;/ol&gt; et &lt;/ul&gt; sont obligatoires.
+						Chacun des éléments de la liste sera placé à l'intérieur d'un élément &lt;li&gt;. La balise fermante
+					&lt;/li&lg; est optionnelle. Voici un exemple qui contient les deux types de liste :</p>
+					<div class="exemple">
+						<code>
+							<h1>Guacamole rapide à faire</h1>
+							<h2>Ingrédients</h2>
+							<ul>
+							 	<li>2 avocats </li>
+							 	<li>le jus d'un citron</li>
+							 	<li>¼ de concombre, coupé grossièrement</li>
+							 	<li>1 petite tomate, coupée</li>
+							</ul>
+							<h2>Instructions</h2>
+							<ol>
+							 	<li>Écrasez délicatement les avocats avec une fourchette</li>
+							 	<li>Placez la purée obtenue dans un plat et arrosez avec le jus de citron</li>
+							 	<li>Mélangez pour que le jus de citron empêche la purée d'avocat de noircir</li>
+							 	<li>Mélangez la tomate et le concombre coupés</li>
+							 	<li>Gardez au frais et servir rapidement avec des tortillas</li>
+							</ol>
+						</code>
+						<pre>
+&lt;h1&gt;Guacamole rapide à faire &lt;/h1&gt;
+
+&lt;h2&gt;Ingrédients&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;2 avocats &lt;/li&gt;
+    &lt;li&gt;le jus d'un citron&lt;/li&gt;
+    &lt;li&gt;¼ de concombre, coupé grossièrement&lt;/li&gt;
+    &lt;li&gt;1 petite tomate, coupée&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;Écrasez délicatement les avocats avec une fourchette&lt;/li&gt;
+    &lt;li&gt;Placez la purée obtenue dans un plat et
+    arrosez avec le jus de citron&lt;/li&gt;
+    &lt;li&gt;Mélangez pour que le jus de citron
+    empêche la purée d'avocat de noircir&lt;/li&gt;
+    &lt;li&gt;Mélangez la tomate et le concombre coupés&lt;/li&gt;
+    &lt;li&gt;Gardez au frais et servir rapidement
+    avec des tortillas&lt;/li&gt;
+&lt;/ol&gt;
+                        </pre>
+                    </div>
+						<p>Par défaut, le navigateur utilisera des chiffres classiques pour les listes ordonnées et des puces (rondes) pour les listes non-ordonnées. Nous verrons par la suite comment modifier ces paramètres.</p>
+
+						<h3>1.2 - Les listes de définition</h3>
+
+        	<p>La liste de définitions consiste généralement en une succession de couples terme/définition
+						(même si les listes peuvent avoir d'autres usages). Ainsi, on pourrait utiliser une liste de
+						définitions pour la publicité d'un produit.</p>
+						<div class="exemple">
+							<code>
+								<dl>
+									<dt>Titre de la définition</dt>
+									<dd>La définition en elle même</dd>
+									<dt>Titre de la 2ème définition</dt>
+									<dd>La définition 2ème en elle-même</dd>
+								</dl>
+							</code>
+
+							<pre>
+&lt;dl&gt;
+    &lt;dt&gt;Titre de la définition&lt;/dt&gt;
+    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
+    &lt;dt&gt;Titre de la 2 eme définition&lt;/dt&gt;
+    &lt;dd&gt;La définition 2eme en elle même&lt;/dd&gt;
+&lt;/dl&gt;
+							</pre>
+						</div>
+						<p>Noter que la balise fermante &lt;/dl&gt; est obligatoire.</p>
+                        <p>Syntaxe HTML : la liste de définition utilisera la balise &lt;dl&gt;. La structuration reste la même, on aura une
+                            1ere structure de balise qui va contenir d’autres balises mais ces dernières sont différentes. On n’utilisera pas
+                             la balise &lt;li&gt;. Voici la structure pour reprendre l'exemple precdent:</p>
+
+						<h3>1.3 - Les listes imbriquées</h3>
+
+        	<p>On voit souvent plusieurs listes placées les unes dans les autres. Autrement dit, on peut imbriquer des listes
+						(un élément d'une liste sera une liste entière) :</p>
+						<div class="exemple">
+							<code>
+								<ul>
+									<li>Un composant</li>
+								  <li>Un processus :
+										<ol>
+									  	<li>Étape 1</li>
+									    <li>Étape 2</li>
+								      <li>Étape 3</li>
+										</ol>
+								  </li>
+								  <li>Un composant</li>
+								</ul>
+							</code>
+
+							<pre>
+&lt;ul&gt;
+    &lt;li&gt;Un composant&lt;/li&gt;
+    &lt;li&gt;Un processus :&lt;&gt;
+        &lt;ol&gt;
+            &lt;li&gt;Étape 1&lt;/li&gt;
+            &lt;li&gt;Étape 2&lt;/li&gt;
+            &lt;li&gt;Étape 3&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Un composant&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+					<p>Les menus de navigation utilisent parfois des listes imbriquées pour afficher les sous-catégories.
+						Pour étudier un exemple réel, vous pouvez inspecter le code HTML du menu MDN.</p>
+			</article>
+
+			<article id="mise-en-forme-dune-liste-html">
+				<header>
+					<h2>2 - Mise en forme d’une liste HTML</h2>
+				</header>
+
+						<h3>2.1 - Sans CSS</h3>
+
+					<p>Les agents utilisateurs visuels place généralement en retrait les listes imbriquées en fonction du niveau d'imbrication courant.
+						La présentation exacte des trois listes dépend de l'agent utilisateur.</p>
+					<p>Les differents attributs :</p>
+
+					<h4> - type = "indication-de-style"</h4>
+
+					<p>Pour les deux éléments OL et UL, cet attribut fixe le style d'un item de liste. Pour l'élément UL, les valeurs possibles
+						de l'attribut type sont "disc", "square", "circle" ou « non ».</p>
+					<p>La valeur par défaut dépend de la profondeur d'imbrication de la liste courante. Ces valeurs sont insensibles à la casse.</p><p>Exemple de puce carré avec l’element UL :</p>
+					<div class="exemple">
+
+						<code>
+							<ul type= "square">
+							       <li>Je suis le 1er item avec une puce de forme carrée</li>
+							       <li>Je suis le 2e item avec une puce de forme carrée</li>
+							       <li>Je suis le 3e item avec une puce de forme carrée</li>
+							</ul>
+						</code>
+						<pre>
+&lt;ul type= "square"&gt;
+    &lt;li&gt;Je suis le 1e item avec une puce de forme carrée&lt;/li&gt;
+    &lt;li&gt;Je suis le 2e item avec une puce de forme carrée&lt;/li&gt;
+    &lt;li&gt;Je suis le 3e item avec une puce de forme carrée&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+						<p>Pour l'élément OL, les valeurs possibles de l'attribut type sont résumées ci-dessous, suivant le style de numerotation souhaité
+							 (les valeurs sont sensibles à la casse) :</p>
+
+						<ul style="list-style-type: none">
+							<li>style = "1" restitue des chiffres arabes	1, 2, 3, ...</li>
+							<li>style = "a"	restitue des lettres en minuscules	a, b, c, ...</li>
+							<li>style = "A	restitue des lettres en majuscules	A, B, C, ...</li>
+							<li>style = "i	restitue des chiffres romains minuscules i, ii, iii, ...</li>
+							<li>style = "I	restitue des chiffres romains majuscules I, II, III, ...</li>
+						</ul>
+<p>Exemple de numerotation en chiffres romains minuscules avec l’element OL :</p>
+						<div class="exemple">
+
+							<code>
+								<ol type= "i">
+								       <li>Je suis le 1er de la liste avec une numérotation i </li>
+								       <li>Je suis le 2er de la liste avec une numérotation ii </li>
+								       <li>Je suis le 3er de la liste avec une numérotation iii </li>
+								</ol>
+							</code>
+							<pre>
+&lt;ol type= "i"&gt;
+    &lt;li&gt;Je suis le 1er de la liste avec une numérotation i &lt;/li&gt;
+    &lt;li&gt;Je suis le 2er de la liste avec une numérotation ii &lt;/li&gt;
+    &lt;li&gt;Je suis le 3er de la liste avec une numérotation iii &lt;/li&gt;
+&lt;/ol&gt;
+							</pre>
+						</div>
+
+					<h4> - start = "nombre"</h4>
+					<p>Seulement pour l'élément OL. Cet attribut spécifie le numéro initial du premier item dans une liste ordonnée. Le numéro initial par
+						 défaut est "1". Tandis que la valeur de cet attribut est un entier, le label correspondant peut ne pas être numérique. Ainsi, si
+						 start = "3" et type = "A", le 1er item de la liste commencera a "C".</p>
+					<div class="exemple">
+
+						<code>
+							<ol start="3" type="A">
+							     <li>Je suis premier</li>
+							     <li>Je suis deuxième</li>
+							     <li>Je suis troisième</li>
+							</ol>
+						</code>
+						<pre>
+&lt;ol start="3" type="A"&gt;
+    &lt;li&gt;Je suis premier&lt;/li&gt;
+    &lt;li&gt;Je suis deuxième&lt;/li&gt;
+    &lt;li&gt;Je suis troisième&lt;/li&gt;
+&lt;/ol&gt;
+						</pre>
+					</div>
+
+					<h4> - reversed</h4>
+						<p>Pour décompter plutôt que compter (par exemple 5-4-3-2-1), on pourra utiliser l'attribut reversed de l'élément OL :</p>
+						<p>Exemple Syntaxe HTML : &lt;ol reversed&gt;</p>
+
+					<h4> - value = "nombre"</h4>
+					<p>Seulement pour l'élément LI. Cet attribut fixe le numéro de l'item de liste courant. Tandis que la valeur de cet attribut est un
+						 entier, le label correspondant peut être non-numérique. (voir l'attribut start).</p>
+					<p>Exemple Syntaxe HTML : &lt;li value="4"&gt;. Les éléments suivants de la liste seront également renumérotés : 4, 5, 6, etc.).</p>
+
+					<h4> - compact</h4>
+					<p>Quand il est spécifié, cet attribut booléen indique aux agents utilisateurs de restituer la liste de manière plus compacte.
+						L'interprétation de cet attribut dépend de l'agent utilisateur.</p>
+					<p>Nous décourageons les auteurs d'utiliser les listes simplement comme un moyen pour placer le texte en retrait.
+						C'est une affaire de style qui est du ressort des feuilles de style.</p>
+
+
+						<h3>2.2 - Avec CSS</h3>
+
+					<p>Les attributs HTML permettent de modifier le contenu d'une liste. Pour ajuster l'aspect cosmétique d'une liste, il est vivement
+						 recommandé d’utiliser CSS.</br>Trois solutions existent pour appliquer des modifications :
+						 <ul>
+							 <li>directement dans le fichier CSS de votre thème
+							 <li>dans l’en-tête de votre page HTML
+							 <li>directement sur la balise
+					   </ul>
+						 Pour plus de simplicité, je ferais ici l’application directement sur la balise.</p>
+
+							<h4> - Modifier le style de puces avec list-style-type</h4>
+
+							<p>Pour modifier le style de puce ou le style de numérotation, on pourra utiliser la propriété CSS list-style-type
+							Pour cela, on ajoute l’argument « style » et on utilise la propriété « list-style-type » dans la balise HTML.</p>
+
+							<h5>Mise en forme liste non-ordonnée</h5>
+
+							<p>Pour l’element UL, le style par defaut est "disc". Ci-dessous un exemple de code pour chaque puce.</p><p>Avec le paramètre « circle» : </p>
+							<div class="exemple">
+                                <code>
+                                    <ul style= "list-style-type: circle">
+                                        <li>Exemple liste à puce HTML - cercle 1</li>
+                                        <li> Exemple liste à puce HTML - cercle 2</li>
+                                    </ul>
+                                </code>
+                                <pre>
+&lt;li&gt;Exemple liste à puce HTML – cercle 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – cercle 2&lt;/li&gt;
+&lt;/ul&gt;
+                            </pre>
+                        </div>
+                        <div class="exemple">
+                            <code>
+                                <ul style= "list-style-type: square">
+                                    <li>Exemple liste à puce HTML - carré 1</li>
+                                    <li>Exemple liste à puce HTML - carré 2</li>
+                                </ul>
+                            </code>
+                            <pre>
+&lt;ul style= "list-style-type: square"&gt;
+    &lt;li&gt;Exemple liste à puce HTML – carré 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – carré 2&lt;/li&gt;
+&lt;/ul&gt;
+                            </pre>
+                        </div>
+                        <div class="exemple">
+                            <code>
+                                <ul style="list-style-type: none">
+                                    <li>Exemple liste à puce HTML – sans puce 1</li>
+                                    <li>Exemple liste à puce HTML – sans puce 2</li>
+                                </ul>
+                            </code>
+                            <pre>
+&lt;ul style= "list-style-type: none"&gt;
+    &lt;li&gt;Exemple liste à puce HTML – sans puce 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – sans puce 2&lt;/li&gt;
+&lt;/ul&gt;
+                            </pre>
+</div>
+							<p>CSS peut permettre d'obtenir des effets très complexes (comme un système de comptage personnalisé). Si vous souhaitez
+								apprendre CSS, vous pouvez parcourir le <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Guide CSS</a> et voir comment appliquer des règles CSS à une page web.</p>
+
+							<p>Prenons un rapide exemple. Voici une liste HTML non-ordonnée :
+							<ul>
+							  <li>J'ai un point</li>
+							  <li>J'ai un cercle</li>
+							  <li>J'ai aussi un cercle</li>
+							</ul>
+						</p>
+
+						<p>Ces règles CSS permettront que la puce des éléments soit un cercle, sauf pour le premier (où ce sera un point) :</p>
+						<p>ul {</br>
+							  <p style="text-indent:20px"> list-style-type: circle;</p>
+						<p>}</p>
+
+						<p>li:first-child {</p>
+						<p style="text-indent:20px">list-style-type: disc;</p>
+						<p>}</p>
+						<p>Cela donnera :</p>
+							<ul id="exemple-css-UL">
+								<li>J'ai un point
+								<li>J'ai un cercle
+								<li>J'ai aussi un cercle
+							</ul>
+
+							<h5>Mise en forme liste ordonnee</h5>
+							<p>Pour l’élément OL, le meme principe s’applique pour modifier le style de numerotation. Voici les principales possibilites :</p>
+							<ul>
+								<li>decimal => par défaut – chiffres décimaux
+								<li>decimal-leading-zero => les chiffres décimaux avec un zéro devant (01, 02, 03…)
+								<li>upper-roman => chiffres romains en majuscules
+								<li>lower-roman => chiffres romains en minuscules
+								<li>upper-alpha => alphabet en majuscules
+								<li>lower-alpha => alphabet en minuscules
+								<li>lower-greek => chiffres grecs
+                            </ul>
+                            <p>Exemple avec l’alphabet en majuscule:</p>
+							<div class="exemple">
+
+								<code>
+									<ol style="list-style-type:upper-alpha">
+									<li>Exemple liste numerotation lettre majuscule </li>
+									<li> Exemple liste numerotation lettre majuscule </li>
+									</ol>
+								</code>
+
+								<pre>
+&lt;ol style="list-style-type:upper-alpha"&gt;
+    &lt;li>Exemple liste numerotation lettre majuscule&lt;/li&gt;
+    &lt;li> Exemple liste numerotation lettre majuscule&lt;/li&gt;
+&lt;/ol&gt;
+								</pre>
+							</div>
+
+							<h5>Mise en forme liste de definition</h5>
+							<p>Concernant les listes de définition, il n’y a pas de paramètre par défaut permettant de faire des modifications. Ici, il
+								 s’agit plutôt de faire ressortir les informations et différencier le mot ou l’expression de la définition de cette dernière.</br>
+							La balise HTML contenant le mot ou l’expression étant &lt;dt&gt;, on peut la faire ressortir en appliquant du CSS à la volée comme
+							nous l’avons vu précédemment. Ci-dessous, un exemple qui permettra une meilleure différenciation avec la définition.
+							<div class="exemple">
+								<code>
+									<dl>
+										<dt style= "color:white; background-color:black; font-weight:bold;">Titre de la définition</dt>
+										<dd>La définition en elle-même</dd>
+										<dt>Titre de la 2eme définition</dt>
+										<dd>La définition 2eme en elle même</dd>
+									</dl>
+								</code>
+								<pre>
+&lt;p&gt;La syntaxe :&lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt; style= "color:white; background-color:black;
+        font-weight:bold;">Titre de la définition&lt;/dt&gt;
+    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
+    &lt;dt&gt;Titre de la 2eme définition&lt;/dt&gt;
+    &lt;dd&gt;La définition 2eme en elle-même&lt;dd&gt;
+&lt;/dl&gt;
+								</pre>
+							</div>
+
+
+							<h4> - Utiliser une image à la place d’une puce avec list-style-image</h4>
+
+						<p>Pour utiliser une image donnée comme puce, on pourra utiliser la propriété CSS list-style-image. Attention toutefois, les images
+							sont plus lourdes (donc plus lentes) et moins adaptatives que le texte. Ci-dessous un exemple de personnalisation d’une liste à puce,
+							j’ai utilisé l’image favicon du site internet, c’est pour vous montrer qu’on peut utiliser n’importe quelle image. Il faudra simplement
+                            faire attention à l’aspect esthétique, en l’occurrence ici, ce n’est pas top. Mais c’est simplement pour la démonstration.</p>
+                            <p>Exemple de puce avec le logo HTML5 :</p>
+						<div class="exemple">
+
+							<code>
+								<ul style="list-style-image: url('img/alpha/HTML5_logo _reduced.png');">
+									<li>Exemple liste à puce HTML logo</li>
+									<li>Exemple liste à puce HTML logo</li>
+								</ul>
+							</code>
+							<pre>
+&lt;ul style="list-style-image:
+        url('img/alpha/HTML5_logo_reduced.png');"&gt;
+    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+
+		</article>
+    </section>
+
+</main>
+
+<footer> </footer>
+
+<script type="text/javascript" src="script/script.js"></script>
+    </body>
+
+</html>
