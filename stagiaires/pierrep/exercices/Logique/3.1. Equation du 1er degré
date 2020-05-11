@@ -1,0 +1,19 @@
+var a :N <- 0
+var b :N <- 0
+var x :N <- 0
+
+saisie a
+saisie b
+
+
+    si a = 0
+   
+        afficher "a ne peut pas être égal à 0"
+  
+    sinon
+
+        x <- (-b/a)
+        
+        affiche x
+
+
