@@ -1,0 +1,145 @@
+Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+Coupures disponibles :
+
+    Billets : 100€, 50€, 20€, 5€
+
+    Pièces : 2€, 1€, 0,5€ , 0,2€
+    Contraintes :
+
+    Le total de la décomposition sera plus grand ou égale à la somme entrée
+    Le nombre de coupures de la décomposition sera le plus petite possible
+
+Exemple:
+254,18 € se décompose en :
+
+    2 billets de 100 €,
+    1 billet de 50 €,
+    2 pièces de 2 €,
+    1 pièce de 0,2 €.
+
+Debut ex3-3
+    VARIABLES LOCALES :
+        var somme_depart : N <- 0
+        var somme :N <- 0
+        var reste :N <- 0
+        var total :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez la valeur de somme"
+    Saisir somme
+    somme_depart <- somme
+    Afficher somme_depart <- somme, " € se décompose en :"
+
+    reste <- somme DIV 100
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " billet de 100 €"
+            SINON
+            Afficher reste, " billets de 100 €"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 100
+    somme <- somme MOD 100
+    reste <- somme DIV 50
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " billet de 50 €"
+            SINON
+            Afficher reste, " billets de 50 €"
+        FIN SI
+    FINSI
+
+
+    total <- total + reste * 50
+    somme <- somme MOD 50
+    reste <- somme DIV 20
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " billet de 20 €"
+            SINON
+            Afficher reste, " billets de 20 €"
+        FIN SI
+    FINSI
+
+
+    total <- total + reste * 20
+    somme <- somme MOD 20
+    reste <- somme DIV 5
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " billet de 5 €"
+            SINON
+            Afficher reste, " billets de 5 €"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 5
+    somme <- somme MOD 5
+    reste <- somme DIV 2
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " pièce de 2 €"
+            SINON
+            Afficher reste, " pièces de 2 €"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 2
+    somme <- somme MOD 2
+    reste <- somme DIV 1
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " pièce de 1 €"
+            SINON
+            Afficher reste, " pièces de 1 €"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 1
+    somme <- somme MOD 1
+    reste <- somme DIV 0.5
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " pièce de 50 Ct"
+            SINON
+            Afficher reste, " pièces de 50 Ct"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 0.5
+    somme <- somme MOD 0.5
+    reste <- somme DIV 0.2
+    SI (reste > 0)
+        ALORS
+        SI (reste = 1)
+            ALORS
+            Afficher reste, " pièce de 20 Ct"
+            SINON
+            Afficher reste, " pièces de 20 Ct"
+        FIN SI
+    FINSI
+
+    total <- total + reste * 0.2
+
+    SI (total >= somme)
+        ALORS
+        Afficher "Le total de la décomposition est plus grand ou égale à la somme entrée"
+    FIN SI
+
+Fin ex3-3
+ 
