@@ -19,122 +19,122 @@ Exemple:
 
 Debut ex3-3
     VARIABLES LOCALES :
-        var somme_depart : N <- 0
-        var somme :N <- 0
+        var somme : N <- 0
         var reste :N <- 0
+        var quantite :N <- 0
         var total :N <- 0
     FIN VARIABLES LOCALES
 
     Afficher "Entrez la valeur de somme"
     Saisir somme
-    somme_depart <- somme
-    Afficher somme_depart <- somme, " € se décompose en :"
-
-    reste <- somme DIV 100
-    SI (reste > 0)
+    
+    Afficher somme, " € se décompose en :"
+    reste <- somme
+    quantite <- reste DIV 100
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " billet de 100 €"
+            Afficher quantite, " billet de 100 €"
             SINON
-            Afficher reste, " billets de 100 €"
+            Afficher quantite, " billets de 100 €"
         FIN SI
     FINSI
 
-    total <- total + reste * 100
-    somme <- somme MOD 100
-    reste <- somme DIV 50
-    SI (reste > 0)
+    total <- total + quantite * 100
+    reste <- reste MOD 100
+    quantite <- reste DIV 50
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " billet de 50 €"
+            Afficher quantite, " billet de 50 €"
             SINON
-            Afficher reste, " billets de 50 €"
-        FIN SI
-    FINSI
-
-
-    total <- total + reste * 50
-    somme <- somme MOD 50
-    reste <- somme DIV 20
-    SI (reste > 0)
-        ALORS
-        SI (reste = 1)
-            ALORS
-            Afficher reste, " billet de 20 €"
-            SINON
-            Afficher reste, " billets de 20 €"
+            Afficher quantite, " billets de 50 €"
         FIN SI
     FINSI
 
 
-    total <- total + reste * 20
-    somme <- somme MOD 20
-    reste <- somme DIV 5
-    SI (reste > 0)
+    total <- total + quantite * 50
+    reste <- reste MOD 50
+    quantite <- reste DIV 20
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " billet de 5 €"
+            Afficher quantite, " billet de 20 €"
             SINON
-            Afficher reste, " billets de 5 €"
+            Afficher quantite, " billets de 20 €"
         FIN SI
     FINSI
 
-    total <- total + reste * 5
-    somme <- somme MOD 5
-    reste <- somme DIV 2
-    SI (reste > 0)
+
+    total <- total + quantite * 20
+    reste <- reste MOD 20
+    quantite <- reste DIV 5
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " pièce de 2 €"
+            Afficher quantite, " billet de 5 €"
             SINON
-            Afficher reste, " pièces de 2 €"
+            Afficher quantite, " billets de 5 €"
         FIN SI
     FINSI
 
-    total <- total + reste * 2
-    somme <- somme MOD 2
-    reste <- somme DIV 1
-    SI (reste > 0)
+    total <- total + quantite * 5
+    reste <- reste MOD 5
+    quantite <- reste DIV 2
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " pièce de 1 €"
+            Afficher quantite, " pièce de 2 €"
             SINON
-            Afficher reste, " pièces de 1 €"
+            Afficher quantite, " pièces de 2 €"
         FIN SI
     FINSI
 
-    total <- total + reste * 1
-    somme <- somme MOD 1
-    reste <- somme DIV 0.5
-    SI (reste > 0)
+    total <- total + quantite * 2
+    reste <- reste MOD 2
+    quantite <- reste DIV 1
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " pièce de 50 Ct"
+            Afficher quantite, " pièce de 1 €"
             SINON
-            Afficher reste, " pièces de 50 Ct"
+            Afficher quantite, " pièces de 1 €"
         FIN SI
     FINSI
 
-    total <- total + reste * 0.5
-    somme <- somme MOD 0.5
-    reste <- somme DIV 0.2
-    SI (reste > 0)
+    total <- total + quantite * 1
+    reste <- reste MOD 1
+    quantite <- reste DIV 0.5
+    SI (quantite > 0)
         ALORS
-        SI (reste = 1)
+        SI (quantite = 1)
             ALORS
-            Afficher reste, " pièce de 20 Ct"
+            Afficher quantite, " pièce de 50 Ct"
             SINON
-            Afficher reste, " pièces de 20 Ct"
+            Afficher quantite, " pièces de 50 Ct"
         FIN SI
     FINSI
 
-    total <- total + reste * 0.2
+    total <- total + quantite * 0.5
+    reste <- reste MOD 0.5
+    quantite <- reste DIV 0.2
+    SI (quantite > 0)
+        ALORS
+        SI (quantite = 1)
+            ALORS
+            Afficher quantite, " pièce de 20 Ct"
+            SINON
+            Afficher quantite, " pièces de 20 Ct"
+        FIN SI
+    FINSI
+
+    total <- total + quantite * 0.2
 
     SI (total >= somme)
         ALORS
