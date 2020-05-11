@@ -18,10 +18,10 @@ Debut entrée
        
     fin variable loc
 
-    si age < 6 OU age < 12   
+    si age < 6 OU age < 12 et a ou b  
       alors
-      Afficher b
+      Afficher "la personne peut entrer
       sinon
-      Afficher a
+      Afficher "la personne ne peut pas entrer"
     fin de si
 Fin entrée
