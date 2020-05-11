@@ -1,6 +1,9 @@
 Début programme
 	Variable locale
-        Var a :B <- VRAI//Il pleut pour le moment
+        Var pluie :B <- VRAI//Il pleut pour le moment
+		Var manteau :B <- VRAI//Julie porte un manteau
+		Var sortie :B <- FAUX
 	Fin variable locale
-	Afficher "Julie doit-elle avoir un manteau ? :", a
+	sortie <- pluie ET manteau OU NON pluie
+	Afficher "Julie doit-elle avoir un manteau ? :", sortie
 Fin de programme
