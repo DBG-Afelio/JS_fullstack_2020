@@ -3,7 +3,7 @@ PROGRAMME
     VARIABLE LOCALE
 	
 	var nb1 :N
-	var nb2 :n
+	var nb2 :N
 
     FIN VARIABLE LOCALE
 
