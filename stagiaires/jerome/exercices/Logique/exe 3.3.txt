@@ -16,4 +16,44 @@ Exemple:
     1 billet de 50 €,
     2 pièces de 2 €,
     1 pièce de 0,2 €.
+debut argent
+var loc
+var somme:N<-0
+fin var loc
+Afficher "entrez une somme"
+Saisie somme
+Si somme>100
+alors afficher(somme-somme mod 100)/100
+montant<- somme mod 100
+fin de si
+Si somme>50
+alors afficher(somme-somme mod 50)/50
+montant<- somme mod 50
+fin de si
+Si somme>20
+alors afficher(somme-somme mod 20)/20
+montant<- somme mod 20
+fin de si
+Si somme>5
+alors afficher(somme-somme mod 5)/5
+montant<- somme mod 5
+fin de si
+Si somme>2
+alors afficher(somme-somme mod 2)/2
+montant<- somme mod 2
+fin de si
+Si somme>1
+alors afficher(somme-somme mod 1)/1
+montant<- somme mod 1
+fin de si
+Si somme>0,5
+alors afficher(somme-somme mod 0,5)/0,5
+montant<- somme mod 0,5
+fin de si
+Si somme>0,2
+alors afficher(somme-somme mod 0,2)/0,2
+montant<- somme mod 0,2
+fin de si
+fin argent
+
 
