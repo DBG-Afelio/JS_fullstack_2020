@@ -1,0 +1,33 @@
+// Permuter deux expressions booléennes sans variables intermediaires 
+
+Debut ex2-13
+    VARIABLES LOCALES :
+        var A :B  <- VRAI 
+        var B :B  <- FAUX
+    FIN VARIABLES LOCALES
+    A <- A = NON B
+    B <- A = NON B
+    A <- A = NON B
+Fin ex2-13
+
+
+// 1e ligne de commande 
+A   B   A = NON B    A 
+0   0   0            0
+0   1   1            1
+1   0   1            1   
+1   1   0            0                      1
+
+// 2e ligne de commande
+A   B   A = NON B    B
+0   0   0            0         
+1   1   0            0          
+1   0   1            1             
+0   1   1            1          
+
+// 3e ligne de commande 
+A   B   A = NON B    A   
+0   0   0            0                      
+1   0   1            1                      
+1   1   0            0                         
+0   1   1            1                      

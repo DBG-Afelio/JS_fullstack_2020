@@ -1,0 +1,10 @@
+Début programme
+    Variables locales
+        Var pluie : B // Il pleut pour le moment
+        Var manteau : B // Julie porte un manteau
+    Fin variables locales
+    SI pluie ET NON manteau
+        ALORS afficher "Julie ne peut pas sortir"
+    SINON
+        afficher "Julie peut sortir"
+Fin de programme

@@ -1,0 +1,22 @@
+Début de programme
+    Variables locales
+        Var a :N <- 0
+        Var b :N <- 0
+    Fin variables locales
+
+    Afficher "Entrez la valeur de a: "
+    Saisir a 
+    Afficher "Entrez la valeur de b: "
+    Saisir b
+
+    Si a>b
+        ALORS Afficher "a>b"
+    FINSI
+    Si a<b
+        ALORS Afficher "a<b"
+    FINSI
+    SINON
+        Afficher "a=b"
+    FINSINON
+    
+Fin de programme
