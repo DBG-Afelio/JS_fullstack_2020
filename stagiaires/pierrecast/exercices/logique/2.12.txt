@@ -13,7 +13,7 @@ Debut ex2-12
        
     FIN VARIABLES LOCALES
 
-    SI (age >= 6 OU age < 12 ET b OU a)  
+    SI (age < 6 OU age < 12 ET b OU a)  
         ALORS
         Afficher "OK"
         SINON
