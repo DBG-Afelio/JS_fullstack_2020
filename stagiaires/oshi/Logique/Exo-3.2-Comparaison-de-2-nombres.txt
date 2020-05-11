@@ -1,0 +1,21 @@
+Début programme
+	Variable locale
+        Var a :N <- 0
+        Var b :N <- 0
+	Fin variable locale
+	Afficher "Veuillez entrer un nombre :"
+	Saisir a
+    Afficher "Veuillez entrer un nombre :"
+	Saisir b
+	SI a = b
+	ALORS
+        Afficher "a:", a, "est égale b:", b
+	SINON
+		SI a > b
+        ALORS
+            Afficher "a:", a, "est plus grand que b:", b
+        SINON
+            Afficher "b:", b, "est plus grand que a:", a
+        FINSI
+	FINSI
+Fin de programme
