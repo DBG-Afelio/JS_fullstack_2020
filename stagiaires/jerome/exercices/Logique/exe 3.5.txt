@@ -13,6 +13,10 @@ Le montant de la TVA est : XXX
 Le prix T.V.A.C vaut : XXX
 
 debut pgm
+var loc 
+var choix:N<-0
+var montant:N<-0
+fin var loc
 si choix >=1 et choix <=4 et choix mod 1=0
 	alors affiche "rentrez somme"
 	Saisie montant
