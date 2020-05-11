@@ -5,10 +5,13 @@ var x :N <- 0
 saisie a
 saisie b
 
+
     si a = 0
    
         afficher "a ne peut pas être égal à 0"
         saisie a
+        x <- (-b/a)
+        affiche x
     
     sinon
 
