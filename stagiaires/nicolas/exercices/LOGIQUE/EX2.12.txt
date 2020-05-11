@@ -23,7 +23,7 @@ début ticket
     	FIN VARIABLES LOCALES
 	
 	a <- (age >= 12)
-	b <- (age <= 12)
+	b <- (age <= 12 ET age >= 6)
 	canEnter <- (age <= 6) OU b OU a
 	
 fin ticket
