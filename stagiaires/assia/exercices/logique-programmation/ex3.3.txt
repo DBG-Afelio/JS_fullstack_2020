@@ -1,0 +1,85 @@
+Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+Coupures disponibles :
+
+Billets : 100€, 50€, 20€, 5€
+Pièces : 2€, 1€, 0,5€ , 0,2€
+Contraintes :
+
+Le total de la décomposition sera plus grand ou égale à la somme entrée
+
+Le nombre de coupures de la décomposition sera le plus petite possible
+Exemple:
+254,18 € se décompose en :
+
+2 billets de 100 €,
+1 billet de 50 €,
+2 pièces de 2 €,
+1 pièce de 0,2 €.
+
+Debut COMPARE
+    VARIABLE LOCALES :
+        VAR a :N <- 0 //argent
+        VAR rest :N <- 0
+        VAR int :N <-0
+        VAR b100 :N <- 0
+        VAR b50 :N <- 0
+        VAR b20 :N <- 0
+        VAR b5 :N <- 0
+        VAR c2 :N <- 0
+        VAR c1 :N <- 0
+        VAR c05 :N <- 0
+        VAR c02 :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Entrer une somme d'argent : "
+    Saisir a
+
+    SI a = 0
+    ALORS
+        Afficher "La somme d'argent saisie est nulle"
+    SINON
+        b100 <- a DIV 100
+        a <- a MOD 100
+        SI a ≥ 50
+        ALORS
+            b50 <- a DIV 50
+            a <- a MOD 50
+        SINON
+            SI a ≥ 20
+            ALORS
+                b20 <- a DIV 20
+                a <- a MOD 20
+            SINON
+                SI a ≥ 5
+                ALORS
+                    b5 <- a DIV 5
+                    a <- a MOD 5
+                SINON
+                    SI a ≥ 2
+                    ALORS
+                        c2 <- a DIV 2
+                        a <- a MOD 2
+                    SINON
+                        SI a ≥ 1
+                        ALORS
+                            c01 <- a DIV 1
+                            a <- a MOD 1
+                        SINON
+                            SI a ≥ 0.5
+                            ALORS
+                                c05 < a DIV 0.5
+                                a <- a MOD 0.5
+                            SINON
+                                SI a ≥ 0.2
+                                ALORS
+                                    c02 <- a DIV 0.2
+                                    a <- a MOD 0.2
+                                FINSI
+                            FINSI
+                        FINSI
+                    FINSI
+                FINSI
+            FINSI
+        FINSI
+        Afficher "La somme d'argent saisie peut se decouper en ", b100 " billets de 100, ", b50 "billets de 50, ", b20, "billets de 20, ", b5, "billets de 5, ", c2, "pieces de 2, ", c1, "pieces de 1", c05, "pieces de 50cents, ", c02, "pieces de 20cents et ", a, "sesterces."
+    FINSI
+Fin COMPARE
