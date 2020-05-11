@@ -1,0 +1,74 @@
+ PROGRAMME
+
+    VARIABLE LOCALE
+     
+     var montant :N
+     var reste :N
+
+    // BILLETS
+     var billets100 :N <- 100
+     var billets50 :N <- 50
+     var billets20 :N <- 20
+     var billets5 :N <- 5
+
+    // PIECES
+     var pieces :N 
+     var pieces2 :N <- 2
+     var pieces1 :N <- 1
+     var pieces50 :N <- 0.5
+     var pieces20 :N <- 0.2
+     
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Afficher montant")
+
+SAISIR montant 
+
+    // DECOMPOSITION BILLET
+
+    billets100 <- montant / billets100
+
+    reste <- montant - billets100 * 100
+
+    montant <- montant - reste
+    
+    billets50 <- montant / billets50
+
+    reste <- montant - billets50 * 50
+
+    montant <- montant - reste
+
+    billets20 <- montant / billets20
+
+    reste <- montant - billets20 * 20
+
+    montant <- montant - reste
+
+    billets5 <- montant / billets5
+
+    reste <- montant - billets5 * 5
+
+    montant <- montant - reste
+
+    // DECOMPOSITION PIECE
+
+    pieces <- reste * 100 // Pour re-elever les centimes
+
+    pieces2 <- pieces / pieces2
+
+    pieces <- pieces - pieces2 * 2 
+
+    pieces1 <- pieces / pieces1
+
+    pieces <- pieces - pieces2 * 1 
+
+    pieces50 <- pieces / pieces50
+
+    pieces <- pieces - pieces2 * 0.5 
+
+    pieces20 <- pieces / pieces20
+
+    pieces <- pieces - pieces2 * 0.2 
+
+FIN PROGRAMME
