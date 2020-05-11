@@ -15,7 +15,7 @@ AFFICHER("saisir b")
 SAISIR b
 	
 	SI (x = 0)
-		x <- b 
+		ALORS x <- b 
 	SINON 
 		x <- -b / a 
 	FIN SI 
