@@ -17,14 +17,16 @@ var loc
 var choix:N<-0
 var montant:N<-0
 fin var loc
+Afficher "faites un choix"
+Saisir choix
 si choix >=1 et choix <=4 et choix mod 1=0
 	alors affiche "rentrez somme"
 	Saisie montant
 	cas ou choix
-	1: TVA<-6%
-	2:TVA<-12%
-	3:TVA<-21%
-	4:TVA<-0%
+	1: TVA<-6
+	2:TVA<-12
+	3:TVA<-21
+	4:TVA<-0
 	0:Sortie
 	fin cas ou
 	Afficher"TVA:" somme.TVA/100
