@@ -1,0 +1,19 @@
+Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+Coupures disponibles :
+
+    Billets : 100€, 50€, 20€, 5€
+
+    Pièces : 2€, 1€, 0,5€ , 0,2€
+    Contraintes :
+
+    Le total de la décomposition sera plus grand ou égale à la somme entrée
+    Le nombre de coupures de la décomposition sera le plus petite possible
+
+Exemple:
+254,18 € se décompose en :
+
+    2 billets de 100 €,
+    1 billet de 50 €,
+    2 pièces de 2 €,
+    1 pièce de 0,2 €.
+
