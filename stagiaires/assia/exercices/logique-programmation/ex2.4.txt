@@ -1,0 +1,16 @@
+PAS TINTIN
+
+Écrire une expression qui teste si un âge n’est pas compris entre 7 et 77.
+
+Debut AGE_out
+    VARIABLE LOCALES :
+        CONST min :N <- 7
+        CONST max :N <- 77
+        VAR age :N <- 0
+        VAR bool_out :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un age plus petit que 7 ou plus grand que 77 ans : "
+    Saisir age
+    bool_out <- age < min OU age > max
+    "L'age saisi est-il compris entre 7 et 77 ans ? :", bool_out
+Fin AGE_out

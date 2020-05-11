@@ -1,0 +1,19 @@
+Écrire une expression qui teste si un âge n’est pas compris entre 7 et 77.
+Debut Age2leretour
+Variable locales
+ var age:N<-0
+fin variable locales
+
+afficher "entrez votre age:"
+
+Saisir age
+
+Si age<7 et age>77
+   alors
+   Afficher "Vous avez moins de 7 ans ou plus de 77 ans"
+
+   sinon
+   afficher "vous avez entre 7 et 77 ans"
+fin de si
+
+fin Age2leretour

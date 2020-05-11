@@ -1,0 +1,27 @@
+Écrire une expression qui teste si un nombre est entier
+
+Debut Entier
+
+VARIABLES LOCALES :
+
+VAR Nombre :N <- 0
+
+
+Fin VARIABLES LOCALES
+
+Afficher "S.V.P entrez Nombre:"
+
+Saiser Nombre
+
+
+Si ( Nombre DIV 1 = Nombre  )
+
+ALORS 
+
+AFFICHER VRAI
+ 
+SINON  
+ 
+AFFICHER FAUX 
+
+Fin Entier

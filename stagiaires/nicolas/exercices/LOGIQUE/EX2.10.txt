@@ -1,0 +1,23 @@
+Écrire l'expression décroche. En fonction des variables suivantes :
+
+- Var a :B _// le téléphone sonne_
+- Var b :B _// j'ai envie de répondre_
+- Var c :B _// j'ai envie d'appeler quelqu'un_
+
+début decroche
+
+	VARIABLES LOCALES
+
+        VAR a :B _// le téléphone sonne_
+ 	VAR b :B _// j'ai envie de répondre_
+ 	VAR c :B _// j'ai envie d'appeler quelqu'un_
+	
+	VAR decroche :B <- faux
+
+    	FIN VARIABLES LOCALES
+	
+	decroche <- (a ET c) OU c
+	
+
+	
+fin decroche

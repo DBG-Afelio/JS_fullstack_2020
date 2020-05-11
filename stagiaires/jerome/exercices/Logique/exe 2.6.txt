@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un nombre est entier
+Debut entier
+Variable locales
+ var nombre:N<-0
+fin variable locales
+
+afficher "entrez un nombre entier"
+
+Saisir nombre
+
+Si nombre DIV 1 = nombre / 1
+   alors
+   Afficher "Nombre entier"
+
+   sinon
+   afficher "pas un nombre entier"
+fin de si
+
+fin entier
+

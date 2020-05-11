@@ -1,0 +1,18 @@
+Écrire une expression qui teste si un âge est compris entre 1 et 18 ans ou entre 65 et 90 ans.
+
+//Sous-entendu bornes incluses!
+
+Debut JeuneVieux
+    VARIABLE LOCALES :
+        CONST j_min :N <- 1
+        CONST j_max :N <- 18
+        CONST v_min :N <- 65
+        CONST v_max :N <- 90
+        CONST age_saisi :N <- 0
+        VAR isJeuneVieux :B <- FAUX
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un age compris entre 1 et 18 ans ou entre 65 et 90 ans"
+    Saisir age_saisi
+    isJeuneVieux <- age_saisi >= j_min ET age_saisi <= j_max OU age_saisi >= v_min ET age_saisi <= v_max
+    " L'age saisi est-il compris entre 1 et 18 ans ou entre 65 et 90 ans ? REPONSE = ", isJeuneVieux
+Fin JeuneVieux

@@ -1,0 +1,20 @@
+Écrire une expression qui teste si un nombre est strictement compris entre 5 et 95 (bornes non incluses) et différent de 10.
+
+Debut nombretest
+Variable locales
+ var nombre:N<-0
+fin variable locales
+
+afficher "entrez un nombre:"
+
+Saisir nombre
+
+Si nombre>5 et nombre<95 et non (nombre = 10) 
+   alors
+   Afficher "Nombre correcte"
+
+   sinon
+   afficher "Mauvais nombre"
+fin de si
+
+fin nombretest
