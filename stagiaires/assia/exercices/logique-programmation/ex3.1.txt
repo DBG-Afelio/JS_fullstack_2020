@@ -1,19 +1,23 @@
 Écrire le programme qui résout l’équation du 1er degré: ax + b = 0
-Le programme demande à l'utilisateur une valeur 
+Le programme demande à l'utilisateur une valeur
 pour a et pour b et donne si possible la valeur de x.
 
 Debut Equation
     VARIABLE LOCALES :
-        CONST a :N <- 0  
-        CONST b :N <- 0  
-        CONST x :N <- 0  
+        VAR a :N <- 0
+        VAR b :N <- 0
+        VAR x :N <- 0
     FIN VARIABLES LOCALES
-    Afficher "la personne a un ticket ? : "
+    Afficher "Saisir une valeur pour a : "
     Saisir a
-    Afficher "la personne a un ticket réduit ? : "
+    Afficher "Saisir une valeur pour b : "
     Saisir b
-    Afficher "âge de la personne ? : "
-    Saisir x
-  
-    
+    SI a = 0
+    ALORS
+        Afficher "Operation impossible"
+    SINON
+        a . x + b <-0
+        x <- -b / a
+        Afficher "La valeur de x est : ", x
+    FINSI
 Fin Equation
