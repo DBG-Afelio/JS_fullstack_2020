@@ -4,7 +4,7 @@ Début programme
         Var b :B // la personne a un ticket réduit
         Var age :N // âge de la personne.
     Fin variables locales
-    SI N<6 OU ((N>=6 ET N<12) ET (b OU a)) OU (N<12 ET a) OU a
+    SI N<6 OU (N<12 ET b) OU a
         ALORS Afficher "Bienvenu!"
     SINON
         Afficher "Veuillez vous procurer un ticket merci"
