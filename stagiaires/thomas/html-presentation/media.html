@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>html-documentation</title>
+    <link rel="stylesheet" href="css/screen.css"/>
+  </head>
+
+  <body>
+    <!-- BALISES MULTIMEDIA -->
+    <h2>Les balises multimédia</h2>
+      <p>Les balises multimédia permettent de lire du contenu audio et vidéo sur le navigateur et une d’elle, donne le droit à l’utilisateur de dessiner des motifs et des formes sur une zone spécifique du navigateur.
+      </p>
+    <hr>
+    <p>
+      <b>Liste des balises media :</b>
+    </p>
+    <p>
+      <b>&ltAudio&gt</b> : Cette balise permet l’affichage et la prise en charge de contenu audio, sous différents formats.
+    </p>
+    <p>Pour spécifier la piste audio, on peut utiliser l’attribut <span class="keyword"><b>src</b></span> ou la balise <b>source</b>.
+      L’attribut <span class="keyword"><b>controls</b></span>met à disposition de l’utilisateur une interface pour la lecture du média.
+    </p>
+    <p>
+      <b>Quelques formats audio</b> : mp3, ogg, wav, flac... 
+    </p>
+    <p>
+      <b>Quelques attributs utiles</b> : autoplay, loop, muted, preload</p>
+    <code>
+      <audio
+        controls
+        src="/media/examples/t-rex-roar.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+      </audio>
+    </code>
+    <hr>
+    <p>
+      <b>&ltVideo&gt</b> : Permet de lire du contenu vidéo sous plusieurs formats. Comme la balise <span class="keyword"><b>audio</b></span>, l’attribut src et la balise <span class="keyword"><b>source</b></span>.
+    </p>
+    <p>De même, L’attribut <span class="keyword"><b>controls</b></span> peut être spécifié pour disposer de l’interface de contrôle.</p>
+    <p>
+      <b>Formats audio</b> : mp4, avi, mov, rm, mkv, divx...
+    </p>
+    <p>
+      <b>Attributs utiles</b> : autoplay, loop, muted, preload
+    </p>
+    <code>
+      <video controls width="250">
+
+        <source src="/media/examples/flower.webm"
+                type="video/webm">
+    
+        <source src="/media/examples/flower.mp4"
+                type="video/mp4">
+    
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </code>
+    <hr>
+    <p>
+      <b>&ltSource&gt</b> (balise orpheline) : La balise source sert à définir une ou plusieurs ressources média pour sa lecture (s’accompagne avec la balise <span class="keyword"><b>audio</b></span> ou <span class="keyword"><b>vidéo</b></span>)
+    </p>
+    <p>
+      <b>Quelques attributs utiles</b> : media, sizes, src, srcset, type
+    </p>
+    <code>
+      <video controls
+        width="250"
+        height="200"
+        muted>
+        <source src="/media/examples/flower.webm"
+                type="video/webm">
+        <source src="/media/examples/flower.mp4"
+                type="video/mp4">
+        This browser does not support the HTML5 video element.
+    </video>
+</code>
+    <hr>
+    <p>
+      <b>&ltEmbed&gt</b> <span class="keyword">(balise orpheline)</span> : La balise embed permet d'intégrer <b>un média ou une application</b> sur la page HTML. 
+    </p>
+    <p><b>Quelques attributs qui l’accompagne</b> (conseillé de toutes les définir et spécifier): height, src, type, width</p>
+    <code>
+      <embed type="video/webm"
+       src="/media/examples/flower.mp4"
+       width="250"
+       height="200">
+    </code>
+    <hr>
+    <p>
+      <b>&ltPicture&gt</b>: Cette balise agit comme les balises <span class="keyword"><b>audio</b></span> et <span class="keyword"><b>vidéo</b></span> mais pour les images.
+    </p>
+    <p><b>Quelques attributs utiles </b>: media, sizes, src, srcset, type</p>
+    <code>
+      <picture>
+        <source srcset="/media/examples/surfer-240-200.jpg"
+                media="(min-width: 800px)">
+        <img src="/media/examples/painted-hand-298-332.jpg" />
+      </picture>
+    </code>
+    <hr>
+    <p>
+      <b>&ltimg&gt</b> (balise orpheline) : Affiche une image. </p>
+    <p>
+      <b>Petite précision CSS </b>:  Les images sont définies en mode <span class="keyword"><b>display</b>: <b>inline</b></span> par défaut
+    </p>
+    <p>
+      <b>Format d’images prise en charge</b> : jpeg, png, svg, tiff, gif, webP, bmp…
+    </p>
+    <p>
+      <b>Attributs pris en charge</b> : alt, crossorigin, sync, async, ismap, size, src, srcset, width..</p>
+    <code>
+      <img class="fit-picture"
+     src="/media/examples/grapefruit-slice-332-332.jpg"
+     alt="Grapefruit slice atop a pile of other slices">
+    </code>
+    <hr>
+    <p>
+      <b>&ltobject&gt</b> permet d'insérer une ressource de type media, application ou plugin. 
+    </p>
+    <p>
+      <b>Petite précision </b>: Les nouveaux navigateurs ne sont <span class="keyword">plus compatible</span> avec Adobe Flash, ActiveX, les applets et plugins Java
+    </p>
+    <p>
+      <b>Attributs pris en charge </b>: data, form, width, height, type, name... 
+    </p>
+    <code>
+      <object type="application/pdf"
+    data="/media/examples/In-CC0.pdf"
+    width="250"
+    height="200">
+      </object>
+    </code>
+    <hr>
+    <p>
+      <b>&ltparam&gt</b> sert à définir les paramètres qui peuvent être employés dans un élément qui a pour balise <span class="keyword"><b>object</b></span>.
+    </p>
+    <p>
+      <b>Attributs</b> : value, name
+    </p>
+    <code>
+      <object data="animation.swf" type="application/x-shockwave-flash">
+        <param name="param11" value="valeurConf">
+      </object> 
+    </code>
+    <hr>
+    <p>
+      <b>&lttrack&gt</b> permet d’ajouter des sous-titres dans un média de type <span class="keyword"><b>audio</b></span> et <span class="keyword"><b>vidéo</b></span>.
+    </p>
+    <p>
+      <b>Attributs</b> : default, kind (subtitles, captions, descriptions, chapters, metadata), label, src, srclang
+    </p>
+    <code>
+      <video controls width="250"
+       src="/media/examples/friday.mp4">
+
+    <track default kind="captions"
+           srclang="en"
+           src="/media/examples/friday.vtt"/>
+
+    Sorry, your browser doesn't support embedded videos.
+      </video>
+    </code>
+    <hr>
+    <p>
+      <b>&ltcanvas&gt</b>
+    </p>
+    <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du <span class="keyword">code javascript</span> (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des graphes, voir même de la 3D (via l’API webGL).</p>
+    <code>
+      <canvas id="canvas" width="300" height="300">
+        Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+      </canvas>
+    </code>
+    <hr>
+    <p>
+      <b>&ltsvg&gt</b>
+    </p>
+    <p> La balise &ltSVG&gt permet d'insérer du <span class="keyword">code SVG</span> de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...), des dessins et même des animations.</p>
+    <code>
+      <svg xmlns="http://www.w3.org/2000/svg" 
+     width="150" height="100" viewBox="0 0 3 2">
+        <rect width="1" height="2" x="0" fill="#008d46" />
+        <rect width="1" height="2" x="1" fill="#ffffff" />
+        <rect width="1" height="2" x="2" fill="#d2232c" />
+      </svg>
+    </code>
+    <hr>
+    <!-- DESCRIPTION DE DOCUMENT -->
+    <h2>Les balises de description de document</h2>
+    <p>
+      Les balises de description de document servent à ajouter des informations à une page html pour l’enrichir, faciliter la recherche et <span class="keyword">l’indexation</span> par les <span class="keyword">robots</span> de moteur de recherche.
+    </p>
+    <hr>
+    <p>
+      <b>Liste des balises de description :</b>
+    </p>
+    <p>
+      <b>&ltmeta&gt</b> Les balises &ltMETA&gt servent à placer des <span class="keyword">métadonnées</span> dans une page HTML. On placera ces informations dans l’élément <span class="keyword">head</span>, et elles ne seront pas affichées sur la page.
+    </p>
+    <p>
+      <b>Exemple d’utilisation de balises meta :</b>
+    </p>
+    <p>- Définir le jeu de caractère d’un document (meta charset=”UTF-8”)</p>
+    <p>- (Sur mobile) Bloquer le zoom d’une page pour garder le contrôle en cas de zoom de l’utilisateur (meta name="viewport" content="width=device-width, initial-scale=1.0")</p>
+    <p>
+      <b>Attributs</b> : charset,  content,  refresh, name, color-scheme
+    </p>
+    <code>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </code>
+    <hr>
+    <p>
+      <b>&ltlink&gt</b> La balise &ltlink&gt sert à définir un <span class="keyword">lien</span> vers une <span class="keyword">ressource externe</span> (une feuille de style, un fichier de script javascript, un média...)
+    </p>
+    <p>
+      <b>Attributs</b> : href, media, rel, sizes, title, type....
+    </p>
+    <code>
+      <link rel="stylesheet" href="css/screen.css" />
+    </code>
+    <hr>
+    <p>
+      <b>&lttitle&gt</b>La balise &lttitle&gt définit le <span class="keyword">nom</span> du document HTML(Celui-ci sera repris sur le titre de l’onglet actuel sur votre navigateur)
+    </p>
+    <p>
+      <b>SEO</b>: Le titre de la page est un des premiers éléments scanne par les robots d’indexation.
+    </p>
+    <code>
+      <title>html-documentation</title>
+    </code>
+    <hr>
+    <p>
+      <b>&ltscript&gt</b> Permet d'intégrer du <span class="keyword">code javascript</span> au pages HTML : 
+    </p>
+    <p>- A l'intérieur des balises (&ltscript&gt&lt/script&gt)</p>
+    <p>- A l’aide d’un fichier externe ( &ltscript src=”main.js”&gt&lt/script&gt )</p>
+    <p>
+      <b>Attributs</b>: async, defer, src, type... 
+    </p>
+    <code>
+      <script src="./app.js"></script>
+    </code>
+    <hr>
+    <p> 
+      <b>&ltnoscript&gt</b> La balise &ltnoscript&gt définit un autre contenu si le navigateur ne prend pas en charge Javascript ou si Javascript a été désactivé...
+    </p>
+    <p>
+      <b>Attributs</b> : non spécifique à cette balise mais des <b>attributs universels</b> peuvent être utilisés
+    </p>
+    <p>
+      <b>Quelques attributs universels</b>: accesskey, class (pour le CSS), contenteditable
+    </p>
+    <code>
+      <noscript> 
+        <style> 
+            body {
+              overflow: auto!important;
+            }
+
+            body:after {
+              display: none!important;
+            }
+            #main > .inner {
+              opacity: 1.0!important;
+            }
+
+            #main > .inner > section {
+          opacity: 1.0!important;
+        }
+        
+        #main > .inner > section > * {
+            opacity: 1.0!important;
+           -moz-transform: none!important;
+           -webkit-transform: none!important;
+        } 
+        </style> 
+      </noscript>
+    </code>
+    <hr>
+    <p>
+      <b>&ltbase&gt</b> La balise &ltbase&gt spécifie la base URL / cible pour toutes les urls relatives dans un document.
+    </p>
+    <p>
+      <b>Attributs </b>: uniquement href et target
+    </p>
+    <code>
+      
+    </code>
+    <hr>
+    <p>
+      <b>&ltstyle&gt</b> La balise &ltstyle&gt permet d’injecter du <span class="keyword">code CSS</span> pour la mise en forme de page HTML.
+    </p>
+    <p>
+      <b>Elle est utilisée de façon suivante :</b>
+    </p>
+    <p>- Le code est injecté directement entre les balises</p>
+    <p>- Les balise sont utilisés pour faire appel à un autre fichier CSS (<b>recommande</b>)</p>
+    <p>
+      <b>Attributs </b>:  media, nonce, type, title</p>
+    <code>
+      <style> 
+            body {
+              overflow: auto!important;
+            }
+
+            body:after {
+              display: none!important;
+            }
+            #main > .inner {
+              opacity: 1.0!important;
+            }
+
+            #main > .inner > section {
+          opacity: 1.0!important;
+        }
+        
+        #main > .inner > section > * {
+            opacity: 1.0!important;
+           -moz-transform: none!important;
+           -webkit-transform: none!important;
+        } 
+    </style> 
+    </code>
+    <hr>
+    <!-- SEO -->
+    <h2>
+      <b>Une touche de SEO</b>
+    </h2>
+    <p>
+      <b>Definition : SEO (Search Engine Optimization)</b>
+    </p>
+    <p>
+      <b>Introduction</b>
+    </p>
+    <p>Les balises HTML (ou <b>balises SEO</b>) sont un moyen pour les algorithmes des moteurs de recherche de comprendre et de différencier les données d’un contenu Web.</p>
+    <p>Les balises qui favorisent le SEO sont essentiellement <b>les balises d'en tête <span class="keyword">&lth1&gt</span> et les sous-titres de <span class="keyword">&lth2&gt</span> jusqu'à <span class="keyword">&lth6&gt</span>, la balise <span class="keyword">&lttitle&gt</span>, et les meta tags.</b></p>
+    <p>Certaines balises ont été introduites pour <b>fournir des données supplémentaires à d’autres applications</b>, comme le texte qui ne s’affiche pas directement sur la page, mais qui apparaissent dans les résultats des moteurs de recherche.</p>
+    <p>
+      Celles-ci sont appelées les <span class="keyword"><b>“méta-tags”</b></span>.</p>
+    <p>
+      <b>Les balises &lttitle&gt et balises d’en-tête</b>
+    </p>
+    <p>
+      La balise &lttitle&gt est, par définition, <b>le <span class="keyword">titre</span> de chaque page HTML</b>. Alors il doit être aussi descriptif que possible pour indiquer aux internautes le contenu qu’il vont trouver.
+    </p>
+    <p>
+      Elle doit avant tout comporter des mots ou expressions clés relatives au contenu présent sur la page web en question. Son contenu doit avoir une longueur <b>entre 55 à 60 caractères.</b>
+    </p>
+    <p>
+      A la différence &lttitle&gt ou son contenu se trouve sur l’onglet du navigateur, Le contenu des balises d’en-tête et de sous-titres sont affichés directement dans le contenu web et ne sont pas visibles dans les pages de résultats de recherche.
+    </p>
+    <p>
+      Par contre, les moteurs de recherches utilisent ces informations pour <b>le <span class="keyword"><b>calculer le classement</b></span> de votre page</b> parmi tous les résultats.
+    </p>
+    <p>
+      La <b>Meta-Description</b> est un petit résumé de votre contenu.
+    </p>
+    <p>
+      Cette balise SEO fournit une <span class="keyword">description</span> aux moteurs de recherche pour l’affichage des résultats au sein des pages de recherches et aux applications de partage social.
+    </p>
+    <p>
+      C’est le <span class="keyword">texte gris</span> que l’on retrouve en dessous de chaque résultats de recherche Google et qui décrivent succinctement le contenu de la page cible en quelques phrases.
+    </p>
+    <p>
+      <b>Tip SEO</b> : La meta description permet aussi d’augmenter le <span class="keyword">taux de clic</span>.
+    </p>
+    <p>
+      <b>Conseils pour optimiser vos balises Meta Description :</b>
+    </p>
+    <p> - Être cohérent avec le contenu de la page cible,</p>
+    <p> - Inciter l’utilisateur à cliquer votre site avec des verbes d’action,</p>
+    <p> - Faire moins de 155 caractères.</p>
+    <hr>
+    <!-- OPEN GRAPH -->
+    <p>
+      <b>Open Graph</b>
+    </p>
+    <p><span class="keyword">Open Graph</span> est un protocole créé par <span class="keyword"><b>Facebook</b></span> en <span class="keyword">2010</span> puis confiée à <b>l'Open Web Foundation</b>.</p>
+    <p>Open Graph permet <b>de transformer un site en objet riche dans un graphe social et d'optimiser le contenu d'une page web</b> afin que les utilisateurs puissent la partager sur les réseaux sociaux Facebook, Twitter, LinkedIn... </p>
+    <p>
+      <b>Anecdote</b>: Lorsque vous mettez un lien dans facebook (une vidéo Youtube par ex.) et que cela charge directement la miniature de la video, le petit texte descriptif ect pour votre prochaine publication, ce n'est pas pour rien ;)
+    </p>
+    <p>Pour mentionner de l’open Graph, on utilisera la balise <span class="keyword">&ltmeta&gt</span> et plusieurs attributs spéciaux ( property=”og:...”) pour transformer le site en média riche pour les réseaux sociaux.</p>
+    <p><b>Les métadonnées classiques</b></p>
+    <p><b>Quelques exemples :</b></p>
+    <p> property="og:title" : Le titre de l’objet riche</p>
+    <p> property="og:type : Le type de l’objet riche</p>
+    <p> property="og:url” : L’URL de l’objet riche</p>
+    <p> property="og:image” : L’URL de l’objet riche</p>
+
+    <code>
+      <meta property="og:title" content="The Rock" />
+      <meta property="og:type" content="video.movie" />
+      <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+      <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+    </code>
+
+    <p><b>Il existe aussi des propriétés structurées, des tableaux, des types d’objets etc..</b></p>
+    <p><b>Plus d’infos sur l’Open Graph :</b><a href="https://opengraphprotocol.org/"> https://opengraphprotocol.org/</a></p>
+
+  </body>
+</html>
