@@ -9,8 +9,8 @@ debut var loc
 var pluie : B
 var manteau : B
 fin var loc
-si pluie 
-alors Afficher "Julie met son manteau et peux sortir"
-sinon Afficher "julie peut sortir sans son manteau"
+si pluie et manteau
+alors Afficher "Julie sort"
+sinon Afficher "julie ne sort pas"
 fin de si
 fin du programme pluie
