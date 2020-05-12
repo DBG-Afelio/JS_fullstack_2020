@@ -8,17 +8,17 @@ Debut Validation d'entrée
 
 Fin Validation d'entrée
 
-    tant que (count < 100) 
+    tant que nb != 100
 
-    saisie nb
+        saisie nb
 
-    count <- count + 1
+        count <- count + 1
 
-    somme <- somme + nb
+        somme <- somme + nb
     
     fin tant que
 
-    affiche av <- somme / 100
+    affiche av <- somme / count
 
 Fin validation d'entrée
 

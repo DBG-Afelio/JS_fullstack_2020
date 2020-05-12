@@ -3,23 +3,23 @@ Debut Validation d'entrée
     Var locales
     count :N <- 0
     nb :N <- 0
-    av :N <- 0
-    somme :N <- 0
+    big :N <- 0
+    small :N <- 0
+    maxPos :N <- 0
+    minPos :N <- 0
+    maxOc :N <- 0
+    minOc :N <- 0
+
 
 Fin Validation d'entrée
 
     tant que (count < 100) 
 
-    saisie nb
+        saisie nb 
 
-    count <- count + 1
+        si nb > 
 
-    somme <- somme + nb
-    
-    fin tant que
-
-    affiche av <- somme / 100
-
+    fin tant que 
 Fin validation d'entrée
 
 
