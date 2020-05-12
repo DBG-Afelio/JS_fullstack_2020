@@ -1,20 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <link href="../css/style.css" rel="Stylesheet" type="text/css"/>
     </head>
 	<body>
         <main>
         <header>
             <h1>L'HTML dans le futur! Nom de Zeus!!!</h1>
         </header>
-        <nav> 
-            <ul>
-                <li> </li>
-            </ul>
-
-        </nav>
-
         <section>
             	 <header>
                     <h2>Balises structurelles génériques et sémantiques</h2>
@@ -24,7 +18,7 @@
                 <p> Depuis HTML5, on peut catégoriser deux grands types de <span class=”keyword”> balises </class>  : les balises génériques et les balises sémantiques.
                 Les balises génériques indiquent au navigateur comment afficher le contenu de la page. </p>
 
-                <span class="ex"> Exemple : <div> <span> <body> </span> 
+                <p><b> &lt;span class="ex"&gt; </b> <b>Exemple </b>: <b> &lt;div&gt; </b> <b> &lt;span&gt; </b> <b> &lt;body&gt; </b> <b> &lt;/span&gt; </b> </p>
 
                 <p> En revanche, les balises génériques ne donnent aucune indication (en elles-mêmes) sur le type et le rôle du contenu présenté, elles servent seulement de conteneurs communiquant au navigateur comment le contenu qu’ils englobent doit être affiché.
                 Le HTML5 sémantique comble cette lacune en définissant des balises spécifiques pour indiquer clairement le rôle du contenu qu'elles englobent : ce sont les balises dites sémantiques. Elles sont appelées sémantiques car leur nom a un sens explicite qui facilite le travail des algorithmes, par exemple de Google ou Bing, à comprendre les rôles et l'importance relative de différentes parties de votre page. </p>
@@ -41,88 +35,88 @@
 
                 <h3> Principales balises sémantiques </h3>
 
-                <p> Les balises HTML5 suivantes peuvent être utilisées à la place des balises <div> pour diviser le contenu de votre page en différentes zones ayant des rôles spécifiques. Comme vous pouvez l'imaginer, les machines comme Google et Bing adorent ça. (https://fr.semrush.com/blog/balises-structurelles-html-semantique/) </p> 
+                <p> Les balises HTML5 suivantes peuvent être utilisées à la place des balises &lt;div&gt; pour diviser le contenu de votre page en différentes zones ayant des rôles spécifiques. Comme vous pouvez l'imaginer, les machines comme Google et Bing adorent ça. (https://fr.semrush.com/blog/balises-structurelles-html-semantique/) </p> 
 
-                    <ul> 
-                        <li> header : &lt;head&gt;  </li> 
-                        <li> barre de navigation : &lt;nav&gt; </li> 
-                        <li> contenu principal : &lt;main&gt;, avec diverses sous‑sections de contenu représentées à l'aide de des éléments &lt;article&gt;, &lt;section&gt; et &lt;div&gt;. </li> 
-                        <li> barre latérale : &lt;aside&gt; ; souvent mise à l'intérieur de l'élément &lt;main&gt;. </li> 
-                        <li> pied de page : &lt;footer&gt;. </li> 
+                    <ul class="navUl"> 
+                        <li><p> header :<b> &lt;head&gt; </b></p> </li> 
+                        <li><p> barre de navigation : <b>&lt;nav&gt;</b></p> </li> 
+                        <li> <p>contenu principal :<b> &lt;main&gt;</b>, avec diverses sous‑sections de contenu représentées à l'aide de des éléments &lt;article&gt;, &lt;section&gt; et &lt;div&gt;. </p></li> 
+                        <li> <p>barre latérale : <b>&lt;aside&gt; ; </b>souvent mise à l'intérieur de l'élément &lt;main&gt;.</p> </li> 
+                        <li><p> pied de page : <b>&lt;footer&gt;.</b></p> </li> 
                     </ul>
 
                 <p> (https://developer.mozilla.org/fr/docs/Apprendre/HTML/Introduction_%C3%A0_HTML/Document_and_website_structure) </p>
 
                 <p> En attribuant un rôle à chaque partie du contenu grâce au HTML5 sémantique, nous pouvons rendre la page beaucoup plus claire et plus facile à indexer pour les moteurs de recherche. (https://fr.semrush.com/blog/balises-structurelles-html-semantique/) </p>
                 
-                <h4> &lt;Header&gt; </h4>
+                <h3><strong> &lt;Header&gt;</strong> </h3>
 
-                <p> L'élément HTML &lt;header&gt; représente un groupe de contenu introductif ou de contenu aidant à la navigation. Il peut contenir des éléments de titre, mais aussi d'autres éléments tels qu'un logo, un formulaire de recherche, etc.
+                <p> L'élément HTML<b> &lt;header&gt;</b> représente un groupe de contenu introductif ou de contenu aidant à la navigation. Il peut contenir des éléments de titre, mais aussi d'autres éléments tels qu'un logo, un formulaire de recherche, etc.
                 
-                <h4> &lt;Nav&gt; </h4>
+                <h3> &lt;Nav&gt; </h3>
 
-                <p> L’élément HTML &lt;nav&gt; représente une section d'une page ayant des liens vers d'autres pages ou des fragments de cette page. Autrement dit, c'est une section destinée à la navigation dans un document (avec des menus, des tables des matières, des index, etc.). </p>
+                <p> L’élément HTML <b>&lt;nav&gt;</b> représente une section d'une page ayant des liens vers d'autres pages ou des fragments de cette page. Autrement dit, c'est une section destinée à la navigation dans un document (avec des menus, des tables des matières, des index, etc.). </p>
                 
-                <h4> &lt;Main&gt; </h4>
+                <h3> &lt;Main&gt; </h3>
 
-                <p> L’élément HTML &lt;main&gt; représente le contenu majoritaire du &lt;body&gt; du document. Le contenu principal de la zone est constitué de contenu directement en relation, ou qui étend le sujet principal du document ou de la fonctionnalité principale d'une application. </p>
+                <p> L’élément HTML <b>&lt;main&gt;</b> représente le contenu majoritaire du &lt;body&gt; du document. Le contenu principal de la zone est constitué de contenu directement en relation, ou qui étend le sujet principal du document ou de la fonctionnalité principale d'une application. </p>
 
                 <p> Un document ne peut pas avoir plus d'un seul élément &lt;main&gt; sans attribut hidden. </p> 
 
-                <h4> &lt;Article&gt; </h4>
+                <h3> &lt;Article&gt; </h3>
 
-                <p> L'élément HTML &lt;article&gt; représente du contenu autonome dans un document, une page, une application, ou un site. Ceci peut être un message sur un forum, un article de journal ou de magazine, une parution sur un blog, un commentaire d'utilisateur, un widget ou gadget interactif, ou tout autre élément de contenu indépendant. Ce contenu est prévu pour être distribué ou réutilisé indépendamment (par exemple dans un flux de syndication). </p> 
+                <p> L'élément HTML <b>&lt;article&gt;</b> représente du contenu autonome dans un document, une page, une application, ou un site. Ceci peut être un message sur un forum, un article de journal ou de magazine, une parution sur un blog, un commentaire d'utilisateur, un widget ou gadget interactif, ou tout autre élément de contenu indépendant. Ce contenu est prévu pour être distribué ou réutilisé indépendamment (par exemple dans un flux de syndication). </p> 
 
                 <p> Un document donné peut tout à fait avoir plusieurs articles. On peut par exemple avoir un blog qui affiche le texte de chaque billet au fur et à mesure que le lecteur fait défiler le contenu. Chaque billet serait un élément &lt;article&gt; et les sections de ces billets des éléments &lt;section&gt;.
 
-                <h4> &lt;Section&gt; </h4>
+                <h3> &lt;Section&gt; </h3>
 
-                <p> L'élément HTML &lt;section&gt; représente une section générique d'un document, par exemple un groupe de contenu thématique. Une section commence généralement avec un titre. </p>
+                <p> L'élément HTML <b>&lt;section&gt;</b> représente une section générique d'un document, par exemple un groupe de contenu thématique. Une section commence généralement avec un titre. </p>
 
-                <p> Ainsi, un menu de navigation devrait être délimité par un élément &lt;nav&gt; mais une liste de résultat de recherche, qui ne dispose pas d'élément spécifique pour être représentée, pourrait être englobée dans un élément &lt;section&gt;.
+                <p> Ainsi, un menu de navigation devrait être délimité par un élément <b>&lt;nav&gt;</b> mais une liste de résultat de recherche, qui ne dispose pas d'élément spécifique pour être représentée, pourrait être englobée dans un élément &lt;section&gt;.
 
-                <h4> &lt;Aside&gt; </h4>
+                <h3> &lt;Aside&gt; </h3>
 
-                <p> L'élément HTML &lt;aside&gt; (en anglais, "aparté") représente une partie d'un document dont le contenu n'a qu'un rapport indirect avec le contenu principal du document. Les apartés sont fréquemment présents sous la forme d'encadrés ou de boîtes de légende. </p> 
+                <p> L'élément HTML <b>&lt;aside&gt;</b> (en anglais, "aparté") représente une partie d'un document dont le contenu n'a qu'un rapport indirect avec le contenu principal du document. Les apartés sont fréquemment présents sous la forme d'encadrés ou de boîtes de légende. </p> 
 
-                <h4> &lt;Footer&gt; </h4>
+                <h3> &lt;Footer&gt; </h3>
 
-                <p> L'élément HTML <footer> représente le pied de page de la section ou de la racine de sectionnement la plus proche. Un pied de page ou de section contient habituellement des informations sur l'auteur de la section, les données relatives au droit d'auteur (copyright) ou les liens vers d'autres documents en relation. </p>
+                <p> L'élément HTML <b>&lt;footer&gt;</b> représente le pied de page de la section ou de la racine de sectionnement la plus proche. Un pied de page ou de section contient habituellement des informations sur l'auteur de la section, les données relatives au droit d'auteur (copyright) ou les liens vers d'autres documents en relation. </p>
 
                 <h3> Autres balises sémantiques </h3>
 
-                <h4> &lt;figcaption&gt; </h4> 
+                <h3> &lt;figcaption&gt; </h3> 
 
-                <p> L'élément HTML &lt;figcaption&gt; (pour figure caption en anglais) permet d'indiquer un sous-titre, une légende, associé à une figure ou à une illustration (cette dernière étant représentée par l'élément &lt;figure&gt; qui est le parent direct de la légende). L'élément &lt;figcaption&gt; est optionnel ; s'il n'est pas présent, la figure n'aura pas de légende. </p> 
+                <p> L'élément HTML &lt;figcaption&gt; (pour figure caption en anglais) permet d'indiquer un sous-titre, une légende, associé à une figure ou à une illustration (cette dernière étant représentée par l'élément &lt;figure&gt; qui est le parent direct de la légende). L'élément <b>&lt;figcaption&gt;</b> est optionnel ; s'il n'est pas présent, la figure n'aura pas de légende. </p> 
 
-                <h4> &lt;details&gt; </h4> 
+                <h3> &lt;details&gt; </h3> 
 
                 <p> L'élément HTML &lt;details&gt; est utilisé comme un outil permettant de révéler une information. Un résumé ou un intitulé peuvent être fournis grâce à un élément &lt;summary&gt;. </p> 
 
                 <p> La plupart du temps, le contrôle utilisé pour cet élément est un triangle qui est tourné ou tordu afin d'indiquer si l'élément est révélé ou non. Si le premier élément fils de l'élément &lt;details&gt; est un élément &lt;summary&gt;, c'est le contenu de ce dernier qui est utilisé comme intitulé pour le contenu à révéler (l'intitulé est donc toujours visible). </p>
 
-                <h4> &lt;figure&gt;  </h4>
+                <h3> &lt;figure&gt;  </h3>
 
                 <p> L'élément HTML &lt;figure&gt; représente une figure (un schéma), qui peut être accompagné d'une légende grâce à l'élément &lt;figcaption&gt;. Il est normalement référencé de manière unique. C'est souvent une image, une illustration, un diagramme, un fragment de code ou un schéma auquel il est fait référence dans le texte principal mais qui peut être utilisé sur une autre page ou dans une annexe sans que cela affecte le contenu principal. </p>
 
-                <h4> &lt;mark&gt; </h4>
+                <h3> &lt;mark&gt; </h3>
 
                 <p> L'élément HTML &lt;mark&gt; représente un texte marqué ou surligné à cause de sa pertinence dans le contexte. Il peut par exemple être utilisé afin d'indiquer les correspondances d'un mot-clé recherché au sein d'un document. </p>
 
-                <h4> &lt;summary&gt; </h4>
+                <h3> &lt;summary&gt; </h3>
 
-                <p> L'élément HTML &lt;summary&gt; représente une boîte permettant de révéler le contenu d'un résumé ou d'une légende pour le contenu d'un élément &lt;details&gt;. En cliquant sur l'élément &lt;summary&gt;, on passe de l'état affiché à l'état masqué (et vice versa) de l'élément &lt;details&gt;parent.
+                <p> L'élément HTML <b>&lt;summary&gt;</b> représente une boîte permettant de révéler le contenu d'un résumé ou d'une légende pour le contenu d'un élément &lt;details&gt;. En cliquant sur l'élément &lt;summary&gt;, on passe de l'état affiché à l'état masqué (et vice versa) de l'élément &lt;details&gt;parent.
 
-                <h4> &lt;time&gt; </h4>
+                <h3> &lt;time&gt; </h3>
 
-                <p> L'élément HTML &lt;time&gt; permet de représenter une période donnée. Cet élément permet d'utiliser l'attribut datetime afin de traduire la date ou l'instant dans un format informatique (permettant aux moteurs de recherche d'exploiter ces données ou de créer des rappels). </p>
+                <p> L'élément HTML <b>&lt;time&gt;</b> permet de représenter une période donnée. Cet élément permet d'utiliser l'attribut datetime afin de traduire la date ou l'instant dans un format informatique (permettant aux moteurs de recherche d'exploiter ces données ou de créer des rappels). </p>
 
                 <p> Cet élément permet de représenter : </p>
 
-                <ul> 
-                    <li> Une heure </li>
-                    <li> Une date du calendrier grégorien (en précisant éventuellement l'heure et les informations de fuseau horaire). </li>
-                    <li> Une durée valide.</li>
+                <ul class="navUl"> 
+                    <li> <p>Une heure </p></li>
+                    <li> <p>Une date du calendrier grégorien (en précisant éventuellement l'heure et les informations de fuseau horaire). </p></li>
+                    <li> <p>Une durée valide.</p></li>
 
                 </article>
                 <footer></footer>

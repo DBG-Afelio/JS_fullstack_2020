@@ -1,0 +1,27 @@
+
+body {
+    
+    background-color:   #c7af6b;  
+}
+
+
+ p{
+    text-indent: 1%; /*Met en retrait la première ligne de texte dans un élément*/
+    font-family:  cursive;
+    font-weight :500;
+    line-height : 1.2; /* distance entre les lignes */
+    font-size: 16px;
+    letter-spacing : 0.2px; /*distance entre les lettres */
+    text-align : left ; /*Aligne le texte dans un élément */
+ }
+ li {
+    font-size : 20px ;
+    
+}
+
+.navUl{
+    list-style-type: upper-roman;
+}
+h4 {
+    font-weight: bold;
+}
