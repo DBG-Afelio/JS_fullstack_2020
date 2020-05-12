@@ -1,0 +1,28 @@
+Ecrire le programme qui calcule la moyenne d'une série de nombres entrés au clavier.
+
+- La fin de la série sera annoncée par un 100.
+
+
+Debut Moyenne
+    VARIABLE LOCALES :
+        VAR somme :N <- 0
+        VAR moyenne :N <- 0
+        Var nb :N <- 0
+        VAR i :N <- 0
+        CONST stop :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir une serie de nombre pour le calcul de la moyenne"
+    Afficher "Saisir ", stop, " pour terminer"
+    Saisir nb
+    TANT QUE nb ≠ stop
+        somme <- somme + nb
+        i <- i + 1
+        Saisir nb
+    FIN TANT QUE
+    SI i = 0
+        Afficher "Vous n'avez entré aucune valeur"
+    SINON
+        moyenne <- somme / i
+        Afficher "LA moyenne de la serie de nombres entres est : ", moyenne
+Fin Moyenne
