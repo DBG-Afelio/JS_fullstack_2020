@@ -8,7 +8,7 @@ Debut Programme
         VAR X :N <- 0
     FIN VARIABLES LOCALES
     Afficher "Entrez  A : "
-    Saisir B
+    Saisir A
     Afficher "Entrez  B : "
     Saisir B
     SI A = 0

@@ -1,0 +1,29 @@
+Écrire le programme qui permet de décomposer une somme d’argent lue au clavier.
+Coupures disponibles :
+
+- Billets : 100€, 50€, 20€, 5€
+- Pièces : 2€, 1€, 0,5€ , 0,2€
+Contraintes :
+
+- Le total de la décomposition sera plus grand ou égale à la somme entrée
+- Le nombre de coupures de la décomposition sera le plus petite possible
+
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+        VAR B :N <- 0
+        VAR X :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Entrez  Montant : "
+    Saisir Montant 
+    Afficher "Entrez  B : "
+    Saisir B
+    SI A = 0
+    ALORS
+        Afficher "Operation Pas Possible"
+    SINON
+        A . X + B <-0
+        X <- -B / A
+        Afficher " Valeur de X est : ", X
+    FINSI
+Fin Programme
