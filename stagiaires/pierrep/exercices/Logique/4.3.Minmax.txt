@@ -17,7 +17,27 @@ Fin Validation d'entrée
 
         saisie nb 
 
-        si nb > 
+        count <- count + 1
+
+        si nb > big
+
+            alors big <- nb
+
+            maxPos <- count
+
+        si nb < small
+        
+            alors small <- nb
+
+            minPos <- nb
+
+        si nb = big 
+
+            alors maxOC <- maxOC + 1
+
+        si nb = min
+
+            alors minOC = minOC + 1
 
     fin tant que 
 Fin validation d'entrée
