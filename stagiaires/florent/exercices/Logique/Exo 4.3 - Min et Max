@@ -6,8 +6,8 @@ Début programme
         Var cpt :N <- 0
         Var cptmax :N <- 0
         Var cptmin :N <- 0
-        Var positionmax :N <- 0
-        Var positionmin :N <- 0
+        Var positionmax :N <- 1
+        Var positionmin :N <- 1
     Fin variables locales
     
     Afficher "Entrez un nombre"
@@ -17,8 +17,7 @@ Début programme
     Min <- nbre
 
     TANTQUE nbre != 100
-        cpt <- cpt + 1
-        
+      
         SI nbre<Min
             Min <- nbre
             positionmin <- cpt
@@ -33,11 +32,12 @@ Début programme
         Si nbre = Max
             cptmax <- cptmax + 1
         FINSI
-        
+
+        cpt <- cpt + 1
         Afficher "Entrez un nombre: "
         Saisir nbre
     FINTANTQUE
-
+    
     Afficher "Le nombre le plus grand est " , Max
     Afficher "Le nombre le plus petit est " , Min
     Afficher "Le nombre Max fut entré en position " , positionmax
