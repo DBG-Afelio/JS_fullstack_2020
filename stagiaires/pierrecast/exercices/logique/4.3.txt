@@ -1,0 +1,78 @@
+Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
+
+    La fin de la série sera annoncée par un 100.
+    Le programme affichera également :
+        le plus grand;
+        le plus petit des nombres;
+        la position du premier maximum (optionnel);
+        la position du dernier maximum (optionnel);
+        le nombre d'occurrence du maximum (optionnel);
+        Idem pour le minimum (optionnel).
+
+Debut ex4-3
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var max :N <- 0
+        var min :N <- 0
+    FIN VARIABLES LOCALES
+    
+    somme <-0
+    max <- 0
+    min <- 0
+    pos1max <- 0
+    posNmax <- 0
+    nbmax <- 0
+    pos1min <- 0
+    posNmin <- 0
+    nbmin <- 0
+    i <- 0
+    TANT QUE (nombre != 100)
+        Afficher "Entrez un nombre"
+        Saisir nombre
+
+        SI (max <= nombre)
+            ALORS
+            max <- nombre
+
+            SI (max < nombre)
+                ALORS
+                pos1max <- i
+                posNmax <- i
+                nbmax <- 1
+                FINSI 
+            SINON    
+                posNmax <- i
+                nbmax <- nbmax + 1
+
+        FIN SI
+
+        SI (min >= nombre)
+            ALORS
+            min <- nombre
+            SI (min > nombre)
+                ALORS
+                pos1min <- i
+                posNmin <- i
+                nbmin <- 1
+                FINSI 
+            SINON    
+                posNmin <- i
+                nbmin <- nbmin + 1
+        FIN SI
+
+        i <- i + 1
+    FIN TANT QUE
+
+    Afficher "le maximum vaut ", max
+    Afficher "le minimum vaut ", min
+
+    Afficher "la position du premier maximum ", max
+    Afficher "la position du dernier maximum ", max
+    Afficher "le nombre d'occurrence du maximum ", max
+
+    Afficher "la position du premier minimum ", min
+    Afficher "la position du dernier minimum ", min
+    Afficher "le nombre d'occurrence du maminimumximum ", min
+
+
+Fin ex4-3
