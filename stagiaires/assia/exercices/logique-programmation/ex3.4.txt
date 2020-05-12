@@ -17,55 +17,55 @@ Debut Compare3
     Saisir b
     Afficher "Saisir un 2e nombre : "
     Saisir c
-    SI a = b = c
+    SI a = b ET b = c
     ALORS
         Afficher a, " = ", b, " = ", c
     FINSI
-    SI a = b < c
+    SI a = b ET b < c
     ALORS
         Afficher a, " = ", b, " < ", c
     FINSI
-    SI c < a = b
+    SI c < a ET a = b
     ALORS
         Afficher c, " < ", a, " = ", b
     FINSI
-    SI a < b = c
+    SI a < b ET b = c
     ALORS
         Afficher a, " < ", b, " = ", c
     FINSI
-    SI b = c < a
+    SI b = c ET c < a
     ALORS
-        Afficher b, " = ", c, " = ", a
+        Afficher b, " = ", c, " < ", a
     FINSI
-    SI a = c < b
+    SI a = c ET c < b
     ALORS
         Afficher a, " = ", c, " < ", b
     FINSI
-    SI b < a = c
+    SI b < a ET a = c
     ALORS
         Afficher b, " < ", a, " = ", c
     FINSI
-    SI a < b < c
+    SI a < b ET < c
     ALORS
         Afficher a, " < ", b, " < ", c
     FINSI
-    SI a < c < b
+    SI a < c ET c < b
     ALORS
         Afficher a, " < ", c, " < ", b
     FINSI
-    SI b < c < a
+    SI b < c ET c < a
     ALORS
         Afficher b, " < ", c, " < ", a
     FINSI
-    SI b < a < c
+    SI b < a ET a < c
     ALORS
         Afficher b, " < ", a, " < ", c
     FINSI
-    SI c < a < b
+    SI c < a ET a < b
     ALORS
-        Afficher c, " = ", a, " = ", b
+        Afficher c, " < ", a, " < ", b
     FINSI
-    SI c < b < a
+    SI c < b ET b < a
     ALORS
         Afficher c, " < ", b, " < ", a
     FINSI
