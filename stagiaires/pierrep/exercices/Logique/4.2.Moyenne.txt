@@ -8,6 +8,8 @@ Debut Validation d'entrée
 
 Fin Validation d'entrée
 
+    saisie nb    
+
     tant que nb != 100
 
         saisie nb
