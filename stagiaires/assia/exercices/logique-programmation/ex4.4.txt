@@ -1,0 +1,104 @@
+Ecrire le programme qui calcule la plus grande et la plus petite suite croissante de valeurs d'une série de nombres entrés au clavier.                                         // petiteSuite   //grandeSuite
+
+- La fin de la série sera annoncée par un 100.  // stop
+- Le programme affichera également :
+  - la position du premier maximum;     // firstPosMax
+  - la position du dernier maximum;     // lastPosMax
+  - le nombre d'occurrence du maximum;  // occurMax
+  - la position du premier minimum;     // firstPosMin
+  - la position du dernier minimum;     // lastPosMax
+  - le nombre d'occurrence du minimum;
+
+************* VERSION FULL OPTION *************
+
+Debut EX44
+    VARIABLE LOCALES :
+        VAR input :N <- 0
+        VAR min :N <- 0
+        VAR max :N <- 0
+        VAR firstPosMin :N <- 1
+        VAR lastPosMin :N <- 1
+        VAR firstPosMax <- 1
+        VAR lastPosMax <- 1
+        VAR occurMin <- 1
+        VAR occurMax <- 1
+        VAR petiteSuite <- 2 // on pars du principe qu'une suite est constitué d'au moins 2 nombres croissants consecutifs
+        VAR grandeSuite <- 2
+        VAR tempSuite <- 1
+        VAR previous <- 0
+        VAR i :N <- 0
+        CONST stop :N <- 100
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir une serie de nombre"
+    Afficher "Saisir ", stop, " pour terminer"
+    Saisir input
+    min <- input
+    max <- input
+
+    TANT QUE input ≠ stop
+        i <- i + 1
+        SI i ≠ 1
+        ALORS
+            SI input ≤ min
+                SI input = min
+                ALORS
+                    occurMin <- occurMin + 1
+                    lastPosMin <- i
+                SINON
+                    min <- input
+                    occurMin <- 1
+                    firstPosMin <- i
+                    lastPosMin <- i
+                FINSI
+            FINSI
+            SI input ≥ max
+                SI input = max
+                ALORS
+                    occurMax <- occurMax + 1
+                    lastPosMax < i
+                SINON
+                    max <- input
+                    occurMin <- 1
+                    firstPosMax <- i
+                    lastPosMax <- i
+                FINSI
+            FINSI
+
+            SI input > previous
+            ALORS
+                tempSuite <- tempSuite + 1
+            SINON
+                tempSuite <- 1
+            FINSI
+
+            SI tempSuite ≥ 2
+
+        FINSI
+        previous <- input
+        Saisir input
+    FIN TANT QUE
+
+    CAS OU i
+        CAS 0
+            Afficher "Vous n'avez saisi aucun nombre"
+        CAS 1
+            Afficher "Vous n'avez saisi qu'un seul nombre qui est :", input
+        AUTRES CAS
+            Afficher "Le plus petit nombre est ", min, ", et a ete saisi ", occurMin, "fois dans cette serie .."
+            SI occurMin = 1
+            ALORS
+                Afficher "..en position :", firstPosMin
+            SINON
+                Afficher "..le 1er en position ", firstPosMin, " et le dernier detecté en position ", lastPosMin
+            FINSI
+            Afficher "Le plus grand nombre est ", max, ", et a ete saisi ", occurMax, "fois dans cette serie .."
+            SI occurMax = 1
+            ALORS
+                Afficher "..en position :", firstPosMax
+            SINON
+                Afficher "..le 1er en position ", firstPosMax, " et le dernier detecté en position ", lastPosMax
+            FINSI
+    FIN CAS OU
+
+  Fin EX44
