@@ -3,7 +3,7 @@ Début programme
         Var nbre :N <- 0
         Var Max :N <- 0
         Var Min :N <- 0
-        Var cpt :N <- 0
+        Var cpt :N <- 1
         Var cptmax :N <- 0
         Var cptmin :N <- 0
         Var positionmax :N <- 1
@@ -21,10 +21,12 @@ Début programme
         SI nbre<Min
             Min <- nbre
             positionmin <- cpt
+            cptmin <- 0
         FINSI
         SI nbre>Max
             Max <- nbre
             positionmax <- cpt
+            cptmax <- 0
         FINSI
         SI nbre = Min
             cptmin <- cptmin + 1
@@ -37,11 +39,13 @@ Début programme
         Afficher "Entrez un nombre: "
         Saisir nbre
     FINTANTQUE
-    
-    Afficher "Le nombre le plus grand est " , Max
-    Afficher "Le nombre le plus petit est " , Min
-    Afficher "Le nombre Max fut entré en position " , positionmax
-    Afficher "Le nombre Min fut entré en position " , positionmin
-    Afficher "Le nombre Max fut entré " , cptmax , "fois"
-    Afficher "Le nombre Min fut entré " , cptmin , "fois"
+
+    SI cpt != 0
+        Afficher "Le nombre le plus grand est " , Max
+        Afficher "Le nombre le plus petit est " , Min
+        Afficher "Le nombre Max fut entré en position " , positionmax
+        Afficher "Le nombre Min fut entré en position " , positionmin
+        Afficher "Le nombre Max fut entré " , cptmax , "fois"
+        Afficher "Le nombre Min fut entré " , cptmin , "fois"
+    FINSI
 Fin de programme
