@@ -3,6 +3,7 @@ Début programme
         Var nbre :N <- 0
         Var Max :N <- 0
         Var Min :N <- 0
+        Var cpt :N <- 0
         Var cptmax :N <- 0
         Var cptmin :N <- 0
         Var positionmax :N <- 0
@@ -16,6 +17,8 @@ Début programme
     Min <- nbre
 
     TANTQUE nbre != 100
+        cpt <- cpt + 1
+        
         SI nbre<Min
             Min <- nbre
             positionmin <- cpt
@@ -30,7 +33,7 @@ Début programme
         Si nbre = Max
             cptmax <- cptmax + 1
         FINSI
-        cpt <- cpt + 1
+        
         Afficher "Entrez un nombre: "
         Saisir nbre
     FINTANTQUE
