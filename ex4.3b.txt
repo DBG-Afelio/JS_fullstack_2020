@@ -1,3 +1,9 @@
+VAR pos_min :N <- 0
+VAR pos_max :N <- 0
+VAR iter_min <- 0
+VAR iter_min <- 0
+
+
 Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
 
 - La fin de la série sera annoncée par un 100.
@@ -8,9 +14,6 @@ Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une s�
   - la position du dernier maximum (optionnel);
   - le nombre d'occurrence du maximum (optionnel);
   - Idem pour le minimum (optionnel).
-
-*************VERSION SANS OPTION*************
-
 
 Debut EX43
     VARIABLE LOCALES :
@@ -25,19 +28,20 @@ Debut EX43
     Afficher "Saisir une serie de nombre"
     Afficher "Saisir ", stop, " pour terminer"
     Saisir input
-    min <- input
-    max <- input
+
     TANT QUE input ≠ stop
         SI i ≠ 0
         ALORS
-            SI input < min
+            SI input < previous
                 min <- input
-            FINSI
-            SI input > max
+                max <- previous
+            SINON
+                min <- previous
                 max <- input
             FINSI
         FINSI
         i <- i + 1
+        previous <- input
         Saisir input
     FIN TANT QUE
 
