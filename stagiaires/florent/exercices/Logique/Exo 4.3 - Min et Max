@@ -1,0 +1,44 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+        Var Max :N <- 0
+        Var Min :N <- 0
+        Var cptmax :N <- 0
+        Var cptmin :N <- 0
+        Var positionmax :N <- 0
+        Var positionmin :N <- 0
+    Fin variables locales
+    
+    Afficher "Entrez un nombre"
+    Saisir nbre 
+
+    Max <- nbre
+    Min <- nbre
+
+    TANTQUE nbre != 100
+        SI nbre<Min
+            Min <- nbre
+            positionmin <- cpt
+        FINSI
+        SI nbre>Max
+            Max <- nbre
+            positionmax <- cpt
+        FINSI
+        SI nbre = Min
+            cptmin <- cptmin + 1
+        FINSI
+        Si nbre = Max
+            cptmax <- cptmax + 1
+        FINSI
+        cpt <- cpt + 1
+        Afficher "Entrez un nombre: "
+        Saisir nbre
+    FINTANTQUE
+
+    Afficher "Le nombre le plus grand est " , Max
+    Afficher "Le nombre le plus petit est " , Min
+    Afficher "Le nombre Max fut entré en position " , positionmax
+    Afficher "Le nombre Min fut entré en position " , positionmin
+    Afficher "Le nombre Max fut entré " , cptmax , "fois"
+    Afficher "Le nombre Min fut entré " , cptmin , "fois"
+Fin de programme
