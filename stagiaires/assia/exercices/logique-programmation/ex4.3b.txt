@@ -1,0 +1,76 @@
+Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
+
+- La fin de la série sera annoncée par un 100.
+- Le programme affichera également :
+  - le plus grand;
+  - le plus petit des nombres;
+  - la position du premier maximum (optionnel);
+  - la position du dernier maximum (optionnel);
+  - le nombre d'occurrence du maximum (optionnel);
+  - Idem pour le minimum (optionnel).
+
+************* VERSION FULL OPTION *************
+
+Debut EX43b
+    VARIABLE LOCALES :
+        VAR input :N <- 0
+        VAR min :N <- 0
+        VAR max :N <- 0
+        VAR firstPosMin :N <- 1
+        VAR lastPosMin :N <- 1
+        VAR firstPosMax <- 1
+        VAR lastPosMax <- 1
+        VAR occurMin <- 1
+        VAR occurMax <- 1
+        VAR i :N <- 0
+        CONST stop :N <- 100
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir une serie de nombre"
+    Afficher "Saisir ", stop, " pour terminer"
+    Saisir input
+    min <- input
+    max <- input
+
+    TANT QUE input ≠ stop
+        i <- i + 1
+        SI i ≠ 1
+        ALORS
+            SI input ≤ min
+                SI input = min
+                ALORS
+                    occurMin <- occurMin + 1    //on detecte une nvelle occ de MIN => incremente occ et maj lastPos
+                    lastPosMin <- i
+                SINON
+                    min <- input                //on detecte un MIN ≠ => reinit les VAR a 1 et i
+                    occurMin <- 1
+                    firstPosMin <- i
+                    lastPosMin <- i
+                FINSI
+            FINSI
+            SI input ≥ max
+                SI input = max
+                ALORS
+                    occurMax <- occurMax + 1    //on detecte une nvelle occ de MAX => incremente occ et maj lastPos
+                    lastPosMax < i
+                SINON
+                    max <- input                //on detecte un MAX ≠ => reinit les VAR a 1 et i
+                    occurMin <- 1
+                    firstPosMax <- i
+                    lastPosMax <- i
+                FINSI
+            FINSI
+        FINSI
+        Saisir input
+    FIN TANT QUE
+
+    CAS OU i
+        CAS 0
+            Afficher "Vous n'avez saisi aucun nombre"
+        CAS 1
+            Afficher "Vous n'avez saisi qu'un seul nombre qui est :", input
+        AUTRES CAS
+            Afficher "Le plus petit nombre est :", min, " le plus grand est :", max
+    FIN CAS OU
+
+  Fin EX43b
