@@ -1,0 +1,45 @@
+Début programme
+	Variable locale
+        Var a :N <- 5
+        Var b :N <- 2
+		Var c :N <- 3
+		Var max :N <- 0
+		Var centrer :N <- 0
+		Var min :N <- 0
+		Var pre :N <- 0
+	Fin variable locale
+	Afficher "Veuillez entrer un nombre :"
+	Saisir a
+    Afficher "Veuillez entrer un nombre :"
+	Saisir b
+	Afficher "Veuillez entrer un nombre :"
+	Saisir c
+	SI a = b ET b = c
+		ALORS
+			Afficher "a b et c sont égaux"
+		SINON
+			SI a > b
+				ALORS
+				 	max <- a
+					centrer <- b
+				SINON
+					max <- b
+					centrer <- a
+			FINSI
+			SI max > c
+				ALORS
+					SI centrer > c
+						ALORS
+							min <- c
+						SINON
+							min <- centrer
+							centrer <- c
+					FINSI
+				SINON
+					min <- centrer
+					centrer <- max
+					max <- c
+			FINSI
+			Afficher min, " < ", centrer, " < ", max
+	FINSI
+Fin de programme
