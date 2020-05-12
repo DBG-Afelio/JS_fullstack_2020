@@ -1,0 +1,57 @@
+Début programme
+
+    Variables locales
+        Var nbre500 :N <- 0
+        Var nbre200 :N <- 0
+        Var nbre100 :N <- 0
+        Var nbre50 :N <- 0
+        Var nbre20 :N <- 0
+        Var nbre10 :N <- 0
+        Var nbre5 :N <- 0
+        Var nbre2 :N <- 0
+        Var nbre1 :N <- 0
+        Var nbre05 :N <- 0
+        Var nbre02 :N <- 0
+        Var nbre :N <- 0
+        Var modulo :N <- 0
+        Var cents :N <- 0
+    Fin variables locales
+
+    Afficher "Entrer une somme: "
+    Saisir nbre
+
+    nbre500 <- nbre DIV 500
+    modulo <- nbre MOD 500
+    nbre200 <- modulo DIV 200
+    modulo <- modulo - nbre200 * 200
+    nbre100 <- modulo DIV 100
+    modulo <- modulo - nbre100 * 100
+    nbre50 <- modulo DIV 50
+    modulo <- modulo - nbre50 * 50
+    nbre20 <- modulo DIV 20
+    modulo <- modulo - nbre20 * 20
+    nbre10 <- modulo DIV 10
+    modulo <- modulo - nbre10 * 10
+    nbre5 <- modulo DIV 5
+    modulo <- modulo - nbre5 * 5
+    nbre2 <- modulo DIV 2
+    modulo <- modulo - nbre2 * 2
+    nbre1 <- modulo DIV 1
+    modulo <- modulo - nbre1 * 1
+    nbre05 <- cents DIV 0.5
+    cents <- cents - nbre05 * 0.5
+    nbre02 <- cents DIV 0.2
+
+    Afficher "Voici votre rendu: "
+    Afficher nbre500 , "billet(s) de 500€"
+    Afficher nbre200 , "billet(s) de 200€"
+    Afficher nbre100 , "billet(s) de 100€"
+    Afficher nbre50 , "billet(s) de 50€"
+    Afficher nbre20 , "billet(s) de 20€"
+    Afficher nbre10 , "billet(s) de 10€"
+    Afficher nbre5 , "billet(s) de 5€"
+    Afficher nbre2 , "pièce(s) de 2€"
+    Afficher nbre1 , "pièce(s) de 1€"
+    Afficher nbre05 , "pièce(s) de 50 cents"
+    Afficher nbre02 , "pièce(s) de 20 cents"
+Fin de programme
