@@ -26,7 +26,7 @@ Debut ex3-5
     Afficher "Entrez votre prix"
     Saisir prix 
 
-    SI (choix = 0)
+    SI (choix != 0)
         ALORS
             CAS OU choix
                 CAS 1
@@ -47,6 +47,6 @@ Debut ex3-5
         SINON
             Afficher "Sortie"
     FIN SI 
-    
+
 Fin ex3-5
  
