@@ -17,7 +17,7 @@ Debut Compare3
     Saisir b
     Afficher "Saisir un 2e nombre : "
     Saisir c
-    SI a = b ET b = c
+    SI a = b ET b = c 
     ALORS
         Afficher a, " = ", b, " = ", c
     FINSI
