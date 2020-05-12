@@ -30,6 +30,6 @@ Début programme
     Afficher "Votre choix: " , choix
     Afficher "Prix hors TVA: " , montant
     Afficher "Le taux de TVA vaut " , taux*100 , "%"
-    Afficher "Le montant de la TVA vaut " , taux
+    Afficher "Le montant de la TVA vaut " , montant * taux
     Afficher "Le montant TVAC vaut " , montant + montant * taux 
 Fin de programme
