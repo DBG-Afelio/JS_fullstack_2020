@@ -28,4 +28,8 @@ Debut TVA
 
         prixReel <- prixHTVA
 
+    SI choixTVA <- 0
+    
+        afficher "On sort du programme"
+
 Fin TVA
