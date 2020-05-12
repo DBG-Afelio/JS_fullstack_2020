@@ -7,7 +7,7 @@ PROGRAMME
     FIN VARIABLE LOCALE
 
 
-AFFICHER("Entrer nombre")
+AFFICHER("Entrer nombre entre 0 et 4")
 
 SAISIR choix-user
 
