@@ -8,15 +8,11 @@ Debut Programme
         VAR X :N <- 0
     FIN VARIABLES LOCALES
     Afficher "Entrez  A : "
-    Saisir A
+    Saisir B
     Afficher "Entrez  B : "
     Saisir B
-    SI A = 0
-    ALORS
-        Afficher "Operation Pas Possible"
-    SINON
-        A . X + B <-0
+    
         X <- -B / A
         Afficher " Valeur de X est : ", X
-    FINSI
+
 Fin Programme

@@ -14,7 +14,7 @@ Debut Programme
     SI A > B
     ALORS
         Afficher "A"
-    SINON
+    SINON SI
        A < B 
 	AFFICHER "B"
     SINON
