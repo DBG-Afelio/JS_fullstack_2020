@@ -1,0 +1,22 @@
+Écrire le programme qui résout l’équation du 1er degré: ax + b = 0
+Le programme demande à l'utilisateur une valeur pour a et pour b et donne si possible la valeur de x.
+
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+        VAR B :N <- 0
+        VAR X :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Entrez  A : "
+    Saisir B
+    Afficher "Entrez  B : "
+    Saisir B
+    SI A = 0
+    ALORS
+        Afficher "Operation Pas Possible"
+    SINON
+        A . X + B <-0
+        X <- -B / A
+        Afficher " Valeur de X est : ", X
+    FINSI
+Fin Programme
