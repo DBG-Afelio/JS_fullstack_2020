@@ -17,7 +17,7 @@ TANT QUE ( choix-user != 0 OU
            choix-user != 3 OU
            choix-user != 4)
 
-    AFFICHER("Entrer nombre")
+    AFFICHER("Entrer nombre entre 0 et 4")
     SAISIR choix-user
 FIN TANT QUE 
 
