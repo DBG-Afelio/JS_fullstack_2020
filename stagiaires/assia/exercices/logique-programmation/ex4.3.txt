@@ -40,7 +40,7 @@ Debut EX43
         i <- i + 1
         Saisir input
     FIN TANT QUE
-
+    
     SI i = 0
         Afficher "Vous n'avez saisi qu'un seul nombre qui est :", input
     SINON
