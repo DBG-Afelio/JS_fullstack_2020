@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Documentation HTML</title>
+		<meta charset="UTF-8">
+        <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-global.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-local.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+
+<header> </header>
+
+<nav>
+<ul>
+    <li><h4>Html : documentation commune .</h4></li>
+
+    <li><h4>Introduction : syntaxe générale .</h4></li>
+
+    <li><h4>Balises de structure : </h4></li>
+
+    <li><h4>Balises de texte</h4>
+
+    <li><h4>Tableau et listes .</h4></li>
+
+    <li><h4>Lien et anchors .</h4></li>
+
+    <li><h4>Balises de formulaire .</h4></li>
+
+    <li><h4>Balises de média .</h4></li>
+
+    <li><h4>Fraime et i frame .</h4></li>
+
+    <li><h4>Balises de description .</h4></li>
+
+    <li><h4>Cohérence visuelle du document et CSS .</h4></li>
+</ul>
+
+</nav>
+
+<aside> </aside>
+
+<main>
+
+    <section id="alpha-les-listes">
+    	<header>
+        	<h1>Les listes</h1>
+      	</header>
+		<article id="introduction-aux-listes-HTML">
+			<header>
+				<h2>1 - Introduction aux listes HTML</h2>
+			</header>
+			<p>
+				HTML offre plusieurs moyens d’établir des listes d'informations. Toutes les listes doivent contenir un élément de liste ou plus. Celles-ci peuvent présenter des informations non-ordonnées, ordonnées ou des définitions. Nous allons voir ici comment les construire.
+			</p>
+
+	      	<header>
+				<h3>1.1 - Les listes ordonnées et non-ordonnées</h3>
+			</header>
+        	<p>
+				Les listes non-ordonnées n'ont pas de notion d'ordre et on peut mélanger leurs éléments sans que cela modifie leur sens. Elles apparaissent parfois à des endroits inattendus: les barres de navigation sont par exemple des listes non-ordonnées auxquelles on a appliqué quelques règles CSS pour la mise en forme. Lorsque les éléments de la liste doivent être lus ou réalisés dans un ordre précis, on utilisera la liste ordonnée.
+			</p>
+			<p>Syntaxe HTML :</p>
+			<p>
+				Toute la liste sera placée dans les balises <strong>&lt;ol&gt;</strong> pour les listes ordonnées ou <strong>&lt;ul&gt;</strong> pour les listes non-ordonnées. Les balises fermentes <strong>&lt;/ol&gt;</strong> et <strong>&lt;/ul&gt;</strong> sont obligatoires. Chacun des éléments de la liste sera placé à l'intérieur d'un élément <strong>&lt;li&gt;</strong>. La balise fermante <strong>&lt;/li&gt;</strong> est optionnelle. Voici un exemple qui contient les deux types de liste :
+			</p>
+			<div class="exemple">
+				<code>
+					<h1>Guacamole rapide à faire</h1>
+					<h2>Ingrédients</h2>
+					<ul>
+					 	<li>2 avocats </li>
+					 	<li>le jus d'un citron</li>
+					 	<li>¼ de concombre, coupé grossièrement</li>
+					 	<li>1 petite tomate, coupée</li>
+					</ul>
+					<h2>Instructions</h2>
+					<ol>
+					 	<li>Écrasez délicatement les avocats avec une fourchette</li>
+					 	<li>Placez la purée obtenue dans un plat et arrosez avec le jus de citron</li>
+					 	<li>Mélangez pour que le jus de citron empêche la purée d'avocat de noircir</li>
+					 	<li>Mélangez la tomate et le concombre coupés</li>
+					 	<li>Gardez au frais et servir rapidement avec des tortillas</li>
+					</ol>
+				</code>
+				<pre>
+&lt;h1&gt;Guacamole rapide à faire &lt;/h1&gt;
+&lt;h2&gt;Ingrédients&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;2 avocats &lt;/li&gt;
+    &lt;li&gt;le jus d'un citron&lt;/li&gt;
+    &lt;li&gt;¼ de concombre, coupé grossièrement&lt;/li&gt;
+    &lt;li&gt;1 petite tomate, coupée&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;Écrasez délicatement les avocats avec une fourchette&lt;/li&gt;
+    &lt;li&gt;Placez la purée obtenue dans un plat et
+    arrosez avec le jus de citron&lt;/li&gt;
+    &lt;li&gt;Mélangez pour que le jus de citron
+    empêche la purée d'avocat de noircir&lt;/li&gt;
+    &lt;li&gt;Mélangez la tomate et le concombre coupés&lt;/li&gt;
+    &lt;li&gt;Gardez au frais et servir rapidement
+    avec des tortillas&lt;/li&gt;
+&lt;/ol&gt;
+                </pre>
+                </div>
+				<p>
+					Par défaut, le navigateur utilisera des chiffres classiques pour les listes ordonnées et des puces (rondes) pour les listes non-ordonnées. Nous verrons par la suite comment modifier ces paramètres.
+				</p>
+
+				<h3>1.2 - Les listes de définition</h3>
+				<p>
+					La liste de définitions consiste généralement en une succession de couples terme/définition (même si les listes peuvent avoir d'autres usages). Ainsi, on pourrait utiliser une liste de définitions pour la publicité d'un produit.
+				</p>
+				<div class="exemple">
+					<code>
+						<dl>
+							<dt>Titre de la définition</dt>
+							<dd>La définition en elle même</dd>
+							<dt>Titre de la 2ème définition</dt>
+							<dd>La définition 2ème en elle-même</dd>
+						</dl>
+					</code>
+					<pre>
+&lt;dl&gt;
+    &lt;dt&gt;Titre de la définition&lt;/dt&gt;
+    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
+    &lt;dt&gt;Titre de la 2 eme définition&lt;/dt&gt;
+    &lt;dd&gt;La définition 2eme en elle même&lt;/dd&gt;
+&lt;/dl&gt;
+						</pre>
+						</div>
+						<p>Noter que la balise fermante <strong>&lt;/dl&gt;</strong> est obligatoire.</p>
+                    	<p>
+							Syntaxe HTML : la liste de définition utilisera la balise <strong>&lt;dl&gt;</strong>. La structuration reste la même, on aura une 1ere structure de balise qui va contenir d’autres balises mais ces dernières sont différentes. On n’utilisera pas la balise <strong>&lt;li&gt;</strong>. Voici la structure pour reprendre l'exemple precdent:
+						</p>
+
+				<h3>1.3 - Les listes imbriquées</h3>
+        		<p>On voit souvent plusieurs listes placées les unes dans les autres. Autrement dit, on peut imbriquer des listes (un élément d'une liste sera une liste entière) :</p>
+				<div class="exemple">
+					<code>
+						<ul>
+							<li>Un composant</li>
+							<li>Un processus :
+								<ol>
+									<li>Étape 1</li>
+								    <li>Étape 2</li>
+							      	<li>Étape 3</li>
+								</ol>
+						  	</li>
+							<li>Un composant</li>
+						</ul>
+					</code>
+
+					<pre>
+&lt;ul&gt;
+    &lt;li&gt;Un composant&lt;/li&gt;
+    &lt;li&gt;Un processus :&lt;&gt;
+        &lt;ol&gt;
+            &lt;li&gt;Étape 1&lt;/li&gt;
+            &lt;li&gt;Étape 2&lt;/li&gt;
+            &lt;li&gt;Étape 3&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Un composant&lt;/li&gt;
+&lt;/ul&gt;
+					</pre>
+					</div>
+					<p>Les menus de navigation utilisent parfois des listes imbriquées pour afficher les sous-catégories. Pour étudier un exemple réel, vous pouvez inspecter le code HTML du menu MDN.</p>
+			</article>
+
+			<article id="mise-en-forme-dune-liste-html">
+				<header>
+					<h2>2 - Mise en forme d’une liste HTML</h2>
+				</header>
+					<h3>2.1 - Sans CSS</h3>
+					<p>Les agents utilisateurs visuels place généralement en retrait les listes imbriquées en fonction du niveau d'imbrication courant. La présentation exacte des trois listes dépend de l'agent utilisateur.</p>
+					<p>Les differents attributs :</p>
+
+					<h4> - type = "indication-de-style"</h4>
+					<p>Pour les deux éléments OL et UL, cet attribut fixe le style d'un item de liste. Pour l'élément UL, les valeurs possibles de l'attribut type sont <strong>"disc"</strong>, <strong>"square"</strong>, <strong>"circle"</strong> ou <strong>« none »</strong>.</p>
+					<p>La valeur par défaut dépend de la profondeur d'imbrication de la liste courante. Ces valeurs sont insensibles à la casse.</br>Exemple de puce carré avec l’element UL :</p>
+					<div class="exemple">
+						<code>
+							<ul type= "square">
+							    <li>Je suis le 1er item avec une puce de forme carrée</li>
+							    <li>Je suis le 2e item avec une puce de forme carrée</li>
+					      		<li>Je suis le 3e item avec une puce de forme carrée</li>
+							</ul>
+						</code>
+						<pre>
+&lt;ul type= "square"&gt;
+    &lt;li&gt;Je suis le 1e item avec une puce de forme carrée&lt;/li&gt;
+    &lt;li&gt;Je suis le 2e item avec une puce de forme carrée&lt;/li&gt;
+    &lt;li&gt;Je suis le 3e item avec une puce de forme carrée&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+					<p>Pour l'élément OL, les valeurs possibles de l'attribut type sont résumées ci-dessous, suivant le style de numerotation souhaité (les valeurs sont sensibles à la casse) :</p>
+
+					<ul style="list-style-type: none">
+						<li>style = <strong>"1"</strong> restitue des chiffres arabes	1, 2, 3, ...</li>
+						<li>style = <strong>"a"</strong>	restitue des lettres en minuscules	a, b, c, ...</li>
+						<li>style = <strong>"A"</strong>	restitue des lettres en majuscules	A, B, C, ...</li>
+						<li>style = <strong>"i"</strong>	restitue des chiffres romains minuscules i, ii, iii, ...</li>
+						<li>style = <strong>"I"</strong>	restitue des chiffres romains majuscules I, II, III, ...</li>
+					</ul>
+					<p>Exemple de numerotation en chiffres romains minuscules avec l’element OL :</p>
+					<div class="exemple">
+						<code>
+							<ol type= "i">
+						       <li>Je suis le 1er de la liste avec une numérotation i </li>
+						       <li>Je suis le 2er de la liste avec une numérotation ii </li>
+						       <li>Je suis le 3er de la liste avec une numérotation iii </li>
+							</ol>
+						</code>
+						<pre>
+&lt;ol type= "i"&gt;
+    &lt;li&gt;Je suis le 1er de la liste avec une numérotation i &lt;/li&gt;
+    &lt;li&gt;Je suis le 2er de la liste avec une numérotation ii &lt;/li&gt;
+    &lt;li&gt;Je suis le 3er de la liste avec une numérotation iii &lt;/li&gt;
+&lt;/ol&gt;
+						</pre>
+					</div></br>
+
+					<h4> - start = "nombre"</h4>
+					<p>
+						Seulement pour l'élément OL. Cet attribut spécifie le numéro initial du premier item dans une liste ordonnée. Le numéro initial par défaut est "1". Tandis que la valeur de cet attribut est un entier, le label correspondant peut ne pas être numérique. Ainsi, si <strong>start = "3"</strong> et <strong>type = "A"</strong>, le 1er item de la liste commencera a <strong>"C"</strong>.
+					</p>
+					<div class="exemple">
+						<code>
+							<ol start="3" type="A">
+							    <li>Je suis premier</li>
+							    <li>Je suis deuxième</li>
+							    <li>Je suis troisième</li>
+							</ol>
+						</code>
+						<pre>
+&lt;ol start="3" type="A"&gt;
+    &lt;li&gt;Je suis premier&lt;/li&gt;
+    &lt;li&gt;Je suis deuxième&lt;/li&gt;
+    &lt;li&gt;Je suis troisième&lt;/li&gt;
+&lt;/ol&gt;
+						</pre>
+					</div></br>
+
+					<h4> - reversed</h4>
+					<p>Pour décompter plutôt que compter (par exemple 5-4-3-2-1), on pourra utiliser l'attribut <strong>reversed</strong> de l'élément OL :</p>
+					<p>Exemple Syntaxe HTML : <strong>&lt;ol reversed&gt;</strong></p>
+
+					<h4> - value = "nombre"</h4>
+					<p>Seulement pour l'élément LI. Cet attribut fixe le numéro de l'item de liste courant. Tandis que la valeur de cet attribut est un entier, le label correspondant peut être non-numérique. (voir l'attribut start).</p>
+					<p>Exemple Syntaxe HTML : <strong>&lt;li value="4"&gt</strong>;. Les éléments suivants de la liste seront également renumérotés : 4, 5, 6, etc.).</p>
+
+					<h4> - compact</h4>
+					<p>Quand il est spécifié, cet attribut booléen indique aux agents utilisateurs de restituer la liste de manière plus compacte. L'interprétation de cet attribut dépend de l'agent utilisateur.</p>
+					<p>Nous décourageons les auteurs d'utiliser les listes simplement comme un moyen pour placer le texte en retrait. C'est une affaire de style qui est du ressort des feuilles de style.</p>
+
+					<h3>2.2 - Avec CSS</h3>
+					<p>Les attributs HTML permettent de modifier le contenu d'une liste. Pour ajuster l'aspect cosmétique d'une liste, il est vivement recommandé d’utiliser CSS.</br>Trois solutions existent pour appliquer des modifications :
+					<ul>
+						<li>directement dans le fichier CSS de votre thème
+						<li>dans l’en-tête de votre page HTML
+						<li>directement sur la balise
+					</ul>
+					<p>Pour plus de simplicité, je ferais ici l’application directement sur la balise.</p>
+
+					<h4> - Modifier le style de puces avec <strong>list-style-type</strong></h4>
+					<p>Pour modifier le style de puce ou le style de numérotation, on pourra utiliser la propriété CSS <strong>list-style-type</strong>. Pour cela, on ajoute l’argument <strong>"style"</strong> et on utilise la propriété <strong>"list-style-type"</strong> dans la balise HTML.</p>
+
+					<h5>Mise en forme liste non-ordonnée</h5>
+					<p>Pour l’element UL, le style par defaut est <strong>"disc"</strong>. Ci-dessous un exemple de code pour chaque puce.</p>
+					<div class="exemple">
+                        <code>
+                            <ul style= "list-style-type: circle">
+                                <li>Exemple liste à puce HTML - cercle 1</li>
+                                <li> Exemple liste à puce HTML - cercle 2</li>
+                            </ul>
+			            </code>
+                        <pre>
+&lt;li&gt;Exemple liste à puce HTML – cercle 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – cercle 2&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+                    </div></br>
+                    <div class="exemple">
+			      		<code>
+                            <ul style= "list-style-type: square">
+                                <li>Exemple liste à puce HTML - carré 1</li>
+                                <li>Exemple liste à puce HTML - carré 2</li>
+                        	</ul>
+                        </code>
+                        <pre>
+&lt;ul style= "list-style-type: square"&gt;
+    &lt;li&gt;Exemple liste à puce HTML – carré 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – carré 2&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+                    </div></br>
+                    <div class="exemple">
+                    	<code>
+                            <ul style="list-style-type: none">
+                                <li>Exemple liste à puce HTML – sans puce 1</li>
+                                <li>Exemple liste à puce HTML – sans puce 2</li>
+                            </ul>
+                        </code>
+                        <pre>
+&lt;ul style= "list-style-type: none"&gt;
+    &lt;li&gt;Exemple liste à puce HTML – sans puce 1&lt;/li&gt;
+    &lt;li&gt; Exemple liste à puce HTML – sans puce 2&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+					</div></br>
+					<p>CSS peut permettre d'obtenir des effets très complexes (comme un système de comptage personnalisé). Si vous souhaitez apprendre CSS, vous pouvez parcourir le <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Guide CSS</a> et voir comment appliquer des règles CSS à une page web.</p>
+					<p>Prenons un rapide exemple. Voici une liste HTML non-ordonnée :
+					<ul>
+						<li>J'ai un point</li>
+					  	<li>J'ai un cercle</li>
+					  	<li>J'ai aussi un cercle</li>
+					</ul>
+					</p>
+					<p>Ces règles CSS permettront que la puce des éléments soit un cercle, sauf pour le premier (où ce sera un point) :</p>
+					<p><strong>
+						ul {</br>
+							list-style-type: circle;</br>
+						}</br>
+						li:first-child {</br>
+							list-style-type: disc;</br>
+					}</br>
+						</strong></p>
+					<p>Cela donnera :</p>
+					<ul id="exemple-css-UL">
+						<li>J'ai un point
+						<li>J'ai un cercle
+						<li>J'ai aussi un cercle
+					</ul></br>
+
+					<h5>Mise en forme liste ordonnee</h5>
+					<p>Pour l’élément OL, le meme principe s’applique pour modifier le style de numerotation. Voici les principales possibilites :</p>
+					<ul>
+						<li><strong>decimal</strong> => par défaut – chiffres décimaux
+						<li><strong>decimal-leading-zero</strong> => les chiffres décimaux avec un zéro devant (01, 02, 03…)
+						<li><strong>upper-roman</strong> => chiffres romains en majuscules
+						<li><strong>lower-roman</strong> => chiffres romains en minuscules
+						<li><strong>upper-alpha</strong> => alphabet en majuscules
+						<li><strong>lower-alpha</strong> => alphabet en minuscules
+						<li><strong>lower-greek</strong> => chiffres grecs
+                    </ul>
+                    <p>Exemple avec l’alphabet en majuscule:</p>
+					<div class="exemple">
+						<code>
+							<ol style="list-style-type:upper-alpha">
+								<li>Exemple liste numerotation lettre majuscule </li>
+								<li> Exemple liste numerotation lettre majuscule </li>
+							</ol>
+						</code>
+						<pre>
+&lt;ol style="list-style-type:upper-alpha"&gt;
+    &lt;li>Exemple liste numerotation lettre majuscule&lt;/li&gt;
+    &lt;li> Exemple liste numerotation lettre majuscule&lt;/li&gt;
+&lt;/ol&gt;
+						</pre>
+					</div></br>
+
+					<h5>Mise en forme liste de definition</h5>
+					<p>
+						Concernant les listes de définition, il n’y a pas de paramètre par défaut permettant de faire des modifications. Ici, il s’agit plutôt de faire ressortir les informations et différencier le mot ou l’expression de la définition de cette dernière.</br>La balise HTML contenant le mot ou l’expression étant <strong>&lt;dt&gt;</strong>, on peut la faire ressortir en appliquant du CSS à la volée comme nous l’avons vu précédemment. Ci-dessous, un exemple qui permettra une meilleure différenciation avec la définition.
+					</p>
+					<div class="exemple">
+						<code>
+							<dl>
+								<dt style= "color:white; background-color:black; font-weight:bold;">Titre de la définition</dt>
+								<dd>La définition en elle-même</dd>
+								<dt>Titre de la 2eme définition</dt>
+								<dd>La définition 2eme en elle même</dd>
+							</dl>
+						</code>
+						<pre>
+&lt;p&gt;La syntaxe :&lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt; style= "color:white; background-color:black;
+        font-weight:bold;">Titre de la définition&lt;/dt&gt;
+    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
+    &lt;dt&gt;Titre de la 2eme définition&lt;/dt&gt;
+    &lt;dd&gt;La définition 2eme en elle-même&lt;dd&gt;
+&lt;/dl&gt;
+						</pre>
+					</div></br>
+
+					<h4> - Utiliser une image à la place d’une puce avec <strong>list-style-image</strong></h4>
+					<p>
+						Pour utiliser une image donnée comme puce, on pourra utiliser la propriété CSS <strong>list-style-image</strong>. Attention toutefois, les images sont plus lourdes (donc plus lentes) et moins adaptatives que le texte. Ci-dessous un exemple de personnalisation d’une liste à puce, j’ai utilisé l’image favicon du site internet, c’est pour vous montrer qu’on peut utiliser n’importe quelle image. Il faudra simplement faire attention à l’aspect esthétique, en l’occurrence ici, ce n’est pas top. Mais c’est simplement pour la démonstration.</br>Exemple de puce avec le logo HTML5 :
+					</p>
+					<div class="exemple">
+						<code>
+							<ul style="list-style-image: url('img/alpha/HTML5_logo _reduced.png');">
+								<li>Exemple liste à puce HTML logo</li>
+								<li>Exemple liste à puce HTML logo</li>
+							</ul>
+						</code>
+						<pre>
+&lt;ul style="list-style-image:
+        url('img/alpha/HTML5_logo_reduced.png');"&gt;
+    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+&lt;/ul&gt;
+						</pre>
+					</div>
+
+		</article>
+    </section>
+
+</main>
+
+<footer> </footer>
+
+<script type="text/javascript" src="script/script.js"></script>
+    </body>
+
+</html>

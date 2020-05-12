@@ -1,0 +1,635 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Documentation HTML</title>
+		<meta charset="UTF-8">
+        <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-global.css" rel="Stylesheet" type="text/css"/>
+        <link href="css/css-local.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+
+<header> </header>
+
+<nav>
+<ul>
+    <li><h4>Html : documentation commune .</h4></li>
+
+    <li><h4>Introduction : syntaxe générale .</h4></li>
+
+    <li><h4>Balises de structure : </h4></li>
+
+    <li><h4>Balises de texte</h4>
+
+    <li><h4>Tableau et listes .</h4></li>
+
+    <li><h4>Lien et anchors .</h4></li>
+
+    <li><h4>Balises de formulaire .</h4></li>
+
+    <li><h4>Balises de média .</h4></li>
+
+    <li><h4>Fraime et i frame .</h4></li>
+
+    <li><h4>Balises de description .</h4></li>
+
+    <li><h4>Cohérence visuelle du document et CSS .</h4></li>
+</ul>
+
+</nav>
+
+<aside> </aside>
+
+<main>
+
+    <section id="alpha-les-tableaux">
+        <header>
+            <h1>Les tableaux</h1>
+        </header>
+
+        <article id="Qu-est-ce-qu-un-tableau">
+            <header>
+                <h2>1 - Définition - Qu'est-ce qu'un tableau ?</h2>
+            </header>
+
+            <p>Un tableau est un ensemble structuré de données (table de données) présentées en lignes et colonnes. Un tableau vous permet de retrouver rapidement et facilement des valeurs au croisement entre différents types de données.</p>
+            <p>L'information est facilement interprétée par  des associations visuelles entre les en‑têtes de lignes et colonnes.</p>
+
+            <div class="exemple">
+                <code>
+                    <table>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 3</td>
+                            <td>Cellule 4</td>
+                        </tr>
+                    </table>
+                </code>
+
+<pre>
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+</pre>
+        </div>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Quest-ce_quun_tableau">voir l'article</a>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Comment_fonctionne_un_tableau">voir l'article</a>
+            </p>
+        </article>
+
+        <article id="composition">
+            <header>
+                <h2>2 - Composition</h2>
+            </header>
+
+            <div class="exemple">
+                <code>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Titre Ligne1</th>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                        </tr>
+                        <tr>
+                            <th>Titre Ligne2</th>
+                            <td>Cellule 3</td>
+                            <td>Cellule 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Pied de tableau 1</th>
+                            <th>Pied de tableau 2</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Ligne1&lt;/th&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Ligne2&lt;/th&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;Pied de tableau 1&lt;/th&gt;
+            &lt;th&gt;Pied de tableau 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+
+            <h3>2.1 - L'élément <span class="keyword">table<span></h3>
+            <p>L'élément HTML <span class="keyword">table</span> permet de représenter un tableau de données, c'est-à-dire des informations exprimées sur un tableau en deux dimensions.<p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table">Voir le lien</a>
+            </p>
+
+            <h4>2.1.1 - Ajouter un titre - L'élément <span class="keyword">caption</span></h4>
+
+            <p>Vous pouvez intituler un tableau en mettant son titre dans un élément <span class="keyword">caption<span> et en englobant le tout dans un élément <span class="keyword">table</span>.</p>
+            <p>Le titre est placé directement sous la balise <span class="keyword">table</span>.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Ajouter_un_titre_aux_tableaux_avec_%3Ccaption%3E">Voir le lien</a>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/caption">Voir le lien</a>
+            </p>
+
+            <h4>2.2 - Structure de la table - Les éléments <span class="keyword">thead</span>, <span class="keyword">tbody</span> et <span class="keyword">tfoot</span></h4>
+
+            <p>il est utile d'améliorer la définition des tables lorsqu'elles deviennent plus complexes. Une façon claire d'y parvenir consiste à utiliser les éléments <thead>, <tfoot> et <tbody>, qui vous permettent de marquer l'en-tête, le pied et le corps du tableau.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Ajout_dune_structure_avec_%3Cthead%3E_%3Ctfoot%3E_et_%3Ctbody%3E">Voir le lien</a>
+            </p>
+
+            <h5>2.2.1 - L'élément <span class="keyword">thead</span></h5>
+            <p>L'élément <span class="keyword">thead</span> définit un ensemble de lignes qui définit l'en-tête des colonnes d'un tableau. Cet élément est optionnel.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/thead">Voir le lien</a>
+            </p>
+
+            <h5>2.2.2 - L'élément <span class="keyword">tbody</span></h5>
+            <p>L’élément HTML <span class="keyword">tbody</span> permet de regrouper un ou plusieurs éléments <span class="keyword">tr</span> afin de former le corps d'un tableau HTML (<span class="keyword">table</span>). Cet élément est toujours inclus dans tous les tableaux, implicitement si vous ne l'avez pas spécifié dans votre code.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tbody">Voir le lien</a>
+            </p>
+
+            <h5>2.2.3 - L'élément <span class="keyword">tfoot</span></h5>
+            <p>L'élément HTML <span class="keyword">tfoot</span> permet de définir un ensemble de lignes qui résument les colonnes d'un tableau. Cet élément est optionnel.
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tfoot">Voir le lien</a>
+            </p>
+
+            <h4>2.3 - L'élément <span class="keyword">th</span></h4>
+            <p>L'élément HTML <span class="keyword">th</span> définit une cellule d'un tableau comme une cellule d'en-tête pour un groupe de cellule. La nature de ce groupe est définie grâce aux attributs scope et headers.</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/th">Voir le lien</a>
+            </p>
+
+            <h5>2.3.1 - L'attribut scope</h5>
+            <p>Cet attribut référence les cellules auxquelles l'élément <span class="keyword">th</span> est lié. Cet attribut est un attribut à valeur contrainte qui peut prendre les valeurs suivantes : row, col, rowgroup, colgroup ou auto.</p>
+
+            <h5>2.3.2 - Les attributs headers</h5>
+
+            <p>Cet attribut est une liste de chaînes de caractères séparées par des espace. Chacune correspond à l'attribut id de l'élément <span class="keyword">th</span> qui s'applique à cet élément.</p>
+
+            <h5>2.3.3 - Pourquoi les en-têtes sont-ils utiles ?</h5>
+
+            <h4>2.4 - L'élément <span class="keyword">tr</span></h4>
+            <p>L'élément HTML <span class="keyword">tr</span> définit une ligne de cellules dans un tableau. Une ligne peut être constituée d'éléments <span class="keyword">td</span> (les données des cellules) et <span class="keyword">th</span> (les cellules d'en-têtes).</p>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tr">Voir le lien</a>
+            </p>
+
+            <h4>2.5 - L'élément <span class="keyword">td</span></h4>
+            <p>L'élément HTML <span class="keyword">td</span> définit une cellule d'un tableau qui contient des données.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/td">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="fusion-de-cellules">
+            <header>
+                <h2>3 - Les attributs rowspan et colspan -  Fusion de cellules</h2>
+            </header>
+            <p>Les attributs rowspan et colspan permettent d'étendre des cellules sur plusieurs lignes ou colonnes.</p>
+            <div class="exemple">
+            <code>
+                <table>
+                    <tr>
+                        <th>Titre Ligne1</th>
+                        <td rowspan="2">Cellule 1</td>
+                        <td colspan="2">Cellule 2</td>
+                    </tr>
+                    <tr>
+                        <th>Titre Ligne2</th>
+                        <td>Cellule 3</td>
+                        <td>Cellule 4</td>
+                    </tr>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Titre Ligne1&lt;/th&gt;
+        &lt;td rowspan="2"&gt;Cellule 1&lt;/td&gt;
+        &lt;td colspan="2"&gt;Cellule 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Titre Ligne2&lt;/th&gt;
+        &lt;td&gt;Cellule 3&lt;/td&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+            </div>
+
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#%C3%89tendre_des_cellules_sur_plusieurs_lignes_ou_colonnes">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="attribuer-un-style-commun-aux-colonnes">
+            <header>
+                <h2>4. Les éléments <span class="keyword">col</span> et <span class="keyword">colgroup</span> - Attribuer un style commun aux colonnes</h2>
+            </header>
+
+            <p>les éléments <span class="keyword">col</span> and <span class="keyword">colgroup</span> permettent d'attribuer un style commun aux colonnes. Nous pouvons préciser l'information une seule fois dans un élément <span class="keyword">col</span>. Les éléments <span class="keyword">col</span> sont utilisés dans un conteneur <span class="keyword">colgroup</span> juste en-dessous de la balise <span class="keyword">table</span></p>
+    <div class="exemple">
+            <code>
+                <table>
+                    <col style="width: 150px;background-color: grey">
+                    <colgroup style="width: 80px">
+                        <col >
+                        <col style="background-color: orange">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                            <th>Titre Colonne 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                            <td>Cellule 3</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 4</td>
+                            <td>Cellule 5</td>
+                            <td>Cellule 6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;col style="width: 150px;background-color: grey"&gt;
+    &lt;colgroup style="width: 80px"&gt;
+        &lt;col &gt;
+        &lt;col style="background-color: orange"&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 2&lt;/th&gt;
+            &lt;th&gt;Titre Colonne 3&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+            &lt;td&gt;Cellule 5&lt;/td&gt;
+            &lt;td&gt;Cellule 6&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Attribuer_un_style_commun_aux_colonnes">Voir le lien</a>
+            </p>
+
+        </article>
+
+        <article id="attribut-html">
+            <header>
+                <h2>5. Style de tableau & Attribut HTML</h2>
+            </header>
+            <p>Chaque éléments constituant un tableau possèdent une série d'attributs permettant de créer un style de tableau sans utiliser de feuille de style. Voici quelques exemples : align, bgcolor, border, cell-spacing, cell-padding... </p>
+
+            <p>Ils sont dépréciés à l'heure actuelle et donc à éviter !</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table#Attributs">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="tableaux-imbriques">
+            <header>
+                <h2>6. Tableaux imbriqués</h2>
+            </header>
+            <p>
+                Il est possible d'inclure un tableau dans un autre, à condition d'en spécifier la structure complète, y compris l'élément <span class="keyword">table</span>. Ce n'est généralement pas vraiment conseillé !
+            </p>
+    <div class="exemple">
+            <code>
+                <table>
+                    <tr>
+                        <td>Cellule 1</td>
+                        <td>Cellule 2</td>
+                    </tr>
+                    <tr>
+
+                        <td>Cellule 3
+                            <table>
+                                <tr>
+                                    <td>Cell. A</td>
+                                    <td>Cell. B</td>
+                                    <td>Cell. C</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>Cellule 4</td>
+                    </tr>
+
+                </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 1&lt;/td&gt;
+        &lt;td&gt;Cellule 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+
+        &lt;td&gt;Cellule 3
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Cell. A&lt;/td&gt;
+                    &lt;td&gt;Cell. B&lt;/td&gt;
+                    &lt;td&gt;Cell. C&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_imbriqu%C3%A9s">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="tableaux-pour-utilisateurs-malvoyants">
+            <header>
+                <h2>7. Tableaux pour utilisateurs malvoyants</h2>
+            </header>
+
+            <code>
+                <table>
+                    <caption>Titre Tableau<span>Voici le résumé du tableau ci-dessus</span></caption>
+                    <thead>
+                        <tr>
+                            <th>Titre Colonne 1</th>
+                            <th>Titre Colonne 2</th>
+                            <th>Titre Colonne 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cellule 1</td>
+                            <td>Cellule 2</td>
+                            <td>Cellule 3</td>
+                        </tr>
+                        <tr>
+                            <td>Cellule 4</td>
+                            <td>Cellule 5</td>
+                            <td>Cellule 6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </code>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants">Voir le lien</a>
+            </p>
+
+            <h3>7.1 - Ajouter un titre aux tableaux avec <span class="keyword">caption</span> pour accessibilité</h3>
+            <p>Les légendes et les résumés fournissent des informations qui peuvent aider les utilisateurs à trouver, parcourir et comprendre les tableaux.</p>
+<div class="exemple">
+            <code>
+                <table>
+                    <caption>Titre Tableau<br/><span>Voici le résumé du tableau ci-dessus</span></caption>
+                    <tr>
+                        <td>Cellule 1</td>
+                        <td>Cellule 2</td>
+                        <td>Cellule 3</td>
+                    </tr>
+                    <tr>
+                        <td>Cellule 4</td>
+                        <td>Cellule 5</td>
+                        <td>Cellule 6</td>
+                    </tr>
+                    </table>
+            </code>
+            <pre>
+&lt;table&gt;
+    &lt;caption&gt;
+        Titre Tableau&lt;br/&gt;
+        &lt;span&gt;Voici le résumé du tableau
+        ci-dessus&lt;/span&gt;
+    &lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 1&lt;/td&gt;
+        &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;td&gt;Cellule 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;td&gt;Cellule 5&lt;/td&gt;
+        &lt;td&gt;Cellule 6&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+            <p>
+                <a href="https://www.w3.org/WAI/tutorials/tables/caption-summary/">Voir le lien</a>
+            </p>
+
+            <h3>7.2 - Utilisation des en-têtes de colonnes et de lignes</h3>
+            <p>Les lecteurs d'écran identifieront tous les en-têtes et les utiliseront pour réaliser automatiquement les associations entre ces en-têtes et les cellules correspondantes. </p>
+            <p>Ainsi, les utilisateurs de lecteurs d'écran peuvent accéder aux données d'une façon similaire à celle des utilisateurs voyants.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Utilisation_des_en-t%C3%AAtes_de_colonnes_et_de_lignes">Voir le lien</a>
+            </p>
+
+            <h3>7.3 - L'attribut scope </h3>
+            <p>L'attribut scope peut être mentionné dans un élément <span class="keyword">th</span> pour indiquer précisément à un lecteur d'écran si la cellule contient un en-tête de colonne ou de ligne.</p>
+<div class="exemple">
+    <code>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Titre Colonne 1</th>
+                    <th scope="col">Titre Colonne 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Ligne 1</th>
+                    <td>Cellule 1</td>
+                    <td>Cellule 2</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ligne 2</th>
+                    <td>Cellule 3</td>
+                    <td>Cellule 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </code>
+    <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th scope="col"&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th scope="col"&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Ligne 1&lt;/th&gt;
+            &lt;td&gt;Cellule 1&lt;/td&gt;
+            &lt;td&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Ligne 2&lt;/th&gt;
+            &lt;td&gt;Cellule 3&lt;/td&gt;
+            &lt;td&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+    </pre>
+</div>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Lattribut_scope">Voir le lien</a>
+            </p>
+
+            <h3>7.4 - Les attributs id et headers</h3>
+            <p>Une alternative à l'usage de l'attribut scope est l'utilisation des attributs id et headers pour créer une association entre en-têtes et cellules. Ils sont utilisés de la manière suivante :</p>
+            <div class="exemple">
+                <code>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th id="col1">Titre Colonne 1</th>
+                                <th id="col2">Titre Colonne 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th id="row1">Ligne 1</th>
+                                <td headers="col1 row1">Cellule 1</td>
+                                <td headers="col2 row1">Cellule 2</td>
+                            </tr>
+                            <tr>
+                                <th id="row2">Ligne 2</th>
+                                <td headers="col1 row2">Cellule 3</td>
+                                <td headers="col2 row2">Cellule 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </code>
+                <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th id="col1"&gt;Titre Colonne 1&lt;/th&gt;
+            &lt;th id="col2"&gt;Titre Colonne 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th id="row1"&gt;Ligne 1&lt;/th&gt;
+            &lt;td headers="col1 row1"&gt;Cellule 1&lt;/td&gt;
+            &lt;td headers="col2 row1"&gt;Cellule 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="row2"&gt;Ligne 2&lt;/th&gt;
+            &lt;td headers="col1 row2"&gt;Cellule 3&lt;/td&gt;
+            &lt;td headers="col2 row2"&gt;Cellule 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                </pre>
+            </div>
+            <p>Vous ajoutez un identifiant unique id à chaque élément <span class="keyword">th</span>. Vous ajoutez un attribut headers à chaque élément  <span class="keyword">td</span> . Chaque attribut headers doit contenir une liste des id de tous les éléments <span class="keyword">th</span> qu'il contient, séparés par des espaces.</p>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Advanced#Tableaux_pour_utilisateurs_malvoyants#Les_attributs_id_et_headers">Voir le lien</a>
+                <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/fr#standards">Voir le lien</a>
+            </p>
+        </article>
+
+        <article id="quand-ne-pas-utiliser-de-tableaux-en-html">
+            <header>
+                <h2>8. Quand NE PAS utiliser de tableaux en HTML ?</h2>
+            </header>
+            <p>Les tableaux HTML ne doivent être utilisés que pour des données tabulaires — c'est pour cela qu'ils sont conçus.</p>
+            <p>Utiliser les tableaux pour la mise en page au lieu des techniques des CSS est une mauvaise idée ! En voici les principales raisons :</p>
+            <ul>
+                <li>Les tableaux de mise en page diminuent l'accessibilité aux malvoyants </li>
+                <li>Les tables produisent de la bouillie</li>
+                <li>Les tableaux ne s'adaptent pas automatiquement</li>
+            </ul>
+            <p>
+                <a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics#Quand_NE_PAS_utiliser_de_tableaux_en_HTML">Voir le lien</a>
+            </p>
+        </article>
+    </section>
+
+
+</main>
+
+<footer> </footer>
+
+<script type="text/javascript" src="script/script.js"></script>
+    </body>
+
+</html>
