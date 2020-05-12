@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Circonférence</title>
+        <link rel="stylesheet" type="text/css" href="circonference.css">
+    </head>
+    <body>
+        <h1>Circonférence du cercle</h1>
+        <p>Entrez le rayon (en px): </p><input type="text" id="circonference"><output id="reponse"></output>
+        <p>Valeur RGBA</p>
+        <div class="corouge">
+            <input type="range" id="rouge" name="Rouge" min="0" max="255">
+            <label for="rouge">Rouge</label>
+        </div>
+        <div class="covert">
+            <input type="range" id="vert" name="Vert" min="0" max="255">
+            <label for="vert">Vert</label>
+        </div>
+        <div class="cobleu">
+            <input type="range" id="bleu" name="Bleu" min="0" max="255">
+            <label for="bleu">Bleu</label>
+        </div>
+        <div>
+            <input type="range" id="opacity" name="Opacité" min="0" max="255">
+            <label for="opacity">Opacité</label>
+        </div> 
+        <input type="submit" id="sub" value="soumettre">
+        <div>
+            <svg id="cercle">
+
+            </svg>
+        </div>
+        <script src="circonference.js"></script>  
+    </body>
+</html>
