@@ -1,0 +1,14 @@
+Debut ex4-1
+    VARIABLES LOCALES :
+        var choix :N <- -1
+        
+    FIN VARIABLES LOCALES
+    
+    choix = -1
+    TANT QUE (choix != 0 ET choix != 1 ET choix != 2 ET choix != 3 ET choix != 4)
+        Afficher "Entrez un choix"
+        Saisir choix
+    FIN TANT QUE
+
+    Afficher "vous avez choix l'option ", choix
+Fin ex4-1
