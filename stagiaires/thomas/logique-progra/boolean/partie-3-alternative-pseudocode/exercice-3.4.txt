@@ -19,21 +19,21 @@ SAISIR nb3
 SI (nb1 > nb2 ET nb1 > nb3)
     ALORS AFFICHER("nb1 > nb2 > nb3")
    SI (nb3 > nb2)
-    AFFICHER("nb1 > nb3 > nb2")
+    ALORS AFFICHER("nb1 > nb3 > nb2")
  FIN SI
  FIN SI
 
 SI (nb2 > nb1 ET nb2 > nb3)
     ALORS AFFICHER("nb2 > nb1 > nb3")
  SI (nb3 > nb1)
-    AFFICHER("nb2 > nb3 > nb1")
+    ALORS AFFICHER("nb2 > nb3 > nb1")
  FIN SI
  FIN SI
 
 SI (nb3 > nb1 ET nb3 > nb2)
     ALORS AFFICHER("nb3 > nb1 > nb2")
    SI (nb2 > nb1)
-    AFFICHER("nb2 > nb3 > nb1")
+    ALORS AFFICHER("nb2 > nb3 > nb1")
  FIN SI
  FIN SI
  
