@@ -1,0 +1,15 @@
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+
+    FIN VARIABLES LOCALES
+    Afficher "Entrez  A : "
+   	Saiser A
+    
+     TANT QUE A != 0 ou A != 1 ou A != 2 ou A != 3 ou A != 4
+     	Afficher "Entrez  A : "
+   		Saiser A
+      FIN TANT QUE
+
+     Afficher A
+Fin Programme
