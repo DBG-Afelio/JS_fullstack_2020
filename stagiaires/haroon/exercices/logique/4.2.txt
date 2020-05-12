@@ -1,0 +1,22 @@
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+        VAR Moyenne : N <-0 
+	VAR Somme : N <-0
+	VAR i : N<-0
+    FIN VARIABLES LOCALES
+    Afficher "Entrez  A : "
+    Saisir A
+	TANTQUE A != 100 
+		i <- i+ 1 
+		Somme <- Somme + A
+		Moyenne <-Somme / i
+	Saiser A
+	FIN TANT QUE 
+Moyenne <-Somme / i
+
+Afficher Moyenne
+		
+    
+
+Fin Programme
