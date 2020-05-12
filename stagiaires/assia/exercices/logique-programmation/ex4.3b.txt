@@ -70,7 +70,20 @@ Debut EX43b
         CAS 1
             Afficher "Vous n'avez saisi qu'un seul nombre qui est :", input
         AUTRES CAS
-            Afficher "Le plus petit nombre est :", min, " le plus grand est :", max
+            Afficher "Le plus petit nombre est ", min, ", et a ete saisi ", occurMin, "fois dans cette serie .."
+            SI occurMin = 1
+            ALORS
+                Afficher "..en position :", firstPosMin
+            SINON
+                Afficher "..le 1er en position ", firstPosMin, " et le dernier detecté en position ", lastPosMin
+            FINSI
+            Afficher "Le plus grand nombre est ", max, ", et a ete saisi ", occurMax, "fois dans cette serie .."
+            SI occurMax = 1
+            ALORS
+                Afficher "..en position :", firstPosMax
+            SINON
+                Afficher "..le 1er en position ", firstPosMax, " et le dernier detecté en position ", lastPosMax
+            FINSI
     FIN CAS OU
 
   Fin EX43b
