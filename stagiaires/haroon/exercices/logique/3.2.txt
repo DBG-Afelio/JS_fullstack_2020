@@ -1,0 +1,23 @@
+Écrire le programme qui compare deux nombres et qui indique quel est le plus grand ou s’ils sont égaux.
+
+
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+        VAR B :N <- 0
+ 
+    FIN VARIABLES LOCALES
+    Afficher "Entrez  A : "
+    Saisir B
+    Afficher "Entrez  B : "
+    Saisir B
+    SI A > B
+    ALORS
+        Afficher "A"
+    SINON
+       A < B 
+	AFFICHER "B"
+    SINON
+	AFFICHER "Les nombres sont égaux"
+    FINSI
+Fin Programme
