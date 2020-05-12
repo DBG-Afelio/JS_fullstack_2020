@@ -1,0 +1,25 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var nbres-notes :N <- 0
+    var entry-user :N 
+    var cumul :N <- 0
+    var max :N <- 100
+
+    FIN VARIABLE LOCALE
+
+    TANT QUE (nbres-notes < max)
+
+        AFFICHER("Entrer note :")
+        SAISIR entry-user
+        cumul <- cumul  + entry-user
+        nbres-notes <- nbres-notes + 1
+        
+
+    FIN TANT QUE
+
+    AFFICHER("100 !")
+    AFFICHER("La moyenne est de : ", cumul / nbres-notes)
+
+FIN PROGRAMME
