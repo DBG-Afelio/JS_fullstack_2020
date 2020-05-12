@@ -46,7 +46,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 100
+    total <- total - quantite * 100
     reste <- reste MOD 100
     quantite <- reste DIV 50
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -64,7 +64,7 @@ Debut ex3-3
     FINSI
 
 
-    total <- total + quantite * 50
+    total <- total - quantite * 50
     reste <- reste MOD 50
     quantite <- reste DIV 20
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -82,7 +82,7 @@ Debut ex3-3
     FINSI
 
 
-    total <- total + quantite * 20
+    total <- total - quantite * 20
     reste <- reste MOD 20
     quantite <- reste DIV 5
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -99,7 +99,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 5
+    total <- total - quantite * 5
     reste <- reste MOD 5
     quantite <- reste DIV 2
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -116,7 +116,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 2
+    total <- total - quantite * 2
     reste <- reste MOD 2
     quantite <- reste DIV 1
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -133,7 +133,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 1
+    total <- total - quantite * 1
     reste <- reste MOD 1
     quantite <- reste DIV 0.5
     SI (reste MOD 0.2 > 0 ET quantite > 0)
@@ -150,7 +150,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 0.5
+    total <- total - quantite * 0.5
     reste <- reste MOD 0.5
     quantite <- reste DIV 0.2
 
@@ -170,7 +170,7 @@ Debut ex3-3
         FIN SI
     FINSI
 
-    total <- total + quantite * 0.2
+    total <- total - quantite * 0.2
     
     SI (total >= somme)
         ALORS
