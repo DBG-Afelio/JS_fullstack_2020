@@ -1,0 +1,19 @@
+Debut ex4-2
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var somme :N <- 0
+        var quantite :N <- 0
+    FIN VARIABLES LOCALES
+    
+    somme <-0
+    nombre <- 0
+    quantite <- 0
+    TANT QUE (nombre != 100)
+        Afficher "Entrez un nombre"
+        Saisir nombre
+        somme <- somme + nombre
+        quantite++
+        Afficher "la moyenne vaut ", somme/quantite
+    FIN TANT QUE
+
+Fin ex4-2
