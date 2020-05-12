@@ -1,12 +1,11 @@
 Début programme
 	Variable locale
-        Var a :N <- 5
-        Var b :N <- 2
+		Var a :N <- 5
+		Var b :N <- 2
 		Var c :N <- 3
 		Var max :N <- 0
 		Var centrer :N <- 0
 		Var min :N <- 0
-		Var pre :N <- 0
 	Fin variable locale
 	Afficher "Veuillez entrer un nombre :"
 	Saisir a
