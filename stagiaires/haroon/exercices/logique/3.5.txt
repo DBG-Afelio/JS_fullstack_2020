@@ -23,7 +23,8 @@ Afficher "Entrez votre choix"
 Saiser choix 
 Afficher "Entrez le prix" 
 Saiser prix
-
+SI choix !=0
+Alors
 choix 
 	choix 1 
 		taux <- 0.06
@@ -37,6 +38,9 @@ choix
 Afficher " votre choix est :" choix , taux 
 Afficher prix
 Afficher "Montant de la TVA :" prix * taux , "Le prix T.V.A.C vaut : " prix+prix*taux
+Sinon Afficher "merci et au revoir"
+
+Fin programme
 
 
 
