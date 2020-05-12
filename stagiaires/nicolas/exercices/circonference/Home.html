@@ -9,6 +9,53 @@
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
+        <form>
+            
+            <fieldset>
+                
+                <legend>Paramètres du cercle</legend>
+                
+                <label>Circonférence</label>
+                <input id="circoInput" type="number" placeholder="Circonférence en px">
+            
+                <fieldset id="setColorCircle">
+                    <legend>Choix de couleur (rgba)</legend>
+
+                    <label for="red">Red</label>
+                    <input class="colorInput" id="redInput" name="red" type="range" max="255" min="0">
+                    <output for="red"></output>
+                    
+                    <label for="green">Green</label>
+                    <input class="colorInput" id="greenInput" name="green" type="range" max="255" min="0">
+                    <output for="green"></output>
+                    
+                    <label for="blue">Blue</label>
+                    <input class="colorInput" id="blueInput" name="blue" type="range" max="255" min="0">
+                    <output for="blue"></output>
+                    
+                    <label for="alpha">Alpha</label>
+                    <input class="colorInput" id="alphaInput" name="alpha" type="range" step=".1" max="1" min="0">
+                    <output for="alpha"></output>
+
+
+                </fieldset>
+                
+                <button id ="validateValues">Valider</button>
+                
+            </fieldset>
+            
+        
+        </form>
+        
+        <div id="circleOutput">
+        
+            <svg id="circleSvg">
+                
+                <circle id="circle" cx="50" cy="50" r="100" stroke="black" stroke-width="1"  />
+                
+            </svg>
+        
+        </div>
         
      <script type="text/javascript" src="script/script.js"></script>
     </body>

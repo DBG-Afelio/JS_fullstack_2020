@@ -18,3 +18,4 @@ Bonus (pour ceux qui s'ennuyent):
     Permettre de créer plusieurs cercles
     En cliquant sur un cercle le remettre en avant plan
 
+circ/2*pi
