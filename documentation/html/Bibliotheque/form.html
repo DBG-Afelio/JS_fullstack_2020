@@ -9,59 +9,25 @@
 
 <body>
 
-    <header> </header>
+<header> <h1> Bibliothèque générale HTML - Agile Proforma </h1> </header>
 
-    <nav>
-        <ul>
-<<<<<<< HEAD
-            
-=======
-            <li>
-                <h4>Html : documentation commune .</h4>
-            </li>
+<nav>
+<ul>
+ 
+    <li> <a href="intro-form-list.html"> À propos de l'HTML </a> </li>
+    <li> <a href="structural_tags.html"> Balises sémantiques et balises génériques </a> </li>
+    <li> <a href="text-tag.html"> Balises de texte </a> </li>
+    <li> <a href="intro-form-list.html"> Balises de tableaux et de listes </a> </li>
+    <li> <a href="linksandanchors.html"> Balises de liens et d'anchors </a> </li>
+    <li> <a href="form.html"> Ballises de formulaires </a> </li>
+    <li> <a href=""> Ballises de médias </a> </li>
+    <li> <a href="iframes.html">Frames et ifraemes </a> </li>
+    <li> <a href=""> Balises de description du document et SEO </a> </li>
+    <li> <a href="html6.html"> HTML6 </a> </li>
 
-            <li>
-                <h4>Introduction : syntaxe générale .</h4>
-            </li>
+</ul>
 
-            <li>
-                <h4>Balises de structure : </h4>
-            </li>
-
-            <li>
-                <h4>Balises de texte</h4>
-
-            <li>
-                <h4>Tableau et listes .</h4>
-            </li>
-
-            <li>
-                <h4>Lien et anchors .</h4>
-            </li>
-
-            <li>
-                <h4>Balises de formulaire .</h4>
-            </li>
-
-            <li>
-                <h4>Balises de média .</h4>
-            </li>
-
-            <li>
-                <h4>Fraime et i frame .</h4>
-            </li>
-
-            <li>
-                <h4>Balises de description .</h4>
-            </li>
-
-            <li>
-                <h4>Cohérence visuelle du document et CSS .</h4>
-            </li>
->>>>>>> 323769258f7ab249158b3c45b1d5506badae1003
-        </ul>
-
-    </nav>
+</nav>
 
     <main>
 
@@ -74,8 +40,7 @@
             <article>
                 <h2>Form</h2>
                 <p>
-                    La balise <span class="keyword">&lt;form&gt;</span> définit un <span class="keyword">formulaire
-                        HTML</span><br>
+                    La balise <span class="keyword">&lt;form&gt;</span> définit un <span class="keyword">formulaire HTML</span><br>
                     Elle permet à l'utilisateur d'entrer des données et de les valider pour les envoyer par exemple vers
                     un serveur.<br>
                     Le formulaire contient des éléments de formulaire comme les balises input, output, label, select...
@@ -90,7 +55,7 @@
                 </form>
 
                 <p>Et en code:</p>
-                <div class="codex">
+                <div>
 
                     <code>
 
@@ -161,8 +126,7 @@
             <article>
                 <h2>Les inputs</h2>
                 <p>
-                    La balise <span class="keyword">&lt;input&gt;</span> spécifie un champ de saisie où l'utilisateur
-                    peut saisir des données.<br>
+                    La balise <span class="keyword">&lt;input&gt;</span> spécifie un champ de saisie où l'utilisateur peut saisir des données.<br>
                     Ces éléments sont utilisés dans un élément &lt;form&gt; pour déclarer des contrôles d'entrée qui
                     permettent aux utilisateurs de saisir des données.<br>
                     Un champ de saisie peut varier de plusieurs façons, selon l'attribut type.<br>
@@ -171,7 +135,8 @@
 
                 <form>
                     <label>Un champ de type text:</label><input type="text" placeholder="Exemple"><br>
-                    <label>Un champ de type checkbox:</label><input type="checkbox" placeholder="Exemple"><br>
+                    <label>Un champ de type checkbox:</label><input type="checkbox"
+                        placeholder="Exemple"><br>
                     <label>Un champ de type color:</label><input type="color" placeholder="Exemple"><br>
                     <label>Un champ de type search:</label><input type="search" placeholder="Exemple"><br>
                     <label>Un champ de type password:</label><input type="password" placeholder="Exemple">
@@ -179,7 +144,7 @@
 
 
                 <p>Et en code:</p>
-                <div class="codex">
+                <div>
                     <p>
                         <code>
 							&lt;form&gt;<br>
@@ -231,6 +196,12 @@
                                 <td>Spécifie la valeur minimum d'un élément &lt;input&gt;</td>
                             </tr>
                             <tr>
+                                <td><span class="keyword">maxlength</span></td>
+                                <td>nombre</td>
+                                <td>Spécifie le nombre maximal de caractères autorisés dans un élément &lt;input&gt;
+                                </td>
+                            </tr>
+                            <tr>
                                 <td><span class="keyword">minlength</span></td>
                                 <td>nombre</td>
                                 <td>Spécifie le nombre minimum de caractères autorisés dans un élément &lt;input&gt;
@@ -271,8 +242,7 @@
             <article>
                 <h2>Output</h2>
                 <p>
-                    La balise <span class="keyword">&lt;output&gt;</span> spécifie un champ où le résultat d'un calcul
-                    est renvoyé<br>
+                    La balise <span class="keyword">&lt;output&gt;</span> spécifie un champ où le résultat d'un calcul est renvoyé<br>
                 </p>
 
                 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
@@ -283,7 +253,7 @@
 
                 <p>Et en code:</p>
                 <div>
-                    <p class="codex">
+                    <p>
                         <code>
 
                         &lt;form&gt;<br>
@@ -294,8 +264,7 @@
                         </code>
                     </p>
                     <p>
-                        On constate dans le code que les balises input d'id "a" et "b" sont liées à l'output par <span
-                            class="keyword">"for="a b"</span>
+                        On constate dans le code que les balises input d'id "a" et "b" sont liées à l'output par <span class="keyword">"for="a b"</span>
                     </p>
                 </div>
 
@@ -314,9 +283,7 @@
             <article>
                 <h2>Label</h2>
                 <p>
-                    La balise <span class="keyword">&lt;label&gt;</span> met une "étiquette" sur des éléments<br>.
-                    Remarquez dans l'exemple ci-dessous que quand on clique sur le label (Male, Female, Other), le
-                    bouton radio associé est sélectionné.
+                    La balise <span class="keyword">&lt;label&gt;</span> met une "étiquette" sur des éléments<br>
                 </p>
 
                 <form action="/action_page.php">
@@ -327,11 +294,11 @@
                     <label for="other">Other</label>
                     <input type="radio" name="gender" id="other" value="other"><br><br>
                     <input type="submit" value="Submit">
-                </form>
+                  </form> 
 
                 <p>Et en code:</p>
                 <div>
-                    <p class="codex">
+                    <p>
                         <code>
 
                         &lt;form&gt;<br>
@@ -346,25 +313,19 @@
                         </code>
                     </p>
                     <p>
-                        <span class="keyword">L'attribut du label</span> doit être lié à l'input auquel il se rapporte
-                        en utilisant un for qui correspond à l'id de l'input.
-
+                        <span class="keyword">L'attribut du label</span> doit être lié à l'input auquel il se rapporte en utilisant un for qui correspond à l'id de l'input
                     </p>
                     <p>
-                        Ce label sera utile pour des personnes ayant des problèmes de vue ou en situation d'handicap.
-                        Cette balise rend donc le form accessible à un plus grand nombre de personnes.
-                    <ul>
-                        <li>
-                            Utilisateurs de lecteur d'écran (lira à haute voix l'étiquette, lorsque l'utilisateur se
-                            concentrera sur l'élément)
-                        </li>
-                        <li>
-                            Les utilisateurs qui ont du mal à cliquer sur de très petites régions (comme les cases à
-                            cocher) - car lorsqu'un utilisateur clique sur le texte dans l' <label>élément, il bascule
-                                l'entrée (cela augmente la zone de hit).
-                        </li>
-                    </ul>
-
+                        Ce label sera utile pour des personnes ayant des problèmes de vue ou en situation d'handicap. Cette balise rend donc le form accessible à un plus grand nombre de personnes.
+                        <ul>
+                            <li>
+                                Utilisateurs de lecteur d'écran (lira à haute voix l'étiquette, lorsque l'utilisateur se concentrera sur l'élément)
+                            </li>
+                            <li>
+                                Les utilisateurs qui ont du mal à cliquer sur de très petites régions (comme les cases à cocher) - car lorsqu'un utilisateur clique sur le texte dans l' <label>élément, il bascule l'entrée (cela augmente la zone de hit).
+                            </li>
+                        </ul>
+                        
                     </p>
                     <p>
                         Si vous voulez en savoir plus: <a href="https://www.w3schools.com/tags/tag_label.asp"
@@ -377,14 +338,11 @@
             <article>
                 <h2>Fieldset et Legend</h2>
                 <p>
-                    A quoi ça sert un <span class="keyword">fieldset</span> et un <span
-                        class="keyword">legend</span>?<br>
+                    A quoi ça sert un <span class="keyword">fieldset</span> et un <span class="keyword">legend</span>?<br>
                     Regardez l'exemple ci-dessous, il a été fait sans CSS. Nice, non?<br>
-                    Le fieldset se présente par défaut comme un <span class="keyword">cadre</span>, donc visuellement il
-                    découpe un form en plus
+                    Le fieldset se présente par défaut comme un <span class="keyword">cadre</span>, donc visuellement il découpe un form en plus
                     petites parties.<br>
-                    Le legend s'ajoute <span class="keyword">"dans" le cadre du fieldset par défaut</span>, ce qui fait
-                    qu'un legend sans fieldset ne
+                    Le legend s'ajoute <span class="keyword">"dans" le cadre du fieldset par défaut</span>, ce qui fait qu'un legend sans fieldset ne
                     sert à rien.
                 </p>
 
@@ -407,7 +365,7 @@
                 <p>Et en code:</p>
                 <div>
                     <p>
-                        <code class="codex">
+                        <code>
 
                         &lt;form&gt;<br>
                         &emsp;&lt;fieldset&gt;<br>
@@ -433,15 +391,8 @@
             <article>
                 <h2>Textarea</h2>
                 <p>
-                    La balise <span class="keyword">&lt;textarea&gt;</span> définit un contrôle de saisie de texte sur
-                    plusieurs lignes.<br>
-                    C'est un input, mais sur plusieurs lignes et qui <span class="keyword">peut être redimensionné par
-                        l'utilisateur</span>.
-                    On peut choisir la taille de cette zone de texte en utilisant "rows" et "cols" comme on peut le voir
-                    dans l'exemple ci-dessous.
-                    "Rows" détermine le nombre de lignes qu'occupera la zone de texte, "cols" détermine la largeur de la
-                    zone en largeur moyenne de caractères.
-                    Par défaut, la valeur cols est à 20.
+                    La balise <span class="keyword">&lt;textarea&gt;</span> définit un contrôle de saisie de texte sur plusieurs lignes.<br>
+                    C'est un input, mais sur plusieurs lignes et qui <span class="keyword">peut être redimensionné par l'utilisateur</span>.
                 </p>
 
                 <form>
@@ -455,7 +406,7 @@
                 <p>Et en code:</p>
                 <div>
                     <p>
-                        <code class="codex">
+                        <code>
 
                             &lt;form&gt;<br>
                             &emsp; &lt;label for="w3mission"&gt;Ce textarea est tout simplement magnifique:&lt;/label&gt;<br>
@@ -475,62 +426,22 @@
             </article>
 
             <article>
-                <h2>Select, option, optgroup et boutons radio</h2>
+                <h2>Select, option et optgroup</h2>
                 <p>
-                    La balise <span class="keyword">&lt;select&gt;</span> définit un menu déroulant.<br>
-                    <span class="keyword">Option</span> est la liste des choix dans le menu.<br>
-                    <span class="keyword">Optgroup</span> est une séparation entre les choix.
-                </p>
-                <p>
-                    Attention à ne pas confondre la balise select/option et les boutons radios.<br>
-                    Les boutons radios permettent de choisir un choix dans une liste. Par défaut ces boutons
-                    apparaissent
-                    sous la forme d'un rond. Il s'agit d'un type particulier d'input, le type "radio".
-                </p>
-                <form>
-                    <p>Voici des boutons radios, sélectionnez un parfum préféré:</p>
-
-                    <div>
-                        <input type="radio" id="huey" name="drone" value="huey" checked>
-                        <label for="huey">Vanille</label>
-                    </div>
-    
-                    <div>
-                        <input type="radio" id="dewey" name="drone" value="dewey">
-                        <label for="dewey">Chocolat</label>
-                    </div>
-                </form>
-
-                <p>
-                    Vous voyez dans le code ci-dessous que pour qu'un choix soit coché de base dans un bouton radio, 
-                    il faut utiliser l'attribut <span class="keyword">checked</span>.
-                </p>
-                
-                <p class="codex">
-                    &lt;form&gt;<br>
-                    &emsp;&lt;p&gt;Voici des boutons radios, sélectionner un parfum préféré:&lt;/p&gt;<br>
-            
-                    &emsp;&lt;div&gt;<br>
-                    &emsp;&lt;input type="radio" id="huey" name="drone" value="huey" <span class="keyword">checked</span>&gt;<br>
-                    &emsp;&lt;label for="huey"&gt;Vanille&lt;/label&gt;<br>
-                    &emsp;&lt;/div&gt;
-        
-                    &emsp;&lt;div&gt;<br>
-                    &emsp;&lt;input type="radio" id="dewey" name="drone" value="dewey"&gt;<br>
-                    &emsp;&lt;label for="dewey"&gt;Chocolat&lt;/label&gt;<br>
-                    &emsp;&lt;/div&gt;<br>
-                    &lt;/form&gt;<br>
+                    La balise <span class="keyword">&lt;select&gt;</span> définit un menu déroulant<br>
+                    <span class="keyword">Option</span> est la liste des choix dans le menu<br>
+                    <span class="keyword">Optgroup</span> est une séparation entre les choix
                 </p>
 
                 <form>
-                    <label for="cars">Voici une liste de select, d'optgroup et d'option. Choisissez une voiture:</label>
+                    <label for="cars">Choose a car:</label>
                     <select id="cars">
                         <optgroup label="Swedish Cars">
                             <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>
                         </optgroup>
                         <optgroup label="German Cars">
-                            <option value="mercedes" selected>Mercedes</option>
+                            <option value="mercedes">Mercedes</option>
                             <option value="audi">Audi</option>
                         </optgroup>
                     </select>
@@ -539,7 +450,7 @@
                 <p>Et en code:</p>
                 <div>
                     <p>
-                        <code class="codex">
+                        <code>
 
                             &lt;form&gt;<br>
                             &emsp; &lt;label for="cars"&gt;Choose a car:&lt;/label&gt;<br>
@@ -549,19 +460,12 @@
                                 &emsp;&emsp;&emsp;&lt;option value="saab"&gt;Saab&lt;/option&gt;<br>
                                 &emsp;&emsp;&lt;/optgroup&gt;<br>
                                 &emsp;&emsp;&lt;optgroup label="German Cars"&gt;<br>
-                                &emsp;&emsp;&emsp;&lt;option value="mercedes" selected&gt;Mercedes&lt;/option&gt;<br>
+                                &emsp;&emsp;&emsp;&lt;option value="mercedes"&gt;Mercedes&lt;/option&gt;<br>
                                 &emsp;&emsp;&emsp;&lt;option value="audi"&gt;Audi&lt;/option&gt;<br>
                                 &emsp;&emsp;&lt;/optgroup&gt;<br>
                             &emsp;&lt;/select&gt;<br>
                             &lt;/form&gt;
                         </code>
-                    </p>
-                    <p>
-                        Si on veut qu'un choix soit sélectionné de base dans le menu, il suffit d'ajouter l'attribut <span
-                            class="keyword">selected</span> à l'option.<br>
-                        Si on veut laisser l'utilisateur choisir plusieurs réponses, il suffit d'ajouter l'attribut <span
-                            class="keyword">multiple</span>.
-                        Ex: &lt;select id="cars" name="cars" <span class="keyword">multiple</span>&gt;
                     </p>
                     <p>
                         Si vous voulez en savoir plus: <a href="https://www.w3schools.com/tags/tag_select.asp"
