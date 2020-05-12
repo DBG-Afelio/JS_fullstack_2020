@@ -1,0 +1,25 @@
+Debut Validation d'entrée
+
+    Var locales
+    count :N <- 0
+    nb :N <- 0
+    av :N <- 0
+    somme :N <- 0
+
+Fin Validation d'entrée
+
+    tant que (count < 100) 
+
+    saisie nb
+
+    count <- count + 1
+
+    somme <- somme + nb
+    
+    fin tant que
+
+    affiche av <- somme / 100
+
+Fin validation d'entrée
+
+

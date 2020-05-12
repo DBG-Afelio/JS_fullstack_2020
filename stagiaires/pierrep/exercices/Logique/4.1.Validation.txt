@@ -8,7 +8,7 @@ Fin Validation d'entrée
 
     affiche "Entrez un chiffre"
     
-    boucle tant que (nombre !<- 0 OU nombre !<- 1 OU nombre !<- 2 OU nombre !<- 3 OU nombre !<- 4) 
+    boucle tant que (nombre !<- 0 ET nombre !<- 1 OUETnombre !<- 2 ET nombre !<- 3 ET nombre !<- 4) 
     
     saisie nombre
 
