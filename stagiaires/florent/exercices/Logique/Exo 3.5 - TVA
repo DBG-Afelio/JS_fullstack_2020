@@ -2,6 +2,7 @@ Début programme
     Variables locales
         Var choix :N <- 0
         Var montant :N <- 0
+        Var taux :N <-0
     Fin variables locales
     
     Afficher "Introduisez un montant: "
@@ -15,39 +16,20 @@ Début programme
     Afficher "Entrez le numéro correspondant à votre choix: "
     Saisir choix
 
-    Si choix = 1
-     ALORS  Afficher "Votre choix: " , choix
-            Afficher "Prix hors TVA: " , montant
-            Afficher "Le taux de TVA vaut 6%"
-            Afficher "Le montant de la TVA vaut " ,  (montant*6)/100
-            Afficher "Le montant TVAC vaut " , montant + (montant*6)/100
-    FINSI
-    Si choix = 2
-     ALORS  Afficher "Votre choix: " , choix
-            Afficher "Prix hors TVA: " , montant
-            Afficher "Le taux de TVA vaut 12%"
-            Afficher "Le montant de la TVA vaut " ,  (montant*12)/100
-            Afficher "Le montant TVAC vaut " , montant + (montant*12)/100
-    FINSI
-    Si choix = 3
-     ALORS  Afficher "Votre choix: " , choix
-            Afficher "Prix hors TVA: " , montant
-            Afficher "Le taux de TVA vaut 21%"
-            Afficher "Le montant de la TVA vaut " ,  (montant*21)/100
-            Afficher "Le montant TVAC vaut " , montant + (montant*21)/100
-    FINSI
-    Si choix = 4
-     ALORS  Afficher "Votre choix: " , choix
-            Afficher "Prix hors TVA: " , montant
-            Afficher "Le taux de TVA vaut 6%"
-            Afficher "Le montant de la TVA vaut " ,  (montant*6)/100
-            Afficher "Le montant TVAC vaut " , montant + (montant*6)/100
-    FINSI
-    Si choix = 1
-     ALORS  Afficher "Votre choix: " , choix
-            Afficher "Prix hors TVA: " , montant
-            Afficher "Le taux de TVA vaut 0%"
-            Afficher "Le montant de la TVA vaut 0 "
-            Afficher "Le montant TVAC vaut " , montant 
-    FINSI
+    Cas ou choix
+        cas 1
+            taux <- 0.06
+        cas 2
+            taux <- 0.12
+        cas 3
+            taux <- 0.21 
+        cas 4
+            taux <- 0
+    FINCAS
+
+    Afficher "Votre choix: " , choix
+    Afficher "Prix hors TVA: " , montant
+    Afficher "Le taux de TVA vaut 0%"
+    Afficher "Le montant de la TVA vaut " , taux
+    Afficher "Le montant TVAC vaut " , montant + montant * taux 
 Fin de programme
