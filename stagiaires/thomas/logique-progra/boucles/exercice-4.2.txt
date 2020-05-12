@@ -16,7 +16,6 @@ PROGRAMME
         cumul <- cumul  + entry-user
         nbres-notes <- nbres-notes + 1
         
-
     FIN TANT QUE
 
     AFFICHER("100 !")
