@@ -5,15 +5,14 @@ Début programme
         Var moyenne :N <- 0
         Var compteur :N <- 0
 	Fin variable locale
+    Afficher "Entrer un nombre, taper 100 pour terminer"
+    Saisir nombre
     TANT QUE nombre != 100
+        compteur <- compteur + 1
+        total <- total + nombre
+        moyenne <- total / compteur
         Afficher "Entrer un nombre, taper 100 pour terminer"
         Saisir nombre
-        SI nombre != 100
-            ALORS
-                compteur <- compteur + 1
-                total <- total + nombre
-                moyenne <- total / compteur 
-        FINSI
     FIN TANT QUE
     Afficher "La moyenne des nombres entrer est de :", moyenne, ". Sur un total de :", total, ". Pour ", compteur, " nombres entree"
 Fin de programme
