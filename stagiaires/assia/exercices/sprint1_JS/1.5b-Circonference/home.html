@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Exercice 1.5b - Circonference</title>
+		<meta charset="UTF-8">
+        <link href="style.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+        <form name="myform">
+            <div>
+                <label for="rayon">Valeur du rayon</label>
+                <input type="text" id="rayon" name="rayon" placeholder="Nombre entier positif">
+            </div>
+            <div>
+                <label for="red">Nuances de rouge</label>
+                <input type="range" id="red" name="red" min="0" max="255" step="10">
+            </div>
+            <div>
+                <label for="green">Nuances de vert</label>
+                <input type="range" id="green" name="green" min="0" max="255" step="10">
+            </div>
+            <div>
+                <label for="blue">Nuances de bleu</label>
+                <input type="range" id="blue" name="blue" min="0" max="255" step="10">
+            </div>
+            <div>
+                <label for="alpha">Opacité</label>
+                <input type="range" id="alpha" name="alpha" min="0" max="1" step="0.1">
+            </div>
+            <div>
+                <!-- <label for="ok">Confirmer</label> -->
+                <input type="button" id="OK-button" name="ok" value="CONFIRMER"
+            </div>
+        </form>
+
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="mySVG">
+            <!--
+                memo: pour que le browser reconnaisse l'ajout de balise svg, on specifie le namespace svg dans la balise :
+                    xmlns="http://www.w3.org/2000/svg"
+                ou en JS au moment de la creation de l'element:
+                    const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+            -->
+                <circle cx="" cy="" r="" id="myCircle"/>
+            </svg>
+        </div>
+
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
