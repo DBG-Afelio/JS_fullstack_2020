@@ -15,7 +15,10 @@ Debut ex4-3
         var max :N <- 0
         var min :N <- 0
     FIN VARIABLES LOCALES
-    
+
+    Afficher "Entrez un nombre"
+    Saisir nombre
+
     somme <-0
     max <- 0
     min <- 0
@@ -26,10 +29,9 @@ Debut ex4-3
     posNmin <- 0
     nbmin <- 0
     i <- 0
-    TANT QUE (nombre != 100)
-        Afficher "Entrez un nombre"
-        Saisir nombre
 
+    TANT QUE (nombre != 100)
+        
         SI (max <= nombre)
             ALORS
             max <- nombre
@@ -60,6 +62,8 @@ Debut ex4-3
                 nbmin <- nbmin + 1
         FIN SI
 
+        Afficher "Entrez un nombre"
+        Saisir nombre
         i <- i + 1
     FIN TANT QUE
 
