@@ -1,0 +1,20 @@
+Ennoncé exercice JS:
+Créer une page HTML demandant à l'utilisateur de rentrer une
+- Circonférence en px (entier, positif)
+- Quatres valeurs pour la couleur de 0 à 255 (rgba) via un contrôle range
+https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range
+
+. Si les valeurs sont valides, on dessinera le cercle en dessous à l'aide d'une balise svg
+
+https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Ajouter_des_images_vectorielles_%C3%A0_une_page_web
+
+https://edutechwiki.unige.ch/fr/SVG_avec_JavaScript#Acc.C3.A9der_.C3.A0_des_caract.C3.A9ristiques.2Fattributs_de_l.27.C3.A9l.C3.A9ment_SVG
+
+https://developer.mozilla.org/fr/docs/Web/SVG/Element/circle
+
+Bonus (pour ceux qui s'ennuyent):
+
+    Permettre de spécifier la position
+    Permettre de créer plusieurs cercles
+    En cliquant sur un cercle le remettre en avant plan
+
