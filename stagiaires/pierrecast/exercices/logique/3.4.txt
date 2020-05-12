@@ -1,0 +1,66 @@
+Écrire le programme qui compare 3 nombres entre eux.
+Tenir compte d’une égalité possible des nombres.
+Attention :
+« 5 < 8 > 4 » n’indique pas la comparaison entre le 1er et le 3ème nombre.
+On préférera par exemple « 4 < 5 < 8 ».
+
+
+Debut ex3-4
+    VARIABLES LOCALES :
+        var A :N <- 0
+        var B :N <- 0
+        var C :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez la valeur de A"
+    Saisir A
+    Afficher "Entrez la valeur de B"
+    Saisir B
+    Afficher "Entrez la valeur de C"
+    Saisir C
+
+    compare A et B  et ordonne
+
+    compare C et A puis compare C et B
+
+
+    SI (A > B)
+        ALORS
+        // permute A et B
+        A <- A + B
+        B <- A - B
+        A <- A - B
+    FINSI
+  
+    SI (A >= C)
+        ALORS
+            -> permute les A B comparaison
+        SINON
+            SI (B>C)
+            // permute B et C
+            C <- C + B
+            B <- C - B
+            C <- C - B
+    FINSI
+
+    // A B et C sont ordonnés !
+
+    SI (A = B ET B = C)
+        ALORS
+            Afficher A, " = ", B, " = ", C
+        SINON
+            SI (A = B OU B = C)
+                ALORS
+                    SI (A = B)
+                        ALORS
+                            Afficher A, " = ", B, " < ", C
+                        SINON
+                            Afficher A, " < ", B, " = ", C
+                    FINSI 
+                SINON
+                    Afficher A, " < ", B, " < ", C
+            FINSI
+    FINSI
+
+Fin ex3-4
+ 
