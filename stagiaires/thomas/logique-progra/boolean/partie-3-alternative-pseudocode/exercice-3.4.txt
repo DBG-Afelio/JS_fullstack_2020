@@ -1,0 +1,31 @@
+ PROGRAMME
+
+    VARIABLE LOCALE
+	
+	var nb1 :N <- 0
+	var nb2 :N <- 0
+	var nb3 :N <- 0
+	var result :N <- 0 
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Entrer nombre 1")
+SAISIR nb1
+
+AFFICHER("Entrer nombre 2")
+SAISIR nb2
+
+AFFICHER("Entrer nombre 3")
+SAISIR nb3
+
+	SI (nb1 > nb2 ET nb1 > nb3 ET nb2 > nb3)
+	  ALORS AFFICHER("Le resultat est", nb1 ">", nb2, ">", nb3)
+	SINON SI (nb2 > nb1 ET nb1 > nb3 ET nb2 > nb3)
+	  ALORS AFFICHER("Le resultat est", nb2 ">", nb1, ">", nb3)
+	SINON SI (nb3 > nb2 ET nb2 > nb1 ET nb3 > nb1)
+	  ALORS AFFICHER("Le resultat est", nb3 ">", nb2, ">", nb1)    
+	FIN SI 
+	FIN SI 
+	FIN SI
+
+FIN PROGRAMME
