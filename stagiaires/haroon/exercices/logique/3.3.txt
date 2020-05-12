@@ -9,21 +9,69 @@ Contraintes :
 - Le nombre de coupures de la décomposition sera le plus petite possible
 
 Debut Programme
-    VARIABLE LOCALES :
-        VAR A :N <- 0
-        VAR B :N <- 0
-        VAR X :N <- 0
-    FIN VARIABLES LOCALES
-    Afficher "Entrez  Montant : "
-    Saisir Montant 
-    Afficher "Entrez  B : "
-    Saisir B
-    SI A = 0
-    ALORS
-        Afficher "Operation Pas Possible"
-    SINON
-        A . X + B <-0
-        X <- -B / A
-        Afficher " Valeur de X est : ", X
-    FINSI
+    	VARIABLE LOCALES :
+	Rest : N<- 0 
+	Montant : N<- 0
+	Billet100 :N<- 0 
+	Billet50 :N<-0
+	Billet20 :N<- 0 
+	Billet5 :N<- 0
+	Pièce2 :N<-0
+	Pièce1 :N<-0
+	Pièce0.5 :N<-0
+	Pièce0.2 :N<-0
+
+   	FIN VARIABLES LOCALES
+Afficher "Entrez  Montant : "
+	
+    	Saisir Montant 
+	SI Montant <- 0
+	AFFICHER "Entrez  montant que plus grand de 10"	 
+	SINON
+		SI Montant > 100
+		ALORS SI Montant > 100
+			Billet100 <- Montant DIV 100 
+			Rest <- Montant MOD 100 
+		SINON SI Rest > 50
+		ALORS 
+			Billet50 <- Rest DIV 50
+			Rest <- Rest MOD 50
+		SINON SI Rest > 20
+		ALORS
+			Billet20 Rest DIV 20
+			Rest <-Rest MOD 20
+		SINON SI Rest > 5
+		ALORS
+			Billet5 <- Rest DIV 5
+			Rest <- Rest MOD 5 
+		SINON SI Rest > 2
+		ALORS 
+			Pièce2 <- Rest DIV 2
+			Rest <- Rest MOD 2 
+		SINON SI Rest > 1
+		ALORS 
+			
+			Pièce1 <- Rest  DIV 1
+			Rest <- Rest MOD 1 
+		SINON SI Rest  > 0.5 
+		ALORS
+			Pièce0.5 < Rest DIV 0.5
+			Rest <- Rest MOD 0.5
+		
+		SINON SI Rest > 0.2
+		ALORS 
+			Pièce0.2 <- Rest DIV 0.2
+			Rest < Rest MOD 0.2 
+		FINSI
+FINISI
+FINSI
+FINSI
+FINSI
+FINSI
+FINSI
+FINSI
+AFFICHER Billet100 ,Billet50, Billet20 ,Billet10 ,Billet5 , Pièce2 , Pièce2 ,Pièce0.5 , Pièce0.2
+FINSI
+
+   
 Fin Programme
