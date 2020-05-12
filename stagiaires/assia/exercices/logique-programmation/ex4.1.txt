@@ -1,0 +1,21 @@
+git branch
+Ecrire le programme qui limite le choix de l'utilisateur aux valeurs 0, 1, 2, 3, 4.
+Si la valeur est différente, un nouveau choix sera demandé.
+
+Debut Ex4.1
+    VARIABLE LOCALES :
+        VAR n :N <- 0
+        CONST l0 :N <- 0
+        CONST l1 :N <- 1
+        CONST l2 :N <- 2
+        CONST l3 :N <- 3
+        CONST l4 :N <- 4
+    FIN VARIABLES LOCALES
+    Afficher "Choisir un nombre parmi : ", l0, l1, l2, l3, " ou ", l4 " : "
+    Saisir n
+    TANT QUE n ≠ l0 OU n ≠ l1 OU n ≠ l2 OU n ≠ l3 OU n ≠ l4
+        Afficher "Votre choix n'est pas permis, veuillez recommencer svp"
+        Saisir n
+    FIN TANT QUE
+    Afficher "Choix accepté"
+Fin Ex4.1
