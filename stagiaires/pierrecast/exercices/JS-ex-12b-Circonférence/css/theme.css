@@ -1,0 +1,25 @@
+#mySVG {
+	border: 1px solid black;
+	overflow: hidden;
+	
+}
+
+circle:hover {
+	cursor: pointer;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+form {
+	background-color: gray;
+	padding: 25px;
+	border-radius: 50px;
+}
