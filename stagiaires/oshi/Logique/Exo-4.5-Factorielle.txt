@@ -9,6 +9,7 @@ Début programme
     SI nombre % 1 = 0 ALORS
         TANT QUE nombre  >= index
             resultat <- resultat * index
+            index <- index + 1
         FIN TANT QUE
         Afficher "La factorielle de votre nombre est de :", nombre, "! = ", resultat
     SINON
