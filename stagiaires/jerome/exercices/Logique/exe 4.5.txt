@@ -1,0 +1,15 @@
+Ecrire le programme qui permet de calculer la factorielle d'un nombre entré au clavier.
+
+debut fact
+var loc
+var nbr:N<-0
+var produit:N<-1
+fin var loc
+Afficher"Entrez un nombre"
+Saisie nbr
+tant que nbr><0
+	produit<- produit*nbr
+	nbr<- nbr-1
+fin tant que
+Afficher produit
+fin fact
