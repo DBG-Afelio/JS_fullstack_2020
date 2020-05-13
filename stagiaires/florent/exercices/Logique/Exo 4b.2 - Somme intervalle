@@ -1,0 +1,34 @@
+Début programme
+    Variables locales
+        Var nbre1 :N <- 0
+        Var nbre2 :N <- 0
+        Var max :N <- 0
+        Var min :N <- 0
+        Var somme :N <- 0
+    Fin variables locales
+
+    Afficher "Entrez le premier nombre: "
+    Saisir nbre1
+    Afficher "Entrez le second nombre: "
+    Saisir nbre2
+
+    SI nbre1 > nbre2 
+		Max <- nbre1;
+		Min <- nbre2;
+    SINON 
+		Max <- nbre2;
+		Min <- nbre1;
+	FINSINON
+
+    i <- max
+
+    POUR i allant de max à min par pas de -1
+        somme <- somme + Max;
+	i SUIVANT
+
+    SI nbre1 = nbre2
+        ALORS Afficher "La somme des nombres compris entre " , nbre1 , " et " , nbre2 , " est " , nbre1 
+    SINON
+        Afficher "La somme des nombres compris entre " , nbre1 , " et " , nbre2 , " est " , somme
+    FINSINON
+Fin de programme
