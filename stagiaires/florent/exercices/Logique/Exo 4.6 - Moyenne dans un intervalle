@@ -3,6 +3,7 @@ Début programme
         nbre :N <- 0
         somme :N <- 0
         cpt :N <- 0
+        cptmoy :N <- 0
     Fin variables locales
 
     Affichez "Entrez des nombres et appuyez sur 100 pour terminer"
@@ -20,5 +21,5 @@ Début programme
         cpt <- cpt + 1
     FINTANTQUE
 
-    Affichez "La moyenne des nombres entrés est " , somme/cpt 
+    Affichez "La moyenne des nombres entrés est " , somme/cptmoy 
 Fin de programme
