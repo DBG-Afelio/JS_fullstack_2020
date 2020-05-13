@@ -1,0 +1,25 @@
+Début programme
+    Variables locales
+        nbre :N <- 0
+        somme :N <- 0
+        cpt :N <- 1
+        cptmoy :N <- 0
+    Fin variables locales
+
+    Affichez "Entrez des nombres et appuyez sur 100 pour terminer"
+
+    Affichez "Entrez un nombre: "
+    Saisir nbre
+
+    POUR cpt allant de 1 à 30
+        Affichez "Entrez un nombre: "
+        Saisir nbre
+        SI nbre>=10 ET nbre<=20
+            somme <- somme + nbre
+            cptmoy <- cptmoy + 1
+        FINSI
+        cpt SUIVANT
+    FINPOUR
+
+    Affichez "La moyenne des nombres entrés est " , somme/cptmoy 
+Fin de programme
