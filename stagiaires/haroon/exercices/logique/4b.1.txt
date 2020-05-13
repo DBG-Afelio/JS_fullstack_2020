@@ -19,7 +19,7 @@ Debut Programme
 			index <- index +1 
 		FINSI
 		i SUIVANT 
-Moyenne <- Somme / i
+Moyenne <- Somme / index
 Afficher
 
 Afficher Moyenne
