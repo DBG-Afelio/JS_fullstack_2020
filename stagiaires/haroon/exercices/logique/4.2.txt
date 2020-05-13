@@ -10,7 +10,6 @@ Debut Programme
 	TANTQUE A != 100 
 		i <- i+ 1 
 		Somme <- Somme + A
-		Moyenne <-Somme / i
 	Saiser A
 	FIN TANT QUE 
 Moyenne <-Somme / i
