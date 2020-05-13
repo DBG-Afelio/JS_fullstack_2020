@@ -1,0 +1,43 @@
+// Ecrire un programme qui lit 30 nombres et affiche la moyenne des nombres compris entre 10 et 20.
+
+Debut moyenne 
+
+	VARIABLES LOCALES
+
+		var valeur_utilisateur: N <- 0
+		var somme: N <- 0
+		var moyenne: N <- 0
+		var compteur: N <- 30
+		var compteur_nbr_entre_10_et_20: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez un nombre et je vous afficherai la moyenne des nombres compris entre 10 et 20."
+
+	Saisir valeur_utilisateur
+
+
+	TANT QUE (compteur > 0)
+
+		Afficher "Encore une valeur!"
+
+		Saisir valeur_utilisateur
+		
+		SI valeur_utilisateur>10 && valeur_utilisateur<20
+
+			somme = somme + valeur_utilisateur
+
+			compteur_nbr_entre_10_et_20 = compteur_nbr_entre_10_et_20 +1
+
+		FINSI
+
+		compteur = compteur- 1
+
+        FIN TANT QUE
+
+	moyenne = somme/compteur_nbr_entre_10_et_20
+	
+	Afficher "La moyenne des nombres compris entre 10 et 20 est ", moyenne
+
+
+Fin moyenne 
