@@ -1,0 +1,37 @@
+Ecrire un programme qui demande à l’utilisateur de découvrir une valeur entre 0 et 100.
+
+    Le programme choisira la valeur de manière aléatoire *.
+    L’utilisateur entre des valeurs tant qu’elles sont différentes de la valeur choisie.
+    Après chaque entrée non valide le programme affiche si la valeur à découvrir est plus grande ou plus petite que celle entrée.
+
+Fonction permettant la récupération d’un nombre aléatoire :
+fonction aléatoire(max : N):N
+Retourne un nombre entier aléatoire entre 0 et max
+
+Debut ex4b-3
+    VARIABLES LOCALES :
+        var secret :N <- 0
+        var test :N <- 0
+    FIN VARIABLES LOCALES
+
+    secret <- fonction aléatoire(100)
+
+    REPETER
+        Afficher "Entrer le nombre"
+        Saisir test
+
+        SI test < secret
+                ALORS 
+                    Afficher "Vous êtes en-dessous de la valeur à deviner"
+        FIN SI
+
+        SI test > secret
+                ALORS 
+                    Afficher "Vous êtes au-dessus de la valeur à deviner"
+        FIN SI
+
+    JUSQUACEQUE (test = secret)
+    
+    Afficher "Bravo ! vous avez deviner"
+
+Fin ex4b-3
