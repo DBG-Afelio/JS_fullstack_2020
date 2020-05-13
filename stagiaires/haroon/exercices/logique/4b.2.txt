@@ -1,0 +1,22 @@
+Debut Programme
+    VARIABLE LOCALES :
+        VAR Nombre1:N <- 0
+       	VAR Nombre2:N <- 0
+	VAR Somme : N <-0
+	VAR N : N<-0
+
+    FIN VARIABLES LOCALES
+	Afficher "Entrez  un Nombre1: "
+		Saiser Nombre1
+	Afficher "Entrez  un Nombre2: "
+		Saiser Nombre2
+	SI Nombre1 = Nombre2 
+	ALORS Somme <- Nombre1 
+	SINON 
+	
+	POUR N ALLANT DE Nombre1 A Nombre2 
+		Somme <-  Somme + N 
+	N SUIVANT 
+Afficher Somme
+Fin Programme
+
