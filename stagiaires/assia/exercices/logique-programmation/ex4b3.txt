@@ -1,0 +1,38 @@
+Ecrire un programme qui demande à l’utilisateur de découvrir une valeur entre 0 et 100.
+
+- Le programme choisira la valeur de manière aléatoire *.
+- L’utilisateur entre des valeurs tant qu’elles sont différentes de la valeur choisie.
+- Après chaque entrée non valide le programme affiche si la valeur à découvrir est plus grande ou plus petite que celle entrée.
+
+Fonction permettant la récupération d’un nombre aléatoire :
+  fonction aléatoire(max : N):N
+  Retourne un nombre entier aléatoire entre 0 et max
+
+
+Debut exercice
+    VARIABLE LOCALES :
+        CONST Nmax :N <- 100
+        VAR Nguess :N <- 0
+        VAR Nrandom <- 0
+
+    FIN VARIABLES LOCALES
+
+    Nrandom <- aléatoire(Nmax)
+    REPETER
+        Afficher "Guess the number btw 0 and 100 : "
+        Saisir Nguess
+        SI Nguess < Nrandom
+        ALORS
+            Afficher "C'est plus grand ! Essaye encore !"
+            Saisir Nguess
+        FINSI
+        SI Nguess > Nrandom
+        ALORS
+            Afficher "C'est plus petit ! Essaye encore !"
+            Saisir Nguess
+        FINSI
+    JUSQU'A CE QUE Nguess = Nrandom
+
+    Afficher " BINGO !"
+    
+Fin exercice
