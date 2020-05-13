@@ -24,7 +24,7 @@ PROGRAMME
 
     FIN POUR  
 
-    AFFICHER("La moyenne est de :", total / moyenne)
+    AFFICHER("La moyenne est de :", total / nombres-entres)
 
 
 FIN PROGRAMME
