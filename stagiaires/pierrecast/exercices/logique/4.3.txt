@@ -31,8 +31,8 @@ Debut ex4-3
     Saisir nombre
 
     somme <-0
-    max <- 0
-    min <- 0
+    max <- nombre
+    min <- nombre
 
     pos1max <- 0
     posNmax <- 0
