@@ -1,0 +1,39 @@
+// Ecrire le programme qui permet de calculer la factorielle 
+// d'un nombre entré au clavier.
+
+Debut factorielle 
+
+	VARIABLES LOCALES
+
+		var valeur_utilisateur: N <- 0
+		var factorielle: N <- 0
+		
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez un nombre et je vous renverrai sa factorielle"
+
+	Saisir valeur_utilisateur
+
+
+
+	
+		factorielle = 1
+	
+
+
+		TANT QUE (valeur_utilisateur > 0)
+
+			factorielle =  factorielle * valeur_utilisateur 
+
+
+			valeur_utilisateur = valeur_utilisateur - 1
+
+        	FIN TANT QUE
+
+	FIN SI
+
+	Afficher "La factorielle est ", factorielle 
+
+
+Fin factorielle 
