@@ -1,0 +1,17 @@
+Debut average
+VARIABLES LOCALES :
+VAR X :N <- 0
+VAR Y :N <- 0
+VAR Z :N <- 0
+VAR result : N <-0
+
+Fin variables LOCALES
+Afficher "S.V.P entres x:"
+Saiser x
+Afficher "S.V.P entres y:"
+Saiser y
+Afficher "S.V.P entres z:"
+Saiser y
+result <- (x + y + z)/3
+Afficher result
+Fin average

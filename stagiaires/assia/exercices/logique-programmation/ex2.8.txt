@@ -1,0 +1,15 @@
+Écrire une expression pour faire un « ou » exclusif entre deux booléens.
+
+Debut XOR
+    VARIABLE LOCALES :
+        CONST A :B <- 0
+        CONST B :B <- 0
+        VAR XOR :B <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un 1er booleen : "
+    Saisir A
+    Afficher "Saisir un 2eme booleen : "
+    Saisir B
+    XOR <- A ET NON B OU NON A ET B
+    "le resultat OU EXCLUSIVE des 2 booleens saisis est :", XOR
+Fin XOR

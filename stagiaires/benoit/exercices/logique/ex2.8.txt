@@ -1,0 +1,10 @@
+// Écrire une expression pour faire un « ou » exclusif 
+// entre deux booléens.
+
+Debut ouExclusif
+
+
+	(A ou B) ET non(A et B)
+
+
+Fin ouExclusif

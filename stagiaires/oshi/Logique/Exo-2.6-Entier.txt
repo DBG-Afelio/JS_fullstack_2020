@@ -1,0 +1,15 @@
+Début programme
+	Variable locale
+        Var nombre :N <- 0
+        Var si_entier :B <- FAUX
+	Fin variable locale
+	Afficher "Veuillez entrer un nombre :"
+	Saisir nombre
+	SI nombre / 1 = nombre DIV 1
+	ALORS
+		si_entier <- VRAI
+	SINON
+		si_entier <- FAUX
+	FINSI
+	Afficher "Le nombre est-il entier ? :", si_entier
+Fin de programme

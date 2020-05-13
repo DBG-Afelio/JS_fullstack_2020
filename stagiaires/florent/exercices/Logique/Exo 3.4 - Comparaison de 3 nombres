@@ -1,0 +1,47 @@
+Début programme
+    Variables locales
+        Var a :N <- 0
+        Var b :N <- 0
+        Var c :N <- 0
+    Fin Variables locales
+
+    SI a=b ET a=c
+        ALORS Afficher a , "=" , b , "=" , c
+    FINSI
+    SI a=b ET b>c
+        ALORS Afficher a , "=" , b , ">" , c
+    FINSI
+    SI a=b ET b<c
+        ALORS Afficher a , "=" , b , "<" , c
+    FINSI
+    SI b=c ET b>a
+        ALORS Afficher a , ">" , b , "=" , c
+    FINSI
+    SI b=c ET b>a
+        ALORS Afficher a , "<" , b , "=" , c
+    FINSI
+    SI c=a ET a>b
+        ALORS Afficher c , "=" , a , ">" , b
+    FINSI
+    SI c=a ET a<b
+        ALORS Afficher c , "=" , a , "<" , b
+    FINSI
+    SI a>b ET b>c
+        ALORS Afficher a , ">" , b , ">" , c
+    FINSI
+    SI a<b ET b<c
+        ALORS Afficher a , "<" , b , "<" , c
+    FINSI
+    SI b<c ET c<a 
+        ALORS Afficher b , "<" , c , "<" , a 
+    FINSI
+    SI b>c ET c>a
+        ALORS Afficher b , ">" , c , ">" , a 
+    FINSI
+    SI c<a ET a<b
+        ALORS Afficher c , "<" , a , "<" , b
+    FINSI
+    SI c>a ET a>b
+        ALORS Afficher c , ">" , a , ">" , b
+    FINSI
+Fin de programme

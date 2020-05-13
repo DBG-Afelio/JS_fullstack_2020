@@ -1,0 +1,54 @@
+Écrire le programme qui compare 3 nombres entre eux.
+Tenir compte d’une égalité possible des nombres.
+Attention :
+« 5 < 8 > 4 » n’indique pas la comparaison entre le 1er et le 3ème nombre.
+On préférera par exemple « 4 < 5 < 8 ».
+
+debut 3nbr
+var loc
+var a:N<-0
+var a:N<-0
+var a:N<-0
+fin var loc
+Afficher "Entrez 3 nombres"
+Saisie a, b, c
+si a>c et c>b
+alors afficher a">"c">"b
+fin de si
+Si a>b et b>c
+alors afficher a">"b">"c
+fin de si
+Si a=c et c>b
+alors afficher a"et"c">"b
+fin de si
+Si b>a et a=c
+alors afficher b">"a"="c
+fin de si
+Si a=b et b=c
+alors afficher a"="b"="c
+fin de si
+Si a>c et c=b
+alors afficher a">"c"et"b
+fin de si
+Si c=b et b>a
+alors afficher c"et"b>a
+fin de si
+Sic>a et a=b
+alors afficher c">"a"et"b
+fin de si
+Si a=b et b>c
+alors afficher a"et"b">"c
+fin de si
+Si c>a et a>b
+alors afficher c">"a">"b
+fin de si
+Si c>b et b>a
+alors afficher c">"b">"a
+fin de si
+Si b>a et a>c
+alors afficher b">"a">"c
+fin de si
+si b>c et c>a
+alors afficher b">"c">"a
+fin de si
+fin 3nbr

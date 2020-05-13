@@ -1,0 +1,18 @@
+// Écrire l'expression décroche. En fonction des variables suivantes :
+
+
+Debut ex2-10
+    VARIABLES LOCALES :
+        var A :B // le téléphone sonne
+        var B :B // j'ai envie de répondre
+        var C :B // j'ai envie d'appeler quelqu'un
+       
+    FIN VARIABLES LOCALES
+
+    SI ((A ET B) OU C)
+        ALORS
+        Afficher "OK"
+        SINON
+        Afficher "KO"
+    FINSI
+Fin ex2-10

@@ -1,0 +1,31 @@
+Evaluer les expressions suivantes
+
+  1. 27 + 3 = 30 ET 15 + 2 < 16   => Faux
+         V               F
+  2. 27 = 27 OU 15 < 2   => Vrai
+        V          F
+  3. 27 = 27 OU NON (15 < 2)    => Vrai
+        V             V
+  4. 27 = 28 ET NON 15 < 2  => Faux
+        F             V
+  5. 27 = 27 ET 15 < 2 OU VRAI    =>Vrai
+        V          F       
+              F            V
+  6. 27 = 28 ET ( 15 < 2 OU VRAI )    =>Faux
+        F               V
+  7. 27 = 28 ET NON (15 < 2 ) OU VRAI   =>Vrai
+        F             V           V
+  8. 27 = 28 ET NON ( 15 < 2 OU VRAI )    => Faux
+        F                   F
+  9. NON ( 15 - 5 = 12 ET VRAI )    =>Vrai
+                 F         V
+                      F
+  10. NON ( 15 - 5 = 12 ) ET VRAI       =>Vrai
+                  V            V
+  11. NON ( 27 = 28 ) OU NON ( 15 < 2 )    => Vrai
+               V                V
+  12. ( 27 = 27 ) ET NON ( 15 > 2 )     =>Faux
+           V                  F
+  13. ( 27 = 15 ) OU VRAI ET FAUX  =>Faux
+           F               F
+

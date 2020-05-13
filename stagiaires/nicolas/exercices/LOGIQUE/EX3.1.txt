@@ -1,0 +1,28 @@
+Écrire le programme qui résout l’équation du 1er degré: ax + b = 0
+Le programme demande à l'utilisateur une valeur pour a et pour b et donne si possible la valeur de x.
+
+début EQUATION
+
+	VARIABLES LOCALES
+
+        VAR a :N 
+ 	VAR b :N
+ 	VAR x :N 
+	
+    	FIN VARIABLES LOCALES
+	
+	AFFICHER "Veuillez entre une valeur pour a"
+	SAISIR a
+	AFFICHER "Veuillez entre une valeur pour b"
+	SAISIR b
+
+	SI (a = 0)
+
+        	ALORS
+        		AFFICHER "ERREUR"
+        	SINON
+        		AFFICHER  -B/A
+    	FINSI
+	
+	
+fin EQUATION

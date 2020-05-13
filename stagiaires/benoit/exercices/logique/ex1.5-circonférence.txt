@@ -1,0 +1,18 @@
+// Ecrire le programme qui affiche la circonférence d'un cercle. 
+// La valeur du rayon est rentrée au clavier (Circonférence = 2PIR).
+
+Debut circonference
+
+	VARIABLES LOCALES
+		var rayon_cercle : N <- 0
+		var circonference_cercle : N <- 0 
+	Fin VARIABLES LOCALES
+
+	Afficher "Bonjour, rentrez le rayon d'un cercle et je vous renverrai sa circonférence"
+	Saisir rayon_cercle 
+
+	circonference_cercle = 2 * PI * rayon_cercle
+
+	Afficher circonference_cercle 
+	
+Fin circonference

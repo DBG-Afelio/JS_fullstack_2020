@@ -311,7 +311,7 @@
 
             <p>Le site MDN Web docs rassemble l'ensemble de ces élements HTML et, pour chacun d'entre, répertorie, sous forme d'un résumé technique, le type de contenu, les parents les enfants autorisés</p>
 
-            <p>Quelques exemples:  L'élement div peut contenir des éléments a, idem pour p et sup et pour section et li. Mais l'inverse n'est pas vrai !</p>
+            <p>Quelques exemples:  L'élement p peut contenir des éléments sup, idem pour section et li. Mais l'inverse n'est pas vrai !</p>
 
             <p>
                 <a href="https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content">Voir le lien</a>
@@ -344,7 +344,16 @@
             </header>
 
             <h3>9.1 - <span class="keyword">&lt;!DOCTYPE html&gt;</span></h3>
-            <p>Le doctype. Au début de HTML, dans les années 1991-1992, les doctypes étaient utilisés pour faire référence à des ensembles de règles qu'on pouvait utiliser pour dire qu'un document était du HTML « valide » et détecter les erreurs de balisage. Cependant, ceux-ci ne sont plus utilisés aujourd'hui et sont juste présents pour s'assurer que la page puisse fonctionner y compris sur les anciens navigateurs. Pour le moment, c'est tout ce qu'il y a à savoir à propos des doctypes.</p>
+            <p>Au début de HTML, dans les années 1991-1992, les doctypes étaient utilisés pour faire référence à des ensembles de règles qu'on pouvait utiliser pour dire qu'un document était du HTML « valide » et détecter les erreurs de balisage. Cependant, ceux-ci ne sont plus utilisés aujourd'hui et sont juste présents pour s'assurer que la page puisse fonctionner y compris sur les anciens navigateurs. Pour le moment, c'est tout ce qu'il y a à savoir à propos des doctypes.</p>
+
+
+            <p>Le doctype est une balise obligatoire. Le navigateur inspecte le début d’un document HTML pour voir si il contient une déclaration de doctype comme requis par les spécifications HTML.</p>
+            <p>Il n’existe pas de spécification de ce qui se passe en mode Quirks. </p>
+            <p>Le mode quirks est un mode de fonctionnement des navigateurs Web tels qu’Internet Explorer (IE), Firefox et Opera. En gros, le mode quirks (aussi appelé mode compatibilité) signifie qu’un navigateur relativement moderne simule intentionnellement de nombreux bugs des anciens navigateurs, en particulier IE 4 et IE 5.</p>
+
+            <p>
+                <a href="http://jkorpela.fi/quirks-mode.html">Voir le lien</a>
+            </p>
 
             <h3>9.2 - <span class="keyword">&lt;html&gt;</span><span class="keyword">&lt;/html&gt;</span></h3>
             <p>L'élément <span class="keyword">&lt;html&gt;</span>. Cet élément encadre tout le contenu de la page. Cet élément est parfois appelé l'élément racine.</p>
@@ -439,31 +448,45 @@
                 <h2> 12. Les Symboles et les entités HTML</h2>
             </header>
 
-            <h3>12.1 - Les entités HTML</h3>
-            <p>Certains caractères sont réservés en HTML.</p>
-            <p>Si vous utilisez les signes inférieur à (&lt;) ou supérieur à (&gt;) dans votre texte, le navigateur peut les mélanger avec des balises.</p>
-            <p>Les entités de caractère sont utilisées pour afficher les caractères réservés en HTML.</p>
+            <p>Le langage HTML utilise un jeu d'entités pour incorporer des caractères spécifiques dans le document. Plus simplement, vous tapez une séquence précise de caractères (oui c'est ça, un mot magique), et miraculeusement il se transforme en un caractère (accentué, spécial, de ponctuation,…) quand vous affichez la page dans un navigateur Web. Ces entités ont toutes la même préfixe : une esperluette « &amp; ». La fin d'une entité est marquée par le caractère point-virgule « ; ».</p>
+
+            <p>Certains caractères sont réservés en HTML. Si vous utilisez les signes inférieur à (&lt;) ou supérieur à (&gt;) dans votre texte, le navigateur peut les mélanger avec des balises. Les entités de caractère sont utilisées pour afficher les caractères réservés en HTML.</p>
+
+            <p>De nombreux symboles mathématiques, techniques et monétaires ne sont pas présents sur un clavier normal. Pour ajouter de tels symboles à une page HTML, vous pouvez utiliser un nom d'entité HTML. Si aucun nom d'entité n'existe, vous pouvez utiliser un numéro d'entité, une référence décimale ou hexadécimale.</p>
+
+            <p>Il est possible de recourir à deux types d'entités :</p>
+
+            <p>les entités de type numérique composées d'un nombre précédé du caractère croisillon # (souvent appelé à tort « dièse »[1]) entre l'esperluette et le point-virgule ; les entités de type caractère composées d'une chaîne de caractères entre l'esperluette et le point-virgule.</p>
+
+            <p>Ainsi il est possible d'écrire le signe euro (€) de deux manières :</p>
+
+            <ul>
+                <li>&amp;#8364; qui en est l'entité numérique décimale (index dans la table des caractères Unicode) ;</li>
+                <li>&amp;euro; qui en est l'entité caractère.</li>
+            </ul>
+
+            <p>On peut aussi taper l'entité numérique en hexadécimal, en mettant un « x » entre le croisillon et le nombre. Par exemple, &amp;#196; est la même chose que &amp;#xC4;, c'est-à-dire « &#196; ».</p> 
+
+            <p>Les entités permettent d'afficher des caractères qui ne sont pas accessibles depuis le clavier. C'est notamment utile lorsque l'on utilise des symboles mathématiques, ou que l'on veut écrire des mots d'une langue étrangère par rapport au clavier utilisé, ou pour certaines capitales accentuées (comme « &Eacute; »). </p>
+           
+            <p></p>
             <table class="symbol">
+                <tr><th>caractère</th><th>commentaire</th><th>code texte</th><th>code numérique</th></tr>
                 <tr><td>&lt;</td><td>less than</td><td>&amp;lt;</td><td>&amp;#60;</td></tr>
                 <tr><td>&lt;</td><td>greater than</td><td>&amp;gt;</td><td>&amp;#62;</td></tr>
                 <tr><td>&lt;</td><td>ampersand</td><td>&amp;amp;</td><td>&amp;#38;</td></tr>
             </table>
             <table class="symbol">
+                <tr><th>caractère</th><th>code texte</th><th>commentaire</th></tr>
                 <tr><td>&Aacute;</td><td>&amp;Aacute;</td><td>acute pour l'accent aigu</td></tr>
                 <tr><td>&Acirc;</td><td>&amp;Acirc;</td><td>circ pour l'accent circonflexe</td></tr>
                 <tr><td>&Agrave;</td><td>&amp;Agrave;</td><td>grave pour l'accent grave</td></tr>
                 <tr><td>&Ccedil;</td><td>&amp;Ccedil;</td><td>cedil pour la cédille</td></tr>
                 <tr><td>&Oslash;</td><td>&amp;Oslash;</td><td>slash pour la barre oblique</td></tr>
             </table>
-            <p>
-                <a href="https://www.w3schools.com/html/html_entities.asp">Voir le lien</a>
-            </p>
-
-            <h3>12.2 - Les symboles HTML</h3>
-            <p>De nombreux symboles mathématiques, techniques et monétaires ne sont pas présents sur un clavier normal.</p>
-            <p>Pour ajouter de tels symboles à une page HTML, vous pouvez utiliser un nom d'entité HTML.</p>
-            <p>Si aucun nom d'entité n'existe, vous pouvez utiliser un numéro d'entité, une référence décimale ou hexadécimale.</p>
+      
             <table class="symbol">
+                <tr><th>caractère</th><th>code texte</th><th>code numérique</th><th>commentaire</th></tr>
                 <tr><td>&part;</td><td>&amp;part;</td><td>&amp;#8706;</td><td>PARTIAL DIFFERENTIAL</td></tr>
                 <tr><td>&exist;</td><td>&amp;exist;</td><td>&amp;#8706;</td><td>THERE EXISTS</td></tr>
                 <tr><td>&empty;</td><td>&amp;empty;</td><td>&amp;#8709;</td><td>EMPTY SETS</td></tr>
@@ -478,6 +501,7 @@
             </table>
             <p>
                 <a href="https://www.w3schools.com/html/html_symbols.asp">Voir le lien</a>
+                <a href="https://www.w3schools.com/html/html_entities.asp">Voir le lien</a>
             </p>
         </article>
 

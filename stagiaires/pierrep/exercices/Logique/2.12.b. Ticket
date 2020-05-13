@@ -1,0 +1,12 @@
+var locales
+
+    ticket :B <- 1
+    treduit :B <- 1
+    age :N <- 0
+    grant :N <- 1
+
+fin var locales
+
+saisir age
+
+grant <- ticket ou (treduit et age < 12) ou (age < 6)

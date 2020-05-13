@@ -1,0 +1,56 @@
+Début programme
+	Variable locale
+        Var a :N <- 0
+	Fin variable locale
+	Afficher "Veuillez entrer une somme d'argent :"
+    Saisir a
+	SI a % 100 != a
+    ALORS
+        Afficher "Nombre de billet de 100 € est de", (a - (a % 100)) / 100
+        a <- a % 100
+    FINSI
+    SI a % 50 != a
+    ALORS
+        Afficher "Nombre de billet de 50 € est de", (a - (a % 50)) / 50
+        a <- a % 50
+    FINSI
+    SI a % 20 != a
+    ALORS
+        Afficher "Nombre de billet de 20 € est de", (a - (a % 20)) / 20
+        a <- a % 20
+    FINSI
+    SI a % 10 != a
+    ALORS
+        Afficher "Nombre de billet de 10 € est de", (a - (a % 10)) / 10
+        a <- a % 10
+    FINSI
+    SI a % 5 != a
+    ALORS
+        Afficher "Nombre de billet de 5 € est de", (a - (a % 5)) / 5
+        a <- a % 5
+    FINSI
+    SI a % 2 != a
+    ALORS
+        Afficher "Nombre de pièce de 2 € est de", (a - (a % 2)) / 2
+        a <- a % 2
+    FINSI
+    SI a % 1 != a
+    ALORS
+        Afficher "Nombre de pièce de 1 € est de", (a - (a % 1)) / 1
+        a <- a % 1
+    FINSI
+    SI a % 0.5 != a
+    ALORS
+        Afficher "Nombre de pièce de 50 centimes est de", (a - (a % 0.5)) / 0.5
+        a <- a % 0.5
+    FINSI
+    SI a % 0.2 != a
+    ALORS
+        Afficher "Nombre de pièce de 20 centimes est de", (a - (a % 0.2)) / 0.2
+        a <- a % 0.2
+    FINSI
+    SI a != 0
+    ALORS
+        Afficher "Une piece de 20 centimes est rajouter, afin de ne pas perde d'argent"
+    FINSI
+Fin de programme

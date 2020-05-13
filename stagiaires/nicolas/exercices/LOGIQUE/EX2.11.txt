@@ -1,0 +1,21 @@
+Ecrire l'expression pour savoir si Julie peut sortir, en sachant que :
+
+- S'il pleut Julie doit avoir son manteau
+- La situation est représentée par les variables suivantes
+  + Var pluie : B // Il pleut pour le moment
+  + Var manteau : B // Julie porte un manteau
+
+
+début sortir
+
+	VARIABLES LOCALES
+
+        VAR pluie :B <- faux
+ 	VAR manteau :B <- faux
+	VAR sortir :B <- faux
+
+    	FIN VARIABLES LOCALES
+	
+	sortir <- pluie ET manteau OU NON pluie
+	
+fin sortir

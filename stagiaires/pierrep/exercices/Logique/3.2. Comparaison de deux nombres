@@ -1,0 +1,20 @@
+var a :N <- 0
+var b :N <- 0
+var x :N <- 0
+
+saisie a
+saisie b
+
+si a < b
+
+    affiche b est le plus grand nombre
+
+si a > b
+
+    affiche a est le plus grand nombre
+
+sinon
+
+    affiche a et b sont égaux
+
+

@@ -1,0 +1,18 @@
+Début programme
+	Variable locale
+        Var a :N <- 0
+        Var b :N <- 0
+        Var x :N <- 0
+	Fin variable locale
+	Afficher "Veuillez entrer un nombre :"
+	Saisir a
+    Afficher "Veuillez entrer un nombre :"
+	Saisir b
+	SI a != 0 
+	ALORS
+		x = -(b/a)
+        Afficher "x est égale à ? :", x
+	SINON
+		Afficher "A ne peut pas être égale à 0"
+	FINSI
+Fin de programme

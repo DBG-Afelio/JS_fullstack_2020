@@ -1,0 +1,12 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+    Fin vrariables locales
+    Afficher "Entrez un nombre : "
+    Saisir nbre
+    SI nbre - (nbre DIV 1 ) = 0
+       ALORS Afficher "Votre nombre est un entier
+    SINON
+        Afficher "Votre nombre n'est pas un entier"
+
+Fin de programme
