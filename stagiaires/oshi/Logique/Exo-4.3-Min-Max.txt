@@ -4,49 +4,41 @@ Début programme
         Var max :N <- 0
         Var min :N <- 0
         Var compteur :N <- 0
-        Var f_position_max :N <- 0
-        Var compteur_max :N <- 0
-        Var l_position_max :N <- 0
-        Var f_position_min :N <- 0
-        Var compteur_min :N <- 0
-        Var l_position_min :N <- 0
+        Var f_position_max :N <- 1
+        Var compteur_max :N <- 1
+        Var l_position_max :N <- 1
+        Var f_position_min :N <- 1
+        Var compteur_min :N <- 1
+        Var l_position_min :N <- 1
 	Fin variable locale
     Afficher "Entrer un nombre, taper 100 pour terminer"
     Saisir nombre
+    min <- nombre
+    max <- nombre
     TANT QUE nombre != 100
         compteur <- compteur + 1
-        SI compteur = 1 ALORS
+        SI nombre > max ALORS
             max <- nombre
             compteur_max <- 1
-            min <- nombre
-            compteur_min <- 1
             f_position_max <- compteur
-            f_position_min <- compteur
-            l_position_max <- compteur
-            l_position_min <- compteur
         SINON
-            SI nombre > max ALORS
-                max <- nombre
-                compteur_max <- 1
-                f_position_max <- compteur
-            SINON
-                SI nombre = max ALORS
-                    compteur_max <- compteur_max + 1
-                    l_position_max <- compteur
-                FINSI
-            FINSI
-            SI nombre < min ALORS
-                min <- nombre
-                compteur_min <- 1
-                f_position_min <- compteur
-            SINON
-                SI nombre = min ALORS
-                    compteur_min <- compteur_min + 1
-                    l_position_min <- compteur
-                FINSI
+            SI nombre = max ALORS
+                compteur_max <- compteur_max + 1
+                l_position_max <- compteur
             FINSI
         FINSI
-        Afficher "Le plus petit des nombres entrées est :", min,
+        SI nombre < min ALORS
+            min <- nombre
+            compteur_min <- 1
+            f_position_min <- compteur
+        SINON
+            SI nombre = min ALORS
+                compteur_min <- compteur_min + 1
+                l_position_min <- compteur
+            FINSI
+        FINSI
+    FINSI
+    Afficher "Le plus petit des nombres entrées est :", min,
                     ". Le plus grand des nombres entrées est :", max,
                     ". La position du premier maximum est :", f_position_max,
                     ". La position du premier minimum est :", f_position_min,
