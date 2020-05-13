@@ -1,0 +1,121 @@
+Ecrire le programme qui calcule la plus grande et la plus petite suite croissante de valeurs d'une série de nombres entrés au clavier.
+
+    La fin de la série sera annoncée par un 100.
+    Le programme affichera également :
+        la position du premier maximum;
+        la position du dernier maximum;
+        le nombre d'occurrence du maximum;
+        la position du premier minimum;
+        la position du dernier minimum;
+        le nombre d'occurrence du minimum;
+
+Debut ex4-4
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var pos1 :N
+        var posN :N
+        var long :N
+        
+        var pos1min :N
+        var posNmin :N
+        var longMin :N
+        var nbOccMin :N
+
+        var pos1max :N
+        var posNmax :N
+        var longMax :N
+        var nbOccMax :N
+
+        var i :N
+        var prev :N
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez un nombre"
+    Saisir nombre
+
+    pos1 <- 1
+    posN <- 1
+    long <- 0
+
+    pos1min <- 1
+    posNmin <- 1
+    longMin <- 0
+    nbOccMin <- 0
+
+    pos1max <- 1
+    posNmax <- 1
+    longMax <- 0
+    nbOccMax <- 0
+
+    i <- 1
+    prev <- nombre
+
+    TANT QUE (nombre != 100)
+        
+        SI (i > 1 ET nombre >= prev)
+            ALORS
+                // la série en cours continue
+                posN <- i
+                long <- long + 1
+
+                // on vérifie si serie en cours et la plus grande
+                SI (long = longMax)
+                    ALORS
+                        nbOccMax <- nbOccMax + 1
+                FINSI 
+
+                SI (long > longMax)
+                        pos1Max <- pos1
+                        posNMax <- posN
+                        nbOccMax <- 1
+                    ALORS
+                FINSI 
+
+            SINON   
+                // on vérifie si le série en cours est la plus petite
+                SI (i > 1 ET long = longMin)
+                    ALORS
+                        nbOccMin <- nbOccMin + 1
+                FINSI 
+
+                SI (i = 1 OU long < longMin)
+                    ALORS
+                        pos1Min <- pos1
+                        posNMin <- posN
+                        nbOccMin <- 1
+                FINSI 
+
+                // la série en cours s'arrête
+                pos1 <- i
+                posN <- i
+                long <- 0
+        FIN SI
+
+        Afficher "Entrez un nombre"
+        Saisir nombre
+
+        i <- i + 1
+        prec <- nombre
+    FIN TANT QUE
+
+    // on RE-vérifie si le serie en cours est la plus petite
+    SI (long = longMin)
+        ALORS
+            nbOccMin <- nbOccMin + 1
+    FINSI 
+
+    SI (long < longMin)
+            pos1Min <- pos1
+            posNMin <- posN
+            nbOccMin <- 1
+        ALORS
+    FINSI 
+
+    Afficher "la position du premier maximum",  pos1max
+    Afficher "la position du dernier maximum",  posNMax
+    Afficher "le nombre d'occurrence du maximum", nbOccMax
+    Afficher "la position du premier minimum", pos1min
+    Afficher "la position du dernier minimum", posNmin
+    Afficher "le nombre d'occurrence du minimum", nbOccMin
+  
+Fin ex4-4
