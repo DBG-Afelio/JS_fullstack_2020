@@ -1,0 +1,46 @@
+Écrire le programme qui affiche la somme des valeurs comprises entre deux nombres entrés au clavier.
+
+    Les deux valeurs entrées font partie du total.
+    Si les deux valeurs sont identiques, le total est égal à cette valeur.
+
+Exemple :
+Valeur 1 = 5
+Valeur 2 = 9
+Total = 5 + 6 + 7 + 8 + 9 = 35
+
+
+Debut ex4b-2
+    VARIABLES LOCALES :
+        var nombre1 :N <- 0
+        var nombre2 :N <- 0
+        var somme :N <- 0
+        var pas :N <-1
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le premier nombre"
+    Saisir nombre1
+
+    Afficher "Entrez le deuxième nombre"
+    Saisir nombre2
+
+    SI nombre2 = nombre1
+        ALORS
+            somme <- nombre1
+        SINON
+            SI nombre2 < nombre1
+                ALORS 
+                    pas <- -1
+                SINON
+                    pas <- 1
+            FIN SI
+
+            somme <- 0
+            POUR i ALLANT DE nombre1 A nombre2 PAR PAS DE pas
+                somme <- somme + i
+                
+            i SUIVANT
+    FIN SI
+
+    Afficher "la somme vaut ", somme
+
+Fin ex4b-2
