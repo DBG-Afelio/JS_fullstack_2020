@@ -9,6 +9,9 @@ PROGRAMME
 
     FIN VARIABLE LOCALE
 
+    AFFICHER ("Entrer nombre")
+    SAISIR entry-user
+
     SI (entry-user = 100)
         ALORS AFFICHER ("Une seule valeur : 100")
     SINON
@@ -19,6 +22,7 @@ PROGRAMME
         SINON SI (entry-user >= minimum ET entry-user < maximum)
             ALORS minimum <- entry-user
         FIN SI
+        FIN SI 
     
         AFFICHER("saisir nombre")
         SAISIR entry-user
