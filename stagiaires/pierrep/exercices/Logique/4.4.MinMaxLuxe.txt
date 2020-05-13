@@ -1,0 +1,15 @@
+Debut Validation d'entrée
+
+    Var locales
+ 
+    Fin locales
+
+
+Fin Validation d'entrée
+
+
+
+    fin tant que 
+Fin validation d'entrée
+
+

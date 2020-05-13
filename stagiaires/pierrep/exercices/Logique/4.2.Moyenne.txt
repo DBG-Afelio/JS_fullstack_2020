@@ -1,28 +1,28 @@
 Debut Validation d'entrée
 
-    Var locales
+    VAR LOCALES
+
     count :N <- 0
     nb :N <- 0
     av :N <- 0
     somme :N <- 0
 
-Fin Validation d'entrée
+    FIN VAR LOCALES
 
-    tant que nb != 100
+    av <- somme / count
 
+    TANT QUE nb != 100
+       
+        afficher "entrez un nombre"
         saisie nb
 
-        si nb != 100 
+        somme <- somme + nb
 
-            alors
+        count <- count + 1
 
-                count <- count + 1
+        afficher "la moyenne vaut ", av
 
-                somme <- somme + nb
-    
-        fin tant que
-
-    affiche av <- somme / count
+    FIN TANT QUE
 
 Fin validation d'entrée
 
