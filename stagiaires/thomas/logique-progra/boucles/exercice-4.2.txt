@@ -15,13 +15,14 @@ PROGRAMME
         ALORS AFFICHER ("La moyenne est de 100")
     SINON
         TANT QUE (entry-user != 100)
-        
+
             AFFICHER("Entrer note :")
             SAISIR entry-user
             cumul <- cumul  + entry-user
             nbres-notes <- nbres-notes + 1
 
-    FIN TANT QUE
+        FIN TANT QUE
+    FIN SI
 
     AFFICHER("100 !")
     AFFICHER("La moyenne est de : ", cumul / nbres-notes)
