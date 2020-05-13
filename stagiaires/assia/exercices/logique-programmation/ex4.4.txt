@@ -22,9 +22,9 @@ Debut EX44
         VAR lastPosMax <- 1
         VAR occurMin <- 1
         VAR occurMax <- 1
-        VAR petiteSuite <- 2 // on pars du principe qu'une suite est constitué d'au moins 2 nombres croissants consecutifs
-        VAR grandeSuite <- 2
-        VAR tempSuite <- 1
+        VAR suiteMin <- 0 // on pars du principe qu'une suite est constitué d'au moins 2 nombres croissants consecutifs
+        VAR suiteMax <- 0
+        VAR suite <- 0
         VAR previous <- 0
         VAR i :N <- 0
         CONST stop :N <- 100
@@ -65,19 +65,75 @@ Debut EX44
                 FINSI
             FINSI
 
-            SI input > previous
+//calcul des suites croissantes
+
+            SI input > previous                             //ici on incremente suite qui est en cours
             ALORS
-                tempSuite <- tempSuite + 1
-            SINON
-                tempSuite <- 1
+                SI suite = 0
+                ALORS
+                    suite <- 2                              // 2 car on detecte une suite a partir de 2 nombres croissants successifs
+                SINON
+                    suite <- suite + 1
+                FINSI
             FINSI
-
-            SI tempSuite ≥ 2
-
+            SI input < previous                             // on met a jour suiteMin et suiteMax que si
+                SI suite ≠ 0                                                                           //une suite en cours a ete rompue
+                    SI suiteMin = 0
+                    ALORS
+                        suiteMin <- suite
+                    SINON
+                        SI suiteMax = 0
+                            SI suite < suiteMin
+                            ALORS
+                                suiteMax <- suiteMin
+                                suiteMin <- suite
+                                SINON
+                                    suiteMax <- suite
+                            SINON
+                                SI suite < suiteMin
+                                ALORS
+                                    suiteMin <- suite
+                        FINSI
+                        SI suite > suiteMax
+                        ALORS
+                            suiteMax <- suite
+                        FINSI
+                    FINSI
+                    suite <- 0
+                FINSI
+            FINSI
         FINSI
         previous <- input
+
+        Afficher "Saisir une serie de nombre"
+        Afficher "Saisir ", stop, " pour terminer"
         Saisir input
     FIN TANT QUE
+
+    SI suite ≠ 0                                             recopie //je mets a jour suiteMin et suiteMax si une suite etait en cours juste avant de terminer (stop = 100)
+        SI suiteMin = 0
+        ALORS
+            suiteMin <- suite
+        SINON
+            SI suiteMax = 0
+                SI suite < suiteMin
+                ALORS
+                    suiteMax <- suiteMin
+                    suiteMin <- suite
+                    SINON
+                        suiteMax <- suite
+                SINON
+                    SI suite < suiteMin
+                    ALORS
+                        suiteMin <- suite
+            FINSI
+            SI suite > suiteMax
+            ALORS
+                suiteMax <- suite
+            FINSI
+        FINSI
+    FINSI
+
 
     CAS OU i
         CAS 0
@@ -99,6 +155,20 @@ Debut EX44
             SINON
                 Afficher "..le 1er en position ", firstPosMax, " et le dernier detecté en position ", lastPosMax
             FINSI
+
+// ajout info suite
+
+            SI suiteMin 0 ET suiteMax = 0
+            ALORS
+                Afficher "Il n'y a pas de suite croissante dans la serie de nombres entres"
+            FINSI
+            SI suiteMin ≠ 0 ET suiteMin = suiteMax OU SuiteMax ≠ 0 ET suiteMin = suiteMax OU suiteMin ≠ 0 ET suiteMax = 0
+            ALORS
+                Afficher "Il n'y a qu'une suite de nombres croissants, elle compte :", suiteMin, "nombres croissants consecutifs"
+            FINSI
+            SI suiteMin ≠ 0 ET suiteMax ≠ 0 ET suiteMin < suiteMax
+            ALORS
+                Afficher "La plus petite suite compte", suiteMin, "nombres, et la plus grande compte ", suiteMax, "nombres."
     FIN CAS OU
 
   Fin EX44
