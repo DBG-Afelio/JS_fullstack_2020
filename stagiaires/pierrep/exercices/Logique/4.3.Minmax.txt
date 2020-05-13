@@ -1,0 +1,51 @@
+Debut Validation d'entrée
+
+    VAR LOCALES
+
+    nb :N <- 0
+    big :N <- nb
+    small :N <- nb
+    maxPos :N <- 0
+    minPos :N <- 0
+    maxOc :N <- 0
+    minOc :N <- 0
+
+    FIN VAR LOCALES
+
+Fin Validation d'entrée
+
+    afficher "Veuillez saisir un nombre, Monsieur ou Madame, merci..."
+
+    saisie nb
+
+    TANT QUE (nb != 100)     
+
+        si nb > big
+
+            alors big <- nb
+
+            maxPos <- count
+
+        si nb < small
+        
+            alors small <- nb
+
+            minPos <- nb
+
+        si nb = big 
+
+            alors maxOC <- maxOC + 1
+
+        si nb = min
+
+            alors minOC = minOC + 1
+
+    saisie nb
+
+    FIN TANT QUE 
+
+    
+ 
+Fin validation d'entrée
+
+

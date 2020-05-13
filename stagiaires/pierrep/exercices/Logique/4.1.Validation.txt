@@ -1,0 +1,19 @@
+Debut Validation d'entrée
+
+    Var locales
+    
+        var nombre :N <- 0
+
+Fin Validation d'entrée
+
+    affiche "Entrez un chiffre"
+    
+    boucle tant que (nombre !<- 0 ET nombre !<- 1 OUETnombre !<- 2 ET nombre !<- 3 ET nombre !<- 4) 
+    
+    saisie nombre
+
+    fin tant que
+
+Fin validation d'entrée
+
+
