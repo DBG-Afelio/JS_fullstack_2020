@@ -31,10 +31,6 @@ Debut moyenne
 
 	TANT QUE (valeur_utilisateur != 100)
 
-		Afficher "SVP entrez une nouvelle valeur"
-
-			Saisir valeur_utilisateur
-		
 		SI (plus_grand < valeur_utilisateur)
 
 			plus_grand <- valeur_utilisateur
@@ -44,6 +40,10 @@ Debut moyenne
 			plus_petit <- valeur_utilisateur
 
 		FIN SI
+
+		Afficher "SVP entrez une nouvelle valeur"
+
+			Saisir valeur_utilisateur
 
         FIN TANT QUE
 
