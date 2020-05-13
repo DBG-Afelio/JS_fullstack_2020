@@ -1,0 +1,23 @@
+Ecrire le programme qui permet de calculer la factorielle d'un nombre entré au clavier.
+
+Debut ex4-5
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var factorielle :N 
+        var i: N
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez un nombre"
+    Saisir nombre
+
+    
+    factorielle <- 1
+    i <- nombre
+    TANT QUE (i > 0)
+        factorielle <- factorielle * i
+        i <- i - 1
+    FIN TANT QUE
+
+    Afficher "La factorielle de ", nombre, " vaut ", factorielle
+
+Fin ex4-5
