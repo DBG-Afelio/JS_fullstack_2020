@@ -14,7 +14,7 @@ PROGRAMME
     AFFICHER("Entrer nombre")
     SAISIR entree
 
-        SI(non(entree < 10 ET entree > 20))
+        SI(entree >= 10 ET entree <= 20)
             total <- entree + total
             nombres-entres <- nombres-entres + 1
         FIN SI
