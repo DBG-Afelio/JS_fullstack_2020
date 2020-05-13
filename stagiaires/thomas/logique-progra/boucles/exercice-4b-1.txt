@@ -6,7 +6,6 @@ PROGRAMME
     var nombres-entres :N <- 0 
     var compteur :N <- 0
     var total :N <- 0
-    var moyenne :N <- 0
 
     FIN VARIABLE LOCALE 
 
@@ -15,13 +14,10 @@ PROGRAMME
     AFFICHER("Entrer nombre")
     SAISIR entree
 
-        SI(entree < 10 ET entree > 20)
-            total <- total
-        SINON
+        SI(non(entree < 10 ET entree > 20))
             total <- entree + total
             nombres-entres <- nombres-entres + 1
         FIN SI
-
     FIN POUR  
 
     AFFICHER("La moyenne est de :", total / nombres-entres)
