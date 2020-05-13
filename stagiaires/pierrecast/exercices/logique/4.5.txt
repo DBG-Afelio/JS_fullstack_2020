@@ -11,7 +11,7 @@ Debut ex4-5
     Saisir nombre
 
     
-    factorielle <- 0
+    factorielle <- 1
     i <- nombre
     TANT QUE (i > 0)
         factorielle <- factorielle * i
