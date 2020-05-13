@@ -1,0 +1,95 @@
+Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
+
+    La fin de la série sera annoncée par un 100.
+    Le programme affichera également :
+        le plus grand;
+        le plus petit des nombres;
+        la position du premier maximum (optionnel);
+        la position du dernier maximum (optionnel);
+        le nombre d'occurrence du maximum (optionnel);
+        Idem pour le minimum (optionnel).
+
+Debut ex4-3
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var max :N <- 0
+        var min :N <- 0
+        var somme :N <-0
+
+        var pos1max:N <- 0
+        var posNmax:N <- 0
+        var nbmax:N <- 0
+
+        var pos1min:N <- 0
+        var posNmin:N <- 0
+        var nbmin:N <- 0
+
+        var i:N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez un nombre"
+    Saisir nombre
+
+    somme <-0
+    max <- nombre
+    min <- nombre
+
+    pos1max <- 0
+    posNmax <- 0
+    nbmax <- 0
+
+    pos1min <- 0
+    posNmin <- 0
+    nbmin <- 0
+
+    i <- 0
+
+    TANT QUE (nombre != 100)
+        
+        SI (max <= nombre)
+            ALORS
+                SI (max < nombre)
+                    ALORS
+                        max <- nombre
+                        pos1max <- i
+                        posNmax <- i
+                        nbmax <- 1
+                    SINON    
+                        posNmax <- i
+                        nbmax <- nbmax + 1
+                FIN SI
+        FIN SI
+
+        SI (min >= nombre)
+            ALORS
+                SI (min > nombre)
+                    ALORS
+                        min <- nombre
+                        pos1min <- i
+                        posNmin <- i
+                        nbmin <- 1
+                    SINON    
+                        posNmin <- i
+                        nbmin <- nbmin + 1
+                FINSI
+        FINSI
+
+        Afficher "Entrez un nombre"
+        Saisir nombre
+        i <- i + 1
+
+    FIN TANT QUE
+
+    Afficher "le maximum vaut ", max
+    Afficher "le minimum vaut ", min
+
+    Afficher "la position du premier maximum ", pos1max
+    Afficher "la position du dernier maximum ", posNmax
+    Afficher "le nombre d'occurrence du maximum ", nbmax
+
+    Afficher "la position du premier minimum ", pos1min
+    Afficher "la position du dernier minimum ", posNmin
+    Afficher "le nombre d'occurrence du maminimumximum ", nbmin
+
+
+Fin ex4-3
