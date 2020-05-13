@@ -1,6 +1,6 @@
 Debut Validation d'entrée
 
-    Var locales
+    VAR LOCALES
 
     nb :N <- 0
     big :N <- 0
@@ -10,6 +10,7 @@ Debut Validation d'entrée
     maxOc :N <- 0
     minOc :N <- 0
 
+    FIN VAR LOCALES
 
 Fin Validation d'entrée
 
