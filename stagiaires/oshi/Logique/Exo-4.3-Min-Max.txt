@@ -37,7 +37,6 @@ Début programme
                 l_position_min <- compteur
             FINSI
         FINSI
-    FINSI
     Afficher "Le plus petit des nombres entrées est :", min,
                     ". Le plus grand des nombres entrées est :", max,
                     ". La position du premier maximum est :", f_position_max,
