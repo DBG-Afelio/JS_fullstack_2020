@@ -1,0 +1,33 @@
+Écrire le programme qui affiche la somme des valeurs comprises entre deux nombres entrés au clavier.
+
+    Les deux valeurs entrées font partie du total.
+    Si les deux valeurs sont identiques, le total est égal à cette valeur.
+
+Exemple :
+Valeur 1 = 5
+Valeur 2 = 9
+Total = 5 + 6 + 7 + 8 + 9 = 35
+dbt pgm 
+var loc
+var nbr1:N<-0
+var nbr2:N<-0
+var cpt:N
+var inc:N
+var somme:N<-0
+Saisie de nbr1
+Saisie de nbr2
+Si nbr2=nbr1
+    alors somme<-nbr1
+    sinon si nbr2<nbr1
+           alors inc <- -1
+           sinon inc <- 1
+	fin de si
+
+     somme <- 0
+     Pour cpt de nbr1 a nbr2 par inc
+                somme <- somme + cpt
+                
+     fin Pour
+Fin de si
+afficher somme
+fin pgm
