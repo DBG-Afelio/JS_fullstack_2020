@@ -24,15 +24,13 @@ Debut exercice
         SI Nguess < Nrandom
         ALORS
             Afficher "C'est plus grand ! Essaye encore !"
-            Saisir Nguess
         FINSI
         SI Nguess > Nrandom
         ALORS
             Afficher "C'est plus petit ! Essaye encore !"
-            Saisir Nguess
         FINSI
     JUSQU'A CE QUE Nguess = Nrandom
 
     Afficher " BINGO !"
-    
+
 Fin exercice
