@@ -8,7 +8,7 @@ Debut Validation d'entrée
 
     FIN VAR LOCALES
 
-    afficher "veuillez entrer un nombre"
+    afficher "veuillez entrer un nombre svp"
 
     saisie x
 
