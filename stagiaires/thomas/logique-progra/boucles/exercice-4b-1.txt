@@ -14,12 +14,13 @@ PROGRAMME
 
     AFFICHER("Entrer nombre")
     SAISIR entree
-    
+
         SI(entree < 10 ET entree > 20)
             total <- total
         SINON
             total <- entree + total
             nombres-entres <- nombres-entres + 1
+        FIN SI
 
     FIN POUR  
 
