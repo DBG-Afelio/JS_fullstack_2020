@@ -6,11 +6,6 @@ Début programme
         cptmoy :N <- 0
     Fin variables locales
 
-    Affichez "Entrez des nombres et appuyez sur 100 pour terminer"
-
-    Affichez "Entrez un nombre: "
-    Saisir nbre
-
     TANTQUE cpt <= 30
         Affichez "Entrez un nombre: "
         Saisir nbre
