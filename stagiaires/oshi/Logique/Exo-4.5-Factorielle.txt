@@ -1,0 +1,18 @@
+Début programme
+	Variable locale
+        Var nombre :N <- 0
+        Var resultat :N <- 1
+        Var index :N <- 1
+	Fin variable locale
+    Afficher "Entrer un nombre"
+    Saisir nombre
+    SI nombre % 1 = 0 ALORS
+        TANT QUE nombre  >= index
+            resultat <- resultat * index
+            index <- index + 1
+        FIN TANT QUE
+        Afficher "La factorielle de votre nombre est de :", nombre, "! = ", resultat
+    SINON
+        Afficher "Veuillez entrer un nombre entier"
+    FINSI
+Fin de programme
