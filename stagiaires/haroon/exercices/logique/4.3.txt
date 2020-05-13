@@ -3,7 +3,7 @@ Debut Programme
         VAR A :N <- 0
 	VAR MIN : N <- 0
 	VAR MAX : N <- 0
-
+	VAR I : N <- 0
 	VAR PositionMax : N<-0
 	VAR PositionMin : N<- 0
 	VAR PositionDerMax : N <-0
@@ -14,18 +14,21 @@ Debut Programme
 
 	Afficher "Entrez le chiffre :A"
 	Saiser A
+	MAX : N <- A
+	MIN : N <- A
 	
 	TANT QUE A != 100 
-		SI A > Max 
+		i <- i + 1
+		SI A > MAX 
 			Alors
 			Max = A
-			PositionMax <-1
+			PositionMax <- i
 			VAR PositionDerMax <- PositionDerMax +1
 		SINON SI 
 			A < MIN 
 			Alors
-			 MIN = A
-			PositionMin <-1
+			MIN = A
+			PositionMin <- i
 		SINON SI
 			A = Max
 			Alors 
