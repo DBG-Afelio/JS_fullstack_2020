@@ -1,0 +1,47 @@
+HTML
+
+I. Introduction
+	1.1. Definition : HTML c’est quoi?
+	1.2. Origine et evolution
+	1.x. Principe / Comment ca marche?
+	1.5. Syntaxe générale et structures HTML
+	1.4. Les outils de HTML
+	1.3. Interoperabilite de HTML
+
+
+II. Les tableaux et listes 
+	2.1. Les tableaux
+		2.1.1. Qu'est-ce qu'un tableau / les elements qui le constituent / Comment fonctionne le tableau 
+		2.1.2. Quand les utiliser/ne pas les utiliser / Intérêts
+		2.1.3. Structure de base / syntaxe / balises
+		2.1.4. Styles et mise en page / attributs
+	2.2 Les listes
+		2.2.1. Qu'est-ce qu'une liste / a quoi ca sert ?
+		2.2.2. Listes ordonnees / non ordonnees / items de liste - construction et syntaxw
+		2.2.3. Les listes de definition DL DT DD
+		2.2.4. Les styles propres a une liste (list-style-type/position/image)
+		2.2.5. Les attributs
+-------------------
+Intro:
+	https://fr.wikipedia.org/wiki/Hypertext_Markup_Language
+	http://www.guidegratuit.com/htmlcestquoi.htm
+	https://facemweb.com/creation-site-internet/liste-balises-html
+	http://41mag.fr/liste-des-balises-html5
+intro breve :	https://www.gralon.net/articles/internet-et-webmaster/creation-site-internet/article-le-langage-html-260.htm
+	http://intertwingly.net/stories/2009/03/13/html5-evolution.html
+
+
+------------------
+tableaux:
+	https://developer.mozilla.org/fr/docs/Apprendre/HTML/Tableaux/Basics
+	https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables
+	https://www.pierre-giraud.com/html-css-apprendre-coder-cours/tableau-table/
+	https://www.numelion.com/tableau-html.html
+
+------------------
+Listes:
+
+https://www.la-grange.net/w3c/html4.01/struct/lists.html#h-10.4
+https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Créer_une_liste_d_éléments_avec_HTML
+https://www.pierre-giraud.com/html-css-apprendre-coder-cours/liste-ul-ol-dl/
+https://developer.mozilla.org/fr/docs/Learn/CSS/Styling_text/Styling_lists

@@ -1,0 +1,23 @@
+#REFERENCEMENT
+
+A chaque fois que vous ajouter un extrait de texte issu d'un site web dans la rédaction de votre page, pouvez-vous y ajouter, entre parenthèse et à la fin de l'extrait, le lien vers la page ? 
+
+-Paragraphes : 
+
+balise classique <p> </p>
+
+-Exemples de code: 
+
+balise <span class="codex"> </class>
+
+-Exemples de "situation" pour illustrer un propos:
+
+balise <span class="ex"> </class>
+
+-Mots clés :
+
+balise <span class="keyword"> </class>
+
+
+
+

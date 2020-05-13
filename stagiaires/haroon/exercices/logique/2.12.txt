@@ -1,0 +1,29 @@
+Ecrire l'expression pour savoir si la personne peut entrer ou non.
+Sachant que:
+
+-  Les variables suivantes représentent les caractéristiques de la personne.
+  +  Var a : B // la personne a un ticket
+  +  Var b : B // la personne a un ticket réduit
+  +  Var age : N // âge de la personne.
+- Un enfant de moins de 6 ans peut entrer gratuitement,
+- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+debut Ticket 
+
+VARIABLES LOCALES :
+
+VAR A : N < - 0
+VAR B : N <- 0
+VAR Age : N <-0
+VAR result : N <- 0 
+Fin VARIABLES LOCALES:
+ 
+Afficher "S.V.P entrez A:"
+Saiser A
+Afficher "S.V.P entrez B:"
+Saiser B
+Afficher "S.V.P entrez Age:"
+Saiser Age
+result <- Age < 6 ou ( Age > 6 et  Age > 12 et B ) ou ( A et Age > 12 )
+fin Ticket 
