@@ -1,0 +1,16 @@
+Ecrire le programme qui permet de calculer la factorielle d'un nombre entré au clavier.
+
+Debut Programme 
+	Variables Locales 
+		VAR A :N <- 0
+		VAR Result :N <- 0
+	Fin Variables Locales  
+Afficher "Entrez le chiffre :  A"
+Saiser A
+ 		TANT QUE A != 0
+			Result <- A * A-1
+			Saiser A
+		FIN TANT QUE 
+Afficher Result 
+
+Fin Pregramme 
