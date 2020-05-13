@@ -1,0 +1,33 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var temp :N <- 0
+    var entry-user :N <- 0
+    var minimum :N <- 0
+    var maximum :N <- 0
+
+    FIN VARIABLE LOCALE
+
+    SI (entry-user = 100)
+        ALORS AFFICHER ("Une seule valeur : 100")
+    SINON
+        TANT QUE (entry-user != 100)
+
+        SI (entry-user > maximum) 
+            ALORS maximum <- entry-user
+        SINON SI (entry-user >= minimum ET entry-user < maximum)
+            ALORS minimum <- entry-user
+        FIN SI
+    
+        AFFICHER("saisir nombre")
+        SAISIR entry-user
+
+        FIN TANT QUE
+    FIN SI 
+
+    AFFICHER("100")
+    AFFICHER("Le plus grand nombre est :", maximum)
+    AFFICHER("Le plus petit nombre est :", minimum)
+
+FIN PROGRAMME
