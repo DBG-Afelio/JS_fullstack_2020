@@ -1,0 +1,29 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var entree :N <- 0
+    var nombres-entres :N <- 0 
+    var compteur :N <- 0
+    var total :N <- 0
+    var moyenne :N <- 0
+
+    FIN VARIABLE LOCALE 
+
+    POUR compteur ALLANT DE 1 A 30
+
+    AFFICHER("Entrer nombre")
+    SAISIR entree
+    
+        SI(entree < 10 ET entree > 20)
+            total <- total
+        SINON
+            total <- entree + total
+            nombres-entres <- nombres-entres + 1
+
+    FIN POUR  
+
+    AFFICHER("La moyenne est de :", total / moyenne)
+
+
+FIN PROGRAMME
