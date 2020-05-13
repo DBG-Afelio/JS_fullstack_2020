@@ -1,0 +1,27 @@
+Ecrire un programme qui lit 30 nombres et affiche la moyenne des nombres compris entre 10 et 20.
+
+Debut ex4b-1
+    VARIABLES LOCALES :
+        var nombre :N <- 0
+        var somme :N
+        var quantite :N 
+        var i: N <- 1
+    FIN VARIABLES LOCALES
+
+    quantite <- 0
+    somme <- 0
+    POUR i ALLANT DE 1 A 30
+        Afficher "Entrez un nombre"
+        Saisir nombre
+
+        SI (nombre >= 10 ET nombre <= 20)
+            ALORS
+                somme <- somme + nombre
+                quantite <- quantite + 1
+        FIN
+
+    i SUIVANT
+
+    Afficher "la moyenne vaut ", somme/quantite
+
+Fin ex4b-1
