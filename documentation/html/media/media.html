@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>html-documentation</title>
+    <link rel="stylesheet" href="css/screen.css"/>
+  </head>
+
+  <body>
+    <!-- BALISES MULTIMEDIA -->
+    <h2>Les balises multimédia</h2>
+      <p>Les balises multimédia permettent de lire du contenu audio et vidéo sur le navigateur et une d’elle, donne le droit à l’utilisateur de dessiner des motifs et des formes sur une zone spécifique du navigateur.
+      </p>
+    <hr>
+    <p>
+      <b>Liste des balises media :</b>
+    </p>
+    <p>
+      <b>&ltAudio&gt</b> : Cette balise permet l’affichage et la prise en charge de contenu audio, sous différents formats.
+    </p>
+    <p>Pour spécifier la piste audio, on peut utiliser l’attribut <span class="keyword"><b>src</b></span> ou la balise <b>source</b>.
+      L’attribut <span class="keyword"><b>controls</b></span> met à disposition de l’utilisateur une interface pour la lecture du média.
+    </p>
+    <p>
+      <b>Quelques formats audio</b> : mp3, ogg, wav, FLAC... 
+    </p>
+    <p>
+      <b>Quelques attributs utiles</b> : autoplay, loop, muted, preload</p>
+<pre>
+    &ltaudio controls src="/media/examples/t-rex-roar.mp3">
+            Your browser does not support the audio element. 
+    &lt/audio&gt
+</pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+        <audio controls
+            src="/media/examples/t-rex-roar.mp3">
+                Your browser does not support the
+                audio element. 
+        </audio>
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltVideo&gt</b> : Permet de lire du contenu vidéo sous plusieurs formats. Comme la balise <span class="keyword"><b>audio</b></span>, l’attribut src et la balise <span class="keyword"><b>source</b></span>.
+    </p>
+    <p>De même, L’attribut <span class="keyword"><b>controls</b></span> peut être spécifié pour disposer de l’interface de contrôle.</p>
+    <p>
+      <b>Formats vidéo</b> : mp4, avi, mov, rm, mkv, divx...
+    </p>
+    <p>
+      <b>Attributs utiles</b> : autoplay, loop, muted, preload
+    </p>
+<pre>
+    &ltvideo controls width="250"&gt
+
+        &ltsource src="https://assets.mixkit.co/videos/preview/mixkit-times-square-during-a-rainy-night-4332-large.mp4" type="video/webm"&gt
+
+        &ltsource src="https://assets.mixkit.co/videos/preview/mixkit-times-square-during-a-rainy-night-4332-large.mp4" type="video/mp4"&gt
+
+        Sorry, your browser doesn't support embedded videos.
+    &lt/video&gt
+</pre>
+<code>
+    <p><b>Apercu</b>:</p>
+    <video controls width="400" height="400" autoplay>
+
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-times-square-during-a-rainy-night-4332-large.webm" type="video/webm">
+
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-times-square-during-a-rainy-night-4332-large.mp4" type="video/mp4"> 
+
+    Sorry, your browser doesn't support embedded videos.
+    </video>
+</code>
+<p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/video" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltSource&gt</b> (balise orpheline) : La balise source sert à définir une ou plusieurs ressources média pour sa lecture (s’accompagne avec la balise <span class="keyword"><b>audio</b></span> ou <span class="keyword"><b>vidéo</b></span>)
+    </p>
+    <p>
+      <b>Quelques attributs utiles</b> : media, sizes, src, srcset, type
+    </p>
+    <pre>
+        &ltvideo&gt controls width="400" height="400" muted> 
+
+        &ltsource src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4"&gt
+        &ltsource src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.webm" type="video/webm"&gt
+
+            This browser does not support the HTML5 video element.
+        &lt/video&gt
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+        <video controls width="400" height="400" muted> 
+
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.webm" type="video/webm">
+
+            This browser does not support the HTML5 video element.
+        </video>
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/source" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltEmbed&gt</b> <span class="keyword">(balise orpheline)</span> : La balise embed permet d'intégrer <b>un média ou une application</b> sur la page HTML. 
+    </p>
+    <p><b>Quelques attributs qui l’accompagne</b> (conseillé de toutes les définir et spécifier): height, src, type, width</p>
+    <pre>
+        &ltembed width="560" height="315" src="https://www.youtube.com/embed/9jBL_2UiRw8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt&lt/embed&gt
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+        <embed width="560" height="315" src="https://www.youtube.com/embed/9jBL_2UiRw8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></embed>
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/embed" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltPicture&gt</b>: Cette balise agit comme les balises <span class="keyword"><b>audio</b></span> et <span class="keyword"><b>vidéo</b></span> mais pour les images.
+    </p>
+    <p>
+       <b>Petit point a apporter :</b> La prise en charge s'applique aussi bien pour les images <span class="keyword"><b>matricielles</b></span> que <span class="keyword"><b>vectorielles</b></span>
+    </p>
+
+    <p>
+        <b>Differences entre les 2 types ?</b> => Une image vectorielle peut être <b>agrandie sans perdre sa qualité</b> alors qu'une image matricielle <b>perd en netteté à l'agrandissement</b>. L'image matricielle (ou <b>bitmap</b>): Elle est composée de petits points appelés « pixels » que l'on ne voit pas à l'œil nu.
+    </p>
+
+    <p>
+     <b>Image matricielle (ou bitmap)</b> : Lors de l’agrandissement d’une image matricielle, cette dernière devient floue car les pixels ressortent, ce sont les carrés qui apparaissent sur l’écran.
+    </p>
+    
+    <p>
+        <b>Image vectorielle</b> : Elle est composée de lignes de segments qui sont liés entre eux par des formules mathématiques. Il s’agit d’un système de proportionnalité et de coordonnées. Grâce à la vectorisation, chaque élément a une place bien définie ce qui empêche la déformation de l’image.
+    </p>
+
+    <p><b>Quelques attributs utiles </b>: media, sizes, src, srcset, type</p>
+    <pre>
+        &ltpicture&gt
+            &ltsource srcset="https://thumbs.gfycat.com/SkeletalBeneficialGrebe-size_restricted.gif" media="(min-width: 800px)"&gt
+            &ltimg src="https://thumbs.gfycat.com/SkeletalBeneficialGrebe-size_restricted.gif"/&gt
+        &ltpicture&gt
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+        <picture>
+            <source srcset="https://thumbs.gfycat.com/SkeletalBeneficialGrebe-size_restricted.gif" media="(min-width: 800px)">
+            <img src="https://thumbs.gfycat.com/SkeletalBeneficialGrebe-size_restricted.gif">
+        <picture>
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/picture" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltimg&gt</b> (balise orpheline) : Affiche une image. </p>
+    <p>
+      <b>Petite précision CSS </b>:  Les images sont définies en mode <span class="keyword"><b>display</b>: <b>inline</b></span> par défaut
+    </p>
+    <p>
+      <b>Format d’images prise en charge</b> : jpeg, png, svg, tiff, gif, webP, bmp…
+    </p>
+    <p>
+      <b>Attributs pris en charge</b> : alt, crossorigin, sync, async, ismap, size, src, srcset, width..</p>
+    <pre>
+      &ltimg class="dark-vador" src="https://vignette.wikia.nocookie.net/fr.starwars/images/c/cd/Star_Wars_Dark_Vador_Vador.jpg/revision/latest?cb=20180204092550" alt="Dark Vador Marvel"&gt
+    </pre>
+    <code>
+        <p>Apercu :</p>
+      <img class="dark-vador" src="https://vignette.wikia.nocookie.net/fr.starwars/images/c/cd/Star_Wars_Dark_Vador_Vador.jpg/revision/latest?cb=20180204092550" alt="Dark Vador Marvel" width="350" height="500">
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltobject&gt</b> permet d'insérer une ressource de type media, application ou plugin. 
+    </p>
+    <p>
+      <b>Petite précision </b>: Les nouveaux navigateurs ne sont <span class="keyword"><b>ne prennent plus en charge (ou partiellement demandant autorisation à l'utilisateur)</b>.</span> Adobe Flash, ActiveX, les applets et plugins Java
+    </p>
+    <p>
+      <b>Attributs pris en charge </b>: data, form, width, height, type, name... 
+    </p>
+    <pre>
+      &ltobject type="application/pdf" data="https://gallica.bnf.fr/ark:/12148/bpt6k201333r.pdf" width="400" height="400"&gt&lt/object&gt
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+      <object type="application/pdf" data="https://gallica.bnf.fr/ark:/12148/bpt6k201333r.pdf" width="400" height="400">
+      </object>
+    </code>
+    <p>Plus d'informations sur le <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/object" target="_blank"><b>MDN</b></a></p>
+    <hr>
+    <p>
+      <b>&ltparam&gt</b> sert à définir les paramètres qui peuvent être employés dans un élément qui a pour balise <span class="keyword"><b>object</b></span>.
+    </p>
+    <p>
+      <b>Attributs</b> : value, name
+    </p>
+    <pre>
+      &ltobject data="animation.swf" type="application/x-shockwave-flash"&gt
+        &ltparam name="param11" value="valeurConf"&gt
+      &lt/object&gt
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+      <object data="animation.swf" type="application/x-shockwave-flash">
+        <param name="param11" value="valeurConf">
+      </object> 
+    </code>
+    <hr>
+    <p>
+      <b>&lttrack&gt</b> permet d’ajouter des sous-titres dans un média de type <span class="keyword"><b>audio</b></span> et <span class="keyword"><b>vidéo</b></span>.
+    </p>
+    <p>
+      <b>Attributs</b> : default, kind (subtitles, captions, descriptions, chapters, metadata), label, src, srclang
+    </p>
+    <p>
+        Précision sur les formats de sous-titres : Ces derniers sont généralement au format <span class="keyword"><b>.vtt (Web Video Text Tracks File)</b></span>.
+    </p>
+    <pre>
+      
+    &ltvideo controls width="250" src="/media/examples/friday.mp4"&gt
+    &lttrack default kind="captions" srclang="en" src="/media/examples/friday.vtt"/&gt
+
+    Sorry, your browser doesn't support embedded videos.
+      </video>
+    </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+      <video controls width="250"
+       src="/media/examples/friday.mp4">
+
+    <track default kind="captions"
+           srclang="en"
+           src="/media/examples/friday.vtt"/>
+
+    Sorry, your browser doesn't support embedded videos.
+      </video>
+    </code>
+    <hr>
+    <p>
+      <b>&ltcanvas&gt</b>
+    </p>
+    <p>Cette balise permet de créer une zone sur le navigateur sur lequel l’utilisateur peut injecter du <span class="keyword">code javascript</span> (via l’API Canvas) pour créer des animations, faire du dessin <b>SVG</b> et des <b>graphes</b>, voir même de la <b>3D</b>(via l’API webGL).</p>
+    <pre>
+        &ltscript type="application/javascript"&gt 
+            function draw() {
+              var canvas = document.getElementById("canvas");
+              if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+        
+                ctx.fillStyle = 'rgb(200, 0, 0)';
+                ctx.fillRect(10, 10, 50, 50);
+        
+                ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+                ctx.fillRect(30, 30, 50, 50);
+              }
+            }
+          &lt/script&gt
+         &ltbody onload="draw();"&gt
+           &ltcanvas id="canvas" width="400" height="400"&gt&lt/canvas&gt
+         &lt/body&gt
+        </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+        <script type="application/javascript">
+            function draw() {
+              var canvas = document.getElementById("canvas");
+              if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+        
+                ctx.fillStyle = 'rgb(200, 0, 0)';
+                ctx.fillRect(10, 10, 50, 50);
+        
+                ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+                ctx.fillRect(30, 30, 50, 50);
+              }
+            }
+          </script>
+         </head>
+         <body onload="draw();">
+           <canvas id="canvas" width="400" height="400"></canvas>
+         </body>
+    </code>
+    <hr>
+    <p>
+      <b>&ltsvg&gt</b>
+    </p>
+    <p> La balise &ltSVG&gt permet d'insérer du <span class="keyword">code SVG</span> de définir des coordonnées en 2 dimensions pour reproduire des formes (polygon, rectangle, cercle, sphère...), des dessins et même des animations.</p>
+    <pre>
+    &ltsvg xmlns="http://www.w3.org/2000/svg" 
+    width="150" height="100" viewBox="0 0 3 2"&gt
+        &ltrect width="1" height="2" x="0" fill="#008d46" /&gt
+        &ltrect width="1" height="2" x="1" fill="#ffffff" /&gt
+        &ltrect width="1" height="2" x="2" fill="#d2232c" /&gt
+    &lt/svg&gt
+      </pre>
+    <code>
+        <p><b>Apercu</b>:</p>
+      <svg xmlns="http://www.w3.org/2000/svg" 
+     width="150" height="100" viewBox="0 0 3 2">
+        <rect width="1" height="2" x="0" fill="#008d46" />
+        <rect width="1" height="2" x="1" fill="#ffffff" />
+        <rect width="1" height="2" x="2" fill="#d2232c" />
+      </svg>
+    </code>
+  </body>
+</html>
