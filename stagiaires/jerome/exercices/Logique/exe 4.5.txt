@@ -7,9 +7,13 @@ var produit:N<-1
 fin var loc
 Afficher"Entrez un nombre"
 Saisie nbr
+Si nbr =0
+alors afficher "0"
+sinon
 tant que nbr><0
 	produit<- produit*nbr
 	nbr<- nbr-1
 fin tant que
 Afficher produit
+fin de si
 fin fact
