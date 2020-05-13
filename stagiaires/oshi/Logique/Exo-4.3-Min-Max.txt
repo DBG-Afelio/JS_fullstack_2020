@@ -21,6 +21,7 @@ Début programme
             max <- nombre
             compteur_max <- 1
             f_position_max <- compteur
+            l_position_max <- compteur
         SINON
             SI nombre = max ALORS
                 compteur_max <- compteur_max + 1
@@ -31,6 +32,7 @@ Début programme
             min <- nombre
             compteur_min <- 1
             f_position_min <- compteur
+            l_position_min <- compteur
         SINON
             SI nombre = min ALORS
                 compteur_min <- compteur_min + 1
