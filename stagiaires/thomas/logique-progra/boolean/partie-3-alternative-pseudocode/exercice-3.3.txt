@@ -27,25 +27,25 @@ SAISIR montant
 
     // DECOMPOSITION BILLET
 
-    billets100 <- montant / billets100
+    billets100 <- montant DIV billets100
 
     reste <- montant - billets100 * 100
 
     montant <- montant - reste
     
-    billets50 <- montant / billets50
+    billets50 <- montant DIV billets50
 
     reste <- montant - billets50 * 50
 
     montant <- montant - reste
 
-    billets20 <- montant / billets20
+    billets20 <- montant DIV billets20
 
     reste <- montant - billets20 * 20
 
     montant <- montant - reste
 
-    billets5 <- montant / billets5
+    billets5 <- montant DIV billets5
 
     reste <- montant - billets5 * 5
 
@@ -53,22 +53,36 @@ SAISIR montant
 
     // DECOMPOSITION PIECE
 
-    pieces <- reste * 100 // Pour re-elever les centimes
+    SI (reste MOD 1 > 0) 
 
-    pieces2 <- pieces / pieces2
+      ALORS 
 
-    pieces <- pieces - pieces2 * 2 
+        pieces <- (reste MOD 1) * 100
 
-    pieces1 <- pieces / pieces1
+        pieces2 <- pieces DIV pieces2
 
-    pieces <- pieces - pieces2 * 1 
+        pieces <- pieces - pieces2 * 2 
 
-    pieces50 <- pieces / pieces50
+        pieces1 <- pieces DIV pieces1
 
-    pieces <- pieces - pieces2 * 0.5 
+        pieces <- pieces - pieces2 * 1 
 
-    pieces20 <- pieces / pieces20
+        pieces50 <- pieces DIV pieces50
 
-    pieces <- pieces - pieces2 * 0.2 
+        pieces <- pieces - pieces2 * 0.5 
+
+        pieces20 <- pieces DIV pieces20
+
+        pieces <- pieces - pieces2 * 0.2 
+    
+    FIN SI
+
+    AFFICHER("Nombre de billet de 100", billets100)
+    AFFICHER("Nombre de billet de 50", billets50)
+    AFFICHER("Nombre de billet de 20", billets20)
+    AFFICHER("Nombre de billet de 5", billets5)
+    AFFICHER("Nombre de Pieces de 2", pieces2)
+    AFFICHER("Nombre de Pieces de 50c", pieces2)
+    AFFICHER("Nombre de Pieces de 20c", pieces2)
 
 FIN PROGRAMME
