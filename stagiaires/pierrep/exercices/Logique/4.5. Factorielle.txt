@@ -14,6 +14,8 @@ Debut Validation d'entrée
 
     nb <- x
 
+    y <- x - 1
+
     TANT QUE (y > 1)
     
         x <- x * y
