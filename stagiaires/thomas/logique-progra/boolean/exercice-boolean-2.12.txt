@@ -12,7 +12,7 @@ AFFICHER("Entrez age : ")
 
 SAISIR age
 
-SI (age < 6 OU ((age > 6 ET age < 12) ET b) OU a)
+SI (age < 6 OU ((age < 12) ET b) OU a)
   ALORS AFFICHER("Vous pouvez entrer.")
 SINON
   ALORS AFFICHER("Vous ne pouvez pas entrer.") 
