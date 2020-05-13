@@ -1,0 +1,53 @@
+// Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
+
+//  - La fin de la série sera annoncée par un 100.
+//  - Le programme affichera également :
+//  - le plus grand;
+//  - le plus petit des nombres;
+//  - la position du premier maximum (optionnel);
+//  - la position du dernier maximum (optionnel);
+//  - le nombre d'occurrence du maximum (optionnel);
+//  - Idem pour le minimum (optionnel).
+
+
+
+Debut moyenne
+
+	VARIABLES LOCALES
+
+		var valeur_utilisateur: N <- 0
+		var valeur_utilisateur_precedente: N <- 0
+		var plus_grand: N <- 0
+		var plus_petit: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez des valeurs, je vous retournerai la valeur la plus haute. Tapper 100 pour montrer que vous avez atteint la fin"
+
+	Saisir valeur_utilisateur
+
+	plus_grand <- valeur_utilisateur
+	plus_petit <- valeur_utilisateur
+
+	TANT QUE (valeur_utilisateur != 100)
+
+		Afficher "SVP entrez une nouvelle valeur"
+
+			Saisir valeur_utilisateur
+		
+		SI (plus_grand < valeur_utilisateur)
+
+			plus_grand <- valeur_utilisateur
+
+		SI (plus_petit > valeur_utilisateur)
+
+			plus_petit <- valeur_utilisateur
+
+		FIN SI
+
+        FIN TANT QUE
+
+	Afficher "La valeur la plus grande est ", plus_grand
+	Afficher "La valeur la plus petite est ", plus_petit
+
+Fin moyenne
