@@ -1,7 +1,7 @@
 Debut Validation d'entrée
 
     Var locales
-    count :N <- 0
+
     nb :N <- 0
     big :N <- 0
     small :N <- 0
@@ -13,11 +13,11 @@ Debut Validation d'entrée
 
 Fin Validation d'entrée
 
-    tant que (count < 100) 
+    TANT QUE (nb != 100)     
+
+        afficher "Veuillez saisir un nombre, Monsieur ou Madame, merci..."
 
         saisie nb 
-
-        count <- count + 1
 
         si nb > big
 
@@ -39,7 +39,8 @@ Fin Validation d'entrée
 
             alors minOC = minOC + 1
 
-    fin tant que 
+    FIN TANT QUE 
+ 
 Fin validation d'entrée
 
 
