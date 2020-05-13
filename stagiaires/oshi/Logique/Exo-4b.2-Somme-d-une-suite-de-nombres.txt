@@ -1,0 +1,23 @@
+Début programme
+	Variable locale
+        Var nombre_a :N <- 0
+        Var nombre_b :N <- 0
+        Var total :N <- 0
+        Var index :N <- 0
+        Var step :N <- 1
+	Fin variable locale
+    Affichier "Entrez 2 nombres"
+    Saisir nombre_a
+    Saisir nombre_b
+    SI nombre_a = nombre_b ALORS
+        total <- nombre_a
+    SINON
+        SI nombre_a > nombre_b ALORS
+            step <- -1
+        FINSI
+        POUR index ALLANT DE nombre_a A nombre_b PAR PAS DE step
+            total <- total + index
+        index SUIVANT
+    FINSI
+    Afficher "Le total est de :", total
+Fin de programme
