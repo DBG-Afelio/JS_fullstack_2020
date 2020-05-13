@@ -1,0 +1,24 @@
+Début programme
+	Variable locale
+        Var nombre_rand :N <- 0
+        Var nombre :N <- 0
+	Fin variable locale
+
+    Fonction locale
+    fonction aléatoire(100 : N):N
+    Fin fonction locale
+
+    nombre_rand <- aléatoire()
+
+    Afficher "Entrer un nombre entre 0 et 100 et nous allons vérifier si celui-ci corresond"
+    REPETER
+        Saisir nombre
+        SI nombre > nombre_rand ALORS
+            Afficher "Votre nombre est plus grand que le nombre aléatoire"
+        FINSI
+        SI nombre < nombre_rand ALORS
+            Afficher "Votre nombre est plus petit que le nombre aléatoire"
+        FINSI
+    JUSQU'À CE QUE nombre_rand = nombre
+    Afficher "Yahou ! vous avez trouvé le bon nombre"
+Fin de programme
