@@ -1,14 +1,14 @@
 Debut Programme
     VARIABLE LOCALES :
 	VAR A  : <- 0
-	VAR Result < - 0
+	VAR Result < - 1
 	VAR I <-0
     FIN VARIABLES LOCALES
     Afficher "Entrez  un chiffre : A"
    	Saiser A
-    	 I <- 	A
+    	I <- 	A
      TANT QUE I > 1
-	Result <- A * A-1 
+	Result <- I * Result
    		I <- I-1
       FIN TANT QUE
 
