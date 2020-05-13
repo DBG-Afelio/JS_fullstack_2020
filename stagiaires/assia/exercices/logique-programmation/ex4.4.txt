@@ -1,12 +1,12 @@
-Ecrire le programme qui calcule la plus grande et la plus petite suite croissante de valeurs d'une série de nombres entrés au clavier.                                         // petiteSuite   //grandeSuite
+Ecrire le programme qui calcule la plus grande et la plus petite suite croissante de valeurs d'une série de nombres entrés au clavier.
 
-- La fin de la série sera annoncée par un 100.  // stop
+- La fin de la série sera annoncée par un 100.
 - Le programme affichera également :
-  - la position du premier maximum;     // firstPosMax
-  - la position du dernier maximum;     // lastPosMax
-  - le nombre d'occurrence du maximum;  // occurMax
-  - la position du premier minimum;     // firstPosMin
-  - la position du dernier minimum;     // lastPosMax
+  - la position du premier maximum;
+  - la position du dernier maximum;
+  - le nombre d'occurrence du maximum;
+  - la position du premier minimum;
+  - la position du dernier minimum;
   - le nombre d'occurrence du minimum;
 
 ************* VERSION FULL OPTION *************
@@ -41,6 +41,7 @@ Debut EX44
         SI i ≠ 1
         ALORS
             SI input ≤ min
+            ALORS
                 SI input = min
                 ALORS
                     occurMin <- occurMin + 1
@@ -53,10 +54,11 @@ Debut EX44
                 FINSI
             FINSI
             SI input ≥ max
+            ALORS
                 SI input = max
                 ALORS
                     occurMax <- occurMax + 1
-                    lastPosMax < i
+                    lastPosMax <- i
                 SINON
                     max <- input
                     occurMin <- 1
@@ -64,8 +66,6 @@ Debut EX44
                     lastPosMax <- i
                 FINSI
             FINSI
-
-//calcul des suites croissantes
 
             SI input > previous                             //ici on incremente suite qui est en cours
             ALORS
@@ -76,27 +76,32 @@ Debut EX44
                     suite <- suite + 1
                 FINSI
             FINSI
-            SI input < previous                             // on met a jour suiteMin et suiteMax que si
-                SI suite ≠ 0                                                                           //une suite en cours a ete rompue
+            SI input ≤ previous
+            ALORS                          // on met a jour suiteMin et suiteMax que si une suite en cours a ete rompue
+                SI suite ≠ 0
+                ALORS
                     SI suiteMin = 0
                     ALORS
                         suiteMin <- suite
                     SINON
                         SI suiteMax = 0
+                        ALORS
                             SI suite < suiteMin
                             ALORS
                                 suiteMax <- suiteMin
                                 suiteMin <- suite
-                                SINON
-                                    suiteMax <- suite
                             SINON
-                                SI suite < suiteMin
-                                ALORS
-                                    suiteMin <- suite
-                        FINSI
-                        SI suite > suiteMax
-                        ALORS
-                            suiteMax <- suite
+                                suiteMax <- suite
+                            FINSI
+                        SINON
+                            SI suite < suiteMin
+                            ALORS
+                                suiteMin <- suite
+                            FINSI
+                            SI suite > suiteMax
+                            ALORS
+                                suiteMax <- suite
+                            FINSI
                         FINSI
                     FINSI
                     suite <- 0
@@ -104,36 +109,34 @@ Debut EX44
             FINSI
         FINSI
         previous <- input
-
-        Afficher "Saisir une serie de nombre"
-        Afficher "Saisir ", stop, " pour terminer"
-        Saisir input
     FIN TANT QUE
 
-    SI suite ≠ 0                                             recopie //je mets a jour suiteMin et suiteMax si une suite etait en cours juste avant de terminer (stop = 100)
+    SI suite ≠ 0                               recopie //je mets a jour suiteMin et suiteMax si une suite etait en cours juste avant de terminer (stop = 100)
         SI suiteMin = 0
         ALORS
             suiteMin <- suite
         SINON
             SI suiteMax = 0
+            ALORS
                 SI suite < suiteMin
                 ALORS
                     suiteMax <- suiteMin
                     suiteMin <- suite
-                    SINON
-                        suiteMax <- suite
                 SINON
+                    suiteMax <- suite
+                FINSI
+            SINON
                     SI suite < suiteMin
                     ALORS
                         suiteMin <- suite
-            FINSI
-            SI suite > suiteMax
-            ALORS
-                suiteMax <- suite
+                    FINSI
+                    SI suite > suiteMax
+                    ALORS
+                        suiteMax <- suite
+                    FINSI
             FINSI
         FINSI
     FINSI
-
 
     CAS OU i
         CAS 0
@@ -148,6 +151,7 @@ Debut EX44
             SINON
                 Afficher "..le 1er en position ", firstPosMin, " et le dernier detecté en position ", lastPosMin
             FINSI
+
             Afficher "Le plus grand nombre est ", max, ", et a ete saisi ", occurMax, "fois dans cette serie .."
             SI occurMax = 1
             ALORS
@@ -156,19 +160,20 @@ Debut EX44
                 Afficher "..le 1er en position ", firstPosMax, " et le dernier detecté en position ", lastPosMax
             FINSI
 
-// ajout info suite
-
             SI suiteMin 0 ET suiteMax = 0
             ALORS
                 Afficher "Il n'y a pas de suite croissante dans la serie de nombres entres"
             FINSI
+
             SI suiteMin ≠ 0 ET suiteMin = suiteMax OU SuiteMax ≠ 0 ET suiteMin = suiteMax OU suiteMin ≠ 0 ET suiteMax = 0
             ALORS
                 Afficher "Il n'y a qu'une suite de nombres croissants, elle compte :", suiteMin, "nombres croissants consecutifs"
             FINSI
+
             SI suiteMin ≠ 0 ET suiteMax ≠ 0 ET suiteMin < suiteMax
             ALORS
                 Afficher "La plus petite suite compte", suiteMin, "nombres, et la plus grande compte ", suiteMax, "nombres."
+            FINSI
     FIN CAS OU
 
   Fin EX44
