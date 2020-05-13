@@ -1,0 +1,20 @@
+Ecrire un programme qui lit 30 nombres et affiche la moyenne des nombres compris entre 10 et 20.
+
+
+dbt pgm
+var loc
+var nbr:N<-0
+var cpt:N
+var moyenne:N<-0
+var nbrN:N<-0
+fin var loc
+
+pour cpt de 1 a 30
+	saisie de nbr
+	Si nbr>10 et nbr<20
+		alors moyenne<-moyenne+nbr
+		nbrN=nbrN+1
+	fin de si
+fin de pour
+afficher "la moyenne est " moyenne/nbrN
+fin pgm
