@@ -1,0 +1,45 @@
+Debut Decouverte
+    VAR LOCALES
+
+    sourceString :S <- ""    
+    toBeSearchedString :s <- ""
+    firstPos :N <- 0
+    lastPos :N <- 0
+    itVarFirst :N <- 0
+    itVarLast :N <- 0
+    cCount :N <- 0
+    
+    FIN VAR LOCALES
+
+    affiche "écris une phrase appuie sur enter puis écris un mot"
+
+    saisie sourceString
+    saisie toBeSearchedString
+
+    itVarFirst = longueur(c)
+
+    TANT QUE itVarFirst > 1
+
+        SI (caract(s, itVar) = c)
+    
+            firstPos = caract(s, itVar)
+
+            itVarFirst --
+    
+    FIN TANT QUE
+
+    TANT QUE itVarLast < longueur(c)
+
+        SI (caract(s, itVarLast) = c)
+    
+            lastPost = caract(s, itVarLast)
+
+            itVarFirst ++
+
+            cCount = cCount + 1
+    
+    FIN TANT QUE
+ 
+Fin Decouverte
+
+

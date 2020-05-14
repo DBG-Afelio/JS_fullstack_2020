@@ -3,11 +3,8 @@ Debut Decouverte
 
     s :S <- ""    
     c :C <- ""
-    sL :N <- 0
     firstPos :N <- 0
     lastPos :N <- 0
-    itVarFirst :N <- 0
-    itVarLast :N <- 0
     cCount :N <- 0
     
     FIN VAR LOCALES
@@ -17,29 +14,46 @@ Debut Decouverte
     saisie s
     saisie c
 
-    itVarFirst = longueur(c)
+    POUR i ALLANT DE 1 A longueur(s)
 
-    TANT QUE itVarFirst > 1
+    SI caract(s, i) = c)
 
-        SI (caract(s, itVar) = c)
+        ALORS 
+
+            cCount <- cCount + 1
+
+            lastPos <- i        
+
+            SI firstPos <- 0
+
+                ALORS
+                    
+                    firstPos <- i
+
+                FINSI
+            FINSI
     
-            firstPos = caract(s, itVar)
+    i SUIVANT
 
-            itVarFirst --
+    SI cCount = 0
+
+        ALORS 
+
+            affiche "le caractère", c, " n'apparaît pas dans la chaîne", s
     
-    FIN TANT QUE
+        FINSI
 
-    TANT QUE itVarLast < longueur(c)
+    SI cCount
 
-        SI (caract(s, itVarLast) = c)
-    
-            lastPost = caract(s, itVarLast)
+            affiche "le caractère ", c, "n'a été trouvé qu'une seule fois à l'index :", firstPos
 
-            itVarFirst ++
+        FINSI
 
-            cCount = cCount + 1
-    
-    FIN TANT QUE
+    SINON
+
+            affiche "le caractère ", c, "a été trouvé ", cCount, "fois. Première position :", firstPos, "et la dernière position:", lastPos
+
+    FINSI
  
 Fin Decouverte
 
