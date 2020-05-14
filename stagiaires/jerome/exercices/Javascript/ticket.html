@@ -3,9 +3,22 @@
   <head>
     <title>ticket</title>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="Stylesheet" type="text/css"/>
+    <link href="style/style.css" rel="Stylesheet" type="text/css"/>
   </head>
   <body>
-  	<script type="text/javascript"></script>
+  	<h1></h1>
+  	<p>Veuillez choisir un ticket :</p>
+  	<div>
+  		<input type="radio" name="ticket">
+  		<label>Ticket gratuit</label>
+  		<input type="radio" name="ticket">
+  		<label>Ticket tarif réduit</label>
+  		<input type="radio" name="ticket">
+  		<label>Ticket tarif normal</label>
+  	</div>
+  	<p>Veuillez indiquer votre date de naissance;</p>
+  	<input type="date" name="birthDate" required>
+  	<button id="validation">Valider</button>
+  	<script type="text/javascript" src="script/script.js"></script>
   </body>
 </html>
