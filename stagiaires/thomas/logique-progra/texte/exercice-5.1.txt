@@ -4,8 +4,8 @@ PROGRAMME
 
     var entry-user-text :T <- ""
     var entry-user-char :C <- ""
-    var first-char-index :N
-    var last-char-index :N
+    var first-char-index <- 0
+    var last-char-index <- 0
     var occurences :N
     var compteur :N <- 0
     var longueur-texte :N longeur(entry-user-text :T):N
@@ -22,16 +22,14 @@ PROGRAMME
 
     POUR compteur ALLANT DE 1 A longueur-texte
         SI (caract(entry-user-text, compteur) = entry-user-char)
-            ALORS 
-                first-char-index <- entry-user-text[compteur];
+          SI(first-char-index = 0)
+            ALORS
+                first-char-index <- compteur
+            SINON
+                last-char-index <- compteur
                 occurences <- occurences + 1
+            FIN SI
         FIN SI
-
-        SI (caract(entry-user-text, compteur) = entry-user-char && compteur > first-char-index) 
-            ALORS 
-                last-char-index <- entry-user-text[compteur]
-        FIN SI
-
     FIN POUR
 
     AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
