@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+		<title>SVG - Circonférence</title>
+	</head>
+	<body>
+		<header>
+			<h1>SVG - Circonférence</h1>
+		</header>
+		<main>
+			<form>
+				
+				<div id="ranges">
+					<div  class="range">
+						<label for="rayon">Rayon</label>
+				
+						<input type="number" id="rayon" name="rayon" placeholder="Entrez le rayon">
+					</div>
+					<div  class="range">
+				
+				<input type="submit" id="submit" value="DESSINER LE CERCLE"></div>
+					<div class="range">
+						<label for="red">Rouge</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="red" name="red" min="0" max="255">
+							<span>255</span>
+						</div>					
+					</div>
+
+					<div class="range">
+						<label for="alpha">Alpha</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="alpha" name="alpha" min="0" max="1" step="0.01">
+							<span>1</span>
+						</div>						
+					</div>
+
+					<div class="range">
+						<label for="green">Vert</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="green" name="green"	min="0" max="255">
+							<span>255</span>
+						</div>
+					</div>
+
+					<div class="range">
+						<label for="cx">Position en X</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="cx" name="cx" min="0" max="100">
+							<span>100 %</span>
+						</div>						
+					</div>
+
+					<div class="range">
+						<label for="blue">Bleu</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="blue" name="blue" min="0" max="255">
+							<span>255</span>							
+						</div>
+					</div>
+		
+					<div class="range">
+						<label for="cy">Position en Y</label>
+						<div>
+							<span>0</span>
+							<input type="range" id="cy" name="cy" min="0" max="50">
+							<span>100 %</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" id="mySVG" >
+				</svg>
+			</div>
+		</main>
+		<script src="js/index.js"></script>
+	</body>
+</html>

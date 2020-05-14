@@ -1,0 +1,160 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	background-color: #d79c7a; 
+	color: white;
+	text-transform: uppercase;
+	background: #606c88; /* Old browsers */
+	background: -moz-linear-gradient(45deg, #C9CBDB 0%, #6D6F82 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg, #C9CBDB 0%,#6D6F82 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, #C9CBDB 0%,#6D6F82 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#mySVG {
+	
+	overflow: hidden;
+	background-color: #36393f;
+	margin: 25px 0;
+	border-radius: 15px;
+	box-shadow: 5px 5px 15px rgba(0,0,0,.6);
+}
+
+circle:hover {
+	cursor: pointer;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+form {
+	background-color: #36393f;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 15px rgba(0,0,0,.6);
+}
+
+#ranges {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 25px 0;
+	text-align: center;
+}
+
+#ranges > * {
+	width: 45%;
+	border-radius: 6px;
+	padding: 3px 0 15px 0;
+}
+
+#ranges input[type=range] {
+	display: inline-block;
+	width: 75%;
+}
+
+.range {
+	margin: 5px 0;
+	padding: 5px 0;
+	background-color: rgba(255,255,255,.2);
+}
+.range  span {
+	display: inline-block;
+	width: 10%;
+}
+
+label {
+	display: block;
+	text-align: center;
+}
+
+
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 36px;
+	width: 16px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
+	margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	border: 1px solid #000000;
+	height: 36px;
+	width: 16px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
+  }
+  
+
+#red::-webkit-slider-thumb,
+#red::-moz-range-thumb 
+{
+	background: red;
+}
+
+#green::-webkit-slider-thumb,
+#green::-moz-range-thumb 
+{
+	background: green;
+}
+
+#blue::-webkit-slider-thumb,
+#blue::-moz-range-thumb 
+{
+	background: blue;
+}
+
+form, #mySVG {
+	background: #444444; /* Old browsers */
+background: -moz-linear-gradient(45deg, #444444 0%, #0e0e0e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #444444 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #444444 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+form, #mySVG {
+	background: #444444; /* Old browsers */
+background: -moz-linear-gradient(45deg, #444444 0%, #0e0e0e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #444444 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #444444 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+
+
+background: #606c88; /* Old browsers */
+background: -moz-linear-gradient(45deg, #606c88 0%, #010102 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #606c88 0%,#010102 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #606c88 0%,#010102 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#submit, #rayon {
+	width: 75%;
+	height: 35px;
+	font-size: 16px;
+	line-height: 35px;
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	color: #010102;
+	text-transform: uppercase;
+	margin: 15px 0 0 0;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	text-align: center;
+}
+
+.range:first-child label {
+	display: none;
+}
