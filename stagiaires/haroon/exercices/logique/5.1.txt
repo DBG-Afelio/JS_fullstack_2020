@@ -27,6 +27,7 @@ Fin VARIABLES LOCALES
 Pour i AllANT DE 0 A longueur(text) 
 	SI caract(text, i ) = caractère
 	Alors 
+	nombreApparaition = nombreApparaition +1
 	DerIndex <- i
 	SI nombreApparaition = 1
 	Alors 
