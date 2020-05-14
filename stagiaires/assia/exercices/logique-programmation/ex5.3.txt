@@ -8,11 +8,9 @@ Debut Exercice
         CONST tsearch :T <- ""
         CONST treplace :T <- ""
         VAR tupdate :T <- ""
-        VAR tavant :T <- ""
-        VAR tapres :T <- ""
-        VAR firstCar :N <- 0
-        VAR lastCar :N <- 0
-        VAR index :N <- 1
+        VAR tFin :T <- ""
+
+        VAR indexSource :N <- 1
         VAR occur :N <- 0
         VAR i :N <- 1
     FIN VARIABLES LOCALES
@@ -24,21 +22,16 @@ Debut Exercice
     Afficher "Saisir le texte de remplacement :"
     Saisir treplace
 
-    POUR i ALLANT DE 1 A [longueur(tsource)-longueur(tsearch-1)]
+    POUR i ALLANT DE 1 A (longueur(tsource)-[longueur(tsearch)-1])
         SI sousChaine(tsource, i, longueur(tsearch + 1)) = tsearch
         ALORS
             occur <- occur + 1
-            firstCar <- i
-            lastCar <- longueur(tsearch) + firstCar
-            tavant <- sousChaine(tsource, index, firstCar)
-            tupdate <- tavant (+) treplace
-            index <- lastCar
+            tupdate <- tupdate (+) sousChaine(tsource, indexSource, i) (+) treplace
+            indexSource <- i + longueur(tsearch)
         FINSI
-
     i SUIVANT
 
-    tapres <- souschaine(tsource, index, [longueur(tsource) + 1]
-    tupdate <- tupdate (+) tapres
+    tupdate <- tupdate (+) sousChaine(tsource, indexSource, [longueur(tsource)+1])
 
     SI occur = 0
     ALORS
