@@ -2,49 +2,57 @@
 <html lang="fr">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<!--<link rel="stylesheet" type="text/css" href="css/theme.css">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
 		<title>Ticket</title>
 	</head>
 	<body>
         <main>
-            <form name="form">
-                <div id="blockDate">
-                    <label for="date">Entrez votre date de naissance (jj/mm/aaaa)</label>
-                    <input type="date" id="date" name="date" value="" />
-                </div>
+            <div id="center">
+                <form name="form">
+                    <div id="blockDate">
+                        <label for="date">Entrez votre date de naissance</label>
+                        <input type="date" id="date" name="date" value="" />
+                    </div>
 
-                <div>
-                    <input type="radio" id="ticketA" name="ticket" value="ticketA" />
-                    <label for="ticketA">Vous avez un ticket à plein tarif</label>
-                </div>
+                    <div class="radioLabel">
+                        <input type="radio" id="ticketA" name="ticket" value="ticketA" />
+                        <label  for="ticketA">Vous avez un ticket à <span>plein tarif</label>
+                    </div>
 
-                <div>
-                    <input type="radio" id="ticketB" name="ticket" value="ticketB" />
-                    <label for="ticketB">Vous avez un ticket à tarif réduit</label>
-                </div>
+                    <div class="radioLabel" >
+                        <input type="radio" id="ticketB" name="ticket" value="ticketB" />
+                        <label for="ticketB">Vous avez un ticket à <span>tarif réduit</span></label>
+                    </div>
 
-                <div>
-                    <input type="radio" id="ticketO" name="ticket" value="ticketO" checked/>
-                    <label for="ticketO">Vous n'avez pas de tickets</label>
-                </div>
+                    <div class="radioLabel">
+                        <input type="radio" id="ticketO" name="ticket" value="ticketO" checked/>
+                        <label  for="ticketO">Vous n'avez <span>pas de ticket</span></label>
+                    </div>
 
-                <div>
-                    <input type="submit" id="submit" name="submit" value="Envoyer" />
-                </div>
-            </form>
+                    <div>
+                        <input type="submit" id="submit" name="submit" value="Envoyer" />
+                    </div>
+                </form>
 
-            <div id="panel">
-                <div id="intro">
-                    <p>Voici les droits d'accès à la visite :</p>
-
-                    <ul>
-                        <li>Un enfant de moins de 6 ans peut entrer gratuitement,</li>
-                        <li>Un enfant de moins de 12 ans peut entrer avec un ticket réduit,</li>
-                        <li>Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,</li>
-                    </ul>
+                <div id="panel">
+                    <div id="intro">
+                        <p>Voici les droits d'accès à la visite :</p>
+                        <ul>
+                            <li>un enfant de moins de 6 ans peut entrer gratuitement&nbsp;;</li>
+                            <li>un enfant de moins de 12 ans peut entrer avec un ticket réduit&nbsp;;</li>
+                            <li>il faut un ticket à toute personne n'entrant dans aucune des deux catégories.</li>
+                        </ul>
+                    </div>
+                    <div id="outer-circle"></div>
+                    <div id="inner-circle"></div>                    
                 </div>
+            </div>
+            <div id="alertBox">
                 <div id="result">
-                    
+                    ...
                 </div>
             </div>
         </main>
