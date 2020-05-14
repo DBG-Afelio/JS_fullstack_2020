@@ -13,7 +13,8 @@ const circle = document.getElementById('circle');
 const circleSvg = document.getElementById('circleSvg');
 const circleOutput = document.getElementById('circleOutput');
 /*dimension de circleOutput*/
-circleOutput.style.height = "500px"
+circleOutput.style.height = "500px";
+
 /*fin dimension de circleOutput*/
 
 
@@ -21,29 +22,26 @@ validate.addEventListener('click',(event) => {
     
     let rayon = circoInput.valueAsNumber;
     let diametre = rayon*2;
+    const referenceValue = Math.min(circleSvg.clientHeight, circleSvg.clientWidth)
     
     
-    if(diametre > parseInt(circleOutput.style.height)){
+    if(diametre > referenceValue){
        
-       alert("le cercle est trop grand et à été réduit");
-        rayon = parseInt(circleOutput.style.height)/2;
-        diametre = parseInt(circleOutput.style.height);
-       circle.setAttribute('r',  parseInt(circleOutput.style.height)/2);
+        alert("le cercle est trop grand et à été réduit");
+        rayon = referenceValue/2;
+        diametre = referenceValue;
         
-        
-    }else if (circoInput.value  > 0){
-        
-        circle.setAttribute('r', diametre/2);
-        
+    } else if (rayon  <= 0){
+        rayon = 0;
+        diametre = 0;
     }
+
+    circle.setAttribute('r',  rayon);
     circle.setAttribute('cx', diametre/2);
     circle.setAttribute('cy', diametre/2);
-    circleSvg.style.width = diametre;
-    circleSvg.style.height = diametre;
-        
+
     circle.setAttribute('fill',`rgba(${redInput.value}, ${greenInput.value}, ${blueInput.value}, ${alphaInput.value})`);
-    
-    
+
 });
 
 
