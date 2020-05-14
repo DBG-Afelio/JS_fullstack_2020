@@ -27,11 +27,11 @@ PROGRAMME
                 occurences <- occurences + 1
         FIN SI
 
-        SI (caract(entry-user-text, compteur) = entry-user-char && compteur > first-char-index) 
+        SI (caract(entry-user-text, compteur) = entry-user-char && compteur > first-char-index && compteur > last-char-index) 
             ALORS 
                 last-char-index <- entry-user-text[compteur]
         FIN SI
-        
+
     FIN POUR
 
     AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
