@@ -1,0 +1,203 @@
+body {
+    background-color: #7a5100;
+	background-image: url('../img/wood-pattern.png');
+	font-family: Helvetica, Arial, "Roboto", sans-serif;
+}
+
+main {
+    width: 1600px;
+    height: 1000px;
+    padding: 50px;
+    margin: 30px auto;
+    position: relative;
+}
+
+footer, header {
+	position: fixed;
+	left:0;
+	width: 100%;
+	height: auto;
+	padding: 8px;
+	background-color: #a5a5a5;
+	z-index: 5;
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+footer {
+	bottom: 0;
+}
+
+header {
+	top: 0;
+}
+
+header h1 {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 0 25px;
+    position: absolute;
+    font: 25px/40px  "Roboto", Helvetica, Arial, sans-serif;;
+    text-transform: uppercase;
+}
+
+/* PILES */
+#pilesCentral {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin : 230px auto 0 auto;
+}
+
+#pilesColor {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+#pilesStart {
+    display: flex;
+    width: 17%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.pile {
+    position: relative;
+    border: 3px dotted black;
+    width : 130px;
+    height : 210px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* CARDS */
+
+.card {
+    width: 120px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: beige;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.card .center {
+    position: absolute;
+    font-size: 38px;
+    text-align: center;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-left: -45px;
+    margin-top: -60px;
+    width : 90px;
+    height : 120px;
+    line-height: 120px;
+    box-sizing: border-box;
+}
+
+.card .top, .card .bottom {
+    position: absolute;
+    font-size: 18px;
+    display: block;
+}
+
+.card .top {
+    text-align: left;
+    top: 10px;
+    left: 10px;
+}
+
+.card .bottom {
+    text-align: right;
+    bottom: 10px;
+    right: 10px;
+}
+
+.card.coeur, .card.carreau {
+    color: red;
+}
+
+.card.coeur span.center, .card.carreau  span.center {
+    border: 4px solid red;
+}
+
+.card.pique, .card.trefle {
+    color: black;
+}
+
+.card.pique span.center, .card.trefle  span.center {
+    border: 4px solid black;
+}
+
+.card.invisible {
+    background: radial-gradient(ellipse at center,rgb(18, 1, 56), rgb(82, 32, 175), rgb(3, 0, 10));
+}
+
+.card.invisible span.center {
+    border: 4px solid rgb(226, 225, 156);
+    background-color: transparent;
+}
+
+.card.invisible span > * {
+    display: none;
+}
+
+.card.visible span > * {
+    display: block;
+}
+
+.card, 
+.card .top, 
+.card .bottom,
+.card .center {
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none;
+}
+
+.pile.dropZone {
+    background-color: rgba(0,0,0, .5);
+    border: 3px solid white;
+}
+
+.card.dropZone {
+    background-color: ivory;
+    border: 2px solid black;
+}
+
+#newGame {
+	background-color: rgba(255,255,255, .1);
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+#newGame button {
+	height: 40px;
+	margin: 5px 10px;
+	padding: 0;
+	display: inline-block;
+	border: 2px solid white; 
+	background-color: rgba(255,255,255, .5);
+	width: 150px;
+	border-radius: 18px; 
+}
+
+#newGame button:hover {
+    cursor: pointer;
+    background-color: rgb(92, 18, 40);
+	color: white;
+}
