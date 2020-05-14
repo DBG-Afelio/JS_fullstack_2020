@@ -1,8 +1,6 @@
 const formulaire = document.forms[0];
 const color_selector = formulaire.querySelectorAll('.color_controller');
-const input = formulaire.querySelectorAll('input');
 const size_selector = formulaire.querySelector("input[name='i_size']");
-const color_output = document.querySelector('.l-square');
 const svg = document.querySelectorAll('svg');
 const marker = document.querySelector('.marker');
 const submit_button = formulaire.querySelector("input[type='submit']");
@@ -19,7 +17,15 @@ function create_circle(rgba, size) {
     circle.setAttribute("r", size);
     circle.setAttribute("fill", "rgba(" + [...rgba] + ")");
     circle.setAttribute("draggable", true);
-    circle.addEventListener("click", () => event.shiftKey?svg[1].removeChild(circle):go_first(circle));
+    circle.addEventListener("click", function (e) {
+        if(event.shiftKey) {
+            svg[1].removeChild(circle);
+        } else if (event.altKey) {
+            copy_circle(circle);
+        } else {
+            go_first(circle);
+        }
+    });
     if(svg[1].getAttribute("height") < size*2) {
         svg[1].setAttribute("height", size*2);
     }
@@ -41,6 +47,19 @@ function go_first(element) {
         svg[1].appendChild(element);
     }
 }
+
+function copy_circle(element) {
+    let colors = element.getAttribute("fill");
+    svg[0].firstElementChild.setAttribute("fill", colors);
+    colors = colors.replace("rgba(","")
+    colors = colors.replace(")","");
+    colors = colors.split(",");
+    color_selector.forEach((selector, i) => {
+        selector.value = colors[i];
+    });
+    size_selector.value = element.getAttribute("r");
+}
+
 
 color_selector.forEach(selector => {
     selector.addEventListener('input', () => {
@@ -94,14 +113,36 @@ svg[1].addEventListener("click", function (e) {
 });
 
 document.addEventListener("keydown", event => {
-    if(event.keyCode === 17) {
-        svg[1].style.cursor = "url(./src/cursor.cur), pointer";
+    if(event.keyCode >= 16 && event.keyCode <= 18) {
+        event.preventDefault();
+        let cur;
+        switch (event.keyCode) {
+            case 17:
+                cur = "./src/cursor.cur";
+                svg[1].style.cursor = "url(./src/cursor.cur), pointer";
+                break;
+            case 16:
+                cur = "./src/trash.cur";
+                break;
+            case 18:
+                cur = "./src/copy.cur";
+                break;
+        }
+        svg[1].querySelectorAll("circle").forEach(element => {
+            element.style.cursor = "url("+cur+"), pointer";
+        });
     }
 });
 
 document.addEventListener("keyup", event => {
-    if(event.keyCode === 17) {
-        svg[1].style.cursor = "default";
+    if(event.keyCode >= 16 && event.keyCode <= 18) {
+        event.preventDefault();
+        if(event.keyCode === 17) {
+            svg[1].style.cursor = "default";
+        }
+        svg[1].querySelectorAll("circle").forEach(element => {
+            element.style.cursor = "default";
+        });
     }
 });
 
