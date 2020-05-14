@@ -1,0 +1,44 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+- Algorithme au seul niveau primaire.*
+
+Debut Exercice
+
+    VARIABLE LOCALES :
+        CONST text1 :T <- ""
+        CONST text2 :T <- ""
+        CONST limite :N <- 0
+        VAR car1 <- ''
+        VAR i :N <- 1
+        reponse :B <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir un 1e texte : "
+    Saisir text1
+    Afficher "Saisir un 2e texte "
+    Saisir text2
+
+    SI longueur(text1) > longueur(text2)
+    ALORS
+        limite <- longueur(text2)
+    SINON
+        limite <- longueur(text1)
+    FINSI
+
+    REPETER
+        SI caract(text1,i) < caract(text2, i)
+        ALORS
+            reponse <- 0
+        FINSI
+        SI caract(text1,i) > caract(text2, i)
+            reponse <- 1
+        FINSI
+        i <- i + 1
+    JUSQU'A CE QUE (reponse = 1) OU (i > limite)
+
+    Afficher reponse
+
+Fin Exercice
