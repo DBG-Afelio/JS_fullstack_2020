@@ -36,8 +36,10 @@ function clearboard() {
 }
 
 function go_first(element) {
-    svg[1].removeChild(element);
-    svg[1].appendChild(element);
+    if(!event.ctrlKey) {
+        svg[1].removeChild(element);
+        svg[1].appendChild(element);
+    }
 }
 
 color_selector.forEach(selector => {
