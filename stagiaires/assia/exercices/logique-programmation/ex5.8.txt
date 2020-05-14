@@ -34,6 +34,8 @@ Debut Exercice
         c <- c + 1
     JUSQUE A CE QUE c ≥ longueur(textIn)
 
+    textOut <- sousChaine(textOut, 1, longueur(textOut)-1) //juste pour enlever le dernier 'espace'
+    
     Afficher "Votre texte d'origine : ", textIn
     Afficher "Votre texte avec les mots a l'envers : ", textOut
 
