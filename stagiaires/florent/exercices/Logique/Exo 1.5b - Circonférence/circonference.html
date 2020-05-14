@@ -22,13 +22,14 @@
             <label for="bleu">Bleu</label>
         </div>
         <div>
-            <input type="range" id="opacity" name="Opacité" min="0" max="255">
+            <input type="range" id="opacity" name="Opacité" min="0" max="1" step="0.1">
             <label for="opacity">Opacité</label>
         </div> 
+        <span id="rgba"></span>
         <input type="submit" id="sub" value="soumettre">
         <div>
-            <svg id="cercle">
-
+            <svg width="1000" height="1000" viewBox="0 0 500 500">
+                <circle id="cercle" cx="250" cy="250"  fill=rgba(,,,)/>
             </svg>
         </div>
         <script src="circonference.js"></script>  
