@@ -23,14 +23,13 @@ Debut ex5-7
     POUR i ALLANT DE 0 A longueur(txt)-1
         SI (carac(txt, i)) = ' ')
             ALORS
-                SI (mot = "")
-                    ALORS 
-                        // premier espace
-                        pos <- i+1
-                    SINON
+                SI (mot != "")
+                    ALORS                         
                         mot <- sousChaine(txt, pos, i)
                         final <- mot (+) final 
-            FIN SI
+                FIN SI
+                pos <- i+1
+        FIN SI
     i SUIVANT
 
     Afficher final
