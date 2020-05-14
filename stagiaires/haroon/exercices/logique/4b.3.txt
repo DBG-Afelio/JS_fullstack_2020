@@ -7,8 +7,7 @@ Debut Programme
     FIN VARIABLES LOCALES
 	chiffreUtilisateur <-aléatoire (0, 100)
 
-	Afficher "Entrez  un chiffre: chiffreUtilisateur"
-		Saiser chiffreUtilisateur
+	
 			Repeter
 			Afficher "Entrez  un chiffre: chiffreUtilisateur"
 			Saiser chiffreUtilisateur
