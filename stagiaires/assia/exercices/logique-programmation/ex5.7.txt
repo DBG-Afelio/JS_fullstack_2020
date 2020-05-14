@@ -11,9 +11,7 @@ Debut Exercice
         CONST textIn:T <- ""
         VAR textOut :T <- ""
         VAR word :T <- ""
-        VAR reverse :T <- ""
         CONST espace :C <- ' '
-        VAR i :N <- 1
         VAR c :N <- 1
     FIN VARIABLES LOCALES
 
@@ -24,19 +22,13 @@ Debut Exercice
         REPETER
             word <- word (+) caract(textIn, c)
             c <- c + 1
-        JUSQUE A CE QUE caract(textIn, c)='' OU c > longueur(textIn)
-
-        POUR i ALLANT DE longueur(word) A 1 [PAR PAS DE -1]
-            reverse <- reverse (+) caract(word, i)
-        i SUIVANT
-
-        textOut <- textOut (+) reverse (+) espace
+        JUSQUE A CE QUE caract(textIn, c) = espace OU c > longueur(textIn)
+        textOut <- word (+) espace (+) textOut
         word <- ""
-        reverse <- ""
         c <- c + 1
     JUSQUE A CE QUE c ≥ longueur(textIn)
 
     Afficher "Votre texte d'origine : ", textIn
-    Afficher "Votre texte avec les mots a l'envers : ", textOut
+    Afficher "Votre texte avec les mots inverses : ", textOut
 
 Fin Exercice
