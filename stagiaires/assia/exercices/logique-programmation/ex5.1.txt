@@ -27,10 +27,10 @@ Debut Ex5.1
         SI caract(texteIN, i) = caractIN
         ALORS
             occur <- occur + 1
+            lastPos <- i
             SI firstPos = 0
+            ALORS
                 firstPos <- i
-            SINON
-                lastPos <- i
             FINSI
         FINSI
     i SUIVANT
@@ -42,7 +42,7 @@ Debut Ex5.1
 
     SI occur = 1
     ALORS
-        Afficher "Le caractere ", caractIN, " a ete trouvé 1 fois en position :", occur
+        Afficher "Le caractere ", caractIN, " a ete trouvé 1 fois en position :", firstPos
     SINON
         Afficher "Le caractere ", caractIN, " a ete trouvé ", occur, " fois, le 1er en position :", firstPos, "le dernier en position :", lastPos
     FINSI
