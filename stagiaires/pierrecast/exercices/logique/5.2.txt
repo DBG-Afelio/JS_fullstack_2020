@@ -11,7 +11,7 @@ Si le texte à rechercher ne se trouve pas dans le texte source, le programme af
 Debut ex5-2
     VARIABLES LOCALES :
         var source :T <- ""
-        var txt :N <- ""
+        var txt :T <- ""
         var pos1 :N <- 0
         var posN :N <- 0
         var nb : N <- 0
@@ -23,7 +23,7 @@ Debut ex5-2
     Saisir txt
 
     POUR i ALLANT DE 0 A (longueur(source)-longueur(txt))
-        SI (sousChaine(txt, i, i+longueur(txt)) = char)  
+        SI (sousChaine(txt, i, i+longueur(txt)) = txt)  
             ALORS
                 nb <- nb +1
                 posN <- i
