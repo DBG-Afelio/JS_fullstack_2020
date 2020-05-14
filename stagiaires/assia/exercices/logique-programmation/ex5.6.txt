@@ -13,7 +13,7 @@ Debut Exercice
     Saisir textIn
 
     POUR i ALLANT DE longueur(textIn) A 1 [PAR PAS DE -1]
-        textOut <- textOut (+) caract(i)
+        textOut <- textOut (+) caract(textIn, i)
     i SUIVANT
 
     Afficher "Votre texte a l'envers : ", textOut
