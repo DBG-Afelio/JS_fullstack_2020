@@ -1,0 +1,6 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+- Algorithme au seul niveau primaire.*

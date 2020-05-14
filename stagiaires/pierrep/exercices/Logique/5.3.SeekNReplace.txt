@@ -23,11 +23,11 @@ Debut Decouverte
 
     POUR i ALLANT DE 1 à longueur(sourceString)
 
-        SI (sousChaine(sourceString, i, longueur(searchedString) = searchedString)
+        SI (sousChaine(sourceString, i, i + longueur(searchedString) = searchedString)
 
             ALORS
 
-                sousChaine(sourceString, i, longueur(searchedString) = replaceString
+                replaceString <- sousChaine(sourceString, i, longueur(searchedString)
 
                 newString <- newString (+) sousChaine(sourceString, cCount, i) (+) replaceString
 
