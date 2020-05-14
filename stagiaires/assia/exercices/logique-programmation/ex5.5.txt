@@ -12,7 +12,7 @@ Debut Exercice
         CONST text2 :T <- ""
         CONST limite :N <- 0
         VAR i :N <- 1
-        reponse :B <- 0
+        reponse :B <- FAUX
     FIN VARIABLES LOCALES
 
     Afficher "Saisir un 1e texte : "
@@ -30,14 +30,14 @@ Debut Exercice
     REPETER
         SI caract(text1,i) < caract(text2, i)
         ALORS
-            reponse <- 0
+            reponse <- FAUX
         FINSI
         SI caract(text1,i) > caract(text2, i)
         ALORS
-            reponse <- 1
+            reponse <- VRAI
         FINSI
         i <- i + 1
-    JUSQU'A CE QUE (reponse = 1) OU (i > limite)
+    JUSQU'A CE QUE reponse OU i > limite
 
     Afficher reponse
 
