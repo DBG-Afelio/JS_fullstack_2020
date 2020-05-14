@@ -1,0 +1,42 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher et un texte de remplacement.
+Le programme affichera le texte source où toutes les occurrences du texte à rechercher seront remplacées par le texte de remplacement. 
+
+Si le texte à rechercher ne se trouve pas dans le texte source, le programme affichera un simple message.
+
+Debut ex5-3
+    VARIABLES LOCALES :
+        var source :T <- ""
+        var find :T <- ""
+        var replace :T <- ""
+        var pos: N <- 0
+        var final :T <- ""
+        var pos :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte source"
+    Saisir source
+    Afficher "Entrez le texte à rechercher"
+    Saisir find
+    Afficher "Entrez le texte de remplacement"
+    Saisir replace
+
+    pos <- 0
+    POUR i ALLANT DE 0 A (longueur(source)-longueur(find))
+        SI (sousChaine(source, i, i+longueur(find)) = find)  
+            ALORS
+                nb <- nb +1
+                final <- final (+) sousChaine(source, pos, i) (+) replace
+                i<- i + longueur(find)
+                pos <- i
+        FIN SI   
+    i SUIVANT
+    
+    final <- final (+) sousChaine(source, pos, -1)
+    Afficher final
+
+    SI nb = 0 
+        ALORS
+            Afficher "le texte à rechercher ne se trouve pas dans le texte source"          
+    FIN SI 
+    
+Fin ex5-3
