@@ -19,22 +19,25 @@ circleOutput.style.height = "500px"
 
 validate.addEventListener('click',(event) => {
     
-    let diametre = (circoInput.value/2*Math.PI)*2;
+    let rayon = circoInput.valueAsNumber;
+    let diametre = rayon*2;
     
     
-    if(diametre > parseInt(circleOutput.style.height, 10)){
+    if(diametre > parseInt(circleOutput.style.height)){
        
        alert("le cercle est trop grand et à été réduit");
-       circle.setAttribute('r', parseInt(circleOutput.style.height, 10)/2 );
+        rayon = parseInt(circleOutput.style.height)/2;
+        diametre = parseInt(circleOutput.style.height);
+       circle.setAttribute('r',  parseInt(circleOutput.style.height)/2);
         
-    }else{
+        
+    }else if (circoInput.value  > 0){
         
         circle.setAttribute('r', diametre/2);
-        circle.setAttribute('cx', diametre/2);
-        circle.setAttribute('cy', diametre/2);
         
     }
-    
+    circle.setAttribute('cx', diametre/2);
+    circle.setAttribute('cy', diametre/2);
     circleSvg.style.width = diametre;
     circleSvg.style.height = diametre;
         
