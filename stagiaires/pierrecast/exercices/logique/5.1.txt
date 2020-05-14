@@ -1,0 +1,47 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte et un caractère.
+Le programme affichera :
+
+- La première position où le caractère se trouve dans le texte.
+- La dernière position.
+- Le nombre de fois qu’il apparait.
+  
+Si le caractère ne se trouve pas dans le texte, le programme affichera un simple message.
+
+Debut ex5-1
+    VARIABLES LOCALES :
+        var txt :T <- ""
+        var char :C <- ''
+        var pos1 :N <- 0
+        var posN :N <- 0
+        var nb : N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte"
+    Saisir txt
+    Afficher "Entrez le caractère"
+    Saisir char
+
+    POUR i ALLANT DE 0 A longueur(txt)
+        SI (carac(txt, i) = char)  
+            ALORS
+                nb <- nb +1
+                posN <- i
+                SI nb = 1
+                    ALORS   
+                        pos1 <- i
+                FIN SI 
+        FIN SI   
+ 
+    i SUIVANT
+
+    Afficher "La première position : " , pos1
+    Afficher "La dernière position : " , posN
+    Afficher "Le nombre de fois d'apparition : " , nb
+
+    SI nb = 0
+        ALORS
+            Afficher "le caractère ne se trouve pas dans le texte"
+
+    FIN SI
+    
+Fin ex5-1
