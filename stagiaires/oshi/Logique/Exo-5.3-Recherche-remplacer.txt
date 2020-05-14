@@ -19,7 +19,7 @@ Début programme
         POUR index ALLANT DE 1 A longueur(texte) - longueur(texte_recherche) + 1
             SI texte_recherche = sousChaine(texte, index, index + longueur(texte_recherche)) ALORS
                 new_text <- new_text (+) sousChaine(texte, last_pos, index) (+) texte_remplacement
-                last_pos <- index
+                last_pos <- index + longueur(texte_recherche)
             FINSI
         index SUIVANT
         Afficher "Votre nouveau texte est :", new_text
