@@ -6,7 +6,7 @@ Le programme affichera le texte en ayant inversé les caractères.
 
 Debut ex5-6
     VARIABLES LOCALES :
-        var source :T <- ""
+        var txt :T <- ""
         var final :T <- ""
         var i :N <- 0
         
