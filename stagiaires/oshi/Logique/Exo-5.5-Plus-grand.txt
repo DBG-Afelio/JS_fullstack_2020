@@ -1,0 +1,46 @@
+Début programme
+	Variable locale
+        Var texte_1 :T <- ""
+        Var texte_2 :T <- ""
+        Var result :B <- false
+        Var found :B <- false
+        Var index :N <- 1
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+    Afficher "Entrer un second texte"
+    Saisir texte_2
+
+    SI longueur(texte_1) > longueur(texte_2) ALORS
+        min <- longueur(texte_2)
+    SINON
+        min <- longueur(texte_1)
+    FINSI
+
+    SI min > 0 ALORS
+        TANT QUE NON found
+            SI index <= min
+                SI caract(texte_1, index) > caract(texte_1, index) ALORS
+                    found <- true
+                    result <- true
+                SINON
+                    SI caract(texte_1, index) != caract(texte_1, index) ALORS
+                        found <- true
+                    FINSI
+                FINSI
+            SINON
+                SI longueur(texte_1) > longueur(texte_2) ALORS
+                    found <- true
+                    result <- true
+                SINON
+                    found <- true
+                FINSI
+            FINSI
+            index <- index +1
+        FIN TANT QUE
+    SINON
+        Afficher "Un ou deux des textes sont vide"
+    FINSI
+    Afficher "Votre premier texte est t'il après ?", result
+Fin de programme
