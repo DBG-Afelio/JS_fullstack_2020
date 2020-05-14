@@ -34,8 +34,8 @@ Debut ex5-1
  
     i SUIVANT
 
-    Afficher "La première position : " , pos
-- La dernière position.
-- Le nombre de fois qu’il apparait.
+    Afficher "La première position : " , pos1
+    Afficher "La dernière position : " , posN
+    Afficher "Le nombre de fois d'apparition : " , nb
     
 Fin ex5-1
