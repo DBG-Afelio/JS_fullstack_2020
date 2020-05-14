@@ -18,26 +18,20 @@ PROGRAMME
     AFFICHER("Entrer charactere")
     SAISIR entry-user-char
 
- // PREMIERE POSITION + OCCURENCES
+ // PREMIERE POSITION + OCCURENCES + DERNIERE POSITION
 
     POUR compteur ALLANT DE 1 A longueur-texte
-        SI (caract(entry-user-text :T, compteur :N) = entry-user-char)
+        SI (caract(entry-user-text, compteur) = entry-user-char)
             ALORS 
                 first-char-index <- entry-user-text[compteur];
                 occurences <- occurences + 1
         FIN SI
-    FIN POUR
-
-// DERNIERE POSITION
-
-    POUR compteur ALLANT DE longueur-texte A 1
-        SI (caract(entry-user-text :T, compteur :N) = entry-user-char)
+        
+        SI (caract(entry-user-text, compteur) = entry-user-char && compteur > first-char-index) 
             ALORS 
-                last-char-index <- entry-user-text[compteur];
-        FIN SI
+                last-char-index <- entry-user-text[compteur]
+
     FIN POUR
-
-
 
     AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
     AFFICHER("Le caractere" + entry-user-char + "est en derniere position a l'index", last-char-index)
