@@ -28,6 +28,8 @@ Debut Exercice
         c <- c + 1
     JUSQUE A CE QUE c ≥ longueur(textIn)
 
+    textOut <- sousChaine(textOut, 2, longueur(textOut) + 1)   //juste pour enlever le 1er 'espace'.
+
     Afficher "Votre texte d'origine : ", textIn
     Afficher "Votre texte avec les mots inverses : ", textOut
 
