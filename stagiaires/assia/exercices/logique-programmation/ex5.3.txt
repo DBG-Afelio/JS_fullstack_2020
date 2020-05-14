@@ -29,7 +29,7 @@ Debut Exercice
         ALORS
             occur <- occur + 1
             firstCar <- i
-            lastCar <- tsearch + firstCar
+            lastCar <- longueur(tsearch) + firstCar
             tavant <- sousChaine(tsource, index, firstCar)
             tupdate <- tavant (+) treplace
             index <- lastCar
