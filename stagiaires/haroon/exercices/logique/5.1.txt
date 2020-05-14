@@ -27,7 +27,11 @@ Fin VARIABLES LOCALES
 Pour i AllANT DE 0 A longueur(text) 
 	SI caract(text, i ) = caractère
 	Alors 
-	PreIndex <- i
+	DerIndex <- i
+	SI nombreApparaition = 1
+	Alors 
+	PreIndex <- nombreApparaition
+	FINSI
 	nombreApparaition  <- nombreApparaition + 1 
 	FINSI
 	SINON 
