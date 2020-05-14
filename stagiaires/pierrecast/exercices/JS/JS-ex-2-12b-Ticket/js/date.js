@@ -2,13 +2,22 @@ const today = new Date();
 const oResult = document.querySelector('#result');
 const oSubmit = document.querySelector('#submit');
 const oDate = document.querySelector('#date');
+const oForm = document.querySelector('#submit');
+const oClose = document.querySelector('#close');
+const oAlert = document.querySelector('#alertBox');
+const oRadio = document.querySelectorAll('input[type=radio]');
 
 oSubmit.addEventListener('click', function (e) {
     e.preventDefault;
     submit();
 });
 
-//oDate.addEventListener('focus', clearResult);
+oDate.addEventListener('focus', clearResult);
+oClose.addEventListener('click', clearResult);
+
+oRadio.forEach(radio => {
+    radio.addEventListener('change', clearResult);
+});
 
 function submit() {
     let birthDate = document.querySelector('#date').value; console.log('birthDate : ', birthDate);
@@ -21,76 +30,65 @@ function submit() {
         console.log("birthDate : ", birthDate, "age : ", transformAge(age), "ticketType : ", ticketType);
        
         if (ticketType === 'ticketA' || (ticketType === 'ticketB' && age < 12) || age < 6) {
-            insertResult('Vous pouvez entrer. Bonne Visite !', true);
+            insertResult('<p>Vous pouvez entrer.<br>Bonne Visite !</p>', true);
         } else {
             if (age >= 6) {
                 if (age >= 12) {
-                    insertResult('Vous avez 12 ans ou plus ('+transformAge(age)+'). Il vous faut un ticket A !', false);
+                    insertResult('<p>Vous avez 12 ans ou plus ('+transformAge(age)+').<br>Il vous faut un ticket à plein tarif !</p>', false);
                 } else {
-                    insertResult('Vous avez 6 ans ou plus ('+transformAge(age)+'). Il vous faut un ticket B', false);
+                    insertResult('<p>Vous avez 6 ans ou plus ('+transformAge(age)+').<br/>Il vous faut un ticket à tarif réduit</p>', false);
                 }
             } 
         }
     } else {
-        alert ('Le format de date inserée n\'est pas correcte');
+        insertResult('<p>Le format de date inserée n\'est pas correcte</p>', false);
     }
-    
-    function isValid(date) {
-        date = new Date(date);
-        let day = date.getDate();
-        let month = date.getMonth();
-        let year = date.getFullYear();
+}  
 
-        let lastDays = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
-        lastDays[1] = isBissextile(year) ? 29 : 28;
+function isValid(date) {
+    date = new Date(date);
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
 
-        return month >= 0 && month <= 11 && day >= 0 && day < lastDays[month] && date.getTime() < today.getTime();
-    }
+    let lastDays = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
+    lastDays[1] = isBissextile(year) ? 29 : 28;
 
-    function transformAge(age) {
-        let an = Math.floor(age);
-        let mois = Math.floor((age - an)*12)
-        let txt = '';
-        if (an >= 6) {
-            txt += an + " an" + ((an !== 1) ? 's' : '') ;
-            if (mois > 0) {
-                txt += ((txt !== '') ? ' et ' : '') + mois + " mois" ;
-            } 
-        } else {
-            txt = 'moins de 6 ans';
-        }
-
-        return txt;
-    }
-
-    function isBissextile(year) {
-        //l'année n’est bissextile que dans l’un des deux cas suivants :
-        //si l'année est divisible par 4 et non divisible par 100 ;
-        //si l'année est divisible par 400.
-
-        return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
-    }
-
-    function insertResult(txt, enter) {
-        /*let oDisc = document.createElement('div');
-        let oP = document.createElement('p')
-        if (enter) {
-            let oCheck = document.createTextNode('V');
-            oDisc.setAttribute('class', 'good')
-        } else {
-            let oCheck = document.createTextNode('X');
-            oDisc.setAttribute('class', 'wrong')
-        }
-        oResult.appendChild(oDisc)
-        
-        oP.appendChild(document.createTextNode(txt));
-        oResult.appendChild(oP);*/
-
-        alert(txt);
-
-    }
-
-    function clearResult() {
-        oResult.innerHTML = '';
-    }
+    return month >= 0 && month <= 11 && day >= 0 && day <= lastDays[month] && date.getTime() < today.getTime();
 }
+
+function transformAge(age) {
+    let an = Math.floor(age);
+    let mois = Math.floor((age - an)*12)
+    let txt = '';
+    if (an >= 6) {
+        txt += an + " an" + ((an !== 1) ? 's' : '') ;
+        if (mois > 0) {
+            txt += ((txt !== '') ? ' et ' : '') + mois + " mois" ;
+        } 
+    } else {
+        txt = 'moins de 6 ans';
+    }
+
+    return txt;
+}
+
+function isBissextile(year) {
+    //l'année n’est bissextile que dans l’un des deux cas suivants :
+    //si l'année est divisible par 4 et non divisible par 100 ;
+    //si l'année est divisible par 400.
+
+    return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
+}
+
+function insertResult(txt, enter) {
+    oAlert.setAttribute('class', (enter) ? 'good': 'wrong');
+    oResult.innerHTML = txt;
+    oAlert.classList.add('active');
+}
+
+function clearResult() {
+    oAlert.classList.remove('active');
+    oResult.innerHTML = '';
+}
+

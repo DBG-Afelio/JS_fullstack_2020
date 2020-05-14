@@ -11,7 +11,7 @@
 	<body>
         <main>
             <div id="center">
-                <form name="form">
+                <form name="form" action="javascript: submit();">
                     <div id="blockDate">
                         <label for="date">Entrez votre date de naissance</label>
                         <input type="date" id="date" name="date" value="" />
@@ -51,9 +51,9 @@
                 </div>
             </div>
             <div id="alertBox">
-                <div id="result">
-                    ...
-                </div>
+                <button id="close"></button>
+                <div id="alertCircle"></div>
+                <div id="result"></div>
             </div>
         </main>
 

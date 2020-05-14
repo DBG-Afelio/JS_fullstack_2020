@@ -146,23 +146,92 @@ input[type=date] {
     appearance:button;
 }
 
-#alertBox {
+#alertBox.active {
     display: block;
 }
 
-#alertBox.active {
+#alertBox {
     position: fixed;
     top: 50%;
     left: 50%;
-    max-width : 500px;
-    width: 36vw;
-    min-width : 250px;
-    max-height: 300px;
-    height: 16vw;
-    min-height: 200px;
-    margin: -8vw 0 0 -18vw;
+    width : 500px;
+    height: 300px;
+    margin: -150px 0 0 -250px;
     background-color: white;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-    display: block;
+    display: none;
+    padding :150px 25px 25px 25px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+#result {
+    font-size: 22px;
+    text-align: center; 
+    vertical-align: middle;
+    width: 400px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+#alertCircle {
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: -350px;
+    left: -180px;
+    z-index: 5;
+}
+
+#alertBox.wrong #alertCircle {
+   background-color: rgba(255, 0, 0 ,0.6); 
+}
+
+#alertBox.good #alertCircle  {
+   background-color: rgba(88, 182, 144 ,1);
+}
+
+#close {
+    position: absolute;
+    top: 25px; 
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    
+    color: white;
+    cursor: pointer;
+    font-family: 'Advent Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 40px;
+    text-align: center;
+}
+#close:before {
+    content: '+';
+    position: absolute;
+    top: 50%; 
+    right: 50%;
+    margin-top: -24px;
+    margin-left: -24px;
+    width: 80px;
+    height: 80px;
+    display: block;
+    font-size: 85px;
+    transform: rotate(45deg);
+    color: white;
+    margin-top: -24px;
+
+margin-right: -24px;
+}
+
+
+#alertBox.wrong #close {
+    background-color: rgba(255, 0, 0 ,0.4); 
+ }
+ 
+ #alertBox.good #close {
+    background-color: rgba(88, 182, 144 ,0.6);
+ }
