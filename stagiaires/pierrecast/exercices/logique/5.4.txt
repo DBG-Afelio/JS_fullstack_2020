@@ -1,0 +1,35 @@
+Ecrire un programme qui demande à l’utilisateur un texte, une position de départ et une position de fin.
+Le programme affichera la sous-chaine composée des caractères se trouvant dans le texte entre la position de départ (comprise) et la position de fin (non comprise).
+Si les positions ne sont pas valides, le programme affiche un message d’erreur.
+
+Remarque : Ceci sans utiliser la fonction sousChaine() :-)
+
+
+Debut ex5-4
+    VARIABLES LOCALES :
+        var source :T <- ""
+        var pos1 :N <- 0
+        var posN :N <- 0
+        var final :T <- ""
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte source"
+    Saisir source
+    Afficher "Entrez la position inititale"
+    Saisir pos1
+    Afficher "Entrez le position finale"
+    Saisir posN
+
+    final <- ""
+    SI (pos1 >=0 && posN < longueur(source)-1 && pos1 < posN)
+        ALORS 
+            POUR i ALLANT DE pos1 A posN-1
+                final <- final (+) carac(source, i)   
+            i SUIVANT
+
+            Afficher final
+        SINON
+            Afficher "message d'erreur"
+    FIN SI 
+    
+Fin ex5-4
