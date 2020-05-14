@@ -2,13 +2,14 @@ Debut Programme
     VARIABLE LOCALES :
         VAR chiffreOrdi:N <- 0
        	VAR chiffreUtilisateur <- 0
+	VAR i :N <- 0
 
     FIN VARIABLES LOCALES
 	chiffreUtilisateur <-aléatoire (0, 100)
 
 	Afficher "Entrez  un chiffre: chiffreUtilisateur"
 		Saiser chiffreUtilisateur
-		
+		POUR i ALLANT DE 0 A 100
 		SI chiffreUtilisateur > chiffreOrdi
 		ALORS
 		Afficher "Le nombre que vous avez choisi est supérieur au nombre correct" 
@@ -20,6 +21,6 @@ Debut Programme
 		SI chiffreUtilisateur > chiffreOrdi
 		ALORS
 		Afficher "Le numéro que vous avez choisi est correct Félicitations"
-
+		i SUIVANT
 Fin Programme
 
