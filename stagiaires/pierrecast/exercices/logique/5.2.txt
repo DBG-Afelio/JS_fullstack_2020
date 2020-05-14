@@ -1,0 +1,47 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher.
+Le programme affichera :
+
+- La première position où le texte à rechercher se trouve dans le texte source.
+- La dernière position.
+- Le nombre de fois qu’il apparait.
+
+Si le texte à rechercher ne se trouve pas dans le texte source, le programme affichera un simple message.
+
+
+Debut ex5-2
+    VARIABLES LOCALES :
+        var source :T <- ""
+        var txt :N <- ""
+        var pos1 :N <- 0
+        var posN :N <- 0
+        var nb : N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte source"
+    Saisir source
+    Afficher "Entrez le texte à rechercher"
+    Saisir txt
+
+    POUR i ALLANT DE 0 A (longueur(source)-longueur(txt))
+        SI (sousChaine(txt, i, i+longueur(txt)) = char)  
+            ALORS
+                nb <- nb +1
+                posN <- i
+                SI nb = 1
+                    ALORS   
+                        pos1 <- i
+                FIN SI 
+        FIN SI   
+ 
+    i SUIVANT
+
+    Afficher "La première position : " , pos1
+    Afficher "La dernière position : " , posN
+    Afficher "Le nombre de fois d'apparition : " , nb
+
+    SI nb = 0 
+        ALORS
+            Afficher "le texte à rechercher ne se trouve pas dans le texte source"
+    FIN
+    
+Fin ex5-2
