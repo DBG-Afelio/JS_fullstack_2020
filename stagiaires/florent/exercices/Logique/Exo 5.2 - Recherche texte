@@ -1,0 +1,33 @@
+Début programme
+    Variables locales
+        Var text :T <- "";
+        Var textsource :T <- "";
+        Var cpt :N <- 0;
+        Var posdebut :N <- i;
+        Var posfin :N <- i;
+    Fin variables locales
+    
+    Afficher "Entrez le texte source: "
+    Saisir textsource
+    Afficher "Entrez le texte: "
+    Saisir text
+
+    POUR i allant de  0 a longueur(textsource) - longueur(text)
+        SI sousChaine(txt, i, i+longueur(txt)) = txt 
+            ALORS
+            cpt <- cpt +1
+            posfin <- i
+            SI cpt = 1
+                ALORS posdebut <- i
+            FIN SI 
+        FIN SI  
+    i SUIVANT 
+
+    SI longueur(textesource) != 0 && cpt != 0
+        Afficher "La première position du texte : " , posdebut
+        Afficher "La dernière position du texte : " , posfin
+        Afficher "Le nombre d'apparition du texte : " , cpt
+    SINON
+        Afficher "Il n'y a pas de texte à rechercher dan le texte source!"
+    FINSI
+Fin de programme
