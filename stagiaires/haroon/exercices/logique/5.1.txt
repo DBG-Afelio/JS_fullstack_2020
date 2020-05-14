@@ -1,0 +1,38 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte et un caractère.
+Le programme affichera :
+
+    La première position où le caractère se trouve dans le texte.
+    La dernière position.
+    Le nombre de fois qu’il apparait.
+
+
+Si le caractère ne se trouve pas dans le texte, le programme affichera un simple message.
+
+Debut Peogramme 
+
+VARIABLES LOCALES :
+	VAR text :T <- "" 
+	VAR caractère: T <-"" 
+	VAR i : N <- 0
+	VAR PreIndex :N < - 0
+	VAR DerIndex : N <- 0
+	VAR nombreApparaition : N <- 0
+	
+Fin VARIABLES LOCALES
+	Afficher "Entrez le text "
+		Saisier text
+	Afficher "Entrez la caractère"
+	Saisier caractère
+	
+Pour i AllANT DE 0 A longueur(text) 
+	SI caract(text, i ) = caractère
+	Alors 
+	PreIndex <- i
+	nombreApparaition  <- nombreApparaition + 1 
+	FINSI
+	SINON 
+	AFFICHER "Le caractère n'existe pas"
+I SUIVANT 
+
+
+Fin Programme 
