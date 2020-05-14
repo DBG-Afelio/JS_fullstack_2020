@@ -11,7 +11,6 @@ Debut Exercice
         CONST text1 :T <- ""
         CONST text2 :T <- ""
         CONST limite :N <- 0
-        VAR car1 <- ''
         VAR i :N <- 1
         reponse :B <- 0
     FIN VARIABLES LOCALES
@@ -34,6 +33,7 @@ Debut Exercice
             reponse <- 0
         FINSI
         SI caract(text1,i) > caract(text2, i)
+        ALORS
             reponse <- 1
         FINSI
         i <- i + 1
