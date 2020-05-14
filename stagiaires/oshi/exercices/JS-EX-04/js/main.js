@@ -190,14 +190,14 @@ function send(gen_colors, user_colors) {
     if(user_try === 10) {
         alert_box.style.display = "block";
         alert_box.style.backgroundColor = "red";
-        alert_text.textContent = "Vous avez atteind le nombre maximum de tentative sans trouver la salution, voulez vous recommencez ?";
+        alert_text.textContent = "Vous avez atteint le nombre maximum de tentatives sans trouver la solution, voulez-vous recommencer ?";
         alert_mode = "reset";
         used = false;
     } else {
         if(success) {
             alert_box.style.display = "block";
             alert_box.style.backgroundColor = "green";
-            alert_text.textContent = "Vous avez réussi ! Voulez vous recommencez ?";
+            alert_text.textContent = "Vous avez réussi ! Voulez-vous recommencer ?";
             alert_mode = "reset";
         } else {
             const black_and_white_results = result[user_try].getElementsByClassName("borw-result");
