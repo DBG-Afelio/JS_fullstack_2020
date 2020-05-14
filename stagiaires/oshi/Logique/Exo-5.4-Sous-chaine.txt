@@ -1,0 +1,27 @@
+Début programme
+	Variable locale
+        Var texte :T <- ""
+        Var first_pos :N <- 0
+        Var last_pos :N <- 0
+        Var sous_chaine :T <- ""
+        Var index :N <- 0
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+    Afficher "Entrer un nombre qui sera le début de la sous chaine"
+    Saisir first_pos
+    Afficher "Entrer un nombre qui sera la fin de la sous chaine"
+    Saisir last_pos
+
+    SI longueur(texte) > 0 ALORS
+        POUR index ALLANT DE 1 A longueur(texte)
+            SI index >= first_pos ET index < last_pos ALORS
+                sous_chaine <- sous_chaine (+) caract(texte, index)
+            FINSI
+        index SUIVANT
+        Afficher "La décomposition de votre texte donne ceci :", sous_chaine
+    SINON
+        Afficher "Le text est vide"
+    FINSI
+Fin de programme
