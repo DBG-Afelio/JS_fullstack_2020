@@ -8,8 +8,6 @@ Debut Exercice
         CONST tsearch :T <- ""
         CONST treplace :T <- ""
         VAR tupdate :T <- ""
-        VAR tFin :T <- ""
-
         VAR indexSource :N <- 1
         VAR occur :N <- 0
         VAR i :N <- 1
