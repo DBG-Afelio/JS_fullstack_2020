@@ -16,30 +16,35 @@ Debut Decouverte
     saisie sourceString
     saisie toBeSearchedString
 
-    itVarFirst = longueur(c)
+    POUR i ALLANT DE 1 à longueur(sourceString)
 
-    TANT QUE itVarFirst > 1
+        SI (sousChaine(toBeSearchedString, i, longueur(toBeSearchedString) = toBeSearchedString)
 
-        SI (caract(s, itVar) = c)
+            ALORS
+
+                cCount <- cCount + 1
+
+                lastPos = i
+
+                SI (firstPos = 0)
+
+                    firstPos = i
+
+                FINSI
+        FINSI
+
+    i SUIVANT
     
-            firstPos = caract(s, itVar)
-
-            itVarFirst --
-    
-    FIN TANT QUE
-
-    TANT QUE itVarLast < longueur(c)
-
-        SI (caract(s, itVarLast) = c)
-    
-            lastPost = caract(s, itVarLast)
-
-            itVarFirst ++
-
-            cCount = cCount + 1
-    
-    FIN TANT QUE
+    SI (cCount = 0)
  
+        ALORS
+
+            affiche "le texte ", toBeSearchedString, " ne se trouve pas dans le texte", sourceString, "."
+
+    SINON
+
+            affiche "le texte", toBeSearchedString, "se trouve ", cCount, " fois dans le texte ", sourceString, "."
+    
 Fin Decouverte
 
 
