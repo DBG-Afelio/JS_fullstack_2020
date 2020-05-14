@@ -1,0 +1,47 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les mots.
+
+Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.
+
+
+Debut ex5-8
+    VARIABLES LOCALES :
+        var txt :T <- ""
+        var final :T <- ""
+        var mot :T <- ""
+        var motFinal :T <- ""
+        var i :N <- 0
+        var j :N <- 0
+        
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte"
+    Saisir txt
+    
+    i <- 0
+    mot <- ""
+    final <- ""
+    POUR i ALLANT DE 0 A longueur(txt)-1
+        SI (carac(txt, i)) = ' ')
+            ALORS
+                SI (mot != "")
+                    ALORS 
+                        mot <- sousChaine(txt, pos, i)
+                        
+                        j <- 0
+                        motFinal <- ""
+                        POUR j ALLANT DE 0 A longueur(mot)-1
+                            motFinal <- carac(mot, j) (+) motFinal 
+                        j SUIVANT
+
+                        final <- mot (+) final 
+                        
+                FIN SI 
+                pos <- i + 1
+        FIN SI
+    i SUIVANT
+
+    Afficher final
+ 
+Fin ex5-8
