@@ -1,0 +1,30 @@
+Début programme
+	Variable locale
+        Var texte :T <- ""
+        Var texte_recherche:T <- ""
+        Var first_pos :N <- 0
+        Var last_pos :N <- 0
+        Var compteur :N <- 0
+        Var index :N <- 0
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+    Afficher "Entrer un le texte à rechercher"
+    Saisir texte_recherche
+
+    SI longueur(texte_recherche) > 0 ET longueur(texte) > 0 ET longueur(texte) > longueur(texte_recherche) ALORS
+        POUR index ALLANT DE 1 A longueur(texte) - longueur(texte_recherche) + 1
+            SI texte_recherche = sousChaine(texte, index, index + longueur(texte_recherche)) ALORS
+                SI first_pos != 0 ALORS
+                    first_pos <- index
+                FINSI
+                last_pos <- index
+                compteur <- compteur + 1
+            FINSI
+        index SUIVANT
+        Afficher "Le texte rechercher :", texte_recherche, ": apparait pour la première fois à la ", first_pos, "position, la dernière fois à la ", last_pos, "et il apparait ", compteur_caract, "fois."
+    SINON
+        Afficher "Les textes sont vite ou le texte à rechercher est plus grand que le texte"
+    FINSI
+Fin de programme
