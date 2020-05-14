@@ -1,0 +1,40 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher et un texte de remplacement.
+Le programme affichera le texte source où toutes les occurrences du texte à rechercher seront remplacées par le texte de remplacement. 
+
+
+
+VARIABLES LOCALES :
+	VAR source:T <- "" 
+	VAR text : T <- ""
+	VAR textRemplacement :T <- ""
+	VAR i : N <- 0
+	VAR index N<-0
+	VAR occurrences :N < - 0
+	VAR dernierTexte : T <- ""
+Fin VARIABLES LOCALES
+	Afficher "Entrez le source"
+		Saisier source
+	Afficher "Entrez la text"
+	Saisier text
+	Afficher "Entrez la textRemplacement "
+	Saiser textRemplacement
+	
+Pour i AllANT DE 0 A longueur(text) et longueur(source) 
+	SI sousChaine(text, i,i longueur (source)) = source
+	Alors 
+	occurrences <- occurrences + 1
+	
+	dernierTexte <- dernierTexte (+) sousChaine(source,index, i)(+) textRemplacement
+	Index <- i
+	FINSI
+	I SUIVANT
+	Afficher dernierTexte =dernierTexte  (+) sousChaine(source,index, longueur(source))
+	SI occurrences  = 0
+	Afficher "Le text n'existe pas"
+	FINSI
+	
+
+ 
+
+
+Fin Programme 
