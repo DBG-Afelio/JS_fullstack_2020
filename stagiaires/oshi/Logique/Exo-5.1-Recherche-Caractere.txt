@@ -23,6 +23,8 @@ Début programme
                 compteur_caract <- compteur_caract + 1
             FINSI
         index SUIVANT
+        Afficher "Le caractère :", caractere, " apparait pour la première fois à la ", first_pos, "position, la dernière fois à la ", last_pos, "et il apparait ", compteur_caract, "fois."
+    SINON
+        Afficher "Le texte est vide ou il n'y a pas ou trop de caractère"
     FINSI
-    Afficher "Le caractère :", caractere, " apparait pour la première fois à la ", first_pos, "position, la dernière fois à la ", last_pos, "et il apparait ", compteur_caract, "fois."
 Fin de programme
