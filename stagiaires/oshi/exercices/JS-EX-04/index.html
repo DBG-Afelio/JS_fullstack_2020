@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>JS-EX-04-Mastermind</title>
+        
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <div class="alert">
+            <p class="alert-text">Bienvenue sur le Mastermind</p>
+            <button class="confirmer">CONFIRMER</button>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <nav class="nav npc">
+            <a name="niv_1" class="nav-item" active-color="green">Niveau 1</a>
+            <a name="niv_2" class="nav-item" active-color="orange">Niveau 2</a>
+            <a name="niv_3" class="nav-item" active-color="red">Niveau 3</a>
+            <span class="nav-indicator"></span>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div class="selector">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+            </nav>
+        </div>
+        <div class="selector">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <button class="send-btn">ENVOYER</button>
+            </nav>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+        <div class="result">
+            <nav class="nav npc">
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <div class="btn-circle"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="borw-result"></div></td>
+                            <td><div class="borw-result"></div></td>
+                        </tr>
+                    </thead>
+                </table>
+            </nav>
+        </div>
+    <script src="./js/main.js"></script>
+    </body>
+</html>
