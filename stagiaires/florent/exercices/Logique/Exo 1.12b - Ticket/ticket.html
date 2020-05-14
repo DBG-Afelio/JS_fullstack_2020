@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ticket</title>
+        <link rel="stylesheet" type="text/css" href="ticket.css">
+    </head>
+    <body>
+        <h1>Ticket de bus</h1>
+        <p>Entrez votre année de naissance:</p>
+        <input type="date" id="age">
+        <p>Selectionner votre billet:</p>
+        <div>
+            <input type="radio" id="normal" name="choix" value="normal">
+            <label for="normal">Ticket normal</label>
+        </div>
+        <div>
+            <input type="radio" id="reduit" name="choix" value="reduit">
+            <label for="dewey">Ticket réduit (moins de 12 ans)</label>
+        </div>
+        <div>
+            <input type="radio" id="aucun" name="choix" value="aucun">
+            <label for="aucun">Aucun Ticket (moins de 6 ans)</label>
+        </div>
+        <input type="submit" id="sub">
+        <br>
+        <output id="reponse"></output>
+        <script src="ticket.js"></script>
+    </body>
+</html>
