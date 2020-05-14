@@ -24,7 +24,7 @@ Debut Exercice
         Afficher "Saisir la position de fin :"
         Saisir end
 
-        validInputs <- end > start ET start > 0 ET end > 1 ET start < longueur(textIn) ET end ≤ longueur(textIn) ET  textIn ≥ 2
+        validInputs <- end > start ET start > 0 ET end > 1 ET start < longueur(textIn) ET end ≤ longueur(textIn) ET  longueur(textIn) ≥ 2
         SI validInputs = FAUX
         ALORS
             Afficher "Erreur 404 : entrees invalides "
