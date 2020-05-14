@@ -1,0 +1,25 @@
+
+.panel-control {
+    text-align: center;
+}
+
+.container-radius-entry {
+    margin: 3em 0;
+}
+
+
+input[type=range] {
+    display: inline-block;
+    padding: 0 5em;
+ }
+
+ #canvas {
+    display: block;
+    margin-top: 2rem;
+    margin: 2em auto;
+    border: 1px solid black;
+ }
+
+ .position-container {
+     margin-top: 1em;
+}
