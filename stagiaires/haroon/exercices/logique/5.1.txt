@@ -33,7 +33,6 @@ Pour i AllANT DE 0 A longueur(text)
 	Alors 
 	PreIndex <- nombreApparaition
 	FINSI
-	nombreApparaition  <- nombreApparaition + 1 
 	FINSI
 	SINON 
 	AFFICHER "Le caractère n'existe pas"
