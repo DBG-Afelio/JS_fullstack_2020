@@ -8,7 +8,8 @@ Debut Exercice
         CONST tsearch :T <- ""
         CONST treplace :T <- ""
         VAR tupdate :T <- ""
-
+        VAR tavant :T <- ""
+        VAR tapres :T <- ""
         VAR firstCar :N <- 0
         VAR lastCar :N <- 0
         VAR index :N <- 1
