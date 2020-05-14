@@ -1,0 +1,52 @@
+Debut Decouverte
+    VAR LOCALES
+
+    sourceString :T <- ""    
+    searchedString :T <- ""
+    replaceString :T <- ""
+    newString :T <- ""
+    cCount :N <- 0
+    
+    FIN VAR LOCALES
+
+    affiche "entrer un texte source"
+
+    saisie sourceString
+
+    affiche "entrer un texte à rechercher"    
+
+    saisie searchedString
+
+    affiche "entrer un texte de remplacement"
+
+    saisie replaceString
+
+    POUR i ALLANT DE 1 à longueur(sourceString)
+
+        SI (sousChaine(sourceString, i, longueur(searchedString) = searchedString)
+
+            ALORS
+
+                sousChaine(sourceString, i, longueur(searchedString) = replaceString
+
+                newString <- newString (+) sousChaine(sourceString, cCount, i) (+) replaceString
+
+                cCount <- i
+
+        FINSI
+
+    i SUIVANT
+    
+    SI cCount > 0
+
+        ALORS
+
+        affiche "Voici votre nouveau texte :" , newString 
+   
+    SINON
+
+        affiche "Le texte à rechercher ne se trouve pas dans le texte original"
+ 
+Fin Decouverte
+
+
