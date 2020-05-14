@@ -1,0 +1,40 @@
+Ecrire un programme qui demande à l’utilisateur un texte, une position de départ et une position de fin.
+Le programme affichera la sous-chaine composée des caractères se trouvant dans le texte entre la position de départ (comprise) et la position de fin (non comprise).
+Si les positions ne sont pas valides, le programme affiche un message d’erreur.
+
+*Remarque : Ceci sans utiliser la fonction sousChaine()* :-)
+
+Debut Exercice
+
+    VARIABLE LOCALES :
+        CONST textIn :T <- ""
+        CONST textOut :T <- ""
+        CONST start :N <- 0
+        CONST end :N <- 0
+        VAR i :N <- 1
+        validInputs :B <- FAUX
+    FIN VARIABLES LOCALES
+
+
+    REPETER     //----------------- boucle pour relancer le user tant que les valeurs entrees sont incorrectes
+        Afficher "Saisir le texte : "
+        Saisir textIn
+        Afficher "Saisir la position de depart "
+        Saisir start
+        Afficher "Saisir la position de fin :"
+        Saisir end
+
+        validInputs <- end > start ET start > 0 ET end > 1 ET start < longueur(textIn) ET end ≤ longueur(textIn) ET  textIn ≥ 2
+        SI validInputs = FAUX
+        ALORS
+            Afficher "Erreur 404 : entrees invalides "
+        FINSI
+    JUSQU'A CE QUE validInputs
+
+    POUR i ALLANT start A (end - 1)
+        textOut <- textOut (+) caract(textIn,i)
+    i SUIVANT
+
+    Afficher "La sous-chaine comprise dans le texte", textIn, " entre ", start, " et ", end, "est : ", textOut
+
+Fin Exercice
