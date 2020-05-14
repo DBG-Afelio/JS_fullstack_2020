@@ -58,15 +58,21 @@ formulaire.addEventListener("submit", function (e) {
     e.preventDefault();
     const rayon = Number(size_selector.value)
     if (Number.isInteger(rayon)) {
-        if (positionX && positionY) {
-            const rgba = [];
-            color_selector.forEach(selector => {
-                rgba.push(selector.value);
-            });
-            create_circle(rgba, rayon);
+        if(rayon > 0) {
+            if (positionX && positionY) {
+                const rgba = [];
+                color_selector.forEach(selector => {
+                    rgba.push(selector.value);
+                });
+                create_circle(rgba, rayon);
+            } else {
+                notification_title.textContent = "Pas de position";
+                notification_message.textContent = "Veuillez donner une position au cercle en maintenant CTRL+CLIQUE GAUCHE dans le rectangle blanc";
+                notification_aera.style.display = "block";
+            }
         } else {
-            notification_title.textContent = "Pas de position";
-            notification_message.textContent = "Veuillez donner une position au cercle en maintenant CTRL+CLIQUE GAUCHE dans le rectangle blanc";
+            notification_title.textContent = "Le rayon entré n'est pas positif";
+            notification_message.textContent = "Veuillez entré un nombre entier plus grand que 0";
             notification_aera.style.display = "block";
         }
     } else {
