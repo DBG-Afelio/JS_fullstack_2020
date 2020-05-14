@@ -1,0 +1,60 @@
+Debut Decouverte
+    VAR LOCALES
+
+    s :S <- ""    
+    c :C <- ""
+    firstPos :N <- 0
+    lastPos :N <- 0
+    cCount :N <- 0
+    
+    FIN VAR LOCALES
+
+    affiche "écris une phrase appuie sur enter puis écris un mot"
+
+    saisie s
+    saisie c
+
+    POUR i ALLANT DE 1 A longueur(s)
+
+    SI caract(s, i) = c)
+
+        ALORS 
+
+            cCount <- cCount + 1
+
+            lastPos <- i        
+
+            SI firstPos <- 0
+
+                ALORS
+                    
+                    firstPos <- i
+
+                FINSI
+            FINSI
+    
+    i SUIVANT
+
+    SI cCount = 0
+
+        ALORS 
+
+            affiche "le caractère", c, " n'apparaît pas dans la chaîne", s
+    
+        FINSI
+
+    SI cCount
+
+            affiche "le caractère ", c, "n'a été trouvé qu'une seule fois à l'index :", firstPos
+
+        FINSI
+
+    SINON
+
+            affiche "le caractère ", c, "a été trouvé ", cCount, "fois. Première position :", firstPos, "et la dernière position:", lastPos
+
+    FINSI
+ 
+Fin Decouverte
+
+
