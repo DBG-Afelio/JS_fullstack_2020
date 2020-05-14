@@ -11,8 +11,6 @@ const notification_title = notification_aera.querySelector("h1");
 const notification_message = notification_aera.querySelector("p");
 let positionX = false;
 let positionY = false;
-let ctrl_down = false;
-let shift_down = false;
 
 function create_circle(rgba, size) {
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -21,7 +19,7 @@ function create_circle(rgba, size) {
     circle.setAttribute("r", size);
     circle.setAttribute("fill", "rgba(" + [...rgba] + ")");
     circle.setAttribute("draggable", true);
-    circle.addEventListener("click", () => shift_down?svg[1].removeChild(circle):go_first(circle));
+    circle.addEventListener("click", () => event.shiftKey?svg[1].removeChild(circle):go_first(circle));
     if(svg[1].getAttribute("height") < size*2) {
         svg[1].setAttribute("height", size*2);
     }
@@ -38,10 +36,8 @@ function clearboard() {
 }
 
 function go_first(element) {
-    if(!ctrl_down) {
-        svg[1].removeChild(element);
-        svg[1].appendChild(element);
-    }
+    svg[1].removeChild(element);
+    svg[1].appendChild(element);
 }
 
 color_selector.forEach(selector => {
@@ -83,7 +79,7 @@ formulaire.addEventListener("submit", function (e) {
 });
 
 svg[1].addEventListener("click", function (e) {
-    if(ctrl_down) {
+    if(e.ctrlKey) {
         const rect = svg[1].getBoundingClientRect();
         marker.style.display = "block";
         const markerY = e.clientY - marker.offsetHeight + window.scrollY;
@@ -96,20 +92,14 @@ svg[1].addEventListener("click", function (e) {
 });
 
 document.addEventListener("keydown", event => {
-    if(event.keyCode === 17 && !ctrl_down) {
-        ctrl_down = true;
-    }
-    if(event.keyCode === 16 && !shift_down) {
-        shift_down = true;
+    if(event.keyCode === 17) {
+        svg[1].style.cursor = "url(./src/cursor.cur), pointer";
     }
 });
 
 document.addEventListener("keyup", event => {
     if(event.keyCode === 17) {
-        ctrl_down = false;
-    }
-    if(event.keyCode === 16) {
-        shift_down = false;
+        svg[1].style.cursor = "default";
     }
 });
 
