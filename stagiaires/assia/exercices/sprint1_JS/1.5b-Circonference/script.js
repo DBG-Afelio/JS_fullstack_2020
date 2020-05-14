@@ -1,29 +1,39 @@
 
 // declaration des variables EL du form
-var rayonEl = document.getElementById("rayon");
-var color1El = document.getElementById("color1");
-var color2El = document.getElementById("color1");
-var color3El = document.getElementById("color1");
-var color4El = document.getElementById("color1");
-var confirmEl = document.getElementById("OK-button");
+var rayonInputEl = document.getElementById("rayon");
 
 var redRangeEl = document.getElementById("red");
 var greenRangeEl = document.getElementById("green");
 var blueRangeEl = document.getElementById("blue");
-var alphaRangeEl = document.getElementById("alpha");
+var alphaEl = document.getElementById("alpha");
 
-var redRangeVal = redRangeEl.value;
-var greenRangeVal = greenRangeEl.value;
-var blueRangeVal = blueRangeEl.value;
-var alphaRangeVal = alphaRangeEl.value;
+//var monCercle = document.querySelector("#mySVG circle");
+//var monCercle = document.querySelector("#mySVG");
+var monCercle = document.getElementById("myCircle");
 
-//ou var monCercle = document.querySelector("#mySVG circle");//
-var monCercle = document.querySelector("#mySVG");
+// ecoute
+rayonInputEl.addEventListener('change', drawCircle);
+redRangeEl.addEventListener('change', drawCircle);
+greenRangeEl.addEventListener('change', drawCircle);
+blueRangeEl.addEventListener('change', drawCircle);
+alphaEl.addEventListener('change', drawCircle);
 
-//scruter
-confirmEl.addEventListener("click", isNbValid);
+//********************
 
-//fonctions
-function isNbValid (rayonEl){
-    var rayonVal = Number(rayonEl.value);
+function drawCircle (){
+
+//--reading------------
+    var rayonVal = rayonInputEl.value;
+    var redRangeVal = redRangeEl.value;
+    var greenRangeVal = greenRangeEl.valueAsNumber;
+    var blueRangeVal = blueRangeEl.valueAsNumber;
+    var alphaVal = alphaEl.valueAsNumber;
+//--writing------------
+    monCercle.setAttribute("r", rayonVal);
+    monCercle.setAttribute("cx", rayonVal);
+    monCercle.setAttribute("cy", rayonVal);
+    monCercle.setAttribute("fill", "rgba("+redRangeVal+","+greenRangeVal+","+blueRangeVal+","+alphaVal+")");
+
+    //rougeEL.textContent = "hello" ; ca ca ne marche pas
+    //rougeEL.value = "hello" ; ca ok
 }
