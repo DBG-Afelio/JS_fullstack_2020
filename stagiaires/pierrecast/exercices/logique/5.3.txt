@@ -11,6 +11,7 @@ Debut ex5-3
         var pos: N <- 0
         var final :T <- ""
         var pos :N <- 0
+        var i :N  <- 0
     FIN VARIABLES LOCALES
 
     Afficher "Entrez le texte source"
@@ -20,6 +21,7 @@ Debut ex5-3
     Afficher "Entrez le texte de remplacement"
     Saisir replace
 
+    i <- 0
     pos <- 0
     POUR i ALLANT DE 0 A (longueur(source)-longueur(find))
         SI (sousChaine(source, i, i+longueur(find)) = find)  
@@ -31,7 +33,7 @@ Debut ex5-3
         FIN SI   
     i SUIVANT
     
-    final <- final (+) sousChaine(source, pos, -1)
+    final <- final (+) sousChaine(source, pos, longueur(source)-1)
     Afficher final
 
     SI nb = 0 
