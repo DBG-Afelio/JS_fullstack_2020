@@ -30,10 +30,7 @@ Debut Ex5.1
             SI firstPos = 0
                 firstPos <- i
             SINON
-                SI i = longueur(texteIN)
-                ALORS
-                    lastPos <- i
-                FINSI
+                lastPos <- i
             FINSI
         FINSI
     i SUIVANT
@@ -49,5 +46,5 @@ Debut Ex5.1
     SINON
         Afficher "Le caractere ", caractIN, " a ete trouvé ", occur, " fois, le 1er en position :", firstPos, "le dernier en position :", lastPos
     FINSI
-    
+
 Fin Ex5.1
