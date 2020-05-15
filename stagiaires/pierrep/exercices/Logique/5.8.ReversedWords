@@ -1,5 +1,8 @@
 Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
-Le programme affichera le texte en ayant inversé les mots.
+Le programme affichera le texte en ayant inversé les lettres de chaque mot.
+
+Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.
 
 Remarque :
 Les mots sont des sous-chaines ne contenant pas d’espace.
@@ -43,3 +46,4 @@ Début WordReverse
 
 Fin WordReverse
 
+je suis motivé
