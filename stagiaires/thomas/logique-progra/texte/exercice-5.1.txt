@@ -8,7 +8,7 @@ PROGRAMME
     var last-char-index <- 0
     var occurences :N <- 0
     var compteur :N <- 0
-    var longueur-texte :N longeur(entry-user-text :T):N
+    var longueur-texte :N <- longeur(entry-user-text :T):N
 
     FIN VARIABLE LOCALE 
 
