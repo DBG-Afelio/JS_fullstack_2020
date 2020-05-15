@@ -16,7 +16,11 @@ DEBUT PROGRAMME
 
     SI Posi1 > 0 ET Posi2 < longueur(texte) ET Posi1 < Posi2
 
+        POUR i allant de Posi1 à Posi2 - 1
+            newtext <- newtext (+) carac(text, i)
+        i SUIVANT
+        Afficher newtext
     SINON
-        Afficher
+        Afficher "Les positions ne sont pas valides!"
     FINSI
 FIN DE PROGRAMME
