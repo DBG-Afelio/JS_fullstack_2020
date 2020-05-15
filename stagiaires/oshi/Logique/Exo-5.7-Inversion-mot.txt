@@ -1,0 +1,24 @@
+Début programme
+	Variable locale
+        Var texte :T <- ""
+        Var new_texte :T <- ""
+        Var index :N <- 0
+        Var last_pos :N <- 0
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+
+    SI longueur(texte) > 0 ALORS
+        last_pos <- longueur(texte)
+        POUR index ALLANT DE longueur(texte) A 1 PAR PAS DE -1
+            SI caract(texte, index) = " " ALORS
+                new_texte <- new_texte (+) sousChaine(texte, last_pos, index) (+) " "
+                last_pos <- index
+            FINSI
+        index SUIVANT
+        Afficher "Le nouveau texte est", new_texte
+    SINON
+        Afficher "Le texte est vide"
+    FINSI
+Fin de programme
