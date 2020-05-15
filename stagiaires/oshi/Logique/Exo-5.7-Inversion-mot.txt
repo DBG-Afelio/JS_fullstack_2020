@@ -12,7 +12,7 @@ Début programme
     SI longueur(texte) > 0 ALORS
         last_pos <- longueur(texte)
         POUR index ALLANT DE longueur(texte) A 1 PAR PAS DE -1
-            SI caract(texte, index) = " " ALORS
+            SI caract(texte, index) = " " OU index = 1 ALORS
                 new_texte <- new_texte (+) sousChaine(texte, last_pos, index) (+) " "
                 last_pos <- index
             FINSI
