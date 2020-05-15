@@ -18,18 +18,10 @@ PROGRAMME
     AFFICHER("Entrer charactere")
     SAISIR entry-user-char
 
- // PREMIERE POSITION + OCCURENCES + DERNIERE POSITION
-
     POUR compteur ALLANT DE 1 A longueur-texte
-        SI (caract(entry-user-text, compteur) = entry-user-char)
-          SI(first-char-index = 0)
-            ALORS
-                first-char-index <- compteur
-            SINON
-                last-char-index <- compteur
-                occurences <- occurences + 1
-            FIN SI
-        FIN SI
+
+        
+       
     FIN POUR
 
     AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
