@@ -13,6 +13,7 @@ Debut ex5-8
         var motFinal :T <- ""
         var i :N <- 0
         var j :N <- 0
+        var firstWord :B <- FAUX
         
     FIN VARIABLES LOCALES
 
@@ -22,10 +23,11 @@ Debut ex5-8
     i <- 0
     mot <- ""
     final <- ""
+    firstWord <- FAUX
     POUR i ALLANT DE 0 A longueur(txt)-1
         SI (carac(txt, i)) = ' ')
             ALORS
-                SI (mot != "")
+                SI (firstWord)
                     ALORS 
                         mot <- sousChaine(txt, pos, i)
                         
@@ -35,12 +37,22 @@ Debut ex5-8
                             motFinal <- carac(mot, j) (+) motFinal 
                         j SUIVANT
 
-                        final <- mot (+) final 
-                        
+                        final <- motFinal (+) final 
+                    SINON 
+                        firstWord <- VRAI
                 FIN SI 
                 pos <- i + 1
         FIN SI
     i SUIVANT
+
+    j <- 0
+    mot <- sousChaine(txt, pos, longueur(mot)-1)
+    motFinal <- ""
+    POUR j ALLANT DE 0 A longueur(mot)-1
+        motFinal <- carac(mot, j) (+) motFinal 
+    j SUIVANT
+
+    final <- motFinal (+) final 
 
     Afficher final
  
