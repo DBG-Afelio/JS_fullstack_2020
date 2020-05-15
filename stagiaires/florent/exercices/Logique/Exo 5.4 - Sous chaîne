@@ -1,0 +1,22 @@
+DEBUT PROGRAMME
+    Variables locales
+        Var texte :T <- ""
+        Var newtext :T <- ""
+        Var Posi1 :N <- 0
+        Var Posi2 :N <- 0
+        Var i :N <- 1
+    Fin variables locales
+
+    Afficher "Entrez votre texte: "
+    Saisir texte
+    Afficher "Entrez la position du début: "
+    Saisir Posi1
+    Afficher "Entrez la position de fin: "
+    Saisir Posi2
+
+    SI Posi1 > 0 ET Posi2 < longueur(texte) ET Posi1 < Posi2
+
+    SINON
+        Afficher
+    FINSI
+FIN DE PROGRAMME
