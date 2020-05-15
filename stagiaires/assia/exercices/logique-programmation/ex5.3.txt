@@ -21,7 +21,7 @@ Debut Exercice
     Saisir treplace
 
     POUR i ALLANT DE 1 A (longueur(tsource)-[longueur(tsearch)-1])
-        SI sousChaine(tsource, i, longueur(tsearch) + 1) = tsearch
+        SI sousChaine(tsource, i, i + longueur(tsearch) + 1) = tsearch
         ALORS
             occur <- occur + 1
             tupdate <- tupdate (+) sousChaine(tsource, indexSource, i) (+) treplace
