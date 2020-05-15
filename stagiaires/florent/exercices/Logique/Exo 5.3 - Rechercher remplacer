@@ -5,7 +5,7 @@ Début programme
         Var newtext :T <- ""
         Var cpt :N <- 0
         Var textfinal :T <- ""
-        Var posi :N <- 0
+        Var posi :N <- 1
     Fin variables locales
     
     Afficher "Entrez le texte source: "
@@ -15,17 +15,18 @@ Début programme
     Afficher "Entrez le texte à remplacer: "
     Saisir newtext
 
-    POUR i allant de  0 a longueur(textsource) - longueur(text)
-        SI sousChaine(text, i, i+longueur(text)) = text 
+    TANT QUE i< longueur(textsource) - longueur(text)
+        SI sousChaine(textsource, i, i+longueur(text)) = text 
             ALORS
             cpt <- cpt +1
             textfinal <- textfinal (+) sousChaine(textsource, posi, i) (+) newtext
             i<- i + longueur(text)
             posi <- i
         FIN SI  
-    i SUIVANT 
+        i = i + 1
+    FINTANTQUE 
 
-    textfinal <- textfinal (+) sousChaine(textsource, posi, longueur(textsource)-1)
+    textfinal <- textfinal (+) sousChaine(textsource, posi, longueur(textsource)+1)
 
     SI longueur(textesource) != 0 && cpt != 0
         Afficher textfinal
