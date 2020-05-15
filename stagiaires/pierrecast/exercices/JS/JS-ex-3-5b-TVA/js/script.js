@@ -1,7 +1,7 @@
 const oSubmit = document.querySelector('#submit');
 const oType = document.querySelector('#type');
 const oNumber = document.querySelector('#number');
-const oResult = document.querySelector('#result');
+const oResult = document.querySelector('#results');
 const oOutput = document.querySelectorAll('output');
 const taux = {
     "1" : 0.06,
@@ -14,11 +14,14 @@ oSubmit.addEventListener('click', function (e) {
     e.preventDefault();
     submit();
 });
+oType.addEventListener('focus', remove);
+oNumber.addEventListener('focus', remove);
 
 function submit() {
     let number = checkNumber();
     let type = getType();
-    // console.log('Prix : ', number, ' TYPE : ', type );
+    
+    console.log('Prix : ', number, ' TYPE : ', type );
     if (number !== undefined) {
         if (type === 0) {
             alert('Aurevoir !');
@@ -34,9 +37,10 @@ function submit() {
 }
 
 function checkNumber() {
-    let number= Number(oNumber.value);
+    let number = parseFloat(oNumber.value); console.log(number*100);
     // Doit être un nombre positif à max 2 décimales
-    if (Number.isInteger(number) && number > 0 && (number * 100) % 1 === 0) {
+    console.log(Number.isInteger(number * 100), number > 0);
+    if (Number.isInteger(number * 100) && number > 0) {
         return number;
     } 
 
@@ -63,4 +67,9 @@ function showResult(values) {
     oOutput.forEach((output, index) => {
         output.innerHTML = values[index];
     });
+    oResult.classList.add('active');
+}
+
+function remove() {
+    oResult.classList.remove('active');
 }

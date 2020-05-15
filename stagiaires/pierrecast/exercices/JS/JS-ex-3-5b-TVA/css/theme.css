@@ -1,13 +1,15 @@
 html, body, main {
     height: 100%;
+    margin: 0; 
+    padding: 0;
 }
 
 body {
-    background-color: silver;
-    background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,230,217,1) 70%, rgba(40,40,40,.8) 70.01%, rgba(40,40,40,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(247,230,217,1) 70%,rgba(40,40,40,.8) 70.01%,rgba(40,40,40,1)100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(247,230,217,1) 70%,rgba(40,40,40,.8) 70.01%,rgba(40,40,40,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: rgb(204,228,215); /* Old browsers */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    font-family:  'Comic Neue',Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -15,14 +17,16 @@ h1 {
     top: 50%;
     left: 50%;
     width: 200px;
-    height: 30px;
+    
     margin: -265px 0 0 -100px;
     display: block;
-    background-color: white;
+    background-color: #282828;
     text-align: center;
     padding: 5px;
     border-radius: 5px;
     z-index: 10;
+    color: white;
+    
 }
 
 form {
@@ -32,7 +36,7 @@ form {
     width: 300px;
     height: 500px;
     margin: -250px 0 0 -150px;
-    border-radius: 10px 10px 150px 150px;
+    border-radius: 10px;
     border: 5px solid rgba(204,228,215,1);
     padding: 50px 20px 20px 20px;
     box-sizing: border-box;
@@ -40,14 +44,13 @@ form {
     z-index: 5;
 
     background: rgb(204,228,215); /* Old browsers */
-background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 form > * {
-    border: 1px solid red;
-    margin: 5px 0
+    margin: 0 0 12px 0
 }
 
 #shadow {
@@ -57,6 +60,7 @@ form > * {
     background-color: rgba(0,0,0,0.3);
     width: 400px;
     height: 20px;
+
     /*box-shadow: 0 0 25px rgba(0,0,0,0.3);*/
     border-radius: 50%;
     margin: 280px 0 0 -200px;
@@ -68,11 +72,84 @@ form > * {
 input, select {
     width: 100%;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
+    border-radius: 5px;
+    font-family: 'Comic Neue',  Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 1px solid transparent;
+    background-color:rgba(255,255,255, .7);
+}
+
+label {
+    margin-bottom: 8px;
+    display: block;
+}
+
+select option {
+    font-family: 'Comic Neue', Arial, Helvetica, sans-serif;
+
+}
+
+select option:hover {
+    background-color: orange;
+    text-align: center;
+}
+
+
+input[type=submit] {
+    background-color: #282828;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    border-radius: 100px 0 0 0;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    font-size:50px;
+    padding: 20px 0 0 35px;
+}
+
+#results {
+    margin-top: 25px;
+    background-color: rgba(255,255,255, .1);
+    padding: 15px 15px 25px 15px; 
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 20px;
+    display: none;
+    grid-template-columns: 59% 39%;
+    grid-gap: 2%;
+}
+
+#results.active {
+    display: grid;
+}
+
+#results p:nth-of-type(2n) {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    padding: 3px;
+    display: block;
 }
 /*
 #cce4d7
 #054149
 #282828
 */
+
+
+#results > * {
+    display: block;
+    margin:0 0 5px 0;
+    padding: 0;
+    height: 25px;
+}
+
+#results > output {
+    border-radius: 3px;
+    background-color: rgba(255,255,255, .3);
+}
