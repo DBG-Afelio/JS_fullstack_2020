@@ -1,0 +1,23 @@
+Début programme
+    Variables locales
+        Var text :T <- ""
+        Var textfinal :T <- ""
+        Var max :N <- 0
+        Var i :N <- 0
+    Fin Variables locales
+
+    SI longueur(text) != 0 ALORS
+
+        max <- longueur(text)
+
+        TANTQUE i < longueur(text)
+            textfinal = textfinal + carct(text, max)
+            max <- max - 1
+            cpt <- cpt + 1
+        FINTANTQUE
+
+        Afficher textfinal
+    SINON
+        Afficher "Vous n'avez pas entré de texte!"
+    FINSINON
+Fin du programme
