@@ -4,10 +4,7 @@ Le programme affichera le texte en ayant inversé les lettres de chaque mot.
 Remarque :
 Les mots sont des sous-chaines ne contenant pas d’espace.
 
-Remarque :
-Les mots sont des sous-chaines ne contenant pas d’espace.
-
-Début WordReverse
+Début ReversedWords
 
     VAR LOCALES
 
@@ -15,10 +12,13 @@ Début WordReverse
     space :T <- 0
     nTxt :T <- 0
     index :T <- 0
+    wordInversion :T <- 0
+    wordInversionInc :N <- 0
+    invertedWord :T <- 0
 
     FIN VAR LOCALES
 
-    affiche "Veuillez entrer une phrase"
+    affiche "Veuillez entrer un texte"
 
     saisie uTxt
 
@@ -30,7 +30,19 @@ Début WordReverse
 
             ALORS
 
-                nTxt <- nTxt (+) souschaine(uTxt, i+1, i+start+1)
+                wordInversion <- souschaine(uTxt, i+1, i+start+1)
+
+                wordInversionInc <- longueur(wordInversion)
+
+                TANT QUE WordInversionInc > 0
+
+                    invertedWord <- invertedWord (+) caract(wordInversion, wordInversionInc)
+
+                    wordInversionInc -
+
+                    FIN TANT QUE 
+                
+                nTxt <- nTxt (+) space (+) invertedWord
     
                 start <- 0
                 
@@ -44,6 +56,4 @@ Début WordReverse
 
     affiche nTxt 
 
-Fin WordReverse
-
-je suis motivé
+Fin ReversedWords
