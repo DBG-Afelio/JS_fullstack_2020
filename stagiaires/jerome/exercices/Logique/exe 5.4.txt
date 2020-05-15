@@ -1,0 +1,24 @@
+Ecrire un programme qui demande à l’utilisateur un texte, une position de départ et une position de fin.
+Le programme affichera la sous-chaine composée des caractères se trouvant dans le texte entre la position de départ (comprise) et la position de fin (non comprise).
+Si les positions ne sont pas valides, le programme affiche un message d’erreur.
+
+*Remarque : Ceci sans utiliser la fonction sousChaine()* :-)
+
+dbt pgm
+var loc
+var text:T
+var pos1:N
+var posFin:N
+var reste:T
+var i:N<-0
+fin var loc
+Si (pos1>0 et pos1<longueur(text))et (posfin>1 et posfin<=longueur(text) et pos1<posfin
+	alors var i<-pos1 
+	tant que i<posfin
+		reste=reste(+)Caract(text,i)
+		i<-i+1
+	fin tant que
+	sinon afficher "erreur"
+fin de si
+afficher "reste"
+fin de pgm
