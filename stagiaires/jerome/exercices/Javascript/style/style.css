@@ -1,0 +1,9 @@
+body{
+	text-align: right;
+	font-size: 30px;
+	font-family: 'Lobster', cursive;
+	background-image: url("../tram.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-right: 50px;
+}
