@@ -1,0 +1,30 @@
+Ecrire une interface pour savoir si une personne peut entrer ou non dans le bus.
+Obtenir (checkbox / input) les données suivantes:
+
+  +  La personne a un ticket
+  +  La personne a un ticket réduit
+  +  L'âge de la personne
+
+Afficher si, oui ou non, la personne peut entrer.
+
+Les règles sont les suivantes:
+
+- Un enfant de moins de 6 ans peut entrer gratuitement,
+- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+Ennoncé JS:
+
+La page présentera
+- une série de radio présentant les différents cas de ticket permis.
+- un champ date permettant à l'utilisateur de rentrer une date de naissance
+- un bouton d'éxécution
+
+Lorsque l'utilisateur clique sur le bouton
+- validation de la date de naissance (date réelle et inférieure à ajd). Ne pas se fier au contrôle date
+- calcul de l'âge (précis)
+- validation que l'un des choix de ticket est bien sélectionné
+- évaluation booléenne(!!) de l'accès.
+
+    affichage d'une phrase contextuelle précisant le cas échéant pourquoi l'accès est interdit "Vous possédez un ticket réduit mais vous avez plus de 12 ans (12 ans et 2mois)
+

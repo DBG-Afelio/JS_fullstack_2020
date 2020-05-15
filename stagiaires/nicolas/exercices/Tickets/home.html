@@ -9,7 +9,35 @@
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-       
+        <form>
+            <fieldset>
+                
+                <legend>Sélectionnez votre ticket</legend>
+                
+                <input type="radio" id="normTicket" name="ticket" value="normTicket" checked>
+                <label for="normTicket">Ticket standard</label>
+
+                <input type="radio" id="reducedTicket" name="ticket" value="reducedTicket">
+                <label for="reducedTicket">Ticket réduit (- 12 ans)</label>
+                
+                <input type="radio" id="freeTicket" name="ticket" value="freeTicket">
+                <label for="freeTicket">Entrée gratuite (- 6 ans)</label>
+                    
+            </fieldset>
+            <fieldset>
+                
+                <legend>Indiquez votre date de naissance</legend>
+
+                <input id="ageInput" type="date">
+                    
+            </fieldset>
+            
+            <button id="validateButton">Valider</button>
+            
+        </form>
+        
+        <p id="formOutput"></p>
+        
         <script type="text/javascript" src="script/script.js"></script>
     </body>
 </html>
