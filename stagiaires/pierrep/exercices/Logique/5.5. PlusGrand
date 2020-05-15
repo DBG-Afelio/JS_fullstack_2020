@@ -11,7 +11,7 @@ Debut PlusGrand
 
     var string1 :T <- 0
     var string2 :T <- 0
-    var longString :N <- 0
+    var shorter :N <- 0
 
     FIN VAR LOCALES
 
@@ -25,12 +25,30 @@ Debut PlusGrand
 
     SI (longueur(string1) < longueur(string2))
 
-        ALORS
+        ALORS shorter <- string1
 
-            POUR i ALLANT DE 1 à longueur(string1)
+    SI (longueur(string1) > longueur(string2))
 
-            SI
+        ALORS shorter <- string2
 
-            caract(string1, i) < caract(string2, i)
+    SINON shorter <- string1
 
-geoffroy a t on le droit d'utiliser des tableaux ?
+    POUR i ALLANT DE 1 À longueur(shorter)
+
+        SI (caract(string1, i) < caract(string2, i))
+
+            ALORS 
+
+                affiche VRAI
+
+        SI (caract(string1, i) > caract(string2, i))
+
+            ALORS
+
+                affiche FAUX
+
+        SINON
+
+            i suivant
+
+Fin PlusGrand
