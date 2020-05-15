@@ -3,10 +3,10 @@ let radiusEntry;
 const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 const svgSandbox = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 const validateRadius = document.querySelector(".validate-radius");
-let redValue = Number(document.querySelector("input[name='r-range']").value);
-let greenValue = Number(document.querySelector("input[name='g-range']").value);
-let blueValue = Number(document.querySelector("input[name='b-range']").value);
-let alphaValue = Number(document.querySelector("input[name='a-range']").value);
+let redValue = document.querySelector("input[name='r-range']");
+let greenValue = document.querySelector("input[name='g-range']");
+let blueValue = document.querySelector("input[name='b-range']");
+let alphaValue = document.querySelector("input[name='a-range']");
 
 
 // START 
@@ -26,12 +26,20 @@ svgSandbox.append(circle);
 circle.setAttribute("cx", "50");
 circle.setAttribute("cy", "50");
 circle.setAttribute("r", "50");
-circle.style.fill = "gray";
 circle.style.strokeWidth = "5px";
 circle.style.stroke = "black";
 
 
-let arrayColor
+let arrayColor = [redValue, greenValue, blueValue, alphaValue]
+
+arrayColor.forEach((range) => {
+
+    range.addEventListener("change", function() {
+        console.log(range.value);
+        circle.setAttribute("fill", "rgba: ");
+    })
+
+})
 
 validateRadius.addEventListener("click", function() {
 
@@ -43,5 +51,5 @@ validateRadius.addEventListener("click", function() {
 
 
 
-console.log(greenValue)
+// console.log(greenValue)
     
