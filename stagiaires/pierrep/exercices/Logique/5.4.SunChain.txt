@@ -8,11 +8,11 @@ Remarque : Ceci sans utiliser la fonction sousChaine() :-)
 Debut SubChain
     VAR LOCALES
 
-    string :T <- ""    
-    startPos :T <- ""
-    endPos :T <- ""
-    displayString :T <- ""
-    cCount :N <- 0
+        string :T <- ""    
+        startPos :T <- ""
+        endPos :T <- ""
+        displayString :T <- ""
+        cCount :N <- 0
     
     FIN VAR LOCALES
 
@@ -25,7 +25,9 @@ Debut SubChain
     saisie startPos
     
     TANT QUE startPos < 0 OU startPos > longueur(string) 
-    saisie startPos
+        
+        saisie startPos
+
     FIN TANT QUE
 
     affiche "entrer un index de fin"
@@ -34,9 +36,13 @@ Debut SubChain
 
     TANT QUE endPos < startPos OU endPos > longueur(string)
 
-    saisie endPos
+        saisie endPos
 
-    displayString = sousChaine(string, startPost, endPos)
+    POUR i ALLANT DE startPos à endPos
+
+        displayString <- displayString (+) caract(string, i)
+
+    i SUIVANT
 
     affiche "Voici la sélection opérée par vos index de début et de fin sur le texte d'origine:" , displayString
  
