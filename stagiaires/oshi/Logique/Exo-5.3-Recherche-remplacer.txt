@@ -22,6 +22,7 @@ Début programme
                 last_pos <- index + longueur(texte_recherche)
             FINSI
         index SUIVANT
+        new_text <- new_text (+) sousChaine(texte, last_pos, index)
         Afficher "Votre nouveau texte est :", new_text
     SINON
         Afficher "Les textes sont vite ou le texte à rechercher est plus grand que le texte"
