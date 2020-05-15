@@ -30,7 +30,7 @@ FINSI
 REPETER
 	i <- i+1
 	alphabétique <- carac(text1,i) < carac (text2,i)
-JUSQUACEQUE carac(text1,i) != carac (text2,i)
+JUSQUACEQUE carac(text1,i) != carac (text2,i) ou i = min 
 Afficher  alphabétique 
 FIN Programme
 
