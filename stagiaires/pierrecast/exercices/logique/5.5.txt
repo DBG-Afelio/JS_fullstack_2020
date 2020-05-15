@@ -27,8 +27,8 @@ Debut ex5-5
 
     i <- -1
     REPETER
-        test <- carac(txt1, i) < carac(txt2)
         i <- i + 1
+        test <- carac(txt1, i) < carac(txt2)
     JUSQUACEQUE (carac(txt1, i) != carac(txt2, i) OU i = min)
 
     Afficher test
