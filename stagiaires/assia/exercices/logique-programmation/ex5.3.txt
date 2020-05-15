@@ -1,0 +1,41 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher et un texte de remplacement.
+Le programme affichera le texte source où toutes les occurrences du texte à rechercher seront remplacées par le texte de remplacement.
+
+
+Debut Exercice
+    VARIABLE LOCALES :
+        CONST tsource :T <- ""
+        CONST tsearch :T <- ""
+        CONST treplace :T <- ""
+        VAR tupdate :T <- ""
+        VAR indexSource :N <- 1
+        VAR occur :N <- 0
+        VAR i :N <- 1
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir un texte source : "
+    Saisir tsource
+    Afficher "Saisir le texte a recherché dans le texte source : "
+    Saisir tsearch
+    Afficher "Saisir le texte de remplacement :"
+    Saisir treplace
+
+    POUR i ALLANT DE 1 A (longueur(tsource)-[longueur(tsearch)-1])
+        SI sousChaine(tsource, i, i + longueur(tsearch) + 1) = tsearch
+        ALORS
+            occur <- occur + 1
+            tupdate <- tupdate (+) sousChaine(tsource, indexSource, i) (+) treplace
+            indexSource <- i + longueur(tsearch)
+        FINSI
+    i SUIVANT
+
+    tupdate <- tupdate (+) sousChaine(tsource, indexSource, [longueur(tsource)+1])
+
+    SI occur = 0
+    ALORS
+        Afficher "Recherche = 0 - texte inchangé", tsource
+    SINON
+        Afficher "Le texte source mis a jour est :", tupdate
+    FINSI
+
+Fin Exercice
