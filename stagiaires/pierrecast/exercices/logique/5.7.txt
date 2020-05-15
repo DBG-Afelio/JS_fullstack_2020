@@ -11,7 +11,6 @@ Debut ex5-7
         var final :T <- ""
         var mot :T <- ""
         var i :N <- 0
-         var firstWord :B <- FAUX
     FIN VARIABLES LOCALES
 
     Afficher "Entrez le texte"
@@ -20,22 +19,17 @@ Debut ex5-7
     i <- 0
     mot <- ""
     final <- ""
-    firstWord <- FAUX
-    POUR i ALLANT DE 0 A longueur(txt)-1
+    POUR i ALLANT DE 0 A longueur(txt)
         SI (carac(txt, i)) = ' ')
-            ALORS
-                SI (firstWord)
-                    ALORS                         
-                        mot <- sousChaine(txt, pos, i)
-                        final <- mot (+) final 
-                    SINON
-                        firstWord <- VRAI
-                FIN SI
-                pos <- i+1
+            ALORS             
+                mot <- sousChaine(txt, pos, i)
+                final <- mot (+) final   
+            FIN SI
+            pos <- i+1
         FIN SI
     i SUIVANT
 
-    mot <- sousChaine(txt, pos, longueur(txt)-1)
+    mot <- sousChaine(txt, pos, longueur(txt))
     final <- mot (+) final
 
     Afficher final
