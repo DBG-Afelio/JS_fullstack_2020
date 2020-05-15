@@ -19,16 +19,16 @@ Fin VARIABLES LOCALES
 	Afficher "Entrez la textRemplacement "
 	Saiser textRemplacement
 	
-Pour i AllANT DE 0 A longueur(text) et longueur(source) 
-	SI sousChaine(text, i,i longueur (source)) = source
+Pour i AllANT DE 0 A longueur(text) - longueur(source) 
+	SI sousChaine(source, i,i longueur (text)) = text
 	Alors 
 	occurrences <- occurrences + 1
 	
 	dernierTexte <- dernierTexte (+) sousChaine(source,index, i)(+) textRemplacement
-	Index <- i
+	Index <- i+longueur(text)
 	FINSI
 	I SUIVANT
-	Afficher dernierTexte =dernierTexte  (+) sousChaine(source,index, longueur(source))
+	Afficher dernierTexte =dernierTexte  (+) sousChaine(source,index, longueur(source)+1)
 	SI occurrences  = 0
 	Afficher "Le text n'existe pas"
 	FINSI
