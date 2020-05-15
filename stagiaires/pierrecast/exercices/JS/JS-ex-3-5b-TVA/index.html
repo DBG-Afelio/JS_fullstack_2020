@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+		<title>TVA</title>
+	</head>
+	<body>
+		<header>
+			<h1>TVA</h1>
+		</header>
+		<main>
+			<form>
+                <div>
+                    <label for="nombre"></label>
+                    <input type="number" id="number" name="number">
+                </div>
+                <div>
+                    <label for="type">Entrez le taux de TVA</label>
+                    <select id="type">
+                        <option value="1">1. Taux 6%</option>
+                        <option value="2">2. Taux 12%</option>
+                        <option value="3">3. Taux 21%</option>
+                        <option value="4">4. Taux 0%</option>
+                        <option value="0">0. Sortie</option>
+                    </select>
+                </div>
+                <div><input type="submit" id="submit" value="Envoyer" /></div>
+                <div id="results">
+                    <p>Prix (hors TVA) : <output id="prixHT"></output></p>
+                    <p>Le taux de TVA vaut : <output id="taux"></output></p>
+                    <p>Le montant de la TVA est : <output id="prixTVA"></output></p>
+                    <p>Le prix T.V.A.C vaut : <output id="prixTVAC"></output></p>
+                </div>
+			</form>
+		</main>
+		<script src="js/script.js"></script>
+	</body>
+</html>
