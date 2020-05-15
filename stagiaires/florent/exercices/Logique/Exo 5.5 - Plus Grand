@@ -1,0 +1,32 @@
+Début programme
+    Début variables locales
+        Var text1 :T <- ""
+        Var text2 :T <- ""
+        Var i :N <- 1
+        Var pluspetit :N <- 0
+        Var verite :B <- Vrai
+    Fin variables locales
+    
+    Afficher "Entre votre premier texte: "
+    Saisir text1
+    Afficher "Entrez votre second texte: "
+    Saisir text2
+    
+    SI longueur(text1) != 0 ET longueur(text2) != 0 ALORS
+        
+        SI longueur(text1) < longueur(text2)
+            ALORS pluspetit <- longueur(text1)
+        SINON
+            pluspetit <- longueur(text2)
+        FINSI
+
+        TANTQUE caract(text1, i) = caract(text2, i) ET i < pluspetit
+            verite <- caract(text1, i) < caract(text2, i)
+            i <- i + 1
+        FINTANTQUE
+
+        Afficher verite 
+    SINON
+        Afficher "Il n'y a pas de texte!"
+    FINSI    
+Fin de programme
