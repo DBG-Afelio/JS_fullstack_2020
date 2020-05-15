@@ -5,21 +5,24 @@ Debut Programme
 VARIABLES LOCALES :
 	VAR text :T <- ""
 	VAR i :N <- 0 
-	VAR textResult : T <- ""
-	VAR mot : T <- ""
+	VAR textResult : T <- "" 
+	Var intervalle: N <- 0
+
 FIN VARIABLES LOCALES 
 
 
 Afficher "S.V.P Entrez votre text"
 	Saiser text
 	i <- longueur (text)-1
-	derPos  <- longueur(text)-1
-mot <-  sousChaine(text, 0, longueur(text)) 
+
 
 SI i > 0
-	ALORS
+	
 	POUR i ALALNT DE longueur (text)-1 A 0  PAR PAS -1
-		textResult <- textResult (+) mot 
+		SI carac(text,i) = ""
+		ALORS
+			intervalle= i
+			textResult <- textResult (+)  sousChaine(text, intervalle, longueur(text)) 
 	i SUIVANT	 
 SINON 
 	Afficher  textResult 
