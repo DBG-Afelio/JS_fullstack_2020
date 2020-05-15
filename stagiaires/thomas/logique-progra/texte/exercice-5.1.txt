@@ -25,13 +25,18 @@ PROGRAMME
             first-char-index <- compteur
             last-char-index <- compteur
             occurences <- occurences + 1
-            
-        SINON
-            last-char-index <- compteur
-            occurences <- occurences + 1
         FIN SI
 
+        SI(entry-user-text, compteur) = entry-user-char)
+            ALORS 
+                  last-char-index <- compteur
+                  occurences <- occurences + 1
+        FIN SI
+        
+
     FIN POUR
+
+
 
     AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
     AFFICHER("Le caractere" + entry-user-char + "est en derniere position a l'index", last-char-index)
