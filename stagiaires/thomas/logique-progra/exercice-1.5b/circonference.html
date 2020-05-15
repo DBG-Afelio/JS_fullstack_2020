@@ -11,8 +11,10 @@
     <div class="panel-control">
         <div class="container-radius-entry">
             <label for="radius-entry">Entrer rayon </label>
-            <input type="text" name="radius-entry">
+            <input type="text" name="radius-entry" class="radius-entry">
+            <button class="validate-radius">Envoyer</button>
             <button id="createNewCircle">Creer cercle</button>
+            
             <div class="position-container">
                 <span>Definir position</span>
                 <label for="position-x"></label>
@@ -47,14 +49,8 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <div id="playground">   
-        <svg id="circle-svg" width="600" height="600" viewBox="0 0 100 100">
-            
-        </svg>
-    </div> 
 <script src="./circonference.js"></script>
 </body>
 </html>
