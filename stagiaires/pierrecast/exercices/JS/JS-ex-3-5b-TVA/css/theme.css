@@ -4,7 +4,10 @@ html, body, main {
 
 body {
     background-color: silver;
-    
+    background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,230,217,1) 70%, rgba(40,40,40,.8) 70.01%, rgba(40,40,40,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(247,230,217,1) 70%,rgba(40,40,40,.8) 70.01%,rgba(40,40,40,1)100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(247,230,217,1) 70%,rgba(40,40,40,.8) 70.01%,rgba(40,40,40,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 h1 {
@@ -31,16 +34,15 @@ form {
     margin: -250px 0 0 -150px;
     border-radius: 10px 10px 150px 150px;
     border: 5px solid rgba(204,228,215,1);
-    background-color: orange;
     padding: 50px 20px 20px 20px;
     box-sizing: border-box;
     overflow: hidden;
     z-index: 5;
 
     background: rgb(204,228,215); /* Old browsers */
-background: -moz-radial-gradient(60% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(60% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at 60% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 form > * {
