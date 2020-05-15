@@ -33,7 +33,6 @@ PROGRAMME
                   occurences <- occurences + 1
         FIN SI
         
-
     FIN POUR
 
 
