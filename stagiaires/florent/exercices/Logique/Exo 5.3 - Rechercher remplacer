@@ -1,0 +1,36 @@
+Début programme
+    Variables locales
+        Var text :T <- ""
+        Var textsource :T <- ""
+        Var newtext :T <- ""
+        Var cpt :N <- 0
+        Var textfinal :T <- ""
+        Var posi :N <- 1
+    Fin variables locales
+    
+    Afficher "Entrez le texte source: "
+    Saisir textsource
+    Afficher "Entrez le texte à chercher: "
+    Saisir text
+    Afficher "Entrez le texte à remplacer: "
+    Saisir newtext
+
+    TANT QUE i< longueur(textsource) - longueur(text)
+        SI sousChaine(textsource, i, i+longueur(text)) = text 
+            ALORS
+            cpt <- cpt +1
+            textfinal <- textfinal (+) sousChaine(textsource, posi, i) (+) newtext
+            i<- i + longueur(text)
+            posi <- i
+        FIN SI  
+        i = i + 1
+    FINTANTQUE 
+
+    textfinal <- textfinal (+) sousChaine(textsource, posi, longueur(textsource)+1)
+
+    SI longueur(textesource) != 0 && cpt != 0
+        Afficher textfinal
+    SINON
+        Afficher "Il n'y a pas de texte à rechercher et à remplacer dans le texte source!"
+    FINSI
+Fin de programme
