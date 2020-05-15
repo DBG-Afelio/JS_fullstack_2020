@@ -22,14 +22,13 @@ PROGRAMME
 
         SI(caract(entry-user-text, compteur) = entry-user-char)
 
+         ALORS
+
           SI(occurences = 0)
             ALORS
-                first-char-index <- compteur
-                last-char-index <- compteur
-                occurences <- occurences + 1              
+                first-char-index <- compteur           
           FIN SI
-
-        ALORS 
+          
                 last-char-index <- compteur
                 occurences <- occurences + 1
         FIN SI
