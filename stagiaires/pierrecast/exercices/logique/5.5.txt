@@ -25,10 +25,10 @@ Debut ex5-5
             min <- (longueur(txt2)
     FIN SI
 
-    i <- 0
+    i <- -1
     REPETER
         test <- carac(txt1, i) < carac(txt2)
-            
+        i <- i + 1
     JUSQUACEQUE (carac(txt1, i) != carac(txt2, i) OU i = min)
 
     Afficher test
