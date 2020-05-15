@@ -24,13 +24,13 @@ Début ReversedWords
 
     space <- " "
 
-    POUR i ALLANT DE longueur(Utxt) à 1 par -1
+    POUR i ALLANT DE longueur(Utxt) à 1 par 1
 
         SI caract(uTxt, i) <- space
 
             ALORS
 
-                wordInversion <- souschaine(uTxt, i+1, i+start+1)
+                wordInversion <- souschaine(uTxt, i - start, i - 1)
 
                 wordInversionInc <- longueur(wordInversion)
 
