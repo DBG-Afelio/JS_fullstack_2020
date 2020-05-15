@@ -17,7 +17,7 @@ pour i allant de 1 a (longueur (source)-longeur(text-1))
 		alors sourcenew<-sourcenew(+)souschaine(source,j,pos i)(+)textremp
 			j<-i+longueur(text)
 	fin de si
-	i<-i+1
+
 fin pour
 sourcenew<-sourcenew(+)souschaine(source,j,longueur(source)+1)
 afficher sourcenew
