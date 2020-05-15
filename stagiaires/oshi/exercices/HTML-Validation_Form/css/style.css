@@ -1,0 +1,18 @@
+.form_input_classic {
+	padding:4px;
+	font-size:15px;
+	text-align:left;
+	border-radius:10px;
+	border-width:3px;
+	background-color:#545454;
+	border-color:#35056b;
+	border-style:groove;
+    color:#ffffff;
+	box-shadow:inset -2px 2px 8px 0px rgba(0,0,0,.57);
+}
+.form_input_classic::placeholder {
+    color: lightgray;
+}
+input:focus {
+	outline:none;
+}

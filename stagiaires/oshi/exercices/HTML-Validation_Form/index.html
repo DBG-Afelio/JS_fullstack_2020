@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Validation Formulaire</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <form>
+        <input class="form_input_classic" name="nom" type="text" placeholder="Nom(obligatoire)" required minlength="3" maxlength="50"><br>
+        <input class="form_input_classic" name="prenom" type="text" placeholder="Prénom" minlength="3" maxlength="50"><br>
+        <input class="form_input_classic" name="email" type="email" placeholder="Email"><br>
+        <input class="form_input_classic" name="tel" type="tel" placeholder="Téléphone" pattern="^(?:0|\(?\+32\)?\s?|0032\s?)[1-79](?:[\.\-\s]?\d\d){4}$"><br>
+        <input class="form_input_classic" name="date_naissance" type="date" min="1980-01-01" max="2020-12-31" placeholder="jj/mm/aaaa (date de naissance)" required><br>
+        <input class="form_input_classic" name="pseudo" type="text" placeholder="Choisissez un login(obligatoire)" minlength="6" maxlength="10" pattern="[a-zA-Z0-9]+" required><br>
+        <input class="form_input_classic" name="mdp" type="password" placeholder="Mot de passe (obligatoire)" minlength="6" maxlength="10" pattern="[A-Z]{4}\d{6}" required><br>
+        <input class="form_input_classic" name="mdp" type="password" placeholder="Resaisir mot de passe (obligatoire)" minlength="6" maxlength="10" pattern="[A-Z]{4}\d{6}" required><br>
+        <select  class="form_input_classic" name="nationnalite" required>
+            <option disabled selected value="">Nationnalité</option>
+            <option value="belge">Belge</option>
+            <option value="francais">Français</option>
+            <option value="japonais">Japonais</option>
+        </select><br>
+        <input name="sexe" type="radio" id="femme" value="femme">
+        <label for="femme">Femme</label>
+        <input name="sexe" type="radio" id="homme" value="homme">
+        <label for="homme">Homme</label>
+        <input name="sexe" type="radio" id="autre" value="other" checked>
+        <label for="autre">Autre</label><br>
+        <input name="developpeur_front" id="developpeur_front" type="checkbox" value="developpeur_front">
+        <label for="developpeur_front">Developpeur Frond</label><br>
+        <input name="developpeur_back" id="developpeur_back" type="checkbox" value="developpeur_back">
+        <label for="developpeur_back">Developpeur Back</label><br>
+        <input name="integrateur" id="integrateur" type="checkbox" value="integrateur">
+        <label for="integrateur">Intégrateur</label><br>
+        <input name="ux-ui" id="ux-ui" type="checkbox" value="ux-ui">
+        <label for="ux-ui">UX/UI</label><br>
+        <input type="submit"><br>
+    </form>
+</body>
+
+</html>
