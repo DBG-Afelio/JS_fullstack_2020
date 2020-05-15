@@ -1,0 +1,42 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var entry-user-text :T <- ""
+    var entry-user-char :C <- ""
+    var first-char-index <- 0
+    var last-char-index <- 0
+    var occurences :N <- 0
+    var compteur :N <- 0
+    var longueur-texte :N <- longeur(entry-user-text :T):N
+
+    FIN VARIABLE LOCALE 
+
+    AFFICHER("Entrer texte")
+    SAISIR entry-user-text
+
+    AFFICHER("Entrer charactere")
+    SAISIR entry-user-char
+
+    POUR compteur ALLANT DE 1 A longueur-texte
+
+        SI(caract(entry-user-text, compteur) = entry-user-char)
+
+         ALORS
+
+          SI(occurences = 0)
+            ALORS
+                first-char-index <- compteur           
+          FIN SI
+          
+                last-char-index <- compteur
+                occurences <- occurences + 1
+        FIN SI
+        
+    FIN POUR
+
+    AFFICHER("Le caractere" + entry-user-char + "est en premiere position a l'index", first-char-index)
+    AFFICHER("Le caractere" + entry-user-char + "est en derniere position a l'index", last-char-index)
+    AFFICHER("Le caractere apparait : " + occurences + "fois en tout.")
+
+FIN PROGRAMME
