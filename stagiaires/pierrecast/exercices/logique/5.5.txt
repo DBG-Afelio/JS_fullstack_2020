@@ -1,0 +1,36 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+
+Debut ex5-5
+    VARIABLES LOCALES :
+        var txt1 :T <- ""
+        var txt2 :T <- ""
+        var i :N <- 0
+        var min :N <- 0
+        var test :B <- VRAI
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le premier texte"
+    Saisir txt1
+    Afficher "Entrez la deuxmieme texte"
+    Saisir txt2
+
+    SI longueur(txt1) < longueur(txt2)
+        ALORS
+            min <- (longueur(txt1)
+        SINON
+            min <- (longueur(txt2)
+    FIN SI
+
+    i <- -1
+    REPETER
+        i <- i + 1
+        test <- carac(txt1, i) < carac(txt2)
+    JUSQUACEQUE (carac(txt1, i) != carac(txt2, i) OU i = min)
+
+    Afficher test
+ 
+Fin ex5-5
