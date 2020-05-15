@@ -17,7 +17,7 @@ var i<-1
 Afficher"enter texte et caractere"
 Saisie txt
 Saisie car
-tant que i<longueur(txt)
+tant que i<=longueur(txt)
 	Si car=caract(txt,position i)
 		alors si total =0
 			alors premier<-i
