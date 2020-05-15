@@ -21,21 +21,21 @@ Debut Decouverte
 
     saisie replaceString
 
-    POUR i ALLANT DE 1 à longueur(sourceString)
+    POUR i ALLANT DE 1 à longueur(sourceString) - longueur(searchedString) + i
 
         SI (sousChaine(sourceString, i, i + longueur(searchedString) = searchedString)
 
             ALORS
 
-                replaceString <- sousChaine(sourceString, i, longueur(searchedString)
-
                 newString <- newString (+) sousChaine(sourceString, cCount, i) (+) replaceString
 
-                cCount <- i
+                cCount <- i + longueur(searchedString)
 
         FINSI
 
     i SUIVANT
+
+    newString <- newString (+) sousChaine(sourceString, cCount, longueur(sourceString) - 1)
     
     SI cCount > 0
 
