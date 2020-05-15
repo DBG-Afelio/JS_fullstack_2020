@@ -17,7 +17,7 @@ Début Reverse
 
     inc <- longueur(uTxt)
 
-    TANT QUE longueur(reverse) < inc
+    TANT QUE inc > 0
 
         reverse <- reverse (+) caract(uTxt, inc)
         inc -
