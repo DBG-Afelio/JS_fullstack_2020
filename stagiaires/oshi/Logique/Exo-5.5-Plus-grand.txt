@@ -21,11 +21,11 @@ Début programme
     SI min > 0 ALORS
         TANT QUE NON found
             SI index <= min
-                SI caract(texte_1, index) > caract(texte_1, index) ALORS
+                SI caract(texte_1, index) > caract(texte_2, index) ALORS
                     found <- true
                     result <- true
                 SINON
-                    SI caract(texte_1, index) != caract(texte_1, index) ALORS
+                    SI caract(texte_1, index) != caract(texte_2, index) ALORS
                         found <- true
                     FINSI
                 FINSI
