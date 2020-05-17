@@ -1,0 +1,54 @@
+// Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher.
+// Le programme affichera :
+
+// - La première position où le texte à rechercher se trouve dans le texte source.
+// - La dernière position.
+// - Le nombre de fois qu’il apparait.
+
+// Si le texte à rechercher ne se trouve pas dans le texte source, le programme affichera un simple message.
+
+Debut chercheTexte
+
+
+	VARIABLES LOCALES :
+
+		var texteSource: T <- "" 
+		var texteARechercher: T <-"" 
+
+		var i : N <- 0
+		var premierePosition:N < - 0
+		var dernierePosition: N <- 0
+		var combienDeFois: N <- 0
+	
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte de base"
+		Saisir texteSource
+		
+		Afficher "Entrez un mot, je vous dirai où il se trouve dans le texte, quand il apparait pour la première fois, 
+				pour la dernière fois et combien de fois"
+		Saisir texteARechercher
+	
+
+	Pour i allant de 0 à longueur(texteARechercher)
+		
+		SI sousChaine(texteSource, i,i longueur (text)) = texteARechercher
+
+			Alors 
+				combienDeFois <- combienDeFois + 1
+
+
+				SI combienDeFois = 1
+					Alors 
+						premierePosition <- i
+				FINSI
+
+				dernierePosition <- i
+
+		SINON 
+			AFFICHER "Le mot n'existe pas dans le texte"
+		FINSI
+ 	
+	i++ 
+
+Fin chercheTexte
