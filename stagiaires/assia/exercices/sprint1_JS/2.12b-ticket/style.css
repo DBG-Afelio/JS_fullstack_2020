@@ -1,0 +1,13 @@
+body {
+    font-family:"trebuchet ms", helvetica, arial, sans-serif;
+    font-size:large;
+    line-height:2em;
+    color: black;
+}
+
+#submit {
+    font-family:"trebuchet ms", helvetica, arial, sans-serif;
+    font-size:100px;
+    line-height:2em;
+    color: green;
+}

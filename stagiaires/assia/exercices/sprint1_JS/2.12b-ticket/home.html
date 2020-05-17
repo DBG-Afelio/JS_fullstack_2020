@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Exercice 2.12b - ticket</title>
+		<meta charset="UTF-8">
+        <link href="style.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+        <form name="form" action="javascript: submit();">
+            <p>Selectionner un ticket :</p>
+            <div>
+                <input type="radio" id="ticketGratuit" name="ticketOption" value="ticketGratuit" required>
+                <label for="ticketGratuit">Entrée sans ticket (gratuit)</label>
+			</div>
+			<div>
+                <input type="radio" id="ticketReduit" name="ticketOption" value="ticketReduit" required>
+                <label for="ticketReduit">Ticket Tarif Reduit</label>
+			</div>
+			<div>
+                <input type="radio" id="ticketPlein" name="ticketOption" value="ticketPlein" required>
+                <label for="ticketPlein">Ticket Plein Tarif</label>
+            </div>
+            <div>
+                <label for="dateNaissance">Date de Naissance</label>
+                <input type="date" id="dateNaissance" name="dateNaissance" required>
+			<div>
+            <div>
+                <label for="submit"></label>
+                <input type="submit" id="submit" name="submit" value="Valider">
+			</div>
+        </form>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
