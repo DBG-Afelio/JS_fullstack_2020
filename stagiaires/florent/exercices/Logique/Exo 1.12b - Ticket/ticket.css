@@ -1,6 +1,10 @@
 #datevalide, #choix{
     color: red;
 }
-#reponse{
-    color: saddlebrown;
+.invalide{
+    color: red;
+}
+
+.valide{
+    color: green;
 }
