@@ -1,0 +1,29 @@
+Début programme
+	Variable locale
+        Var texte :T <- ""
+        Var new_texte :T <- ""
+        Var index :N <- 0
+        Var cpt :N <- 0
+        Var last_pos :N <- 1
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+
+    SI longueur(texte) > 0 ALORS
+        POUR index ALLANT DE 1 A longueur(texte)
+            SI caract(texte, index) = " " OU index = longueur(texte) ALORS
+                POUR cpt ALLANT DE index - 1 A last_pos PAR PAS DE -1
+                    new_texte <- new_texte (+) caract(texte, cpt)
+                    last_pos <- index + 1
+                cpt SUIVANT
+                SI index != longueur(texte) ALORS
+                    new_texte <- new_texte (+) " "
+                FINSI
+            FINSI
+        index SUIVANT
+        Afficher "Le nouveau texte est", new_texte
+    SINON
+        Afficher "Le texte est vide"
+    FINSI
+Fin de programme
