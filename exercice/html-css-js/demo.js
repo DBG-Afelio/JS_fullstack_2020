@@ -28,10 +28,12 @@ function validate () {
  */
 function validateFieldName(nameField) {
     const nameInputField = nameField.querySelector('input');
-    const value = nameInputField.value;
     let validReturn = true;
+    const value = nameInputField.value;
     nameField.classList.remove('valide');
     nameField.classList.remove('invalide');
+    nameField.classList.remove('error-min-length');
+
     if (value.trim() === '') {
         nameField.classList.add('invalide');
         nameField.classList.add('error-required');

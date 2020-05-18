@@ -14,26 +14,27 @@
             color:red;
             display:none;
         }
-        .form-element.valide .valide-ok{
-            display: block
-        }
-        .form-element.valide .valide-ko{
-            display: none
-        }
-        .form-element.invalide .valide-ok{
+
+        .form-element .valide-symbol, .form-element .error-message{
             display: none;
         }
-        .form-element.invalide .valide-ko{
-            display: block
+
+        .form-element.valide .valide-symbol.valide-ok{
+            display: block;
         }
+        
+        .form-element.invalide .valide-symbol.valide-ok{
+            display: none;
+        }
+    
     </style>
 </head>
 <body>
-    <form novalidate>
+    <form novalidate autocomplete="off">
         <div class="form-element form-nom invalide error-required error-min-length">
-            <input type="text" name="nom" data-pristine="true" required minlength="3" maxlength="50">
-            <span class="valide-ok">V</span>
-            <span class="valide-ko">X</span>
+            <input type="text" name="nom" data-pristine="true"  required minlength="3" maxlength="50">
+            <span class="valide-symbol valide-ok">V</span>
+            <span class="valide-symbol valide-ko">X</span>
             <div class="error-message-container">
                 <div class="error-message error-required">le nom est requis</div>
                 <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
