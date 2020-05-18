@@ -12,7 +12,7 @@ Debut Exercice
         VAR textOut :T <- ""
         VAR word :T <- ""
         CONST espace :C <- ' '
-        VAR c :N <- 1
+        VAR c :N <- 0
     FIN VARIABLES LOCALES
 
     Afficher "Saisir un texte : "
@@ -20,15 +20,12 @@ Debut Exercice
 
     REPETER
         REPETER
-            word <- word (+) caract(textIn, c)
             c <- c + 1
-        JUSQUE A CE QUE caract(textIn, c) = espace OU c > longueur(textIn)
-        textOut <- word (+) espace (+) textOut
+            word <- word (+) caract(textIn, c)
+        JUSQUE A CE QUE caract(textIn, c) = espace OU c = longueur(textIn)
+        textOut <- word (+) textOut   // ici word = mot+espace qui suit
         word <- ""
-        c <- c + 1
-    JUSQUE A CE QUE c ≥ longueur(textIn)
-
-    textOut <- sousChaine(textOut, 2, longueur(textOut) + 1)   //juste pour enlever le 1er 'espace'.
+    JUSQUE A CE QUE c = longueur(textIn)
 
     Afficher "Votre texte d'origine : ", textIn
     Afficher "Votre texte avec les mots inverses : ", textOut
