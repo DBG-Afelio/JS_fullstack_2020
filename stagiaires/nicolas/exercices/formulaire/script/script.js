@@ -2,17 +2,17 @@ const formInputs = document.querySelectorAll('#formulaire input');
 const validationButton = document.getElementById('validationButton');
 
 const nameInput = document.getElementById('nameInput');
-let isNameValid = false;
-
-
 
 const sexeList = document.getElementsByName('sexe');
 
 let isFormValid = false;
 
+const isFormValid = [false, true];
+
 /*----------------ValidName---------------*/
 
-nameInput.addEventListener('input',()=>{
+function isNameValid(){
+    let isNameValidReturn = true;
     
     switch(true){
             
@@ -20,7 +20,7 @@ nameInput.addEventListener('input',()=>{
             
             nameInput.nextElementSibling.innerHTML = "3 caractères minimum";
             
-            isNameValid = false;
+            isNameValidReturn = false;
             nameInput.nextElementSibling.classList.remove('hidden');
             
             break;
@@ -28,17 +28,18 @@ nameInput.addEventListener('input',()=>{
         case (nameInput.value.length > 50):
             
             nameInput.nextElementSibling.innerHTML = "50 caractères maximum";
-            isNameValid = false;
+            isNameValidReturn = false;
             nameInput.nextElementSibling.classList.remove('hidden');
             
             break;
             
         default : 
             
-            isNameValid = true;
             nameInput.nextElementSibling.classList.add('hidden');
     }
     
+    return isNameValidReturn;
+
     /*if(nameInput.value.length >= 3 && nameInput.value.length <= 50 ){
         
         isNameValid = true;
@@ -49,35 +50,36 @@ nameInput.addEventListener('input',()=>{
         
     }*/
     
-})
+}
 
 
 /*----------------ValidButton---------------*/
-for( input of formInputs){
-    
-    
-    input.addEventListener('input',()=>{
-        
-        
-        if(isNameValid){
-            
-            isFormValid = true;
-            
-        }else{
-            
-            isFormValid = false;
-            
-        }
-        if(isFormValid){
-            
-            validationButton.setAttribute('class','valid');
-            
-        }else{
-            
-            validationButton.setAttribute('class','invalid');
-            
-        }
-    });  
-}
 
+    
+    
+nameInput.addEventListener('input',()=>{
+    
+    if (isNameValid()) {
+        isFormValid[0] = true; 
+        
+    } else {
+        
+        isFormValid[0] = false;
+        
+    }
+
+    if (isFormValid[0]) {
+        validateForm();
+        validationButton.setAttribute('class','valid');
+    } else {
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }
+});  
+
+
+function validateForm() {
+    return isFormValid.some((valideElement)=> valideElement === false);
+}
 
