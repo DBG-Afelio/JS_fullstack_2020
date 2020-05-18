@@ -1,0 +1,48 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var texte-source :T <- ""
+    var texte-cible :T <- ""
+    var compteur :N <- 0
+    var firstPosition :N <- 0
+    var lastPosition :N <- 0
+    var occurences :N <- 0
+
+    FIN VARIABLE LOCALE 
+
+    AFFICHER("texte-source")
+    SAISIR("texte-source")
+
+    AFFICHER("texte-cible")
+    SAISIR("texte-cible")
+
+    SI(longeur(texte-cible) = 0)
+           ALORS 
+                AFFICHER ("Le texte demandé est vide.")
+    SINON
+
+        POUR compteur ALLANT DE 1 A longueur(texte-source):N 
+
+            SI (sousChaine(texte-cible, 1, longeur(texte-cible - 1) = sousChaine(texte-source, compteur, longeur(texte-cible - 1)))
+            ALORS 
+               SI(occurences = 0)
+                ALORS
+                    firstPosition <- compteur
+                FIN SI
+                    lastPosition <- compteur
+                    occurences <- occurences + 1       
+            FIN SI   
+        FIN POUR
+
+        SI(occurences = 0)
+            ALORS
+                AFFICHER("La recherche s'est effectuée sans résultats") 
+    FIN SI
+
+
+AFFICHER("Le texte" + texte-cible + "est en premiere position a l'index", firstPosition)
+AFFICHER("Le texte" + texte-cible + "est en derniere position a l'index", lastPosition)
+AFFICHER("Le texte apparait : " + occurences + "fois en tout.")
+
+FIN PROGRAMME
