@@ -1,0 +1,39 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+- Algorithme au seul niveau primaire.*
+
+dbt pgm
+var loc
+var text1:T
+var text2:T
+var max:N
+var firsttext:B<-faux
+var i:N
+fin var loc 
+
+Saisie de text1, text2
+
+Si longueur(text1)>longueur (text2)
+
+	alors max<-longueur(text2)
+	sinon max<-longueur(text1)
+
+fin de si
+
+i<-1
+
+repeter 
+
+	Si caract(text1,i)>caract(text2,i)
+		alors firsttext<-vrai
+		sinon firsttext<-faux
+	fin de si
+
+	i<-i+1
+jusqu'a ce que i> max ou firsttext=vrai
+
+Afficher firsttext
+fin pgm
