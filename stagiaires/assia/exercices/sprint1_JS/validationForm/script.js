@@ -1,9 +1,10 @@
 // Validation de formulaire par Javascript
 
 const fieldName = document.querySelector('.form-nom');
+const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
 
-
+//-------------------------------------
 fieldSubmit.addEventListener('click', ()=> {
     validate();
 });
@@ -11,13 +12,19 @@ fieldSubmit.addEventListener('click', ()=> {
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
 })
-
+fieldDate.addEventListener('input', () => {
+    validateFieldDate(fieldDate);
+})
+//-----------------------------------------
 /**
  * Fonction validant tous les champs
  */
 function validate () {
     if (!validateFieldName(fieldName)){
-        alert ('erreur dans le nom');
+        alert('erreur dans le nom');
+    }
+    if (!validateDateOfBirth(fieldDate)) {
+        alert('erreur champ date');
     }
 }
 
@@ -66,3 +73,56 @@ function validateName(name) {
         return 2;
     }
 }
+
+
+/**
+ * Fonction validant valide et met a jour l'affichage pour le champ Date de Naissance
+ * @param 
+ * @returns
+ */
+function validateFieldDate(dateField) {
+    const dateInputField = dateField.querySelector('input'); 
+    const date = dateInputField.valueAsDate; 
+    let validReturn = true;
+    dateField.classList.remove('valide');
+    dateField.classList.remove('invalide');
+    if (date == null) {
+        dateField.classList.add['invalide'];
+        dateField.classList.add['error-required'];
+        validReturn = false;
+    } else {
+        valid = validateDateOfBirth(date);
+        if (valid == 0) {
+            dateField.classList.add('valide');
+        } else if (valid == 1) {
+            dateField.classList.add('invalide');
+            dateField.classList.add('error-dateFutur');
+            validReturn = false;
+        } else {
+            dateField.classList.add('invalide');
+            dateField.classList.add('error-ageIsOut');
+            validReturn = false;
+        }
+    } 
+}
+
+/**
+ * Fonction validant les regles d'age du champ "date de Naissance"
+ * @param <input type="date">
+ * @returns 0:valid 1:dateInFutur 2:OutofAge 
+ */
+function validateDateOfBirth(date_AsDate) {
+    const today = new Date(Date.now()); 
+    const dateMin = new Date('January 1, 2002 00:00:00 UTC'); 
+    const dateMax = new Date('January 1, 1953 00:00:00 UTC');
+  
+    if (date_AsDate >= dateMax && date_AsDate <= dateMin) {
+        return 0; 
+    } else if (date_AsDate > today) {
+        return 1;
+    }
+    else {
+        return 2;
+    }        
+}
+
