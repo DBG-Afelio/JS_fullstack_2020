@@ -1,0 +1,54 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+- Algorithme au seul niveau primaire.*
+
+Debut PlusGrand
+
+    VAR LOCALES
+
+    var string1 :T <- 0
+    var string2 :T <- 0
+    var shorter :N <- 0
+
+    FIN VAR LOCALES
+
+    affiche "écris un premier texte"
+
+    saisie string1
+
+    affiche "écris un second texte"
+
+    saisie string2
+
+    SI (longueur(string1) < longueur(string2))
+
+        ALORS shorter <- longueur(string1)
+
+    SI (longueur(string1) > longueur(string2))
+
+        ALORS shorter <- longueur(string2)
+
+    SINON shorter <- string1
+
+    POUR i ALLANT DE 1 À shorter
+
+        SI (caract(string1, i) < caract(string2, i))
+
+            ALORS 
+
+                affiche VRAI
+
+        SI (caract(string1, i) > caract(string2, i))
+
+            ALORS
+
+                affiche FAUX
+
+        SINON
+
+            i suivant
+
+Fin PlusGrand

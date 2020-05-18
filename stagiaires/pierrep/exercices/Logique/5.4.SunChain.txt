@@ -1,0 +1,51 @@
+Ecrire un programme qui demande à l’utilisateur un texte, une position de départ et une position de fin.
+Le programme affichera la sous-chaine composée des caractères se trouvant dans le texte entre la position de départ (comprise) et la position de fin (non comprise).
+Si les positions ne sont pas valides, le programme affiche un message d’erreur.
+
+Remarque : Ceci sans utiliser la fonction sousChaine() :-)
+
+
+Debut SubChain
+    VAR LOCALES
+
+        string :T <- ""    
+        startPos :T <- ""
+        endPos :T <- ""
+        displayString :T <- ""
+        cCount :N <- 0
+    
+    FIN VAR LOCALES
+
+    affiche "entrer un texte"
+
+    saisie string
+
+    affiche "entrer un index de départ"    
+
+    saisie startPos
+    
+    TANT QUE startPos < 0 OU startPos > longueur(string) 
+        
+        saisie startPos
+
+    FIN TANT QUE
+
+    affiche "entrer un index de fin"
+
+    saisie endPos
+
+    TANT QUE endPos < startPos OU endPos > longueur(string)
+
+        saisie endPos
+
+    POUR i ALLANT DE startPos à endPos
+
+        displayString <- displayString (+) caract(string, i)
+
+    i SUIVANT
+
+    affiche "Voici la sélection opérée par vos index de début et de fin sur le texte d'origine:" , displayString
+ 
+Fin SubChain
+
+

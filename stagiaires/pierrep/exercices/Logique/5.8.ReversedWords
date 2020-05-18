@@ -1,0 +1,63 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les lettres de chaque mot.
+
+Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.
+
+Début ReversedWords
+
+    VAR LOCALES
+
+    uTxt :T <- ''
+    space :T <- ''
+    nTxt :T <- ''
+    wordInversion :T <- ''
+    wordInversionInc :N <- 0
+    invertedWord :T <- ''
+    start :N <- 0
+
+    FIN VAR LOCALES
+
+    affiche "Veuillez entrer un texte"
+
+    saisie uTxt
+
+    uTxt <- uTxt (+) ' '
+
+    space <- ' '
+
+    POUR i ALLANT DE 1 à 1 par longueur(Utxt)
+
+        SI caract(uTxt, i) <- space
+
+            ALORS
+
+                wordInversion <- souschaine(uTxt, i - start, i - 1)
+
+                wordInversionInc <- start
+
+                TANT QUE WordInversionInc > 0
+
+                    invertedWord <- invertedWord (+) caract(wordInversion, wordInversionInc)
+
+                    wordInversionInc -
+
+                    invertedWord <- ' '
+
+                    FIN TANT QUE 
+                
+                nTxt <- nTxt (+) space (+) invertedWord
+    
+                start <- 0     
+
+        SINON
+
+            start <- start + 1
+
+        FINSI
+
+            i suivant
+
+    affiche nTxt 
+
+Fin ReversedWords

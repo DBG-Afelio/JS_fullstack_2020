@@ -1,0 +1,29 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les caractères.
+
+Début Reverse
+
+    VAR LOCALES
+
+    var uTxt :T <- 0
+    var reverse :T <- 0
+    var inc :T <- 0
+
+    FIN VAR LOCALES
+
+    affiche "Entrez un texte"
+
+    saisie uTxt
+
+    inc <- longueur(uTxt)
+
+    TANT QUE inc > 0
+
+        reverse <- reverse (+) caract(uTxt, inc)
+        inc -
+
+    AFFICHE reverse
+
+Fin Reverse
+
+
