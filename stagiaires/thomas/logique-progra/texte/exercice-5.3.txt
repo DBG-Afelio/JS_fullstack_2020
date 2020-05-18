@@ -1,0 +1,54 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher.
+Le programme affichera :
+
+- La première position où le texte à rechercher se trouve dans le texte source.
+- La dernière position.
+- Le nombre de fois qu’il apparait.
+
+Si le texte à rechercher ne se trouve pas dans le texte source, le programme affichera un simple message.
+
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+        var texte-source :T <- ""
+        var texte-cible :T <- ""
+        var text-to-replace :T <- ""
+        var compteur :N <- 0
+        var occurences :N <- 0
+     
+    FIN VARIABLE LOCALE 
+
+    AFFICHER("Entrer texte-source : ")
+    SAISIR("texte-source")
+
+    AFFICHER("Entrer texte-cible : ")
+    SAISIR("texte-cible")
+
+    text-to-replace <- text-source
+
+    SI(longeur(texte-cible) = 0)
+           ALORS 
+                AFFICHER ("Le texte demandé est vide.")
+    SINON
+
+        POUR compteur ALLANT DE 1 A longueur(texte-replaced):N 
+
+            SI (sousChaine(texte-cible, 1, longeur(texte-cible - 1) = sousChaine(text-to-replace, compteur, longeur(texte-cible - 1)))
+            ALORS 
+                sousChaine(text-to-replace, compteur, longeur(texte-cible - 1) <- sousChaine(texte-cible, compteur, longeur(texte-cible - 1)
+                occurences <- occurences + 1       
+            FIN SI   
+        FIN POUR
+
+        SI(occurences = 0)
+            ALORS
+                AFFICHER("La recherche s'est effectuée sans résultats.")
+        FIN SI 
+    FIN SI
+
+AFFICHER("Le texte source est " + text-source)
+AFFICHER("Le texte source a ete remplacé" + occurences + "fois dans le texte source.")
+AFFICHER("Le texte remplacé est : ", text-replaced)
+
+FIN PROGRAMME
