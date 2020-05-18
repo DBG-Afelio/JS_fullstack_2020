@@ -13,18 +13,27 @@ var max:N
 var firsttext:B<-faux
 var i:N
 fin var loc 
+
 Saisie de text1, text2
-max<-longueur(text1)
+
 Si longueur(text1)>longueur (text2)
-	alors
+
+	alors max<-longueur(text2)
+	sinon max<-longueur(text1)
+
 fin de si
+
 i<-1
+
 tant que i> max ou firsttext=vrai
+
 	Si caract(text1,i)>caract(text2,i)
 		alors firsttext<-vrai
 		sinon firsttext<-faux
-			i<-i+1
 	fin de si
-Afficher firsttext
+
+	i<-i+1
 fin tant que
+
+Afficher firsttext
 fin pgm
