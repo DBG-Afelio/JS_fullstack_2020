@@ -14,7 +14,7 @@ Début programme
         POUR i ALLANT DE 0 A longueur(texte)
             SI carac(texte, i) = "" ALORS
                 mot <- souschaîne(texte, posi, i)
-                final <- mot (+) final
+                textfinal <- mot (+) textfinal
             FINSI
             pos <- i + 1
         i SUIVANT
