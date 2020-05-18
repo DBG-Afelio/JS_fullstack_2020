@@ -25,7 +25,7 @@ fin de si
 
 i<-1
 
-tant que i> max ou firsttext=vrai
+repeter 
 
 	Si caract(text1,i)>caract(text2,i)
 		alors firsttext<-vrai
@@ -33,7 +33,7 @@ tant que i> max ou firsttext=vrai
 	fin de si
 
 	i<-i+1
-fin tant que
+jusqu'a ce que i> max ou firsttext=vrai
 
 Afficher firsttext
 fin pgm
