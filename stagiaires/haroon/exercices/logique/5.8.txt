@@ -12,16 +12,23 @@ VARIABLES LOCALES:
 	Var intervalle: N <- 0
 FIN VARIABLES LOCALE
 
+
+
 Afficher "S.V.P Entrez la text : "
 Saiser text 
-	
+	intervalles <- 0 
+SI longueur(text) > 0 
+	ALORS
 	POUT i ALLANT DE  0 A i <- longueur (text)-1 
 		SI carac(text,i) = ""
-			intervalle <- i 
 			ALORS 
-				mot <- mot + sousChaine(text, intervalle, i )
+				mot <- mot + sousChaine(text, i, inervalle)
+				intervalle <- i 
 		FINSI 
 	i SUIVANT
-Afficher textFinal <- textFinal + mot 
+SINON 
+	AFFICHER  "Votre text est vide" 
+FINSI
+Afficher textFinal <- textFinal (+) mot 
 
 Fin Programme 

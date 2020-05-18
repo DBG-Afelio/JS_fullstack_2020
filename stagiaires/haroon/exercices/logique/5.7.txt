@@ -13,16 +13,17 @@ FIN VARIABLES LOCALES
 
 Afficher "S.V.P Entrez votre text"
 	Saiser text
-	i <- longueur (text)-1
 
 
-SI i > 0
+
+inervalle <- longueur (text)
 	
 	POUR i ALALNT DE longueur (text)-1 A 0  PAR PAS -1
 		SI carac(text,i) = ""
 		ALORS
-			intervalle= i
-			textResult <- textResult (+)  sousChaine(text, intervalle, longueur(text)) 
+			
+			textResult <- textResult (+)  sousChaine(text, i, inervalle)
+		intervalle= i 
 	i SUIVANT	 
 SINON 
 	Afficher  textResult 
