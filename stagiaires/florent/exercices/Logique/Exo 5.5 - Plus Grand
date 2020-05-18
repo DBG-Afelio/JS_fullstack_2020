@@ -19,6 +19,8 @@ Début programme
         SINON
             pluspetit <- longueur(text2)
         FINSI
+        
+        verite <- caract(text1, i) < caract(text2, i)
 
         TANTQUE caract(text1, i) = caract(text2, i) ET i < pluspetit
             verite <- caract(text1, i) < caract(text2, i)
