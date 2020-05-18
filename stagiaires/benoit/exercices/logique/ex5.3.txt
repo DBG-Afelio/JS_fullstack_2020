@@ -1,0 +1,48 @@
+// Ecrire un programme qui demande à l’utilisateur 
+// d’entrer un texte source et un texte à rechercher 
+// et un texte de remplacement.
+// Le programme affichera le texte source 
+// où toutes les occurrences du texte à rechercher 
+// seront remplacées par le texte de remplacement. 
+
+
+Debut chercheEtRemplace
+
+
+	VARIABLES LOCALES :
+
+		var texteSource: T <- "" 
+		var texteARechercher: T <- "" 
+		var texteDeRemplacement: T <- ""
+		var combienDeFoisTexteARechercher: N
+
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte de base"
+		Saisir texteSource
+		
+		Afficher "Entrez un mot à rechercher"
+		Saisir texteARechercher
+
+		Afficher "Entrez un mot de remplacement"
+		Saisir texteDeRemplacement
+	
+	Pour i allant de 1 à longueur(texteSource)-longueur(texteARechercher)
+		
+		SI sousChaine(texteSource,début:i, fin:longueur(texteARechercher)) = texteARechercher
+
+			Alors 
+			texteDeRemplacement = sousChaine(texteSource,début:i, fin:longueur(texteARechercher)) 
+			combienDeFoisTexteARechercher++
+
+		FINSI
+ 	
+	i++ 
+
+	SI (combienDeFoisTexteARechercher = 0)
+			AFFICHER "Le mot n'existe pas dans le texte"
+	FINSI
+
+	Afficher texteSource
+
+Fin chercheEtRemplace
