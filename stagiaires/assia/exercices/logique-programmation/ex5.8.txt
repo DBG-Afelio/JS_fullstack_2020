@@ -12,29 +12,31 @@ Debut Exercice
         VAR reverse :T <- ""
         CONST espace :C <- ' '
         VAR i :N <- 1
-        VAR c :N <- 1
+        VAR c :N <- 0
     FIN VARIABLES LOCALES
 
     Afficher "Saisir un texte : "
     Saisir textIn
 
     REPETER
-        REPETER
-            word <- word (+) caract(textIn, c)
+        REPETER                                                 //on construit le mot jusqu'a detecter un espace => word = mot+espace
             c <- c + 1
-        JUSQUE A CE QUE caract(textIn, c) = espace OU c > longueur(textIn)
+            word <- word (+) caract(textIn, c)
+        JUSQUE A CE QUE caract(textIn, c) = espace OU c = longueur(textIn)
 
-        POUR i ALLANT DE longueur(word) A 1 [PAR PAS DE -1]
+        word <- sousChaine(word, 1, longueur(word))             // on enleve l'espace => word = mot'sans espace'
+
+        POUR i ALLANT DE longueur(word) A 1 [PAR PAS DE -1]     //on inverse les lettres de ce mot 
             reverse <- reverse (+) caract(word, i)
         i SUIVANT
 
-        textOut <- textOut (+) reverse (+) espace
+        textOut <- textOut (+) espace (+) reverse               //on construit le texte avec le mot inversé
         word <- ""
         reverse <- ""
-        c <- c + 1
-    JUSQUE A CE QUE c ≥ longueur(textIn)
 
-    textOut <- sousChaine(textOut, 1, longueur(textOut)) //juste pour enlever le dernier 'espace'
+    JUSQUE A CE QUE c = longueur(textIn)
+
+    textOut <- sousChaine(textOut, 2, longueur(textOut)+1)        //on enlever le 1er 'espace' du texte
 
     Afficher "Votre texte d'origine : ", textIn
     Afficher "Votre texte avec les mots a l'envers : ", textOut
