@@ -1,0 +1,71 @@
+// Ecrire un programme qui demande à l’utilisateur de rentrer 
+// deux textes.
+// Le programme affichera VRAI si le premier texte se situe 
+// après le deuxième dans l’ordre alphabétique 
+// sinon il affichera FAUX.
+
+// Remarques :
+// - Les opérateurs de comparaison sur les textes ne peuvent pas
+//	 être utilisés :-).
+// - Algorithme au seul niveau primaire.
+
+
+Debut textesAlphabetiques
+
+
+	VARIABLES LOCALES :
+
+		var texteA: T <- "" 
+		var texteAEnNombre: N <-0
+		var texteB: T <- ""
+		var texteBEnNombre: N <-0
+		const TAILLE: N <- 26 
+		var alphabet[]: a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+
+
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte A"
+		Saisir texteA
+		
+		Afficher "Entrez un texte B"
+		Saisir texteB
+	
+	
+	Pour i allant de 1 à longueur(texteA)
+		Pour j allant de 1 à longueur(alphabet)
+			Si texteA[i] = 	alphabet[j]
+				Alors 
+					texteAEnNombre[compteurA] = i
+					compteurA++
+			FinSi
+		j++		
+	i++
+
+	Pour i allant de 1 à longueur(texteB)
+		Pour j allant de 1 à longueur(alphabet)
+			Si texteB[i] = 	alphabet[j]
+				Alors 
+					texteAEnNombre[compteurB] = i
+					compteurB++
+			FinSi
+		j++		
+	i++
+
+	Si (texteAEnNombre = texteBEnNombre)
+	Alors 
+		Afficher "Les deux mots sont les mêmes"
+	FinSi
+
+	Si (texteAEnNombre > texteBEnNombre)
+	Alors 
+		Afficher "VRAI"
+	FinSi
+
+	Si (texteAEnNombre < texteBEnNombre)
+	Alors 
+		Afficher "FAUX"
+	FinSi
+
+
+Fin textePositions
