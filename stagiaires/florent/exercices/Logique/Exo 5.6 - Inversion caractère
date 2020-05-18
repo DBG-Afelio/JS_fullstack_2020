@@ -10,10 +10,9 @@ Début programme
 
         max <- longueur(text)
 
-        TANTQUE i < longueur(text)
+        TANTQUE max > 0
             textfinal = textfinal + carct(text, max)
             max <- max - 1
-            cpt <- cpt + 1
         FINTANTQUE
 
         Afficher textfinal
