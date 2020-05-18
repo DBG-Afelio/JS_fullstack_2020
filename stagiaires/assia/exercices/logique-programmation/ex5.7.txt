@@ -19,13 +19,16 @@ Debut Exercice
     Saisir textIn
 
     REPETER
-        REPETER
+        REPETER                                                                 // je construis le mot => word = mot+espace
             c <- c + 1
             word <- word (+) caract(textIn, c)
         JUSQUE A CE QUE caract(textIn, c) = espace OU c = longueur(textIn)
-        textOut <- word (+) textOut   // ici word = mot+espace qui suit
+
+        textOut <- word (+) espace (+) textOut                                  // je construis le texte de maniere a ce le dernier soit en 1er
         word <- ""
     JUSQUE A CE QUE c = longueur(textIn)
+
+    textOut <- sousChaine(textOut, 1, longueur(textOut))                        // je supprime le dernier espace du texte qui s'est construit a la 1ere iter.
 
     Afficher "Votre texte d'origine : ", textIn
     Afficher "Votre texte avec les mots inverses : ", textOut
