@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Validation</title>
+		<meta charset="UTF-8">
+        <link href="style.css" rel="Stylesheet" type="text/css"/>
+    </head>
+	<body>
+        <main>
+            <form name="form" id="form" action="javascript: submit();">
+                <div>
+                    <input type="texte" id="nom" name="nom" placeholder="Nom(obligatoire)">
+                    <label for="nom"></label>
+                </div>
+                <div>
+                    <label for="nation">Nationlité</label>
+                    <select id="nation" name="nation">
+                        <option value=" ">Selectionner votre nationalité</option>
+                        <option value="be">Belgique</option>
+                        <option value="fr">France</option>
+                        <option value="nl">Pays-Bas</option>
+                        <option value="de">Allemagne</option>
+                        <option value="es">Espagne</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="radio" id="femme" name="genre" value="femme">
+                    <label for="femme">Femme</label>
+    			</div>
+    			<div>
+                    <input type="radio" id="homme" name="genre" value="homme">
+                    <label for="homme">Homme</label>
+    			</div>
+    			<div>
+                    <input type="radio" id="autre" name="genre" value="autre">
+                    <label for="femme">Autre</label>
+                </div>
+                <div>
+                    <label for="dateNaissance">Date de Naissance</label>
+                    <input type="date" id="dateNaissance" name="dateNaissance" required>
+    			<div>
+                <div>
+                    <label for="valider"></label>
+                    <input type="submit" id="valider" name="valider" value="Valider">
+    			</div>
+            </form>
+        </main>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
+
+<style>
+    .valid-ok{
+        color:green;
+    }
+    .valid-ko{
+        color:red;
+    }
+    .form-element.valide .valid-ok{
+        display:block;
+    }
+</style>
+
+<form novalidate>
+    <div class="form-element form-nom">
+        <input type="texte" name="nom" data-pristine="true" required minlength="3" maxlength="50">
+        <span class="validate-ok">V</span>
+        <span class="validate-ko">X</span>
+        <div class="error-msg-conatiner">
+            <div class="error-msg error-required">nom est requis</div>
+            <div class="error-msg error-min-length">le nom doit etre au minimum de 3 caracteres</div>
+            <div class="error-msg error-max-length">le nom doit etre au maximum de 50 caracteres</div>
+        </div>
+        <div>
+            <input type="submit" value="valider">
+        </div>
