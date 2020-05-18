@@ -1,0 +1,27 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les lettres de chaque mot.
+Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.
+
+Debut Progrramme 
+VARIABLES LOCALES:
+	VAR text : T <-""
+	VAR mot :T <- ""
+	VAR textFinal : T <- ""
+	VAR i : N <- 0 
+	Var intervalle: N <- 0
+FIN VARIABLES LOCALE
+
+Afficher "S.V.P Entrez la text : "
+Saiser text 
+	
+	POUT i ALLANT DE  0 A i <- longueur (text)-1 
+		SI carac(text,i) = ""
+			intervalle <- i 
+			ALORS 
+				mot <- mot + sousChaine(text, intervalle, i )
+		FINSI 
+	i SUIVANT
+Afficher textFinal <- textFinal + mot 
+
+Fin Programme 
