@@ -1,0 +1,37 @@
+Debut Moyenne Intervalle
+
+    VAR LOCALES
+
+    x :N <- 0
+    i :N <- 1
+    sum :N <- 0
+    av :N <- 0
+    k :N <- 0
+
+    FIN VAR LOCALES
+
+    POUR i DE 1 à 30
+
+        afficher "entrez un nombre"
+    
+        saisie x 
+
+            SI x >= 10 et x <= 20
+
+            ALORS 
+
+                sum <- sum + x
+
+                k <- k + 1
+
+            FINSI
+
+        i SUIVANT
+
+        av <- sum / k
+
+        afficher "la moyenne de l'intervalle 10-20 vaut :", av
+ 
+Fin Moyenne Intervalle
+
+

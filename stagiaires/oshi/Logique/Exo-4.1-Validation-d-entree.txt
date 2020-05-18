@@ -1,0 +1,11 @@
+Début programme
+	Variable locale
+        Var nombre :N <- 0
+	Fin variable locale
+	Afficher "Entrer un choix entre 0 et 4 compris"
+    Saisir nombre
+    TANT QUE nombre > 4 ET nombre < 0
+        Saisir nombre
+    FIN TANT QUE
+    Afficher "Votre choix est:", nombre
+Fin de programme

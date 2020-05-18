@@ -1,0 +1,30 @@
+Début programme
+	Variable locale
+        Var texte :T <- ""
+        Var caractere:T <- ""
+        Var first_pos :N <- 0
+        Var last_pos :N <- 0
+        Var compteur_caract :N <- 0
+        Var index :N <- 0
+	Fin variable locale
+
+    Afficher "Entrer un texte"
+    Saisir texte
+    Afficher "Entrer un seul caractère"
+    Saisir caractere
+
+    SI longueur(caractere) = 1 ET longueur(texte) > 0 ALORS
+        POUR index ALLANT DE 1 A longueur(texte)
+            SI caractere = caract(texte, index) ALORS
+                SI first_pos != 0 ALORS
+                    first_pos <- index
+                FINSI
+                last_pos <- index
+                compteur_caract <- compteur_caract + 1
+            FINSI
+        index SUIVANT
+        Afficher "Le caractère :", caractere, " apparait pour la première fois à la ", first_pos, "position, la dernière fois à la ", last_pos, "et il apparait ", compteur_caract, "fois."
+    SINON
+        Afficher "Le texte est vide ou il n'y a pas ou trop de caractère"
+    FINSI
+Fin de programme

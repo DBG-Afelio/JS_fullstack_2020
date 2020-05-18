@@ -1,0 +1,14 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+    Fin vraiables locales
+    Afficher "Entrez un nombre: "
+    Saisir nbre 
+
+    TANT QUE nbre<0 OU nbre>4
+        Afficher "Entrez un nombre valide: "
+        Saisir nbre
+    FINTANTQUE
+
+    Afficher "Bienvenu"
+Fin de programme

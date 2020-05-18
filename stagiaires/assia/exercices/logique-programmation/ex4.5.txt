@@ -1,0 +1,19 @@
+FACTORIELLE
+
+Ecrire le programme qui permet de calculer la factorielle d'un nombre entré au clavier.
+
+Debut FACTORIELLE
+    VARIABLE LOCALES :
+        VAR n :N <- 0
+        i :N <- 0
+        facto :N <- 1
+
+    FIN VARIABLES LOCALES
+    Afficher "Entrez un nombre entier : "
+    Saisir n
+    TANT QUE i < n
+        facto <- facto * (n - i)
+        i <- i + 1
+    FIN TANT QUE
+    Afficher "la factorielle de ", n, " est : ", facto
+Fin FACTORIELLE

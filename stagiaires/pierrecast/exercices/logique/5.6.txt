@@ -1,0 +1,26 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les caractères.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+
+Debut ex5-6
+    VARIABLES LOCALES :
+        var txt :T <- ""
+        var final :T <- ""
+        var i :N <- 0
+        
+    FIN VARIABLES LOCALES
+
+    Afficher "Entrez le texte"
+    Saisir txt
+    
+    i <- 0
+    final <- ""
+    POUR i ALLANT DE 0 A longueur(txt)-1
+        final <- carac(txt, i) (+) final 
+    i SUIVANT
+
+    Afficher final
+ 
+Fin ex5-6

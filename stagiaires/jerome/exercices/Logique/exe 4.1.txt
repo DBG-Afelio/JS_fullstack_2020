@@ -1,0 +1,16 @@
+Ecrire le programme qui limite le choix de l'utilisateur aux valeurs 0, 1, 2, 3, 4.
+Si la valeur est différente, un nouveau choix sera demandé.
+
+debut pgm
+var loc
+
+var val:N
+
+fin var loc
+afficher "Entrez une valeur entre 0 et 4"
+Saisie val
+tant que (val<0 ou val>4)
+afficher "Entrez une valeur entre 0 et 4"
+Saisie val
+fin tant que
+fin pgm

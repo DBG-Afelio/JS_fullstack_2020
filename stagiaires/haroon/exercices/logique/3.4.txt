@@ -1,0 +1,79 @@
+
+Écrire le programme qui compare 3 nombres entre eux.
+Tenir compte d’une égalité possible des nombres.
+Attention :
+« 5 < 8 > 4 » n’indique pas la comparaison entre le 1er et le 3ème nombre.
+On préférera par exemple « 4 < 5 < 8 ».
+
+
+Debut Programme
+    VARIABLE LOCALES :
+        VAR A :N <- 0
+        VAR B :N <- 0
+        VAR C :N <- 0
+    FIN VARIABLES LOCALES
+    	Afficher "Entrez  A : "
+    	Saisir A
+    	Afficher "Entrez  B : "
+    	Saisir B
+    	Afficher "Entrez  C : "
+    	Saisir C
+		SI A > B ET A > C
+    		ALORS
+		Afficher 
+		A ">" B ET A ">" C
+		FINSI 
+   	SI A > B ET B > C
+    		ALORS
+		Afficher 
+		A ">" B ET B ">" C
+		FINSI 
+	SI A > B ET C > B
+    		ALORS
+		Afficher 
+		A ">" B ET C ">" B
+		FINSI 
+	SI A > B ET C = B
+    		ALORS
+		Afficher 
+		A ">" B ET C "=" B
+		FINSI 
+	SI A = B ET C = B
+    		ALORS
+		Afficher 
+		A "=" B ET C "=" B
+		FINSI 
+	SI B > A ET B > C
+    		ALORS
+		Afficher 
+		C ">" A ET B ">" C
+		FINSI 
+	SI B > A ET C < A
+    		ALORS
+		Afficher 
+		B ">" A ET C ">" A
+		FINSI 
+	SI B > A ET C = A
+    		ALORS
+		Afficher 
+		B">" A ET C "=" A
+		FINSI 
+   	SI C > A ET C > B
+		ALORS
+		Afficher 
+		C">" A ET C ">" B
+		FINSI
+	SI C > A ET B > C
+		ALORS
+		Afficher 
+		C">" A ET B ">" C
+		FINSI 
+	SI C > A ET B = C
+		ALORS
+		Afficher 
+		C">" A ET B "=" C
+		FINSI  
+ 
+   
+   
+Fin Programme

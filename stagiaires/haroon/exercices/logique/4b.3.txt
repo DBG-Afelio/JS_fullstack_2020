@@ -1,0 +1,25 @@
+Debut Programme
+    VARIABLE LOCALES :
+        VAR chiffreOrdi:N <- 0
+       	VAR chiffreUtilisateur <- 0
+	VAR i :N <- 0
+
+    FIN VARIABLES LOCALES
+	chiffreUtilisateur <-aléatoire (0, 100)
+
+	
+			Repeter
+			Afficher "Entrez  un chiffre: chiffreUtilisateur"
+			Saiser chiffreUtilisateur
+			SI chiffreUtilisateur > chiffreOrdi
+			ALORS
+			Afficher "Le nombre que vous avez choisi est supérieur au nombre correct" 
+			FINSI 
+			SI chiffreUtilisateur < chiffreOrdi
+			ALORS
+			Afficher "Le nombre que vous avez choisi est inférieur au nombre correct" 
+			FINSI 
+			JUSQUACEQUE ( chiffreUtilisateur = chiffreOrdi )
+			Afficher "Bravoooo"
+Fin Programme
+

@@ -1,0 +1,26 @@
+PROGRAMME
+
+    VARIABLE LOCALE	
+
+    var choix-user :N 
+
+    FIN VARIABLE LOCALE
+
+
+AFFICHER("Entrer nombre entre 0 et 4")
+
+SAISIR choix-user
+
+TANT QUE ( choix-user != 0 ET
+           choix-user != 1 ET 
+           choix-user != 2 ET
+           choix-user != 3 ET
+           choix-user != 4)
+
+    AFFICHER("Entrer nombre entre 0 et 4")
+    SAISIR choix-user
+FIN TANT QUE 
+
+AFFICHER("Votre choix est valide")
+
+FIN PROGRAMME

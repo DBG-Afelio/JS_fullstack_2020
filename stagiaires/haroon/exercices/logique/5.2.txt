@@ -1,0 +1,41 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte source et un texte à rechercher.
+Le programme affichera :
+
+    La première position où le texte à rechercher se trouve dans le texte source.
+    La dernière position.
+    Le nombre de fois qu’il apparait.
+
+Si le texte à rechercher ne se trouve pas dans le texte source, le programme affichera un simple message.
+Debut Peogramme 
+
+VARIABLES LOCALES :
+	VAR source:T <- "" 
+	
+	VAR text : T <- ""
+	VAR i : N <- 0
+	VAR PreIndex :N < - 0
+	VAR DerIndex : N <- 0
+	VAR nombreApparaition : N <- 0
+	
+Fin VARIABLES LOCALES
+	Afficher "Entrez le source"
+		Saisier source
+	Afficher "Entrez la text"
+	Saisier text
+	
+Pour i AllANT DE 0 A longueur(text) et longueur(source) 
+	SI sousChaine(text, i,i longueur (text)) = text
+	Alors 
+	nombreApparaition  <- nombreApparaition + 1
+	DerIndex <- i
+	SI nombreApparaition = 1
+	Alors 
+	PreIndex <- nombreApparaition
+	FINSI
+	FINSI
+	SINON 
+	AFFICHER "Le caractère n'existe pas"
+I SUIVANT 
+
+
+Fin Programme 

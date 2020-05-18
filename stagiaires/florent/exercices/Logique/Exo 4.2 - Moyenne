@@ -1,0 +1,21 @@
+Début programme
+    Variables locales
+        nbre :N <- 0
+        somme :N <- 0
+        cpt :N <- 0
+    Fin variables locales
+
+    Affichez "Entrez des nombres et appuyez sur 100 pour terminer"
+
+    Affichez "Entrez un nombre: "
+    Saisir nbre
+
+    TANTQUE nbre!=100
+        somme <- somme + nbre
+        cpt <- cpt + 1
+        Affichez "Entrez un nombre: "
+        Saisir nbre
+    FINTANTQUE
+
+    Affichez "La moyenne des nombres entrés est " , somme/cpt 
+Fin de programme

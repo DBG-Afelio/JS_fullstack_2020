@@ -1,0 +1,21 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les caractères.
+
+Debut Exercice
+
+    VARIABLE LOCALES :
+        CONST textIn:T <- ""
+        CONST textOut :T <- ""
+        VAR i :N <- 1
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir un texte : "
+    Saisir textIn
+
+    POUR i ALLANT DE longueur(textIn) A 1 [PAR PAS DE -1]
+        textOut <- textOut (+) caract(textIn, i)
+    i SUIVANT
+
+    Afficher "Votre texte a l'envers : ", textOut
+
+Fin Exercice

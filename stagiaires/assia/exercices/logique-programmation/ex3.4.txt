@@ -1,0 +1,72 @@
+Écrire le programme qui compare 3 nombres entre eux.
+Tenir compte d’une égalité possible des nombres.
+Attention :
+« 5 < 8 > 4 » n’indique pas la comparaison entre le 1er et le 3ème nombre.
+On préférera par exemple « 4 < 5 < 8 ».
+
+
+Debut Compare3
+    VARIABLE LOCALES :
+        VAR a :N <- 0
+        VAR b :N <- 0
+        VAR c :N <- 0
+    FIN VARIABLES LOCALES
+    Afficher "Saisir un 1e nombre : "
+    Saisir a
+    Afficher "Saisir un 2e nombre : "
+    Saisir b
+    Afficher "Saisir un 2e nombre : "
+    Saisir c
+    SI a = b ET b = c 
+    ALORS
+        Afficher a, " = ", b, " = ", c
+    FINSI
+    SI a = b ET b < c
+    ALORS
+        Afficher a, " = ", b, " < ", c
+    FINSI
+    SI c < a ET a = b
+    ALORS
+        Afficher c, " < ", a, " = ", b
+    FINSI
+    SI a < b ET b = c
+    ALORS
+        Afficher a, " < ", b, " = ", c
+    FINSI
+    SI b = c ET c < a
+    ALORS
+        Afficher b, " = ", c, " < ", a
+    FINSI
+    SI a = c ET c < b
+    ALORS
+        Afficher a, " = ", c, " < ", b
+    FINSI
+    SI b < a ET a = c
+    ALORS
+        Afficher b, " < ", a, " = ", c
+    FINSI
+    SI a < b ET < c
+    ALORS
+        Afficher a, " < ", b, " < ", c
+    FINSI
+    SI a < c ET c < b
+    ALORS
+        Afficher a, " < ", c, " < ", b
+    FINSI
+    SI b < c ET c < a
+    ALORS
+        Afficher b, " < ", c, " < ", a
+    FINSI
+    SI b < a ET a < c
+    ALORS
+        Afficher b, " < ", a, " < ", c
+    FINSI
+    SI c < a ET a < b
+    ALORS
+        Afficher c, " < ", a, " < ", b
+    FINSI
+    SI c < b ET b < a
+    ALORS
+        Afficher c, " < ", b, " < ", a
+    FINSI
+Fin Compare3

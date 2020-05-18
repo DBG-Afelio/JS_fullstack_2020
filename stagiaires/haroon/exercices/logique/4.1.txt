@@ -1,0 +1,22 @@
+Debut Programme
+    VARIABLE LOCALES :
+	VAR chiffre : N <- 0 
+	VAR A  : <- 0
+	VAR B  : <- 1
+	VAR C  : <- 2
+	VAR D : <- 3
+	VAR F : <- 4
+	
+       
+
+    FIN VARIABLES LOCALES
+    Afficher "Entrez Choisissez un chiffre : A , B, C , D, F  "
+   	Saiser chiffre
+    
+     TANT QUE chiffre != A et  chiffre != B et chiffre != C et chiffre != D et chiffre != F et
+     	Afficher "Entrez  chiffre : "
+   		Saiser chiffre 
+      FIN TANT QUE
+
+     Afficher chiffre 
+Fin Programme

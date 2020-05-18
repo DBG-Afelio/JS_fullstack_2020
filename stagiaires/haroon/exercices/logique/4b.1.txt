@@ -1,0 +1,29 @@
+Debut Programme
+    VARIABLE LOCALES :
+        VAR Nombre:N <- 0
+        VAR Moyenne : N <-0 
+	VAR Somme : N <-0
+	VAR i : N<-0
+	Var index : N <-0
+    FIN VARIABLES LOCALES
+	
+
+    
+
+	 POUR i ALLANT DE 0 A 30
+		Afficher "Entrez  un Nombre: "
+		Saiser Nombre
+		SI (Nombre >=10 et Nombre <= 20)
+			ALORS
+			Somme <- Somme +  Nombre
+			index <- index +1 
+		FINSI
+		i SUIVANT 
+Moyenne <- Somme / index
+Afficher
+
+Afficher Moyenne
+		
+    
+
+Fin Programme

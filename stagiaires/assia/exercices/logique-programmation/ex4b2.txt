@@ -1,0 +1,35 @@
+Écrire le programme qui affiche la somme des valeurs comprises entre deux nombres entrés au clavier.
+
+- Les deux valeurs entrées font partie du total.
+- Si les deux valeurs sont identiques, le total est égal à cette valeur.
+
+Exemple :
+  Valeur 1 = 5
+  Valeur 2 = 9
+  Total = 5 + 6 + 7 + 8 + 9 = 35
+
+Debut exercice
+    VARIABLE LOCALES :
+        VAR val1 :N <- 0
+        VAR val2 :N <- 0
+        i :N <- 0
+        somme :N <- 0
+
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisi du nombre 1 : "
+    Saisir val1
+    Afficher "Saisi du nombre 2 (nombre 2 ≥ nombre 1): "
+    Saisir val2
+
+    SI val1 = val2
+    ALORS
+        somme <- val1
+    SINON
+        i <- val1
+        POUR i ALLANT DE val1 A val2
+            somme <- somme + i
+        i SUIVANT
+    FINSI
+    Afficher "La somme des valeurs comprises entre les deux nombres entrés est :", somme
+Fin exercice

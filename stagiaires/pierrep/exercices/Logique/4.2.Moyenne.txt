@@ -1,0 +1,30 @@
+Debut Validation d'entrée
+
+    VAR LOCALES
+
+    count :N <- 0
+    nb :N <- 0
+    somme :N <- 0
+
+    FIN VAR LOCALES
+
+    saisie nb
+
+    TANT QUE nb != 100
+       
+        afficher "entrez un nombre"
+        saisie nb
+
+        somme <- somme + nb
+
+        count <- count + 1
+
+        afficher "la moyenne vaut ", somme / count
+
+        saisie nb
+
+    FIN TANT QUE
+
+Fin validation d'entrée
+
+

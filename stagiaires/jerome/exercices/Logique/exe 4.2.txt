@@ -1,0 +1,18 @@
+Ecrire le programme qui calcule la moyenne d'une série de nombres entrés au clavier.
+
+- La fin de la série sera annoncée par un 100.
+dbt moyenne
+var loc
+var nbr:N<-0
+var val:N<-0
+var somme:N<-0
+fin var loc
+afficher"entrer des nombre et finir par 100"
+
+tant que (val><100)
+	saisie val
+	nbr=nbr+1
+	somme=somme+val
+fin tant que
+afficher "Moyenne :" somme/nbr
+fin moyenne

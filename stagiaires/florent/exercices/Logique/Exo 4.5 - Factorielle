@@ -1,0 +1,22 @@
+Début programme
+    Variables locales
+        Var nbre :N <- 0
+        Var facto :N <- 1
+        Var cpt :N <- 1
+    Fin variables locales
+    
+    Afficher "Entrez un nombre: "
+    Saisir nbre
+
+    TANT QUE NON (nbre>=0 ET nbre MOD1 = 0)
+        Afficher "Entrez un nombre: "
+        Saisir nbre
+    FINTANTQUE
+
+    TANT QUE nbre>=cpt
+        facto <- cpt * facto
+        cpt <- cpt + 1
+    FINTANTQUE
+
+    Afficher "La factorielle de" , nbre , "est de" , facto 
+Foin de programme

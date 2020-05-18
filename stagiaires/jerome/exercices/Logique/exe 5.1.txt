@@ -1,0 +1,31 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte et un caractère.
+Le programme affichera :
+
+- La première position où le caractère se trouve dans le texte.
+- La dernière position.
+- Le nombre de fois qu’il apparait.
+  
+Si le caractère ne se trouve pas dans le texte, le programme affichera un simple message.
+dbt pgm
+var loc
+var txt:T
+var car:C
+var total:N<-0
+var premier:N<-0
+var dernier:N<-0
+var i<-1
+Afficher"enter texte et caractere"
+Saisie txt
+Saisie car
+tant que i<=longueur(txt)
+	Si car=caract(txt,position i)
+		alors si total =0
+			alors premier<-i
+		      fin de si
+		dernier<-i
+		total<-total+1
+	fin de si
+	i<-i+1
+fin de tant que
+Afficher total, premier, dernier
+fin pgm

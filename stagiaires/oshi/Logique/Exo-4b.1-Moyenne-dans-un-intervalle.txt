@@ -1,0 +1,21 @@
+Début programme
+	Variable locale
+        Var nombre :N <- 0
+        Var moyenne :N <- 0
+        Var total :N <- 0
+        Var compteur :N <- 0
+        Var index :N <- 0
+	Fin variable locale
+    Affichier "Entrez 30 nombres. Nous calculerons la moyenne des nombres compris entre 10 et 20"
+    POUR index ALLANT DE 1 A 30
+        Saisir nombre
+        SI nombre >= 10 ET nombre <= 20 ALORS
+            compteur <- compteur +1
+            total <- total + nombre
+            moyenne <- total / compteur
+        FINSI
+    index SUIVANT
+    Afficher "La moyenne des nombres entrer compris entre 20 et 10 est de :", moyenne,
+             ". Sur un total de :", total,
+             ". Pour ", compteur, " nombres entree"
+Fin de programme

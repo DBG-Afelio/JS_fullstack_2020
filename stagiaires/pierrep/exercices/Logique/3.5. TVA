@@ -1,0 +1,35 @@
+Debut TVA
+    
+    Var locales
+    
+        choixTVA :N <- 0
+        prixHTVA :N <- 0
+        prixReel :N <- 0
+
+    Fin var locales
+
+    AFFICHE "Veuillez entrer le nombre associé à votre régime TVA : 6%(1), 12%(1), 21%(3), 0%(4)"
+    SAISIE choixTVA
+    SAISIE prixHTVA
+
+    SI choixTVA <- 1
+
+        prixReel <- (0.06 x prixHTVA) + prixHTVA
+
+    SI choixTVA <- 2
+
+        prixReel <- (0.12 x prixHTVA) + prixHTVA
+
+    SI choixTVA <- 3
+
+        prixReel <- (0.21 x prixHTVA) + prixHTVA
+
+    SI choixTVA <- 4
+
+        prixReel <- prixHTVA
+
+    SI choixTVA <- 0
+    
+        afficher "On sort du programme"
+
+Fin TVA
