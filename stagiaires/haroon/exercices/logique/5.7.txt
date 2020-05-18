@@ -1,0 +1,30 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les caractères.
+
+Debut Programme
+VARIABLES LOCALES :
+	VAR text :T <- ""
+	VAR i :N <- 0 
+	VAR textResult : T <- "" 
+	Var intervalle: N <- 0
+
+FIN VARIABLES LOCALES 
+
+
+Afficher "S.V.P Entrez votre text"
+	Saiser text
+	i <- longueur (text)-1
+
+
+SI i > 0
+	
+	POUR i ALALNT DE longueur (text)-1 A 0  PAR PAS -1
+		SI carac(text,i) = ""
+		ALORS
+			intervalle= i
+			textResult <- textResult (+)  sousChaine(text, intervalle, longueur(text)) 
+	i SUIVANT	 
+SINON 
+	Afficher  textResult 
+
+Fin Programme 
