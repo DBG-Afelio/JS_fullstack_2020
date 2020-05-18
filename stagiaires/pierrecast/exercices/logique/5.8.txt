@@ -37,7 +37,7 @@ Debut ex5-8
     i SUIVANT
 
     j <- 0
-    mot <- sousChaine(txt, pos, longueur(mot))
+    mot <- sousChaine(txt, pos, longueur(txt))
     motFinal <- ""
     POUR j ALLANT DE 0 A longueur(mot)-1
         motFinal <- carac(mot, j) (+) motFinal 
