@@ -1,0 +1,47 @@
+.form_input_classic {
+	padding:4px;
+	font-size:15px;
+	text-align:left;
+	border-radius:10px;
+	border-width:3px;
+	background-color:#545454;
+	border-color:#35056b;
+	border-style:groove;
+    color:#ffffff;
+	box-shadow:inset -2px 2px 8px 0px rgba(0,0,0,.57);
+}
+.form_input_classic::placeholder {
+    color: lightgray;
+}
+input:focus {
+	outline:none;
+}
+
+.circle {
+    background: black;
+    display: block;
+    margin: 0 6px;
+    width: 45px;
+    height: 45px;
+    padding: 0px 0px;
+    border-radius: 30px;
+    text-align: center;
+	font-size: 15px;
+	position: static;
+	color:#ffffff;
+}
+
+.valid {
+	color: green;
+	display: none;
+}
+
+.no-valid {
+	color: red;
+	display: none;
+}
+
+.min-length-no-valid {
+	color: red;
+	display: none;
+}
