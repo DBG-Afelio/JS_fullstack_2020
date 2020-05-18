@@ -25,15 +25,15 @@ Debut PlusGrand
 
     SI (longueur(string1) < longueur(string2))
 
-        ALORS shorter <- string1
+        ALORS shorter <- longueur(string1)
 
     SI (longueur(string1) > longueur(string2))
 
-        ALORS shorter <- string2
+        ALORS shorter <- longueur(string2)
 
     SINON shorter <- string1
 
-    POUR i ALLANT DE 1 À longueur(shorter)
+    POUR i ALLANT DE 1 À shorter
 
         SI (caract(string1, i) < caract(string2, i))
 
