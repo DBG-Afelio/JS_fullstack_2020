@@ -15,8 +15,8 @@ Début programme
             SI caract(texte, index) = " " OU index = longueur(texte) ALORS
                 POUR cpt ALLANT DE index - 1 A last_pos PAR PAS DE -1
                     new_texte <- new_texte (+) caract(texte, cpt)
-                    last_pos <- index + 1
                 cpt SUIVANT
+                last_pos <- index + 1
                 SI index != longueur(texte) ALORS
                     new_texte <- new_texte (+) " "
                 FINSI
