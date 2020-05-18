@@ -8,10 +8,10 @@ Début WordReverse
 
     VAR LOCALES
 
-    uTxt :T <- 0
-    space :T <- 0
-    nTxt :T <- 0
-    index :T <- 0
+    uTxt :T <- ''
+    space :T <- ''
+    nTxt :T <- ''
+
 
     FIN VAR LOCALES
 
@@ -19,7 +19,7 @@ Début WordReverse
 
     saisie uTxt
 
-    space <- " "
+    space <- ' '
 
     POUR i ALLANT DE longueur(Utxt) à 1 par -1
 
