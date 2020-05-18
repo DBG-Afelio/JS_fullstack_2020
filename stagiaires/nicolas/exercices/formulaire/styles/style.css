@@ -1,0 +1,15 @@
+.valid{
+    
+    background-color: green;
+    
+}
+.invalid{
+    
+    background-color: red;
+    
+}
+.hidden{
+    
+    display:none;
+    
+}

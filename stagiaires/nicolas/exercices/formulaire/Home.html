@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>formulaire</title>
+        <meta name="formulaire" content="">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        
+        <form id="formulaire" novalidate>
+            
+            <div>
+                <input id="nameInput" placeholder="Nom">
+                <span></span>
+            </div>
+
+            <fieldset>
+                
+                <legend>Sexe</legend>
+                
+                <label>Homme</label>
+                <input type="radio" value="homme" name="sexe">
+                <label>Femme</label>
+                <input type="radio" value="femme" name="sexe" >
+                <label>Autre</label>
+                <input type="radio" value="autre" name="sexe">
+                
+            </fieldset>
+            
+            <button id='validationButton' class ="invalid">Valider</button>
+            
+        </form>
+        
+     <script type="text/javascript" src="script/script.js"></script>
+    </body>
+</html>
