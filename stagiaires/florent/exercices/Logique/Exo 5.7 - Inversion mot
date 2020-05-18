@@ -1,0 +1,29 @@
+Début programme
+    Variables locales
+        Var texte :T <- ""
+        Var textfinal :T <- ""
+        Var mot :T <- ""
+        Var i :N <- 0
+        Var posi :N <- 0
+    Fin Variables locales
+
+    Afficher "Entrez du texte: "
+    Saisir texte
+
+    Si longueur(texte) != 0 ALORS
+        POUR i ALLANT DE 0 A longueur(texte)
+            SI carac(texte, i) = "" ALORS
+                mot <- souschaîne(texte, posi, i)
+                final <- mot (+) final
+            FINSI
+            pos <- i + 1
+        i SUIVANT
+
+        mot <- souschaîne(texte, pos, longueur(texte))
+        textfinal <- mot (+) textfinal
+
+        Afficher textfinal 
+    SINON
+        Afficher "Veuillez entrer du texte."
+    FINSI
+Fin programme
