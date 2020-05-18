@@ -1,4 +1,3 @@
-let aujourdhui = new Date();
 const TEXT_VALIDE = "Vous êtes en ordre. Bienvenu!";
 const TEXT_NONVALIDE = "Vous n'êtes pas en ordre. Veuillez vous procurez un ticket valide ou dire la vérité sur votre âge. Merci!";
 const choix1 = document.getElementById("normal").value;
@@ -8,6 +7,7 @@ const choix3 = document.getElementById("aucun").value;
 document.getElementById('sub').addEventListener('click', execute);
 
 function execute(){
+    let aujourdhui = new Date();
     const date = document.getElementById('age').valueAsDate;
     if (date < aujourdhui) {
         const valeur = document.querySelector('input[name=choix]:checked').value;
@@ -15,17 +15,19 @@ function execute(){
         if (valeur === choix1 && age >= 12) {
             document.getElementById('reponse').className = "valide";
             document.getElementById('reponse').value = TEXT_VALIDE;
-        }
-        if (valeur === choix2 && age < 12 && age>=6) {
-            document.getElementById('reponse').className = "valide";
-            document.getElementById('reponse').value = TEXT_VALIDE; 
-        }
-        if (valeur === choix3 && age<6) {
-            document.getElementById('reponse').className = "valide";
-            document.getElementById('reponse').value = TEXT_VALIDE;
         }else{
-            document.getElementById('reponse').value = TEXT_NONVALIDE;
-            document.getElementById('reponse').className = "invalide";
+            if (valeur === choix2 && age < 12 && age>=6) {
+                document.getElementById('reponse').className = "valide";
+                document.getElementById('reponse').value = TEXT_VALIDE; 
+            }else{
+                if (valeur === choix3 && age<6) {
+                    document.getElementById('reponse').className = "valide";
+                    document.getElementById('reponse').value = TEXT_VALIDE;
+                }else{
+                    document.getElementById('reponse').value = TEXT_NONVALIDE;
+                    document.getElementById('reponse').className = "invalide";
+                }
+            }
         }
         document.getElementById('datevalide').value = "";
         console.log(aujourdhui);
