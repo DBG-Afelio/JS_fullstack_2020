@@ -1,0 +1,21 @@
+Ecrire le programme qui inverse un tableau de 10 nombres.
+
+DEBUT 6-4
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 10
+        VAR tabIn:N[TAILLE]
+        VAR tabOut:N[TAILLE]
+        VAR index
+    FIN VARIABLES LOCALES
+
+    
+    index <- 1
+    POUR index ALLANT DE 1 A TAILLE
+        tabOut[index] <- tabIn[TAILLE - index + 1]
+
+    index SUIVANT
+
+
+FIN 6-4
+
+
