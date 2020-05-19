@@ -1,0 +1,15 @@
+Début programme
+    Variables locales
+        Tab : tab[16]
+        i :N <- 1
+    Fin Variables locales
+
+    TANT QUE i < 16
+        SI i = 1 ALORS
+            tab[i] = 1
+        SINON
+            tab[i] <- tab[i-1]*2
+        FINSI
+        i = i + 1
+    FINTANTQUE
+Fin programme
