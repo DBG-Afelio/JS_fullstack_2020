@@ -13,6 +13,8 @@ Début programme
         SI index = 1 ALORS
             min <- tab[index]
             max <- tab[index]
+            min_pos <- index
+            max_pos <- index
         SINON
             SI tab[index] > max ALORS
                 max <- tab[index]
