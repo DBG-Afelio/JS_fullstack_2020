@@ -2,7 +2,7 @@ const validationButton = document.getElementById('validationButton');
 
 const sexeList = document.getElementsByName('sexe');
 
-const isFormValid = [false, true, true, true];
+const isFormValid = [false, true, true, true, false, false, false];
 
 /*----------------ValidName---------------*/
 
@@ -186,19 +186,25 @@ const phoneInput = document.getElementById('phoneInput');
 
 function isPhoneValid(phone){
     
-    let validReturn = true;     
+    let validReturn = true;
+    const phoneRule = /^(((0032)|(\+32))([1-9]{1})(\d{6,9})$)|((0)(\d{6,9})$)/;
     
     if(phone.value.length === 0){
         
         validReturn = true;
         phone.nextElementSibling.classList.add('hidden');
         
-    }else if(isNaN(phone.value)){
+    }else if(phone.value.match(phoneRule)){
             
-            validReturn = false;
+        validReturn = true;
+        phone.nextElementSibling.classList.add('hidden');
+            
+    }else{
+        
+        validReturn = false;
             phone.nextElementSibling.classList.remove('hidden');
             phone.nextElementSibling.innerHTML = "Veuillez saisir un numéro valide";
-            
+        
     }
 
     
@@ -228,11 +234,220 @@ phoneInput.addEventListener('input',()=>{
     }
 }); 
 
+/*----------------ValidDate---------------*/
+
+const dateInput = document.getElementById('dateInput');
+
+function isDateValid(date) {
+
+	let validReturn = false;
+    
+    /*const dateRule = /^([0-9]{2}|[0-9]{4})\/[0-9]{1,2}\/[0-9]{1,2}$/;*/
+    const dateRule = /^\w+([.-]\w+)@\w+([.-]\w+)(.\w{2,})$/;
+    
+    let fev;
+    const nbJours = [31,fev,31,30,31,30,31,31,30,31,30,31];
+    
+    const day = parseInt(date.value.split("/")[2], 10); // jour
+	const month = parseInt(date.value.split("/")[1], 10); // mois
+	const year = parseInt(date.value.split("/")[0], 10); // année
+    
+
+	if (!date.value.match(dateRule)){
+        
+        validReturn = false;
+        date.nextElementSibling.classList.remove('hidden');
+        date.nextElementSibling.innerHTML = "Veuillez saisir une date valide";
+        
+    }
+
+	// Si l'année n'est composée que de 2 chiffres on complète automatiquement
+	if (year < 1000) {
+        
+		if (year < 89){ // Si a < 89 alors on ajoute 2000 sinon on ajoute 1900
+            
+            year+=2000;
+            
+        }	
+		else {
+            
+            year+=1900;
+            
+        }
+	}
+
+	// Définition du dernier jour de février
+	// Année bissextile si annnée divisible par 4 et que ce n'est pas un siècle, ou bien si divisible par 400
+	if (year%4 == 0 && year%100 !=0 || year%400 == 0){
+        
+        fev = 29;
+        
+    }
+        
+	else{
+        
+        fev = 28;
+        
+    } 
+
+	// Enfin, retourne vrai si le jour est bien entre 1 et le bon nombre de jours, idem pour les mois, sinon retourn faux
+    
+	if( month >= 1 && month <=12 && day >= 1 && day <= nbJours[month-1] ){
+        
+        validReturn = true;
+        date.nextElementSibling.classList.add('hidden');
+        
+    }else{
+        
+        validReturn = false;
+        date.nextElementSibling.classList.remove('hidden');
+        date.nextElementSibling.innerHTML = "Veuillez saisir une date valide";
+    }
+}
+
+
+dateInput.addEventListener('input',()=>{
+    
+    if (isDateValid(dateInput)) {
+        
+        isFormValid[4] = true; 
+        
+    } else {
+        
+        isFormValid[4] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+}); 
+
+/*----------------ValidLogin---------------*/
+
+const loginInput = document.getElementById('loginInput');
+const loginButton = document.getElementById('loginButton');
+
+const loginTab = ["abc123","kikoulol32","trololo","Admins"]
+
+
+function isLoginValid(login){
+    
+    let validReturn = false;
+    
+    if(login.value.length === 0 || login.value.length < 6 || login.value.length > 10){
+        
+        validReturn = false;
+        login.nextElementSibling.classList.remove('hidden');
+        login.nextElementSibling.innerHTML = "Veuillez saisir un mot entre 6 et 10 caractères";
+            
+    }else if(compareTabString(loginTab,login.value)){
+        
+        validReturn = false;
+        login.nextElementSibling.classList.remove('hidden');
+        login.nextElementSibling.innerHTML = "Login déja utilisé";
+            
+    }else{
+        
+        validReturn = true;
+        login.nextElementSibling.classList.add('hidden');
+        
+    }
+            
+    return validReturn;
+}
+
+function compareTabString(tab,string){
+    
+    return tab.some((element)=> element === string);
+    
+}
+
+loginInput.addEventListener('input',()=>{
+    
+    if (isLoginValid(loginInput)) {
+        
+        isFormValid[5] = true; 
+        
+    } else {
+        
+        isFormValid[5] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+}); 
+
+loginButton.addEventListener('click',()=>{
+    
+    
+    
+});
+
+/*----------------ValidPassword---------------*/
+
+const passwordInput = document.getElementById('passwordInput');
+
+function isPasswordValid(password) {
+
+	let validReturn = false;
+    
+    
+}
+
+passwordInput.addEventListener('input',()=>{
+    
+    if (isPasswordValid(passwordInput)) {
+        
+        isFormValid[6] = true; 
+        
+    } else {
+        
+        isFormValid[6] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+});
+
 /*----------------ValidButton---------------*/
 
 function validateForm() {
     
     return isFormValid.some((element)=> element === false);
+    
+}
+
+//Annuler l'evenement par default des boutons
+for(button of document.getElementsByTagName('button')){
+    
+    button.addEventListener('click',(event)=>{
+        
+        event.preventDefault();
+        
+    });
     
 }
 

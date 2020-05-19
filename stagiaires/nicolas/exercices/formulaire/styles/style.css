@@ -1,3 +1,17 @@
+#formulaire{
+    
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+
+    
+}
+#formulaire>*{
+    
+    display: flex;
+    flex-direction: column;
+    margin : 5px 0px;
+}
 .valid{
     
     background-color: green;

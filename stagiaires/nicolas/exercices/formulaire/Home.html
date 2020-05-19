@@ -28,19 +28,33 @@
                 <input id="phoneInput" placeholder="Telephone">
                 <span class="errorDisplay"></span>
             </div>
-
-            <fieldset>
+            <div>
+                <input type ="date" id="dateInput" placeholder="Date de naissance">
+                <span class="errorDisplay"></span>
+            </div>
+            <div>
+                <input id="loginInput" placeholder="Login">
+                <span class="errorDisplay"></span>
+                <button id='loginButton'>Suggérer un login</button>
+            </div>
+            <div>
+                <input id="passwordInput" placeholder="Mot de passe">
+                <span class="errorDisplay"></span>
+                <input id="passwordConfirmInput" placeholder="Confirmez le mot de passe">
+                <span class="errorDisplay"></span>
                 
-                <legend>Sexe</legend>
                 
-                <label>Homme</label>
-                <input type="radio" value="homme" name="sexe">
-                <label>Femme</label>
-                <input type="radio" value="femme" name="sexe" >
-                <label>Autre</label>
-                <input type="radio" value="autre" name="sexe">
-                
-            </fieldset>
+            </div>
+            <div>
+                <div>
+                    <label>Homme</label>
+                    <input type="radio" value="homme" name="sexe">
+                    <label>Femme</label>
+                    <input type="radio" value="femme" name="sexe" >
+                    <label>Autre</label>
+                    <input type="radio" value="autre" name="sexe">
+                </div>
+            </div>
             
             <button id='validationButton' class ="invalid">Valider</button>
             
