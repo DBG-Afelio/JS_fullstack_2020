@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/screen.css" rel="stylesheet" type="text/css">
+    <title>Form</title>
+</head>
+
+<body>
+    <form novalidate>
+        <div class="div_name">
+            <input type="text" name="name_user" placeholder="Nom (obligatoire)" required>
+            <div class="div_v" name="div_v">V</div>
+            <div class="div_x" name="div_x">X</div>
+
+            <span class="message" name="message message_too_short">Le nom est trop court</span>
+            <span class="message" name="message message_too_long">Le nom est trop long</span>
+            <span class="message" name="message message_mandatory">Le nom est obligatoire</span>
+
+        </div>
+
+        <div class="div_first_name">
+            <input type="text" name="first_name_user" placeholder="Prénom">
+            <div class="div_v" name="div_v">V</div>
+            <div class="div_x" name="div_x">X</div>
+
+            <span class="message" name="message message_too_short">Le prénom est trop court</span>
+            <span class="message" name="message message_too_long">Le prénom est trop long</span>
+
+        </div>
+
+
+        <div class="div_email">
+            <input type="email" name="email_user" required placeholder="Email"><br>
+            <div class="div_v" name="div_v">V</div>
+            <div class="div_x" name="div_x">X</div>
+
+            <span class="message" name="message">L'adresse email n'est pas valide</span>
+        </div>
+
+        
+
+                <!--
+        <input type="date" name="birth_date_user" required><br>
+        <input type="text" name="login" placeholder="Prénom"><br>
+        <div class="suggest_login" name="suggest_login">
+            Suggérer un login
+        </div>
+        <input type="password" name="password_1" placeholder="Mot de passe (obligatoire)" required>
+        <input type="password" name="password_2" placeholder="Ressaisir Mot de passe (obligatoire)" required>
+        <div class="big_div_password_colors">
+            <div class="div_strenght"></div>
+            <div class="div_strenght"></div>
+            <div class="div_strenght"></div>
+            <div class="how_stong">Faible</div>
+            <div class="how_stong">Moyen</div>
+            <div class="how_stong">Fort</div>
+        </div>
+        <select placeholder="Nationalité">
+            <option>Belge</option>
+            <option>Française</option>
+            <option>Néerlandaise</option>
+            <option>Allemande</option>
+            <option>Luxembourgoise</option>
+        </select>
+        -->
+        <button type="submit" name="submit">Valider</button>
+    </form>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
