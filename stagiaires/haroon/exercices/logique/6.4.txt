@@ -1,0 +1,19 @@
+Ecrire le programme qui inverse un tableau de 10 nombres.
+
+Debut Programme 
+VARIABLES LOCALES
+	VAR vectore : N [20]
+	VAR ind : N <- 1 
+	
+	
+FIN VARIABLES LOCALES 
+
+
+	POUR ind ALLANT DE 2 A 16 
+		tab [i] <- tab[i]*2
+	ind SUIVANT 	
+		
+Afficher tab
+		
+		
+Fin Programme
