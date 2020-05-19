@@ -41,7 +41,7 @@ input:focus {
 	display: none;
 }
 
-.min-length-no-valid {
+.error-msg {
 	color: red;
 	display: none;
 }

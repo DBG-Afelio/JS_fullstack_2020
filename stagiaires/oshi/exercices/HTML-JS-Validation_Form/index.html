@@ -17,47 +17,72 @@
             <input class="form_input_classic" name="nom" type="text" placeholder="Nom(obligatoire)" required minlength="3" maxlength="50">
             <span class="no-valid">X</span>
             <span class="valid">V</span>
-            <span class="min-length-no-valid">Votre nom doit contenir au minimum 3 caractères</span>
+            <span class="min-length-no-valid error-msg">Votre nom doit contenir au minimum 3 caractères</span>
+            <span class="max-length-no-valid error-msg">Votre nom doit contenir au maximum 50 caractères</span>
+            <span class="required error-msg">Votre nom est obligatoire</span>
         </div>
+
+
         <div>
             <input class="form_input_classic" name="prenom" type="text" placeholder="Prénom" minlength="3" maxlength="50">
             <span class="no-valid">X</span>
             <span class="valid">V</span>
-            <span class="min-length-no-valid">Votre prénom doit contenir au minimum 3 caractères</span>
+            <span class="min-length-no-valid error-msg">Votre prénom doit contenir au minimum 3 caractères</span>
+            <span class="max-length-no-valid error-msg">Votre prénom doit contenir au maximum 50 caractères</span>
         </div>
+
+
         <div>
             <input class="form_input_classic" c-function="check_email" name="email" type="email" placeholder="Email">
             <span class="no-valid">X</span>
             <span class="valid">V</span>
         </div>
+
+        
         <div>
             <input class="form_input_classic" c-function="check_tel" name="tel" type="tel" placeholder="Téléphone">
             <span class="no-valid">X</span>
             <span class="valid">V</span>
         </div>
+
+
         <div>
-            <input class="form_input_classic" c-function="check_birthday" name="date_naissance" type="date" min="1980-01-01" max="2020-12-31" placeholder="jj/mm/aaaa (date de naissance)" required>
+            <input class="form_input_classic" c-function="check_birthday" name="date_naissance" type="date" placeholder="jj/mm/aaaa (date de naissance)" required>
             <span class="no-valid">X</span>
             <span class="valid">V</span>
+            <span class="required error-msg">Votre date de naissance est obligatoire</span>
         </div>
+
+
         <div>
             <input class="form_input_classic" c-function="check_login" name="pseudo" type="text" placeholder="Choisissez un login(obligatoire)" minlength="6" maxlength="10" required>
             <span class="no-valid">X</span>
             <span class="valid">V</span>
-            <span class="min-length-no-valid">Votre login doit contenir au minimum 6 caractères</span>
+            <span class="min-length-no-valid error-msg">Votre login doit contenir au minimum 6 caractères</span>
+            <span class="max-length-no-valid error-msg">Votre login doit contenir au maximum 10 caractères</span>
+            <span class="required error-msg">Votre login est obligatoire</span>
         </div>
+
+
         <div>
-            <input class="form_input_classic" name="mdp" type="password" placeholder="Mot de passe (obligatoire)" minlength="6" maxlength="10" required>
+            <input class="form_input_classic" c-function="check_mdp" name="mdp" type="password" placeholder="Mot de passe (obligatoire)" minlength="6" maxlength="10" required>
             <span class="no-valid">X</span>
             <span class="valid">V</span>
-            <span class="min-length-no-valid">Votre mot de passe doit contenir au minimum 6 caractères</span>
+            <span class="min-length-no-valid error-msg">Votre mot de passe doit contenir au minimum 6 caractères</span>
+            <span class="max-length-no-valid error-msg">Votre mot de passe doit contenir au maximum 10 caractères</span>
+            <span class="required error-msg">Votre mot de passe est obligatoire</span>
         </div>
+
+
         <div>
-            <input class="form_input_classic" name="mdp" type="password" placeholder="Resaisir mot de passe (obligatoire)" minlength="6" maxlength="10" required>
+            <input class="form_input_classic" c-function="recheck_mdp" name="mdp" type="password" placeholder="Resaisir mot de passe (obligatoire)" minlength="6" maxlength="10" required>
             <span class="no-valid">X</span>
             <span class="valid">V</span>
-            <span class="min-length-no-valid">Votre mot de passe doit contenir au minimum 6 caractères</span>
+            <span class="min-length-no-valid error-msg">Votre mot de passe doit contenir au minimum 6 caractères</span>
+            <span class="max-length-no-valid error-msg">Votre mot de passe doit contenir au maximum 10 caractères</span>
+            <span class="required error-msg">Votre répétition du mot de passe est obligatoire</span>
         </div>
+
 
         <select  class="form_input_classic" name="nationnalite" required>
             <option disabled selected value="">Nationnalité</option>
@@ -65,12 +90,17 @@
             <option value="francais">Français</option>
             <option value="japonais">Japonais</option>
         </select><br>
+        <span class="required error-msg">Votre nationnalité est obligatoire</span><br>
+
+
         <input name="sexe" type="radio" id="femme" value="femme">
         <label for="femme">Femme</label>
         <input name="sexe" type="radio" id="homme" value="homme">
         <label for="homme">Homme</label>
         <input name="sexe" type="radio" id="autre" value="other" checked>
         <label for="autre">Autre</label><br>
+
+
         <input name="developpeur_front" id="developpeur_front" type="checkbox" value="developpeur_front">
         <label for="developpeur_front">Developpeur Frond</label><br>
         <input name="developpeur_back" id="developpeur_back" type="checkbox" value="developpeur_back">
