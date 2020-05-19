@@ -1,0 +1,31 @@
+Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, ainsi que leur position dans le tableau.
+
+
+var taille :N <- 10
+var tableau :N [taille]
+var maximum :N <- 0
+var minimum :N <- 0
+var maxPosition :N <- 0
+var minPosition :N <- 0
+var compteur :N <- 0
+
+
+POUR compteur ALLANT DE 1 A taille
+
+    SI (tableau[compteur] > tableau[compteur + 1])
+      ALORS 
+            maximum <- tableau[compteur];
+            maxPosition <- compteur
+    FIN SI
+
+    SI (tableau[compteur] < tableau[compteur + 1] ET tableau[compteur] <= minimum) 
+          ALORS 
+            minimum <- tableau[compteur];
+            minPosition <- compteur
+    FIN SI
+
+
+
+FIN POUR
+
+
