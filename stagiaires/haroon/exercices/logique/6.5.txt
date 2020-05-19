@@ -1,0 +1,28 @@
+Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+
+
+Debut Programme 
+VARIABLES LOCALES
+	CONST Taille : N <-20
+	VAR tab : N [Taille ]
+	VAR ind : N <- 1 
+	VAR j : N <- 0
+	
+	
+FIN VARIABLES LOCALES 
+
+
+	POUR ind ALLANT DE 1 A Taille  
+		SI tab[ind] = ""
+			ALORS 
+				POUR j ALLANT DE i A Taille 
+				tab [j] <- tab [J+1]
+				j SUIVANT 
+			tab[Taille ] = ""
+		FIN SI 
+	ind SUIVANT
+Afficher tab
+		
+		
+Fin Programme
