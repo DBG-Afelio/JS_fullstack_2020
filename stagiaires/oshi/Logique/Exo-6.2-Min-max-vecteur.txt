@@ -1,0 +1,24 @@
+Début programme
+	Variable locale
+        Const TAILLE:N <- 20
+        Var new_texte :T <- ""
+        Var tab :N[TAILLE]
+        Var max :N
+        Var min :N
+        Var max_pos :N
+        Var min_pos :N
+	Fin variable locale
+
+    POUR index ALLANT DE 1 A TAILLE
+        SI tab[index] > max ALORS
+            max <- tab[index]
+            max_pos <- index
+        FINSI
+        SI tab[index] < min ALORS
+            min <- tab[index]
+            min_pos <- index
+        FINSI
+    index SUIVANT
+
+    Afficher "Le plus grand des nombres est ", max, " et se trouve à la position ", max_pos, ". Le plus petit des nombres est ", min, " et se trouve à la position ", min_pos
+Fin de programme
