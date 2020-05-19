@@ -9,21 +9,18 @@ Début programme
         Var min_pos :N
 	Fin variable locale
 
-    POUR index ALLANT DE 1 A TAILLE
-        SI index = 1 ALORS
-            min <- tab[index]
+    min <- tab[1]
+    max <- tab[1]
+    min_pos <- 1
+    max_pos <- 1
+    POUR index ALLANT DE 2 A TAILLE
+        SI tab[index] > max ALORS
             max <- tab[index]
-            min_pos <- index
             max_pos <- index
-        SINON
-            SI tab[index] > max ALORS
-                max <- tab[index]
-                max_pos <- index
-            FINSI
-            SI tab[index] < min ALORS
-                min <- tab[index]
-                min_pos <- index
-            FINSI
+        FINSI
+        SI tab[index] < min ALORS
+            min <- tab[index]
+            min_pos <- index
         FINSI
     index SUIVANT
 
