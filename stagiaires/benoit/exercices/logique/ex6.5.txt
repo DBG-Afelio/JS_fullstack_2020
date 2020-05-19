@@ -1,0 +1,28 @@
+// Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+
+Variables locales
+    Const Taille: N <-10
+    Var tab: T[Taille]
+    Var curseur: N <- 0
+
+Fin variables locales
+
+    tab[] = [Supprimer les caractères]
+
+Pour i allant de 1 à Taille
+
+    Si tab[i] = " "
+    Alors
+        Pour j allant de i à Taille
+            tab[j] <- tab[j+1]
+
+        j suivant
+        
+        tab[Taille-curseur] <- " "
+        curseur <- curseur +1
+    
+    FinSi
+    
+i suivant
+
