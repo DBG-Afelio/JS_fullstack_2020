@@ -5,22 +5,31 @@ const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
 
 //-------------------------------------
-fieldSubmit.addEventListener('click', ()=> {
+fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit);
+ //   isFormValid();
+    e.preventDefault();
 });
 
-/* 
-(e) => {
-        e.preventDefault(); //je ne veux pas qu'il me reset le form apres VALIDER
-*/
 
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
+ //   isFormValid();
 })
 fieldDate.addEventListener('input', () => {
     validateFieldDate(fieldDate);
+  //  isFormValid();
 })
 //-----------------------------------------
+/*function isFormValid() {
+    let stateOfAllInputField = [validateFieldName, validateFieldDate];
+    console.log(stateOfAllInputField);
+    return !stateOfAllInputField.some((isAllValid) => {
+        console.log(isAllValid);
+        return !isAllValid;
+    });
+}*/
+
 /**
  * Fonction validant tous les champs
  */
@@ -28,10 +37,10 @@ function validate(submitBtn) {
     submitBtn.classList.remove('valide');
     submitBtn.classList.remove('invalide');
     if (!validateFieldName(fieldName)){
-      //  alert('erreur dans le nom');
+        alert('erreur dans le nom');
         submitBtn.classList.add('invalide');
     }
-    if (!validateDateOfBirth(fieldDate)) {
+    if (!validateFieldDate(fieldDate)) {
         alert('erreur champ date');
         submitBtn.classList.add('invalide');
     }
@@ -47,7 +56,7 @@ function validate(submitBtn) {
  */
 function validateFieldName(nameField) {
     const nameInputField = nameField.querySelector('input');
-    const value = nameInputField.value;
+    const value = nameInputField.value; 
     let validReturn = true;
     nameField.classList.remove('valide');
     nameField.classList.remove('invalide');
@@ -97,15 +106,16 @@ function validateName(name) {
  */
 function validateFieldDate(dateField) {
     const dateInputField = dateField.querySelector('input'); 
-    const date = dateInputField.valueAsDate; 
+    const date = dateInputField.valueAsDate; console.log('Valeur champ DATE : '+date);
     let validReturn = true;
     dateField.classList.remove('valide');
     dateField.classList.remove('invalide');
     dateField.classList.remove('error-dateIsFutur');
     dateField.classList.remove('error-ageIsOut');
+    dateField.classList.remove('error-required');
     if (date == null) {
-        dateField.classList.add['invalide'];
-        dateField.classList.add['error-required'];
+        dateField.classList.add('invalide');
+        dateField.classList.add('error-required');
         validReturn = false;
     } else {
         valid = validateDateOfBirth(date);
@@ -121,6 +131,7 @@ function validateFieldDate(dateField) {
             validReturn = false;
         }
     } 
+    return validReturn;
 }
 
 /**
