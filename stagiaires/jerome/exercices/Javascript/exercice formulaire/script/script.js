@@ -129,7 +129,7 @@ function validateFieldEmail(emailField) {
     emailField.classList.remove('valide');
     emailField.classList.remove('invalide');
     if(!(value.trim() === '')){
-    const valid = validateEmail(value);
+        const valid = validateEmail(value);
         if (valid === 1) {
             emailField.classList.add('invalide');
             emailField.classList.add('error-invalid');
@@ -143,7 +143,7 @@ function validateFieldEmail(emailField) {
 }
 
 
-const mailRule = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+const mailRule = /^\w+([.-]\w+)*@\w+([.-]\w+)*(.\w{2,})$/;
 function validateEmail(email){
     if(email.match(mailRule)){
         return 0

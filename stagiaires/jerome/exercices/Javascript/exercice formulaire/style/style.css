@@ -1,24 +1,35 @@
 .valide-ok {
-            color:greenyellow;
-            display:none;
-        }
-        .valide-ko {
-            color:red;
-            display:none;
-        }
-        .form-element.valide .valide-ok{
-            display: block
-        }
-        .form-element.valide .valide-ko{
-            display: none
-        }
-        .form-element.invalide .valide-ok{
-            display: none;
-        }
-        .form-element.invalide .valide-ko{
-            display: block
-        }
-        .hidden{
-            display:none;
-        }
+    color:greenyellow;
+}
+
+.valide-ko {
+    color:red;
+}
+
+
+
+.form-element .error-message{
+    display: none;
+}
+
+.form-element.error-required .error-required{
+    display: block;
+}
+
+
+.form-element.valide .valide-ok{
+    display: block
+}
+.form-element.valide .valide-ko{
+    display: none
+}
+.form-element.invalide .valide-ok{
+    display: none;
+}
+.form-element.invalide .valide-ko{
+    display: block
+}
+.hidden{
+    display:none;
+}
 
