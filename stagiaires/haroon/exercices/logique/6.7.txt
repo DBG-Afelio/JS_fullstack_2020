@@ -1,0 +1,22 @@
+// Soit un tableau de 10 éléments déjà initialisés, écrire un programme 
+// qui modifie le tableau de telle manière que chaque élément reçoive 
+// la somme de tous les éléments d'indice supérieur ou égal à lui-même
+
+Debut Programme
+
+Variables Locales
+	VAR taille : N <- 20
+	VAR tab : N[taille]
+	VAR ind : N <-0
+	VAR j : N <- 0 
+
+Fin Variables Locales
+
+	POUR ind ALLANT DE 1 A taille
+		tab[i] <- 0 
+		POUR J ALLANT DE I A taille 
+			tab[i] <- tab[i] + tab[j]
+		j SUIVANT
+	ind SUIVANT
+
+FIN Programme 
