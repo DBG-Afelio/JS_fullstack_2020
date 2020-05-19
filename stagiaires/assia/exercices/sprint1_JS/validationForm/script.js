@@ -6,12 +6,12 @@ const fieldSubmit = document.querySelector('.submit-button');
 
 //-------------------------------------
 fieldSubmit.addEventListener('click', ()=> {
-    validate();
+    validate(fieldSubmit);
 });
 
 /* 
 (e) => {
-        e.preventDefault();
+        e.preventDefault(); //je ne veux pas qu'il me reset le form apres VALIDER
 */
 
 fieldName.addEventListener('input', ()=> {
@@ -24,12 +24,19 @@ fieldDate.addEventListener('input', () => {
 /**
  * Fonction validant tous les champs
  */
-function validate () {
+function validate(submitBtn) {
+    submitBtn.classList.remove('valide');
+    submitBtn.classList.remove('invalide');
     if (!validateFieldName(fieldName)){
       //  alert('erreur dans le nom');
+        submitBtn.classList.add('invalide');
     }
     if (!validateDateOfBirth(fieldDate)) {
         alert('erreur champ date');
+        submitBtn.classList.add('invalide');
+    }
+    else {
+        submitBtn.classList.add('valide');
     }
 }
 

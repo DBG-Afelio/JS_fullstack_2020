@@ -13,28 +13,28 @@
 
 .form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut
 {
-    display: block
+    display: block;
 }
 
 .form-element.valide .valide-ok {
-    display: block
+    display: block;
 }
 .form-element.valide .valide-ko {
-    display: none
+    display: none;
 }
 .form-element.invalide .valide-ok{
     display: none;
 }
 .form-element.invalide .valide-ko {
-    display: block
+    display: block;
 }
 .submit-button{
     border-color:black;
 }
-.form-element.valide .submit-button{
+.submit-button.valide {
     border-color: greenyellow;
 }
-.forn-element.invalide .submit-button{
+.submit-button.invalide {
     border-color: red;
 }
 
