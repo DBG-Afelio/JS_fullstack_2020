@@ -1,0 +1,16 @@
+/ Ecrire le programme qui complète le tableau de 16 éléments en doublant l'élément précédent. 
+//Le premier élément vaut 1.
+
+Variables locales
+    Const Taille: N <-16
+    Var tab: N[Taille]
+
+Fin variables locales
+
+
+Pour i allant de 2 à Taille
+
+    tab[i] <- tab[i-1]*2
+    
+i suivant
+
