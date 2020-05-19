@@ -1,7 +1,7 @@
 Début programme
 	Variable locale
         Const TAILLE:N <- 20
-        Var new_texte :T <- ""
+        Var index :N <- 0
         Var tab :N[TAILLE]
         Var max :N
         Var min :N
