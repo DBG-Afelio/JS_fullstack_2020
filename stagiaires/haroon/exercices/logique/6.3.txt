@@ -12,7 +12,7 @@ FIN VARIABLES LOCALES
 
 
 	POUR ind ALLANT DE 2 A 16 
-		tab [i] <- tab[i]*2
+		tab [ind] <- tab[ind-1]*2
 	ind SUIVANT 	
 		
 Afficher tab

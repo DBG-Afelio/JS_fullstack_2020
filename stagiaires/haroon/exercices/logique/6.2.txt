@@ -11,7 +11,8 @@ VARIABLES LOCALES
 	VAR minInd :N <- 0
 	
 FIN VARIABLES LOCALES 
-
+max <- Cotes[0]
+min <- Cotes[0]
 
 	POUR ind ALLANT DE 1 A 20 
 		SI Cotes[ind] > max 
