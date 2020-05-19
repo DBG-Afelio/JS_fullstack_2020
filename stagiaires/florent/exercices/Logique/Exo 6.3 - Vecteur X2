@@ -3,13 +3,10 @@ Début programme
         Tab : tab[16]
         i :N <- 1
     Fin Variables locales
-
-    TANT QUE i < 16
-        SI i = 1 ALORS
-            tab[i] = 1
-        SINON
-            tab[i] <- tab[i-1]*2
-        FINSI
+    tab[i] = 1
+    i <- 2
+    TANT QUE i <= 16
+        tab[i] <- tab[i-1]*2
         i = i + 1
     FINTANTQUE
 Fin programme
