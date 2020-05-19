@@ -1,0 +1,15 @@
+Ecrire le programme qui complète le tableau de 16 éléments en doublant l'élément précédent. Le premier élément vaut 1.
+
+dbt pgm
+var loc
+var taille:N<-16
+var tab:N[taille]
+var element:N<-1
+var i:N<-2
+fin var loc
+tab[1]<-element
+pour i allant de 2 a 16
+	element<-element*2
+	tab[i]<-element
+i suivant
+fin pgm
