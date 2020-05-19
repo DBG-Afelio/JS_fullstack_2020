@@ -1,8 +1,12 @@
 DEBUT PROGRAMME
 
+DEBUT VARIABLES LOCALES
+
     var taille :N <- 16
     var tableau :N <- [taille] 
     var compteur :N <- 0
+    
+FIN VARIABLES LOCALES
 
 POUR compteur ALLANT DE 2 A taille
 
