@@ -5,6 +5,7 @@ var loc
 var taille:N<-16
 var tab:N[taille]
 var element:N<-1
+var i:N<-2
 fin var loc
 tab[1]<-element
 pour i allant de 2 a 16
