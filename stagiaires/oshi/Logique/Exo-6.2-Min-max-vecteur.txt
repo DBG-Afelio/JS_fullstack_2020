@@ -10,13 +10,18 @@ Début programme
 	Fin variable locale
 
     POUR index ALLANT DE 1 A TAILLE
-        SI tab[index] > max ALORS
-            max <- tab[index]
-            max_pos <- index
-        FINSI
-        SI tab[index] < min ALORS
+        SI index = 1 ALORS
             min <- tab[index]
-            min_pos <- index
+            max <- tab[index]
+        SINON
+            SI tab[index] > max ALORS
+                max <- tab[index]
+                max_pos <- index
+            FINSI
+            SI tab[index] < min ALORS
+                min <- tab[index]
+                min_pos <- index
+            FINSI
         FINSI
     index SUIVANT
 
