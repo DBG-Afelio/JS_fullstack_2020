@@ -1,0 +1,92 @@
+
+label {
+    display: none;
+}
+
+.form-role label,
+.form-sex label {
+    display: block;
+}
+
+.valide-ok {
+    color:greenyellow;
+    display: none;
+}
+.valide-ko {
+    color:red;
+    display: none;
+}
+
+.form-element.valide .valide-ok{
+    display: block
+}
+
+.form-element.valide .valide-ko{
+    display: none
+}
+
+.form-element.invalide .valide-ok{
+    display: none;
+}
+
+.form-element.invalide .valide-ko{
+    display: block
+}
+
+.form-element .error-message {
+    display: none;
+}
+
+
+
+.form-element.error-difference .error-message.error-difference,
+.form-element.error-not-available .error-message.error-not-available,
+.form-element.error-min-age .error-message.error-min-age,
+.form-element.error-max-age .error-message.error-max-age,
+.form-element.error-format .error-message.error-format,
+.form-element.error-required .error-message.error-required,
+.form-element.error-min-length .error-message.error-min-length,
+.form-element.error-max-length .error-message.error-max-length {
+    display: block;
+}
+
+
+.strength, #radioButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+#radioButtons > * {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+.force {
+    display: inline-block;
+    width :30%;
+    height: 15px;
+    background-color:silver;
+    border: 2px solid white;
+    margin : 20px 0;
+    text-align: center;
+    top: 15px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+#weak.active {
+    background-color: red;
+}
+#medium.active {
+    background-color: orange;
+}
+#strong.active {
+    background-color: green;
+}
+
+.form-password input{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Validation</title>
+		<link rel="stylesheet" type="text/css" href="css/validate.css">
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+		
+	</head>
+	<body>
+		<header>  
+		</header>
+        <main>
+            <form novalidate action="javascript: validate();">
+                <div class="form-element form-nom">
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" data-pristine="true" placeholder="Nom (obligatoire)" required minlength="3" maxlength="50">
+                    <div class="valide-container">
+                        <span class="valide-ok">V</span>
+                        <span class="valide-ko">X</span>
+                    </div>
+                    <div class="error-message-container">
+                        <div class="error-message error-required">le nom est requis</div>
+                        <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
+                        <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
+                    </div>   
+                </div>
+
+                <div class="form-element form-prenom">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" data-pristine="true" placeholder="Prénom" minlength="3" maxlength="50" >
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-min-length">le prénom doit être au minimum de 3 caractères</div>
+                        <div class="error-message error-max-length">le prénom doit être au maximum de 50 caractères</div>
+                    </div>   
+                </div>
+
+                <div class="form-element form-email">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" data-pristine="true" placeholder="Email">
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-max-length">l'e-mail n'a pas le bon format</div>
+                    </div>   
+                </div>
+              
+                <div class="form-element form-date">
+                    <label for="date">Date de naissance</label>
+                    <input type="date" name="date" data-pristine="true" placeholder="jj/mm/aaaa (date de naissance)" required>
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-format">la date n'a pas le bon format</div>
+                        <div class="error-message error-min-age">l'âge minimum requis est de 18 ans</div>
+                        <div class="error-message error-max-age">l'âge maximal est de 67 ans au 1<sup>e</sup> janvier</div>
+                    </div>   
+                </div>
+
+                <div class="form-element form-phone">
+                    <label for="phone">Téléphone</label>
+                    <input type="text" name="phone" data-pristine="true" placeholder="Numéro de télephone">
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-format">le téléphone n'a pas le bon format</div>
+                    </div>   
+                </div>
+
+
+                <div class="form-element form-nationality">
+                    <label for="nationality"></label>
+                    <select name="nationality" data-pristine="true">
+                        <option value="0" disabled selected>Nationalité</option>
+                        <option value="1">Belge</option>
+                        <option value="2">Français</option>
+                        <option value="3">Suisse</option>
+                    </select>
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-required">la nationalité est requise</div>
+                    </div> 
+                </div>
+
+                <div class="form-element form-sex">
+                    <div id="radioButtons">
+                        <div class="radioButton"><input type="radio" name="sex" value="M"><label for="M">Homme</label></div>
+                        <div class="radioButton"><input type="radio" name="sex" value="F"><label for="F">Femme</label></div>
+                        <div class="radioButton"><input type="radio" name="sex" value="0" checked><label for="0">Autre</label></div>
+                   </div>
+
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-required">le genre est requis</div>
+                    </div> 
+                </div>
+
+                <div id="rightPart">
+
+                    <div class="form-element form-login">
+                        <label for="login">Pseudo</label>
+                        <input type="text" name="login" data-pristine="true" placeholder="Choisissez un pseudo (obligatoire)" required minlength="6" maxlength="10">
+                        <span class="valide-ok">V</span>
+                        <span class="valide-ko">X</span>
+                        <div class="error-message-container">
+                            <div class="error-message error-required">le pseudo est requis</div>
+                            <div class="error-message error-format">le pseudo n'a pas le bon format</div>
+                            <div class="error-message error-not-available">le pseudo n'est pas disponible</div>
+                        </div>  
+                        <button id="sugestButton">Suggérer un login</button> 
+                        <div id="sugestion">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-element form-password">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" data-pristine="true" placeholder="Mot de passe (obligatoire)" required>
+                        <label for="repeat">Resaisir le mot de passe</label>
+                        <input type="password" name="repeat" id="repeat" data-pristine="true" placeholder="Resaisissez Mot de passe (obligatoire)" required>
+                        <span class="valide-ok">V</span>
+                        <span class="valide-ko">X</span>
+                        <div class="error-message-container">
+                            <div class="error-message error-required">le mot de passe est requis</div>
+                            <div class="error-message error-format">le mot de passe n'a pas le bon format</div>
+                            <div class="error-message error-difference">les mots de passe sont différents</div>
+                        </div>
+                        <div id="strength">
+                            <div id="weak" class="force">faible</div>
+                            <div id="medium" class="force">moyen</div>
+                            <div id="strong" class="force">fort</div>
+                        </div>
+                    </div>
+                </div>
+
+              <!--  <div class="form-element form-role">
+                    <input type="checkbox" name="full" value="0"><label for="M">Développeur full stack</label>
+                    <input type="checkbox" name="front" value="1"><label for="F">Développeur front</label>
+                    <input type="checkbox" name="back" value="2" checked><label for="0">Développeur back</label>
+                    <input type="checkbox" name="ux" value="3"><label for="ux">UI/UX</label>
+                    <input type="checkbox" name="integrateur" value="4"><label for="integrateur">Intégrateur</label>
+                    <input type="checkbox" name="0" value="5" checked><label for="0">Rien de tout cela</label>
+                   
+                    <span class="valide-ok">V</span>
+                    <span class="valide-ko">X</span>
+                    <div class="error-message-container">
+                        <div class="error-message error-required">la fonction est requise</div>
+                    </div> -->
+                </div>
+
+
+                <div>
+                    <input type="submit" value=">" class="submit-button">
+                </div>
+            </form>
+        </main>
+        <footer>
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
