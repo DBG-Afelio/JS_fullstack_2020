@@ -9,7 +9,7 @@ Debut exercice
     FIN VARIABLES
 
     POUR i ALLANT DE length A 1
-        arrOut[length - i] <- arrIn[i] 
+        arrOut[length - i + 1] <- arrIn[i] 
     i SUIVANT
 
 Fin exercice
