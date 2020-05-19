@@ -1,0 +1,37 @@
+/ Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, 
+// ainsi que leur position dans le tableau.
+
+Variables locales
+    Const Taille: N <-5
+    Var tab: N[Taille]
+    Var max: N <- 0
+    Var min: N <- 0
+    Var positionMin: N <- 0
+    Var positionMax: N <- 0
+Fin variables locales
+
+tab[1] <- 2
+tab[2] <- 7
+tab[3] <- 2
+tab[4] <- 9
+tab[5] <- 1
+
+max <- tab[1]
+min <- tab[1]
+
+Pour i allant de 1 à Taille
+
+    Si max<tab[i]
+        max <- tab[i]
+        positionMin <- i
+    FinSi
+
+    Si min>tab[i]
+        min <- tab[i]
+        positionMax <- i
+    FinSi
+    
+i suivant
+
+Afficher "Le maximum est égal à ", max, " et sa position est ", positionMax
+Afficher "Le minimum est égal à ", min, " et sa position est ", positionMin
