@@ -4,7 +4,6 @@ Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vect
 Debut Programme 
 VARIABLES LOCALES
 	VAR Cotes : N [20]
-	VAR nombres : N <- 0
 	VAR ind : N <- 1 
 	VAR max : N <- 0
 	VAR min : N <- 0
@@ -12,10 +11,8 @@ VARIABLES LOCALES
 	VAR minInd :N <- 0
 	
 FIN VARIABLES LOCALES 
-Afficher  "Entrez les nombres"
-	Saiser "nombre"
-min <- nombre
-max <- nombre 
+
+
 	POUR ind ALLANT DE 1 A 20 
 		SI Cotes[ind] > max 
 		ALORS 
