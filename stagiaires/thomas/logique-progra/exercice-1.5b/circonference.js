@@ -7,21 +7,17 @@ const greenRange = document.querySelector("input[name='g-range']");
 const blueRange = document.querySelector("input[name='b-range']");
 const alphaRange = document.querySelector("input[name='a-range']");
 const arrayOfRanges = [redRange, greenRange, blueRange, alphaRange];
-
+const createCircle  = document.querySelector("#createNewCircle");
+const reset  = document.querySelector("#reset");
+const positionX = document.querySelector("#position-x");
+const positionY = document.querySelector("#position-y");
+const confirmPosition = document.querySelector("#confirmPosition");
 
 // START 
 
 //SVG SANDBOX
 document.body.append(svgSandbox);
 svgSandbox.classList.add("svg-sandbox");
-
-// ----
-svgSandbox.append(circle);
-circle.setAttribute("cx", "50");
-circle.setAttribute("cy", "50");
-circle.setAttribute("r", "50");
-circle.style.strokeWidth = "2px";
-circle.style.stroke = "black";
 
 arrayOfRanges.forEach((range) => {
 
@@ -32,10 +28,29 @@ arrayOfRanges.forEach((range) => {
 })
 
 validateRadius.addEventListener("click", function() {
-    const radiusEntry = Number(document.querySelector(".radius-entry").value)
-    const circonference = Number((2 * Math.PI * radiusEntry).toFixed(2))
-    console.log(circonference);
-
+    const radiusEntry = Number(document.querySelector(".radius-entry").value);
+    circle.setAttribute("r", radiusEntry);
 })
+
+createCircle.addEventListener("click", function() {
+    const radiusEntry = Number(document.querySelector(".radius-entry").value);
+    svgSandbox.append(circle);
+    circle.setAttribute("cx", "50");
+    circle.setAttribute("cy", "50");
+    circle.setAttribute("r", radiusEntry);
+    circle.style.strokeWidth = "2px";
+    circle.style.stroke = "black";
+})
+
+reset.addEventListener("click", function() {
+    svgSandbox.innerHTML = "";
+})
+
+confirmPosition.addEventListener("click", function() {
+    circle.setAttribute("cx", Number(positionX.value));
+    circle.setAttribute("cy", Number(positionY.value));
+})
+
+
 
     
