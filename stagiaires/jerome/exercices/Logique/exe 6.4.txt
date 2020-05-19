@@ -1,0 +1,14 @@
+Ecrire le programme qui inverse un tableau de 10 nombres.
+dbt pgm
+var loc
+var taille:N<-10
+var tab:N[taille]
+var i:N<-1
+var temp:N<-0
+fin var loc
+pour i allant de 1 a 5
+	temp<-tab[i]
+	tab[i]<-tab[taille-i+1]
+	tab[taille-i+1]<-temp
+i suivant
+fin pgm
