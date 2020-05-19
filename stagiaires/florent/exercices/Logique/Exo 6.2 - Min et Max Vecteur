@@ -1,0 +1,27 @@
+Début programme
+    Variables locales
+        Var posimin :N <- 0
+        Var posimax :N <- 0
+        Var tab :tab[20]
+        Var i :N <- 1 
+        Var min :N <- 0
+        Var max :N <- 0 
+    Fin Variables locales
+
+    max <- tab[i]
+    min <- tab[i]
+
+    POUR i ALLANT DE 1 à 20
+        SI tab[i] < min ALORS
+            min <- tab[i]
+            posimin <- i
+        FINSI
+        SI tab[i] > max ALORS
+            max <- tab[i]
+            posimax <- i
+        FINSI
+    i SUIVANT
+
+    Afficher "La valeur max est" , max , "en position", posimax
+    Afficher "La valeur min est" , min , "en position", posimin
+Fin de programme
