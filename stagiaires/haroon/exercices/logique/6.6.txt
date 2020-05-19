@@ -1,0 +1,26 @@
+Debut Programme 
+VARIABLES LOCALES	
+	Const taille : N <- 10
+	VAR tabEntier : N [taille]
+	VAR tabBoolean : B[taille]
+	VAR tabValeurs : N[taille]
+	VAR ind : N <- 1 
+	
+	
+FIN VARIABLES LOCALES 
+
+
+	POUR ind ALLANT DE 1 A taille
+		SI tabBoolean[ind] = false
+		ALORS 
+			tabValeurs[ind] <- -tabEntier[ind]
+		SINON 
+			tabValeurs[ind] <-  tabEntier[ind]
+		FINSI
+			
+	ind SUIVANT 	
+		
+Afficher tab
+		
+		
+Fin Programme
