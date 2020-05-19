@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+
+<!--
+
+Validation assurée par JS 
+Lorsqu'on appuye sur le bouton "Validation" : validation de tous les champs, c'est-à-dire vérification qu'ils sont OK et retours sur les éléments du formulaire à changer
+n cas de retour positif : un v vert s'affiche à côté de la case
+en cas de retour négatif : une croix rouge à droite de la case
+et une phrase précisant l'erreur, une phrase précise
+ce retour apparaît aussi lorsque l'on quitte le champ quand c'est la première fois qu'on modifie
+à partir du moment où un champ a été modifié, la validation se fait en permanence
+le bouton valider apparaît en rouge si le formulaire est invalide, en vert s'il est valide
+lors du clic sur leformulaire valide on présentera un résumé statique du formulaire
+
+Conseils de Denis, tout ce qu'on peut mettre dans l'html, on le mets dans l'html et pas dans le js, comme les messages d'erreurs, etc. Il faut travailler avec les éléments styles, le js ne metant que des classe saux éléments. Selon ces classes, l'affichage va se mettre en mode valide ou invalide,... Pour cela, il faut déterminer une structure html qui permette de manipuler ça. 
+
+Comment? travailler avec des classes listes depuis le javascript. Class list permet de récupérer les éléments class d'un élément de l'html
+
+-->
+
+<html>
+
+<head>
+
+	<title> Validation </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="formval.css" rel="Stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+
+<script src="formval.js"> </script>
+
+	</body>
+
+</html>

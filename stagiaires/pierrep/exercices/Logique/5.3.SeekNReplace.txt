@@ -21,31 +21,29 @@ Debut Decouverte
 
     saisie replaceString
 
-    POUR i ALLANT DE 1 à longueur(sourceString) - longueur(searchedString) + i
+    POUR i ALLANT DE 1 à longueur(sourceString) 
 
-        SI (sousChaine(sourceString, i, i + longueur(searchedString) = searchedString)
+        SI (sousChaine(sourceString, i, longueur(searchedString)
 
             ALORS
 
-                newString <- newString (+) sousChaine(sourceString, cCount, i) (+) replaceString
+                newString <- newString (+) sousChaine(sourceString, i, longueur(searchedString)) (+) replaceString
 
-                cCount <- i + longueur(searchedString)
+                cCount <- cCount + 1
 
-        FINSI
+            FINSI
 
     i SUIVANT
-
-    newString <- newString (+) sousChaine(sourceString, cCount, longueur(sourceString) - 1)
     
-    SI cCount > 0
+  SI cCount > 0
 
-        ALORS
+      ALORS
 
-        affiche "Voici votre nouveau texte :" , newString 
+      affiche "Voici votre nouveau texte :" , newString 
    
-    SINON
+  SINON
 
-        affiche "Le texte à rechercher ne se trouve pas dans le texte original"
+      affiche "Le texte à rechercher ne se trouve pas dans le texte original"
  
 Fin Decouverte
 

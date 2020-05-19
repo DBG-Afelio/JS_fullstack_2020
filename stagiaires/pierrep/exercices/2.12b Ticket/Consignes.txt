@@ -1,0 +1,16 @@
+Ecrire une interface pour savoir si une personne peut entrer ou non dans le bus.
+Obtenir (checkbox / input) les données suivantes:
+
+    La personne a un ticket
+    La personne a un ticket réduit
+    L'âge de la personne
+
+Afficher si, oui ou non, la personne peut entrer.
+
+Les règles sont les suivantes:
+
+    Un enfant de moins de 6 ans peut entrer gratuitement,
+    Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+    Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+
