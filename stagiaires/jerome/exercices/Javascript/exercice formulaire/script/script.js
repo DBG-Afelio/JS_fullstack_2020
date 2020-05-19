@@ -1,6 +1,7 @@
 const fieldName = document.querySelector('.form-nom');
 const fieldSurname=document.querySelector('.form-prenom');
 const fieldEmail=document.querySelector('.form-email');
+const fieldPhone=document.querySelector('.form-tel');
 const fieldSubmit = document.querySelector('.submit-button');
 
 
@@ -17,8 +18,20 @@ fieldSurname.addEventListener('input', ()=> {
 fieldEmail.addEventListener('input', ()=> {
     validateFieldEmail(fieldEmail);
 })
+fieldPhone.addEventListener('input', ()=> {
+    validateFieldPhone(fieldPhone);
+})
+//..............................................................................
+//reload
+window.addEventListener('load',()=>{
+    let Inputs=document.querySelectorAll('Input');
+
+    for(items of Inputs ){
+        items.value="";
+    }
+})
 /**
- * Fonction validant tous les champs
+ * Fonction validant tous les champs + Boutton couleur
  */
 function validate () {
     if (!validateFieldName(fieldName)){
@@ -27,11 +40,13 @@ function validate () {
     if(!validateFieldSurname(fieldSurname)){
         alert('erreur dans le prénom');
     }
-    if(!validateFieldSurname(fieldSurname)){
+    if(!validateFieldEmail(fieldEmail)){
+        alert("erreur dans l'email");
+    }
+    if(!validateFieldPhone(fieldPhone)){
         alert("erreur dans l'email");
     }
 }
-
 /**
  * Fonction validant valide et met à jour l'affichage pour le champ nom
  * @param <div> entourant l'input
@@ -46,19 +61,16 @@ function validateFieldName(nameField) {
     if (value.trim() === '') {
         nameField.classList.add('invalide');
         nameField.classList.add('error-required');
-        document.getElementById('nameRequired').classList.remove('hidden');
         validReturn = false;
     } else {
         const valid = validateName(value);
         if (valid === 1) {
             nameField.classList.add('invalide');
             nameField.classList.add('error-min-length');
-            document.getElementById('nameMin').classList.remove('hidden');
             validReturn = false;
         } else if(valid === 2) {
             nameField.classList.add('invalide');
             nameField.classList.add('error-max-length');
-            document.getElementById('nameMax').classList.remove('hidden')
             validReturn = false;
         } else {
             nameField.classList.add('valide');
@@ -81,7 +93,7 @@ function validateName(name) {
     }
 }
 //..............................................................................
-
+//Prénom
 
 
 function validateFieldSurname(surnameField) {
@@ -91,16 +103,14 @@ function validateFieldSurname(surnameField) {
     surnameField.classList.remove('valide');
     surnameField.classList.remove('invalide');
     if(!(value.trim() === '')){
-    const valid = validateSurname(value);
+    const valid = validateName(value);
         if (valid === 1) {
             surnameField.classList.add('invalide');
             surnameField.classList.add('error-min-length');
-            document.getElementById('surnameMin').classList.remove('hidden');
             validReturn = false;
         } else if(valid === 2) {
             surnameField.classList.add('invalide');
             surnameField.classList.add('error-max-length');
-            document.getElementById('surnameMin').classList.remove('hidden');
             validReturn = false;
         } else {
             surnameField.classList.add('valide');
@@ -108,20 +118,10 @@ function validateFieldSurname(surnameField) {
     }
     return validReturn;
 }
-
-function validateSurname(surname){
-    if(surname.length>=3 && surname.length <= 50){
-
-        return 0;
-    }else if (surname.length < 3) {
-
-        return 1
-        }else {
-
-            return 2;
-        }
-}
 //..............................................................................
+//Email
+
+
 function validateFieldEmail(emailField) {
     const emailInputField = emailField.querySelector('input');
     const value = emailInputField.value;
@@ -133,7 +133,6 @@ function validateFieldEmail(emailField) {
         if (valid === 1) {
             emailField.classList.add('invalide');
             emailField.classList.add('error-invalid');
-            document.getElementById('emailInvalid').classList.remove('hidden');
             validReturn = false;
         }else if(valid===0) {
             emailField.classList.add('valide');
@@ -151,3 +150,37 @@ function validateEmail(email){
         return 1
     }
 }
+//..............................................................................
+//Téléphone
+function validateFieldPhone(phoneField) {
+    const phoneInputField = phoneField.querySelector('input');
+    const value = phoneInputField.value;
+    let validReturn = true;
+    phoneField.classList.remove('valide');
+    phoneField.classList.remove('invalide');
+    if(!(value.trim() === '')){
+        const valid = validatephone(value);
+        if (valid === 1) {
+            phoneField.classList.add('invalide');
+            phoneField.classList.add('error-invalid');
+            validReturn = false;
+        }else if(valid===0) {
+            phoneField.classList.add('valide');
+        }
+    }
+    return validReturn;
+}
+
+const phoneRule=/^(((0032)|(\+32))([1-9]{1})(\d{6,9})$)|(^(0)(\d{6,9})$)/;
+function validatephone(phone){
+    if(phone.match(phoneRule)){
+        return 0
+    }else {
+        return 1
+    }
+}
+//..............................................................................
+//date de naissance
+
+//..............................................................................
+//password

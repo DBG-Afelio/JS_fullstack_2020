@@ -12,41 +12,92 @@
             <span class="valide-ok">V</span>
             <span class="valide-ko">X</span>
             <div class="error-message-container">
-                <div class="error-message error-required hidden" id="nameRequired">le nom est requis</div>
-                <div class="error-message error-min-length hidden" id="nameMin">le nom doit être au minimum de 3 caractères</div>
-                <div class="error-message error-max-length hidden" id="nameMax">le nom doit être au maximum de 50 caractères</div>
+                <div class="error-message error-required">le nom est requis</div>
+                <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
+                <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
             </div>   
         </div>
+
 	  <br>
+
 	  <div class="form-element form-prenom invalide error-min-length">
 	  	<input type="text" name="prenom" placeholder="Prénom">
 	  	<span class="valide-ok">V</span>
 	  	<span class="valide-ko">X</span>
 	  	<div class="error-message-container">
-	  		<div class="error-message error-min-length hidden" id="surnameMin" >le prénom doit être au minimum de 3 caractères</div>
-            <div class="error-message error-max-length hidden" id="surnamMax">le prénom doit être au maximum de 50 caractères</div>
+	  		<div class="error-message error-min-length">le prénom doit être au minimum de 3 caractères</div>
+            <div class="error-message error-max-length">le prénom doit être au maximum de 50 caractères</div>
 	  	</div>
 	  </div>
+
 	  <br>
-	  <div class="form-element form-prenom invalide error-min-length">
+
+	  <div class="form-element form-email invalide">
 	  		<input type="email" name="email" placeholder="Email">
 	  		<span class="valide-ok">V</span>
 	  		<span class="valide-ko">X</span>
 	  		<div class="error-message-container">
-                <div class="error-message error-invalid hidden" id="emailInvalid">Email Invalide</div>
+                <div class="error-message error-invalid">Email Invalide</div>
             </div>
 	  </div>
+
 	  <br>
-	  <input type="text" name="telephone" placeholder="Téléphone" required>
+
+	  <div class="form-element form-tel invalide">
+	  		<input type="text" name="telephone" placeholder="Téléphone" required>
+	  		<span class="valide-ok">V</span>
+	  		<span class="valide-ko">X</span>
+	  		<div class="error-message-container">
+	  			<div class="error-message error-invalide">Entrez un numero de téléphone valide</div>
+	  		</div>
+	  </div>
+
 	  <br>
+
+	  <div class="form-element form-tel invalide error-required">
 	  <input type="date" name="date" placeholder="jj/mm/aaaa(date de naissance)" required>
+	  		<span class="valide-ok">V</span>
+	  		<span class="valide-ko">X</span>
+	  		<div class="error-message-container">
+	  			<div class="error-message error-invalid">Date Invalide</div>
+	  			<div class="error-message error-required">la date est requise</div>
+	  		</div>
+	  </div>
+
 	  <br>
-	  <input type="button" name="" placeholder="Suggérer un login">
+
+	  <div class="form-element form-login invalide error-required error-min-length">
+	  		<input type="text" name="champLogin"read-only>
+	  		<br>
+	  		<input type="button" name="" placeholder="Suggérer un login" value="Générer un Login" required minlength="6" maxlength="10">
+	  		<span class="valide-ok">V</span>
+	  		<span class="valide-ko">X</span>
+	  		<div class="error-message-container">
+	  			<div class="error-message error-required">le login est requis</div>
+	  			<div class="error-message error-min-length">le login doit être au minimum de 6 caractères</div>
+                <div class="error-message error-max-length">le login doit être au maximum de 10 caractères</div>
+            </div>
+	  </div>
+
 	  <br>
-	  <input type="password" name="password" placeholder="Mot de passe (obligatoire)">
+
+	  <div class="form-element form-password invalide error-required error-min-length">
+	  		<input type="password" name="password" placeholder="Mot de passe (obligatoire)" required minlength="6" maxlength="10">
+	  		<span class="valide-ok">V</span>
+	  		<span class="valide-ko">X</span>
+	  		<div class="error-message-container">
+	  			<div class="error-message error-required">le nom est requis</div>
+                <div class="error-message error-min-length">le mot de passe doit être au minimum de 6 caractères</div>
+                <div class="error-message error-max-length">le mot de passe doit être au maximum de 10 caractères</div>
+            </div>
+      </div>
+
 	  <br>
+
 	  <input type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)">
+
 	  <br>
+
 	  <select id="champsnation">
 	  	<option value="">Nationalité</option>
 	  	<option value="0">Belge</option>
