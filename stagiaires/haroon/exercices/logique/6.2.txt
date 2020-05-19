@@ -1,0 +1,34 @@
+Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, ainsi que leur position dans le tableau.
+
+
+Debut Programme 
+VARIABLES LOCALES
+	VAR Cotes : N [20]
+	VAR nombres : N <- 0
+	VAR ind : N <- 1 
+	VAR max : N <- 0
+	VAR min : N <- 0
+	VAR maxInd : N <- 0
+	VAR minInd :N <- 0
+	
+FIN VARIABLES LOCALES 
+Afficher  "Entrez les nombres"
+	Saiser "nombre"
+min <- nombre
+max <- nombre 
+	POUR ind ALLANT DE 1 A 20 
+		SI Cotes[ind] > max 
+		ALORS 
+		max <- Cotes[ind]
+		maxInd  <- ind
+		FINSI
+		SI Cotes[ind] < min 
+		ALORS 
+		min <-  Cotes[ind]
+		minInd <- ind
+		FINS
+	ind SUIVANT
+Afficher max , maxInd , min , minInd
+		
+		
+Fin Programme
