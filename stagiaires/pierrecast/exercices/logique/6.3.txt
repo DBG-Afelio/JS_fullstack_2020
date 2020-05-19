@@ -1,0 +1,20 @@
+Ecrire le programme qui complète le tableau de 16 éléments en doublant l'élément précédent. Le premier élément vaut 1.
+
+DEBUT 6-3
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 16
+        VAR tab:N[TAILLE]
+        VAR index
+    FIN VARIABLES LOCALES
+
+    tab[1] <- 1
+    index <- 2
+    POUR index ALLANT DE 2 A TAILLE
+        tab[index] <- tab[index - 1] * 2
+
+    index SUIVANT
+
+
+FIN 6-3
+
+
