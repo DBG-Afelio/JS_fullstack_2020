@@ -10,13 +10,13 @@ function execute (){
 }
 
 function nom(NOM){
-    if (NOM.lenght = 0) {
+    if (NOM.length == 0) {
         return "Veuillez compléter ce champ merci";
     } else {
-        if (NOM.lenght < 3) {
+        if (NOM.length < 3) {
             return "Votre nom doit contenir au minimun 3 carctères";
         } else {
-            if (NOM.lenght <50){
+            if (NOM.length <50){
                 return "Votre nom doit contenir moins de 50 carctères";
             } else{
                 return ""
@@ -27,10 +27,10 @@ function nom(NOM){
 }
 
 function nom(PRENOM){
-    if(PRENOM.lenght < 3) {
+    if(PRENOM.length < 3) {
         return "Votre nom doit contenir au minimun 3 carctères";
     } else {
-        if (PRENOM.lenght <50){
+        if (PRENOM.length <50){
             return "Votre nom doit contenir moins de 50 carctères";
         } else{
             return "";
