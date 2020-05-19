@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validation</title>
-
-    <style>
-        .valide-ok {
-            color:greenyellow;
-            display:none;
-        }
-        .valide-ko {
-            color:red;
-            display:none;
-        }
-        .form-element.valide .valide-ok{
-            display: block
-        }
-        .form-element.valide .valide-ko{
-            display: none
-        }
-        .form-element.invalide .valide-ok{
-            display: none;
-        }
-        .form-element.invalide .valide-ko{
-            display: block
-        }
-    </style>
-</head>
-<body>
-    <form novalidate>
-        <div class="form-element form-nom invalide error-required error-min-length">
-            <input type="text" name="nom" value="Nom(obligatoire)" data-pristine="true" required minlength="3" maxlength="50">
-            <span class="valide-ok">V</span>
-            <span class="valide-ko">X</span>
-            <div class="error-message-container">
-                <div class="error-message error-required">le nom est requis</div>
-                <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
-                <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
-            </div>   
-        </div>
-        <div class="form-element form-nom invalide error-required error-min-length">
-            <input type="text" name="nom" value="Prénom" data-pristine="true" required minlength="3" maxlength="50">
-            <span class="valide-ok">V</span>
-            <span class="valide-ko">X</span> 
-            <div class="error-message-container">
-                <div class="error-message error-min-length">Le prénom doit être au minimun de 3 caractères</div>
-                <div class="error-message error-max-lenght">Le prénom doit être au maximun de 50 carctères</div>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="formulaire.css">
+    </head>
+    <body>
+        <div class="form">
+            <div class="champ">
+                <input type="text" id="nom" placeholder="Nom (Obligatoire)" minlength="3" maxlength="50">
+                <output id="repnom" class="invalid"></output>
             </div>
+            <div class="champ">
+                <input type="text" id="prenom" placeholder="Prénom" minlength="3" maxlength="50">
+                <output id="repprenom" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <input type="email" id="mail" placeholder="Mail">
+                <output id="repmail" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <input type="tel" id="telephone" placeholder="Téléphone">
+                <output id="reptel" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <input type="date" id="date" placeholder="Date de naissance">
+                <output id="repdate" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <input type="text" id="login" placeholder="Login (Obligatoire)">
+                <output id="replogin" class="invalid"></output>
+                <input type="submit" id="sugg" value="Suggérrer un login">
+            </div>
+            <div class="champ">
+                <input type="password" id="mp" placeholder="Mot de passe (Obligatoire)">
+                <output id="repMP" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <input type="password" id="mpc" placeholder="Ressaisir Mot de passe (Obligatoire)">
+                <output id="repMPC" class="invalid"></output>
+            </div>
+            <div class="champ">
+                <select name="pays" id="nationalite" placeholder="Nationalité">
+                    <option value="">Nationalité</option>
+                    <option value="Belgique">Belgique</option>
+                    <option value="France">France</option>
+                    <option value="Allemagne">Allemagne</option>
+                    <option value="Pays-bas">Pays-Bas</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Espagne">Espagne</option>
+                    <option value="Angleterre">Angleterre</option>
+                </select>
+            </div>
+            <div>
+                <input type="radio" id="femme" name="choix">
+                <label for="femme">Femme</label>
+            </div>
+            <div>
+                <input type="radio" id="homme" name="choix">
+                <label for="homme">Homme</label>
+            </div>
+            <div>
+                <input type="radio" id="autres" name="choix" checked>
+                <label for="autres">Autres</label>
+            </div>
+            <input type="submit" id="sub" value="VALIDER">
+            <script src="formulaire.js"></script>
         </div>
-        <div>
-            <input type="submit" value="Valider" class="submit-button">
-        </div>
-    </form>
-    <script src="formulaire.js"></script>
-</body>
+    </body>
 </html>

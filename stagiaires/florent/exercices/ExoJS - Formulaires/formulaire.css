@@ -1,3 +1,16 @@
-input {
+.champ {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.invalid{
+    color: red;
+}
+
+.form{
+    background-color: sandybrown;
+}
+
+output{
     display: block;
 }
