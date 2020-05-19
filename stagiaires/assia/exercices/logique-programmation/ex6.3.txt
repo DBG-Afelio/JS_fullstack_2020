@@ -1,0 +1,16 @@
+Ecrire le programme qui complète le tableau de 16 éléments en doublant l'élément précédent. Le premier élément vaut 1.
+
+Debut exercice
+    VARIABLES LOCALES
+        VAR element :N <- 1
+        CONST length :N <- 16
+        CONST coef :N <- 2 //(pour doubler)
+        VAR arr :N[length]
+        VAR i :N <- 0
+    FIN VARIABLES
+
+    arr[1] <- 1
+    POUR i ALLANT DE 2 A length
+        arr[i] <- arr[i-1] * coef
+    i SUIVANT
+Fin exercice
