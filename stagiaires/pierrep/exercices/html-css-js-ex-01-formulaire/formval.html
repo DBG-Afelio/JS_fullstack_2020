@@ -16,6 +16,18 @@ Conseils de Denis, tout ce qu'on peut mettre dans l'html, on le mets dans l'html
 
 Comment? travailler avec des classes listes depuis le javascript. Class list permet de récupérer les éléments class d'un élément de l'html
 
+On établit des règles dans le css avec des balises valid-ok et valid-ko
+
+Pourquoi fait-on de cette mnaière ? Pour clarifier, application du principe MVC : on sépare ce qui est visuel. Modele Vue Contrôleur. Aller voir.
+
+2e point : organisation du code js.
+
+Créer plusieurs fonctions : 
+
+-une qui va valider les champs
+-une autre qui va valider juste le champ même
+-une fonction qui va valider les règles du champ même  
+
 -->
 
 <html>
@@ -23,13 +35,29 @@ Comment? travailler avec des classes listes depuis le javascript. Class list per
 <head>
 
 	<title> Validation </title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="formval.css" rel="Stylesheet" type="text/css">
 
 </head>
 
 <body>
 
+    <form novalidate>
+        <div class="form-element form-nom invalide error-required error-min-length">  <!-- à quoi servent ces différentes classes ? -->
+            <input type="text" name="nom" data-pristine="true" required minlength="3" maxlength="50">
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">le nom est requis</div>
+                <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
+                <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
+            </div>   
+        </div>
+        <div>
+            <input type="submit" value="Valider" class="submit-button">
+        </div>
+    </form>
 
 <script src="formval.js"> </script>
 
