@@ -1,0 +1,12 @@
+Début programme
+    Variables locales
+        Tab : tab[16]
+        i :N <- 1
+    Fin Variables locales
+    tab[i] = 1
+    i <- 2
+    TANT QUE i <= 16
+        tab[i] <- tab[i-1]*2
+        i = i + 1
+    FINTANTQUE
+Fin programme
