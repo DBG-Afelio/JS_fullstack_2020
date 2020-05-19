@@ -6,17 +6,30 @@
     color:red;
     display:none;
 }
-.form-element.valide .valide-ok{
+.error-message {
+    color:red;
+    display:none;
+}
+
+.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut
+{
     display: block
 }
-.form-element.valide .valide-ko{
+
+.form-element.valide .valide-ok {
+    display: block
+}
+.form-element.valide .valide-ko {
     display: none
 }
 .form-element.invalide .valide-ok{
     display: none;
 }
-.form-element.invalide .valide-ko{
+.form-element.invalide .valide-ko {
     display: block
+}
+.submit-button{
+    border-color:black;
 }
 .form-element.valide .submit-button{
     border-color: greenyellow;
@@ -24,13 +37,4 @@
 .forn-element.invalide .submit-button{
     border-color: red;
 }
-.error-required {
-    color:red;
-    display:block;
-}
-.form-element.valide .error-required {
-    display: none
-}
-.form-element.invalide .error-required {
-    display: block;
-}
+

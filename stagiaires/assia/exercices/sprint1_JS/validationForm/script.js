@@ -9,6 +9,11 @@ fieldSubmit.addEventListener('click', ()=> {
     validate();
 });
 
+/* 
+(e) => {
+        e.preventDefault();
+*/
+
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
 })
@@ -21,7 +26,7 @@ fieldDate.addEventListener('input', () => {
  */
 function validate () {
     if (!validateFieldName(fieldName)){
-        alert('erreur dans le nom');
+      //  alert('erreur dans le nom');
     }
     if (!validateDateOfBirth(fieldDate)) {
         alert('erreur champ date');
@@ -39,6 +44,9 @@ function validateFieldName(nameField) {
     let validReturn = true;
     nameField.classList.remove('valide');
     nameField.classList.remove('invalide');
+    nameField.classList.remove('error-required');
+    nameField.classList.remove('error-min-length');
+    nameField.classList.remove('error-max-length');
     if (value.trim() === '') {
         nameField.classList.add('invalide');
         nameField.classList.add('error-required');
@@ -86,6 +94,8 @@ function validateFieldDate(dateField) {
     let validReturn = true;
     dateField.classList.remove('valide');
     dateField.classList.remove('invalide');
+    dateField.classList.remove('error-dateIsFutur');
+    dateField.classList.remove('error-ageIsOut');
     if (date == null) {
         dateField.classList.add['invalide'];
         dateField.classList.add['error-required'];
@@ -96,7 +106,7 @@ function validateFieldDate(dateField) {
             dateField.classList.add('valide');
         } else if (valid == 1) {
             dateField.classList.add('invalide');
-            dateField.classList.add('error-dateFutur');
+            dateField.classList.add('error-dateIsFutur');
             validReturn = false;
         } else {
             dateField.classList.add('invalide');
