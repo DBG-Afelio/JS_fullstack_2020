@@ -2,8 +2,11 @@
 
 const fieldName = document.querySelector('.form-nom');
 const fieldFirstName = document.querySelector('.form-prenom');
+const fieldEmail = document.querySelector('.form-email');
 const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
+const fieldLogin = document.querySelector('.form-login');
+const fieldLoginBtn = document.querySelector('login-button');
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
@@ -11,14 +14,18 @@ fieldSubmit.addEventListener('click', (e)=> {
 });
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
-
 })
 fieldFirstName.addEventListener('input', ()=> {
     validateFieldFirstName(fieldFirstName);
-
 })
 fieldDate.addEventListener('input', () => {
     validateFieldDate(fieldDate);
+})
+fieldEmail.addEventListener('input', () => {
+    validateFieldEmail(fieldEmail);
+})
+fieldLogin.addEventListener('input', () => {
+    validateFieldLogin(loginField);
 })
 //-----------------------------------------
 /*function isFormValid() {
@@ -180,3 +187,10 @@ function validateDateOfBirth(date_AsDate) {
     }        
 }
 
+function validateFieldEmail(emailField) {
+
+}
+
+function validateFieldLogin(loginField) {
+
+}

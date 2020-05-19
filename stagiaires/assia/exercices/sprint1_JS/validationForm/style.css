@@ -1,3 +1,7 @@
+body {
+    font-size: x-large;
+    
+}
 .valide-ok {
     color:greenyellow;
     display:none;
@@ -11,7 +15,7 @@
     display:none;
 }
 
-.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut
+.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-not-unique .error-message.error-login-not-unique, .form-element.error-symbol-login .error-message.error-symbol-login, .form-element.error-mail .error-message.error-mail
 {
     display: block;
 }
