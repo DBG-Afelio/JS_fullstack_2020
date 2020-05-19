@@ -32,11 +32,11 @@ PROGRAMME
                 AFFICHER ("Le texte demandé est vide.")
     SINON
 
-        POUR compteur ALLANT DE 1 A longueur(texte-replaced):N 
+        POUR compteur ALLANT DE 1 A longueur(text-to-replace):N 
 
-            SI (sousChaine(texte-cible, 1, longeur(texte-cible - 1) = sousChaine(text-to-replace, compteur, longeur(texte-cible - 1)))
+            SI (texte-cible = sousChaine(text-to-replace, compteur, compteur + 1))
             ALORS 
-                sousChaine(text-to-replace, compteur, longeur(texte-cible - 1) <- sousChaine(texte-cible, compteur, longeur(texte-cible - 1)
+                sousChaine(text-to-replace, compteur, compteur + 1) <- texte-cible
                 occurences <- occurences + 1       
             FIN SI   
         FIN POUR
