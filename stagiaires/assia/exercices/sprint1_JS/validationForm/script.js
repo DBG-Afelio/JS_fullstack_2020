@@ -1,24 +1,24 @@
 // Validation de formulaire par Javascript
 
 const fieldName = document.querySelector('.form-nom');
+const fieldFirstName = document.querySelector('.form-prenom');
 const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
 
-//-------------------------------------
 fieldSubmit.addEventListener('click', (e)=> {
-    validate(fieldSubmit);
- //   isFormValid();
+    validate(fieldSubmit); 
     e.preventDefault();
 });
-
-
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
- //   isFormValid();
+
+})
+fieldFirstName.addEventListener('input', ()=> {
+    validateFieldFirstName(fieldFirstName);
+
 })
 fieldDate.addEventListener('input', () => {
     validateFieldDate(fieldDate);
-  //  isFormValid();
 })
 //-----------------------------------------
 /*function isFormValid() {
@@ -36,12 +36,7 @@ fieldDate.addEventListener('input', () => {
 function validate(submitBtn) {
     submitBtn.classList.remove('valide');
     submitBtn.classList.remove('invalide');
-    if (!validateFieldName(fieldName)){
-        alert('erreur dans le nom');
-        submitBtn.classList.add('invalide');
-    }
-    if (!validateFieldDate(fieldDate)) {
-        alert('erreur champ date');
+    if (!validateFieldName(fieldName) || !validateFieldDate(fieldDate) || !validateFieldFirstName(fieldFirstName)){
         submitBtn.classList.add('invalide');
     }
     else {
@@ -84,6 +79,37 @@ function validateFieldName(nameField) {
     return validReturn;
 }
 
+/**
+ * Fonction validant valide et met à jour l'affichage pour le champ prenom
+ * @param <div> entourant l'input
+ * @return boolean
+ */
+function validateFieldFirstName(firstnameField) {
+    const firstnameInputField = firstnameField.querySelector('input');
+    const value = firstnameInputField.value; 
+    let validReturn = true;
+    firstnameField.classList.remove('valide');
+    firstnameField.classList.remove('invalide');
+    firstnameField.classList.remove('error-min-length');
+    firstnameField.classList.remove('error-max-length');
+    if (value.trim() === '') {
+        firstnameField.classList.add('valide'); //car champ facultatif
+    } else {
+        const valid = validateName(value);
+        if (valid === 1) {
+            firstnameField.classList.add('invalide');
+            firstnameField.classList.add('error-min-length');
+            validReturn = false;
+        } else if (valid === 2) {
+            firstnameField.classList.add('invalide');
+            firstnameField.classList.add('error-max-length');
+            validReturn = false;
+        } else {
+            firstnameField.classList.add('valide');
+        }
+    }
+    return validReturn;
+}
 
 /**
  * Fonction validant les règles du champ nom
