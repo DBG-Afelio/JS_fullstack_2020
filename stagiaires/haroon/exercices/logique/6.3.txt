@@ -4,7 +4,7 @@ Ecrire le programme qui complète le tableau de 16 éléments en doublant l'él�
 
 Debut Programme 
 VARIABLES LOCALES
-	VAR vectore : N [20]
+	VAR tab : N [20]
 	VAR ind : N <- 1 
 	
 	
