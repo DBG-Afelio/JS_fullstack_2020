@@ -7,15 +7,14 @@ const fieldLogin = document.querySelector('.form-login');
 const fieldPassword = document.querySelector('.form-password');
 const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
-/*const fieldRole = document.querySelector('.form-role');
-const fieldRoles = fieldRole.querySelectorAll('input');*/
+const fieldRole = document.querySelector('.form-role');
+const fieldRoles = fieldRole.querySelectorAll('input');
 
 const fieldSubmit = document.querySelector('.submit-button');
 const pristineField = document.querySelectorAll('[data-pristine=true]');
 const today = new Date();
 const usedLogin = ['Assia0', 'Benoit', 'Florent', 'Haroon', 'Nicolas', 'Jerome', 'Kevin0', 'Pierre', 'Thomas', 'Denis0'];
 const oSugestButton = document.querySelector('#sugestButton');
-const oSugestion = document.querySelector('#sugestion');
 const oForce = document.querySelectorAll('.force');
 
 oSugestButton.addEventListener('click', (e)=> {
@@ -59,13 +58,13 @@ fieldNationality.addEventListener('change', ()=> {
 fieldSex.addEventListener('change', ()=> {
     validateFieldSex(fieldSex);
 })
-/*
-console.log(fieldRoles);
+
 fieldRoles.forEach((role) => { 
     role.addEventListener('click', () => {
         changeRoles(role);
+        validateFieldRoles(fieldRole);
     });
-});*/
+});
 
 const pristine = (e) => {
     e.target.setAttribute('data-pristine', false);
@@ -107,7 +106,7 @@ function validate() {
     }
 
     if (!validateFieldPassword(fieldPassword)){
-        msg += '- Pseudo\n';
+        msg += '- Mot de passe\n';
     }
 
     if (!validateFieldNationality(fieldNationality)){
@@ -116,6 +115,10 @@ function validate() {
 
     if (!validateFieldSex(fieldSex)){
         msg += '- Genre\n';
+    }
+
+    if (!validateFieldRoles(fieldRole)){
+        msg += '- Fonctions\n';
     }
 
     if (msg !== '') {
@@ -128,7 +131,7 @@ function validate() {
  * Fonction qui les classes valide/invalide et error
  */
 function removeErrors(field) {
-    field.classList.forEach((className) => {
+    Array.from(field.classList).forEach((className) => {
         if (className.indexOf('valide') > -1 || className.indexOf('error') > -1) {
             field.classList.remove(className);
         }
@@ -450,7 +453,7 @@ function suggest() {
         }
     }
     
-    oSugestion.innerHTML = login;
+    fieldLogin.querySelector('input').value = login;
 }
 
 function isValidLogin(login) {
@@ -616,52 +619,100 @@ function validateSex(sex) {
     }
 }
 
-/*
+
+
+/**
+ * Fonction validant valide et met à jour l'affichage pour les champs roles
+ * @param <div> entourant l'input
+ * @return boolean
+ */
+function validateFieldRoles(rolesField) {
+    const rolesInputField = fieldRole.querySelectorAll('input:checked');
+    const value = rolesInputField.length;
+    let validReturn = true;
+    removeErrors(rolesField);
+
+    const valid = validateRoles(value);
+    if (valid === 1) {
+        rolesField.classList.add('invalide');
+        rolesField.classList.add('error-required');
+        validReturn = false;
+    }  else {
+        rolesField.classList.add('valide');
+    }
+    
+    return validReturn;
+}
+
+/**
+ * Fonction validant les règles du champ roles
+ */
+function validateRoles(roles) {
+    if (roles !== 0) {
+        return 0;
+    }  else {
+        return 1;
+    }
+}
+
 function changeRoles(oRole) {
     let role = Number(oRole.value);
     let last = fieldRoles.length-1;
     let values = [];
     for (let i = 0; i < fieldRoles.length; i++) {
-        values.push(fieldRoles[i].value);
+        values.push(fieldRoles[i].checked);
     }
 
     switch (role) {
         case 0:
             if (fieldRoles[0].checked) {
-                console.log(role+'0checked');
+                fieldRoles[0].indeterminate = false;
+                for (let i = 0 ; i < values.length-1; i++) {
+                    fieldRoles[i].checked = true;
+                }
+                fieldRoles[last].checked = false;
             } else {
-                console.log(role+'0 X');
+                for (let i = 0 ; i < values.length-1; i++) {
+                    fieldRoles[i].checked = false;
+                }
+                fieldRoles[last].checked = true;
             }
-            // active ALL  +  0 X
             break;
         case last:
-            // déactive ALL  0 + X
             if (fieldRoles[last].checked) {
-                console.log(role+'5 checked');
+                for (let i = 0 ; i < values.length-1; i++) {
+                    fieldRoles[i].checked = false;
+                    fieldRoles[i].indeterminate = false;
+                }
             } else {
-                console.log(role+'5 X');
+                for (let i = 0 ; i < values.length-1; i++) {
+                    fieldRoles[i].checked = true;
+                }
             }
             break;
         default:
-            // deactive 0  1- 
+            subValues = [...values].slice(1, last);
             if (fieldRoles[role].checked) {
-                console.log(role+' V');
                 // On déactive autre
                 fieldRoles[last].checked = false;
-                if (values.every()) {
-                    0v
-                } else {
-                    0-
-                } 
+                if (subValues.every((item) => { return item;})) { // tous vrai 
+                    fieldRoles[0].checked = true;
+                    fieldRoles[0].indeterminate = false;
+                } else { // un faux
+                    fieldRoles[0].checked = false;
+                    fieldRoles[0].indeterminate = true;
+                }
 
             } else {
-                console.log(role+' X');
-                if (values.some()) {
-                    1x
+                fieldRoles[0].checked = false;
+                if (values.some((item) => { return item;})) {  // un des éléments est vrai
+                    fieldRoles[0].indeterminate = true;
+                } else {    // tous faux
+                    fieldRoles[0].indeterminate = false; 
                 }
             }
             break;
 
     }
 }
-*/
+

@@ -29,7 +29,7 @@ h1 {
 
 form {
     position: relative;
-    width: 450px;
+    width: 900px;
     border-radius: 10px;
     border: 5px solid rgba(204,228,215,1);
     padding: 50px;
@@ -147,3 +147,10 @@ input[type=submit] {
     border-radius: 3px;
     background-color: rgba(255,255,255, .3);
 }
+
+form {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+}
+

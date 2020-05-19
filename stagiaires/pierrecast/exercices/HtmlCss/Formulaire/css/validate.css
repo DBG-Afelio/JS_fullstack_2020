@@ -5,16 +5,12 @@ label {
 
 .form-role label,
 .form-sex label {
-    display: block;
+    display: inline-block;
 }
 
-.valide-ok {
-    color:greenyellow;
-    display: none;
-}
-.valide-ko {
-    color:red;
-    display: none;
+
+.form-element {
+    position: relative;
 }
 
 .form-element.valide .valide-ok{
@@ -58,6 +54,12 @@ label {
     text-align: center;
     text-transform: uppercase;
 }
+
+#radioButtons {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    padding: 5px 0;
+}
 #radioButtons > * {
     display: inline-block;
     width: 30%;
@@ -66,11 +68,11 @@ label {
 
 .force {
     display: inline-block;
-    width :30%;
+    width: 30%;
     height: 15px;
     background-color:silver;
     border: 2px solid white;
-    margin : 20px 0;
+   
     text-align: center;
     top: 15px;
     text-transform: uppercase;
@@ -78,7 +80,7 @@ label {
 }
 
 #weak.active {
-    background-color: red;
+    background-color: rgb(178,34,34);
 }
 #medium.active {
     background-color: orange;
@@ -89,4 +91,66 @@ label {
 
 .form-password input{
     margin-bottom: 10px;
+}
+
+.valide-container {
+    position: absolute;
+    top:-15px;
+    left: -20px;
+}
+
+.valide-ko,
+.valide-ok {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border: 2px solid white;
+}
+
+.valide-ok {
+    background-color:green;
+}
+.valide-ko {
+    background-color:rgb(178,34,34);
+}
+
+.error-message-container {
+    min-height: 25px;
+}
+
+.error-message {
+    display: block;
+    border-radius:3px;
+    color: white; background-color:rgb(178,34,34);
+    padding: 3px 8px;
+    margin: 2px 0
+}
+
+
+.form-sex input[type=radio] { 
+    display: inline-block;
+}
+
+.form-role input[type=checkbox] { 
+    display: inline-block;
+    width :10%;
+}
+
+.form-role #checkboxes{
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.checkboxButton {
+    padding: 2px 2px 2px 50px;
+}
+
+.form-role .checkboxButton:first-child,
+.form-role .checkboxButton:last-child {
+    padding: 2px 2px 2px  0;
 }
