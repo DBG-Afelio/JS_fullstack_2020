@@ -1,0 +1,15 @@
+Début programme
+	Variable locale
+        Const TAILLE:N <- 10
+        Var tab :N[TAILLE]
+        Var new_tab :N[TAILLE]
+        Var index :N <- 0
+        Var new_index :N <- 1
+	Fin variable locale
+
+    POUR index ALLANT DE TAILLE A 1 PAR PAS DE -1
+        new_tab[new_index] <- tab[index]
+        new_index <- new_index + 1
+    index SUIVANT
+
+Fin de programme
