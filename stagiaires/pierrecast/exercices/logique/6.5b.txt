@@ -1,0 +1,27 @@
+Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+DEBUT 6-5b
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 23
+        VAR tab :N[TAILLE]
+        VAR i :N <- 1
+        VAR j :N <- 1
+
+    FIN VARIABLES LOCALES
+
+    tab <- ['S', 'U', 'P', 'P', 'R', 'I', 'M', 'E', 'R', ' ', ' ', 'L', 'E', 'S', ' ', 'E', 'S', 'P', 'A', 'C', 'E', 'S', ' ']
+    
+    i <- 1
+    POUR i ALLANT DE 1 A TAILLE
+        SI tab[i] = ' '
+            ALORS
+                j <- i
+                POUR j ALLANT DE i A TAILLE-1
+                    tab[j] <- tab[j+1]
+                j SUIVANT
+
+                tab[TAILLE] <- ' '
+        FIN SI
+    i SUIVANT
+
+FIN 6-5b
