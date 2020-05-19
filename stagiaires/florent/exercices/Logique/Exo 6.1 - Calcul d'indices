@@ -1,0 +1,32 @@
+1. DEBUT exemple
+    2.   VARIABLES LOCALES :
+    3.     CONST TAILLE:N <- 3
+    4.     VAR   tab:N[TAILLE]
+    5.     VAR   a:N <- 5
+    6.     VAR   ind:N <- 1
+    7.   FIN VARIABLES LOCALES
+    8.   tab[1] <- 2
+    9.   tab[2] <- tab[1] + 1
+   10.   tab[3] <- tab[ a – 3 ]
+   11.   ind    <- a - tab[2]
+   12.   tab[ind] <- tab[ind + 1] + 1
+   13.   a <- tab[tab[ind - 1]]
+   14.   tab[ind + 1] <- tab[a - ind]
+   15.   ind <- a – tab[ind]
+   16. FIN exemple
+
+       | N° ligne | ind | a | tab[1] | tab[2] | tab[3] |
+       |----------+-----+---+--------+--------+--------|
+       | 1,2,3,4, |  0  | 0 |    0   |   0    |   0    |
+       |        5 |  0  | 5 |    0   |   0    |   0    |
+       |        6 |  1  | 5 |    0   |   0    |   0    |
+       |      7,8 |  1  | 5 |    2   |   0    |   0    |
+       |        9 |  1  | 5 |    2   |   3    |   0    |
+       |       10 |  1  | 5 |    2   |   3    |   2    |
+       |       11 |  2  | 5 |    2   |   3    |   2    |
+       |       12 |  2  | 5 |    2   |   3    |   2    |
+       |       13 |  2  | 3 |    2   |   3    |   2    |
+       |       14 |  2  | 3 |    2   |   3    |   2    |
+       |       15 |  0  | 3 |    2   |   3    |   2    |
+       |       16 |  0  | 3 |    2   |   3    |   2    |
+Activité
