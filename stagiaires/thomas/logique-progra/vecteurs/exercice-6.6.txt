@@ -1,0 +1,29 @@
+ PROGRAMME
+
+    VARIABLE LOCALE
+
+        var taille :N <- 10
+        var tableau1 :N <- [10, -5, -6, 48, 20, -6, 13, 56, -89, 108]
+        var tableau2 :N <- [Vrai, Faux, Faux, Vrai, Vrai, Faux, Faux, Vrai, Faux, Vrai]
+        var tableau3 :N <- [taille]
+        var compteur :N <- 0
+
+    FIN VARIABLE LOCALE
+
+ POUR compteur ALLANT DE 1 A taille
+
+    SI (tableau2[compteur] = Faux)
+
+        SI (tableau1[compteur] < 0) 
+            ALORS 
+                tableau3[compteur] <- tableau1[compteur] * -1
+        FIN SI 
+
+    SINON
+            tableau3[compteur] <- tableau1[compteur]
+    FIN SI
+
+ FIN POUR
+
+
+FIN PROGRAMME
