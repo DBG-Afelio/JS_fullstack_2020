@@ -1,0 +1,29 @@
+Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+DEBUT 6-5
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 23
+        VAR tabIn :N[TAILLE]
+        VAR tabOut :N[TAILLE]
+        VAR index :N <- 1
+        var spaces :N <- 0
+    FIN VARIABLES LOCALES
+
+    tab <- ['S', 'U', 'P', 'P', 'R', 'I', 'M', 'E', 'R', ' ', ' ', 'L', 'E', 'S', ' ', 'E', 'S', 'P', 'A', 'C', 'E', 'S', ' ']
+    
+    index <- 1
+    POUR index ALLANT DE 1 A TAILLE
+        SI tabIn[index] != ' '
+            ALORS 
+                tabOut[index - nb] <- tabIn[index]
+            SINON
+                nb <- nb + 1
+        FIN SI
+    index SUIVANT
+
+    index <- 1
+    POUR index ALLANT DE TAILLE-nb A TAILLE
+        tabOut[index] <- ' '
+    index SUIVANT
+ 
+FIN 6-5

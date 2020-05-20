@@ -1,0 +1,24 @@
+Soient 3 tableaux de même longueur : le premier contient des entiers, le deuxième des logiques et le troisième sera rempli par les valeurs du premier.
+Quand dans le tableau 2 le booléen est vrai par la valeur du tableau 1.
+Quand dans le tableau 2 le booléen est faux par le négatif de la valeur du tableau 1.
+
+DEBUT 6-6
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 23
+        VAR tabIn :N[TAILLE]
+        VAR tabOut :N[TAILLE]
+        VAR tabBool :B[TAILLE]
+        VAR index :N <- 1
+    FIN VARIABLES LOCALES
+
+    index <- 1
+    POUR index ALLANT DE 1 A TAILLE
+        SI tabBool[index] 
+            ALORS 
+                tabOut[index] <- tabIn[index]
+            SINON
+                tabOut[index] <- -tabIn[index]
+        FIN SI
+    index SUIVANT
+
+FIN 6-6
