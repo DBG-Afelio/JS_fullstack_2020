@@ -1,0 +1,20 @@
+Soit un tableau de 10 éléments déjà initialisés, écrire un programme qui modifie le tableau de telle manière que chaque élément reçoive la somme de tous les éléments d'indice supérieur ou égal à lui-même.
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST LENGTH :N <- 10
+        VAR arr :N[LENGTH]
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR k :N <- 1
+
+    FIN VARIABLES
+
+    POUR i ALLANT DE 1 A LENGTH
+        k <- i + 1
+        POUR j ALLANT de k A LENGTH
+            arr[i] <- arr[i] + arr[j]
+        j SUIVANT
+    i SUIVANT
+
+Fin exercice
