@@ -1,0 +1,52 @@
+Debut Comparaison 
+    
+    Var locales
+
+        Var a :N <- 0
+        Var b :N <- 0
+        Var c :N <- 0
+    Fin var locales
+
+    SI a=b ET a=c 
+        ALORS affiche a , "=" , b , "=" , c
+    FINSI
+    SI a=b ET b>c
+        ALORS affiche a , "=" , b , ">" , c
+    FINSI
+    SI a=b ET b<c
+        ALORS affiche a , "=" , b , "<" , c
+    FINSI
+    SI a<b ET b<c
+        ALORS affiche c , ">" , b , ">" , a
+    FINSI
+    SI a>b ET b>c
+        ALORS affiche c , "<" , b , "<" , a
+    FINSI
+    SI b=c ET b>a
+        ALORS affiche b , "=" , c , ">" , a
+    FINSI
+    SI b=c ET b>a
+        ALORS affiche b , "=" ,  , ">" , a
+    FINSI
+    SI b<c ET c<a 
+        ALORS affiche a , ">" , c , ">" , b 
+    FINSI
+    SI b>c ET c>a
+        ALORS affiche b , ">" , c , ">" , a 
+    FINSI
+    SI c=a ET a>b
+        ALORS affiche c , "=" , a , ">" , b
+    FINSI
+    SI c=a ET a<b
+        ALORS affiche a , "=" , c , "<" , b
+    FINSI
+    SI c>a ET a>b
+        ALORS affiche c , ">" , a , ">" , b
+    FINSI
+    SI c<a ET a<b
+        ALORS affiche c , "<" , a , "<" , b
+    FINSI
+
+
+
+Fin Comparaison
