@@ -60,6 +60,59 @@
         <div>
             <input type="button" value="Suggerer un login" class="login-button">
         </div>
+        <div class="form-element form-mdp ">
+            <input type="password" name="mdp" data-pristine="true" placeholder="Mot de passe (obligatoire)">
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">Ce champ est requis</div>
+                <div class="error-message error-min-login">Le mot de passe doit contenir au minimum 6 caractères</div>
+                <div class="error-message error-max-login">Le mot de passe ne peut depasser 10 caractères maximum</div>
+                <div class="error-message error-symbol-login">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
+            </div>   
+        </div> 
+        <div class="form-element form-mdp2 ">
+            <input type="password" name="mdp2" data-pristine="true" placeholder="Re-saisir Mot de passe (obligatoire)">
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">Ce champ est requis</div>
+                <div class="error-message error-min-login">Le mot de passe doit contenir au minimum 6 caractères</div>
+                <div class="error-message error-max-login">Le mot de passe ne peut depasser 10 caractères maximum</div>
+                <div class="error-message error-symbol-login">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
+                <div class="error-message error-mdp-different">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
+            </div>   
+        </div> 
+        <div>
+            <output type="text" value="Faible" class="mdp-faible"></output>
+            <output type="text" value="Moyen" class="mdp-moyen"></output>
+            <output type="text" value="Fort" class="mdp-fort"></output>            
+        </div>
+        <div class="form-element form-nationality ">
+            <select name="nationality" data-pristine="true" placeholder="Nationalite">
+                <option value="selectNation">--Selectionner Nationalite--</option>
+                <option value="belgique">Belgique</option>
+                <option value="france">France</option>
+                <option value="italien">Italien</option>
+                <option value="espagne">Espagne</option>
+            </select>
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">Ce champ est requis</div>
+            </div>   
+        </div> 
+        <div class="form-element form-sex ">
+            <input type="radio" name="sex" id="femme" value="femme" data-pristine="true">
+            <label for="femme">Femme</label>
+            <input type="radio" name="sex" id="homme" value="homme" data-pristine="true">
+            <label for="homme">Homme</label>
+            <input type="radio" name="sex" id="autre" value="autre" data-pristine="true">
+            <label for="autre">Autre</label>
+            <div class="error-message-container">
+                <div class="error-message error-required">Ce champ est requis</div>
+            </div>   
+        </div> 
         <div>
             <input type="submit" value="Valider" class="submit-button">
         </div>
