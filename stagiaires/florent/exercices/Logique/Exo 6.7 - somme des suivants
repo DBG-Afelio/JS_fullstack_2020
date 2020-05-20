@@ -1,0 +1,19 @@
+Début programme
+    Variables locales
+        Tab : tab[10]
+        i :N <- 0
+        j :N <- 0
+        somme :N <- 0
+        TAILLE :N <- 10
+    Fin Variables locales
+
+    TANT QUE i <= TAILLE
+        i <- j
+        TANT QUE j <= TAILLE - i
+            somme <- somme + Tab[j]
+            j <- j + 1
+        FINTANTQUE
+        i <- i + 1
+    FINTANTQUE
+
+Fin programme
