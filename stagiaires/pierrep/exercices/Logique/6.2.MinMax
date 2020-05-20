@@ -1,0 +1,30 @@
+//Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, ainsi que leur position dans le tableau.
+
+Début programme
+	Variable locale
+        Const SIZE:N <- 20
+        Var index :N <- 0
+        Var tab :N[SIZE]
+        Var max :N
+        Var min :N
+        Var max_pos :N
+        Var min_pos :N
+	Fin variable locale
+
+    min <- tab[1]
+    max <- tab[1]
+    min_pos <- 1
+    max_pos <- 1
+    POUR index ALLANT DE 2 A SIZE
+        SI tab[index] > max ALORS
+            max <- tab[index]
+            max_pos <- index
+        FINSI
+        SI tab[index] < min ALORS
+            min <- tab[index]
+            min_pos <- index
+        FINSI
+    index SUIVANT
+
+    Afficher "Le plus grand des nombres est ", max, " et se trouve à la position ", max_pos, ". Le plus petit des nombres est ", min, " et se trouve à la position ", min_pos
+Fin de programme
