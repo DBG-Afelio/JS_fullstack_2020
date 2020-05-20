@@ -9,14 +9,16 @@ Variables Locales
 	VAR tab : N[taille]
 	VAR ind : N <- 1
 	VAR j : N <-  1 
+	VAR sumTab : N <-0
 
 Fin Variables Locales
 
 	POUR ind ALLANT DE 1 A taille
 		
-		POUR j ALLANT DE 2 A taille 
-			tab[ind] <- tab[ind] + tab[j]
+		POUR j ALLANT DE ind A taille 
+			sumTab  <-sumTab + tab[j] 
 		j SUIVANT
+		tab[i] <- sumTab 
 	ind SUIVANT
 
 FIN Programme 
