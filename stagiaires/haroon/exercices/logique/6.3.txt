@@ -1,0 +1,21 @@
+Ecrire le programme qui complète le tableau de 16 éléments en doublant l'élément précédent. Le premier élément vaut 1.
+
+
+
+Debut Programme 
+VARIABLES LOCALES
+	VAR tab : N [20]
+	VAR ind : N <- 1 
+	
+	
+FIN VARIABLES LOCALES 
+
+
+	POUR ind ALLANT DE 2 A 16 
+		tab [ind] <- tab[ind-1]*2
+	ind SUIVANT 	
+		
+Afficher tab
+		
+		
+Fin Programme
