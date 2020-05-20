@@ -2,14 +2,13 @@ Début programme
 	Variable locale
         Const TAILLE:N <- 25
         Var tab :N[TAILLE]
-        Var new_tab :N[TAILLE]
         Var index :N <- 0
         Var new_index :N <- 1
 	Fin variable locale
 
     POUR index ALLANT DE 1 A TAILLE
         SI tab[index] != " " ALORS
-            new_tab[new_index] <- tab[index]
+            tab[new_index] <- tab[index]
             new_index <- new_index + 1
         FINSI
     index SUIVANT
