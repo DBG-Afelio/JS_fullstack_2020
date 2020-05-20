@@ -12,5 +12,8 @@ Début programme
             new_index <- new_index + 1
         FINSI
     index SUIVANT
-
+    
+    POUR index ALLANT DE new_index A TAILLE
+        tab[index] <- ""
+    index SUIVANT
 Fin de programme
