@@ -5,15 +5,12 @@ DEBUT 6-7
         CONST TAILLE:N <- 10
         VAR tab :N[TAILLE]
         VAR i :N <- 1
-        VAR j :N <- 1
     FIN VARIABLES LOCALES
 
+  
     i <- 1
-    POUR i ALLANT DE 1 A TAILLE
-        j <- i
-        POUR j ALLANT DE i A TAILLE
-            tab[i] <- tab[i] + tab[j]
-        j SUIVANT
+    POUR i ALLANT DE TAILLE-1 A 1 PAR PAS DE  -1
+        tab[i] <- tab[i] + tab[i+1]
     i SUIVANT
 
 FIN 6-7
