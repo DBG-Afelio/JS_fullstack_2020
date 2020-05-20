@@ -8,10 +8,8 @@ Debut exercice
         VAR j :N <- 1
     FIN VARIABLES
 
-    POUR i ALLANT DE 1 A LENGTH
-        POUR j ALLANT de (i + 1) A LENGTH
-            arr[i] <- arr[i] + arr[j]
-        j SUIVANT
+    POUR i ALLANT DE LENGTH-1 A 1 PAR [PAS DE -1]
+        arr[i] <- arr[i] + arr[i+1]
     i SUIVANT
 
 Fin exercice
