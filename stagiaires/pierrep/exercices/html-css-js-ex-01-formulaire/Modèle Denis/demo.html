@@ -12,6 +12,7 @@
 <body>
     <form novalidate>
         <div class="form-element form-nom invalide error-required error-min-length">
+            
             <input type="text" name="nom" data-pristine="true" required minlength="3" maxlength="50">
             <span class="valide-ok">V</span>
             <span class="valide-ko">X</span>
@@ -19,8 +20,21 @@
                 <div class="error-message error-required">le nom est requis</div>
                 <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
                 <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
-            </div>   
+            </div> 
+
+            <div class="form-element form-nom invalide error-required error-min-length">
+            <input type="text" name="prénom" data-pristine="true" minlength="3" maxlength="50">
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">le nom est requis</div>
+                <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
+                <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
+            </div> 
+
         </div>
+
+
         <div>
             <input type="submit" value="Valider" class="submit-button">
         </div>
