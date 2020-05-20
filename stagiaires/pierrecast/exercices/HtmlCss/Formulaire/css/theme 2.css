@@ -5,11 +5,11 @@ html, body, main {
 }
 
 body {
+    background: rgb(204,228,215); /* Old browsers */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     font-family:  'Comic Neue',Arial, Helvetica, sans-serif;
-    background: #f3f3f3; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #f3f3f3 0%, #f3f3f3 50%, #f8e6d8 50.01%, #f8e6d8 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #f3f3f3 0%,#f3f3f3 50%,#f8e6d8 50.01%,#f8e6d8 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #f3f3f3 0%,#f3f3f3 50%,#f8e6d8 50.01%,#f8e6d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 h1 {
@@ -37,10 +37,10 @@ form {
     box-sizing: border-box;
     z-index: 5;
 
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #ffffff 50.01%, #fbc153 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#fbc153 50.01%,#fbc153 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #ffffff 0%,#ffffff 50%,#fbc153 50.01%,#fbc153 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: rgb(204,228,215); /* Old browsers */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 form > * {
