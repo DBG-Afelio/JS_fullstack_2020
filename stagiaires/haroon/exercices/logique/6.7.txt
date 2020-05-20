@@ -14,8 +14,8 @@ Fin Variables Locales
 
 	POUR ind ALLANT DE 1 A taille
 		
-		POUR j ALLANT DE ind A taille 
-			tab[ind] <- tab[ind+1] + tab[j]
+		POUR j ALLANT DE 2 A taille 
+			tab[ind] <- tab[ind] + tab[j]
 		j SUIVANT
 	ind SUIVANT
 
