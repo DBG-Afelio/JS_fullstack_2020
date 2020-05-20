@@ -13,7 +13,7 @@ DEBUT PROGRAMME
     index <- 1
     POUR index ALLANT DE 1 A SIZE
         tabOut[index] <- tabIn[SIZE - index + 1]
-
+runjs
     index SUIVANT
 
 FIN PROGRAMME

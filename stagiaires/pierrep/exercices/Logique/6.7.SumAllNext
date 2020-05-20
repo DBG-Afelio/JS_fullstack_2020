@@ -21,6 +21,8 @@ POUR idx ALLANT DE 1 à SIZE
 
     vect[idx] <- sum
 
+    sum <- 0
+
     i SUIVANT
 
 Fin programme
