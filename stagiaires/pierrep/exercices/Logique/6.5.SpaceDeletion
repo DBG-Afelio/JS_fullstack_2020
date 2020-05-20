@@ -1,0 +1,32 @@
+// Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+Début programme
+
+    VARIABLES LOCALES :
+        CONST SIZE:N <- 6
+        VAR vect :N[SIZE]
+        VAR newVect :N[SIZE]
+        VAR idx :N <- 1
+        var spaces :N <- 0
+    FIN VARIABLES LOCALES
+
+vect <- ['o', 'u', 'i', ' ', 'o', 'k']
+
+Pour idx ALLANT DE 1 à SIZE
+
+    SI vect[idx] != ' '
+        ALORS
+            newVect[idx] <- vect[idx]
+
+    i SUIVANT
+
+Pour idx ALLANT DE 1 à SIZE
+
+    SI vect[idx] = ' '
+        ALORS
+            newVect[longueur(newVect) + 1] <- vect[idx]
+
+    i SUIVANT
+
+Fin programme
+
