@@ -1,0 +1,20 @@
+Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+dbt pgm
+var loc
+const TAILLE:N<-10
+var tab<-N[TAILLE]
+var i:N<-1
+var cpt:N<-0
+fin var loc
+pour i allant de 1 a TAILLE
+	si tab[i]=' '
+		alors cpt<-cpt+1
+		sinon si cpt>0
+			   alors tab[i-cpt]<-tab[i]
+			fin de si
+	fin de si
+i suivant
+pour i allant de (TAILLE-cpt+1) a TAILLE
+	tab[i]<-' '
+i suivant 			
+fin pgm
