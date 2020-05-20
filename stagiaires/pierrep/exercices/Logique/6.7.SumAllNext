@@ -1,0 +1,26 @@
+/* Soit un tableau de 10 éléments déjà initialisés, écrire un programme qui modifie le tableau de telle manière que chaque élément reçoive la somme de tous les éléments d'indice supérieur ou égal à lui-même.*/
+
+Début programme
+
+    VARIABLES LOCALES :
+        CONST SIZE :N <- 10
+        VAR vect :N[SIZE]
+        VAR idx :N <- 1
+        VAR sum :N <- 0
+    FIN VARIABLES LOCALES
+
+vect <- [10, -5, -6, 48, 20, -6, 13, 56, -89, 108]
+
+POUR idx ALLANT DE 1 à SIZE
+
+        POUR idx ALLANT DE idx à SIZE
+
+        sum <- sum + vect[idx]
+
+        i SUIVANT
+
+    vect[idx] <- sum
+
+    i SUIVANT
+
+Fin programme
