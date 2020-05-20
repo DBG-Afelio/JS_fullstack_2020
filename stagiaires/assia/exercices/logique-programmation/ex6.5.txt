@@ -1,0 +1,31 @@
+Ecrire le programme qui déplace les caractères espaces à la fin d’un vecteur de caractères.
+
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST LENGTH :N <- 10
+        VAR arr :C[LENGTH]
+        VAR i :N <- i
+        VAR pas :N <- 0
+        VAR next <- 0
+        CONST VIDE :C <- ''
+    FIN VARIABLES
+
+    pas <- 1
+    next <-0
+    i <- 1
+
+    TANT QUE (i ≤ LENGTH OU next ≤ LENGTH)
+
+        SI arr[i] = VIDE                // SI case en cours [i] est vide je lui alloue le contenu de la case suivante et ainsi de suite.. et je reste sur cette case [i] tant que sa valeur = vide
+        ALORS
+            next <- i + pas
+            arr[i] <- arr[next]
+            pas <- pas + 1
+        SINON
+            i <- i + 1
+            pas <- 1
+        FINSI
+    FIN TANT QUE
+
+Fin exercice
