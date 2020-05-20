@@ -1,0 +1,88 @@
+ PROGRAMME
+
+    VARIABLE LOCALE
+     
+     var montant :N
+     var reste :N
+
+    // BILLETS
+     var billets100 :N <- 100
+     var billets50 :N <- 50
+     var billets20 :N <- 20
+     var billets5 :N <- 5
+
+    // PIECES
+     var pieces :N 
+     var pieces2 :N <- 2
+     var pieces1 :N <- 1
+     var pieces50 :N <- 0.5
+     var pieces20 :N <- 0.2
+     
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("Afficher montant")
+
+SAISIR montant 
+
+    // DECOMPOSITION BILLET
+
+    billets100 <- montant DIV billets100
+
+    reste <- montant - billets100 * 100
+
+    montant <- montant - reste
+    
+    billets50 <- montant DIV billets50
+
+    reste <- montant - billets50 * 50
+
+    montant <- montant - reste
+
+    billets20 <- montant DIV billets20
+
+    reste <- montant - billets20 * 20
+
+    montant <- montant - reste
+
+    billets5 <- montant DIV billets5
+
+    reste <- montant - billets5 * 5
+
+    montant <- montant - reste
+
+    // DECOMPOSITION PIECE
+
+    SI (reste MOD 1 > 0) 
+
+      ALORS 
+
+        pieces <- (reste MOD 1) * 100
+
+        pieces2 <- pieces DIV pieces2
+
+        pieces <- pieces - pieces2 * 2 
+
+        pieces1 <- pieces DIV pieces1
+
+        pieces <- pieces - pieces2 * 1 
+
+        pieces50 <- pieces DIV pieces50
+
+        pieces <- pieces - pieces2 * 0.5 
+
+        pieces20 <- pieces DIV pieces20
+
+        pieces <- pieces - pieces2 * 0.2 
+    
+    FIN SI
+
+    AFFICHER("Nombre de billet de 100", billets100)
+    AFFICHER("Nombre de billet de 50", billets50)
+    AFFICHER("Nombre de billet de 20", billets20)
+    AFFICHER("Nombre de billet de 5", billets5)
+    AFFICHER("Nombre de Pieces de 2", pieces2)
+    AFFICHER("Nombre de Pieces de 50c", pieces2)
+    AFFICHER("Nombre de Pieces de 20c", pieces2)
+
+FIN PROGRAMME
