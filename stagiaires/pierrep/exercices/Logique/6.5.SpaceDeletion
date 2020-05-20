@@ -4,10 +4,9 @@ Début programme
 
     VARIABLES LOCALES :
         CONST SIZE:N <- 6
-        VAR vect :N[SIZE]
-        VAR newVect :N[SIZE]
         VAR idx :N <- 1
-        var spaces :N <- 0
+        VAR spaces :N <- 0
+        VAR count :N <- 0
     FIN VARIABLES LOCALES
 
 vect <- ['o', 'u', 'i', ' ', 'o', 'k']
@@ -16,15 +15,18 @@ Pour idx ALLANT DE 1 à SIZE
 
     SI vect[idx] != ' '
         ALORS
-            newVect[idx] <- vect[idx]
+            vect[idx - count] <- vect[idx]
+
+        SINON
+            count <- count + 1
 
     i SUIVANT
 
-Pour idx ALLANT DE 1 à SIZE
+    idx <- 1
 
-    SI vect[idx] = ' '
-        ALORS
-            newVect[longueur(newVect) + 1] <- vect[idx]
+POUR idx ALLANT de SIZE-count à SIZE
+
+    vect[idx] <- ' '
 
     i SUIVANT
 
