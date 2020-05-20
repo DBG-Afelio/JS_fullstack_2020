@@ -13,6 +13,8 @@ Début programme
             somme <- somme + Tab[j]
             j <- j + 1
         FINTANTQUE
+        tab[i] <- somme
+        somme <- 0
         i <- i + 1
     FINTANTQUE
 
