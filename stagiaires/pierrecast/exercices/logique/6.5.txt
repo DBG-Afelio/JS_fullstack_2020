@@ -15,7 +15,7 @@ DEBUT 6-5
     POUR index ALLANT DE 1 A TAILLE
         SI tabIn[index] != ' '
             ALORS 
-                tabOut[index] <- tabIn[index - nb]
+                tabOut[index - nb] <- tabIn[index]
             SINON
                 nb <- nb + 1
         FIN SI
@@ -25,7 +25,5 @@ DEBUT 6-5
     POUR index ALLANT DE TAILLE-nb A TAILLE
         tabOut[index] <- ' '
     index SUIVANT
-
+ 
 FIN 6-5
-
-
