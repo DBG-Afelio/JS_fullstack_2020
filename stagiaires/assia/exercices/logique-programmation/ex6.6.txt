@@ -1,0 +1,27 @@
+Soient 3 tableaux de même longueur : le premier contient des entiers, le deuxième des logiques et le troisième sera rempli par les valeurs du premier. 
+Quand dans le tableau 2 le booléen est vrai par la valeur du tableau 1.
+Quand dans le tableau 2 le booléen est  faux par le négatif de la valeur du tableau 1.
+
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST LENGTH :N <- 10
+        VAR arr1 :N[LENGTH]
+        VAR arr2 :B[LENGTH]
+        VAR arr3 :N[LENGTH]
+        CONST inv :N <- -1
+        VAR i :N <- 1
+
+    FIN VARIABLES
+
+
+    POUR i aLLANT DE 1 A LENGTH
+        SI arr2[i] = VRAI
+        ALORS
+            arr3[i] <- arr1[i]
+        SINON
+            arr3[i] <- arr1[i] * INV
+        FINSI
+    i SUIVANT
+
+Fin exercice
