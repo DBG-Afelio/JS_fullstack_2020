@@ -1,0 +1,14 @@
+Début programme
+    Variables locales
+        Tab :tab[10]
+        Var i :N  <- 1
+    Fin variables locales
+
+    TANT QUE i < 5
+        y <- Tab[i]
+        Tab[i] <- Tab[10-i]
+        Tab[10-i] <- y
+        i <- i + 1
+    FINTANTQUE
+    
+Fin de programme
