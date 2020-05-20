@@ -1,0 +1,15 @@
+Soit un tableau de 10 éléments déjà initialisés, 
+écrire un programme qui modifie le tableau de telle manière que chaque élément
+ reçoive la somme de tous les éléments d'indice supérieur ou égal à lui-même.
+dbt pgm
+var loc
+const TAILLE:N<-10
+var tab:N[TAILLE]
+var i:N<-1
+var somme:N<-0
+fin var loc
+pour i allant de taille a 1 (par -1)
+	somme<-somme+tab[i]
+	tab[i]<-somme
+i suivant
+fin pgm
