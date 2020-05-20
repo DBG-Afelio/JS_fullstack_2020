@@ -1,0 +1,12 @@
+.outputField {
+    background-color: #silver;
+}
+#redOutput {
+    color: red;
+}
+#greenOutput {
+    color: green;
+}
+#blueOutput {
+    color: blue;
+}
