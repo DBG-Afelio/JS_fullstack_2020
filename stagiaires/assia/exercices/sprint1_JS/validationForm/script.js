@@ -26,11 +26,10 @@ fieldDate.addEventListener('input', () => {
 });
 fieldEmail.addEventListener('input', () => {
     validateFieldEmail(fieldEmail);
-    console.log('listener EMAIL');
 });
 fieldLogin.addEventListener('input', () => {
     console.log('listener LOGIN');
-    validateFieldLogin(loginField);
+    validateFieldLogin(fieldLogin);
 });
 //-----------------------------------------
 /*function isFormValid() {
@@ -57,13 +56,81 @@ function validate(submitBtn) {
     }
 }
 
+function removeClassLists(element) {
+    element.classList.remove('valide');
+    element.classList.remove('invalide');
+    element.classList.remove('error-message');
+}
+
 /**
  * Fonction qui valide et met a jour le champ LOGIN 
  * @param {*} loginField 
  * @returns boolean
  */
 function validateFieldLogin(loginField) {
-
+    const loginInputField = loginField.querySelector('input');
+    const loginValue = loginInputField.value;
+    loginField.classList.remove('valide');
+    loginField.classList.remove('invalide');
+    loginField.classList.remove('error-required');
+    loginField.classList.remove('error-min-login');
+    loginField.classList.remove('error-max-login');
+    loginField.classList.remove('error-login-not-unique');
+    loginField.classList.remove('error-symbol-login');
+    let validReturn = true;
+    if (loginValue.trim() === '') {
+        loginField.classList.add('invalide');
+        loginField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        const loginStatus = isContentValid(loginValue); console.log('Content CASE : ' + loginStatus);
+        switch (loginStatus) {
+            case 0:
+                loginField.classList.add('valide');
+                break;
+            case 1:
+                loginField.classList.add('invalide');
+                loginField.classList.add('error-min-login');
+                validReturn = false;
+                break;
+            case 2:
+                loginField.classList.add('invalide');
+                loginField.classList.add('error-max-login');
+                validReturn = false;
+                break;
+            case 3:
+                loginField.classList.add('invalide');
+                loginField.classList.add('error-symbol-login');
+                validReturn = false;
+                break;
+        }
+    }
+    return validReturn; 
+}
+/**
+ * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
+ * @param {*} <login or password content>
+ * @returns 0:valid, 1:too short, 2:too long, 3:invalid content
+ */
+function isContentValid(content) {
+    const dollar = '$';
+    const underscore = '_';
+    const dash = '-';
+    const exclamation = '!';
+    if (content.length >= 3 && content.length <= 10) {
+        const nonAllowedSymbolsRegex = new RegExp(/[^[:alnum:]]/i); 
+        const isNonAllowedSymbols = nonAllowedSymbolsRegex.test(content);
+        console.log("content pas authorise : " + isNonAllowedSymbols);
+        if (isNonAllowedSymbols == Null) {
+            return 0;
+        } else {
+            return 3;
+        }
+    } if (content.length < 3) {
+        return 1;
+    } else {
+        return 2
+    }
 }
 
 /**
@@ -72,10 +139,8 @@ function validateFieldLogin(loginField) {
  * @returns boolean
  */
 function validateFieldEmail(emailField) {
-                console.log('running "validateFieldEmail" function');
     const emailInputField = emailField.querySelector('input');
     const emailValue = emailInputField.value;
-                console.log('EMAIL : ' + emailValue);
     emailField.classList.remove('valide');
     emailField.classList.remove('invalide');
     emailField.classList.remove('error-required');
@@ -92,7 +157,6 @@ function validateFieldEmail(emailField) {
     } else {
         emailField.classList.add('valide');
     }
-    console.log('return of valid email' + validReturn);
     return validReturn; 
 }
 
@@ -126,7 +190,7 @@ function validateFieldName(nameField) {
         nameField.classList.add('error-required');
         validReturn = false;
     } else {
-        const valid = validateName(value);
+        const valid = isNameValid(value);
         if (valid === 1) {
             nameField.classList.add('invalide');
             nameField.classList.add('error-min-length');
@@ -158,7 +222,7 @@ function validateFieldFirstName(firstnameField) {
     if (value.trim() === '') {
         firstnameField.classList.add('valide'); //car champ facultatif
     } else {
-        const valid = validateName(value);
+        const valid = isNameValid(value);
         if (valid === 1) {
             firstnameField.classList.add('invalide');
             firstnameField.classList.add('error-min-length');
@@ -177,7 +241,7 @@ function validateFieldFirstName(firstnameField) {
 /**
  * Fonction validant les règles du champ nom
  */
-function validateName(name) {
+function isNameValid(name) {
     if (name.length >= 3 && name.length <= 50) {
         return 0;
     } else if (name.length < 3) {
