@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Simple HTML formulaire</title>
 </head>
 <body>
@@ -12,41 +14,41 @@
 
     <form action="">
 
-        <div class="form-item nom">
-            <input type="text" name="nom" placeholder="Nom(obligatoire)" minlength="3" maxlength="50" required>
+        <div class="form-item">
+            <input type="text" class="nom" name="nom" placeholder="Nom (obligatoire)" minlength="3" maxlength="50" required>
         </div>
 
-        <div class="form-item prenom">
-            <input type="text" name="prenom" placeholder="Prénom" minlength="3" maxlength="50">
+        <div class="form-item">
+            <input type="text" class="prenom" name="prenom" placeholder="Prénom" minlength="3" maxlength="50">
         </div>
 
-        <div class="form-item email">
-            <input type="email" name="email" placeholder="Email">
+        <div class="form-item">
+            <input type="email" class="email" name="email" placeholder="Email">
         </div>
 
-        <div class="form-item telephone">
-            <input type="tel" name="telephone" placeholder="Téléphone" >
+        <div class="form-item">
+            <input type="tel" class="telephone" name="telephone" placeholder="Téléphone" >
         </div>
 
-        <div class="form-item date-de-naissance">
-            <input type="date" name="date-of-birth" value="jj-mm-aaaa" min="1980-01-01" max="2020-12-31" required>
+        <div class="form-item">
+            <input type="date" class="date-de-naissance" name="date-of-birth" value="jj-mm-aaaa" min="1980-01-01" max="2020-12-31" required>
         </div>
 
-        <div class="form-item login">
-            <input type="text" name="login" minlength="6" maxlength="10" placeholder="Choisissez un login (obligatoire)" pattern="[\d\w]{6-10}" required>
+        <div class="form-item">
+            <input type="text" class="login" name="login" minlength="6" maxlength="10" placeholder="Choisissez un login (obligatoire)" pattern="[\d\w]{6-10}" required>
         </div>
 
-        <div class="form-item mot-de-passe">
-            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Mot de passe (obligatoire) convention[TEST123456]" pattern="[A-Z]{4}\d{6}" required>
+        <div class="form-item">
+            <input type="password" class="mot-de-passe" name="password" minlength="6" maxlength="10" placeholder="Mot de passe (obligatoire) / convention[TEST123456]" pattern="[A-Z]{4}\d{6}" required>
         </div>
 
-        <div class="form-item confirm-mot-de-passe">
-            <input type="password" placeholder="Resaisir Mot de passe (obligatoire)" pattern="[A-Z]{4}\d{6}" required>
+        <div class="form-item">
+            <input type="password" class="confirm-mot-de-passe" placeholder="Resaisir Mot de passe (obligatoire)" pattern="[A-Z]{4}\d{6}" required>
         </div>
 
-        <div class="form-item country">
-            <select id="country" name="country" required>
-                <option value="empty" placeholder="Nationalité" active>Afghanistan</option>
+        <div class="form-item">
+            <select class="country" name="country" required>
+                <option value="choose" selected>Choisir pays</option>
                 <option value="Afganistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -296,16 +298,16 @@
              </select>
         </div>
 
-        <div class="form-item">
-            <label for="female">Femme</label>
-            <input type="radio" name="female" id="">
-            <label for="female">Homme</label>
-            <input type="radio" name="male" id="">
-            <label for="female">Autre</label>
-            <input type="radio" name="other" id="">
+        <div class="form-item gender">
+            <label for="gender">Femme</label>
+            <input type="radio" name="gender">
+            <label for="gender">Homme</label>
+            <input type="radio" name="gender">
+            <label for="gender">Autre</label>
+            <input type="radio" name="gender" checked>
         </div>
 
-        <div class="form-item">
+        <div class="form-item job">
             <div class="checkboxes-job">
                 <input type="checkbox" name="dev-front" id="">
                 <label for="dev-front">Développeur Front</label>
@@ -324,7 +326,7 @@
             </div>
         </div>
         
-            <button type="submit">Envoyer</button>
+            <button type="submit" class="submit">Envoyer</button>
 
     </form>
     
