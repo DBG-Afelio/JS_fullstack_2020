@@ -28,7 +28,6 @@ fieldEmail.addEventListener('input', () => {
     validateFieldEmail(fieldEmail);
 });
 fieldLogin.addEventListener('input', () => {
-    console.log('listener LOGIN');
     validateFieldLogin(fieldLogin);
 });
 //-----------------------------------------
@@ -68,19 +67,26 @@ function removeClassLists(element) {
  * @returns boolean
  */
 function validateFieldLogin(loginField) {
+    const loginUsedList = ['abcdef12', 'J54f_$g67', '82j!u-Z'];
     const loginInputField = loginField.querySelector('input');
     const loginValue = loginInputField.value;
+    const hasLoginBeenUsed = loginUsedList.includes(loginValue);
     loginField.classList.remove('valide');
     loginField.classList.remove('invalide');
     loginField.classList.remove('error-required');
     loginField.classList.remove('error-min-login');
     loginField.classList.remove('error-max-login');
-    loginField.classList.remove('error-login-not-unique');
-    loginField.classList.remove('error-symbol-login');
+    loginField.classList.remove('error-login-used');
+    loginField.classList.remove('error-pattern');
     let validReturn = true;
+    console.log('methode includes : '+hasLoginBeenUsed);
     if (loginValue.trim() === '') {
         loginField.classList.add('invalide');
         loginField.classList.add('error-required');
+        validReturn = false;
+    } else if (hasLoginBeenUsed) {
+        loginField.classList.add('invalide');
+        loginField.classList.add('error-login-used');
         validReturn = false;
     } else {
         const loginStatus = isContentValid(loginValue); console.log('Content CASE : ' + loginStatus);
@@ -90,17 +96,29 @@ function validateFieldLogin(loginField) {
                 break;
             case 1:
                 loginField.classList.add('invalide');
-                loginField.classList.add('error-min-login');
+                loginField.classList.add('error-pattern');
                 validReturn = false;
                 break;
             case 2:
                 loginField.classList.add('invalide');
-                loginField.classList.add('error-max-login');
+                loginField.classList.add('error-min-login');
                 validReturn = false;
                 break;
             case 3:
                 loginField.classList.add('invalide');
-                loginField.classList.add('error-symbol-login');
+                loginField.classList.add('error-min-login');
+                loginField.classList.add('error-pattern');
+                validReturn = false;
+                break;
+            case 4:
+                loginField.classList.add('invalide');
+                loginField.classList.add('error-max-login');
+                validReturn = false;
+                break;
+            case 5:
+                loginField.classList.add('invalide');
+                loginField.classList.add('error-max-login');
+                loginField.classList.add('error-pattern');
                 validReturn = false;
                 break;
         }
@@ -109,28 +127,40 @@ function validateFieldLogin(loginField) {
 }
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
- * @param {*} <login or password content>
- * @returns 0:valid, 1:too short, 2:too long, 3:invalid content
+ * @param <login or password content>
+ * @returns 0-5 cases, 0 = only valid case
  */
-function isContentValid(content) {
-    const dollar = '$';
-    const underscore = '_';
-    const dash = '-';
-    const exclamation = '!';
+function isContentValid(content) { 
     if (content.length >= 3 && content.length <= 10) {
-        const nonAllowedSymbolsRegex = new RegExp(/[^[:alnum:]]/i); 
-        const isNonAllowedSymbols = nonAllowedSymbolsRegex.test(content);
-        console.log("content pas authorise : " + isNonAllowedSymbols);
-        if (isNonAllowedSymbols == Null) {
+        if (!isPatternWrong(content)) {
             return 0;
+        } else {
+            return 1;
+        }
+    } else if (content.length < 3) {
+        if (!isPatternWrong(content)) {
+            return 2;
         } else {
             return 3;
         }
-    } if (content.length < 3) {
-        return 1;
     } else {
-        return 2
+        if (!isPatternWrong(content)) {
+            return 4;
+        } else {
+            return 5;
+        }
     }
+}
+
+/**
+ * Fonction qui valide le contenu du LOGIN ou du MOT DE PASSE
+ * @param <login or password content>
+ * @returns 0:valid, 1:invalid content
+ */
+function isPatternWrong(string) {
+    const regex = new RegExp(/[^a-zA-Z0-9-_!$]/i); 
+    const isWrong = regex.test(string); console.log('is wrong :'+isWrong);
+    return isWrong;
 }
 
 /**
