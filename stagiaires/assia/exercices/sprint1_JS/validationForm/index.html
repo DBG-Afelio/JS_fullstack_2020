@@ -27,12 +27,12 @@
             </div>   
         </div> 
         <div class="form-element form-email ">
-            <input type="email" name="email" data-pristine="true" placeholder="Email">
+            <input type="email" name="email" data-pristine="true" placeholder="Email (you@example.com)">
             <span class="valide-ok">V</span>
             <span class="valide-ko">X</span>
             <div class="error-message-container">
                 <div class="error-message error-required">Ce champ est requis</div>
-                <div class="error-message error-mail">L'adresse mail entrée est incorrecte</div>
+                <div class="error-message error-email">L'adresse mail entrée est incorrecte</div>
             </div>   
         </div>
         <div class="form-element form-date">
@@ -71,8 +71,8 @@
                 <div class="error-message error-symbol-login">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
             </div>   
         </div> 
-        <div class="form-element form-mdp2 ">
-            <input type="password" name="mdp2" data-pristine="true" placeholder="Re-saisir Mot de passe (obligatoire)">
+        <div class="form-element form-mdp-confirm ">
+            <input type="password" name="mdp-confirm" data-pristine="true" placeholder="Re-saisir Mot de passe (obligatoire)">
             <span class="valide-ok">V</span>
             <span class="valide-ko">X</span>
             <div class="error-message-container">
@@ -83,7 +83,7 @@
                 <div class="error-message error-mdp-different">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
             </div>   
         </div> 
-        <div>
+        <div class="form-element form-mdp-strength">
             <output type="text" value="Faible" class="mdp-faible"></output>
             <output type="text" value="Moyen" class="mdp-moyen"></output>
             <output type="text" value="Fort" class="mdp-fort"></output>            

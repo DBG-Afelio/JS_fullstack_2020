@@ -12,21 +12,26 @@ fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
     e.preventDefault();
 });
-fieldName.addEventListener('input', ()=> {
+fieldName.addEventListener('input', () => {
+    console.log('listener NAME');
     validateFieldName(fieldName);
-})
-fieldFirstName.addEventListener('input', ()=> {
+});
+fieldFirstName.addEventListener('input', () => {
     validateFieldFirstName(fieldFirstName);
-})
+    console.log('listener FirstNAME');
+});
 fieldDate.addEventListener('input', () => {
+    console.log('listener DATE');
     validateFieldDate(fieldDate);
-})
+});
 fieldEmail.addEventListener('input', () => {
     validateFieldEmail(fieldEmail);
-})
+    console.log('listener EMAIL');
+});
 fieldLogin.addEventListener('input', () => {
+    console.log('listener LOGIN');
     validateFieldLogin(loginField);
-})
+});
 //-----------------------------------------
 /*function isFormValid() {
     let stateOfAllInputField = [validateFieldName, validateFieldDate];
@@ -39,6 +44,7 @@ fieldLogin.addEventListener('input', () => {
 
 /**
  * Fonction validant tous les champs
+ * 
  */
 function validate(submitBtn) {
     submitBtn.classList.remove('valide');
@@ -49,6 +55,56 @@ function validate(submitBtn) {
     else {
         submitBtn.classList.add('valide');
     }
+}
+
+/**
+ * Fonction qui valide et met a jour le champ LOGIN 
+ * @param {*} loginField 
+ * @returns boolean
+ */
+function validateFieldLogin(loginField) {
+
+}
+
+/**
+ * Fonction qui valide et met a jour le champ EMAIL 
+ * @param <div> entourant l'input email
+ * @returns boolean
+ */
+function validateFieldEmail(emailField) {
+                console.log('running "validateFieldEmail" function');
+    const emailInputField = emailField.querySelector('input');
+    const emailValue = emailInputField.value;
+                console.log('EMAIL : ' + emailValue);
+    emailField.classList.remove('valide');
+    emailField.classList.remove('invalide');
+    emailField.classList.remove('error-required');
+    emailField.classList.remove('error-email');
+    let validReturn = true;
+    if (emailValue.trim() === '') {
+        emailField.classList.add('invalide');
+        emailField.classList.add('error-required');
+        validReturn = false;
+    } else if (!isEmailValid(emailValue)) {
+        emailField.classList.add('invalide');
+        emailField.classList.add('error-email');
+        validReturn = false;
+    } else {
+        emailField.classList.add('valide');
+    }
+    console.log('return of valid email' + validReturn);
+    return validReturn; 
+}
+
+/**
+ * Fonction qui valide les regles du champ EMAIL avec expression reguliere
+ * @param <value> of email input
+ * @returns boolean
+ */
+function isEmailValid(email) {
+    const emailReg = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
+    const isValid = emailReg.test(email);
+    return isValid;
 }
 
 /**
@@ -131,7 +187,6 @@ function validateName(name) {
     }
 }
 
-
 /**
  * Fonction validant valide et met a jour l'affichage pour le champ Date de Naissance
  * @param 
@@ -151,7 +206,7 @@ function validateFieldDate(dateField) {
         dateField.classList.add('error-required');
         validReturn = false;
     } else {
-        valid = validateDateOfBirth(date);
+        valid = isDateOfBirthValid(date);
         if (valid == 0) {
             dateField.classList.add('valide');
         } else if (valid == 1) {
@@ -172,7 +227,7 @@ function validateFieldDate(dateField) {
  * @param <input type="date">
  * @returns 0:valid 1:dateInFutur 2:OutofAge 
  */
-function validateDateOfBirth(date_AsDate) {
+function isDateOfBirthValid(date_AsDate) {
     const today = new Date(Date.now()); 
     const dateMin = new Date('January 1, 2002 00:00:00 UTC'); 
     const dateMax = new Date('January 1, 1953 00:00:00 UTC');
@@ -185,12 +240,4 @@ function validateDateOfBirth(date_AsDate) {
     else {
         return 2;
     }        
-}
-
-function validateFieldEmail(emailField) {
-
-}
-
-function validateFieldLogin(loginField) {
-
 }
