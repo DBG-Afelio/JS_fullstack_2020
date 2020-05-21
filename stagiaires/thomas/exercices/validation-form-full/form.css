@@ -1,0 +1,138 @@
+body {
+    width: 100vw;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  form {
+    background: white;
+    width: 60%;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 20px 20px 60px lightslategray;
+  }
+  
+  input {
+    color: black;
+    position: relative;
+  }
+  
+  input,
+  select {
+    border: none;
+    outline: none;
+  }
+  
+  ::placeholder,
+  button {
+    font-family: "Roboto", sans-serif;
+    transition: all ease-in-out 0.15s;
+  }
+
+  .form-item {
+      display: flex;
+  }
+
+  .ico-input {
+    margin-left: auto;
+  }
+
+  .ico-input img {
+      display: none;
+  }
+
+  .form-item.job {
+      flex-direction: column;
+  }
+
+  .ico-input {
+      position: relative;
+      top: 0.2em;
+  }
+  
+  .nom:focus,
+  .prenom:focus,
+  .email:focus,
+  .telephone:focus,
+  .login:focus,
+  .mot-de-passe:focus,
+  .confirm-mot-de-passe:focus {
+    border-width: 100%;
+    border-bottom: 1px solid gray;
+    transition: all ease-in-out 0.5s;
+  }
+  
+  .nom:focus::placeholder,
+  .prenom:focus::placeholder,
+  .email:focus::placeholder,
+  .telephone:focus::placeholder,
+  .login:focus::placeholder,
+  .mot-de-passe:focus::placeholder,
+  .confirm-mot-de-passe:focus::placeholder {
+    font-size: 0.6em;
+    position: relative;
+    top: -1.5em;
+  }
+
+  .nom,
+  .prenom,
+  .email,
+  .telephone,
+  .date-de-naissance,
+  .login,
+  .mot-de-passe,
+  .confirm-mot-de-passe {
+    padding: 1.3em 0;
+    width: 90%;
+    height: 0.5em;
+    border-width: 0%;
+  }
+
+  .suggest-login {
+      margin: 1.5em 0;
+  }
+  
+  .form-item.gender label {
+    padding: 0 0.3em 0 0.5em;
+  }
+  
+  .form-item.gender label:first-child {
+    padding-left: 0;
+  }
+  
+  .country {
+    width: 90%;
+    margin: 1em 0 2em 0;
+  }
+  
+  .job,
+  .submit {
+    margin: 1.5em 0;
+  }
+  
+  .checkboxes-job {
+    margin: 0.5em 0;
+  }
+  
+  button {
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 100%;
+    background: none;
+    border: 1px solid #0072ff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    color: white;
+    background: #0072ff;
+  }
+  
