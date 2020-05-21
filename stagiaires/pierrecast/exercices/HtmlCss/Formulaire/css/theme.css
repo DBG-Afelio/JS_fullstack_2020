@@ -30,37 +30,27 @@ h1 {
 form {
     position: relative;
     width: 900px;
-    border-radius: 10px;
-    border: 5px solid rgba(204,228,215,1);
     padding: 50px;
     margin: 50px auto 0 auto;
     box-sizing: border-box;
     z-index: 5;
 
     background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #ffffff 50.01%, #fbc153 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#fbc153 50.01%,#fbc153 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #ffffff 0%,#ffffff 50%,#fbc153 50.01%,#fbc153 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 60%, #ffffff 60.01%, #fbc153 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 60%,#fbc153 60.01%,#fbc153 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ffffff 0%,#ffffff 60%,#fbc153 60.01%,#fbc153 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    box-shadow: 5px 5px 15px rgba(0,0,0, .5);
 }
 
 form > * {
     margin: 0 0 12px 0
 }
 
-#shadow {
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    background-color: rgba(0,0,0,0.3);
-    width: 400px;
-    height: 20px;
-
-    /*box-shadow: 0 0 25px rgba(0,0,0,0.3);*/
-    border-radius: 50%;
-    margin: 280px 0 0 -200px;
-    background: -moz-radial-gradient(center, ellipse cover, rgba(40,52,59,1) 0%, rgba(40,52,59,0.82) 13%, rgba(170,178,189,0) 71%, rgba(181,189,200,0) 76%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(40,52,59,1) 0%,rgba(40,52,59,0.82) 13%,rgba(170,178,189,0) 71%,rgba(181,189,200,0) 76%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, rgba(40,52,59,1) 0%,rgba(40,52,59,0.82) 13%,rgba(170,178,189,0) 71%,rgba(181,189,200,0) 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+#leftPart, #rightPart {
+    border: 1px solid red;
+}
+#rightPart {
+    background-color: white;
 }
 
 input, select, #sugestButton {
@@ -68,11 +58,12 @@ input, select, #sugestButton {
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
-    border-radius: 5px;
+    
     font-family: 'Comic Neue',  Arial, Helvetica, sans-serif;
     font-size: 18px;
     border: 1px solid transparent;
-    background-color:rgba(255,255,255, .7);
+    border-bottom: 1px solid black;
+    
 }
 #sugestButton {
     margin : 10px 0;

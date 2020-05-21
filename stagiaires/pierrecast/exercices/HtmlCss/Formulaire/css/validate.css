@@ -154,3 +154,29 @@ label {
 .form-role .checkboxButton:last-child {
     padding: 2px 2px 2px  0;
 }
+
+.form-avatar .avatars,
+.form-avatar .avatar{
+    display: inline-block;
+}
+.form-avatar .avatars {
+    border: 1px solid black;
+    width: 60%;
+}
+
+.form-avatar .avatars img {
+    width: 100%;
+}
+
+.form-avatar .avatar {
+    width: 132px;
+    height: 140px;
+    overflow:hidden;
+    position: relative;
+}
+.form-avatar .avatar img {
+    width: 400%;
+    position: absolute;
+    top: 0;
+    left: -400%;
+}

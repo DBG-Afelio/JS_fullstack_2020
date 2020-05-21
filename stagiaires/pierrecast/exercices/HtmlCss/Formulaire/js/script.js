@@ -9,6 +9,7 @@ const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
 const fieldRole = document.querySelector('.form-role');
 const fieldRoles = fieldRole.querySelectorAll('input');
+const fieldAvatar = document.querySelector('.form-avatar');
 
 const fieldSubmit = document.querySelector('.submit-button');
 const pristineField = document.querySelectorAll('[data-pristine=true]');
@@ -16,6 +17,9 @@ const today = new Date();
 const usedLogin = ['Assia0', 'Benoit', 'Florent', 'Haroon', 'Nicolas', 'Jerome', 'Kevin0', 'Pierre', 'Thomas', 'Denis0'];
 const oSugestButton = document.querySelector('#sugestButton');
 const oForce = document.querySelectorAll('.force');
+const avatarInputField = fieldAvatar.querySelector('#avatarPosition');
+const oAvatars = fieldAvatar.querySelector('.avatars img');
+const oAvatar = fieldAvatar.querySelector('.avatar img');
 
 oSugestButton.addEventListener('click', (e)=> {
     e.preventDefault();
@@ -65,6 +69,14 @@ fieldRoles.forEach((role) => {
         validateFieldRoles(fieldRole);
     });
 });
+
+fieldAvatar.addEventListener('change', ()=> {
+    validateFieldAvatar(fieldAvatar);
+})
+
+oAvatars.addEventListener('click', (e) => {
+    getAvatar(e);
+})
 
 const pristine = (e) => {
     e.target.setAttribute('data-pristine', false);
@@ -119,6 +131,10 @@ function validate() {
 
     if (!validateFieldRoles(fieldRole)){
         msg += '- Fonctions\n';
+    }
+
+    if (!validateFieldAvatar(fieldAvatar)){
+        msg += '- Avatar\n';
     }
 
     if (msg !== '') {
@@ -358,40 +374,13 @@ function validateFieldPhone(phoneField) {
  * Fonction validant les règles du champ telephone
  */
 function validatePhone(phone) {
-    //const regex = /^((\+|00)32\s?|0)(\d\s?\d{3}|\d{2}\s?\d{2})(\s?\d{2}){2}$/;
-    const regex = /^[0032|+32|0]{1}[1-9]{1}[0-9]{5-8}$/;
+    const regex = /^((00|\+)32|0){1}([1-9]{1})\d{5,9}$/;
     if (regex.test(phone) || phone.trim() === '') {
         return 0;
     } else {
         return 1;
     }
 }
-
-/* ----------------------- */
-/*const reg = /^[(0032)|(+32)|0]{1}[1-9]{1}[0-9]{5-8}$/;
-const essai = [
-    '00324338313',
-    '+324338313',
-    '04338313',
-
-    '+334338313',
-    '+324338',
-    '+32433831355555',
-    '+320338313',
-
-    '+3243x8313',
-
-    '+32',
-    '0032',
-    '0',
-    '+33',
-
-]
-
-for ( let i = 0; i <essai.length; i++) {
-    console.log(essai[i]+' '+reg.test(essai[i]));
-}*/
-
 
 /**
  * Fonction validant valide et met à jour l'affichage pour le champ login
@@ -454,6 +443,7 @@ function suggest() {
     }
     
     fieldLogin.querySelector('input').value = login;
+    fieldLogin.dispatchEvent(new Event('input'));
 }
 
 function isValidLogin(login) {
@@ -716,3 +706,60 @@ function changeRoles(oRole) {
     }
 }
 
+/**
+ * Fonction validant valide et met à jour l'affichage pour le champ Avatar
+ * @param <div> entourant l'input
+ * @return boolean
+ */
+function validateFieldAvatar(avatarField) {
+    const avatarInputField = avatarField.querySelector('input');
+    const value = avatarInputField.value;
+    let validReturn = true;
+    removeErrors(avatarField);
+    const valid = validateAvatar(value);
+    if (valid === 1) {
+        avatarField.classList.add('invalide');
+        avatarField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        avatarField.classList.add('valide');
+    }
+    
+    return validReturn;
+}
+
+/**
+ * Fonction validant les règles du champ avatar
+ */
+function validateAvatar(avatar) {
+    
+    if (avatar !== '0-0') {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+function getAvatar(e) {
+    let pos = oAvatars.getBoundingClientRect();
+    let w = pos.right - pos.left;
+    let h = pos.bottom - pos.top;
+
+    let x = Math.floor((e.pageX - pos.left) /w /0.25) +1;
+    let y = Math.floor((e.pageY - pos.top) /h /0.333) +1;
+    showAvatar(x,y)
+}
+
+showAvatar(0,0);
+function showAvatar(x,y) {
+    avatarInputField.value = x+"-"+y;
+    if (x !== 0 && y !== 0) {
+        fieldAvatar.dispatchEvent(new Event('change'));
+    }
+    let pos = oAvatar.getBoundingClientRect();
+    let w = pos.right - pos.left;
+    let h = pos.bottom - pos.top;
+
+    oAvatar.style.top = ((1-y)*100)+"%";
+    oAvatar.style.left = ((1-x)*100)+"%";
+}
