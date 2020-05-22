@@ -6,22 +6,19 @@ const fieldEmail = document.querySelector('.form-email');
 const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
 const fieldLogin = document.querySelector('.form-login');
-const fieldLoginBtn = document.querySelector('login-button');
+const fieldLoginBtn = document.querySelector('.login-button');
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
     e.preventDefault();
 });
 fieldName.addEventListener('input', () => {
-    console.log('listener NAME');
     validateFieldName(fieldName);
 });
 fieldFirstName.addEventListener('input', () => {
     validateFieldFirstName(fieldFirstName);
-    console.log('listener FirstNAME');
 });
 fieldDate.addEventListener('input', () => {
-    console.log('listener DATE');
     validateFieldDate(fieldDate);
 });
 fieldEmail.addEventListener('input', () => {
@@ -29,6 +26,10 @@ fieldEmail.addEventListener('input', () => {
 });
 fieldLogin.addEventListener('input', () => {
     validateFieldLogin(fieldLogin);
+});
+
+fieldLoginBtn.addEventListener('click', () => {
+    suggestLogin(fieldFirstName, fieldName, fieldLogin);
 });
 //-----------------------------------------
 /*function isFormValid() {
@@ -59,6 +60,15 @@ function removeClassLists(element) {
     element.classList.remove('valide');
     element.classList.remove('invalide');
     element.classList.remove('error-message');
+}
+
+function suggestLogin(firstNameField, lastNameField, loginField) {
+    const firstName = firstNameField.querySelector('input').value;
+    const lastName = lastNameField.querySelector('input').value;
+    const loginGenerated = firstName.charAt(0) + lastName.substr(0, 2) + '_' + (Math.floor(Math.random() * (999 - 100 + 1)) + 100);
+    console.log(loginGenerated);
+    const loginInputField = loginField.querySelector('input');
+    loginInputField.value = loginGenerated;
 }
 
 /**
@@ -125,6 +135,7 @@ function validateFieldLogin(loginField) {
     }
     return validReturn; 
 }
+
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
  * @param <login or password content>
