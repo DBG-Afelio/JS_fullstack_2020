@@ -12,6 +12,9 @@ const fieldPwd = document.querySelector('.form-mdp');
 const fieldPwdConfirmed = document.querySelector('.form-mdp-confirm');
 const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
+const sexRadioAutre = document.querySelector("#autre");
+
+sexRadioAutre.checked = true;
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
@@ -48,7 +51,7 @@ fieldNationality.addEventListener('change', () => {
     validateFieldNationality(fieldNationality);
 });
 fieldSex.addEventListener('input', () => {
-    validateFieldSex(fieldSex);
+    validateFieldSex(fieldSex,sexRadioAutre);
 });
 
 //-----------------------------------------
@@ -81,9 +84,20 @@ function removeClassLists(element) {
     element.classList.remove('invalide');
     element.classList.remove('error-message');
 }
-function validateFieldSex(sexField) {
-    const sexRadio = sexField.querySelector('input');
-    const sexValue = sexRadio.value;
+function validateFieldSex(sexField, optionAutre) {
+    const isAutreChecked = optionAutre.checked;
+    let validReturn = true;
+    sexField.classList.remove('valide');
+    sexField.classList.remove('invalide');
+    sexField.classList.remove('error-required');
+    if (isAutreChecked) {
+        sexField.classList.add('invalide');
+        sexField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        sexField.classList.add('valide');
+    }
+    return validReturn; 
 }
 function validateFieldNationality(nationalityField) {
     const nationSelectField = nationalityField.querySelector('select');
@@ -92,7 +106,7 @@ function validateFieldNationality(nationalityField) {
     nationalityField.classList.remove('valide');
     nationalityField.classList.remove('invalide');
     nationalityField.classList.remove('error-required');
-    if (nationSelected == 'nothingSelected') {
+    if (nationSelected === 'nothingSelected') {
         nationalityField.classList.add('invalide');
         nationalityField.classList.add('error-required');
         validReturn = false;
