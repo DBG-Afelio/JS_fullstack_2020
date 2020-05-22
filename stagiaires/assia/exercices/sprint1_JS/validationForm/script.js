@@ -8,6 +8,8 @@ const fieldSubmit = document.querySelector('.submit-button');
 const fieldLogin = document.querySelector('.form-login');
 const fieldLoginBtn = document.querySelector('.login-button');
 const fieldTel = document.querySelector('.form-tel');
+const fieldPwd = document.querySelector('.form-mdp');
+const fieldPwdConfirmed = document.querySelector('.form-mdp-confirm');
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
@@ -31,13 +33,16 @@ fieldEmail.addEventListener('input', () => {
 fieldLogin.addEventListener('input', () => {
     validateFieldLogin(fieldLogin);
 });
-
 fieldLoginBtn.addEventListener('click', () => {
     suggestLogin(fieldFirstName, fieldName, fieldLogin);
 });
-fieldTel.addEventListener('input', () => {
-
+fieldPwd.addEventListener('input', () => {
+    validateFieldPassword(fieldPwd);
 });
+fieldPwdConfirmed.addEventListener('input', () => {
+    validateFieldPasswordConfirmation(fieldPwd, fieldPwdConfirmed);
+});
+
 //-----------------------------------------
 /*function isFormValid() {
     let stateOfAllInputField = [validateFieldName, validateFieldDate];
@@ -106,7 +111,7 @@ function validateFieldTel(telField) {
  * @returns boolean
  */
 function isTelValid(telNumber) {
-    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9]{6,9})))/g);
+    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9]{6,9})$))/g);
     console.log('return pattern tel : ' + (patternTel.test(telNumber)));
     return patternTel.test(telNumber);
 }
@@ -185,6 +190,118 @@ function validateFieldLogin(loginField) {
     return validReturn; 
 }
 
+function validateFieldPassword(pwdField) {
+    const pwdInputField = pwdField.querySelector('input');
+    const pwdValue = pwdInputField.value;
+    pwdField.classList.remove('valide');
+    pwdField.classList.remove('invalide');
+    pwdField.classList.remove('error-required');
+    pwdField.classList.remove('error-min-login');
+    pwdField.classList.remove('error-max-login');
+    pwdField.classList.remove('error-pattern');
+    let validReturn = true;
+    if (pwdValue.trim() === '') {
+        pwdField.classList.add('invalide');
+        pwdField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        const pwdStatus = isContentValid(pwdValue); 
+        switch (pwdStatus) {
+            case 0:
+                pwdField.classList.add('valide');
+                break;
+            case 1:
+                pwdField.classList.add('invalide');
+                pwdField.classList.add('error-pattern');
+                validReturn = false;
+                break;
+            case 2:
+                pwdField.classList.add('invalide');
+                pwdField.classList.add('error-min-login');
+                validReturn = false;
+                break;
+            case 3:
+                pwdField.classList.add('invalide');
+                pwdField.classList.add('error-min-login');
+                pwdField.classList.add('error-pattern');
+                validReturn = false;
+                break;
+            case 4:
+                pwdField.classList.add('invalide');
+                pwdField.classList.add('error-max-login');
+                validReturn = false;
+                break;
+            case 5:
+                pwdField.classList.add('invalide');
+                pwdField.classList.add('error-max-login');
+                pwdField.classList.add('error-pattern');
+                validReturn = false;
+                break;
+        }
+    }
+    return validReturn; 
+}
+
+function validateFieldPasswordConfirmation(pwdField, pdwConfField) {
+    const pwdInputField = pwdField.querySelector('Input');
+    const pwdValue = pwdInputField.value;
+    const pwdConfInputField = pdwConfField.querySelector('input');
+    const pwdConfValue = pwdConfInputField.value;
+    let validReturn = true;
+    pdwConfField.classList.remove('valide');
+    pdwConfField.classList.remove('invalide');
+    pdwConfField.classList.remove('error-required');
+    pdwConfField.classList.remove('error-different-pwd');
+    if (pwdConfValue.trim() == '') {
+        pdwConfField.classList.add('invalide');
+        pdwConfField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        const status = (pwdConfStatus(pwdValue, pwdConfValue));
+        switch (status) {
+            case 0:
+                pdwConfField.classList.add('valide');
+                break;
+            case 1:
+                pdwConfField.classList.add('invalide');
+                validReturn = false;
+                break;
+            case 2:
+                pdwConfField.classList.add('invalide');
+                pdwConfField.classList.add('error-different-pwd');
+                validReturn = false;
+                break;
+        }
+    }
+}
+
+
+function pwdConfStatus(pwd1, pwd2) {
+    if (pwd2 === pwd1) {
+        return 0; //both equal - stop typing
+    } else {
+        if (pwd2 === pwd1.substr(0, (pwd2.length))) {
+            return 1; // typing ongoing is correct so far but not done yet
+        } else {
+            return 2; // mismatch detected
+        }
+    }
+}
+
+function setPasswordStrength(password) {
+    //const regExpLetters = new RegExp(/[a-zA-Z]/i);
+  //  const pattern = RegExp(/(?<letters>[a-zA-Z]{6,10})|(?<digits>[0-9]{6,10})|(?<symbols>[-_!$]{6,10})/);
+    
+   // const groupsExp = password.matchAll(pattern).groups;
+ //   const match = pattern.exec(password);
+ //   return match;
+   // const isLetters = groupsExp.letters;
+  //  const isDigits = groupsExp.digits;
+  //  const isSymbols = groupsExp.symbols;
+
+  //  console.log('letters = '+isLetters, 'digits = '+isDigits, 'Symbols = '+isSymbols);
+}
+
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
  * @param <login or password content>
@@ -193,21 +310,21 @@ function validateFieldLogin(loginField) {
 function isContentValid(content) { 
     if (content.length >= 3 && content.length <= 10) {
         if (!isPatternWrong(content)) {
-            return 0;
+            return 0; //Valid
         } else {
-            return 1;
+            return 1; //Right length but doesn't match pattern 
         }
-    } else if (content.length < 3) {
+    } else if (content.length < 3) { 
         if (!isPatternWrong(content)) {
-            return 2;
+            return 2;   //Too short but matches pattern 
         } else {
-            return 3;
+            return 3;   //Too short and doesn't match pattern 
         }
     } else {
         if (!isPatternWrong(content)) {
-            return 4;
+            return 4;   //Too long but matches pattern 
         } else {
-            return 5;
+            return 5;   //Too long and doesn't match pattern 
         }
     }
 }

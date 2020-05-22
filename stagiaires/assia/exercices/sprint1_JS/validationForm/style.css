@@ -29,7 +29,7 @@ body {
     color: orangered;
 }
 
-.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-used .error-message.error-login-used, .form-element.error-pattern .error-message.error-pattern, .form-element.error-email .error-message.error-email, .form-element.error-tel .error-message.error-tel
+.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-used .error-message.error-login-used, .form-element.error-pattern .error-message.error-pattern, .form-element.error-email .error-message.error-email, .form-element.error-tel .error-message.error-tel, .form-element.error-different-pwd .error-message.error-different-pwd
 {
     display: block;
 }
