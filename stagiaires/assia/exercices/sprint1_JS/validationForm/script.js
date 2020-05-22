@@ -7,6 +7,7 @@ const fieldDate = document.querySelector('.form-date');
 const fieldSubmit = document.querySelector('.submit-button');
 const fieldLogin = document.querySelector('.form-login');
 const fieldLoginBtn = document.querySelector('.login-button');
+const fieldTel = document.querySelector('.form-tel');
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
@@ -17,6 +18,9 @@ fieldName.addEventListener('input', () => {
 });
 fieldFirstName.addEventListener('input', () => {
     validateFieldFirstName(fieldFirstName);
+});
+fieldTel.addEventListener('input', () => {
+    validateFieldTel(fieldTel);
 });
 fieldDate.addEventListener('input', () => {
     validateFieldDate(fieldDate);
@@ -30,6 +34,9 @@ fieldLogin.addEventListener('input', () => {
 
 fieldLoginBtn.addEventListener('click', () => {
     suggestLogin(fieldFirstName, fieldName, fieldLogin);
+});
+fieldTel.addEventListener('input', () => {
+
 });
 //-----------------------------------------
 /*function isFormValid() {
@@ -60,6 +67,48 @@ function removeClassLists(element) {
     element.classList.remove('valide');
     element.classList.remove('invalide');
     element.classList.remove('error-message');
+}
+
+/**
+ * fonction qui valide et met a jour le champ TEL
+ * @param 
+ * @returns boolean
+ */
+function validateFieldTel(telField) {
+    const telInputField = telField.querySelector('input');
+    const telValue = telInputField.value;
+    console.log('telValue : ' + telValue);
+    telField.classList.remove('valide');
+    telField.classList.remove('invalide');
+    telField.classList.remove('error-required');
+    telField.classList.remove('error-tel');
+    let validReturn = true;
+    if (telValue.trim == '') {
+        telField.classList.add('invalide');
+        telField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        const isValid = isTelValid(telValue); console.log('isValid : ' + isValid);
+        // BUG :why isValid = false when isTelValid() returns true ????
+        if (isValid) {
+            telField.classList.add('valide');
+        } else {
+            telField.classList.add('invalide');
+            telField.classList.add('error-tel');
+            validReturn = false;
+        }
+    }
+    return validReturn;
+}
+/**
+ * Fonction qui valide le numero de tel a partir d'un pattern (+32 ou 0032 ou 0)+(6 a 9 digit sauf 0)
+ * @param 
+ * @returns boolean
+ */
+function isTelValid(telNumber) {
+    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9]{6,9})))/g);
+    console.log('return pattern tel : ' + (patternTel.test(telNumber)));
+    return patternTel.test(telNumber);
 }
 
 function suggestLogin(firstNameField, lastNameField, loginField) {
@@ -170,7 +219,7 @@ function isContentValid(content) {
  */
 function isPatternWrong(string) {
     const regex = new RegExp(/[^a-zA-Z0-9-_!$]/i); 
-    const isWrong = regex.test(string); console.log('is wrong :'+isWrong);
+    const isWrong = regex.test(string); 
     return isWrong;
 }
 

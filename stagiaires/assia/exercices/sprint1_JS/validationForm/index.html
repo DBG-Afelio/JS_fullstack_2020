@@ -26,6 +26,15 @@
                 <div class="error-message error-max-length">Le nom doit être au maximum de 50 caractères</div>
             </div>   
         </div> 
+        <div class="form-element form-tel ">
+            <input type="tel" name="tel" data-pristine="true" placeholder="N° telephone">
+            <span class="valide-ok">V</span>
+            <span class="valide-ko">X</span>
+            <div class="error-message-container">
+                <div class="error-message error-required">Ce champ est requis</div>
+                <div class="error-message error-tel">Le numero entré est incorrecte [0032/+32/0][6-9 digits except 0]</div>
+            </div>   
+        </div>
         <div class="form-element form-email ">
             <input type="email" name="email" data-pristine="true" placeholder="Email (you@example.com)">
             <span class="valide-ok">V</span>
