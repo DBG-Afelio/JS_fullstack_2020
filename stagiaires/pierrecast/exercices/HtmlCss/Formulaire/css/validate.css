@@ -1,13 +1,35 @@
+form {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#leftPart, #rightPart {
+    width: 45%;
+    align-self: center;
+}
+
+@media screen and (max-width : 750px) {
+    form {
+        display: block;
+        width: 90%;
+        min-width :300px;
+    }
+    #leftPart, #rightPart {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 450px;
+    }
+}
+
+#inside {
+    background-color: white;
+    border: 1px solid red;
+}
 
 label {
     display: none;
 }
-
-.form-role label,
-.form-sex label {
-    display: inline-block;
-}
-
 
 .form-element {
     position: relative;
@@ -28,12 +50,13 @@ label {
 .form-element.invalide .valide-ko{
     display: block
 }
-
+.error-message-container {
+    margin-bottom: 6px;
+    text-align: right;
+}
 .form-element .error-message {
     display: none;
 }
-
-
 
 .form-element.error-difference .error-message.error-difference,
 .form-element.error-not-available .error-message.error-not-available,
@@ -46,6 +69,48 @@ label {
     display: block;
 }
 
+.valide-ko,
+.valide-ok {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border: 2px solid white;
+}
+
+.valide-container {
+    position: absolute;
+    top:-15px;
+    left: -20px;
+}
+
+.valide-ok {
+    background-color:green;
+}
+
+.valide-ko {
+    background-color:rgb(178,34,34);
+}
+
+.error-message-container {
+    min-height: 25px;
+}
+
+.error-message {
+    display: block;
+    border-radius:3px;
+    color: white; background-color:rgb(178,34,34);
+    padding: 3px 8px;
+    margin: 2px 0
+}
+
+.form-role label,
+.form-sex label {
+    display: inline-block;
+}
 
 .strength, #radioButtons {
     display: flex;
@@ -60,6 +125,7 @@ label {
     border-radius: 5px;
     padding: 5px 0;
 }
+
 #radioButtons > * {
     display: inline-block;
     width: 30%;
@@ -93,44 +159,6 @@ label {
     margin-bottom: 10px;
 }
 
-.valide-container {
-    position: absolute;
-    top:-15px;
-    left: -20px;
-}
-
-.valide-ko,
-.valide-ok {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: none;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-    border: 2px solid white;
-}
-
-.valide-ok {
-    background-color:green;
-}
-.valide-ko {
-    background-color:rgb(178,34,34);
-}
-
-.error-message-container {
-    min-height: 25px;
-}
-
-.error-message {
-    display: block;
-    border-radius:3px;
-    color: white; background-color:rgb(178,34,34);
-    padding: 3px 8px;
-    margin: 2px 0
-}
-
-
 .form-sex input[type=radio] { 
     display: inline-block;
 }
@@ -160,8 +188,8 @@ label {
     display: inline-block;
 }
 .form-avatar .avatars {
-    border: 1px solid black;
     width: 60%;
+    margin-top: 80px;
 }
 
 .form-avatar .avatars img {
@@ -179,4 +207,48 @@ label {
     position: absolute;
     top: 0;
     left: -400%;
+}
+
+
+
+.form-element {
+    border: 1px solid silver;
+    margin: 5px 0;
+}
+
+.form-avatar .form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.form-avatar .avatar {
+    border: 5px;
+    background-clip: padding-box; /* !importanté */
+    border: solid 5px transparent; /* !importanté */
+    background-color:rgba(0,0,0,.5);
+    box-sizing: border-box;
+}
+
+/*.form-avatar .avatar::before {
+    content: '123';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -5px; 
+    background: linear-gradient(to right, red, #fbc153);
+    background-color:green;
+    border:1px solid red;
+    display: block;
+}*/
+
+form.incomplete #leftPart,
+form.incomplete #rightPart,
+form.complete #infos-part {
+    display: block;
+}
+
+form.complete #leftPart,
+form.complete #rightPart,
+form.incomplete #infos-part {
+    display: none;
 }

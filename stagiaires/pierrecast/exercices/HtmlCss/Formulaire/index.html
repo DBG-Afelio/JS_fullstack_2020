@@ -13,7 +13,83 @@
 		<header>  
 		</header>
         <main>
-            <form novalidate action="javascript: validate();">
+            
+
+            <form novalidate action="javascript: validate();" class="incomplete">
+                <div id="infos-part">
+                    <div class="info-element info-avatar"></div> 
+                    <div class="info-element info-nom"></div>
+                    <div class="info-element info-prenom"></div>
+                    <div class="info-element info-age"></div>
+                    <div class="info-element info-phone"></div>
+                    <div class="info-element info-email"></div>
+                    <div class="info-element info-nationality"></div>
+                    <div class="info-element info-login"></div>
+                    <div class="info-element info-sex"></div>
+                    <div class="info-element info-role"></div>
+                    <button class="modify">Modifier</button>
+                </div>
+
+                <div id="rightPart">
+                    <div id="inside">
+                        <div class="form-element form-avatar">
+                            <div class="form-container">
+                                <div class="avatar">
+                                    <img src="img/css_sprites.png" alt="avatars" title="séléctionnez votre avatar" />
+                                </div>
+                                <input type="hidden" id="avatarPosition" value="0-0"/>
+                                <div class="avatars">
+                                    <img src="img/css_sprites.png" alt="avatars" title="séléctionnez votre avatar" />
+                                </div>
+                            </div>
+                            <div class="valide-container">
+                                <span class="valide-ok">V</span>
+                                <span class="valide-ko">X</span>
+                            </div>
+                            <div class="error-message-container">
+                                <div class="error-message error-required">l'avatar est requis</div>
+                            </div>  
+                        </div>
+                        <div class="form-element form-login">
+                            <label for="login">Pseudo</label>
+                            <input type="text" name="login" data-pristine="true" placeholder="Choisissez un pseudo (obligatoire)" required minlength="6" maxlength="10">
+                            <button id="sugestButton">Suggérer un login</button> 
+                            <div class="valide-container">
+                                <span class="valide-ok">V</span>
+                                <span class="valide-ko">X</span>
+                            </div>
+                            <div class="error-message-container">
+                                <div class="error-message error-required">le pseudo est requis</div>
+                                <div class="error-message error-format">le pseudo n'a pas le bon format</div>
+                                <div class="error-message error-not-available">le pseudo n'est pas disponible</div>
+                            </div>  
+                            
+                        </div>
+
+                        <div class="form-element form-password">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" data-pristine="true" placeholder="Mot de passe (obligatoire)" required>
+                            <label for="repeat">Resaisir le mot de passe</label>
+                            <input type="password" name="repeat" id="repeat" data-pristine="true" placeholder="Resaisissez Mot de passe (obligatoire)" required>
+                            <div id="strength">
+                                <div id="weak" class="force">faible</div>
+                                <div id="medium" class="force">moyen</div>
+                                <div id="strong" class="force">fort</div>
+                            </div>
+                            <div class="valide-container">
+                                <span class="valide-ok">V</span>
+                                <span class="valide-ko">X</span>
+                            </div>
+                            <div class="error-message-container">
+                                <div class="error-message error-required">le mot de passe est requis</div>
+                                <div class="error-message error-format">le mot de passe n'a pas le bon format</div>
+                                <div class="error-message error-difference">les mots de passe sont différents</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div id="leftPart">
                     <div class="form-element form-nom">
                         <label for="nom">Nom</label>
@@ -115,12 +191,25 @@
                     </div>
                     <div class="form-element form-role">
                         <div  id="checkboxes" >
-                            <div class="checkboxButton"><input type="checkbox" name="full" value="0"><label for="M">Développeur full stack</label></div>
-                            <div class="checkboxButton"><input type="checkbox" name="front" value="1"><label for="F">Développeur front</label></div>
-                            <div class="checkboxButton"><input type="checkbox" name="back" value="2"><label for="0">Développeur back</label></div>
-                            <div class="checkboxButton"><input type="checkbox" name="ux" value="3"><label for="ux">UI/UX</label></div>
-                            <div class="checkboxButton"><input type="checkbox" name="integrateur" value="4"><label for="integrateur">Intégrateur</label></div>
-                            <div class="checkboxButton"><input type="checkbox" name="0" value="5"><label for="0">Rien de tout cela</label></div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="full" value="0">
+                                <label for="full">Développeur full stack</label>
+                            </div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="front" value="1"><label for="front">Développeur front</label>
+                            </div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="back" value="2"><label for="back">Développeur back</label>
+                            </div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="ux" value="3"><label for="ux">UI/UX</label>
+                            </div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="integrateur" value="4"><label for="integrateur">Intégrateur</label>
+                            </div>
+                            <div class="checkboxButton">
+                                <input type="checkbox" name="0" value="5"><label for="0">Rien de tout cela</label>
+                            </div>
                         </div>  
                         <div class="valide-container">
                             <span class="valide-ok">V</span>
@@ -131,67 +220,8 @@
                         </div> 
                     </div>
                 </div>
-
-                <div id="rightPart">
-                    <div id="inside">
-                        <div class="form-element form-avatar">
-                            <div class="avatar">
-                                <img src="img/css_sprites.png" alt="avatars" title="séléctionnez votre avatar" />
-                            </div>
-                            <input type="hidden" id="avatarPosition" value="0-0"/>
-                            <div class="avatars">
-                                <img src="img/css_sprites.png" alt="avatars" title="séléctionnez votre avatar" />
-                            </div>
-                            <div class="valide-container">
-                                <span class="valide-ok">V</span>
-                                <span class="valide-ko">X</span>
-                            </div>
-                            <div class="error-message-container">
-                                <div class="error-message error-required">l'avatar est requis</div>
-                            </div>  
-                        </div>
-                        <div class="form-element form-login">
-                            <label for="login">Pseudo</label>
-                            <input type="text" name="login" data-pristine="true" placeholder="Choisissez un pseudo (obligatoire)" required minlength="6" maxlength="10">
-                            <button id="sugestButton">Suggérer un login</button> 
-                            <div class="valide-container">
-                                <span class="valide-ok">V</span>
-                                <span class="valide-ko">X</span>
-                            </div>
-                            <div class="error-message-container">
-                                <div class="error-message error-required">le pseudo est requis</div>
-                                <div class="error-message error-format">le pseudo n'a pas le bon format</div>
-                                <div class="error-message error-not-available">le pseudo n'est pas disponible</div>
-                            </div>  
-                            
-                        </div>
-
-                        <div class="form-element form-password">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="password" data-pristine="true" placeholder="Mot de passe (obligatoire)" required>
-                            <label for="repeat">Resaisir le mot de passe</label>
-                            <input type="password" name="repeat" id="repeat" data-pristine="true" placeholder="Resaisissez Mot de passe (obligatoire)" required>
-                            <div id="strength">
-                                <div id="weak" class="force">faible</div>
-                                <div id="medium" class="force">moyen</div>
-                                <div id="strong" class="force">fort</div>
-                            </div>
-                            <div class="valide-container">
-                                <span class="valide-ok">V</span>
-                                <span class="valide-ko">X</span>
-                            </div>
-                            <div class="error-message-container">
-                                <div class="error-message error-required">le mot de passe est requis</div>
-                                <div class="error-message error-format">le mot de passe n'a pas le bon format</div>
-                                <div class="error-message error-difference">les mots de passe sont différents</div>
-                            </div>
-                        </div>
-                </div>
-
-                    
-
-                </div>
-                <div>
+                
+                <div class="submit-container">
                     <input type="submit" value=">" class="submit-button">
                 </div>
             </form>

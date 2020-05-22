@@ -2,18 +2,20 @@ html, body, main {
     height: 100%;
     margin: 0; 
     padding: 0;
+    border: 1px solid transparent;
 }
 
 body {
     font-family:  'Comic Neue',Arial, Helvetica, sans-serif;
     background: #f3f3f3; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #f3f3f3 0%, #f3f3f3 50%, #f8e6d8 50.01%, #f8e6d8 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #f3f3f3 0%,#f3f3f3 50%,#f8e6d8 50.01%,#f8e6d8 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #f3f3f3 0%,#f3f3f3 50%,#f8e6d8 50.01%,#f8e6d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(-45deg, #f3f3f3 0%, #f3f3f3 70%, #f8e6d8 70.01%, #f8e6d8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #f3f3f3 0%,#f3f3f3 70%,#f8e6d8 70.01%,#f8e6d8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #f3f3f3 0%,#f3f3f3 70%,#f8e6d8 70.01%,#f8e6d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
 }
 
-h1 {
-    position: absolute; 
+h1 {color: black;
+    /*position: absolute; 
     top: 50%;
     left: 50%;
     width: 200px;
@@ -24,12 +26,13 @@ h1 {
     padding: 5px;
     border-radius: 5px;
     z-index: 10;
-    color: white;
+    */
 }
 
 form {
     position: relative;
-    width: 900px;
+    width: 90%;
+    max-width: 900px;
     padding: 50px;
     margin: 50px auto 0 auto;
     box-sizing: border-box;
@@ -44,13 +47,6 @@ form {
 
 form > * {
     margin: 0 0 12px 0
-}
-
-#leftPart, #rightPart {
-    border: 1px solid red;
-}
-#rightPart {
-    background-color: white;
 }
 
 input, select, #sugestButton {
@@ -82,19 +78,30 @@ select option:hover {
 }
 
 
-input[type=submit] {
+.submit-container {
+    width: 150px;
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    height: 200px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.submit-container input[type=submit] {
     background-color: #282828;
     color: white;
     text-transform: uppercase;
     position: absolute;
-    bottom: 0; 
-    right: 0;
-    border-radius: 100px 0 0 0;
-    width: 100px;
-    height: 100px;
+    bottom: -20px; 
+    right: -100px;
+   border-radius: 30px;
+    width: 200px;
+    height: 150px;
     cursor: pointer;
     font-size:50px;
     padding: 20px 0 0 35px;
+    transform: rotate(-45deg);
 }
 
 #results {
@@ -138,10 +145,3 @@ input[type=submit] {
     border-radius: 3px;
     background-color: rgba(255,255,255, .3);
 }
-
-form {
-    display: grid;
-    grid-template-columns: 45% 45%;
-    justify-content: space-between;
-}
-

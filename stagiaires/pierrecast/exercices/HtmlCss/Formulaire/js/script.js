@@ -10,6 +10,7 @@ const fieldSex = document.querySelector('.form-sex');
 const fieldRole = document.querySelector('.form-role');
 const fieldRoles = fieldRole.querySelectorAll('input');
 const fieldAvatar = document.querySelector('.form-avatar');
+const oForm = document.querySelector('form');
 
 const fieldSubmit = document.querySelector('.submit-button');
 const pristineField = document.querySelectorAll('[data-pristine=true]');
@@ -21,15 +22,40 @@ const avatarInputField = fieldAvatar.querySelector('#avatarPosition');
 const oAvatars = fieldAvatar.querySelector('.avatars img');
 const oAvatar = fieldAvatar.querySelector('.avatar img');
 
+const infoName = document.querySelector('.info-nom');
+const infoFirstName = document.querySelector('.info-prenom');
+const infoEmail = document.querySelector('.info-email');
+const infoDate = document.querySelector('.info-date');
+const infoPhone = document.querySelector('.info-phone');
+const infoAge = document.querySelector('.info-age');
+const infoLogin = document.querySelector('.info-login');
+const infoPassword = document.querySelector('.info-password');
+const infoNationality = document.querySelector('.info-nationality');
+const infoSex = document.querySelector('.info-sex');
+const infoRole = document.querySelector('.info-role');
+const infoAvatar = document.querySelector('.info-avatar');
+const oModify = document.querySelector('.modify');
+const modify = function (e) {
+    oForm.classList.remove('complete');
+    oForm.classList.add('incomplete');
+    e.preventDefault();
+}
+
+const submit = function (e) {
+    e.preventDefault();
+    if (oForm.classList.contains('incomplete')) {
+        validate();
+    } else {
+        sendForm();
+    }
+}
+
 oSugestButton.addEventListener('click', (e)=> {
     e.preventDefault();
     suggest();
 });
 
-fieldSubmit.addEventListener('click', (e)=> {
-    e.preventDefault();
-    validate();
-});
+fieldSubmit.addEventListener('click', submit);
 
 fieldName.addEventListener('input', ()=> {
     validateFieldName(fieldName);
@@ -69,6 +95,8 @@ fieldRoles.forEach((role) => {
         validateFieldRoles(fieldRole);
     });
 });
+
+oModify.addEventListener('click', modify);
 
 fieldAvatar.addEventListener('change', ()=> {
     validateFieldAvatar(fieldAvatar);
@@ -140,6 +168,11 @@ function validate() {
     if (msg !== '') {
         msg = 'Les champs suivants sont à remplir correctement\n'+msg;
         alert(msg);
+        return false;
+    } else {
+        TransfertData();
+        oForm.classList.remove('incomplete');
+        oForm.classList.add('complete');
     }
 }
 
@@ -752,7 +785,7 @@ function getAvatar(e) {
 
 showAvatar(0,0);
 function showAvatar(x,y) {
-    avatarInputField.value = x+"-"+y;
+    avatarInputField.value = y+"-"+x;
     if (x !== 0 && y !== 0) {
         fieldAvatar.dispatchEvent(new Event('change'));
     }
@@ -762,4 +795,50 @@ function showAvatar(x,y) {
 
     oAvatar.style.top = ((1-y)*100)+"%";
     oAvatar.style.left = ((1-x)*100)+"%";
+}
+
+function TransfertData() {
+    // avatar
+    infoAvatar.innerHTML = transformAvatar(fieldAvatar.querySelector('input').value);
+    infoName.innerHTML = fieldName.querySelector('input').value;
+    infoFirstName.innerHTML = fieldFirstName.querySelector('input').value; 
+    infoEmail.innerHTML = fieldEmail.querySelector('input').value; 
+    infoAge.innerHTML = transformAge(fieldDate.querySelector('input').value);
+    infoPhone.innerHTML = fieldPhone.querySelector('input').value;
+    infoNationality.innerHTML = fieldNationality.querySelector('option:checked').innerHTML;
+    infoSex.innerHTML = fieldSex.querySelector('input:checked').nextSibling.innerHTML;
+    infoLogin.innerHTML = fieldLogin.querySelector('input').value;
+    infoRole.innerHTML = transformRole(fieldRole.querySelectorAll('input:checked'));
+}
+
+function transformAge(date) {
+    const today = new Date();
+    const birthday = new Date(date);
+    let ageTime = today.getTime() - birthday.getTime();
+    let age = Math.floor(ageTime / 1000 / 60 / 60 / 24 / 365); 
+
+    return age + " ans";
+}
+
+function transformRole(roles) {
+    let role = '';
+    roles.forEach(item => {
+        role += item.nextSibling.innerHTML+"<br/>";
+    });
+    
+    return role;
+}
+
+function transformAvatar(avatar) {
+    avatar = "<img src='img/avataaars-"+avatar+".png' alt='"+avatar+"' />";
+    return avatar;
+}
+
+function sendForm() {
+    
+    oModify.removeEventListener('click', modify);
+    oModify.style.display = "none";
+    fieldSubmit.removeEventListener('click', submit);
+    fieldSubmit.style.display = "none";
+    alert ('Vos données ont été transmises. Merci !');
 }
