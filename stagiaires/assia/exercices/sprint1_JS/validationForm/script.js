@@ -10,6 +10,7 @@ const fieldLoginBtn = document.querySelector('.login-button');
 const fieldTel = document.querySelector('.form-tel');
 const fieldPwd = document.querySelector('.form-mdp');
 const fieldPwdConfirmed = document.querySelector('.form-mdp-confirm');
+const fieldNationality = document.querySelector('.form-nationality');
 
 fieldSubmit.addEventListener('click', (e)=> {
     validate(fieldSubmit); 
@@ -42,6 +43,9 @@ fieldPwd.addEventListener('input', () => {
 fieldPwdConfirmed.addEventListener('input', () => {
     validateFieldPasswordConfirmation(fieldPwd, fieldPwdConfirmed);
 });
+fieldNationality.addEventListener('change', () => {
+    validateFieldNationality(fieldNationality);
+});
 
 //-----------------------------------------
 /*function isFormValid() {
@@ -72,6 +76,23 @@ function removeClassLists(element) {
     element.classList.remove('valide');
     element.classList.remove('invalide');
     element.classList.remove('error-message');
+}
+
+function validateFieldNationality(nationalityField) {
+    const nationSelectField = nationalityField.querySelector('select');
+    const nationSelected = nationSelectField.value; 
+    const validReturn = true;
+    nationalityField.classList.remove('valide');
+    nationalityField.classList.remove('invalide');
+    nationalityField.classList.remove('error-required');
+    if (nationSelected == 'nothingSelected') {
+        nationalityField.classList.add('invalide');
+        nationalityField.classList.add('error-required');
+        validReturn = false;
+    } else {
+        nationalityField.classList.add('valide');
+    }
+    return validReturn;
 }
 
 /**
@@ -123,6 +144,7 @@ function suggestLogin(firstNameField, lastNameField, loginField) {
     console.log(loginGenerated);
     const loginInputField = loginField.querySelector('input');
     loginInputField.value = loginGenerated;
+    validateFieldLogin(loginField);
 }
 
 /**
@@ -274,7 +296,6 @@ function validateFieldPasswordConfirmation(pwdField, pdwConfField) {
         }
     }
 }
-
 
 function pwdConfStatus(pwd1, pwd2) {
     if (pwd2 === pwd1) {
