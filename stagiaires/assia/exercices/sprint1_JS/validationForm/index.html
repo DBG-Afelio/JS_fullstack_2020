@@ -8,6 +8,7 @@
 </head>
 <body>
     <form novalidate id="myform">
+        <h1>Formulaire d'inscription</h1>
         <fieldset>
             <legend>Personal information</legend>
             <div class="form-element form-nom ">
@@ -16,8 +17,8 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-min-length">Le nom doit être au minimum de 3 caractères</div>
-                    <div class="error-message error-max-length">Le nom doit être au maximum de 50 caractères</div>
+                    <div class="error-message error-min-length">Minimum 3 caractères</div>
+                    <div class="error-message error-max-length">Maximum 50 caractères</div>
                 </div>   
             </div>
             <div class="form-element form-prenom ">
@@ -25,8 +26,8 @@
                 <span class="valide-ok">V</span>
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
-                    <div class="error-message error-min-length">Le nom doit être au minimum de 3 caractères</div>
-                    <div class="error-message error-max-length">Le nom doit être au maximum de 50 caractères</div>
+                    <div class="error-message error-min-length">Minimum 3 caractères</div>
+                    <div class="error-message error-max-length">Maximum 50 caractères</div>
                 </div>   
             </div> 
             <div class="form-element form-date">
@@ -35,8 +36,8 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-dateIsFutur">La date de naissance doit être anterieure à aujourd'hui</div>
-                    <div class="error-message error-ageIsOut">Votre age ne rentre pas dans les critères obligatoires (Age au 01/01/2020 +18ans ET -67ans)</div>
+                    <div class="error-message error-dateIsFutur">Vous avez selectionné une date anterieure à aujourd'hui</div>
+                    <div class="error-message error-ageIsOut">Vous n'avez pas l'age requis</div>
                 </div>   
             </div>
             <div class="form-element form-nationality ">
@@ -54,12 +55,18 @@
                 </div>   
             </div> 
             <div class="form-element form-sex ">
-                <input type="radio" name="sex-options" id="femme" value="femme" data-pristine="true">
-                <label for="femme">Femme</label>
-                <input type="radio" name="sex-options" id="homme" value="homme" data-pristine="true">
-                <label for="homme">Homme</label>
-                <input type="radio" name="sex-options" id="autre" value="autre" data-pristine="true">
-                <label for="autre">Autre</label>
+                <label for="femme">
+                    <input type="radio" name="sex-options" id="femme" value="femme" data-pristine="true">
+                    Femme
+                </label>
+                <label for="homme">
+                    <input type="radio" name="sex-options" id="homme" value="homme" data-pristine="true">
+                    Homme
+                </label>
+                <label for="autre">
+                    <input type="radio" name="sex-options" id="autre" value="autre" data-pristine="true">
+                    Autre
+                </label>
                 <span class="valide-ok">V</span>
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
@@ -75,7 +82,7 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-tel">Le numero entré est incorrecte [0032/+32/0][6-9 digits except 0]</div>
+                    <div class="error-message error-tel">Veuillez respecter le format: [0032/+32/0][6-9 digits sans le 0]</div>
                 </div>   
             </div>
             <div class="form-element form-email ">
@@ -84,7 +91,7 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-email">L'adresse mail entrée est incorrecte</div>
+                    <div class="error-message error-email">Veuillez respecter le format de mail: you@exemple.com</div>
                 </div>   
             </div>      
         </fieldset>
@@ -96,10 +103,10 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-min-login">Le login doit contenir au minimum 6 caractères</div>
-                    <div class="error-message error-max-login">Le login ne peut depasser 10 caractères maximum</div>
-                    <div class="error-message error-login-used">Ce login est deja pris</div>
-                    <div class="error-message error-pattern">Les symboles autres que "_ - ! $" ne sont pas authorises</div>
+                    <div class="error-message error-min-login">Minimum 6 caractères</div>
+                    <div class="error-message error-max-login">Maximum 10 caractères</div>
+                    <div class="error-message error-login-used">Desolé, ce login est deja pris</div>
+                    <div class="error-message error-pattern">Seuls les symboles "_ - ! $" sont authorises</div>
                 </div>   
             </div> 
             <div>
@@ -111,9 +118,9 @@
                 <span class="valide-ko">X</span>
                 <div class="error-message-container">
                     <div class="error-message error-required">Ce champ est requis</div>
-                    <div class="error-message error-min-login">Le mot de passe doit contenir au minimum 6 caractères</div>
-                    <div class="error-message error-max-login">Le mot de passe ne peut depasser 10 caractères maximum</div>
-                    <div class="error-message error-pattern">Les symboles autres que "_ - ! $" ne sont pas authorises : _ - ! $</div>
+                    <div class="error-message error-min-login">Minimum 6 caractères</div>
+                    <div class="error-message error-max-login">Maximum 10 caractères</div>
+                    <div class="error-message error-pattern">Seuls les symboles "_ - ! $" sont authorises</div>
                 </div>   
             </div> 
             <div class="form-element form-mdp-confirm ">
@@ -126,14 +133,26 @@
                 </div>   
             </div> 
             <div class="form-element form-mdp-strength">
-                <div class="mdp-faible"></div>
-                <div class="mdp-moyen"></div>
-                <div class="mdp-fort"></div>            
+                <label>
+                    <output class="mdp-strength mdp-faible">
+                        Faible
+                    </output>
+                </label>
+                <label>
+                    <output class="mdp-strength mdp-moyen">
+                        Moyen
+                    </output>
+                </label>
+                <label>
+                    <output class="mdp-strength mdp-fort">
+                        Fort
+                    </output>
+                </label>            
             </div>
         </fieldset>
-        
+        <div>
             <input type="submit" value="Valider" class="submit-button button">
-        
+        </div>
     </form>
     <script src="script.js"></script>
 </body>
