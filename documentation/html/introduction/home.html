@@ -6,6 +6,7 @@
         <link href="css/style.css" rel="Stylesheet" type="text/css"/>
         <link href="css/css-global.css" rel="Stylesheet" type="text/css"/>
         <link href="css/css-local.css" rel="Stylesheet" type="text/css"/>
+        <link href="../css/style.css" rel="Stylesheet" type="text/css"/>
     </head>
 	<body>
 
@@ -109,7 +110,7 @@
 			<p>
 					Le W3C définit trois états d’avancement pour ses différents documents qui vont chacun traiter d’un aspect d’un langage :
 			</p>
-			<ul>
+			<ul class="navUl">
 				<li>Le statut de recommandation, ce qui veut dire que le document sert de standard et que le support pour les éléments ou pratiques qu’il définit doit être intégré par les navigateurs ;</li>
 				<li>Le statut de candidat à la recommandation, ce qui signifie que les points abordés dans le document sont à priori fixés et attendent une dernière validation ;</li>
 				<li>Le statut « travail en cours », ce qui signifie que le document possède encore des zones d’ombre à mettre au clair, etc.</li>
@@ -198,7 +199,7 @@
             </div>
 
             <p>Une bonne structure permet de :</p>
-            <ul>
+            <ul class="navUl">
                 <li>Faciliter la lecture d'un document et accèder rapidement à certaines parties d'un document.</li>
                 <li>Ajouter correctement des feuilles de styles et de scripts (CSS et JS) sur des éléments précis du code.</li>
                 <li>Améliorer le référencement car les moteurs de recherche, lorsqu'ils indexent votre page, prennent en considération les titres en tant que mots‑clés.</li>
@@ -249,9 +250,9 @@
             <h3>7.1 - Prinicipe des balises </h3>
             <p>L'élément : Il est composé de la balise ouvrante, de la balise fermante et du contenu.</p>
 
-            <p>&lt;balise&gt; &lt;/balise&gt;: elles s'ouvrent et se ferment pour délimiter le contenu (début et fin d'un titre, par exemple).</p>
+            <p><b>&lt;balise&gt; &lt;/balise&gt;</b>: elles s'ouvrent et se ferment pour délimiter le contenu (début et fin d'un titre, par exemple).</p>
 
-            <p>&lt;balise /&gt;: balises orphelines (on ne les insère qu'en un seul exemplaire), elles permettent d'insérer un élément à un endroit précis (par exemple une image).</p>
+            <p><b>&lt;balise /&gt;</b>: balises orphelines (on ne les insère qu'en un seul exemplaire), elles permettent d'insérer un élément à un endroit précis (par exemple une image).</p>
 
             <p>Les liens ci-dessous reprennent la liste de toutes les balises existantes </p>
             <p>
@@ -355,11 +356,11 @@
                 <a href="http://jkorpela.fi/quirks-mode.html">Voir le lien</a>
             </p>
 
-            <h3>9.2 - <span class="keyword">&lt;html&gt;</span><span class="keyword">&lt;/html&gt;</span></h3>
-            <p>L'élément <span class="keyword">&lt;html&gt;</span>. Cet élément encadre tout le contenu de la page. Cet élément est parfois appelé l'élément racine.</p>
+            <h3>9.2 - <span class="keyword">&lt;html&gt;</span><span class="keyword"><b>&lt;/html&gt;</b></span></h3>
+            <p>L'élément <span class="keyword"><b>&lt;html&gt;</b></span>. Cet élément encadre tout le contenu de la page. Cet élément est parfois appelé l'élément racine.</p>
 
-            <h3>9.3 - <span class="keyword">&lt;head&gt;</span><span class="keyword">&lt;/head&gt;</span></h3>
-            <p>L'élément <span class="keyword">&lt;head&gt;</span>. Cet élément est utilisé comme un container pour toutes les choses qui font partie de la page HTML mais qui ne sont pas du contenu affiché. C'est dans cet élément qu'on mettra des mots-clés, une description de la page qui apparaîtra sur les moteurs de recherche, les liens vers les fichiers CSS à utiliser pour la mise en forme, les déclarations des jeux de caractères à utiliser et ainsi de suite.</p>
+            <h3>9.3 - <span class="keyword"><b>&lt;head&gt;</b></span><span class="keyword">&lt;/head&gt;</span></h3>
+            <p>L'élément <span class="keyword"><b>&lt;head&gt;</b></span>. Cet élément est utilisé comme un container pour toutes les choses qui font partie de la page HTML mais qui ne sont pas du contenu affiché. C'est dans cet élément qu'on mettra des mots-clés, une description de la page qui apparaîtra sur les moteurs de recherche, les liens vers les fichiers CSS à utiliser pour la mise en forme, les déclarations des jeux de caractères à utiliser et ainsi de suite.</p>
 
             <h3>9.4 - <span class="keyword">&lt;body&gt;</span><span class="keyword">&lt;/body&gt;</span></h3>
             <p>L'élément <span class="keyword">&lt;body&gt;</span>. Cet élément est celui qui contient tout le contenu que vous souhaitez afficher pour qu'il soit vu par les visiteurs : cela peut être du texte, des images, des vidéos, des jeux, des pistes audio jouables, et ainsi de suite.</p>
@@ -383,7 +384,7 @@
             <h3>10.1 - Attributs généraux et spécifiques</h3>
             <p>Les attributs sont un peu les options des balises. Ils viennent les compléter pour donner des informations supplémentaires. L'attribut se place après le nom de la balise ouvrante et a le plus souvent une valeur, comme ceci :</p>
 
-            <p>&lt;balise attribut="valeur"&gt;</p>
+            <p><b>&lt;balise attribut="valeur"&gt;</b></p>
 
             <p>Certains attributs s’appliquent à presque tous les éléments (class, id,  data-attribute, etc.), d'autres attributs sont propres à un élément unique, ou des éléments similaires (alt pour une img, href pour un lien, etc.)</p>
 
@@ -392,7 +393,7 @@
             <p>Chaque terme permet de créer des propriétés CSS personnalisées, que vous pouvez appliquer à vos balises, mais il existe des différences entre une classe (.toto) et un id (#toto)</p>
             <p>On peut utiliser indifféremment les attributs id et class pour appliquer des styles CSS aux éléments d'une page et interagir avec eux en JavaScript, mais...</p>
 
-            <ul>
+            <ul class="navUl">
                 <li>un id s'applique à un objet unique : il ne peut pas y avoir deux mêmes id dans une page</li>
                 <li>une classe peut caractériser plusieurs objets (identiques ou non)</li>
             </ul>
@@ -419,7 +420,7 @@
 
             <h3>11.1 - Etre conforme aux standards W3C</h3>
             <p>Pour être conforme aux standards W3C, votre site Internet doit prendre en compte plusieurs paramètres :</p>
-            <ul>
+            <ul class="navUl">
                 <li>Déclarer un doctype reconnu par le W3C</li>
                 <li>Le respect de la sémantique</li>
                 <li>Rendre son site accessible selon les spécifications WCAG (Web Content Accessibility Guidelines)</li>
@@ -432,7 +433,7 @@
             <h3>11.2 - Liste de validateurs</h3>
 
             <p>Liste de validateurs</p>
-            <ul>
+            <ul class="navUl">
                 <li>Tester le code HTML : <a href="http://validator.w3.org/">validator.w3.org/</a></li>
                 <li>Tester le code CSS : <a href="http://validator.w3.org/"></a>jigsaw.w3.org/css/</li>
                 <li>Tester ses couleurs : Extension firefox</li>
@@ -460,7 +461,7 @@
 
             <p>Ainsi il est possible d'écrire le signe euro (€) de deux manières :</p>
 
-            <ul>
+            <ul class="navUl">
                 <li>&amp;#8364; qui en est l'entité numérique décimale (index dans la table des caractères Unicode) ;</li>
                 <li>&amp;euro; qui en est l'entité caractère.</li>
             </ul>
@@ -523,7 +524,7 @@
             <h3>13.2 - Qu’est-ce que l’accessibilité du web</h3>
             <p>L’accessibilité du web comprend tous les handicaps affectant l’accès au web, en particulier le handicap : auditif, cognitif, neurologique, physique, de la parole, visuel. Elle bénéficie également aux personnes sans handicap, comme par exemple :</p>
 
-            <ul>
+            <ul class="navUl">
                 <li>les personnes utilisant un téléphone mobile, une montre connectée, une télévision connectée, et autres périphériques ayant des petits écrans, différents modes de saisie, etc.</li>
                 <li>les personnes âgées dont les capacités changent avec l’âge</li>
                 <li>les personnes ayant un « handicap temporaire » tel qu’un bras cassé ou perdu leurs lunettes</li>
