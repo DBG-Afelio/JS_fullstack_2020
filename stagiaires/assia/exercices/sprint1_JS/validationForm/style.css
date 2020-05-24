@@ -15,7 +15,7 @@ h1{
     text-align: center;
     background-color: transparent;
 }
-form {
+#myform {
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
@@ -40,6 +40,34 @@ legend{
     font-size: 15px;
     text-transform: capitalize;
     color: darkslategray;
+}
+#summary-card {
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    background-color:white ;
+    width: 220px;
+    border-style: outset;
+   /* border-top-right-radius: 40px; */
+    margin: 20px;
+    padding: 20px;
+    
+}
+#summary-card output{
+    background-color: wheat;
+    border-style: none;
+    width: 200px;
+    height: 20px;
+}
+#summary-card input {
+    background-color: transparent;
+    border-style: outset;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: darkslategray;
+    width: 210px;
+    height: 40px;   
+    text-align: center;
 }
 span {
     float: right;
