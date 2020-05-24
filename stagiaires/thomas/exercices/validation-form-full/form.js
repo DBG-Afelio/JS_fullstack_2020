@@ -13,9 +13,11 @@ const firstTabStrengthPassword = document.querySelector(".force-passe-cntnr:firs
 const secondTabStrengthPassword = document.querySelector(".force-passe-cntnr:nth-child(2)");
 const lastTabStrengthPassword = document.querySelector(".force-passe-cntnr:last-child"); 
 const country = document.querySelector(".country");
-const radiosGender = document.querySelectorAll("input[name='gender']");
 const submit = document.querySelector(".submit");
-let containerMessage = document.createElement("div");
+const containerMessage = document.createElement("div");
+const checkboxFullStack = document.querySelector(".dev-full-stack");
+const allJobsCheckboxes = document.querySelectorAll(".job-checkbox");
+const jobNone = document.querySelector(".job-none")
 
 // FUNCTIONS  
 
@@ -162,7 +164,7 @@ login.addEventListener("input", () => checkLogin())
 suggestLogin.addEventListener("click", function(e) {
     e.preventDefault();
     login.value = generateUserLogin(nom.value, prenom.value);  
-})
+});
 
 // MOT DE PASSE 
 
@@ -185,7 +187,7 @@ password.addEventListener("input", function() {
     } else {
         lastTabStrengthPassword.classList.remove("fort");
     }
-}) 
+}); 
 
 confirmPassword.addEventListener("input", function() {
 
@@ -194,12 +196,38 @@ confirmPassword.addEventListener("input", function() {
     } else {
         confirmPassword.style.borderColor = "#e74c3c"
     }
+}); 
 
-}) 
+// PAYS 
+
+country.addEventListener("change", function() {
+
+        if(country.value === "choose") {
+            (alert("ok"));
+        }
+});
+
+// GENRE 
+
+document.querySelector(".other").setAttribute("checked", "true");
 
 
+// JOBS 
 
-submit.addEventListener("submit", function(e) {
-    e.preventDefault();
+checkboxFullStack.addEventListener("click", () => {
 
+     if(checkboxFullStack.checked) {
+        jobNone.removeAttribute("checked");
+        allJobsCheckboxes.forEach((checkbox) => checkbox.setAttribute("checked", "true"))
+    } else {
+        jobNone.setAttribute("checked","true");
+        allJobsCheckboxes.forEach((checkbox) => checkbox.removeAttribute("checked"));
+    }
 })
+
+
+// ENVOYER 
+
+submit.addEventListener("submit", (e) => {
+    e.preventDefault();
+});

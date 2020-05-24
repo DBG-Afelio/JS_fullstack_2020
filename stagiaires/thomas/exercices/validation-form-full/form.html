@@ -321,11 +321,11 @@
 
     <div class="form-item gender">
       <label for="gender">Femme</label>
-      <input type="radio" name="gender">
+      <input type="radio" class="female" name="gender">
       <label for="gender">Homme</label>
-      <input type="radio" name="gender">
+      <input type="radio" class="male" name="gender">
       <label for="gender">Autre</label>
-      <input type="radio" name="gender" checked>
+      <input type="radio" class="other" name="gender">
       <span class="ico-input"><img src="https://via.placeholder.com/30" alt=""></span>
     </div>
 
@@ -335,33 +335,39 @@
         <ul>
             <li>
                 <div class="checkboxes-job">
-                    <input type="checkbox" name="test">
+                    <input class="job-checkbox dev-full-stack" type="checkbox" name="test">
                     <label for="test">Développeur Full Stack</label>
                 </div>
                 <ul>
                     <li><div class="checkboxes-job">
-                        <input type="checkbox" name="test">
+                        <input class="job-checkbox dev-front" type="checkbox" name="test">
                         <label for="test">Développeur Front</label>
                       </div>
                     </li>
                     <li>
                         <div class="checkboxes-job">
-                            <input type="checkbox" name="test">
+                            <input class="job-checkbox dev-back" type="checkbox" name="test">
                             <label for="test">Développeur Back</label>
                         </div>
                     </li>
                     <li>
                         <div class="checkboxes-job">
-                            <input type="checkbox" name="test">
+                            <input class="job-checkbox integrateur" type="checkbox" name="test">
                             <label for="test">Intégrateur</label>
                         </div>
                     </li>
                     <li>
                         <div class="checkboxes-job">
-                            <input type="checkbox" name="test">
+                            <input class="job-checkbox designer" type="checkbox" name="test">
                             <label for="test">UX/UI</label>
                         </div>
                     </li>
+                    <li>
+                      <div class="checkboxes-job">
+                          <input class="job-none" type="checkbox" name="test">
+                          <label for="test">Rien de tout cela</label>
+                      </div>
+                  </li>
                 </ul>
             </li>
         </ul>   
