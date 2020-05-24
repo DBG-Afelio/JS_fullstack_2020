@@ -1,0 +1,51 @@
+// Ecrire un programme qui demande à l’utilisateur un texte, 
+// une position de départ et une position de fin.
+// Le programme affichera la sous-chaine composée des caractères 
+// se trouvant dans le texte entre la position de départ (comprise) 
+// et la position de fin (non comprise).
+// Si les positions ne sont pas valides, le programme affiche 
+// un message d’erreur.
+
+// Remarque : Ceci sans utiliser la fonction sousChaine() :-)
+
+
+
+Debut textePositions
+
+
+	VARIABLES LOCALES :
+
+		var texteSource: T <- "" 
+		var positionDeDepart: N <- 0
+		var positionDeFin: N <- 0
+		var texteRecupere: T <- "" 
+	
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte de base"
+		Saisir texteSource
+		
+		Afficher "Entrez une position de départ"
+		Saisir positionDeDepart
+
+		Afficher "Entrez une position de fin (non comprise)"
+		Saisir positionDeFin
+
+	Si (positionDeDepart>positionDeFin) || positionDeDepart<0 || positionDeFin<0 || positionDeFin>longueur(texteSource) || positionDeDepart>longueur(texteSource)
+		Alors 
+			Afficher "Les valeurs de position ne sont pas valides"
+		Sinon
+
+		// On va faire une boucle de 0 à (positionDeFin-positionDeDepart)-1, 
+		// le -1 est là car l'élement en position de fin n'est pas récupéré<
+
+			Pour i allant de 0 à [(positionDeFin-positionDeDepart)-1]
+	
+				texteRecupere = texteRecupere (+) caract(texteSource, positionDeDepart + i)
+			
+			i++ 
+
+		Afficher texteRecupere
+	FinSi
+
+Fin textePositions
