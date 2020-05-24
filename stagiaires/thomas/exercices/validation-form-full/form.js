@@ -1,4 +1,5 @@
-// CHAMPS HTML
+// DOM ELEMENTS
+
 const nom = document.querySelector(".nom");
 const prenom = document.querySelector(".prenom");
 const email = document.querySelector(".email");
@@ -8,24 +9,15 @@ const login = document.querySelector(".login");
 const suggestLogin = document.querySelector(".suggest-login");
 const password = document.querySelector(".mot-de-passe");
 const confirmPassword = document.querySelector(".confirm-mot-de-passe");
-const passTabs = document.querySelectorAll(".force-passe-cntnr"); 
+const firstTabStrengthPassword = document.querySelector(".force-passe-cntnr:first-child");
+const secondTabStrengthPassword = document.querySelector(".force-passe-cntnr:nth-child(2)");
+const lastTabStrengthPassword = document.querySelector(".force-passe-cntnr:last-child"); 
 const country = document.querySelector(".country");
 const radiosGender = document.querySelectorAll("input[name='gender']");
 const submit = document.querySelector(".submit");
 let containerMessage = document.createElement("div");
 
-//FUNCTIONS  
-
-function formatTodayDate() {
-
-    let date = new Date(),
-        month = (date.getMonth() + 1),
-        day = date.getDate(),
-        year = date.getFullYear();
-
-    return `${day}-${month}-${year}`;
-}
-
+// FUNCTIONS  
 
 function getUserAge(dateDeNaissance) {
 
@@ -43,77 +35,56 @@ function getUserAge(dateDeNaissance) {
 
 function generateUserLogin(nom, prenom) {
 
-if(nom.length === 0 || prenom.length === 0) {
+    if(nom.length === 0 || prenom.length === 0) {
 
- const listOflogins = 
-    [
-    "Barvia60",
-    "Zelro77",
-    "Baschies5",
-    "Miha88",
-    "Monbude10",
-    "Farma3",
-    "Dephe045",
-    "Mebe845",
-    "Cesmar102",
-    "Fucer437"
-    ];
-        return listOflogins[Math.floor(Math.random() * Math.floor(listOflogins.length))];
+    const listOflogins = 
+        [
+            "Barvia60",
+            "Zelro77",
+            "Baschies5",
+            "Miha88",
+            "Monbude10",
+            "Farma3",
+            "Dephe045",
+            "Mebe845",
+            "Cesmar102",
+            "Fucer437"
+        ]
+
+        return listOflogins[Math.floor(Math.random() * Math.floor(listOflogins.length))].toLowerCase();
+
+        } else {
+
+        let numbers = [1,2,3,4,5,6,7,8,9];
+        let randomNumbers = []; 
+
+        nom = nom.toLowerCase().substring(0,2);
+        prenom = prenom.toLowerCase().substring(0,1);
+
+        for (let i = 0; i < 3; i++) {
+            randomNumbers.push(numbers[Math.floor(Math.random() * Math.floor(numbers.length))])
+        }
+
+        return `${prenom}-${nom}_${randomNumbers.join("")}`
+
+        }
+
+}
+
+function checkName(champ) {
+
+    if(champ.value.length === 0) {
+        champ.style.borderColor = "lightslategray"
+    } else if(champ.value.length >= 3 && champ.value.length <= 50 && !(numbersInTextField.test(nom.value))) {
+        champ.style.borderColor = "#2ecc71"
     } else {
-
-    let numbers = [1,2,3,4,5,6,7,8,9];
-    let randomNumbers = []; 
-
-    nom = nom.toLowerCase().substring(0,2);
-    prenom = prenom.toLowerCase().substring(0,1);
-
-    for (let i = 0; i < 3; i++) {
-        randomNumbers.push(numbers[Math.floor(Math.random() * Math.floor(numbers.length))])
-    }
-
-    return `${prenom}-${nom}_${randomNumbers.join("")}`
-
+        champ.style.borderColor = "#e74c3c"
     }
 
 }
 
-
-// REGEXES
-const numbersInTextField = /\d/g;
-const emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
-const phoneRegex =  /^([0032]{4}|[0]{1}|[+32]{3})[1-9]{6,9}$/;
-const loginRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
-
-//NOM
-
-nom.addEventListener("input", function() {
-    
-    if(nom.value.length === 0) {
-        nom.style.borderColor = "lightslategray"
-    } else if(nom.value.length >= 3 && nom.value.length <= 50 && !(numbersInTextField.test(nom.value))) {
-        nom.style.borderColor = "#2ecc71"
-    } else {
-        nom.style.borderColor = "#e74c3c"
-    }
-})
-
-//PRENOM
-
-prenom.addEventListener("input", function() {
-    
-    if(prenom.value.length === 0) {
-        prenom.style.borderColor = "lightslategray"
-    } else if(prenom.value.length >= 3 && prenom.value.length <= 50 && !(numbersInTextField.test(prenom.value))) {
-        prenom.style.borderColor = "#2ecc71"
-    } else {
-        prenom.style.borderColor = "#e74c3c"
-    }
-})
-
-//EMAIL
-
-email.addEventListener("input", function() {
-
+function checkMail() {
+   
     if(email.value.length === 0) {
         email.style.borderColor = "lightslategray"
     } else if(emailRegex.test(email.value)) {
@@ -121,12 +92,9 @@ email.addEventListener("input", function() {
     } else {
         email.style.borderColor = "#e74c3c"
     }
+}
 
-})
-
-//TELEPHONE
-
-telephone.addEventListener("input", function() {
+function checkPhone() {
 
     if(telephone.value.length === 0) {
         telephone.style.borderColor = "lightslategray"
@@ -135,11 +103,9 @@ telephone.addEventListener("input", function() {
     } else {
         telephone.style.borderColor = "#e74c3c"
     }
-})
+}
 
-// DATE DE NAISSANCE 
-
-dateDeNaissance.addEventListener("change", function() {
+function checkAge() {
 
     let userAge = getUserAge(dateDeNaissance.value);
 
@@ -148,12 +114,10 @@ dateDeNaissance.addEventListener("change", function() {
     } else {
         dateDeNaissance.style.color = "#e74c3c";
     }
-})
+}
 
-// LOGIN
-
-login.addEventListener("input", function() {
-
+function checkLogin() {
+    
     if(login.value.length === 0) {
         login.style.borderColor = "lightslategray"
     } else if(loginRegex.test(login.value)) {
@@ -161,17 +125,77 @@ login.addEventListener("input", function() {
     } else {
         login.style.borderColor = "#e74c3c"
     }
+}
 
 
-})
+// REGEXES
+const numbersInTextField = /\d/g;
+const emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
+const phoneRegex =  /^([0032]{4}|[0]{1}|[+32]{3})[1-9]{6,9}$/;
+const loginRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
+const passwordRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
+
+// NOM
+
+nom.addEventListener("input", () => checkName(nom));
+
+// PRENOM
+
+prenom.addEventListener("input", () =>  checkName(prenom));
+
+// EMAIL
+
+email.addEventListener("input", () => checkMail());
+
+// TELEPHONE
+
+telephone.addEventListener("input", () => checkPhone());
+
+// DATE DE NAISSANCE 
+
+dateDeNaissance.addEventListener("change", () => checkAge());
+
+// LOGIN
+
+login.addEventListener("input", () => checkLogin())
 
 suggestLogin.addEventListener("click", function(e) {
     e.preventDefault();
     login.value = generateUserLogin(nom.value, prenom.value);  
 })
 
+// MOT DE PASSE 
 
+password.addEventListener("input", function() {
+      
+    if(passwordRegex.test(password.value) && password.value.length === 6) {
+        firstTabStrengthPassword.classList.add("faible");
+    } else {
+        firstTabStrengthPassword.classList.remove("faible");
+    }
 
+     if(passwordRegex.test(password.value) && (password.value.length >= 7 && password.value.length <= 8)) {
+        secondTabStrengthPassword.classList.add("moyen");
+    } else {
+        secondTabStrengthPassword.classList.remove("moyen");
+    }
+
+    if(passwordRegex.test(password.value) && (password.value.length >= 9 && password.value.length <= 10)) {
+        lastTabStrengthPassword.classList.add("fort");
+    } else {
+        lastTabStrengthPassword.classList.remove("fort");
+    }
+}) 
+
+confirmPassword.addEventListener("input", function() {
+
+    if(Object.is(password.value, confirmPassword.value)) {
+        confirmPassword.style.borderColor = "#2ecc71"
+    } else {
+        confirmPassword.style.borderColor = "#e74c3c"
+    }
+
+}) 
 
 
 

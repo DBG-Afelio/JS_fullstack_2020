@@ -6,7 +6,6 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    background: #00c6ff;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
@@ -98,6 +97,40 @@ body {
   .suggest-login {
       margin: 1.5em 0;
   }
+
+
+  .force-passe-cntnr {
+
+      width: 10%;
+      height: 0.4em;
+      border: 1px solid lightslategray;
+      border-radius: 8px; 
+      margin: 1em 0.4em 2em 0; 
+      background-color: lightgray;
+  }
+
+ .force-passe-cntnr > p {
+     text-align: center;
+ }
+
+ .force-passe-cntnr.faible {
+     color : rgba(231, 76, 60,1.0);
+     border-color: rgba(231, 76, 60,1.0);
+     background-color: rgba(231, 76, 60,0.75);
+ } 
+
+ .force-passe-cntnr.moyen {
+    color : rgba(243, 156, 18,1.0);
+    border-color: rgba(243, 156, 18,1.0);
+    background-color: rgba(243, 156, 18,0.75);
+} 
+
+.force-passe-cntnr.fort {
+    color: rgba(46, 204, 113,1.0);
+    border-color: rgba(46, 204, 113,1.0);
+    background-color: rgba(46, 204, 113,0.75);
+} 
+
   
   .form-item.gender label {
     padding: 0 0.3em 0 0.5em;
