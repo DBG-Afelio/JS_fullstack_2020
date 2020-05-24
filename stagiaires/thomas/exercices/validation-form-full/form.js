@@ -14,10 +14,41 @@ const radiosGender = document.querySelectorAll("input[name='gender']");
 const submit = document.querySelector(".submit");
 let containerMessage = document.createElement("div");
 
+
+//FUNCTIONS  
+
+function formatTodayDate() {
+
+    let date = new Date(),
+        month = (date.getMonth() + 1),
+        day = date.getDate(),
+        year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
+}
+
+
+function getUserAge(dateDeNaissance) {
+
+    let today = new Date();
+    let naissance = new Date(dateDeNaissance);
+    let age = today.getFullYear() - naissance.getFullYear()
+    let mois = today.getMonth() - naissance.getMonth();
+
+    if(mois < 0 || (mois === 0 && today.getDate() < naissance.getDate())) {
+        age = age - 1;
+    }
+
+    return age
+}
+
+
 // REGEXES
 let numbersInTextField = /\d/g;
 let emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
-let phoneRegex =  
+let phoneRegex =  /^([0032]{4}|[0]{1}|[+32]{3})[1-9]{6,9}$/;
+
+//NOM
 
 nom.addEventListener("input", function() {
     
@@ -30,6 +61,8 @@ nom.addEventListener("input", function() {
     }
 })
 
+//PRENOM
+
 prenom.addEventListener("input", function() {
     
     if(prenom.value.length === 0) {
@@ -40,6 +73,8 @@ prenom.addEventListener("input", function() {
         prenom.style.borderColor = "#e74c3c"
     }
 })
+
+//EMAIL
 
 email.addEventListener("input", function() {
 
@@ -52,6 +87,36 @@ email.addEventListener("input", function() {
     }
 
 })
+
+//TELEPHONE
+
+telephone.addEventListener("input", function() {
+
+    if(telephone.value.length === 0) {
+        telephone.style.borderColor = "lightslategray"
+    } else if(phoneRegex.test(telephone.value)) {
+        telephone.style.borderColor = "#2ecc71"
+    } else {
+        telephone.style.borderColor = "#e74c3c"
+    }
+})
+
+
+dateDeNaissance.addEventListener("change", function() {
+
+    let userAge = getUserAge(dateDeNaissance.value);
+
+    if (userAge > 18 && userAge < 67) {
+        dateDeNaissance.style.color = "#2ecc71";
+    } else {
+        dateDeNaissance.style.color = "#e74c3c";
+    }
+
+// DATE FORMATEE -> let dateValue = dateDeNaissance.value.split("-").reverse().join("-");   
+
+})
+
+
 
 
 
