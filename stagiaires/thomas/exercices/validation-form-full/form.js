@@ -14,21 +14,6 @@ const radiosGender = document.querySelectorAll("input[name='gender']");
 const submit = document.querySelector(".submit");
 let containerMessage = document.createElement("div");
 
-const listOflogins = 
-[
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-""
-];
-
-
 //FUNCTIONS  
 
 function formatTodayDate() {
@@ -58,17 +43,37 @@ function getUserAge(dateDeNaissance) {
 
 function generateUserLogin(nom, prenom) {
 
+if(nom.length === 0 || prenom.length === 0) {
+
+ const listOflogins = 
+    [
+    "Barvia60",
+    "Zelro77",
+    "Baschies5",
+    "Miha88",
+    "Monbude10",
+    "Farma3",
+    "Dephe045",
+    "Mebe845",
+    "Cesmar102",
+    "Fucer437"
+    ];
+        return listOflogins[Math.floor(Math.random() * Math.floor(listOflogins.length))];
+    } else {
+
+    let numbers = [1,2,3,4,5,6,7,8,9];
+    let randomNumbers = []; 
+
     nom = nom.toLowerCase().substring(0,2);
     prenom = prenom.toLowerCase().substring(0,1);
-    
-    let numbers = [1,2,3,4,5,6,7,8,9];
-    let randomNumbers = 
-    [ numbers[Math.floor(Math.random() * Math.floor(numbers.length))],
-      numbers[Math.floor(Math.random() * Math.floor(numbers.length))],
-      numbers[Math.floor(Math.random() * Math.floor(numbers.length))]
-    ]; 
+
+    for (let i = 0; i < 3; i++) {
+        randomNumbers.push(numbers[Math.floor(Math.random() * Math.floor(numbers.length))])
+    }
 
     return `${prenom}-${nom}_${randomNumbers.join("")}`
+
+    }
 
 }
 
@@ -149,13 +154,20 @@ dateDeNaissance.addEventListener("change", function() {
 
 login.addEventListener("input", function() {
 
+    if(login.value.length === 0) {
+        login.style.borderColor = "lightslategray"
+    } else if(loginRegex.test(login.value)) {
+        login.style.borderColor = "#2ecc71"
+    } else {
+        login.style.borderColor = "#e74c3c"
+    }
 
 
 })
 
 suggestLogin.addEventListener("click", function(e) {
-    login.value = generateUserLogin(nom.value, prenom.value);
     e.preventDefault();
+    login.value = generateUserLogin(nom.value, prenom.value);  
 })
 
 
