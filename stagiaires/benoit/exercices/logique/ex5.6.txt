@@ -1,0 +1,28 @@
+// Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+// Le programme affichera le texte en ayant inversé les caractères.
+
+
+Debut enversTexte
+
+
+	VARIABLES LOCALES :
+
+		var texte: T <- "" 
+		var texteRetourne: T <- "" 
+		var index: N <- 1
+
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte et je le retournerai "
+		Saisir texte
+
+	Pour i allant de 1 à longueur(texte)
+	
+		caract(texteRetourne, i) = caract(texte, (longueur(texte)-i)+1)
+	
+	i suivant
+
+	Afficher "texteRetourne"
+
+
+Fin enversTexte
