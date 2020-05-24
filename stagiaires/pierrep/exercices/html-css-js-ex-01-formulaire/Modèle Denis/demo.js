@@ -2,7 +2,6 @@
 
 const fieldName = document.querySelector('.form-nom');
 const fieldSubmit = document.querySelector('.submit-button');
-const fieldSurnameName = document.querySelector('.form-nom');
 
 
 fieldSubmit.addEventListener('click', ()=> {
