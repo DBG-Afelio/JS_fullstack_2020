@@ -170,7 +170,7 @@ function validateFieldLogin(loginField) {
         loginField.classList.add('invalide', 'error-login-used');
         validReturn = false;
     } else {
-        let loginStatus = isContentValid(loginValue); console.log('Content CASE : ' + loginStatus);
+        let loginStatus = isContentValid(loginValue); console.log('Login status : ' + loginStatus);
         switch (loginStatus) {
             case 0:
                 loginField.classList.add('valide');
