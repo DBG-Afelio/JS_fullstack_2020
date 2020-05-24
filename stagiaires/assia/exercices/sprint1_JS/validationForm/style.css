@@ -163,10 +163,10 @@ input, select, button {
     font-size: 40px;
     font-weight: bolder;
     text-transform: uppercase;
-    width: 270px;
+    width: 250px;
     height: 70px;
     margin:15px;
-    align-items: center;
+    margin-left:70px;
 }
 .submit-button.valide-form .submit-button {
     border-color: rgb(71, 255, 47);
