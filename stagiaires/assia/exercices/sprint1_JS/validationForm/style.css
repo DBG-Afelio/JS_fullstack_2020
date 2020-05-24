@@ -45,7 +45,7 @@ legend{
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
-    background-color:white ;
+    background-color: rgba(47, 79, 79, 0.4) ;
     width: 220px;
     border-style: outset;
    /* border-top-right-radius: 40px; */
@@ -54,17 +54,17 @@ legend{
     
 }
 #summary-card output{
-    background-color: wheat;
-    border-style: none;
+    background-color:transparent;
+    border-style: dotted;
     width: 200px;
     height: 20px;
 }
 #summary-card input {
-    background-color: transparent;
+    background-color: darkslategray;
     border-style: outset;
     font-size: 15px;
     text-transform: uppercase;
-    color: darkslategray;
+    color: white;
     width: 210px;
     height: 40px;   
     text-align: center;
@@ -115,7 +115,7 @@ input, select, output, button {
     display:none;
     font-size: 12px;
 }
-output {
+.mdp-faible, .mdp-moyen, .mdp-fort {
     border-style: groove;
     background-color: lightgray;
     border-color:lightgray;
@@ -132,15 +132,12 @@ output {
 }
 .form-mdp-strength.mdp-faible .mdp-strength.mdp-faible {
     background-color: yellow;
-    display: inline-block;
 }
 .form-mdp-strength.mdp-moyen .mdp-strength.mdp-moyen{
     background-color: orange;
-    display: inline-block;
 }
 .form-mdp-strength.mdp-fort .mdp-strength.mdp-fort{
     background-color: red;
-    display: inline-block;
 }
 .form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-used .error-message.error-login-used, .form-element.error-pattern .error-message.error-pattern, .form-element.error-email .error-message.error-email, .form-element.error-tel .error-message.error-tel, .form-element.error-different-pwd .error-message.error-different-pwd
 {

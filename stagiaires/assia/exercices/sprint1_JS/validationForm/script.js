@@ -10,6 +10,7 @@ const fieldLoginBtn = document.querySelector('.login-button');
 const fieldTel = document.querySelector('.form-tel');
 const fieldPwd = document.querySelector('.form-mdp');
 const fieldPwdConfirmed = document.querySelector('.form-mdp-confirm');
+const fieldPwdStrength = document.querySelector('.form-mdp-strength');
 const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
 const sexRadioAutre = document.querySelector("#autre");
@@ -50,30 +51,17 @@ fieldNationality.addEventListener('change', () => {
 fieldSex.addEventListener('input', () => {
     validateFieldSex(fieldSex,sexRadioAutre);
 });
-/*
-myForm.addEventListener('change', () => {
-    validate(fieldSubmit); 
-});
-*/
+
 fieldSubmit.addEventListener('click', (e)=> {
-    validate(fieldSubmit); 
     e.preventDefault();
+    validate(fieldSubmit); 
 });
-/*function isFormValid() {
-    let stateOfAllInputField = [validateFieldName, validateFieldDate];
-    console.log(stateOfAllInputField);
-    return !stateOfAllInputField.some((isAllValid) => {
-        console.log(isAllValid);
-        return !isAllValid;
-    });
-}*/
+
 //-----------------------------------------
 /**
  * Fonction validant tous les champs
  * 
  */
-
-
 function validate(submitBtn) {
     let allFieldsStatus = [validateFieldName(fieldName), validateFieldFirstName(fieldFirstName), validateFieldTel(fieldTel), validateFieldEmail(fieldEmail), validateFieldDate(fieldDate), validateFieldLogin(fieldLogin), validateFieldPassword(fieldPwd), validateFieldPasswordConfirmation(fieldPwdConfirmed), validateFieldNationality(fieldNationality), validateFieldSex(fieldSex)];
     console.log(allFieldsStatus);
@@ -214,10 +202,12 @@ function validateFieldLogin(loginField) {
     return validReturn; 
 }
 
-function validateFieldPassword(pwdField) {
+function validateFieldPassword(pwdField, strengthPwdField) {
     const pwdInputField = pwdField.querySelector('input');
     const pwdValue = pwdInputField.value;
+
     removeClassLists(pwdField);
+    strengthPwdField.classList.remove('mdp-faible', 'mdp-moyen', 'mdp-fort');
     let validReturn = true;
     if (pwdValue.trim() === '') {
         pwdField.classList.add('invalide', 'error-required');
@@ -227,6 +217,17 @@ function validateFieldPassword(pwdField) {
         switch (pwdStatus) {
             case 0:
                 pwdField.classList.add('valide');
+                switch (getPasswordStrength(pwdValue)) {
+                    case 1:
+                        strengthPwdField.classList.add('mdp-faible');
+                        break;
+                    case 2:
+                        strengthPwdField.classList.add('mdp-moyen');
+                        break;
+                    case 3:
+                        strengthPwdField.classList.add('mdp-fort');
+                        break;
+                }
                 break;
             case 1:
                 pwdField.classList.add('invalide', 'error-pattern');
@@ -279,6 +280,7 @@ function validateFieldPasswordConfirmation(pwdField, pdwConfField) {
                 break;
         }
     }
+    return validReturn;
 }
 
 function pwdConfStatus(pwd1, pwd2) {
@@ -293,18 +295,22 @@ function pwdConfStatus(pwd1, pwd2) {
     }
 }
 
-function setPasswordStrength(password) {
-    //const regExpLetters = new RegExp(/[a-zA-Z]/i);
-  //  const pattern = RegExp(/(?<letters>[a-zA-Z]{6,10})|(?<digits>[0-9]{6,10})|(?<symbols>[-_!$]{6,10})/);
-    
-   // const groupsExp = password.matchAll(pattern).groups;
- //   const match = pattern.exec(password);
- //   return match;
-   // const isLetters = groupsExp.letters;
-  //  const isDigits = groupsExp.digits;
-  //  const isSymbols = groupsExp.symbols;
+function updatePasswordStrength(password, pwdField,strengthPwdField) {
+    validateFieldPassword(pwdField)
+}
 
-  //  console.log('letters = '+isLetters, 'digits = '+isDigits, 'Symbols = '+isSymbols);
+function getPasswordStrength(password) {
+    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(?<symbols>[-_!$])*/);
+    const matches = password.match(regex);
+
+    const isLetters = matches.groups.letters;
+    const isDigits = matches.groups.digits;
+    const isSymbols = matches.groups.symbols;
+    
+    let l = isLetters != undefined ? 1 : 0;
+    let d = isDigits != undefined ? 1 : 0;
+    let s = isSymbols != undefined ? 1 : 0;
+    return l + d + s;
 }
 
 /**
@@ -342,8 +348,8 @@ function isContentValid(content) {
  * @returns 0:valid, 1:invalid content
  */
 function isPatternWrong(string) {
-    const regex = new RegExp(/[^a-zA-Z0-9-_!$]/i); 
-    const isWrong = regex.test(string); 
+    const regex = new RegExp(/[^a-zA-Z0-9-_!$]/g); 
+    const isWrong = regex.test(string); console.log(string, isWrong);
     return isWrong;
 }
 
@@ -375,7 +381,7 @@ function validateFieldEmail(emailField) {
  * @returns boolean
  */
 function isEmailValid(email) {
-    const emailReg = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
+    const emailReg = new RegExp(/^([\w-\.]+)@((?:[\w-]+\.)+)([a-zA-Z]{2,})/i);
     const isValid = emailReg.test(email);
     return isValid;
 }
