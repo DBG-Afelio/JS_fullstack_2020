@@ -40,7 +40,7 @@ fieldLoginBtn.addEventListener('click', () => {
     suggestLogin(fieldFirstName, fieldName, fieldLogin);
 });
 fieldPwd.addEventListener('input', () => {
-    validateFieldPassword(fieldPwd);
+    validateFieldPassword(fieldPwd, fieldPwdStrength);
 });
 fieldPwdConfirmed.addEventListener('input', () => {
     validateFieldPasswordConfirmation(fieldPwd, fieldPwdConfirmed);
@@ -49,7 +49,7 @@ fieldNationality.addEventListener('change', () => {
     validateFieldNationality(fieldNationality);
 });
 fieldSex.addEventListener('input', () => {
-    validateFieldSex(fieldSex,sexRadioAutre);
+    validateFieldSex(fieldSex, sexRadioAutre);
 });
 
 fieldSubmit.addEventListener('click', (e)=> {
@@ -63,8 +63,8 @@ fieldSubmit.addEventListener('click', (e)=> {
  * 
  */
 function validate(submitBtn) {
-    let allFieldsStatus = [validateFieldName(fieldName), validateFieldFirstName(fieldFirstName), validateFieldTel(fieldTel), validateFieldEmail(fieldEmail), validateFieldDate(fieldDate), validateFieldLogin(fieldLogin), validateFieldPassword(fieldPwd), validateFieldPasswordConfirmation(fieldPwdConfirmed), validateFieldNationality(fieldNationality), validateFieldSex(fieldSex)];
-    console.log(allFieldsStatus);
+    let allFieldsStatus = [validateFieldName(fieldName), validateFieldFirstName(fieldFirstName), validateFieldTel(fieldTel), validateFieldEmail(fieldEmail), validateFieldDate(fieldDate), validateFieldLogin(fieldLogin), validateFieldPassword(fieldPwd, fieldPwdStrength), validateFieldPasswordConfirmation(fieldPwd, fieldPwdConfirmed), validateFieldNationality(fieldNationality), validateFieldSex(fieldSex, sexRadioAutre)];
+ 
     let isNotValid = allFieldsStatus.includes(false);
     console.log(isNotValid);
     submitBtn.classList.remove('invalide-form', 'valide-form');
@@ -77,13 +77,13 @@ function validate(submitBtn) {
 }
 
 
-function removeClassLists(element) {
-    element.classList.remove('valide', 'invalide', 'error-required', 'error-min-login', 'error-max-login', 'error-login-used', 'error-pattern', 'error-tel', 'error-different-pwd', 'error-email', 'error-min-length', 'error-max-length', 'error-dateIsFutur', 'error-ageIsOut');
+function removeUserMessages(element) {
+    element.classList.remove('valide', 'invalide', 'error-required', 'error-min-login', 'error-max-login', 'error-login-used', 'error-pattern', 'error-tel', 'error-different-pwd', 'error-email', 'error-min-length', 'error-max-length', 'error-dateIsFutur', 'error-ageIsOut', 'mdp-faible', 'mdp-moyen', 'mdp-fort');
 }
 function validateFieldSex(sexField, optionAutre) {
     const isAutreChecked = optionAutre.checked;
     let validReturn = true;
-    removeClassLists(sexField);
+    removeUserMessages(sexField);
     if (isAutreChecked) {
         sexField.classList.add('invalide', 'error-required');
         validReturn = false;
@@ -95,8 +95,8 @@ function validateFieldSex(sexField, optionAutre) {
 function validateFieldNationality(nationalityField) {
     const nationSelectField = nationalityField.querySelector('select');
     const nationSelected = nationSelectField.value; 
-    const validReturn = true;
-    removeClassLists(nationalityField);
+    let validReturn = true;
+    removeUserMessages(nationalityField);
     if (nationSelected === 'nothingSelected') {
         nationalityField.classList.add('invalide', 'error-required');
         validReturn = false;
@@ -113,16 +113,15 @@ function validateFieldNationality(nationalityField) {
 function validateFieldTel(telField) {
     const telInputField = telField.querySelector('input');
     const telValue = telInputField.value;
-    removeClassLists(telField);
+    removeUserMessages(telField);
     let validReturn = true;
+
     if (telValue.trim() == '') {
         telField.classList.add('invalide', 'error-required');
         validReturn = false;
     } else {
-        let isValid = isTelValid(telValue);
-                                                console.log('isValid : ' + isValid);
-        // BUG :why isValid = false when isTelValid() returns true ????
-        if (isValid) {
+        let valid = isTelValid(telValue);
+        if (valid) {
             telField.classList.add('valide');
         } else {
             telField.classList.add('invalide', 'error-tel');
@@ -137,16 +136,15 @@ function validateFieldTel(telField) {
  * @returns boolean
  */
 function isTelValid(telNumber) {
-    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9]{6,9})$))/g);
-    console.log('is Tel Pattern right ? : ' + (patternTel.test(telNumber)));
-    return (patternTel.test(telNumber));
+    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9])([0-9]{5,8})$))/g);
+    const isValid = patternTel.test(telNumber); console.log('isTelValid fct ? : ' +isValid);
+    return isValid;
 }
 
 function suggestLogin(firstNameField, lastNameField, loginField) {
     const firstName = firstNameField.querySelector('input').value;
     const lastName = lastNameField.querySelector('input').value;
-    const loginGenerated = firstName.charAt(0) + lastName.substr(0, 2) + '_' + (Math.floor(Math.random() * (999 - 100 + 1)) + 100);
-    console.log(loginGenerated);
+    const loginGenerated = firstName.charAt(0) + lastName.substr(0, 2) + '_' + (Math.floor(Math.random() * (999 - 100 + 1)) + 100); //random entre 100 et 999 pour les 3digits
     const loginInputField = loginField.querySelector('input');
     loginInputField.value = loginGenerated;
     validateFieldLogin(loginField);
@@ -158,13 +156,13 @@ function suggestLogin(firstNameField, lastNameField, loginField) {
  * @returns boolean
  */
 function validateFieldLogin(loginField) {
-    const loginUsedList = ['abcdef12', 'J54f_$g67', '82j!u-Z'];
+    const loginUsedList = ['abcdef12', 'J54f_$g67', '82j!u-Z']; //pour les tests
     const loginInputField = loginField.querySelector('input');
     const loginValue = loginInputField.value;
     const hasLoginBeenUsed = loginUsedList.includes(loginValue);
-    removeClassLists(loginField);
+    removeUserMessages(loginField);
     let validReturn = true;
-    console.log('methode includes : '+hasLoginBeenUsed);
+    
     if (loginValue.trim() === '') {
         loginField.classList.add('invalide', 'error-required');
         validReturn = false;
@@ -172,7 +170,7 @@ function validateFieldLogin(loginField) {
         loginField.classList.add('invalide', 'error-login-used');
         validReturn = false;
     } else {
-        const loginStatus = isContentValid(loginValue); console.log('Content CASE : ' + loginStatus);
+        let loginStatus = isContentValid(loginValue); console.log('Content CASE : ' + loginStatus);
         switch (loginStatus) {
             case 0:
                 loginField.classList.add('valide');
@@ -205,9 +203,8 @@ function validateFieldLogin(loginField) {
 function validateFieldPassword(pwdField, strengthPwdField) {
     const pwdInputField = pwdField.querySelector('input');
     const pwdValue = pwdInputField.value;
-
-    removeClassLists(pwdField);
-    strengthPwdField.classList.remove('mdp-faible', 'mdp-moyen', 'mdp-fort');
+    removeUserMessages(pwdField);
+    removeUserMessages(strengthPwdField);
     let validReturn = true;
     if (pwdValue.trim() === '') {
         pwdField.classList.add('invalide', 'error-required');
@@ -260,7 +257,7 @@ function validateFieldPasswordConfirmation(pwdField, pdwConfField) {
     const pwdConfInputField = pdwConfField.querySelector('input');
     const pwdConfValue = pwdConfInputField.value;
     let validReturn = true;
-    removeClassLists(pdwConfField);
+    removeUserMessages(pdwConfField);
     if (pwdConfValue.trim() == '') {
         pdwConfField.classList.add('invalide', 'error-required');
         validReturn = false;
@@ -294,11 +291,11 @@ function pwdConfStatus(pwd1, pwd2) {
         }
     }
 }
-
-function updatePasswordStrength(password, pwdField,strengthPwdField) {
-    validateFieldPassword(pwdField)
-}
-
+/**
+ * Fonction qui determine la robustesse du mot de passe
+ * @param {string} password 
+ * @returns 1:Faible, 2:Moyen, 3:Fort
+ */
 function getPasswordStrength(password) {
     const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(?<symbols>[-_!$])*/);
     const matches = password.match(regex);
@@ -315,7 +312,7 @@ function getPasswordStrength(password) {
 
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
- * @param <login or password content>
+ * @param  
  * @returns 0-5 cases, 0 = only valid case
  */
 function isContentValid(content) { 
@@ -349,7 +346,7 @@ function isContentValid(content) {
  */
 function isPatternWrong(string) {
     const regex = new RegExp(/[^a-zA-Z0-9-_!$]/g); 
-    const isWrong = regex.test(string); console.log(string, isWrong);
+    const isWrong = regex.test(string); console.log('is missmatch pattern ? :' +isWrong);
     return isWrong;
 }
 
@@ -361,7 +358,7 @@ function isPatternWrong(string) {
 function validateFieldEmail(emailField) {
     const emailInputField = emailField.querySelector('input');
     const emailValue = emailInputField.value;
-    removeClassLists(emailField);
+    removeUserMessages(emailField);
     let validReturn = true;
     if (emailValue.trim() === '') {
         emailField.classList.add('invalide', 'error-required');
@@ -395,7 +392,7 @@ function validateFieldName(nameField) {
     const nameInputField = nameField.querySelector('input');
     const value = nameInputField.value; 
     let validReturn = true;
-    removeClassLists(nameField);
+    removeUserMessages(nameField);
     if (value.trim() === '') {
         nameField.classList.add('invalide', 'error-required');
         validReturn = false;
@@ -423,7 +420,7 @@ function validateFieldFirstName(firstnameField) {
     const firstnameInputField = firstnameField.querySelector('input');
     const value = firstnameInputField.value; 
     let validReturn = true;
-    removeClassLists(firstnameField);
+    removeUserMessages(firstnameField);
     if (value.trim() === '') {
         firstnameField.classList.add('valide'); //car champ facultatif
     } else {
@@ -465,7 +462,7 @@ function validateFieldDate(dateField) {
     const dateInputField = dateField.querySelector('input'); 
     const date = dateInputField.valueAsDate; console.log('Valeur champ DATE : '+date);
     let validReturn = true;
-    removeClassLists(dateField);
+    removeUserMessages(dateField);
     if (date == null) {
         dateField.classList.add('invalide', 'error-required');
         validReturn = false;

@@ -75,7 +75,7 @@ span {
     height: 20px;
     border-radius: 100px;
 }
-input, select, output, button {
+input, select, button {
     width: 270px;
     height:20px;
     font-size: 130%;
@@ -99,6 +99,7 @@ input, select, output, button {
     background-color: darkslategrey;
     color: white;
     border-style: outset;
+    
 }
 .valide-ok {
     background-image: url("img/grenntick.png");
@@ -106,7 +107,7 @@ input, select, output, button {
     color: greenyellow;
 }
 .valide-ko {
-    list-style-image: url("img/redcross.png");
+    background-color: url("img/redcross.png");
     display:none;
     color: red;
 }
@@ -116,45 +117,44 @@ input, select, output, button {
     font-size: 12px;
 }
 .mdp-faible, .mdp-moyen, .mdp-fort {
+
     border-style: groove;
     background-color: lightgray;
     border-color:lightgray;
     display: inline-block;
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 0px;
     width: 70px;
-    height: 5px;
+    height: 10px;
     border-radius: 5px;
-    align-items: center;
-    font-size: 10px;
+    font-size: 8px;
     text-align: center;
     
 }
-.form-mdp-strength.mdp-faible .mdp-strength.mdp-faible {
+.form-mdp-strength.mdp-faible .mdp-faible {
     background-color: yellow;
+    border-style: groove;
+ 
 }
-.form-mdp-strength.mdp-moyen .mdp-strength.mdp-moyen{
+.form-mdp-strength.mdp-moyen .mdp-moyen{
     background-color: orange;
+    border-style: groove;
+
 }
-.form-mdp-strength.mdp-fort .mdp-strength.mdp-fort{
+.form-mdp-strength.mdp-fort .mdp-fort{
     background-color: red;
+ 
 }
 .form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-used .error-message.error-login-used, .form-element.error-pattern .error-message.error-pattern, .form-element.error-email .error-message.error-email, .form-element.error-tel .error-message.error-tel, .form-element.error-different-pwd .error-message.error-different-pwd
 {
     display: block;
 }
 
-.form-element.valide .valide-ok {
+.form-element.valide .valide-ok, .form-element.invalide .valide-ko {
     display: block;
 }
-.form-element.valide .valide-ko {
+.form-element.valide .valide-ko, .form-element.invalide .valide-ok {
     display: none;
-}
-.form-element.invalide .valide-ok{
-    display: none;
-}
-.form-element.invalide .valide-ko {
-    display: block;
 }
 .submit-button{
     color :white;
