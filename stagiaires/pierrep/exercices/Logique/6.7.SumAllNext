@@ -6,6 +6,7 @@ Début programme
         CONST SIZE :N <- 10
         VAR vect :N[SIZE]
         VAR idx :N <- 1
+        VAR idx2: N <- 1
         VAR sum :N <- 0
     FIN VARIABLES LOCALES
 
@@ -13,16 +14,16 @@ vect <- [10, -5, -6, 48, 20, -6, 13, 56, -89, 108]
 
 POUR idx ALLANT DE 1 à SIZE
 
-        POUR idx ALLANT DE idx à SIZE
+        POUR idx2 ALLANT DE idx à SIZE
 
         sum <- sum + vect[idx]
 
-        i SUIVANT
+        idx2 SUIVANT
 
     vect[idx] <- sum
 
     sum <- 0
 
-    i SUIVANT
+    idx SUIVANT
 
 Fin programme
