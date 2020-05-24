@@ -13,8 +13,11 @@ const country = document.querySelector(".country");
 const radiosGender = document.querySelectorAll("input[name='gender']");
 const submit = document.querySelector(".submit");
 let containerMessage = document.createElement("div");
+
+// REGEXES
 let numbersInTextField = /\d/g;
-let emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/ ; 
+let emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
+let phoneRegex =  
 
 nom.addEventListener("input", function() {
     
