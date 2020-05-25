@@ -1,10 +1,27 @@
 
 body {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: lightblue ; 
+}
+textarea {
+    width: 50%;
+    height: 100px;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    border: 5px solid #555555;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    font-size: 16px;
+    resize: none;
     
-    background-color:   #c7af6b;  
 }
 
-
+b , strong ,.keyword {
+    color:#ff0000;
+}
  p{
     text-indent: 1%; /*Met en retrait la première ligne de texte dans un élément*/
     font-family:  cursive;
@@ -24,4 +41,48 @@ body {
 }
 h4 {
     font-weight: bold;
+}
+table {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    min-height: 25px;
+    padding: 5px;
+}
+
+td table {
+    margin: 20px;
+}
+.submitHtml{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: white;
+    background-color:#555555;;
+    border-radius: 5px;
+}
+.submitHtml:hover{
+    background-color: #3e8e41
+}
+.inputInput{
+    
+width: 10%;
+padding: 7px 7px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 2px solid #555555;
+border-radius: 4px;
 }

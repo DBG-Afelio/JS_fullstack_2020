@@ -30,10 +30,10 @@
 
                 <form action="/action_page.php">
                     <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <input class="inputInput" type="text" id="fname" name="fname" value="John"><br>
                     <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname" value="Doe"><br><br>
-                    <input type="submit" value="Submit">
+                    <input class ="inputInput"type="text" id="lname" name="lname" value="Doe"><br><br>
+                    <input class="submitHtml" type="submit" value="Submit">
                 </form>
 
                 <p>Et en code:</p>
@@ -114,11 +114,11 @@
                 </p>
 
                 <form>
-                    <label>Un champ de type text:</label><input type="text" placeholder="Exemple"><br>
+                    <label>Un champ de type text:</label><input class="inputInput" type="text" placeholder="Exemple"><br>
                     <label>Un champ de type checkbox:</label><input type="checkbox" placeholder="Exemple"><br>
-                    <label>Un champ de type color:</label><input type="color" placeholder="Exemple"><br>
-                    <label>Un champ de type search:</label><input type="search" placeholder="Exemple"><br>
-                    <label>Un champ de type password:</label><input type="password" placeholder="Exemple">
+                    <label>Un champ de type color:</label><input  class="inputInput" type="color" placeholder="Exemple"><br>
+                    <label>Un champ de type search:</label><input class="inputInput" type="search" placeholder="Exemple"><br>
+                    <label>Un champ de type password:</label><input class="inputInput" type="password" placeholder="Exemple">
                 </form>
 
 
@@ -269,7 +269,7 @@
                     <input type="radio" name="gender" id="female" value="female"><br>
                     <label for="other">Other</label>
                     <input type="radio" name="gender" id="other" value="other"><br><br>
-                    <input type="submit" value="Submit">
+                    <input class="submitHtml" type="submit" value="Submit">
                 </form>
 
                 <p>Et en code:</p>
@@ -282,7 +282,7 @@
                         <p><b>&emsp; &lt;input type="radio" name="gender" id="male" value="male"&gt;</b></p><br>
                         <p><b>&emsp; &lt;label for="female"&gt;Female&lt;/label&gt;</b></p><br>
                         <p><b>&emsp; &lt;input type="radio" name="gender" id="female" value="female"&gt;</b></p><br>
-                        <p><b>&emsp; &lt;label for="other"&gt;Other&lt;/label&gt;</b></p><br>
+                        <p><b>&emsp; &lt;label for="other"</b>&gt;Other<b>&lt;/label&gt;</b></p><br>
                         <p><b>&emsp; &lt;input type="radio" name="gender" id="other" value="other"&gt;</b></p><br><br>
                         <p><b>&emsp; &lt;input type="submit" value="Submit"&gt;</b></p><br>
                         <p><b>&lt;/form&gt;</b></p>
@@ -296,15 +296,15 @@
                     <p>
                         Ce label sera utile pour des personnes ayant des problèmes de vue ou en situation d'handicap.
                         Cette balise rend donc le form accessible à un plus grand nombre de personnes.
-                    <ul>
+                    <ul class="navUl">
                         <li>
-                            Utilisateurs de lecteur d'écran (lira à haute voix l'étiquette, lorsque l'utilisateur se
-                            concentrera sur l'élément)
+                            <p>Utilisateurs de lecteur d'écran (lira à haute voix l'étiquette, lorsque l'utilisateur se
+                            concentrera sur l'élément).</p>
                         </li>
                         <li>
-                            Les utilisateurs qui ont du mal à cliquer sur de très petites régions (comme les cases à
+                            <p></p>Les utilisateurs qui ont du mal à cliquer sur de très petites régions (comme les cases à
                             cocher) - car lorsqu'un utilisateur clique sur le texte dans l' <label>élément, il bascule
-                                l'entrée (cela augmente la zone de hit).
+                                l'entrée (cela augmente la zone de hit).</p>
                         </li>
                     </ul>
 
@@ -354,16 +354,16 @@
 
                         <p><b>&lt;form&gt;</b></p>
                         <p><b>&emsp;&lt;fieldset&gt;</b></p>
-                        <p><b>&emsp; &emsp; &lt;legend>Colour&lt;/legend&gt;</b></p>
+                        <p><b>&emsp; &emsp; &lt;legend></b>Colour<b>&lt;/legend&gt;</b></p>
                           
                         <p><b>&emsp; &emsp; &lt;input type="radio" name="colour" value="red" id="colour_red"&gt;</b></p>
-                        <p><b>&emsp; &emsp; &lt;label for="colour_red">Red&lt;/label&gt;</b></p>
+                        <p><b>&emsp; &emsp; &lt;label for="colour_red"></b>Red <b>&lt;/label&gt;</b></p>
                           
                         <p><b>&emsp; &emsp;     &lt;input type="radio" name="colour" value="green" id="colour_green"&gt;</b></p>
                         <p><b>&emsp; &emsp;     &lt;label for="colour_green"></b>Green <b>&gt;/label&gt;</b></p>
                           
                         <p><b>&emsp; &emsp;     &lt;input type="radio" name="colour" value="blue" id="colour_blue"&gt;</b></p>
-                        <p><b>&emsp; &emsp;     &lt;label for="colour_blue">Red&lt;/label&gt;</b></p>
+                        <p><b>&emsp; &emsp;     &lt;label for="colour_blue"></b>Red <b>&lt;/label&gt;</b></p>
                           
                         <p><b>&emsp; &emsp;     &lt;/fieldset&gt;</b></p>
                         <p><b>&emsp;    &lt;/form&gt;</b></p>
@@ -458,15 +458,15 @@
                     <b>&emsp;&lt;label for="huey"&gt;</b>Vanille<b>&lt;/label&gt;</b><br>
                     <b>&emsp;&lt;/div&gt;</b></b>
         
-                    <b>&emsp;&lt;div&gt;<br>
+                    <b>&emsp;&lt;div&gt;</b><br>
                     <b>&emsp;&lt;input type="radio" id="dewey" name="drone" value="dewey"&gt;</b><br>
-                    <b>&emsp;&lt;label for="dewey"&gt;Chocolat&lt;/label&gt;</b><br>
+                    <b>&emsp;&lt;label for="dewey"&gt;</b>Chocolat<b>&lt;/label&gt;</b><br>
                     <b>&emsp;&lt;/div&gt;</b><br>
                     <b>&lt;/form&gt;</b><br>
                 </p>
 
                 <form>
-                    <label for="cars">Voici une liste de select, d'optgroup et d'option. Choisissez une voiture:</label>
+                    <label for="cars"><p>Voici une liste de select, d'optgroup et d'option. Choisissez une voiture:</p></label>
                     <select id="cars">
                         <optgroup label="Swedish Cars">
                             <option value="volvo">Volvo</option>
@@ -485,11 +485,11 @@
                         <code class="codex">
 
                             <p><b>&lt;form&gt;</b> </p>
-                            <p><b>&emsp; &lt;label for="cars"&gt;Choose a car:&lt;/label&gt;</b> </p>
+                            <p><b>&emsp; &lt;label for="cars"&gt;</b>Choose a car:<b>&lt;/label&gt;</b> </p>
                             <p><b>&emsp; &lt;select id="cars"&gt;</b> </p>
                             <p><b>&emsp;&emsp;&lt;optgroup label="Swedish Cars"&gt;</b> </p>
-                            <p><b>&emsp;&emsp;&emsp;&lt;option value="volvo"&gt;Volvo&lt;/option&gt;</b> </p>
-                            <p><b>&emsp;&emsp;&emsp;&lt;option value="saab"&gt;Saab&lt;/option&gt;</b> </p>
+                            <p><b>&emsp;&emsp;&emsp;&lt;option value="volvo"&gt;</b>Volvo<b>&lt;/option&gt;</b> </p>
+                            <p><b>&emsp;&emsp;&emsp;&lt;option value="saab"&gt</b>;Saab<b>&lt;/option&gt;</b> </p>
                             <p><b>&emsp;&emsp;&lt;/optgroup&gt;</b> </p>
                             <p><b>&emsp;&emsp;&lt;optgroup label="German Cars"&gt;</b> </p>
                             <p><b>&emsp;&emsp;&emsp;&lt;option value="mercedes"</b>  selected<b>&gt;Mercedes&lt;/option&gt;</b> </p>
