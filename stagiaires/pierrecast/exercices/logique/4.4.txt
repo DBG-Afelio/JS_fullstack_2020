@@ -9,13 +9,12 @@ Ecrire le programme qui calcule la plus grande et la plus petite suite croissant
         la position du dernier minimum;
         le nombre d'occurrence du minimum;
 
-Debut ex4-4
-    VARIABLES LOCALES :
+Debut ex4-4b
+VARIABLES LOCALES :
         var nombre :N <- 0
-        var pos1 :N
-        var posN :N
+        var pos :N
         var long :N
-        
+
         var pos1min :N
         var posNmin :N
         var longMin :N
@@ -33,94 +32,91 @@ Debut ex4-4
     Afficher "Entrez un nombre"
     Saisir nombre
 
-    pos1 <- 1
-    posN <- 1
-    long <- 0
+    pos <- 1
+    long <- 1
 
     pos1min <- 1
     posNmin <- 1
-    longMin <- 0
-    nbOccMin <- 0
+    longMin <- 1
+    nbOccMin <- 1
 
     pos1max <- 1
     posNmax <- 1
-    longMax <- 0
-    nbOccMax <- 0
+    longMax <- 1
+    nbOccMax <- 1
 
-    i <- 1
+    i<- 1
     prev <- nombre
 
     TANT QUE (nombre != 100)
-        
-        SI (i > 1 ET nombre >= prev)
+        SI (nombre >= prev)
             ALORS
                 // la série en cours continue
-                posN <- i
                 long <- long + 1
 
-                // on vérifie si serie en cours et la plus grande
+                // on vérifie si la série en cours est la plus grande
                 SI (long = longMax)
                     ALORS
                         nbOccMax <- nbOccMax + 1
+                        posNMax <- pos
+                    SINON
+                        SI (long > longMax) 
+                            ALORS
+                                pos1Max <- pos
+                                posNMax <- pos
+                                longMax <- long
+                                nbOccMax <- 1
+                        FIN SI
                 FINSI 
-
-                SI (long > longMax)
-                        pos1Max <- pos1
-                        posNmax <- posN
-                        longMax <- posNmax - pos1Max
-                        nbOccMax <- 1
-                    ALORS
-                FINSI 
-
-            SINON   
+            SINON  
                 // on vérifie si le série en cours est la plus petite
-                SI (i > 1 ET long = longMin)
+                SI (long = longMin)
                     ALORS
                         nbOccMin <- nbOccMin + 1
+                        posNMin <- pos
                 FINSI 
 
-                SI (i = 1 OU long < longMin)
+                SI (pos = 1 OU long < longMin)
                     ALORS
-                        pos1Min <- pos1
-                        posNmin <- posN
-                        longMin <- posNmin
+                        pos1Min <- pos
+                        posNmin <- pos
+                        longMin <- long
                         nbOccMin <- 1
                 FINSI 
 
                 // la série en cours s'arrête
-                pos1 <- i
-                posN <- i
-                long <- 0
-        FIN SI
-
+                pos <- i
+                long <- 1
+        FIN SI 
         prev <- nombre
+        i <- i + 1
 
         Afficher "Entrez un nombre"
         Saisir nombre
 
-        i <- i + 1
     FIN TANT QUE
 
-    // on RE-vérifie si le serie en cours est la plus petite
     SI (long = longMin)
         ALORS
             nbOccMin <- nbOccMin + 1
+            posNMin <- pos
     FINSI 
 
-    SI (long < longMin)
-            pos1Min <- pos1
-            posNmin <- posN
-            nbOccMin <- 1
+    SI (pos = 1 OU long < longMin)
         ALORS
+            pos1Min <- pos
+            posNmin <- pos
+            longMin <- long
+            nbOccMin <- 1
     FINSI 
 
-    Afficher "la position du premier maximum",  pos1max
-    Afficher "la position du dernier maximum",  posNmax
+    Afficher "la position du premier maximum",  pos1mMax
+    Afficher "la position du dernier maximum",  posNMax
+    Afficher "la longueur maximum",  longMax
     Afficher "le nombre d'occurrence du maximum", nbOccMax
-    Afficher "la plus grande suite croissante de valeurs", longMax
-    Afficher "la position du premier minimum", pos1min
-    Afficher "la position du dernier minimum", posNmin
+
+    Afficher "la position du premier minimum", pos1Min
+    Afficher "la position du dernier minimum", posNMin
+    Afficher "la longueur minimum",  longMin
     Afficher "le nombre d'occurrence du minimum", nbOccMin
-    Afficher "la plus petite suite croissante de valeurs", longMin
-  
 Fin ex4-4
