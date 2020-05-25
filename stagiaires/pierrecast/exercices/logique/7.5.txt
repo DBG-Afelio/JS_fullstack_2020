@@ -2,7 +2,7 @@ Ecrire le programme qui déplace les valeurs d’un tableau carré d’un quart 
 • Version 1 : utilisation d’un tableau intermédiaire de même taille
 • Version 2 : utilisation d’une seule variable intermédiaire. 
 
-DEBUT 7-5
+DEBUT 7-5a
     VARIABLES LOCALES :
         CONST m:N <- 6
         VAR tab :N[n, n]
@@ -10,15 +10,12 @@ DEBUT 7-5
 
     FIN VARIABLES LOCALES
 
-    i <-
+    i <- 1
     POUR i ALLANT DE 1 A n
-        
-
         j<- 1
         POUR j ALLANT DE 1 A n
-            tab2[(n*(n-i)+j) DIV n),j] <- tab[i,j]
-            
+            tab2[(n*(n-j)+i) DIV n)+1,n*(n-j)+i) mod n] <- tab[i,j] 
         j SUIVANT
     i SUIVANT
 
-FIN 7-5
+FIN 7-5a
