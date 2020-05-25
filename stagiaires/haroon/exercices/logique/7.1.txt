@@ -5,20 +5,13 @@ VARIABLES LOCALES
 	VAR taille :N <- 4
 	VAR tableaux : N [taille , taille]
 	VAR i : N <- 0
-	VAR j : N <- 0 
-
 
 FINE VARIABLES LOCALES 
+
 	POUR i ALLANT DE 1 A taille
-		POUR j ALLANT DE i A taille
-			SI i = j 
-				ALORS 
-				tableaux [i][j] <- 1
-			SINON 
-				ALORS 	
-				tableaux [i][taille-i+1] <- 2
-			FINSI
-		j SUIVANT
+		tableaux [i , taille-i+1] <- 2
+		tableaux [i,i] <- 1
+
 	i SUIVANT
 
 Fin de Programme
