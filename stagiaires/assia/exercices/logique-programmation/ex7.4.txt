@@ -28,14 +28,14 @@ Debut exercice
                 sommeDiagonale1 <- sommeDiagonale1 + arr[i][i]
             FINSI
             
-            SI [i + j = (LENGTH + 1)] ET i ≤ (LENGTH + 1)/2    //si on a fait la moitie du chemin on aura deja la somme de la diagonale2 (si on va plus loin on les aura 2 fois)
+            SI [i + j = (LENGTH + 1)] 
             ALORS
                 sommeDiagonale2 <- sommeDiagonale2 + arr[i][j]
             FINSI
 
         j SUIVANT
         
-        // a ce stade on a la somme d'1 ligne et 1 colonne, le reste est en cours et ne sera a jour qu'une fois le TantQue finit
+        // a ce stade on a la somme d'1 ligne et 1 colonne au complet, les sommes 'diagonal' ne seront a jour qu'une fois le TantQue finit
 
         SI sommeLigne = sommeColonne
         ALORS
