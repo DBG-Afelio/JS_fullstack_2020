@@ -4,10 +4,11 @@ Ecrire le programme qui déplace les valeurs d’un tableau carré d’un quart 
 
 DEBUT 7-5a
     VARIABLES LOCALES :
-        CONST m:N <- 6
+        CONST n:N <- 6
         VAR tab :N[n, n]
         VAR tab2 :N[n, n]
-
+        VAR i :N <- 1
+        VAR j :N <- 1
     FIN VARIABLES LOCALES
 
     i <- 1
@@ -19,3 +20,30 @@ DEBUT 7-5a
     i SUIVANT
 
 FIN 7-5a
+
+
+DEBUT 7-5b
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tab :N[n, n]
+        VAR int :N <- 0
+        VAR k :N <- 0
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR l :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    j <- 1
+    
+    TANTQUE (k <= n*n)
+        int <- tab[i,j]
+        tab[i,j] <- tab[(n*(n-j)+i) DIV n)+1,n*(n-j)+i) mod n]
+
+        l <- i
+        i <- (n*(n-j)+i) DIV n)+1
+        j <- n*(n-j)+l) mod n
+        k <- k + 1
+    FIN TANT QUE
+
+FIN 7-5b
