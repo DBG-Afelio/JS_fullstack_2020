@@ -1,0 +1,30 @@
+Début programme
+    Variables locales
+        Tab :Tab[v,h]
+        Tabmin :Tab[v]
+        Tabmax :Tab[v]
+        Tabmoy :Tab[v]
+        Var v, h :N
+        Var Somme :N <- 0
+    Fin variables locales
+
+    TANTQUE i < v
+        j <- 1
+        somme <- 0
+        max <- Tab[i,j]
+        min <- Tab[i,j]
+
+        TANTQUE j < h
+            SI Tab[i,j] < min
+                ALORS min <- Tab[i,j]
+            FINSI
+            SI Tab[i,j] > max
+                ALORS max <- Tab[i,j]
+            FINSI
+            somme <- somme + tab[i,j]
+            j <- j + 1
+        FINTANTQUE
+        Tabmoy[i] <- somme
+        i <- i + 1
+    FINTANTQUE
+Fin de programme
