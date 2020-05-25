@@ -1,0 +1,44 @@
+Ecrire le programme qui vérifie que les sommes de chaque ligne, chaque colonne et des deux diagonales d’un tableau numérique carré sont les mêmes.
+
+DEBUT 7-4
+    VARIABLES LOCALES :
+        CONST m:N <- 6
+        VAR tab :N[n, n]
+        VAR th :N[n]  // total horiz
+        VAR tv :N[n]  // total vert
+        VAR d :N[2]
+        VAR result:B <- VRAI
+
+    FIN VARIABLES LOCALES
+
+    th <- [0,0,0,0,0,0]  //j 
+    tv <- [0,0,0,0,0,0]  //i
+    d <- [0,0]
+    i <- 1
+    POUR i ALLANT DE 1 A n
+        tv[i] <- tv[i] + tab[i,j]
+        d[1] <- d[1] + tab[i,i]
+        d[2] <- d[2] + tab[i, n-i+1]
+
+        j<- 1
+        POUR j ALLANT DE 1 A n
+            th[j] <- th[j] + tab[i,j]
+            
+        j SUIVANT
+    i SUIVANT
+
+    SI (d[1] != d[2]) 
+        ALORS
+            result <- FAUX
+        SINON
+            POUR i ALLANT DE 1 A n
+                SI (d[1] != th[i] ET d[1] != tv[i])
+                    ALORS
+                        result <- FAUX
+                        i <- n
+                FIN SI
+            i SUIVANT
+    FIN SI
+
+    Afficher "l'hypothèse est ", result
+FIN 7-4
