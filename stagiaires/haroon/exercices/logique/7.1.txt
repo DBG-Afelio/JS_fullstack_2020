@@ -1,0 +1,17 @@
+Ecrire le programme  qui initialise les cases de la diagonale principale d’un tableau carré avec la valeur 1 et les cases de la diagonale secondaire avec la valeur 2.
+
+Debut de Programme
+VARIABLES LOCALES 
+	VAR taille :N <- 4
+	VAR tableaux : N [taille , taille]
+	VAR i : N <- 0
+
+FINE VARIABLES LOCALES 
+
+	POUR i ALLANT DE 1 A taille
+		tableaux [i , taille-i+1] <- 2
+		tableaux [i,i] <- 1
+
+	i SUIVANT
+
+Fin de Programme
