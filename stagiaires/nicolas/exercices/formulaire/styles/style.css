@@ -32,3 +32,48 @@
     color: red;
     
 }
+.passSignal{
+    
+    height: 10px;
+    width: 10px;
+    border: solid grey;
+    width: 80px;
+    
+}
+#genderBox{
+    
+    border-bottom :solid;
+    border-top: solid;
+    border-color: lightgray;
+    padding: 5px;
+}
+#signalBox{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+#signalBox p{
+    
+    margin: 5px;
+    
+}
+/*
+#passLow{
+    
+    background-color: red;
+    background: none;
+    
+}
+#passMedium{
+    
+    background-color: orange;
+    background: none;
+}
+#passStrong{
+    
+    background-color: green;
+    background: none;
+    
+}*/

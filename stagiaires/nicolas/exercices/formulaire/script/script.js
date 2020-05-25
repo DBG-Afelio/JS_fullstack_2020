@@ -2,7 +2,7 @@ const validationButton = document.getElementById('validationButton');
 
 const sexeList = document.getElementsByName('sexe');
 
-const isFormValid = [false, true, true, true, false, false, false];
+const isFormValid = [false, true, true, true, false, false, false,false,false];
 
 /*----------------ValidName---------------*/
 
@@ -337,9 +337,11 @@ const loginButton = document.getElementById('loginButton');
 const loginTab = ["abc123","kikoulol32","trololo","Admins"]
 
 
+
 function isLoginValid(login){
     
     let validReturn = false;
+    const loginRule = /^[a-zA-Z0-9_$\-!]{6,10}$/;
     
     if(login.value.length === 0 || login.value.length < 6 || login.value.length > 10){
         
@@ -353,10 +355,16 @@ function isLoginValid(login){
         login.nextElementSibling.classList.remove('hidden');
         login.nextElementSibling.innerHTML = "Login déja utilisé";
             
-    }else{
+    }else if(login.value.match(loginRule)){
         
         validReturn = true;
         login.nextElementSibling.classList.add('hidden');
+        
+    }else{
+        
+        validReturn = false;
+        login.nextElementSibling.classList.remove('hidden');
+        login.nextElementSibling.innerHTML = 'utilisez uniquement des chiffres, des lettres ou les symboles "_-!$"';
         
     }
             
@@ -398,7 +406,7 @@ loginInput.addEventListener('input',()=>{
 loginButton.addEventListener('click',()=>{
     
     loginInput.value = createLogin(nameInput.value,surnameInput.value);
-    
+    //!! A tester
     while(compareTabString(loginTab,loginInput.value)){
         
         createLogin(nameInput.value,surnameInput.value);
@@ -455,11 +463,34 @@ function createLogin(nom,prenom){
 
 const passwordInput = document.getElementById('passwordInput');
 
+const passwordRule = /^[a-zA-Z0-9_$\-!]{6,10}$/;
+
 function isPasswordValid(password) {
 
 	let validReturn = false;
     
+
     
+    if(password.value.length === 0 || password.value.length < 6 || password.value.length > 10){
+        
+        validReturn = false;
+        password.nextElementSibling.classList.remove('hidden');
+        password.nextElementSibling.innerHTML = "Veuillez saisir un mot entre 6 et 10 caractères";
+            
+    }else if(password.value.match(passwordRule)){
+        
+        validReturn = true;
+        password.nextElementSibling.classList.add('hidden');
+        
+    }else{
+        
+        validReturn = false;
+        password.nextElementSibling.classList.remove('hidden');
+        password.nextElementSibling.innerHTML = 'utilisez uniquement des chiffres, des lettres ou les symboles "_-!$"';
+        
+    }
+            
+    return validReturn;
 }
 
 passwordInput.addEventListener('input',()=>{
@@ -471,6 +502,170 @@ passwordInput.addEventListener('input',()=>{
     } else {
         
         isFormValid[6] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+});
+
+/*----------------ValidConfirmPassword---------------*/
+
+const passwordConfirmInput = document.getElementById('passwordConfirmInput');
+
+function isPasswordConfirmValid(passwordConfirm,password) {
+
+	let validReturn = false;
+    
+    if(passwordConfirm.value === password.value){
+        
+        validReturn = true;
+        passwordConfirm.nextElementSibling.classList.add('hidden');
+        
+    }else{
+        
+        validReturn = false;
+        passwordConfirm.nextElementSibling.classList.remove('hidden');
+        passwordConfirm.nextElementSibling.innerHTML = 'ERREUR : mot de passe différent';
+        
+    }
+            
+    return validReturn;
+}
+
+passwordConfirmInput.addEventListener('input',()=>{
+    
+    if (isPasswordConfirmValid(passwordConfirmInput,passwordInput)) {
+        
+        isFormValid[7] = true; 
+        
+    } else {
+        
+        isFormValid[7] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+});
+passwordInput.addEventListener('input',()=>{
+    
+    if (isPasswordConfirmValid(passwordConfirmInput,passwordInput)) {
+        
+        isFormValid[7] = true; 
+        
+    } else {
+        
+        isFormValid[7] = false;
+        
+    }
+    
+    if(validateForm()){
+        
+        validationButton.setAttribute('class','invalid');
+        
+    }else{
+        
+        validationButton.setAttribute('class','valid');
+        
+    }
+});
+/*----------------passwordSignal---------------*/
+
+const passSignal = document.querySelectorAll('.passSignal');
+
+passwordInput.addEventListener('input',()=>{
+    
+     if (isPasswordValid(passwordInput)) {
+        
+        if(passwordInput.value.match(/[0-9]{1,}/) && passwordInput.value.match(/[^a-zA-Z0-9]{1,}/)){
+            
+            for(const element of passSignal){
+                
+                if(element.id === "passStrong"){
+                    
+                    element.style.background='green';
+                    
+                }else{
+                    
+                    element.style.background='none';
+                    
+                }
+                
+            }
+            
+        }else if(passwordInput.value.match(/[0-9]{1,}|[^a-zA-Z0-9]{1,}/)){
+            
+            for(const element of passSignal){
+                
+                if(element.id === "passMedium"){
+                    
+                    element.style.background ='orange';
+                    
+                }else{
+                    
+                    element.style.background='none';
+                    
+                }
+                
+            }
+            
+        }else{
+            
+            for(const element of passSignal){
+                
+                if(element.id === "passLow"){
+                    
+                    element.style.background='red';
+                    
+                }else{
+                    
+                    element.style.background='none';
+                    
+                }
+                
+            }
+            
+        }
+        
+    } else {
+        
+        for(const element of passSignal){
+                
+                    element.style.background='none';
+                    
+            }
+   
+    }
+});
+
+/*----------------countryValid---------------*/
+
+const countrySelect = document.getElementById('countrySelect');
+
+countrySelect.addEventListener('input',()=>{
+    
+    if (countrySelect.selectedIndex != "0") {
+        
+        isFormValid[8] = true; 
+        
+    } else {
+        
+        isFormValid[8] = false;
         
     }
     
@@ -516,7 +711,10 @@ function reloadValues(){
     loginInput.value = '';
     passwordInput.value = '';
     
+    countrySelect.selectedIndex = "0"; 
+    
     document.querySelector('input[value="autre"]').checked = true;
+    
 }
 reloadValues();
 
