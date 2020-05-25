@@ -64,9 +64,8 @@ DEBUT 7-2c
             ALORS
                 tabOut[i] <- tabIn[(i DIV m)+1, i MOD m]
             SINON
-                tabOut[i] <- tabIn[(i DIV m)+1, 6]
+                tabOut[i] <- tabIn[(i DIV m)+1, m]
         FINSI
     i SUIVANT
 
 FIN 7-2c
-
