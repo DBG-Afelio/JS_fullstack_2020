@@ -1,18 +1,17 @@
 Début programme
     Variables locales
-        Var Tab :Tab[taillev, tailleh]
-        Var taillev :N <- 4
-        Var tailleh :N <- 4
-        Var i, j :N <- 0
+        Var Tab :Tab[taille, taille]
+        Var taille :N 
+        Var i, j :N <- 1
     Fin Variables locales
 
-    TANTQUE i<taillev
-        j <- 0
-        TANTQUE J<tailleh
+    TANTQUE i<=taille
+        j <- 1
+        TANTQUE J<=taille
             SI i = j 
                 ALORS tab[i,j] <- 1
             FINSI
-            SI i+J = 4 
+            SI i+J = taille 
                 ALORS tab[i,j] <- 2
             FINSI
             j <- j+1
