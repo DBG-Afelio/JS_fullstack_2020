@@ -1,0 +1,24 @@
+Ecrire le programme qui déplace les valeurs d’un tableau carré d’un quart de tour dans le sens horlogique.
+• Version 1 : utilisation d’un tableau intermédiaire de même taille
+• Version 2 : utilisation d’une seule variable intermédiaire. 
+
+DEBUT 7-5
+    VARIABLES LOCALES :
+        CONST m:N <- 6
+        VAR tab :N[n, n]
+        VAR tab2 :N[n, n]
+
+    FIN VARIABLES LOCALES
+
+    i <-
+    POUR i ALLANT DE 1 A n
+        
+
+        j<- 1
+        POUR j ALLANT DE 1 A n
+            tab2[(n*(n-i)+j) DIV n),j] <- tab[i,j]
+            
+        j SUIVANT
+    i SUIVANT
+
+FIN 7-5
