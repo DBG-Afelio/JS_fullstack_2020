@@ -9,8 +9,9 @@ Ecrire le programme qui copie les éléments d’un tableau à 2 dimensions dans
 DEBUT 7-2a
     VARIABLES LOCALES :
         CONST n:N <- 6
-        VAR tabIn :N[n, n]
-        VAR tabOut :N[n*n]
+        CONST m:N <- 7
+        VAR tabIn :N[n, m]
+        VAR tabOut :N[n*m]
         VAR i :N <- 1
         VAR j :N <- 1
         VAR k :N <- 1
@@ -20,8 +21,8 @@ DEBUT 7-2a
     i <- 1
     POUR i ALLANT DE 1 A n
         j<- 1
-        POUR j ALLANT DE 1 A n
-            k = ((i-1)*n)+j
+        POUR j ALLANT DE 1 A m
+            k = ((i-1)*m)+j
             tabOut[k] <- tabIn[i,j]
         j SUIVANT
     i SUIVANT
@@ -31,8 +32,9 @@ FIN 7-2a
 DEBUT 7-2b
     VARIABLES LOCALES :
         CONST n:N <- 6
-        VAR tabIn :N[n, n]
-        VAR tabOut :N[n*n]
+        CONST m:N <- 7
+        VAR tabIn :N[n, m]
+        VAR tabOut :N[n*m]
         VAR i :N <- 1
         VAR j :N <- 1
     FIN VARIABLES LOCALES
@@ -40,8 +42,8 @@ DEBUT 7-2b
     i <- 1
     POUR i ALLANT DE 1 A n
         j<- 1
-        POUR j ALLANT DE 1 A n
-            tabOut[((i-1)*n)+j] <- tabIn[i,j]
+        POUR j ALLANT DE 1 A m
+            tabOut[((i-1)*m)+j] <- tabIn[i,j]
         j SUIVANT
     i SUIVANT
 
@@ -50,18 +52,19 @@ FIN 7-2b
 DEBUT 7-2c
     VARIABLES LOCALES :
         CONST n:N <- 6
-        VAR tabIn :N[n, n]
-        VAR tabOut :N[n*n]
+        CONST m:N <- 7
+        VAR tabIn :N[n, m]
+        VAR tabOut :N[n*m]
         VAR i :N <- 1
     FIN VARIABLES LOCALES
 
     i <- 1
-    POUR i ALLANT DE 1 A n*n
-        SI (i MOD n) != 0
+    POUR i ALLANT DE 1 A n*m
+        SI (i MOD m) != 0
             ALORS
-                tabOut[i] <- tabIn[(i DIV n)+1, (i MOD n)+1]
+                tabOut[i] <- tabIn[(i DIV m)+1, i MOD m]
             SINON
-                tabOut[i] <- tabIn[(i DIV n)+1, 6]
+                tabOut[i] <- tabIn[(i DIV m)+1, 6]
         FINSI
     i SUIVANT
 
