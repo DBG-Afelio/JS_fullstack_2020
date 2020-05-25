@@ -12,6 +12,7 @@ button.addEventListener('click',()=>{
 })
 function validateInput() {
     if (!validateHaroon(inputValid));
+    console.log(inputValid);
     alert ('Error message'); 
 }
 
