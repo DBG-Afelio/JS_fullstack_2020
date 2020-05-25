@@ -1,0 +1,57 @@
+--3 variables d'indice--
+Début programme
+    Variables locales
+        Var Tab :Tab[taillev,tailleh]
+        Var Tab2 :Tab[taillev*tailleh]
+        Var taillev, tailleh :N
+        Var i,j,k :N <- 1
+    Fin variables locales
+
+    TANTQUE i < taillev
+        j <- 1
+        TANTQUE j < tailleh
+            Tab2[k] <- Tab[i,j]
+            k <- k + 1
+        FINTANTQUE
+    FINTANTQUE
+Fin de programme
+
+
+--2 variables d'indice--
+Début programme
+    Variables locales
+        Var Tab :Tab[taillev,tailleh]
+        Var Tab2 :Tab[taillev*tailleh]
+        Var taillev, tailleh :N
+        Var i,j :N <- 1
+    Fin variables locales
+
+    TANTQUE i < taillev
+        j <- 1
+        TANTQUE j < tailleh
+            Tab2[(i-1)*tailleh+j] <- Tab[i,j]
+        FINTANTQUE
+    FINTANTQUE
+Fin de programme
+
+
+--1 variables d'indice--
+Début programme
+
+    Variables locales
+        Var Tab :Tab[taillev,tailleh]
+        Var Tab2 :Tab[taillev*tailleh]
+        Var taillev, tailleh :N
+        Var i :N <- 1
+    Fin variables locales
+
+   TANTQUE i < taillev*tailleh
+        SI (i MOD tailleh) != 0
+            ALORS tab2[i] <- tab[(i DIV tailleh)+1, i MOD tailleh]
+        SINON
+            tab2[i] <- tab[(i DIV tailleh)+1, tailleh]
+        FINSI
+        i <- i + 1
+    FINTANTQUE
+Fin de programme
+
