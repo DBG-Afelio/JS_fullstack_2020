@@ -1,0 +1,27 @@
+Ecrire le programme qui copie les éléments d’un tableau à 2 dimensions dans un tableau à une dimension du même nombre de cases.
+
+    Faire l’exercice en utilisant 3 variables d’indice
+    Faire l’exercice en utilisant 2 variables d’indice
+    Faire l’exercice en utilisant 1 variable d’indice
+
+
+Debut de Programme
+VARIABLES LOCALES 
+	VAR row :N <- 10
+	VAR column : N <- 10  
+	VAR tableaux2D : N [row , column]
+	VAR i : N <- 1
+	VAR j: N <- 1 
+	VAR k : N < - 1
+	VAR tableaux1D : N[k]
+	
+
+FINE VARIABLES LOCALES 
+
+	POUR i ALLANT DE 1 A row
+		POUR j ALLANT DE 1 A column
+		tableaux1D[k] <- tableaux2D[i,j]
+		k <- k+1
+	i SUIVANT
+
+Fin de Programme
