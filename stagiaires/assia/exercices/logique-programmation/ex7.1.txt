@@ -11,8 +11,7 @@ Debut exercice
 
     POUR i ALLANT DE 1 A LENGTH 
         arr[i][i] <- 1
-        POUR j ALLANT DE LENGTH A 1 PAR [PAS DE -1]
-            arr[i][j] <- 2
+        arr[i][LENGTH + 1 - i] <- 2
     i SUIVANT
 
 Fin exercice
