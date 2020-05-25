@@ -1,0 +1,26 @@
+Ecrire le programme  qui copie les éléments d’un tableau à 2 dimensions dans un tableau à une dimension du même nombre de cases.
+
+1. Faire l’exercice en utilisant 3 variables d’indice
+2. Faire l’exercice en utilisant 2 variables d’indice
+3. Faire l’exercice en utilisant 1 variable d’indice
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST RAW :N
+        CONST COL :N 
+        VAR arr1d :N[RAW * COL]
+        VAR arr2d :N[RAW][COL]
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR k :N
+    FIN VARIABLES
+
+    k <- O
+    POUR i ALLANT DE 1 A RAW 
+        POUR j ALLANT DE 1 A COL
+        k <- k + 1
+        arr1d[k]<- arr2d[i][j]
+        j SUIVANT 
+    i SUIVANT
+
+Fin exercice
