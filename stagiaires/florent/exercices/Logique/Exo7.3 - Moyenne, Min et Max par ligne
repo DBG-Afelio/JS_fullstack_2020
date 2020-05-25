@@ -24,7 +24,15 @@ Début programme
             somme <- somme + tab[i,j]
             j <- j + 1
         FINTANTQUE
-        Tabmoy[i] <- somme
+        Tabmoy[i] <- somme/j
+        Tabmax[i] <- max
+        Tabmin[i] <- min
+        i <- i + 1
+    FINTANTQUE
+
+    i <- 1
+    TANTQUE i < v
+        Afficher "La moyenne de la ligne" , i , "est de" , Tabmoy[i] , "dont le maximun est" , Tabmax[i] , "et le minimun est" , Tabmin[i] 
         i <- i + 1
     FINTANTQUE
 Fin de programme
