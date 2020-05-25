@@ -1,0 +1,75 @@
+Ecrire le programme  qui vérifie que les sommes de chaque ligne, chaque colonne et des deux diagonal d’un tableau numérique carré sont les mêmes.
+
+Debut exercice
+    VARIABLES LOCALES
+
+        CONST LENGTH :N
+        VAR arr :N[LENGTH][LENGTH]
+        VAR sommeLigne :N <- 0
+        VAR sommeColonne :N <- 0
+        VAR sommeRef :N <- 0
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR identique :B 
+    FIN VARIABLES
+
+    i <- 1
+    identique <- VRAI
+
+    TANT QUE i ≤ LENGTH ET identique = VRAI
+
+        POUR j ALLANT DE 1 A LENGTH
+
+            sommeligne <- sommeLigne + arr[i][j]
+            sommeColonne <- sommeColonne + arr[j][i] 
+            
+            SI i = j
+            ALORS
+                sommeDiagonale1 <- sommeDiagonale1 + arr[i][i]
+            FINSI
+            
+            SI [i + j = (LENGTH + 1)] 
+            ALORS
+                sommeDiagonale2 <- sommeDiagonale2 + arr[i][j]
+            FINSI
+
+        j SUIVANT
+        
+        // a ce stade on a la somme d'1 ligne et 1 colonne au complet, les sommes 'diagonal' ne seront a jour qu'une fois le TantQue finit
+
+        SI sommeLigne = sommeColonne
+        ALORS
+            SI i = 1 
+            ALORS
+                sommeRef <- sommeLigne
+            SINON
+                SI sommeLigne ≠ sommeRef
+                ALORS
+                    identique <- FAUX
+                FINSI
+            FINSI
+        SINON
+            identique <- FAUX
+        FINSI
+
+        sommeLigne <- 0
+        sommeColonne <- 0
+        i <- i + 1
+
+        // et on reboucle tant qu'on ne releve pas de difference
+
+    FIN TANT QUE 
+    
+    SI identique = VRAI
+    ALORS
+        SI sommeRef = sommeDiagonale1 ET sommeRef = diagonale2
+        ALORS
+            Afficher "Les sommes de chaque ligne, colonne et des 2 diagonales sont identiques et egales a ", sommeRef
+        SINON
+            Afficher "Il y a une difference dans les sommes"
+        FINSI
+    SINON
+        Afficher "Il y a une difference dans les sommes"
+    FINSI
+
+Fin exercice
