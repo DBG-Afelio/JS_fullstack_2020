@@ -117,8 +117,10 @@ Debut ex4-4
     Afficher "la position du premier maximum",  pos1max
     Afficher "la position du dernier maximum",  posNmax
     Afficher "le nombre d'occurrence du maximum", nbOccMax
+    Afficher "la plus grande suite croissante de valeurs", longMax
     Afficher "la position du premier minimum", pos1min
     Afficher "la position du dernier minimum", posNmin
     Afficher "le nombre d'occurrence du minimum", nbOccMin
+    Afficher "la plus petite suite croissante de valeurs", longMin
   
 Fin ex4-4
