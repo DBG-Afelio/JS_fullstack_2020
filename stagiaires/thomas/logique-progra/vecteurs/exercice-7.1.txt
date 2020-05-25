@@ -7,13 +7,12 @@ DEBUT VARIABLES LOCALES
     var taille :N <- 4
     var tableau2dim :N [taille, taille];
     var compteur :N <- 0
-    var indiceInverse :N <- 4;
-
+    var indiceInverse :N <- 5;
 
 FIN VARIABLES LOCALES
 
 
-    POUR compteur ALLANT DE 1 a longeur(tableau2dim[taille, taille])
+    POUR compteur ALLANT DE 1 a taille
 
         tableau2dim[compteur, compteur] <- 1
         tableau2dim[compteur, indiceInverse - 1] <- 2     
