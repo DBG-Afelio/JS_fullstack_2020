@@ -390,13 +390,66 @@ loginInput.addEventListener('input',()=>{
         validationButton.setAttribute('class','valid');
         
     }
-}); 
+});
+
+
+//loginSuggest
 
 loginButton.addEventListener('click',()=>{
     
+    loginInput.value = createLogin(nameInput.value,surnameInput.value);
     
-    
+    while(compareTabString(loginTab,loginInput.value)){
+        
+        createLogin(nameInput.value,surnameInput.value);
+        
+    }
 });
+
+function createLogin(nom,prenom){
+    
+    let firstPreChar;
+    let twoNameChar;
+    
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    let randomChar;
+    
+    if(prenom.length > 0){
+        
+        firstPreChar = prenom.charAt(0);
+        
+    }else{
+        
+        randomChar = Math.floor(Math.random() * chars.length);
+		firstPreChar = chars.charAt(randomChar);
+    
+    }
+    if(nom.length > 1){
+        
+        twoNameChar = nom.substring(0,2);
+        
+    }
+    else{
+        twoNameChar = "";
+        for (let i=0; i<2; i++) {
+        
+        randomChar = Math.floor(Math.random() * chars.length);
+		twoNameChar += chars.charAt(randomChar);
+            
+	   }
+    }
+    
+    const numbers = [];
+    
+    for (let i = 0; i < 3; i++) {
+        
+      numbers.push(Math.floor(Math.random() * 10));
+        
+    }
+    
+    return firstPreChar + twoNameChar + "_" + numbers.join("")
+    
+}
 
 /*----------------ValidPassword---------------*/
 
@@ -450,4 +503,20 @@ for(button of document.getElementsByTagName('button')){
     });
     
 }
+
+//reloadValues
+
+function reloadValues(){
+    
+    nameInput.value = '';
+    surnameInput.value = '';
+    mailInput.value = '';
+    phoneInput.value = '';
+    dateInput.value = '';
+    loginInput.value = '';
+    passwordInput.value = '';
+    
+    document.querySelector('input[value="autre"]').checked = true;
+}
+reloadValues();
 
