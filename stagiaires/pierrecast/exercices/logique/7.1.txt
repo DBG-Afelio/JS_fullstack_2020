@@ -1,0 +1,38 @@
+Ecrire le programme qui initialise les cases de la diagonale principale d’un tableau carré avec la valeur 1 et les cases de la diagonale secondaire avec la valeur 2.
+
+DEBUT 7-1
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 6
+        VAR tab :N[TAILLE, TAILLE]
+        VAR i :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A TAILLE
+        tab[i, i] <- 1
+        tab[i, TAILLE-i+1] <- 2
+    i SUIVANT
+
+FIN 7-1
+
+
+DEBUT 7-1b
+    VARIABLES LOCALES :
+        CONST TAILLE:N <- 5
+        VAR tab :N[TAILLE, TAILLE]
+        VAR i :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A TAILLE
+        SI (i = TAILLE-i+1) 
+            ALORS
+                tab[i, i] <- 3
+            SINON
+                tab[i, i] <- 1
+                tab[i, TAILLE-i+1] <- 2
+        FIN SI
+        
+    i SUIVANT
+
+FIN 7-1b
