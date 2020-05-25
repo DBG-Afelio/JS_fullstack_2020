@@ -1,0 +1,34 @@
+Ecrire le programme qui affiche la moyenne le maximum et le minimum de chaque ligne d’un tableau à deux dimensions.
+
+
+Debut Programme
+VARIABLES LOCALES
+	VAR raw : N <- 0 
+	Var column :N <- 0
+	VAR tableaux :N [raw ,column]
+	VAR i :N <-1
+	VAR j :N <-1
+	VAR max : N <- 0
+	VAR min : N <-0	
+	VAR somme : N <- 0
+	VAR moyenne: N <- 0
+	
+FIN VARIABLES LOCALES
+	max <- tableaux [1 , 1]
+	min <- tableaux [1 , 1]
+	POUR i ALLANT DE 1 A raw 
+		POUR j ALLANT DE 1 A column 
+			somme <- somme +tableaux [i , j]
+			SI tableaux [i , j] > max
+				ALORS 
+					max <- tableaux [i , j] 
+			FINSI
+			SI tableaux [i , j] < min
+				ALORS
+					min <- tableaux [i , j]
+			FINSI
+		j SUIVANT
+	i SUIVANT
+moyenne = somme /column
+		
+Fin Programme
