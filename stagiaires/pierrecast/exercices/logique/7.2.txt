@@ -1,0 +1,69 @@
+Ecrire le programme qui copie les éléments d’un tableau à 2 dimensions dans un tableau à une dimension du même nombre de cases.
+
+    Faire l’exercice en utilisant 3 variables d’indice
+    Faire l’exercice en utilisant 2 variables d’indice
+    Faire l’exercice en utilisant 1 variable d’indice
+
+
+
+DEBUT 7-2a
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tabIn :N[n, n]
+        VAR tabOut :N[n*n]
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR k :N <- 1
+
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A n
+        j<- 1
+        POUR j ALLANT DE 1 A n
+            k = ((i-1)*n)+j
+            tabOut[k] <- tabIn[i,j]
+        j SUIVANT
+    i SUIVANT
+
+FIN 7-2a
+
+DEBUT 7-2b
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tabIn :N[n, n]
+        VAR tabOut :N[n*n]
+        VAR i :N <- 1
+        VAR j :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A n
+        j<- 1
+        POUR j ALLANT DE 1 A n
+            tabOut[((i-1)*n)+j] <- tabIn[i,j]
+        j SUIVANT
+    i SUIVANT
+
+FIN 7-2b
+
+DEBUT 7-2c
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tabIn :N[n, n]
+        VAR tabOut :N[n*n]
+        VAR i :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A n*n
+        SI (i MOD n) != 0
+            ALORS
+                tabOut[i] <- tabIn[(i DIV n)+1, (i MOD n)+1]
+            SINON
+                tabOut[i] <- tabIn[(i DIV n)+1, 6]
+        FINSI
+    i SUIVANT
+
+FIN 7-2c
+
