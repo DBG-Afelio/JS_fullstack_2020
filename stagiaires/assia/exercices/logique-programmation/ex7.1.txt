@@ -1,0 +1,17 @@
+Ecrire le programme  qui initialise les cases de la diagonale principale d’un tableau carré avec la valeur 1 et les cases de la diagonale secondaire avec la valeur 2.
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST LENGTH :N <- 4
+
+        VAR arr :N[LENGTH][LENGTH]
+        VAR i :N <- 1
+        VAR j :N <- 1
+    FIN VARIABLES
+
+    POUR i ALLANT DE 1 A LENGTH 
+        arr[i][i] <- 1
+        arr[i][LENGTH + 1 - i] <- 2
+    i SUIVANT
+
+Fin exercice
