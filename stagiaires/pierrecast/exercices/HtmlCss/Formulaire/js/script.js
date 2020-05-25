@@ -800,15 +800,25 @@ function showAvatar(x,y) {
 function TransfertData() {
     // avatar
     infoAvatar.innerHTML = transformAvatar(fieldAvatar.querySelector('input').value);
-    infoName.innerHTML = fieldName.querySelector('input').value;
-    infoFirstName.innerHTML = fieldFirstName.querySelector('input').value; 
-    infoEmail.innerHTML = fieldEmail.querySelector('input').value; 
-    infoAge.innerHTML = transformAge(fieldDate.querySelector('input').value);
-    infoPhone.innerHTML = fieldPhone.querySelector('input').value;
-    infoNationality.innerHTML = fieldNationality.querySelector('option:checked').innerHTML;
-    infoSex.innerHTML = fieldSex.querySelector('input:checked').nextSibling.innerHTML;
-    infoLogin.innerHTML = fieldLogin.querySelector('input').value;
-    infoRole.innerHTML = transformRole(fieldRole.querySelectorAll('input:checked'));
+    infoName.querySelector('output').innerHTML = fieldName.querySelector('input').value;
+    infoFirstName.querySelector('output').innerHTML = fieldFirstName.querySelector('input').value; 
+    infoEmail.querySelector('output').innerHTML = fieldEmail.querySelector('input').value; 
+    infoAge.querySelector('output').innerHTML = transformAge(fieldDate.querySelector('input').value);
+    infoPhone.querySelector('output').innerHTML = fieldPhone.querySelector('input').value;
+    infoNationality.querySelector('output').innerHTML = fieldNationality.querySelector('option:checked').innerHTML;
+    let sex = fieldSex.querySelector('input:checked').nextSibling.innerHTML;
+    if (sex === "Femme") {
+        infoSex.querySelector('i').classList.remove('fa-mars');
+        infoSex.querySelector('i').classList.add('fa-venus');
+    }
+    infoSex.querySelector('output').innerHTML = sex;
+    infoLogin.querySelector('output').innerHTML = fieldLogin.querySelector('input').value;
+
+    let roles = fieldRole.querySelectorAll('input:checked');
+    if (roles[0].value === "0") {
+        roles = [roles[0]];
+    } 
+    infoRole.querySelector('output').innerHTML = transformRole(roles);
 }
 
 function transformAge(date) {
