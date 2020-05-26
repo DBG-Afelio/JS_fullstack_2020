@@ -321,8 +321,22 @@ function pwdConfStatus(pwd1, pwd2) {
  * @param {string} password 
  * @returns 1:Faible, 2:Moyen, 3:Fort
  */
+function getPasswordStrength(password) {  
+    console.log(password);
+
+    let matchAZ = password.match(/[a-zA-Z]/); console.log('AZ'+matchAZ);
+    let match09 = password.match(/[0-9]/); console.log('09'+match09);
+    let matchSi = password.match(/[!$-_]/); console.log('sign'+matchSi);
+
+    let isLetters = password.match(/[a-zA-Z]/) !== null ? 1 : 0; console.log(isLetters);
+    let isDigits = password.match(/[0-9]/) !== null ? 1 : 0; console.log(isDigits);
+    let isSymbols = password.match(/[!]|[$]|[-]|[_]/) !== null ? 1 : 0; console.log(isSymbols);
+    return (isLetters + isDigits + isSymbols);    
+}
+
+/*
 function getPasswordStrength(password) {
-    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(<symbols>[-_!$])*/);
+    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(<symbols>[-_!$])/); *
 
     const matches = password.match(regex);
     console.log(matches);
@@ -337,6 +351,7 @@ function getPasswordStrength(password) {
     return l + d + s;
     
 }
+*/
 
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
