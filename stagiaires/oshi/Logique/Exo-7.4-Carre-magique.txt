@@ -1,0 +1,42 @@
+Début programme
+	Variable locale
+        Const TAILLE :N <- 6
+        Var tab :N[COLONE, LIGNE]
+        Var result_tab :N[TAILLE+TAILLE+2]
+        Var index :N <- 0
+	Var result_count :N <- 1
+	Var equal :B <- true
+	Fin variable locale
+	
+	
+
+	TANT QUE result_count >= TAILLE+TAILLE+2
+		SI result_count <= TAILLE ALORS
+			POUR index ALLANT DE 1 A TAILLE
+				result_tab[result_count] <- result_tab[result_count] + tab[index, result_count]
+			index SUIVANT
+		SINON
+			SI result_count <= TAILLE*2 ALORS
+				POUR index ALLANT DE 1 A TAILLE
+					result_tab[result_count] <- result_tab[result_count] + tab[result_count - TAILLE, index]
+				index SUIVANT
+			SINON
+				SI result_count = TAILLE*2+2 ALORS
+					POUR index ALLANT DE 1 A TAILLE
+						result_tab[result_count] <- result_tab[result_count] + tab[index, index]
+					index SUIVANT
+				SINON
+					POUR index ALLANT DE 1 A TAILLE
+						result_tab[result_count] <- result_tab[result_count] + tab[index, TAILLE - index + 1]
+					index SUIVANT
+				FINSI
+			FINSI
+		FINSI
+		result_count <- result_count + 1
+	FIN TANT QUE
+	index <- 2
+	TANT QUE equal && index <= TAILLE*2+2
+		equal <- result_tab[index] = result_tab[index-1]
+	FIN TANT QUE
+	Afficher "La sommes est elle égalt ?", equal
+Fin de programme
