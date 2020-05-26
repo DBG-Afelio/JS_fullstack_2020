@@ -1,0 +1,79 @@
+// Ecrire un programme qui demande à l’utilisateur 
+// d’entrer un texte source et un texte à rechercher 
+// et un texte de remplacement.
+// Le programme affichera le texte source 
+// où toutes les occurrences du texte à rechercher 
+// seront remplacées par le texte de remplacement. 
+
+
+Debut chercheEtRemplace
+
+
+	VARIABLES LOCALES :
+
+		var texteSource: T <- "" 
+		var texteARechercher: T <- "" 
+		var texteDeRemplacement: T <- ""
+		var combienDeFoisTexteARechercher: N
+		var texteQuiSeConstruit:  T <- ""
+		var indexQuiBouge: N <- 1
+
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte de base"
+		Saisir texteSource
+		
+		Afficher "Entrez un mot à rechercher"
+		Saisir texteARechercher
+
+		Afficher "Entrez un mot de remplacement"
+		Saisir texteDeRemplacement
+	
+
+// L'idée c'est qu'on a un mot qu'on doit trouver dans un texte, donc on va parcourir le texte avec un curseur de la taille du mot
+// et on va déplacer le curseur de 1 à chaque itération et voir si le curseur correspond au mot
+// Mais ça ne sert à rien d'aller jusqu'à la dernière lettre du texte car le mot qu'on cherche à une certaine taille
+
+	Pour i allant de 1 à (longueur(texteSource) - longueur(texteARechercher))
+
+		SI sousChaine(texteSource, i, i+longueur(texteARechercher)) = texteARechercher 
+			// la sousChaine, c'est le curseur qui se déplace. Il bouge sur le texteSource et quand le curseur de longeur(text)
+			// est égal au texteARechercher, on rentre dans la condition
+
+			Alors 
+
+				// On va se servir de la variable combienDeFois pour déterminer si le mot qu'on cherche est présent dans le texte
+				
+					combienDeFois <- combienDeFois + 1
+
+				// Avec la boucle ci-dessous, on va prendre la partie du texte de base juste avant le mot qu'on cherche
+				// Mais on va utiliser une variable 'indexQuiBouge' qui va prendre des morceaux du texte et les stocker dans une variable "morceauAjoute"
+
+					Pour j allant de indexQuiBouge à i
+
+						morceauAAjoute <- morceauAAjoute (+) char(texteSource, j)
+
+					j suivant
+
+					// On va donner une nouvelle valeur à index qui bouge car on veut toujours prendre un nouveau morceau de texte
+
+					indexQuiBouge <- i+longueur(texteARechercher)
+
+					//
+				
+				//La variable "morceauAjoute" est ajouté à un texte qui se construit, et on ajoute en plus la valeur du texteDeRemplacement
+
+				texteQuiSeConstruit <- texteQuiSeConstruit (+) morceauAAjoute (+) texteDeRemplacement
+
+		FINSI
+
+		SI(combienDeFois = 0 )
+			AFFICHER "Le mot n'existe pas dans le texte"
+
+		SINON 
+			AFFICHER texteQuiSeConstruit
+		FINSI
+ 	
+	i++ 
+
+Fin chercheEtRemplace

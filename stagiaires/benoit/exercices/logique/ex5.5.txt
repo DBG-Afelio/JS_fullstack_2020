@@ -1,0 +1,70 @@
+// Ecrire un programme qui demande à l’utilisateur de rentrer 
+// deux textes.
+// Le programme affichera VRAI si le premier texte se situe 
+// après le deuxième dans l’ordre alphabétique 
+// sinon il affichera FAUX.
+
+// Remarques :
+// - Les opérateurs de comparaison sur les textes ne peuvent pas
+//	 être utilisés :-).
+// - Algorithme au seul niveau primaire.
+
+
+Debut textesAlphabetiques
+
+	VARIABLES LOCALES :
+
+		var texteA: T <- "" 
+		var texteB: T <- ""
+		var variableAffichee: B <- Faux
+		var longueurMax: N <- 0
+		var compteur: N <- 0
+
+	Fin VARIABLES LOCALES
+
+	Afficher "Entrez un texte A"
+		Saisir texteA
+		
+	Afficher "Entrez un texte B"
+		Saisir texteB
+	
+	Si (longueur(texteA) = longueur(texteB))
+		Alors 
+			longueurMax = longueur(texteA)
+	FinSi
+
+	Si (longueur(texteA) > longueur(texteB))
+		Alors 
+			longueurMax = longueur(texteB)
+	FinSi
+
+	Si (longueur(texteA) < longueur(texteB))
+		Alors 
+			longueurMax = longueur(texteA)
+	FinSi
+
+	
+	Tant que compteur < longueurMax
+	
+		Si caract(texteA, compteur) > caract(texteB, compteur)
+			Alors 
+				compteur = longueurMax
+				variableAffichee: B <- Vrai
+		FinSi
+
+		Si caract(texteA, compteur) < caract(texteB, compteur)
+			Alors 
+				compteur = longueurMax
+				variableAffichee: B <- Faux
+		FinSi
+
+		Si caract(texteA, compteur) = caract(texteB, compteur)
+			Alors
+				compteur++
+		FinSi
+
+	Fin Tant que
+
+	Afficher variableAffichee
+
+Fin textesAlphabetiques
