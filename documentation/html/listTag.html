@@ -91,15 +91,36 @@
 			</p>
 			<div class="exemple">
 				<code>
-					<h1>Guacamole rapide à faire</h1>
-					<h2>Ingrédients</h2>
+					&lt;h1&gt;Guacamole rapide à faire &lt;/h1&gt;
+					&lt;h2&gt;Ingrédients&lt;/h2&gt;
+					&lt;ul&gt;
+						&lt;li&gt;2 avocats &lt;/li&gt;
+						&lt;li&gt;le jus d'un citron&lt;/li&gt;
+						&lt;li&gt;¼ de concombre, coupé grossièrement&lt;/li&gt;
+						&lt;li&gt;1 petite tomate, coupée&lt;/li&gt;
+					&lt;/ul&gt;
+					&lt;h2&gt;Instructions&lt;/h2&gt;
+					&lt;ol&gt;
+						&lt;li&gt;Écrasez délicatement les avocats avec une fourchette&lt;/li&gt;
+						&lt;li&gt;Placez la purée obtenue dans un plat et
+						arrosez avec le jus de citron&lt;/li&gt;
+						&lt;li&gt;Mélangez pour que le jus de citron
+						empêche la purée d'avocat de noircir&lt;/li&gt;
+						&lt;li&gt;Mélangez la tomate et le concombre coupés&lt;/li&gt;
+						&lt;li&gt;Gardez au frais et servir rapidement
+						avec des tortillas&lt;/li&gt;
+					&lt;/ol&gt;	
+				</code>
+				<div class="resultat">
+					<p>Guacamole rapide à faire</p>
+					<p>Ingrédients</p>
 					<ul class="navUl">
 					 	<li>2 avocats </li>
 					 	<li>le jus d'un citron</li>
 					 	<li>¼ de concombre, coupé grossièrement</li>
 					 	<li>1 petite tomate, coupée</li>
 					</ul>
-					<h2>Instructions</h2>
+					<p>Instructions</p>
 					<ol>
 					 	<li>Écrasez délicatement les avocats avec une fourchette</li>
 					 	<li>Placez la purée obtenue dans un plat et arrosez avec le jus de citron</li>
@@ -107,64 +128,49 @@
 					 	<li>Mélangez la tomate et le concombre coupés</li>
 					 	<li>Gardez au frais et servir rapidement avec des tortillas</li>
 					</ol>
-				</code>
-				<pre>
-&lt;h1&gt;Guacamole rapide à faire &lt;/h1&gt;
-&lt;h2&gt;Ingrédients&lt;/h2&gt;
-&lt;ul&gt;
-    &lt;li&gt;2 avocats &lt;/li&gt;
-    &lt;li&gt;le jus d'un citron&lt;/li&gt;
-    &lt;li&gt;¼ de concombre, coupé grossièrement&lt;/li&gt;
-    &lt;li&gt;1 petite tomate, coupée&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Instructions&lt;/h2&gt;
-&lt;ol&gt;
-    &lt;li&gt;Écrasez délicatement les avocats avec une fourchette&lt;/li&gt;
-    &lt;li&gt;Placez la purée obtenue dans un plat et
-    arrosez avec le jus de citron&lt;/li&gt;
-    &lt;li&gt;Mélangez pour que le jus de citron
-    empêche la purée d'avocat de noircir&lt;/li&gt;
-    &lt;li&gt;Mélangez la tomate et le concombre coupés&lt;/li&gt;
-    &lt;li&gt;Gardez au frais et servir rapidement
-    avec des tortillas&lt;/li&gt;
-&lt;/ol&gt;
-                </pre>
-                </div>
-				<p>
-					Par défaut, le navigateur utilisera des chiffres classiques pour les listes ordonnées et des puces (rondes) pour les listes non-ordonnées. Nous verrons par la suite comment modifier ces paramètres.
-				</p>
-
+				</div>
+            </div>
+			<p>Par défaut, le navigateur utilisera des chiffres classiques pour les listes ordonnées et des puces (rondes) pour les listes non-ordonnées. Nous verrons par la suite comment modifier ces paramètres.</p>
 				<h3>1.2 - Les listes de définition</h3>
-				<p>
-					La liste de définitions consiste généralement en une succession de couples terme/définition (même si les listes peuvent avoir d'autres usages). Ainsi, on pourrait utiliser une liste de définitions pour la publicité d'un produit.
-				</p>
+				<p>La liste de définitions consiste généralement en une succession de couples terme/définition (même si les listes peuvent avoir d'autres usages). Ainsi, on pourrait utiliser une liste de définitions pour la publicité d'un produit.</p>
 				<div class="exemple">
 					<code>
+						&lt;dl&gt;
+						&lt;dt&gt;Titre de la définition&lt;/dt&gt;
+						&lt;dd&gt;La définition en elle même&lt;/dd&gt;
+						&lt;dt&gt;Titre de la 2 eme définition&lt;/dt&gt;
+						&lt;dd&gt;La définition 2eme en elle même&lt;/dd&gt;
+						&lt;/dl&gt;
+					</code>
+					<div class="resultat">
 						<dl>
 							<dt>Titre de la définition</dt>
 							<dd>La définition en elle même</dd>
 							<dt>Titre de la 2ème définition</dt>
 							<dd>La définition 2ème en elle-même</dd>
 						</dl>
-					</code>
-					<pre>
-&lt;dl&gt;
-    &lt;dt&gt;Titre de la définition&lt;/dt&gt;
-    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
-    &lt;dt&gt;Titre de la 2 eme définition&lt;/dt&gt;
-    &lt;dd&gt;La définition 2eme en elle même&lt;/dd&gt;
-&lt;/dl&gt;
-						</pre>
-						</div>
-						<p>Noter que la balise fermante <strong>&lt;/dl&gt;</strong> est obligatoire.</p>
-                    	<p>
-							Syntaxe HTML : la liste de définition utilisera la balise <strong>&lt;dl&gt;</strong>. La structuration reste la même, on aura une 1ere structure de balise qui va contenir d’autres balises mais ces dernières sont différentes. On n’utilisera pas la balise <strong>&lt;li&gt;</strong>. Voici la structure pour reprendre l'exemple precdent:
-						</p>
-
+					</div>
+				</div>
+				<p>Noter que la balise fermante <strong>&lt;/dl&gt;</strong> est obligatoire.</p>
+				<p>Syntaxe HTML : la liste de définition utilisera la balise <strong>&lt;dl&gt;</strong>. La structuration reste la même, on aura une 1ere structure de balise qui va contenir d’autres balises mais ces dernières sont différentes. On n’utilisera pas la balise <strong>&lt;li&gt;</strong>. Voici la structure pour reprendre l'exemple precdent:</p>
 				<h3>1.3 - Les listes imbriquées</h3>
         		<p>On voit souvent plusieurs listes placées les unes dans les autres. Autrement dit, on peut imbriquer des listes (un élément d'une liste sera une liste entière) :</p>
 				<div class="exemple">
 					<code>
+						&lt;ul&gt;
+							&lt;li&gt;Un composant&lt;/li&gt;
+							&lt;li&gt;Un processus :&lt;&gt;
+								&lt;ol&gt;
+									&lt;li&gt;Étape 1&lt;/li&gt;
+									&lt;li&gt;Étape 2&lt;/li&gt;
+									&lt;li&gt;Étape 3&lt;/li&gt;
+								&lt;/ol&gt;
+							&lt;/li&gt;
+							&lt;li&gt;Un composant&lt;/li&gt;
+						&lt;/ul&gt;
+					</code>
+
+					<div class=resultat>
 						<ul>
 							<li>Un composant</li>
 							<li>Un processus :
@@ -176,22 +182,8 @@
 						  	</li>
 							<li>Un composant</li>
 						</ul>
-					</code>
-
-					<pre>
-&lt;ul&gt;
-    &lt;li&gt;Un composant&lt;/li&gt;
-    &lt;li&gt;Un processus :&lt;&gt;
-        &lt;ol&gt;
-            &lt;li&gt;Étape 1&lt;/li&gt;
-            &lt;li&gt;Étape 2&lt;/li&gt;
-            &lt;li&gt;Étape 3&lt;/li&gt;
-        &lt;/ol&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Un composant&lt;/li&gt;
-&lt;/ul&gt;
-					</pre>
 					</div>
+				</div>
 					<p>Les menus de navigation utilisent parfois des listes imbriquées pour afficher les sous-catégories. Pour étudier un exemple réel, vous pouvez inspecter le code HTML du menu MDN.</p>
 			</article>
 
@@ -208,19 +200,19 @@
 					<p>La valeur par défaut dépend de la profondeur d'imbrication de la liste courante. Ces valeurs sont insensibles à la casse.</br>Exemple de puce carré avec l’element UL :</p>
 					<div class="exemple">
 						<code>
+							&lt;ul type= "square"&gt;
+								&lt;li&gt;Je suis le 1e item avec une puce de forme carrée&lt;/li&gt;
+								&lt;li&gt;Je suis le 2e item avec une puce de forme carrée&lt;/li&gt;
+								&lt;li&gt;Je suis le 3e item avec une puce de forme carrée&lt;/li&gt;
+							&lt;/ul&gt;
+						</code>
+						<div class="resultat">
 							<ul type= "square">
 							    <li>Je suis le 1er item avec une puce de forme carrée</li>
 							    <li>Je suis le 2e item avec une puce de forme carrée</li>
 					      		<li>Je suis le 3e item avec une puce de forme carrée</li>
 							</ul>
-						</code>
-						<pre>
-&lt;ul type= "square"&gt;
-    &lt;li&gt;Je suis le 1e item avec une puce de forme carrée&lt;/li&gt;
-    &lt;li&gt;Je suis le 2e item avec une puce de forme carrée&lt;/li&gt;
-    &lt;li&gt;Je suis le 3e item avec une puce de forme carrée&lt;/li&gt;
-&lt;/ul&gt;
-						</pre>
+						</div>
 					</div>
 					<p>Pour l'élément OL, les valeurs possibles de l'attribut type sont résumées ci-dessous, suivant le style de numerotation souhaité (les valeurs sont sensibles à la casse) :</p>
 
@@ -234,20 +226,20 @@
 					<p>Exemple de numerotation en chiffres romains minuscules avec l’element OL :</p>
 					<div class="exemple">
 						<code>
-							<ol type= "i">
-						       <li>Je suis le 1er de la liste avec une numérotation i </li>
-						       <li>Je suis le 2er de la liste avec une numérotation ii </li>
-						       <li>Je suis le 3er de la liste avec une numérotation iii </li>
-							</ol>
+							&lt;ol type= "i"&gt;
+								&lt;li&gt;Je suis le 1er de la liste avec une numérotation i &lt;/li&gt;
+								&lt;li&gt;Je suis le 2er de la liste avec une numérotation ii &lt;/li&gt;
+								&lt;li&gt;Je suis le 3er de la liste avec une numérotation iii &lt;/li&gt;
+							&lt;/ol&gt;
 						</code>
-						<pre>
-&lt;ol type= "i"&gt;
-    &lt;li&gt;Je suis le 1er de la liste avec une numérotation i &lt;/li&gt;
-    &lt;li&gt;Je suis le 2er de la liste avec une numérotation ii &lt;/li&gt;
-    &lt;li&gt;Je suis le 3er de la liste avec une numérotation iii &lt;/li&gt;
-&lt;/ol&gt;
-						</pre>
-					</div></br>
+						<div class="resultat">
+							<ol type= "i">
+								<li>Je suis le 1er de la liste avec une numérotation i </li>
+								<li>Je suis le 2er de la liste avec une numérotation ii </li>
+								<li>Je suis le 3er de la liste avec une numérotation iii </li>
+							 </ol>
+						</div>
+					</div>
 
 					<h4> - start = "nombre"</h4>
 					<p>
@@ -255,20 +247,20 @@
 					</p>
 					<div class="exemple">
 						<code>
+							&lt;ol start="3" type="A"&gt;
+								&lt;li&gt;Je suis premier&lt;/li&gt;
+								&lt;li&gt;Je suis deuxième&lt;/li&gt;
+								&lt;li&gt;Je suis troisième&lt;/li&gt;
+							&lt;/ol&gt;
+						</code>
+						<div class="resultat">
 							<ol start="3" type="A">
 							    <li>Je suis premier</li>
 							    <li>Je suis deuxième</li>
 							    <li>Je suis troisième</li>
 							</ol>
-						</code>
-						<pre>
-&lt;ol start="3" type="A"&gt;
-    &lt;li&gt;Je suis premier&lt;/li&gt;
-    &lt;li&gt;Je suis deuxième&lt;/li&gt;
-    &lt;li&gt;Je suis troisième&lt;/li&gt;
-&lt;/ol&gt;
-						</pre>
-					</div></br>
+						</div>
+					</div>
 
 					<h4> - reversed</h4>
 					<p>Pour décompter plutôt que compter (par exemple 5-4-3-2-1), on pourra utiliser l'attribut <strong>reversed</strong> de l'élément OL :</p>
@@ -298,45 +290,45 @@
 					<p>Pour l’element UL, le style par defaut est <strong>"disc"</strong>. Ci-dessous un exemple de code pour chaque puce.</p>
 					<div class="exemple">
                         <code>
-                            <ul style= "list-style-type: circle">
+							&lt;li&gt;Exemple liste à puce HTML – cercle 1&lt;/li&gt;
+								&lt;li&gt; Exemple liste à puce HTML – cercle 2&lt;/li&gt;
+							&lt;/ul&gt;
+			            </code>
+                        <div class="resultat">
+							<ul style= "list-style-type: circle">
                                 <li>Exemple liste à puce HTML - cercle 1</li>
                                 <li> Exemple liste à puce HTML - cercle 2</li>
                             </ul>
-			            </code>
-                        <pre>
-&lt;li&gt;Exemple liste à puce HTML – cercle 1&lt;/li&gt;
-    &lt;li&gt; Exemple liste à puce HTML – cercle 2&lt;/li&gt;
-&lt;/ul&gt;
-                        </pre>
-                    </div></br>
+                        </div>
+                    </div>
                     <div class="exemple">
 			      		<code>
-                            <ul style= "list-style-type: square">
+							&lt;ul style= "list-style-type: square"&gt;
+								&lt;li&gt;Exemple liste à puce HTML – carré 1&lt;/li&gt;
+								&lt;li&gt; Exemple liste à puce HTML – carré 2&lt;/li&gt;
+							&lt;/ul&gt;
+                        </code>
+                        <div class="resultat">
+							<ul style= "list-style-type: square">
                                 <li>Exemple liste à puce HTML - carré 1</li>
                                 <li>Exemple liste à puce HTML - carré 2</li>
                         	</ul>
-                        </code>
-                        <pre>
-&lt;ul style= "list-style-type: square"&gt;
-    &lt;li&gt;Exemple liste à puce HTML – carré 1&lt;/li&gt;
-    &lt;li&gt; Exemple liste à puce HTML – carré 2&lt;/li&gt;
-&lt;/ul&gt;
-                        </pre>
-                    </div></br>
+                        </div>
+                    </div>
                     <div class="exemple">
                     	<code>
-                            <ul style="list-style-type: none">
+                            &lt;ul style= "list-style-type: none"&gt;
+								&lt;li&gt;Exemple liste à puce HTML – sans puce 1&lt;/li&gt;
+								&lt;li&gt; Exemple liste à puce HTML – sans puce 2&lt;/li&gt;
+							&lt;/ul&gt;
+                        </code>
+                        <div class="resultat">
+							<ul style="list-style-type: none">
                                 <li>Exemple liste à puce HTML – sans puce 1</li>
                                 <li>Exemple liste à puce HTML – sans puce 2</li>
                             </ul>
-                        </code>
-                        <pre>
-&lt;ul style= "list-style-type: none"&gt;
-    &lt;li&gt;Exemple liste à puce HTML – sans puce 1&lt;/li&gt;
-    &lt;li&gt; Exemple liste à puce HTML – sans puce 2&lt;/li&gt;
-&lt;/ul&gt;
-                        </pre>
-					</div></br>
+                        </div>
+					</div>
 					<p>CSS peut permettre d'obtenir des effets très complexes (comme un système de comptage personnalisé). Si vous souhaitez apprendre CSS, vous pouvez parcourir le <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Guide CSS</a> et voir comment appliquer des règles CSS à une page web.</p>
 					<p>Prenons un rapide exemple. Voici une liste HTML non-ordonnée :
 					<ul class="navUl">
@@ -344,22 +336,23 @@
 					  	<li>J'ai un cercle</li>
 					  	<li>J'ai aussi un cercle</li>
 					</ul>
+					<!--Ne pas changer cette partie, ce n'est pas un exemple html - elle est namipulee par le css-->
 					</p>
 					<p>Ces règles CSS permettront que la puce des éléments soit un cercle, sauf pour le premier (où ce sera un point) :</p>
 					<p><strong>
-						ul {</br>
-							list-style-type: circle;</br>
-						}</br>
-						li:first-child {</br>
-							list-style-type: disc;</br>
-					}</br>
+						ul {<br/>
+							list-style-type: circle;<br/>
+						}<br/>
+						li:first-child {<br/>
+							list-style-type: disc;<br/>
+					}<br/>
 						</strong></p>
 					<p>Cela donnera :</p>
 					<ul id="exemple-css-UL">
 						<li>J'ai un point
 						<li>J'ai un cercle
 						<li>J'ai aussi un cercle
-					</ul></br>
+					</ul><br/>
 
 					<h5>Mise en forme liste ordonnee</h5>
 					<p>Pour l’élément OL, le meme principe s’applique pour modifier le style de numerotation. Voici les principales possibilites :</p>
@@ -375,18 +368,18 @@
                     <p>Exemple avec l’alphabet en majuscule:</p>
 					<div class="exemple">
 						<code>
+							&lt;ol style="list-style-type:upper-alpha"&gt;
+								&lt;li>Exemple liste numerotation lettre majuscule&lt;/li&gt;
+								&lt;li> Exemple liste numerotation lettre majuscule&lt;/li&gt;
+							&lt;/ol&gt;
+						</code>
+						<div class="resultat">
 							<ol style="list-style-type:upper-alpha">
 								<li>Exemple liste numerotation lettre majuscule </li>
 								<li> Exemple liste numerotation lettre majuscule </li>
 							</ol>
-						</code>
-						<pre>
-&lt;ol style="list-style-type:upper-alpha"&gt;
-    &lt;li>Exemple liste numerotation lettre majuscule&lt;/li&gt;
-    &lt;li> Exemple liste numerotation lettre majuscule&lt;/li&gt;
-&lt;/ol&gt;
-						</pre>
-					</div></br>
+						</div>
+					</div>
 
 					<h5>Mise en forme liste de definition</h5>
 					<p>
@@ -394,24 +387,24 @@
 					</p>
 					<div class="exemple">
 						<code>
+							&lt;p&gt;La syntaxe :&lt;/p&gt;
+							&lt;dl&gt;
+								&lt;dt&gt; style= "color:white; background-color:black;
+									font-weight:bold;">Titre de la définition&lt;/dt&gt;
+								&lt;dd&gt;La définition en elle même&lt;/dd&gt;
+								&lt;dt&gt;Titre de la 2eme définition&lt;/dt&gt;
+								&lt;dd&gt;La définition 2eme en elle-même&lt;dd&gt;
+							&lt;/dl&gt;
+						</code>
+						<div class="resultat">
 							<dl>
 								<dt style= "color:white; background-color:black; font-weight:bold;">Titre de la définition</dt>
 								<dd>La définition en elle-même</dd>
 								<dt>Titre de la 2eme définition</dt>
 								<dd>La définition 2eme en elle même</dd>
 							</dl>
-						</code>
-						<pre>
-&lt;p&gt;La syntaxe :&lt;/p&gt;
-&lt;dl&gt;
-    &lt;dt&gt; style= "color:white; background-color:black;
-        font-weight:bold;">Titre de la définition&lt;/dt&gt;
-    &lt;dd&gt;La définition en elle même&lt;/dd&gt;
-    &lt;dt&gt;Titre de la 2eme définition&lt;/dt&gt;
-    &lt;dd&gt;La définition 2eme en elle-même&lt;dd&gt;
-&lt;/dl&gt;
-						</pre>
-					</div></br>
+						</div>
+					</div>
 
 					<h4> - Utiliser une image à la place d’une puce avec <strong>list-style-image</strong></h4>
 					<p>
@@ -419,18 +412,17 @@
 					</p>
 					<div class="exemple">
 						<code>
+							&lt;ul style="list-style-image:url('img/alpha/HTML5_logo_reduced.png');"&gt;
+								&lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+								&lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
+							&lt;/ul&gt;	
+						</code>
+						<div class="resultat">
 							<ul style="list-style-image: url('img/alpha/HTML5_logo _reduced.png');">
 								<li>Exemple liste à puce HTML logo</li>
 								<li>Exemple liste à puce HTML logo</li>
 							</ul>
-						</code>
-						<pre>
-&lt;ul style="list-style-image:
-        url('img/alpha/HTML5_logo_reduced.png');"&gt;
-    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
-    &lt;/li&gt;Exemple liste à puce HTML logo&lt;/li&gt;
-&lt;/ul&gt;
-						</pre>
+						</div>
 					</div>
 
 		</article>
