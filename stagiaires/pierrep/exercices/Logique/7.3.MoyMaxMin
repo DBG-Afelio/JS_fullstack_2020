@@ -2,12 +2,16 @@
 
 DEBUT PROGRAMME
 
+    VAR LOCALES
+
     CONST L :N <- 4
     CONST C :N <- 5
     VAR TAB :N <- [L, C]
     VAR NEWTAB :N <- [L, 3]
     VAR i :N <- 1
     MOY :N <- 0
+
+    FIN VAR LOCALES
 
 
 Pour h allant de 1 à L
