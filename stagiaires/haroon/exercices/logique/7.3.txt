@@ -14,9 +14,10 @@ VARIABLES LOCALES
 	VAR moyenne: N <- 0
 	
 FIN VARIABLES LOCALES
-	max <- tableaux [1 , 1]
-	min <- tableaux [1 , 1]
-	POUR i ALLANT DE 1 A raw 
+
+	POUR i ALLANT DE 1 A raw
+		max <- tableaux [i , j]
+		min <- tableaux [i , j] 
 		POUR j ALLANT DE 1 A column 
 			SI tableaux [i , j] > max
 				ALORS 
@@ -30,6 +31,7 @@ FIN VARIABLES LOCALES
 			somme <- somme +tableaux [i , j]
 			moyenne = somme /column
 		j SUIVANT
+		AFFHICER moyenne max  min 
 	i SUIVANT
 
 		
