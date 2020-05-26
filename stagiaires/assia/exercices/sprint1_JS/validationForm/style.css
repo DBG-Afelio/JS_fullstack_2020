@@ -53,7 +53,7 @@ legend{
     padding: 20px;
     
 }
-#summary-card output{
+output.output-card {
     background-color:transparent;
     border-style: dotted;
     width: 200px;
@@ -116,7 +116,7 @@ input, select, button {
     display:none;
     font-size: 12px;
 }
-.mdp-faible, .mdp-moyen, .mdp-fort {
+output.mdp-faible, output.mdp-moyen, output.mdp-fort {
 
     border-style: groove;
     background-color: lightgray;

@@ -15,6 +15,7 @@ const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
 const sexRadioAutre = document.querySelector("#autre");
 const myForm = document.querySelector('#myform');
+const SummaryCardForm = document.querySelector('#summary-card');
 
 sexRadioAutre.checked = true;
 
@@ -73,7 +74,15 @@ function validate(submitBtn) {
     }
     else {
         submitBtn.classList.add('valide-form');
+        //appel fct resumeCard
     }
+
+}
+
+function showSummaryCard(formSummary) {
+    const myOutputs = formSummary.querySelectorAll('output');
+    console.log(myOutputs);
+    const outputName = myOutputs('.car-nom'];
 }
 
 
