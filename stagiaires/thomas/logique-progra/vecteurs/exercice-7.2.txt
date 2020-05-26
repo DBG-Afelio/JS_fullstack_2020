@@ -1,0 +1,21 @@
+DEBUT PROGRAMME
+
+DEBUT VARIABLES LOCALES
+
+var taille :N <- 4
+var tableau2Dim :N <- [taille, taille]
+var tableauFinal :N <- [taille * 2]
+var i :N <- 0
+
+FIN VARIABLES LOCALES
+
+POUR i ALLANT DE 1 A taille 
+
+    tableauFinal[i] <- tableau2Dim[1, i]
+    tableauFinal[(i + taille) - 1] <- tableau2Dim[2, i]
+
+FIN POUR
+
+AFFICHER(tableauFinal)
+
+FIN PROGRAMME
