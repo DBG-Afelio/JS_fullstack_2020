@@ -322,17 +322,20 @@ function pwdConfStatus(pwd1, pwd2) {
  * @returns 1:Faible, 2:Moyen, 3:Fort
  */
 function getPasswordStrength(password) {
-    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(?<symbols>[-_!$])*/);
-    const matches = password.match(regex);
+    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(<symbols>[-_!$])*/);
 
-    const isLetters = matches.groups.letters;
-    const isDigits = matches.groups.digits;
-    const isSymbols = matches.groups.symbols;
+    const matches = password.match(regex);
+    console.log(matches);
+
+    const isLetters = matches.groups.letters; console.log(isLetters);
+    const isDigits = matches.groups.digits; console.log(isDigits);
+    const isSymbols = matches.groups.symbols; console.log(isSymbols);
     
-    let l = isLetters != undefined ? 1 : 0;
-    let d = isDigits != undefined ? 1 : 0;
-    let s = isSymbols != undefined ? 1 : 0;
+    let l = isLetters != undefined ? 1 : 0; console.log(l);
+    let d = isDigits != undefined ? 1 : 0; console.log(d);
+    let s = isSymbols != undefined ? 1 : 0; console.log(s);
     return l + d + s;
+    
 }
 
 /**
@@ -523,5 +526,5 @@ function isDateOfBirthValid(date_AsDate) {
     }
     else {
         return 2;
-    }        
+    }       
 }

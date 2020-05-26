@@ -1,14 +1,18 @@
-*{
+body{
     background-color: ghostwhite;
-    color: black;
+    width:100%;
 }
+main {
+    display:grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+
 div, label{
     background-color: transparent;
 }
 input[type=radio]{
-   /* display: inline-block;
-   align-self: center;*/
-    
+    width: 20px;
     margin:5px;
 }
 h1{
@@ -42,7 +46,7 @@ legend{
     text-transform: capitalize;
     color: darkslategray;
 }
-#summary-card.show #summary-card{
+#summary-card.show {
     display: block;    
 }
 #summary-card {
@@ -54,14 +58,14 @@ legend{
     background-color: rgba(47, 79, 79, 0.4) ;
     width: 300px;
     border-style: outset;
-    margin: 20px;
+    margin: 100px auto;
     padding: 20px;
     
 }
 #summary-card output {
     display: inline-block;
     background-color:transparent;
-    border-style: dotted;
+    border-style: inset;
     width: 200px;
     height: 20px;
 }
@@ -75,12 +79,24 @@ legend{
     height: 40px;   
     text-align: center;
 }
-span {
+
+div.valide-ok, div.valide-ko  {
     float: right;
     width: 20px;
     height: 20px;
-    border-radius: 100px;
+    display:none;
+    margin-top: 10px;
+    margin-right: 10px;
 }
+div.valide-ok {
+    background: url("img/grenntick.png") no-repeat 0 0;
+    background-size: 100%;
+}
+div.valide-ko {
+    background: url("img/redcross.png") no-repeat 0 0;
+    background-size: 100%;
+}
+
 input, select, button {
     width: 270px;
     height:20px;
@@ -106,16 +122,6 @@ input, select, button {
     color: white;
     border-style: outset;
     
-}
-.valide-ok {
-  /*  background-image: url("img/grenntick.png"); */
-    display:none;
-    color: greenyellow;
-}
-.valide-ko {
-    /* background-color: url("img/redcross.png"); */
-    display:none;
-    color: red;
 }
 .error-message {
     color:red;
@@ -151,7 +157,18 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
     background-color: red;
  
 }
-.form-element.error-required .error-message.error-required, .form-element.error-min-length .error-message.error-min-length, .form-element.error-max-length .error-message.error-max-length, .form-element.error-dateIsFutur .error-message.error-dateIsFutur, .form-element.error-ageIsOut .error-message.error-ageIsOut, .form-element.error-min-login .error-message.error-min-login, .form.element.error-max-login .error-message.error-max-login, .form-element.error-login-used .error-message.error-login-used, .form-element.error-pattern .error-message.error-pattern, .form-element.error-email .error-message.error-email, .form-element.error-tel .error-message.error-tel, .form-element.error-different-pwd .error-message.error-different-pwd
+.form-element.error-required .error-message.error-required, 
+.form-element.error-min-length .error-message.error-min-length, 
+.form-element.error-max-length .error-message.error-max-length, 
+.form-element.error-dateIsFutur .error-message.error-dateIsFutur, 
+.form-element.error-ageIsOut .error-message.error-ageIsOut, 
+.form-element.error-min-login .error-message.error-min-login, 
+.form-element.error-max-login .error-message.error-max-login, 
+.form-element.error-login-used .error-message.error-login-used, 
+.form-element.error-pattern .error-message.error-pattern, 
+.form-element.error-email .error-message.error-email, 
+.form-element.error-tel .error-message.error-tel, 
+.form-element.error-different-pwd .error-message.error-different-pwd
 {
     display: block;
 }
@@ -164,7 +181,7 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
 }
 .submit-button{
     color :white;
-    background-color: rgba(47, 79, 79, 0.4);;
+    background-color: rgba(47, 79, 79, 0.4);
     text-align: center;
     font-size: 40px;
     font-weight: bolder;
@@ -174,12 +191,12 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
     margin:15px;
     margin-left:70px;
 }
-.submit-button.valide-form .submit-button {
-    border-color: rgb(71, 255, 47);
+.submit-button.valide-form {
+    border: 2px solid rgb(71, 255, 47);
     background-color: rgb(54, 255, 47);
 }
-.submit-button.invalide-form .submit-button {
-    border-color: red;
+.submit-button.invalide-form {
+    border: 2px solid red;
     background-color: red;
     font-weight: bolder;
 }
