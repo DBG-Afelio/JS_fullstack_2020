@@ -15,15 +15,15 @@ DEBUT 7-4
     tv <- [0,0,0,0,0,0]  //i
     d <- [0,0]
     i <- 1
-    POUR i ALLANT DE 1 A n
-        tv[i] <- tv[i] + tab[i,j]
+    POUR i ALLANT DE 1 A n   
         d[1] <- d[1] + tab[i,i]
         d[2] <- d[2] + tab[i, n-i+1]
-
+       
         j<- 1
         POUR j ALLANT DE 1 A n
             th[j] <- th[j] + tab[i,j]
-            
+            tv[i] <- tv[i] + tab[j,i]
+
         j SUIVANT
     i SUIVANT
 
@@ -32,7 +32,7 @@ DEBUT 7-4
             result <- FAUX
         SINON
             POUR i ALLANT DE 1 A n
-                SI (d[1] != th[i] ET d[1] != tv[i])
+                SI (d[1] != th[i] OU d[1] != tv[i])
                     ALORS
                         result <- FAUX
                         i <- n
