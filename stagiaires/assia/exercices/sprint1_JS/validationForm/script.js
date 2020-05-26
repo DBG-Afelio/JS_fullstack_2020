@@ -55,7 +55,7 @@ fieldSex.addEventListener('input', () => {
 
 fieldSubmit.addEventListener('click', (e)=> {
     e.preventDefault();
-    validate(fieldSubmit); 
+    validate(fieldSubmit, fieldName, fieldFirstName, fieldDate, fieldNationality, fieldSex, sexRadioAutre, fieldEmail, fieldLogin, fieldTel, fieldPwd, fieldPwdConfirmed, fieldPwdStrength, SummaryCardForm); 
 });
 
 //-----------------------------------------
@@ -63,26 +63,42 @@ fieldSubmit.addEventListener('click', (e)=> {
  * Fonction validant tous les champs
  * 
  */
-function validate(submitBtn) {
-    let allFieldsStatus = [validateFieldName(fieldName), validateFieldFirstName(fieldFirstName), validateFieldTel(fieldTel), validateFieldEmail(fieldEmail), validateFieldDate(fieldDate), validateFieldLogin(fieldLogin), validateFieldPassword(fieldPwd, fieldPwdStrength), validateFieldPasswordConfirmation(fieldPwd, fieldPwdConfirmed), validateFieldNationality(fieldNationality), validateFieldSex(fieldSex, sexRadioAutre)];
- 
+function validate(submitBtn, nameF, firstNameF, dateF, nationF, sexF, statusAutre, emailF, loginF, telF, pwdF, pwdConfF, pwdStrengthF, formOutput) {
+
+    let allFieldsStatus = [validateFieldName(nameF), validateFieldFirstName(firstNameF), validateFieldTel(telF), validateFieldEmail(emailF), validateFieldDate(dateF), validateFieldLogin(loginF), validateFieldPassword(pwdF, pwdStrengthF), validateFieldPasswordConfirmation(pwdF, pwdConfF), validateFieldNationality(nationF), validateFieldSex(sexF, statusAutre)];
+
     let isNotValid = allFieldsStatus.includes(false);
     console.log(isNotValid);
     submitBtn.classList.remove('invalide-form', 'valide-form');
+    formOutput.classList.remove('show');
     if (isNotValid) {
         submitBtn.classList.add('invalide-form');
     }
     else {
         submitBtn.classList.add('valide-form');
         //appel fct resumeCard
+        const nom = nameF.querySelector('input');
+        const prenom = firstNameF.querySelector('input');
+        const date = dateF.querySelector('input');
+        const nation = nationF.querySelector('select');
+        const sex = sexF.querySelector('input');
+        const tel = telF.querySelector('input');
+        const email = emailF.querySelector('input');
+        const login = loginF.querySelector('input');
+        const myOutputs = formOutput.querySelectorAll('output');
+
+        myOutputs[0].value = nom.value;
+        myOutputs[1].value = prenom.value;
+        myOutputs[2].value = date.value;
+        myOutputs[3].value = sex.value;
+        myOutputs[4].value = nation.value;
+        myOutputs[5].value = email.value;
+        myOutputs[6].value = tel.value;
+        myOutputs[7].value = login.value;
+
+        formOutput.classList.add('show');
     }
 
-}
-
-function showSummaryCard(formSummary) {
-    const myOutputs = formSummary.querySelectorAll('output');
-    console.log(myOutputs);
-    const outputName = myOutputs('.car-nom'];
 }
 
 

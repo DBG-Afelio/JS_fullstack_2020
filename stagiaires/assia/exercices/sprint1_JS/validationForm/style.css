@@ -6,8 +6,9 @@ div, label{
     background-color: transparent;
 }
 input[type=radio]{
-    display: inline-block;
-    align-self: center;
+   /* display: inline-block;
+   align-self: center;*/
+    
     margin:5px;
 }
 h1{
@@ -41,19 +42,24 @@ legend{
     text-transform: capitalize;
     color: darkslategray;
 }
+#summary-card.show #summary-card{
+    display: block;    
+}
 #summary-card {
+ /*   display: none;*/
+    display: block;
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
     background-color: rgba(47, 79, 79, 0.4) ;
-    width: 220px;
+    width: 300px;
     border-style: outset;
-   /* border-top-right-radius: 40px; */
     margin: 20px;
     padding: 20px;
     
 }
-output.output-card {
+#summary-card output {
+    display: inline-block;
     background-color:transparent;
     border-style: dotted;
     width: 200px;
@@ -102,12 +108,12 @@ input, select, button {
     
 }
 .valide-ok {
-    background-image: url("img/grenntick.png");
+  /*  background-image: url("img/grenntick.png"); */
     display:none;
     color: greenyellow;
 }
 .valide-ko {
-    background-color: url("img/redcross.png");
+    /* background-color: url("img/redcross.png"); */
     display:none;
     color: red;
 }
@@ -177,4 +183,5 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
     background-color: red;
     font-weight: bolder;
 }
+
 
