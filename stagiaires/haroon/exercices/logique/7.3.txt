@@ -18,7 +18,6 @@ FIN VARIABLES LOCALES
 	min <- tableaux [1 , 1]
 	POUR i ALLANT DE 1 A raw 
 		POUR j ALLANT DE 1 A column 
-			somme <- somme +tableaux [i , j]
 			SI tableaux [i , j] > max
 				ALORS 
 					max <- tableaux [i , j] 
@@ -27,8 +26,11 @@ FIN VARIABLES LOCALES
 				ALORS
 					min <- tableaux [i , j]
 			FINSI
+		
+			somme <- somme +tableaux [i , j]
+			moyenne = somme /column
 		j SUIVANT
 	i SUIVANT
-moyenne = somme /column
+
 		
 Fin Programme
