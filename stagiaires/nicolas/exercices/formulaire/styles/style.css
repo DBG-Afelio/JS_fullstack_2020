@@ -2,15 +2,35 @@
     
     display: flex;
     flex-direction: column;
-    max-width: 300px;
-
+    max-width: 500px;
+    padding: 50px;
+    background: cadetblue;
+    border-radius: 20px;
     
 }
-#formulaire>*{
+input, select, button{
+    
+    height: 50px;
+    font-size: 15pt;
+}
+input[type="radio"]{
+    
+    height: auto;
+}
+.formItem{
+    
+    display: flex;
+    flex-direction: row;
+    margin : 5px 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+.formItem div:first-child{
     
     display: flex;
     flex-direction: column;
-    margin : 5px 0px;
+    margin : 5px;
+    width: 100%;
 }
 .valid{
     
@@ -30,6 +50,7 @@
 .errorDisplay{
     
     color: red;
+    text-align: center;
     
 }
 .passSignal{
@@ -59,21 +80,17 @@
     margin: 5px;
     
 }
-/*
-#passLow{
+.validIcon{
     
-    background-color: red;
-    background: none;
+    width: 60px;
+    height: 50px;
+    background: url(../img/happySad.png);
+    background-size: cover;
+    border-radius: 10px;
     
 }
-#passMedium{
+.hidden{
     
-    background-color: orange;
-    background: none;
+    display: none;
+    
 }
-#passStrong{
-    
-    background-color: green;
-    background: none;
-    
-}*/
