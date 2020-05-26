@@ -24,6 +24,7 @@
                     <li> <a href="mediaTag.html"> Balises de médias </a> </li>
                     <li> <a href="iframes.html">Frames et iframes </a> </li>
                     <li> <a href="seo.html"> Balises de description du document et SEO </a> </li>
+                    <li> <a href="openGraph.html"> Open Graph</a> </li>
                     <li> <a href="html6.html"> HTML6 ?</a> </li>
 
                 </ul>
@@ -43,17 +44,22 @@
                 <article>
                     
                     <h3>Structure de base</h3>
-                    <p>Exemple :</p>
-
-                        <code>
-                            <p><b>&lt;iframe src="iframes.html" &gt;&lt;/iframe&gt;</b></p>
-                        </code>
-
-                    <p>Résultat :</p>
-
-                        <span  class="codex" > <iframe src="iframes.html" ></iframe> </span>
                     
-                    <p></p>
+                    <div class="exemple">
+                            
+                            <p>Exemple :</p>
+                        
+                            <code>
+                               &lt;iframe src="iframes.html" &gt;&lt;/iframe&gt;
+                            </code>
+                        
+                            <p>Résultat :</p>
+                        
+                            <div class="resultat">
+                                <iframe src="iframes.html" ></iframe>
+                            </div>
+
+	               </div>
 
                 </article>
 
@@ -149,23 +155,29 @@
                     <p>C'est un élément HTML qui définit une zone particulière dans laquelle un autre document HTML est affiché. Une &lt;frame&gt; doit être utilisée dans un élément &lt;frameset&gt;.</p>
                     <p>Utiliser l'élément &lt;frame&gt; est déconseillé en raison de certains inconvénients tels que des problèmes de performance, et un manque d'accessibilité pour les utilisateurs de lecteurs d'écran.</p>
                     
-                    <p>Exemple :</p>
-
-                        <code>
-                            &lt;frameset cols="50%,50%"&gt;<br>
+                    <div class="exemple">
+                            
+                            <p>Exemple :</p>
+                        
+                            <code>
+                               &lt;frameset cols="50%,50%"&gt;<br>
                             
                                 &lt;frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" /&gt;<br>
                                 &lt;frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" /&gt;<br>
                             
-                            &lt;/frameset&gt;
-
-                        </code>
+                                &lt;/frameset&gt;
+                            </code>
                         
-                    <p>Résultat :</p>
-                        <frameset cols="50%,50%">
-                            <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" />
-                            <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" />
-                        </frameset>
+                            <p>Résultat :</p>
+                        
+                            <div class="resultat">
+                                <frameset cols="50%,50%">
+                                    <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/iframe" />
+                                    <frame src="https://developer.mozilla.org/fr/docs/Web/HTML/Element/frame" />
+                                </frameset>
+                            </div>
+
+	               </div>
                     
                     <h3>Les Attributs</h3>
                     <ul class="navUl">
@@ -194,7 +206,7 @@
 
             <section>
 
-                <header>La sécurité</header>
+                <header><h2>La sécurité</h2></header>
 
                 <article>
 
