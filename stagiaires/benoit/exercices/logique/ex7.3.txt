@@ -1,0 +1,58 @@
+// Ecrire le programme  qui affiche la moyenne, le maximum 
+// et le minimum de chaque ligne d’un tableau à deux dimensions.
+
+Début dataTableau
+
+    Variables locales
+
+        Const TabDeuxDimA: N <-8
+        Const TabDeuxDimB: N <-10
+        var tabDeuxDim: N[tabDeuxDimA, tabDeuxDimB]
+
+        Const TailleMax: N <-tabDeuxDimA // tableau des maximums par ligne
+        Var tabMax: N[TailleMax]
+        
+        Const TailleMin: N <-tabDeuxDimA // tableau des minimums par ligne
+        Var tabMin: N[TailleMin]
+        
+        Const TailleMoy: N <-tabDeuxDimA // tableau des moyennes par ligne
+        Var tabMoy: N[TailleMoy]
+
+        var somme: N <- 0
+
+    Fin variables locales
+
+
+
+    Pour i allant de 1 à tabDeuxDimA
+
+        tabMin[i] = tabDeuxDim[i,1]
+        tabMax[i] = tabDeuxDim[i,1]
+
+        Pour j allant de 1 à TabDeuxDimB
+
+            Si tabDeuxDim[i,j]<tabMin[i]
+                Alors 
+                    tabMin[i] = tabDeuxDim[i,j]
+            Fin Si
+
+            Si tabDeuxDim[i,j]<tabMin[i]
+                Alors 
+                    tabMax[i] = tabDeuxDim[i,j]
+            Fin Si
+
+            somme = somme + tabDeuxDim[i,j]
+
+        j suivant
+
+        tabMoy[i] = somme/tabDeuxDimB
+
+    i suivant        
+
+    Afficher tabMax
+
+    Afficher tabMin
+
+    Afficher tabMoy
+
+Fin dataTableau
