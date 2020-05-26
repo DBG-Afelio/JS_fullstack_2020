@@ -15,7 +15,7 @@ DEBUT 7-5a
     POUR i ALLANT DE 1 A n
         j<- 1
         POUR j ALLANT DE 1 A n
-            tab2[(n*(n-j)+i) DIV n)+1,n*(n-j)+i) mod n] <- tab[i,j] 
+            tab2[j, n+1-i] <- tab[i,j] 
         j SUIVANT
     i SUIVANT
 
@@ -31,47 +31,22 @@ DEBUT 7-5b
         VAR i :N <- 1
         VAR j :N <- 1
         VAR l :N <- 1
+        VAR cpt :N 
     FIN VARIABLES LOCALES
 
-    i <- 1
-    j <- 1
+    cpt <- 1
+    POUR cpt ALLANT DE 1 à n-1
+        i <- 1
+        j <- cpt
+        int <- tab[i,j]
+        TANTQUE (k < 4)
+            tab[i-j] <- tab[n+1-j, i]
+            l <- i
+            i <- n+1-j
+            j <- l
+            k <- k + 1
+        FIN TANT QUE
+        tab[i,j] <- int
+    cpt SUIVANT
     
-
-                        /*  
-                            int A
-                            k =1   G -> A
-                            k = 2  I -> G
-                            k = 3  C -> i
-                            k =4   A -> C
-                        */
-    int <- tab[i,j]
-    TANTQUE (k < 4)
-        tab[i,j] <- tab[(n*(n-j)+i) DIV n)+1,n*(n-j)+i) mod n]
-        l <- i
-        i <- (n*(n-j)+i) DIV n)+1
-        j <- n*(n-j)+l) mod n
-        k <- k + 1
-    FIN TANT QUE
-    tab[i,j] <- int
-    
-                        /*  
-                            int B
-                            k =1   D -> B
-                            k = 2  H -> D
-                            k = 3  F -> H
-                            k =4   B -> F
-                        */
-
-    i <- 1
-    j <- 2
-    int <- tab[i,j]
-    TANTQUE (k < 4)
-        tab[i,j] <- tab[(n*(n-j)+i) DIV n)+1,n*(n-j)+i) mod n]
-        l <- i
-        i <- (n*(n-j)+i) DIV n)+1
-        j <- n*(n-j)+l) mod n
-        k <- k + 1
-    FIN TANT QUE
-    tab[i,j] <- int
-                        /* E reste à la même place */
 FIN 7-5b
