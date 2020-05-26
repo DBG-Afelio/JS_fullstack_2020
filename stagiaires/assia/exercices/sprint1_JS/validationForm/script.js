@@ -15,7 +15,9 @@ const fieldNationality = document.querySelector('.form-nationality');
 const fieldSex = document.querySelector('.form-sex');
 const sexRadioAutre = document.querySelector("#autre");
 const myForm = document.querySelector('#myform');
-const SummaryCardForm = document.querySelector('#summary-card');
+const summaryCardForm = document.querySelector('#summary-card');
+const validerSummaryBtn = document.querySelector('.card-valider-btn');
+const modifierSummaryBtn = document.querySelector('.card-modifier-btn');
 
 sexRadioAutre.checked = true;
 
@@ -55,7 +57,17 @@ fieldSex.addEventListener('input', () => {
 
 fieldSubmit.addEventListener('click', (e)=> {
     e.preventDefault();
-    validate(fieldSubmit, fieldName, fieldFirstName, fieldDate, fieldNationality, fieldSex, sexRadioAutre, fieldEmail, fieldLogin, fieldTel, fieldPwd, fieldPwdConfirmed, fieldPwdStrength, SummaryCardForm); 
+    validate(fieldSubmit, fieldName, fieldFirstName, fieldDate, fieldNationality, fieldSex, sexRadioAutre, fieldEmail, fieldLogin, fieldTel, fieldPwd, fieldPwdConfirmed, fieldPwdStrength, summaryCardForm); 
+});
+validerSummaryBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Vos donnees ont bien ete enregistrees. Merci de votre visite.');
+});
+modifierSummaryBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modifierInfo(myForm,summaryCardForm) ;
+    
+    
 });
 
 //-----------------------------------------
@@ -66,11 +78,11 @@ fieldSubmit.addEventListener('click', (e)=> {
 function validate(submitBtn, nameF, firstNameF, dateF, nationF, sexF, statusAutre, emailF, loginF, telF, pwdF, pwdConfF, pwdStrengthF, formOutput) {
 
     let allFieldsStatus = [validateFieldName(nameF), validateFieldFirstName(firstNameF), validateFieldTel(telF), validateFieldEmail(emailF), validateFieldDate(dateF), validateFieldLogin(loginF), validateFieldPassword(pwdF, pwdStrengthF), validateFieldPasswordConfirmation(pwdF, pwdConfF), validateFieldNationality(nationF), validateFieldSex(sexF, statusAutre)];
-
     let isNotValid = allFieldsStatus.includes(false);
-    console.log(isNotValid);
+
     submitBtn.classList.remove('invalide-form', 'valide-form');
     formOutput.classList.remove('show');
+
     if (isNotValid) {
         submitBtn.classList.add('invalide-form');
     }
@@ -101,6 +113,9 @@ function validate(submitBtn, nameF, firstNameF, dateF, nationF, sexF, statusAutr
 
 }
 
+function modifierInfo(formInput, formOutput) {
+    formOutput.classList.remove('show');
+}
 
 function removeUserMessages(element) {
     element.classList.remove('valide', 'invalide', 'error-required', 'error-min-login', 'error-max-login', 'error-login-used', 'error-pattern', 'error-tel', 'error-different-pwd', 'error-email', 'error-min-length', 'error-max-length', 'error-dateIsFutur', 'error-ageIsOut', 'mdp-faible', 'mdp-moyen', 'mdp-fort');

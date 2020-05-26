@@ -51,7 +51,7 @@ legend{
 }
 #summary-card {
  /*   display: none;*/
-    display: block;
+    display: none;
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
@@ -131,14 +131,13 @@ input, select, button {
 }
 output.mdp-faible, output.mdp-moyen, output.mdp-fort {
 
-    border-style: groove;
+    border-style: none;
     background-color: lightgray;
-    border-color:lightgray;
     display: inline-block;
-    margin: 10px;
+    margin: 12px;
     padding: 0px;
     width: 70px;
-    height: 10px;
+    height: 11px;
     border-radius: 5px;
     font-size: 8px;
     text-align: center;
@@ -146,17 +145,12 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
 }
 .form-mdp-strength.mdp-faible .mdp-faible {
     background-color: yellow;
-    border-style: groove;
- 
 }
 .form-mdp-strength.mdp-moyen .mdp-moyen{
     background-color: orange;
-    border-style: groove;
-
 }
 .form-mdp-strength.mdp-fort .mdp-fort{
     background-color: red;
- 
 }
 .form-element.error-required .error-message.error-required, 
 .form-element.error-min-length .error-message.error-min-length, 
@@ -174,10 +168,12 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
     display: block;
 }
 
-.form-element.valide .valide-ok, .form-element.invalide .valide-ko {
+.form-element.valide .valide-ok, 
+.form-element.invalide .valide-ko {
     display: block;
 }
-.form-element.valide .valide-ko, .form-element.invalide .valide-ok {
+.form-element.valide .valide-ko, 
+.form-element.invalide .valide-ok {
     display: none;
 }
 .submit-button{
@@ -193,12 +189,10 @@ output.mdp-faible, output.mdp-moyen, output.mdp-fort {
     margin-left:70px;
 }
 .submit-button.valide-form {
-    border: 2px solid rgb(71, 255, 47);
-    background-color: rgb(54, 255, 47);
+    background-color: rgba(54, 255, 47, 0.454);
 }
 .submit-button.invalide-form {
-    border: 2px solid red;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.406);
     font-weight: bolder;
 }
 
