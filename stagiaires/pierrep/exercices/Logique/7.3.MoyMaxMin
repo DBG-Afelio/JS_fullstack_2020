@@ -1,0 +1,41 @@
+/* Ecrire le programme qui affiche la moyenne le maximum et le minimum de chaque ligne d’un tableau à deux dimensions. */
+
+DEBUT PROGRAMME
+
+    CONST L :N <- 4
+    CONST C :N <- 5
+    VAR TAB :N <- [L, C]
+    VAR NEWTAB :N <- [L, 3]
+    VAR i :N <- 1
+    MOY :N <- 0
+
+
+Pour h allant de 1 à L
+
+NEWTAB[h, 1] <- TAB[h, 1]
+NEWTAB[h, 2] <- TAB[h, 1]
+NEWTAB[h, 3] <- TAB[h, 1]
+
+    Pour i allant de 2 à C    
+
+        NEWTAB[h, 1] <- NEWTAB[h, 1] + TAB[h, i]
+
+            SI TAB[h, i] < NEWTAB[h, 2] 
+        
+            NEWTAB[h, 2] <- TAB[h, i]
+
+            SI TAB[h, 3] > NEWTAB[h, 3]
+
+            NEWTAB[h, 3] <- TAB[h, i]
+
+        i suivant
+
+        NEWTAB[h, 1] <- NEWTAB[h, 1] / C
+
+    h suivant
+
+    Pour i allant de 1 à L
+
+    afficher NEWTAB[i, 1], NEWTAB[i, 2], NEWTAB[i, 3]
+
+    i suivant
