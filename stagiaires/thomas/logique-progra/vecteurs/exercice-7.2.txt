@@ -3,7 +3,7 @@ DEBUT PROGRAMME
 DEBUT VARIABLES LOCALES
 
 var taille :N <- 4
-var tableau2Dim :N <- [taille, taille]
+var tableau2Dim :N <- [2 , taille]
 var tableauFinal :N <- [taille * 2]
 var i :N <- 0
 
