@@ -35,7 +35,9 @@ b , strong ,.keyword {
     font-size : 20px ;
     
 }
-
+nav{
+    list-style-type: upper-roman;
+}
 .navUl{
     list-style-type: upper-roman;
 }
