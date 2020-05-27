@@ -73,6 +73,10 @@ fieldDate.addEventListener('input', ()=> {
     validateFieldDate(fieldDate);
 })
 
+fieldPhone.addEventListener('input', ()=> {
+    validateFieldPhone(fieldPhone);
+})
+
 fieldLogin.addEventListener('input', ()=> {
     validateFieldLogin(fieldLogin);
 });
@@ -109,8 +113,7 @@ oAvatars.addEventListener('click', (e) => {
 const pristine = (e) => {
     e.target.setAttribute('data-pristine', false);
     e.target.removeEventListener('blur', pristine);
-};
-
+}; 
 pristineField.forEach((field) => {
     field.addEventListener('blur', pristine);
 });
@@ -359,7 +362,7 @@ function validateDate(date) {
     } else if (age < 18) {
         return 2;
     } else {
-        return 3
+        return 3;
     }
 }
 
