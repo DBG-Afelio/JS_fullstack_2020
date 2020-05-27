@@ -1,0 +1,22 @@
+Ecrire le programme qui simule l’affichage d’un compteur digital à 3 chiffres
+0, 001, …, 009, 010, …, 099, 100, …, 999
+
+DEBUT 8-2
+    VARIABLES LOCALES :
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR k :N <- 1
+    FIN VARIABLES LOCALES
+    
+    i <- 0
+    POUR i ALLANT DE 1 A 9
+        j<- 0
+        POUR j ALLANT DE 0 A 9
+            k<- 0
+            POUR k ALLANT DE 0 A 9
+                Afficher i.concat(j).concat(k);
+            k SUIVANT 
+        j SUIVANT
+    i SUIVANT
+    
+FIN 8-2
