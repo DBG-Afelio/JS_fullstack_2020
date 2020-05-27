@@ -1,0 +1,24 @@
+Ecrire le programme qui affiche les tables de multiplication de 1 à 10.
+1 X 1 = 1    à    10 X 10 = 100)
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST LENGTH :N
+        VAR arr :N[LENGTH][LENGTH]
+        VAR i :N <- 1
+        VAR j :N <- 1
+    FIN VARIABLES
+
+    POUR i ALLANT DE 1 A LENGTH
+
+        POUR j ALLANT DE 1 A LENGTH
+
+            arr[i][j] <- i * j
+            
+        j SUIVANT
+        
+    i SUIVANT
+    
+    Afficher "La table de multiplication :", arr
+
+Fin exercice
