@@ -1,0 +1,20 @@
+Ecrire le programme qui simule l’affichage
+ d’un compteur digital à 3 chiffres
+0,  001, …, 009,  010, …, 099,  100, …, 999
+
+dbt pgm
+var loc
+var cent:N<-0
+var diz:N<-0
+var unit:<N<-0
+fin var loc
+tant que cent<10
+	tant que diz<10
+		tant que unit<10
+			afficher cent diz unit
+		fin tant que
+		unit<-0
+	fin tant que
+	diz<-0
+fin tant que
+fin pgm
