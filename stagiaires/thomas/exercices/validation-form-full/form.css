@@ -44,9 +44,17 @@ body {
     margin-left: auto;
   }
 
-  .ico-input img {
-      display: none;
+  .ico-input .warning {
+      content: url("./img/cross.png");
+      width: 30px;
+      height: 30px;
   }
+
+  .ico-input .valide {
+    content: url("./img/tick.png");
+    width: 30px;
+    height: 30px;
+}
 
   .form-item.job {
       flex-direction: column;

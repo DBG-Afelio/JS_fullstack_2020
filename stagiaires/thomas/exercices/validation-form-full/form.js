@@ -17,9 +17,26 @@ const submit = document.querySelector(".submit");
 const containerMessage = document.createElement("div");
 const checkboxFullStack = document.querySelector(".dev-full-stack");
 const allJobsCheckboxes = document.querySelectorAll(".job-checkbox");
-const jobNone = document.querySelector(".job-none")
+const jobNone = document.querySelector(".job-none");
 
 // FUNCTIONS  
+
+function checkName(champ) {
+   const icoImg = document.querySelector(".ico-name img");
+
+    if (champ.value.length === 0) {
+        icoImg.classList.remove("warning");
+        icoImg.classList.remove("valide");
+
+    } else if(champ.value.length >= 3 && champ.value.length <= 50) {
+        icoImg.classList.remove("warning");
+        icoImg.classList.add("valide");
+    } else {
+        icoImg.classList.remove("valide");
+        icoImg.classList.add("warning");  
+    }
+
+}
 
 function getUserAge(dateDeNaissance) {
 
@@ -73,18 +90,6 @@ function generateUserLogin(nom, prenom) {
 
 }
 
-function checkName(champ) {
-
-    if(champ.value.length === 0) {
-        champ.style.borderColor = "lightslategray"
-    } else if(champ.value.length >= 3 && champ.value.length <= 50 && !(numbersInTextField.test(nom.value))) {
-        champ.style.borderColor = "#2ecc71"
-    } else {
-        champ.style.borderColor = "#e74c3c"
-    }
-
-}
-
 function checkMail() {
    
     if(email.value.length === 0) {
@@ -132,18 +137,20 @@ function checkLogin() {
 
 // REGEXES
 const numbersInTextField = /\d/g;
-const emailRegex = /^[a-zA-Z.0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
+const emailRegex = /^[a-zA-Z0-9-]+@[a-zA-Z.]+[a-zA-Z]{2}$/;
 const phoneRegex =  /^([0032]{4}|[0]{1}|[+32]{3})[1-9]{6,9}$/;
 const loginRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
 const passwordRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
 
 // NOM
 
-nom.addEventListener("input", () => checkName(nom));
+nom.addEventListener("blur", () => checkName(nom));
+nom.addEventListener("change", () => checkName(nom));
 
 // PRENOM
 
-prenom.addEventListener("input", () =>  checkName(prenom));
+prenom.addEventListener("blur", () => checkName(nom));
+prenom.addEventListener("change", () => checkName(nom));
 
 // EMAIL
 
