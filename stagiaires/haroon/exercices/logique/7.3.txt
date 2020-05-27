@@ -16,8 +16,8 @@ VARIABLES LOCALES
 FIN VARIABLES LOCALES
 
 	POUR i ALLANT DE 1 A raw
-		max <- tableaux [i , j]
-		min <- tableaux [i , j] 
+		max <- tableaux [i , 1]
+		min <- tableaux [i , 1] 
 		POUR j ALLANT DE 1 A column 
 			SI tableaux [i , j] > max
 				ALORS 

@@ -12,8 +12,7 @@ VARIABLES LOCALES
 	VAR tableaux2D : N [row , column]
 	VAR i : N <- 1
 	VAR j: N <- 1 
-	
-	VAR tableaux1D : N[k]
+	VAR tableaux1D : N[row*column]
 	
 
 FINE VARIABLES LOCALES 
@@ -21,7 +20,6 @@ FINE VARIABLES LOCALES
 	POUR i ALLANT DE 1 A row
 		POUR j ALLANT DE 1 A column
 		tableaux1D[j+ (i-1)*column] <- tableaux2D[i,j]
-		k <- k+1
 		j SOUIVANT
 	i SUIVANT
 Fin Programme

@@ -5,17 +5,18 @@ VARIABLES LOCALES
 	VAR tableaux :N [taille ,taille ]
 	VAR sommeHorizontal : N[taille ]
 	VAR sommeVertical : N[taille ]
-	VAR sommeDiagonal1 : N[1]
-	VAR sommeDiagonal2 : N[1]
+	VAR sommeDiagonal1 : N <- 0
+	VAR sommeDiagonal2 : N <- 0
 	VAR i:N <-0
 	VAR j:N <-0
+	VAR Result : B <-Faux
 	
 	
 FIN VARIABLES LOCALES
 	
 	POUR i ALLANT DE 1 A taille
-		sommeDiagonal1[1]<- sommeDiagonal1[1] + tableaux[i,i] 
-		sommeDiagonal2[1]<- sommeDiagonal2[1] + tableaux[i,taille-i+1] 
+		sommeDiagonal1<- sommeDiagonal1 + tableaux[i,i] 
+		sommeDiagonal2<- sommeDiagonal2 + tableaux[i,taille-i+1] 
 		
 		POUR j ALLANT DE 1 A taille
 			sommeHorizontal[i] <-sommeHorizontal + tableaux[i,j]
@@ -23,16 +24,24 @@ FIN VARIABLES LOCALES
 
 		j SUIVANT
 	i SUIVANT
-	SI sommeDiagonal1[1] = sommeDiagonal2[1]
+	SI sommeDiagonal1 = sommeDiagonal2
 		Alors
-		POUR i ALLANT DE 1 A i
-			SI sommeDiagonal1[1] = sommeHorizontal[i]  = sommeDiagonal[j]
+		POUR i ALLANT DE 1 A taille
+			SI sommeDiagonal1 = sommeHorizontal[i]  = sommeVertical[i]
 				ALORS
-				Afficher "Les sommes sont même"
+				Result <- Vrai
+				
 			SINON 
-				Afficher "Les somme ne sont pas les memes"
+				Result <- Faux
 			FINSI
 		i SUIVANT
+	SINON 
+	Result <- Faux
 	FINSI
-		
+SI Result = Vrai
+	ALORS
+		Afficher "Les sommes sont même"	
+SINON
+
+Afficher "Les somme ne sont pas les memes"
 Fin Programme
