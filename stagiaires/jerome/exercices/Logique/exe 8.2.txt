@@ -12,9 +12,12 @@ tant que cent<10
 	tant que diz<10
 		tant que unit<10
 			afficher cent diz unit
+			unit<-unit+1
 		fin tant que
+		diz<-diz+1
 		unit<-0
 	fin tant que
+	cent<-cent+1
 	diz<-0
 fin tant que
 fin pgm
