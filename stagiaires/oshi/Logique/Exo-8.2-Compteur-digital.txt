@@ -1,0 +1,18 @@
+Début programme
+	Variable locale
+        Var 1_chiffre :N <- 0
+        Var 2_chiffre :N <- 0
+        Var 3_chiffre :N <- 0
+	Fin variable locale
+	
+	
+
+    POUR 1_chiffre ALLANT DE 0 A 9
+        POUR 2_chiffre ALLANT DE 0 A 9
+            POUR 3_chiffre ALLANT DE 0 A 9
+                Afficher 1_chiffre (+) 2_chiffre (+) 3_chiffre;
+            index SUIVANT
+        index SUIVANT
+    index SUIVANT
+
+Fin de programme
