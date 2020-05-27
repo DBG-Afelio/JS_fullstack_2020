@@ -1,0 +1,21 @@
+Début programme
+    Variables locales
+        Var nbre , cpt :N <- 1
+        Var somme :N <- 0
+    Fin variables locales
+
+    TANTQUE nbre < 100
+        TANTQUE cpt < nbre
+            SI nbre1 MOD cpt == 0
+                somme <- somme + cpt
+            FINSI
+            cpt <- cpt + 1
+        FINTANTQUE
+        SI somme == nbre
+            ALORS Afficher nbre , "est un nombre parfait"
+        FINSI
+        somme <- 0
+        nbre <- nbre + 1
+        cpt <- 1
+    FINTANTQUE
+Fin du programme
