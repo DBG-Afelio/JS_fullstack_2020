@@ -27,3 +27,15 @@ body{
     display: block;
     margin: 5px;
 }
+
+.moyen{
+    color: orange;
+}
+
+.fort{
+    color: green;
+}
+
+.button{
+    display: inline;
+}

@@ -143,12 +143,14 @@ function mp(MP1){
         return "Veuillez complèter ce champ merci";
     } else {
         if (MP1.length < 6) {
+            document.getElementById('repMP').className = "invalid";
             return "MP faible";
         } else {
-            
             if (MP1.length > 6 && MP1.length < 10) {
+                document.getElementById('repMP').className = "moyen";
                 return "MP moyen";
             } else {
+                document.getElementById('repMP').className = "fort";
                 return "MP fort";
             }
         }
