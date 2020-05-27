@@ -1,0 +1,14 @@
+Début programme
+    Variables locales
+        Var nbre1, nbre2 :N <- 1
+    Fin variables locales
+
+    TANTQUE nbre1 <= 10
+        TANTQUE nbre2 <= 10
+            Afficher nbre1 , "x" , nbre2 , "=" , nbre1*nbre2
+            nbre2 <- nbre2 + 1
+        FINTANTQUE
+        nbre2 <- 0
+        nbre1 <- nbre1 + 1
+    FINTANTQUE
+Fin de programme
