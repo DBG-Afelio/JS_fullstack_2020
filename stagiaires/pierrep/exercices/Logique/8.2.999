@@ -1,0 +1,29 @@
+DEBUT
+
+VAR LOCALES
+
+    Max :N <- 0
+    Tableau :n <- []
+
+FIN VAR LOCALES
+
+
+POUR CHAQUE i DE 1 à Max
+
+    Cas (i < 10 ET i > 0)
+
+        Tableau[i] <- "00" + i
+
+    Cas (i < 100 ET i > 9)
+
+        Tableau[i] <- "0" + i
+
+    Cas (i < 1000 ET i > 99)
+
+        Tableau[i] <- i
+
+FIN BOUCLE
+
+AFFICHE Tableau
+
+FIN
