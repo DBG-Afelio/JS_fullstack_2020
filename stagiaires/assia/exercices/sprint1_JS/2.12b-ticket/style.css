@@ -5,14 +5,15 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
-    color: white;
-    background-color:whitesmoke;
+    color:rgb(220, 208, 182);
+    background-color:rgb(220, 208, 182);
     width: 100%;
     height: 100%;
     
 }
-h1 {
+h1, h2 {
     text-align: center;
+    color:white;
 }
 h2{
     font-size: 15px;
@@ -28,6 +29,10 @@ h2{
     justify-content: center;
     padding-right: 30px;
     padding-left: 30px;
+    position:absolute;
+    top: 20%;
+    left:30%;
+    box-shadow: 15px 10px 20px  rgba(193, 130, 238, 0.687);
 }
 .form-element {
     align-items: center;
@@ -43,13 +48,22 @@ h2{
     font-size: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.error-container {
+#age{
+    display:block;
+    width: 70px;
+    float: right;
+    font-size: 20px;
+}
+.error-message {
+    display: none;
     font-style: italic;
     color: tomato;
     padding-top: 10px;
 }
-div.field-ok, div.field-ko {
-    float: right;
+.form-element.required .msg-required,
+.form-element.invalide .msg-invalide {
+    display:block;
+}
 }
 input[type=submit] {
     width: 80px;

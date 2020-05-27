@@ -1,109 +1,62 @@
-const fieldDate = document.querySelector('form-date');
+const fieldDate = document.querySelector('.form-date');
+const ageOutput = document.querySelector('#age');
 const fieldTicket = document.querySelector('.form-ticket');
-const submitBtn = document.getElementById('#validerBtn');
-const radiosTicket = document.forms[0].ticketOption;
+const ticketRadio = document.querySelectorAll('input[type=radio]');
+const submitBtn = document.getElementById('validerBtn');
 
-const today = get
+
+let today = new Date();
 const ageLimitGratuit = 6;
 const ageLimitReduit = 12;
+
+fieldDate.addEventListener('input', () => {
+    updateMessageErrorDate(fieldDate, ageOutput);
+});
+ticketRadio.forEach(radio => {
+    radio.addEventListener('change', fieldTicket.classList.remove('required'));
+});
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
 });
 
-function submitForm (dateField, tciketField){
-    const ticketSelected = radiosTicket.value;
+function submitForm(dateField, tciketField) {
+    updateDateField(fieldDate);
+    updateTicketField(fieldTicket, ticketRadioInputs);
+}
 
-/*
-    const radioEl = document.getElementsByName('ticketOption');
-    console.log("radioEl" +radioEl);
-    console.log(radioEl.length);
-    for (let i=0; i < radioEl.length; i++) {
-        if (radio[i].checked) {
-            ticketSelected = radio[i].value;
-        }
-    }
-*/
 
-/*
-    for (const radio of ticketOptionEl) {
-        if (radio.checked) {
-            ticketSelected = radio.value;
-            break;
-        }
 
-    }
-    ticketSelected = ticketOptionEl.value;
-*/
-    console.log(ticketSelected);
-
-    if (isNaN(dateNaissanceEl.valueAsNumber) == false || ticketSelected == '') {
-        let isDateValid = dateNaissanceEl.valueAsNumber < Date.now() ? true : false ;
-        if (isDateValid) {
-    //    convertDob2Age(dobEl.valueAsDate, userAge);
-            const userAge = 10; //<- a supprimer - juste pour tester
-            if (ticketSelected == 'ticketPlein' || userAge <= ageLimitGratuit || ticketSelected  == 'ticketReduit' && userAge <= ageLimitReduit || ticketSelected  == 'ticketGratuit' && userAge <= ageLimitGratuit) {
-                console.log("Pass autorisé !");
-            }
-            else {
-                console.log("ticket non valid pour votre age");
-            }
-        }
-        else {
-            console.log("Erreur formulaire : Date indiquee ne peut etre posterieure a la date d'ajd");
-        }
-    }
-    else {
-        console.log("Merci de remplir tous les champs !");
+/**
+ * Fonction qui met a jour les messages utilisateurs pour le champ DATE 
+ * @param {<div date>}
+ * @returns boolean 
+ */
+function updateMessageErrorDate(dateField,ageField) {
+    dateField.classList.remove('required', 'invalide');
+    let date = dateField.querySelector('input').value;
+    console.log(date);
+    if (date == null) { //or empty ?
+        dateField.classList.add('required');
+    } else if (new Date(date) > today) {
+        dateField.classList.add('invalide');
+    } else {
+        age = DateToAge(date)[2];
+        ageField.value = age + 'ans';
     }
 }
 
-/*
-    if (isNaN(dobEl.valueAsNumber) == false) {
-        let isDateValid = dateNaissanceEl.valueAsNumber < Date.now() ? true : false ;
-        if (isDateValid) {
-    //    convertDob2Age(dobEl.valueAsDate, userAge);
-            if (selection == 'plein' || userAge <= ageLimitGratuit || selection == 'reduit' && userAge <= ageLimitReduit || selection == 'gratuit' && userAge <= ageLimitGratuit) {
-                accesEl.textContent = "OUI";
-                messageEl.textContent = "Awesome ! Enjoy and have fun !";
-            }
-            else {
-                accesEl.textContent = "NON";
-                messageEl.textContent = "Compte-tenu de votre age, l'acces ne vous est pas autorisé avec ce ticket";
-            }
-        }
-        else {
-            accesEl.textContent = "Erreur formulaire";
-            messageEl.textContent = "date invalide";
-        }
-    }
-    else {
-        accesEl.textContent = "Erreur formulaire";
-        messageEl.textContent = "Tous les champs sont obligatoires";
-    }
+
+/**
+ * Fonction qui convertit une date en age
+ * @param {date}
+ * @returns {age array [in ms, in years (float), in years (rounded)]} 
+ */
+function DateToAge (date) {
+
+    let ageMs = today.getTime() - new Date(date).getTime();
+    let ageFloat = ageMs / 1000 / 60 / 60 / 24 / 365;
+    let ageRound = Math.floor(ageFloat);
+    let ageArray = [ageMs, ageFloat, ageRound];
+    return ageArray
 }
-
-*/
-
-/*-----------------------------------------------*/
-
-
-
-
-/*
-*/
-
-/*
-function convertDob2Age (dateOfBirth, age) {
-//    const dateOfBirth = new Date();
-//    const age = new Number;
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth();
-    const currentDay = today.getDate();
-
-    messageEl.textContent = new Date(age);
-    accesEl.textContent =  currentMonth;
-
-}
-*/

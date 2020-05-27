@@ -12,43 +12,35 @@
             <div class="form-element form-date">
                 <h2>Veuillez entrer votre date de naissance :</h2>
                 <div>
-                    <input type="date" id=date name="date" placeholder="jj/mm/aaaa (date de naissance)">
+                    <input type="date" id=date name="date">
+                    <output type="text" id=age name="age"></output>
                 </div>
-                <div class="field-ok"></div>
-                <div class="field-ko"></div>
-                <div class="error-container">
-                    <div class="error-message error-required">
+                <div class="error-message msg-required">
                         Ce champ est requis</div>
-                    <div class="error-message error-date-invalide">
+                <div class="error-message msg-invalide">
                         La date est invalide</div>
                 </div>
             </div>
             <div class="form-element form-ticket">
                 <h2>Indiquer votre situation :</h2>
                 <div>
-                    <input type="radio" id="ticketGratuit" name="ticketOption" value="ticketGratuit" required>
+                    <input type="radio" id="ticketGratuit" name="ticket" value="ticketGratuit" required>
                     <label for="ticketGratuit">Sans ticket</label>
 			    </div>
 			    <div>
-                    <input type="radio" id="ticketReduit" name="ticketOption" value="ticketReduit" required>
+                    <input type="radio" id="ticketReduit" name="ticket" value="ticketReduit" required>
                     <label for="ticketReduit">Ticket Tarif Reduit</label>
 			    </div>
 			    <div>
-                    <input type="radio" id="ticketPlein" name="ticketOption" value="ticketPlein" required>
+                    <input type="radio" id="ticketPlein" name="ticket" value="ticketPlein" required>
                     <label for="ticketPlein">Ticket Plein Tarif</label>
                 </div>
-                <div class="field-ok"></div>
-                <div class="field-ko"></div>
-                <div class="error-container">
-                    <div class="error-message error-required">Ce champ est requis</div>
-                </div>
+                <div class="error-message msg-required">Ce champ est requis</div>
             </div>
             <div class="form-element fom-submitBtn">
-                <input type='submit' id=validerBtn class='button' value='valider'>
+                <input type='submit' id=validerBtn class='button' value='Je valide mon acces !'>
             </div>
     </form>
     <script src="script.js"></script>
 </body>
 </html>
-
-<!-- -->
