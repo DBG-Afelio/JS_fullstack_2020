@@ -1,37 +1,76 @@
 Ecrire le programme qui vérifie que les sommes de chaque ligne, chaque colonne et des deux diagonales d’un tableau numérique carré sont les mêmes.
 
     VAR LOCALES
-    L :N <- x               //var qui stocke le nombre de lignes
-    C :N <- y               //var qui stocke le nombre de colonnes
+    L :N <- 3               //var qui stocke le nombre de lignes
+    C :N <- 3               //var qui stocke le nombre de colonnes
     T :N <- [L, C]          //var qui donne corps au tableau, en fonction du nombre de lignes et de colonnes défini
-    COMPARL :N <- 0
-    COMPARC :N <- 0
-    COMPARD :N <- 0         //var qui vont  permettre de comparer si les différentes sommes sont égales les unes aux autres
+    COMPAR :N <- 0         //var qui vont  permettre de comparer si les différentes sommes sont égales les unes aux autres
     SUML :N <- 0            //var qui va faire la somme de chaque ligne
     SUMC :N <- 0            //var qui va faire la somme de chaque colonne
-    SUMD :N <- 0            //var qui va faire la somme de chaque diagonale
+    SUMD1 :N <- 0
+    SUMD2 :N <- 0            //var qui va faire la somme de chaque diagonale
+    CHECK :B <- 0
     FIN VAR LOC
 
 // Note générale : ce programme va fonctionner avec trois paires de boucles imbriquées correspondant aux trois types de somme que l'on cherche à calculer; à tour de rôle, elles vont calculer les sommes pour chaque occurrence (chaque 
 // ligne, chaque colonne, chaque diagonale) pour un même type d'élément de colonne; si ces sommes sont bien égales l'une à l'autre, alors la somme est stockée dans la variable COMPAR; ensuite, on passe au type suivant. Si à un moment donné il y a une inégalité qui est rencontrée, le programme s'arrête et affiche un message de circonstance. Note : on a besoin, pour des raisons de comparaison, d'initier les  valeurs SUML, SUMC et SUMD à la somme de la première ligne, colonne ou diagonale.
 
-// Définition de SUML \\ COMMENCER PLUTÖT PAR VERIFIER LE TRUC LE PLUS COURT A VERIFIER A SAVOIR LA DIAGONALE
+// Définition de SUMD car c'est la plus courte suite d'égalité à tester
+
+CHECK <- VRAI
 
     POUR i ALLANT DE 1 A C
-        SUML <- SUML + T[i, 1]
-        i suivant
-    COMPARL <- SUML
-
-
-// Boucle 1 : les sommes de tous les lignes sont-elles égales ?
-
-// tant que + booléen
-
-    POUR i ALLANT DE 2 A L
-        POUR  j ALLANT DE 1 A C
-            SUML <- SUML + T[i, j]
-            j SUIVANT
-        SI COMPARL = SUML
+        SUMD1 <- SUMD1 + T[i, i]                          // calcul de la somme des données composant la première diagonale (haut gauche vers bas droite)
+        SUMD2 <- SUMD2 + T[i, C - i +1]                   // idem pour 2e diagonale
+        i SUIVANT
         
+    SI SUMD1 = SUMD2
 
-etc
+        ALORS
+
+            COMPAR <- SUMD2
+
+
+
+            h <- 1
+            
+           TANT QUE h =< D ET CHECK                                 // calcul de la somme des données composant toutes les lignes et vérification de leur égalité entre elles
+
+                i <- 1
+                TANT QUE i =< C
+                    SUML <- SUML + T[h, i]
+                    i ++
+                FIN TANT QUE 
+
+                SI SUML = COMPAR
+                    ALORS 
+                    h ++                        
+                
+                    SINON
+                        CHECK <- FAUX
+        SI CHECK
+
+            ALORS
+
+            i <- 1
+
+            h <- 1
+
+            TANT QUE h =< D
+                TANT QUE i =< C
+                    SUMC <- SUMC + T[i, h]
+                    i ++
+                FIN TANT QUE
+
+                SI SUMC = COMPAR
+                    ALORS
+                    i = 1 
+                    h ++                         
+                
+                    SINON
+                        CHECK <- FAUX          
+
+
+        SI CHECK
+            ALORS affiche "Il s'agit d'un carré-magique"
+            SINON affiche "Il ne s'agit pas d'un carré-magique"
