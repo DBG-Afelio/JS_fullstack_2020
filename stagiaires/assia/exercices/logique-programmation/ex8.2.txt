@@ -1,0 +1,23 @@
+Ecrire le programme qui simule l’affichage d’un compteur digital à 3 chiffres
+0,  001, …, 009,  010, …, 099,  100, …, 999
+
+Debut exercice
+
+    VARIABLES LOCALES
+        VAR cpt :N <- 0
+        VAR i :N <- 0
+    FIN VARIABLES
+
+    POUR i ALLANT DE 0 A 999
+        SI longueur(i) < 3 
+        ALORS
+            cpt <- 0 (+) cpt
+        FINSI
+        SI longueur(i) < 2
+        ALORS
+            cpt <- 0 (+) cpt
+        FINSI
+        Afficher "Compteur : ", cpt
+    i SUIVANT
+    
+Fin exercice
