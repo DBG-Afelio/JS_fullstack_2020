@@ -14,7 +14,7 @@ DEBUT VARIABLES LOCALES
     maximums <- [3]
     moyennes <- [3]
 
-fFIN VARIABLES LOCALES
+FIN VARIABLES LOCALES
 
 TANTQUE i <= lignes FAIRE
 
@@ -48,9 +48,9 @@ FINTANTQUE
 
 POUR messagesCounter ALLANT DE 1 A messagesCounter
 
-    AFFICHER("Le minimum de la" (+) compteur (+)  "e ligne est : ", minimum[i])
-    AFFICHER("Le maximum de la" (+) compteur (+)  "e ligne est : ", maximum[i])
-    AFFICHER("Le moyenne de la" (+) compteur (+)  "e ligne est : ", moyenne[i])
+    AFFICHER("Le minimum de la" (+) compteur (+)  "e ligne est : ", minimum[compteur])
+    AFFICHER("Le maximum de la" (+) compteur (+)  "e ligne est : ", maximum[compteur])
+    AFFICHER("Le moyenne de la" (+) compteur (+)  "e ligne est : ", moyenne[compteur])
 
 FIN POUR
 
