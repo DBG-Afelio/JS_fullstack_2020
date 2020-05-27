@@ -19,8 +19,8 @@ FIN VARIABLES LOCALES
 		sommeDiagonal2<- sommeDiagonal2 + tableaux[i,taille-i+1] 
 		
 		POUR j ALLANT DE 1 A taille
-			sommeHorizontal[i] <-sommeHorizontal + tableaux[i,j]
-			sommeDiagonal[j] <- sommeDiagonal+ tableaux[j,i]
+			sommeHorizontal[i] <-sommeHorizontal[i] + tableaux[i,j]
+			sommeDiagonal[j] <- sommeDiagonal[j]+ tableaux[j,i]
 
 		j SUIVANT
 	i SUIVANT
