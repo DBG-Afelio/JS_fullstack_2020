@@ -2,7 +2,7 @@
 // chaque colonne et des deux diagonales d’un tableau numérique carré 
 // sont les mêmes.
 
-Début dataTableau
+Début carreMagique
 
     Variables locales
 
@@ -42,18 +42,22 @@ Début dataTableau
         Alors 
             Pour i allant de 1 à TailleCarreMagique
                 Si tabSommesLignesEtColonnes[i] = tabSommesLignesEtColonnes[i-1] && tabSommesLignesEtColonnes[i] = sommeDiag1
-
+                    CarreMagique = Vrai
                 Sinon
                     CarreMagique = Faux
                 Fin Si
 
             i suivant
     Sinon
-        Afficher "Ceci n'est pas un carré magique"        
+        CarreMagique = Faux   
     Fin Si
+
 
     Si CarreMagique = Faux
-        Afficher "Ceci n'est pas un carré magique"     
+        Afficher "Ceci n'est pas un carré magique"
+
+    Sinon  
+        Afficher "Ceci est un carré magique"     
     Fin Si
 
-Fin dataTableau
+Fin carreMagique
