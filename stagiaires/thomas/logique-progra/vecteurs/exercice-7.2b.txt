@@ -8,6 +8,7 @@ DEBUT VARIABLES LOCALES
     var i :N <- 1
     var j :N <- 1
     var tableau2Dim :N <- [4, 4]
+    var tableaufinal :N <- [lignes * colonnes]
 
 FIN VARIABLES LOCALES
 
