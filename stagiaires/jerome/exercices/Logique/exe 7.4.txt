@@ -1,0 +1,41 @@
+Ecrire le programme  qui vérifie que les sommes de chaque ligne, chaque colonne et des deux diagonal d’un tableau numérique 
+carré sont les mêmes.
+
+
+dbt pgm
+
+var loc
+cont TAILLE
+var tab:N[TAILLE,TAILLE]
+var Sligne:N<-0
+var Scol:N<-0
+var Sdia1:N<-0
+var Sdia2:N<-
+var i:N<-1
+var j:N<-1
+var nbr:N<-0
+var magic:B
+fin var loc
+tant que magic ET i <= TAILLE 
+		Sdia1<-Sdia+tab[i,i]
+		Sdia2<-Sdia2+tab[taille-i+1]
+
+	pour j allant de 1 a TAILLE
+		Sligne<-Sligne+tab[i,j]
+		Scol<-Scol+tab[j,i]
+	j suivant
+
+	SI (i=1)
+		alors nbr<-Sligne
+	fin de si
+
+	SI Sligne><Scol OU Sligne><nbr
+		alors magic<-faux
+	fin de si
+	
+	i<-i+1
+fin tant que
+Si magic ET (Sdia1><nbr OU Sdia2><nbr)
+	alors magic<-faux
+fin de si
+fin pgm
