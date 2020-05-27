@@ -24,24 +24,18 @@ FIN VARIABLES LOCALES
 
 		j SUIVANT
 	i SUIVANT
-	SI sommeDiagonal1 = sommeDiagonal2
+	SI sommeDiagonal1 != sommeDiagonal2
 		Alors
+			Result <- Faux
+	SINON
 		POUR i ALLANT DE 1 A taille
-			SI sommeDiagonal1 = sommeHorizontal[i]  = sommeVertical[i]
+			SI sommeDiagonal1 != sommeHorizontal[i] ou   sommeDiagonal1 != sommeVertical[i]
 				ALORS
-				Result <- Vrai
-				
-			SINON 
 				Result <- Faux
+				
 			FINSI
 		i SUIVANT
-	SINON 
-	Result <- Faux
 	FINSI
-SI Result = Vrai
-	ALORS
-		Afficher "Les sommes sont même"	
-SINON
 
-Afficher "Les somme ne sont pas les memes"
+Afficher Result 
 Fin Programme

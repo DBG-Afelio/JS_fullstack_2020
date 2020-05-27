@@ -5,11 +5,12 @@ VARIABLES LOCALES
 	
 	VAR i : <- 1
 	VAR j :<- 1
+	VAR 
 		
 FIN VARIABLES LOCALES
 	POUR i ALLANT DE 1 A 10
 		POUR j ALLANT DE 1 A 10
-			Afficher  i*j
+			Afficher i"*"j ,"="  i*j
 		j SUIVANT
 	i SUIVANT 
 FIN programme
