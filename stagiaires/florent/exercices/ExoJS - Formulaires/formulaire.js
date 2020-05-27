@@ -164,7 +164,7 @@ function mpc(MPC, MP1){
 }
 
 function ORIGINE(pays){
-    if (pays == "Nationalité") {
+    if (pays == "") {
         return "Veuillez faire une sélection";
     } else {
         return "";
