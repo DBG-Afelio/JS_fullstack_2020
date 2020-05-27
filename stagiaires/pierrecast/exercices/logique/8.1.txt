@@ -1,0 +1,18 @@
+Ecrire le programme qui affiche les tables de multiplication de 1 à 10.
+1 X 1 = 1 à 10 X 10 = 100) 
+
+DEBUT 8-1
+    VARIABLES LOCALES :
+        VAR i :N <- 1
+        VAR j :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A 10
+        j<- 1
+        POUR j ALLANT DE 1 A 10
+            Afficher i, " X ", j , " = ", i*j
+        j SUIVANT
+    i SUIVANT
+
+FIN 8-1
