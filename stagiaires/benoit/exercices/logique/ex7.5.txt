@@ -1,0 +1,31 @@
+// Ecrire le programme qui déplace les valeurs d’un tableau carré 
+// d’un quart de tour dans le sens horlogique.
+// • Version 1 : utilisation d’un tableau intermédiaire de même taille
+// • Version 2 : utilisation d’une seul variable intermédiaire. 
+
+Début dataTableau
+
+    Variables locales
+
+        Const TailleCarreMagique: N <-6
+        var tabDeuxDim: N[TailleCarreMagique, TailleCarreMagique]
+
+        Const TailleCarreMagiqueRetourne: N <-6
+        var tabDeuxDimRetourne: N[TailleCarreMagiqueRetourne, TailleCarreMagiqueRetourne]
+
+    Fin variables locales
+
+    Pour i allant de 1 à TailleCarreMagique
+
+        Pour j allant de 1 à TailleCarreMagique
+
+            // tabDeuxDimIntermediaire[i,j] = tabDeuxDim[i,j]
+            tabDeuxDimRetourne[j; TailleCarreMagique+1-i] = tabDeuxDim[i, j]
+
+        j suivant
+
+    i suivant   
+
+    Afficher tabDeuxDimRetourne
+    
+Fin dataTableau
