@@ -20,6 +20,7 @@ const validerSummaryBtn = document.querySelector('.card-valider-btn');
 const modifierSummaryBtn = document.querySelector('.card-modifier-btn');
 
 sexRadioAutre.checked = true;
+let today = new Date();
 
 fieldName.addEventListener('input', () => {
     validateFieldName(fieldName);
@@ -99,9 +100,13 @@ function validate(submitBtn, nameF, firstNameF, dateF, nationF, sexF, statusAutr
         const login = loginF.querySelector('input');
         const myOutputs = formOutput.querySelectorAll('output');
 
+        let ageTimeMs = today.getTime() - new Date(date.valueAsDate).getTime(); //en ms
+        let ageFloat = ageTimeMs / 1000 / 60 / 60 / 24 / 365; //en 'annee,decimale'
+        let age = Math.floor(ageFloat);
+
         myOutputs[0].value = nom.value;
         myOutputs[1].value = prenom.value;
-        myOutputs[2].value = date.value;
+        myOutputs[2].value = age;
         myOutputs[3].value = sex.value;
         myOutputs[4].value = nation.value;
         myOutputs[5].value = email.value;
@@ -518,43 +523,70 @@ function isNameValid(name) {
  */
 function validateFieldDate(dateField) {
     const dateInputField = dateField.querySelector('input'); 
-    const date = dateInputField.valueAsDate; console.log('Valeur champ DATE : '+date);
+    const date = dateInputField.value; console.log('Valeur champ DATE : '+date);
     let validReturn = true;
     removeUserMessages(dateField);
     if (date == null) {
         dateField.classList.add('invalide', 'error-required');
         validReturn = false;
     } else {
-        valid = isDateOfBirthValid(date);
-        if (valid == 0) {
-            dateField.classList.add('valide');
-        } else if (valid == 1) {
-            dateField.classList.add('invalide', 'error-dateIsFutur');
-            validReturn = false;
-        } else {
-            dateField.classList.add('invalide', 'error-ageIsOut');
-            validReturn = false;
+        condition = validateDate(date);
+
+        switch (condition) {
+            case 0:
+                dateField.classList.add('valide');
+                break;
+            case 1:
+                dateField.classList.add('invalide', 'error-dateIsFutur');
+                validReturn = false;
+                break;
+            case 2:
+                validReturn = false;
+                dateField.classList.add('invalide', 'error-ageIsOut'); //trop jeune
+                break;
+            case 3:
+                validReturn = false;
+                dateField.classList.add('invalide', 'error-ageIsOut');//trop vieux
+                break;
         }
-    } 
+    }
     return validReturn;
 }
-
 /**
- * Fonction validant les regles d'age du champ "date de Naissance"
- * @param <input type="date">
- * @returns 0:valid 1:dateInFutur 2:OutofAge 
+ * Fonction validant les règles du champ date
  */
-function isDateOfBirthValid(date_AsDate) {
-    const today = new Date(Date.now()); 
-    const dateMin = new Date('January 1, 2002 00:00:00 UTC'); 
-    const dateMax = new Date('January 1, 1953 00:00:00 UTC');
-  
-    if (date_AsDate >= dateMax && date_AsDate <= dateMin) {
-        return 0; 
-    } else if (date_AsDate > today) {
+function validateDate(date) {
+    let ageTime = today.getTime() - new Date(date).getTime(); //en ms
+    let age = ageTime / 1000 / 60 / 60 / 24 / 365; //en 'annee,decimale'
+
+    const january = new Date('01/01/'+today.getFullYear()); //date a partir de laquelle on verfie que l'age soit >18 ou <67
+    let ageJanuaryTime = january.getTime() - new Date(date).getTime(); //age de la personne au 1/1/annee en cours (ms)
+    let ageJanuary = ageJanuaryTime / 1000 / 60 / 60 / 24 / 365; // en annee
+
+    if (isValidDate(date) && age >= 18 && ageJanuary < 67) {
+        return 0;
+    } else if (!isValidDate(date)) {
         return 1;
-    }
-    else {
+    } else if (age < 18) {
         return 2;
-    }       
+    } else {
+        return 3;
+    }
+}
+function isValidDate(date) {
+    //valide la veracite de la valeur date (exclue 32 janvier par ex...) et que date ne soit pas dans le futur
+    date = new Date(date);
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+
+    let lastDays = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
+    lastDays[1] = isBissextile(year) ? 29 : 28;
+
+    return month >= 0 && month <= 11 && day >= 0 && day <= lastDays[month] && date.getTime() < today.getTime();
+}
+
+function isBissextile(year) {
+    //permettra de definir le dernier jour de Fevrier (28 ou 29) en fonction de l'annee entree en param
+    return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
