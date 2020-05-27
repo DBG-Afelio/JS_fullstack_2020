@@ -7,70 +7,46 @@
     <title>Ticket</title>
 </head>
 <body>
-    <main>
-        <form novalidate id="myform">
-            <h1>Formulaire d'inscription</h1>
-                <div class="form-element form-date">
-                    <input type="date" name="date" placeholder="jj/mm/aaaa (date de naissance)">
-                    <div class="valide-ok"></div>
-                    <div class="valide-ko"></div>
-                    <div class="error-message-container">
-                        <div class="error-message error-required">Ce champ est requis</div>
-                        <div class="error-message error-dateIsFutur">Vous avez selectionné une date anterieure à aujourd'hui</div>
-                        <div class="error-message error-ageIsOut">Vous n'avez pas l'age requis</div>
-                    </div>   
-                </div>
-                <div class="form-element form-nom ">
-                    <input type="text" name="nom" data-pristine="true" placeholder="Nom (obligatoire)">
-                    <div class="valide-ok"></div>
-                    <div class="valide-ko"></div>
-                    <div class="error-message-container">
-                        <div class="error-message error-required">Ce champ est requis</div>
-                        <div class="error-message error-min-length">Minimum 3 caractères</div>
-                        <div class="error-message error-max-length">Maximum 50 caractères</div>
-                    </div>   
-                </div>
-                
-                
-                
-                <div class="form-element form-sex ">
-                    <label for="femme">
-                        <input type="radio" name="sex-options" id="femme" value="femme" data-pristine="true">
-                        Femme
-                    </label>
-                    <label for="homme">
-                        <input type="radio" name="sex-options" id="homme" value="homme" data-pristine="true">
-                        Homme
-                    </label>
-                    <label for="autre">
-                        <input type="radio" name="sex-options" id="autre" value="autre" data-pristine="true">
-                        Autre
-                    </label>
-                    <div class="valide-ok"></div>
-                    <div class="valide-ko"></div>
-                    <div class="error-message-container">
-                        <div class="error-message error-required">Ce champ est requis</div>
-                    </div>   
-                </div> 
-            
+    <form novalidate id="myform">
+        <h1>Ticket d'entree</h1>
+            <div class="form-element form-date">
+                <h2>Veuillez entrer votre date de naissance :</h2>
                 <div>
-                    <input type="button" value="Suggerer un login" class="login-button button">
+                    <input type="date" id=date name="date" placeholder="jj/mm/aaaa (date de naissance)">
                 </div>
-                
-            <div>
-                <output class='output-card card-nom'></output>
-                <output class='output-card card-prenom'></output>
-                <output class='output-card card-age'></output>
-                <output class='output-card card-sex'></output>
-                <output class='output-card card-nation'></output>
-                <output class='output-card card-email'></output>
-                <output class='output-card card-tel'></output>
-                <output class='output-card card-login'></output>
-                <input type='submit' class='card-modifier-btn' value='modifier'>
-                <input type='submit' class='card-valider-btn' value='valider'>
+                <div class="field-ok"></div>
+                <div class="field-ko"></div>
+                <div class="error-container">
+                    <div class="error-message error-required">
+                        Ce champ est requis</div>
+                    <div class="error-message error-date-invalide">
+                        La date est invalide</div>
+                </div>
             </div>
-        </form>
-    </main>
+            <div class="form-element form-ticket">
+                <h2>Indiquer votre situation :</h2>
+                <div>
+                    <input type="radio" id="ticketGratuit" name="ticketOption" value="ticketGratuit" required>
+                    <label for="ticketGratuit">Sans ticket</label>
+			    </div>
+			    <div>
+                    <input type="radio" id="ticketReduit" name="ticketOption" value="ticketReduit" required>
+                    <label for="ticketReduit">Ticket Tarif Reduit</label>
+			    </div>
+			    <div>
+                    <input type="radio" id="ticketPlein" name="ticketOption" value="ticketPlein" required>
+                    <label for="ticketPlein">Ticket Plein Tarif</label>
+                </div>
+                <div class="field-ok"></div>
+                <div class="field-ko"></div>
+                <div class="error-container">
+                    <div class="error-message error-required">Ce champ est requis</div>
+                </div>
+            </div>
+            <div class="form-element fom-submitBtn">
+                <input type='submit' id=validerBtn class='button' value='valider'>
+            </div>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>

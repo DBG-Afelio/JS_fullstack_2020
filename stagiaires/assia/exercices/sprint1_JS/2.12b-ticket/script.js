@@ -1,34 +1,17 @@
-/*jshint esversion: 6 */
-/* -- Debut STILL TO BE DONE -------------------------------------------------
-
------ Fin STILL TO BE DONE---------------------------------------------------- */
-
-// -- DEBUT DECLARATION VARIABLES --------------------------------------------
-const ticketOptionEl = document.querySelectorAll('input[name="ticketOption"]:checked');
-console.log("mes radios" +ticketOptionEl);
-//const ticketOptionEl = document.querySelectorAll('ticketOption');
-const dateNaissanceEl = document.querySelector('#dateNaissance');
-console.log("dobEL :"+dateNaissanceEl+"  value :"+dateNaissanceEl.value+"  valueAsDate :"+dateNaissanceEl.valueAsDate+"  valueAsNumber :"+dateNaissanceEl.valueAsNumber );
-const submitEl = document.querySelector('#submit');
+const fieldDate = document.querySelector('form-date');
+const fieldTicket = document.querySelector('.form-ticket');
+const submitBtn = document.getElementById('#validerBtn');
 const radiosTicket = document.forms[0].ticketOption;
 
-
-//***Autres
-
+const today = get
 const ageLimitGratuit = 6;
 const ageLimitReduit = 12;
 
-// -- FIN DECLARATION VARIABLES -----------------------------------------------
-submitEl.addEventListener('click', submit);
-
-/*
-submitEl.addEventListener('click', function(e) {
-    e.preventDefault(); //meaning default action (=submitting form) when Clicking on "Submit" will not occur
-    submit();
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault(); 
 });
-*/
 
-function submit (){
+function submitForm (dateField, tciketField){
     const ticketSelected = radiosTicket.value;
 
 /*
