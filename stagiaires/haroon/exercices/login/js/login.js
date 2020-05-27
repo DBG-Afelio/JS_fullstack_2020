@@ -22,11 +22,11 @@ function validateHaroon(inputedValue){
     console.log(inputedValue);
     const value = inputedValue.value;
     console.log(value);
-    let trueInput = true ; 
+    let falseTrue = true ; 
     inputedValue.classList.remove('valide');
     inputedValue.classList.remove('invalide');
     if (value.trim()===''){
-        trueInput = false ; 
+        falseTrue = false ; 
         inputedValue.classList.add('valide');
         inputedValue.classList.add('error-required');
     
@@ -55,7 +55,7 @@ function validateHaroon(inputedValue){
     }
         function validetNom(name){
         
-            if (name.length > 5 ){
+            if (name.length >= 5 ){
                 return 0 ;
             }
             else if  (name.length < 3 ){
