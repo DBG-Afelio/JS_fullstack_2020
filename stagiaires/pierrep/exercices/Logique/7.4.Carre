@@ -15,7 +15,7 @@ Ecrire le programme qui vérifie que les sommes de chaque ligne, chaque colonne 
 // Note générale : ce programme va fonctionner avec trois paires de boucles imbriquées correspondant aux trois types de somme que l'on cherche à calculer; à tour de rôle, elles vont calculer les sommes pour chaque occurrence (chaque 
 // ligne, chaque colonne, chaque diagonale) pour un même type d'élément de colonne; si ces sommes sont bien égales l'une à l'autre, alors la somme est stockée dans la variable COMPAR; ensuite, on passe au type suivant. Si à un moment donné il y a une inégalité qui est rencontrée, le programme s'arrête et affiche un message de circonstance. Note : on a besoin, pour des raisons de comparaison, d'initier les  valeurs SUML, SUMC et SUMD à la somme de la première ligne, colonne ou diagonale.
 
-// Définition de SUML
+// Définition de SUML \\ COMMENCER PLUTÖT PAR VERIFIER LE TRUC LE PLUS COURT A VERIFIER A SAVOIR LA DIAGONALE
 
     POUR i ALLANT DE 1 A C
         SUML <- SUML + T[i, 1]
