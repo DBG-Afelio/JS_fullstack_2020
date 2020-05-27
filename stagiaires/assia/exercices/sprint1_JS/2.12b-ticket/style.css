@@ -64,7 +64,6 @@ h2{
 .form-element.invalide .msg-invalide {
     display:block;
 }
-}
 input[type=submit] {
     width: 80px;
     height: 100px;
