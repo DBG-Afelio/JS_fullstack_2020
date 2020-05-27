@@ -7,9 +7,9 @@ Début programme
         TAILLE :N <- 10
     Fin Variables locales
 
-    TANT QUE i <= TAILLE
-        i <- j
-        TANT QUE j <= TAILLE - i
+    TANT QUE i < TAILLE
+        j <- i
+        TANT QUE j < TAILLE
             somme <- somme + Tab[j]
             j <- j + 1
         FINTANTQUE
