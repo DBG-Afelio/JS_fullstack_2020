@@ -257,9 +257,11 @@ input, select, #sugestButton {
     cursor: pointer;
 }
 
-select option {
+select, select option {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    text-align: center;
 
+  text-align-last: center;
 }
 
 
@@ -417,7 +419,7 @@ select option {
     line-height: 32px;
     border-bottom: 1px solid #efefef;
     padding: 12px 0;
-    display:flex;
+    display: flex;
     justify-content: space-between;
 }
 
