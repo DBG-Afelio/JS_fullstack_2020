@@ -7,7 +7,7 @@ DEBUT VARIABLES LOCALES
     var indiceTemp :N <- 1
     var i :N <- 1
     var j :N <- 1
-    var tableau2Dim :N <- [4, 4]
+    var tableau2Dim :N <- [lignes, colonnes]
     var tableaufinal :N <- [lignes * colonnes]
 
 FIN VARIABLES LOCALES
