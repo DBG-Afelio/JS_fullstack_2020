@@ -1,6 +1,6 @@
 .champ {
     display: block;
-    margin-bottom: 10px;
+    margin: 5px;
 }
 
 .invalid{
@@ -8,9 +8,22 @@
 }
 
 .form{
-    background-color: sandybrown;
+    border: outset brown;
+    width: 300px;
+    margin: auto;
+    background-color: papayawhip;
 }
 
 output{
     display: block;
+}
+
+body{
+    background-color: burlywood;
+}
+
+.input{
+    border: outset;
+    display: block;
+    margin: 5px;
 }
