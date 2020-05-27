@@ -1,7 +1,24 @@
 input:invalid {
-	border: 5px dashed red
+	border: 1px dashed red
 }
 
 input:valid {
 	border: 1px solid green;
+
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: white;
+  background: #4CAF50;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
