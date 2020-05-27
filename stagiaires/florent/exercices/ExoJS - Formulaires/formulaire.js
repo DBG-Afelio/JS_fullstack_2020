@@ -12,6 +12,7 @@ function execute (){
     let LOGIN = document.getElementById('login').value;
     let MP1 = document.getElementById('mp').value;
     let MPC = document.getElementById('mpc').value;
+    let pays = document.getElementById('nationalité').value;
    
     document.getElementById('repnom').value = nom(NOM);
     document.getElementById('repprenom').value = prenom(PRENOM);
@@ -21,6 +22,7 @@ function execute (){
     document.getElementById('replogin').value = login(LOGIN);
     document.getElementById('repMP').value = mp(MP1);
     document.getElementById('repMPC').value = mpc(MPC, MP1);
+    document.getElementById('repays').value = ORIGINE(pays);
 }
 
 function nom(NOM){
@@ -157,6 +159,14 @@ function mpc(MPC, MP1){
     if (MPC != MP1){
         return "Les mots de passe de correspondent pas!";   
     } else{
+        return "";
+    }
+}
+
+function ORIGINE(pays){
+    if (pays == "") {
+        return "Veuillez faire une sélection";
+    } else {
         return "";
     }
 }
