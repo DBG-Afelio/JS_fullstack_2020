@@ -12,7 +12,7 @@ function execute (){
     let LOGIN = document.getElementById('login').value;
     let MP1 = document.getElementById('mp').value;
     let MPC = document.getElementById('mpc').value;
-    let pays = document.getElementById('nationalité').value;
+    let pays = document.getElementById('nationalite').value;
    
     document.getElementById('repnom').value = nom(NOM);
     document.getElementById('repprenom').value = prenom(PRENOM);
