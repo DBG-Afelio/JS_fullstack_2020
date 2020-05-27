@@ -67,17 +67,19 @@
 	  <br>
 
 	  <div class="form-element form-login invalide error-required error-min-length">
-	  		<input type="text" name="champLogin"read-only>
-	  		<br>
-	  		<input type="button" name="" placeholder="Suggérer un login" value="Générer un Login" required minlength="6" maxlength="10">
+	  		<input type="text" name="champLogin" placeholder="login(obligatoire)" required minlength="6" maxlength="10">
 	  		<span class="valide-ok">V</span>
 	  		<span class="valide-ko">X</span>
 	  		<div class="error-message-container">
 	  			<div class="error-message error-required">le login est requis</div>
 	  			<div class="error-message error-min-length">le login doit être au minimum de 6 caractères</div>
                 <div class="error-message error-max-length">le login doit être au maximum de 10 caractères</div>
+                <div class="error-message error-sim">le login existe deja</div>
             </div>
 	  </div>
+	  <br>
+
+	  <input type="button" value="Générer un Login">
 
 	  <br>
 
@@ -94,7 +96,7 @@
 
 	  <br>
 
-	  <input type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)">
+	  <input id="login-button" type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)">
 
 	  <br>
 

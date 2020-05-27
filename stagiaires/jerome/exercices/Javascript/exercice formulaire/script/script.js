@@ -2,6 +2,8 @@ const fieldName = document.querySelector('.form-nom');
 const fieldSurname=document.querySelector('.form-prenom');
 const fieldEmail=document.querySelector('.form-email');
 const fieldPhone=document.querySelector('.form-tel');
+const fieldLogin = document.querySelector('.form-login');
+const buttonLogin = document.getElementById('login-button');
 const fieldSubmit = document.querySelector('.submit-button');
 
 
@@ -21,15 +23,18 @@ fieldEmail.addEventListener('input', ()=> {
 fieldPhone.addEventListener('input', ()=> {
     validateFieldPhone(fieldPhone);
 })
+fieldLogin.addEventListener('input', ()=> {
+    validateFieldlogin(fieldLogin);
+})
 //..............................................................................
 //reload
-window.addEventListener('load',()=>{
+/*window.addEventListener('load',()=>{
     let Inputs=document.querySelectorAll('Input');
 
     for(items of Inputs ){
         items.value="";
     }
-})
+})*/
 /**
  * Fonction validant tous les champs + Boutton couleur
  */
@@ -44,7 +49,10 @@ function validate () {
         alert("erreur dans l'email");
     }
     if(!validateFieldPhone(fieldPhone)){
-        alert("erreur dans l'email");
+        alert("erreur dans le téléphone");
+    }
+    if(!validateFieldlogin(fieldLogin)){
+        alert("erreur dans le login");
     }
 }
 /**
@@ -182,5 +190,53 @@ function validatephone(phone){
 //..............................................................................
 //date de naissance
 
+//..............................................................................
+//login
+const tabLogin=["jgr_123","ngr_123","sgr_123","egr_123"];
+function validateFieldlogin(loginField) {
+    const loginInputField = loginField.querySelector('input');
+    const value = loginInputField.value;
+    let validReturn = true;
+    loginField.classList.remove('valide');
+    loginField.classList.remove('invalide');
+    if (value.trim() === '') {
+        loginField.classList.add('invalide');
+        loginField.classList.add('error-required');
+        validReturn = false;
+    }else if(tabLogin.some((element)=>{element===loginField.querySelector('input').value;})){
+        loginField.classList.add('invalide');
+        loginField.classList.add('error-sim');
+        validReturn = false;
+    }else {
+        const valid = validatelogin(value);
+        if (valid === 1) {
+            loginField.classList.add('invalide');
+            loginField.classList.add('error-min-length');
+            validReturn = false;
+        }else if (valid === 2) {
+            loginField.classList.add('invalide');
+            loginField.classList.add('error-max-length');
+            validReturn = false;
+        }else if(valid===0) {
+            loginField.classList.add('valide');
+        }
+    }
+    return validReturn;
+}
+
+function validatelogin(login){
+    if(login.length >= 6 && login.length <= 10) {
+        return 0;
+    }else if (name.length < 6) {
+        return 1;
+    } else if (name.length >10) {
+        return 2;
+    }
+
+}
+
+buttonLogin.addEventListener('click',()=>{
+
+})
 //..............................................................................
 //password
