@@ -11,9 +11,10 @@ button.addEventListener('click',()=>{
     validateInput();
 })
 function validateInput() {
-    if (!validateHaroon(inputValid));
+    if (!validateHaroon(inputValid)){
     console.log(inputValid);
-    alert ('Error message'); 
+    alert ('Error message');
+    } 
 }
 
 
@@ -39,13 +40,13 @@ function validateHaroon(inputedValue){
             inputedValue.classList.add('error-max-length');
             falseTrue = false;
         }
-        else if  (valid === 2){
+        else if  (valid === 0){
            
             inputedValue.classList.add('invalide');
             inputedValue.classList.add('error-max-length');
             falseTrue = false;
         }
-        else {
+        else if (valid ===2){
 
             inputedValue.classList.add('valide');
         }
@@ -55,7 +56,7 @@ function validateHaroon(inputedValue){
     }
         function validetNom(name){
         
-            if (name.length >= 5 ){
+            if (name.length > 5 ){
                 return 0 ;
             }
             else if  (name.length < 3 ){
