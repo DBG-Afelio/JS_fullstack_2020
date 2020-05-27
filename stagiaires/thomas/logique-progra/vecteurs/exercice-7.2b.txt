@@ -15,7 +15,7 @@ TANTQUE i <= lignes
   
     TANTQUE j <= colonnes
      
-        tableaufinal[indiceTemp] = tableau2Dim[i, j]
+        tableaufinal[indiceTemp] <- tableau2Dim[i, j]
         j <- j + 1
         indiceTemp <- indiceTemp + 1
          
