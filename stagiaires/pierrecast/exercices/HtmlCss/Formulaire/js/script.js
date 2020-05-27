@@ -855,3 +855,4 @@ function sendForm() {
     fieldSubmit.style.display = "none";
     alert ('Vos données ont été transmises. Merci !');
 }
+ 

@@ -91,7 +91,7 @@
                                 <div class="error-message error-format">le pseudo n'a pas le bon format</div>
                                 <div class="error-message error-not-available">le pseudo n'est pas disponible</div>
                             </div>  
-                            
+                            <!-- contrainte HTML :   required pattern="/^[a-zA-Z0-9_\-!\$]{6,10}$/" -->
                         </div>
 
                         <div class="form-element form-password">
@@ -131,7 +131,8 @@
                                 <div class="error-message error-required">le nom est requis</div>
                                 <div class="error-message error-min-length">le nom doit être au minimum de 3 caractères</div>
                                 <div class="error-message error-max-length">le nom doit être au maximum de 50 caractères</div>
-                            </div>   
+                            </div>  
+                            <!-- contrainte HTML :   required minlength="3" maxlength="50" --> 
                         </div>
 
                         <div class="form-element form-prenom">
@@ -144,7 +145,8 @@
                             <div class="error-message-container">
                                 <div class="error-message error-min-length">le prénom doit être au minimum de 3 caractères</div>
                                 <div class="error-message error-max-length">le prénom doit être au maximum de 50 caractères</div>
-                            </div>   
+                            </div>
+                            <!-- contrainte HTML :   minlength="3" maxlength="50" -->   
                         </div>
 
                         <div class="form-element form-email">
@@ -156,7 +158,8 @@
                             </div>
                             <div class="error-message-container">
                                 <div class="error-message error-max-length">l'e-mail n'a pas le bon format</div>
-                            </div>   
+                            </div>  
+                            <!-- contrainte HTML :   pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})+$/" --> 
                         </div>
                     
                         <div class="form-element form-date">
@@ -170,7 +173,8 @@
                                 <div class="error-message error-format">la date n'a pas le bon format</div>
                                 <div class="error-message error-min-age">l'âge minimum requis est de 18 ans</div>
                                 <div class="error-message error-max-age">l'âge maximal est de 67 ans au 1<sup>e</sup> janvier</div>
-                            </div>   
+                            </div> 
+                            <!-- contrainte HTML :  required min="date" max="datetime" ????-->   
                         </div>
 
                         <div class="form-element form-phone">
@@ -182,7 +186,8 @@
                             </div>
                             <div class="error-message-container">
                                 <div class="error-message error-format">le téléphone n'a pas le bon format</div>
-                            </div>   
+                            </div> 
+                             <!-- contrainte HTML :   pattern="/^((00|\+)32|0){1}([1-9]{1})\d{5,9}$/" -->   
                         </div>
 
 
@@ -201,23 +206,25 @@
                             <div class="error-message-container">
                                 <div class="error-message error-required">la nationalité est requise</div>
                             </div> 
+                            <!-- contrainte HTML :   required -->   
                         </div>
 
                         <div class="form-element form-sex">
                             <div id="radioButtons">
                                 <div class="radioButton"><input type="radio" name="sex" value="M"><label for="M">Homme</label></div>
                                 <div class="radioButton"><input type="radio" name="sex" value="F"><label for="F">Femme</label></div>
-                                <div class="radioButton"><input type="radio" name="sex" value="0" checked><label for="0">Autre</label></div>
-                        </div>
-
-                        <div class="valide-container">
+                                <div class="radioButton"><input type="radio" name="sex" value="0" checked disabled><label for="0">Autre</label></div>
+                            </div>
+                            <div class="valide-container">
                                 <span class="valide-ok"></span>
                                 <span class="valide-ko"></span>
                             </div>
                             <div class="error-message-container">
                                 <div class="error-message error-required">le genre est requis</div>
                             </div> 
+                            <!-- contrainte HTML :   required --> 
                         </div>
+                        
                         <div class="form-element form-role">
                             <div  id="checkboxes" >
                                 <div class="checkboxButton">
@@ -247,6 +254,7 @@
                                 <div class="error-message error-required">la fonction est requise</div>
                             </div> 
                         </div>
+                        <!-- contrainte HTML :   required ???? -->
                     </div>
                 </div>
                 
@@ -259,5 +267,6 @@
         </footer>
 
         <script src="js/script.js"></script>
+        <script src="js/test.js"></script>
     </body>
 </html>
