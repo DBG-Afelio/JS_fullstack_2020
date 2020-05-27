@@ -1,0 +1,30 @@
+DÉBUT PROGRAMME
+
+DEBUT VARIABLES LOCALES
+
+    var lignes :N <- 4
+    var colonnes :N <- 4
+    var indiceTemp :N <- 1
+    var i :N <- 1
+    var j :N <- 1
+    var tableau2Dim :N <- [4, 4]
+
+FIN VARIABLES LOCALES
+
+TANTQUE i <= lignes
+  
+    TANTQUE j <= colonnes
+     
+        tableaufinal[indiceTemp] = tableau2Dim[i][j]
+        j = j + 1
+        indiceTemp = indiceTemp + 1
+         
+    FINTANTQUE
+
+     j = 1
+     i = i + 1
+FINTANTQUE
+
+ÉCRIRE tableaufinal
+
+FIN PROGRAMME
