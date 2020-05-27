@@ -5,10 +5,11 @@ DEBUT 8-4
         VAR i :N <- 1
         VAR j :N <- 1
         var sum :N <- 0
+        var cpt :N<-0
     FIN VARIABLES LOCALES
 
     i <- 1
-    POUR i ALLANT DE 1 A 99
+    TANT QUE (cpt < 100)
         j<- 2
         TANTQUE (i mod j != 0 ET j < i)
             j <- j + 1
@@ -17,7 +18,10 @@ DEBUT 8-4
         SI (i = j)
             ALORS 
                 Afficher i, " est un nombre premier" 
+                cpt <- cpt + 1
         FIN SI
-    i SUIVANT
+
+        i <- i + 1
+    FIN TANTQUE
   
 FIN 8-4
