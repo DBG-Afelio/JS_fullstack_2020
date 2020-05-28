@@ -1,0 +1,41 @@
+Ecrire le programme qui vérifie que les sommes de chaque ligne, chaque colonne et des deux diagonales d’un tableau numérique carré sont les mêmes.
+Debut Programme
+VARIABLES LOCALES
+	VAR taille : N <- 10 
+	VAR tableaux :N [taille ,taille ]
+	VAR sommeHorizontal : N[taille ]
+	VAR sommeVertical : N[taille ]
+	VAR sommeDiagonal1 : N <- 0
+	VAR sommeDiagonal2 : N <- 0
+	VAR i:N <-0
+	VAR j:N <-0
+	VAR Result : B <-Faux
+	
+	
+FIN VARIABLES LOCALES
+	
+	POUR i ALLANT DE 1 A taille
+		sommeDiagonal1<- sommeDiagonal1 + tableaux[i,i] 
+		sommeDiagonal2<- sommeDiagonal2 + tableaux[i,taille-i+1] 
+		
+		POUR j ALLANT DE 1 A taille
+			sommeHorizontal[i] <-sommeHorizontal[i] + tableaux[i,j]
+			sommeDiagonal[j] <- sommeDiagonal[j]+ tableaux[j,i]
+
+		j SUIVANT
+	i SUIVANT
+	SI sommeDiagonal1 != sommeDiagonal2
+		Alors
+			Result <- Faux
+	SINON
+		POUR i ALLANT DE 1 A taille
+			SI sommeDiagonal1 != sommeHorizontal[i] ou   sommeDiagonal1 != sommeVertical[i]
+				ALORS
+				Result <- Faux
+				
+			FINSI
+		i SUIVANT
+	FINSI
+
+Afficher Result 
+Fin Programme
