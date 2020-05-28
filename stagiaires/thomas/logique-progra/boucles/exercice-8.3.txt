@@ -4,16 +4,16 @@ DEBUT PROGRAMME
     j :N <- 1
     somme <- 0 
     
-TANTQUE i < 100 FAIRE
+TANTQUE i < 100
 
         somme = 0 
         
-        TANTQUE j < i FAIRE 
+        TANTQUE j < i 
 
             SI i % j = 0 ALORS
                 somme <- somme + j
             FINSI  
-            
+
         j <- j + 1   
         FINTANTQUE
 
