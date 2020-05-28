@@ -16,7 +16,7 @@ DEBUT
 
         Number ++     
 
-        POUR CHAQUE j de 1 à Number - 1
+        POUR CHAQUE j de 1 à Number
 
             SI (Number MOD j = 0) 
 
