@@ -25,6 +25,6 @@ Début programme
     Fin Variables locales
 
     TANTQUE cpt <= 999
-        Afficher (cpt - cpt MOD 100)/100 , (cpt - cpt MOD 100 - cpt MOD 10)/10 , cpt MOD 10
+        Afficher (cpt - cpt MOD 100)/100 , (cpt MOD 100 - cpt MOD 10)/10 , cpt MOD 10
     FINTANTQUE
 Fin programme
