@@ -1,12 +1,12 @@
 DEBUT PROGRAMME
 
-    i :N <- 1
-    j :N <- 1
-    somme <- 0 
+    var i :N <- 1
+    var j :N <- 1
+    var somme :N
     
 TANTQUE i < 100
 
-        somme = 0 
+        somme <- 0 
         
         TANTQUE j < i 
 
