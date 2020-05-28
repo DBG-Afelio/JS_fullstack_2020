@@ -4,14 +4,15 @@ DEBUT
 
     Tab :N <- []
     DIV :N <- 0
+    Count :N <- 0
 
     FIN VAR LOC
 
     POUR CHAQUE i DE 1 à 99
 
-        POUR CHAQUE j de 1 à 10
+        POUR CHAQUE j de 1 à i - 1
 
-            SI i/j <- ENTIER
+            SI (i MOD DIV = 0) 
 
             DIV <- DIV + j
 
@@ -19,9 +20,13 @@ DEBUT
 
         FIN BOUCLE
 
-    SI DIV = i
+    DIV <- 0
 
-        ALORS Tab[i] = i
+    SI DIV = i 
+
+        Count ++        
+
+        ALORS Tab[Count] = i
     
         i ++ 
 
