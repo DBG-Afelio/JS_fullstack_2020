@@ -15,16 +15,10 @@ DEBUT PROGRAMME
 
         POUR j ALLANT DE 1 A 10
 
-        tableau[i, j] <- i * j 
+        AFFICHER(i (+) "fois" (+) j "=", i * j) 
 
         FIN POUR  
 
-    FIN POUR    
-
-POUR compteurDisplay ALLANT DE 1 A 10
-
-    AFFICHER("La table de : " (+) compteurDisplay (+) "est egal a :", tableauFinal[compteurDisplay]) 
-
-FIN POUR
+    FIN POUR 
 
 FIN PROGRAMME
