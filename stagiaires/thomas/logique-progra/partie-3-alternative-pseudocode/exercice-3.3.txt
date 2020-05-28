@@ -22,8 +22,8 @@ DÉBUT
 
 	//	BILLETS
 
-  AFFICHER "Entrer montant"
-  LIRE montant
+  AFFICHER("Entrer montant")
+  SAISIR montant
   
 	centimes <- (montant % 1) * 100   
   
