@@ -1,0 +1,30 @@
+Début programme
+    Variables locales
+        Var cpt :N <- 0
+    Fin Variables locales
+
+    TANTQUE cpt <= 999
+        SI cpt < 100 && cpt >= 10
+            ALORS Afficher "0" , cpt
+        FINSI
+        SI cpt < 10
+            ALORS Afficher "00" , cpt
+        FINSI
+        SI cpt >= 100
+            ALOS Afficher cpt
+        FINSI
+        cpt <- cpt + 1
+    FINTANTQUE
+Fin programme
+
+--Alternative--
+
+Début programme
+    Variables locales
+        Var cpt :N <- 0
+    Fin Variables locales
+
+    TANTQUE cpt <= 999
+        Afficher (cpt - cpt MOD 100)/100 , (cpt MOD 100 - cpt MOD 10)/10 , cpt MOD 10
+    FINTANTQUE
+Fin programme
