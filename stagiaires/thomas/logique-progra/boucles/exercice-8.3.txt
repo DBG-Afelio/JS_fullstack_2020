@@ -1,0 +1,28 @@
+DEBUT PROGRAMME
+
+    i :N <- 1
+    j :N <- 1
+    somme <- 0 
+    
+TANTQUE i < 100 FAIRE
+
+        somme = 0 
+        
+        TANTQUE j < i FAIRE 
+
+            SI i % j = 0 ALORS
+                somme <- somme + j
+            FINSI  
+            
+        j <- j + 1   
+        FINTANTQUE
+
+        SI somme = i ALORS
+            AFFICHER(i)    
+        FINSI
+
+ j <- 1 // on remet j a 1 pour le recalcul et le check de i
+ i <- i + 1
+ FINTANTQUE
+
+FIN PROGRAMME
