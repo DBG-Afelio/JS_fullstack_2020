@@ -27,28 +27,28 @@ DÉBUT
   
 	centimes <- (montant % 1) * 100   
   
-	billets100 <- (montant - (montant % 1)) / 100
+	billets100 <- (montant - (montant % 1)) DIV 100
 	montant <- montant - (billets100 * 100)
 
-	billets50 <- (montant - (montant % 1)) / 50
+	billets50 <- (montant - (montant % 1)) DIV 50
 	montant <- montant - (billets50 * 50)
 
-	billets20 <- (montant - (montant % 1)) / 20
+	billets20 <- (montant - (montant % 1)) DIV 20
 	montant <- montant - (billets20 * 20)
 
-	billets5 <- (montant - (montant % 1)) / 5
+	billets5 <- (montant - (montant % 1)) DIV 5
 	montant <- montant - (billets5 * 5)
 	
-	pieces2 <- (montant - (montant % 1)) / 2
+	pieces2 <- (montant - (montant % 1)) DIV 2
 	montant <- montant - (pieces2 * 2)
 	
-  pieces1 <- (montant - (montant % 1)) / 1
+  pieces1 <- (montant - (montant % 1)) DIV 1
 	montant <- montant - (pieces1 * 1)		
 		
-	pieces50 <- (centimes - (centimes % 1)) / 50
+	pieces50 <- (centimes - (centimes % 1)) DIV 50
 	centimes <- centimes - (pieces50 * 50)
 	
-	pieces20 <- (centimes - (centimes % 1)) / 20
+	pieces20 <- (centimes - (centimes % 1)) DIV 20
 	centimes <- centimes - (pieces20 * 20)
                                     
   AFFICHER("Nombre de billet de 100 " + billets100)
