@@ -1,0 +1,41 @@
+DÉBUT PROGRAMME
+
+   VARIABLES LOCALES
+
+        var unites :N <- 0
+        var dizaines :N <- 0
+        var centaines :N <- 0
+
+   FIN VARIABLES LOCALES
+
+
+  TANTQUE centaines <= 9 FAIRE
+
+     TANTQUE dizaines <= 9 FAIRE
+
+         TANTQUE unites <= 9 FAIRE
+        
+            AFFICHER("Suivi du compteur : ", centaines (+) " " (+) dizaines (+) " " (+) unites)
+
+          unites <- unites + 1 
+          FINTANTQUE
+
+      unites <- 0
+      dizaines <- dizaines + 1
+
+     FINTANTQUE
+
+      dizaines <- 0
+      centaines <- centaines + 1
+
+      SI (centaines = 9 ET dizaines = 9 ET unites = 9) ALORS
+
+        centaines <- 0
+        dizaines <- 0
+        unites <- 0 
+
+      FIN SI 
+
+  FINTANTQUE
+
+FIN  
