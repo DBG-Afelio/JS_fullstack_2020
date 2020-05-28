@@ -8,7 +8,7 @@ Debut exercice
         VAR diviseur :N <- 1
         VAR sommeDiviseur :N <- 0
         VAR listeNbParfaits :N [100]
-        VAR index N: <- 1
+        VAR index, i N: <- 1
     FIN VARIABLES
 
 
@@ -31,12 +31,9 @@ Debut exercice
 
     nombre SUIVANT
 
-    index <- 1
-
     Afficher "Voici la liste des nombres parfaits inferieurs a 100 : ",
-
-    TANT QUE listeNbParfaits[index] ≠ ''
-        Afficher "Le ", index, "er/eme nombre parfait est le : ", listeNbParfaits[index]
-    FIN TANT QUE
+    POUR i ALLANT DE 1 A index
+        Afficher "Le ", i, "er/eme nombre parfait est le : ", listeNbParfaits[i]
+    i SUIVANT
 
 Fin exercice
