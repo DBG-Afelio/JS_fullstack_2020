@@ -1,0 +1,38 @@
+Ecrire le programme qui affiche les 100 premiers nombres premiers.
+
+Debut exercice
+
+VARIABLES LOCALES :
+        VAR cptPremiers :N <- 1
+        VAR arrPremiers :N [100]
+        VAR nombre :N <- 2
+        VAR diviseur :N 
+    FIN VARIABLES LOCALES
+
+    TANT QUE (cptPremiers ≤ 100)
+
+        diviseur<- 2
+
+        TANTQUE (diviseur < nombre ET nombre MOD diviseur != 0)
+            diviseur <- diviseur + 1
+        FIN TANTQUE
+
+        SI (nombre = diviseur)
+        ALORS 
+            arrPremiers[cptPremiers] <- nombre     
+            cptPremiers <- cptPremiers + 1
+        FIN SI
+
+        nombre <- nombre + 1
+
+    FIN TANTQUE
+    
+    Afficher "Voici la liste des 100 premiers nombres premiers : "
+   
+    POUR cptPremiers ALLANT DE 1 A 100
+        
+        Afficher arrPremiers[cptPremiers], ", "
+   
+    cptPremiersSUIVANT
+
+Fin exercice
