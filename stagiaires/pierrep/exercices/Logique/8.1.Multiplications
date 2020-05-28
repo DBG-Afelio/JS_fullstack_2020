@@ -1,0 +1,30 @@
+DEBUT
+
+    VAR LOC
+
+    L :N <- 10
+    C :N <- 10
+    Tableau :N <- []
+    
+    FIN VAR LOC
+
+    TANT QUE h =< L
+
+        i = 1
+
+        TANT QUE i =< C
+
+            Tableau[h, i] <- h * i
+            
+            i ++ 
+
+        FIN BOUCLE
+
+        h ++
+
+    FIN BOUCLE
+
+    AFFICHE "Voici la  table des multiplications est :, Tableau"
+
+FIN
+
