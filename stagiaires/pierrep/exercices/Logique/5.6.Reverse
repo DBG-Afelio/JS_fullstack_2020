@@ -5,9 +5,9 @@ Début Reverse
 
     VAR LOCALES
 
-    var uTxt :T <- 0
-    var reverse :T <- 0
-    var inc :T <- 0
+    var uTxt :T <- ""
+    var reverse :T <- ""
+    var inc :N <- 0
 
     FIN VAR LOCALES
 

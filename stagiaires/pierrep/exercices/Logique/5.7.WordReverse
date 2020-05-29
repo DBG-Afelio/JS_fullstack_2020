@@ -8,9 +8,9 @@ Début WordReverse
 
     VAR LOCALES
 
-    uTxt :T <- ''
-    space :T <- ''
-    nTxt :T <- ''
+    uTxt :T <- ""
+    space :T <- ""
+    nTxt :T <- ""
 
 
     FIN VAR LOCALES
@@ -19,11 +19,13 @@ Début WordReverse
 
     saisie uTxt
 
+    uTxt <- uTxt (+) ' '
+
     space <- ' '
 
     POUR i ALLANT DE longueur(Utxt) à 1 par -1
 
-        SI caract(uTxt, i) <- space
+        SI caract(uTxt, i) = space
 
             ALORS
 
