@@ -7,8 +7,8 @@ Debut enversTexte
 
 	VARIABLES LOCALES :
 
-		var texte: T <- "" 
-		var texteRetourne: T <- "" 
+		var texte :T <- "" 
+		var texteRetourne :T <- "" 
 
 	Fin VARIABLES LOCALES
 
