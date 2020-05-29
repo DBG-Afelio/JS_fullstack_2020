@@ -29,15 +29,18 @@ Debut inversionMot
             Alors
 
                 mot <- sousChaine(texteSource, index, i) // ... on stocke les lettres avant cet espace dans un mot ...
-                texteInverse <- mot (+) texteInverse   // ... et on met ce mot dans le texte qu'on va montrer à la fin
+                texteInverse <- " " (+) mot (+) texteInverse   // ... et on met ce mot dans le texte qu'on va montrer à la fin
 
 				// A la première occurence, le mot se met à la fin car texteInverse est vide...
 				// ... et à la seconde occurence, le mot se met devant le mot précédent
 
             index <- i+1 //On donne la valeur de i+1 à index comme ça on laisse un espace
         Fin Si
-
+	
     i++
+    
+    mot <- sousChaine(texteSource, index, i)
+    texteInverse <- (+) mot (+) texteInverse 
 
     Afficher texteInverse
 
