@@ -1,0 +1,20 @@
+1. Ecrivez une fonction ou procédure qui permet d'initialiser et retourner une date à partir des données (jour, mois, an) reçues en paramètres.
+
+2. Ecrivez une fonction ou procédure qui permet d'initialiser et retourner une personne à partir de ses données reçues en paramètres.
+
+3. Ecrivez une fonction ou procédure qui permet à un utilisateur de remplir un tableau de Personnes reçu (vide) en paramètre (Vous pouvez vous aider des fonctions créées dans les exercices précédents).
+ATTENTION: Une fonction peut renvoyer une structure, mais pas un tableau.
+
+---------
+STRUCTURE date
+    VAR jour :N
+    VAR mois :N
+    VAR an :N
+FIN STRUCTURE
+
+FONCTION date (IN jour:N, IN mois:N, IN an:N)
+    date.jour <- jour
+    date.mois <- mois
+    date.an <- an
+    RETOURNE date
+FIN date

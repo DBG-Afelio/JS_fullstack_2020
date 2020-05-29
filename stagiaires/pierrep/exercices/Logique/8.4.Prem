@@ -1,0 +1,39 @@
+Ecrire le programme qui affiche les 100 premiers nombres premiers.
+
+DEBUT
+
+    _VAR LOC
+
+    Number :N <- 0                          // Nombre qu'on va tester pour voir s'il est premier
+
+    isFirstNumberCount :N <- 0              // Var compteur pour savoir si on est toujours en dessous des 100 premiers nombres premiers
+
+    divCount :N <- 0                        // Var compteur qui compte le nombre de diviseurs pour chaque nombre. S'il n'y en a que deux : bingo
+
+    _FIN VAR LOC
+
+    TANT QUE  isFirstNumber < 101
+
+        Number ++     
+
+        POUR CHAQUE j de 1 à Number
+
+            SI (Number MOD j = 0) 
+
+            divCount <- divCount + 1
+
+            j ++
+
+        FIN BOUCLE
+
+        SI (divCount = 2)
+
+            ALORS
+                
+                AFFICHE ,i
+
+        divCount <- 0
+
+    FIN BOUCLE
+
+FIN
