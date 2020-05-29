@@ -17,17 +17,19 @@ DEBUT naissance
 
 FIN naissance
 
+FONCTION transformDate( in j :N, in m :N, in a :N) :Date
 
-FONCTION transformDate(
     VARIABLES LOCALES
-        in j :N,
-        in m :N,
-        in a :N,
+       var date: Date
     FIN VARIABLES LOCALES
+
+    date <- CREER Date
 
     date.jour <-j
     date.mois <-m
     date.an <-a
+
+    RETOURNE date
 )
 
 FIN transformDate
