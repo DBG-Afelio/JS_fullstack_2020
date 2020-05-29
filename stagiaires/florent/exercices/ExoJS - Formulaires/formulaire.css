@@ -8,7 +8,8 @@
 }
 
 .form{
-    border: outset brown;
+    border: solid brown;
+    border-radius: 18px;
     width: 300px;
     margin: auto;
     background-color: papayawhip;
