@@ -16,9 +16,9 @@
         <input type="tel" name="phone" placeholder="Téléphone"><br>
         <label>Date de naissance:</label><br>
         <input type="date" name="date" min="1980-01-01" max="2020-12-31" required><br>
-        <input type="text" name="login" placeholder="Choisissez un login (obligatoire)" pattern="[\d\w]" minlength="6"
+        <input type="text" name="login" placeholder="Choisissez un login (obligatoire)" pattern="[\d\w]{6-10}" minlength="6"
             maxlength="10" required><br>
-        <input type="password" name="password_user" placeholder="Mot de passe (obligatoire)" pattern="[\d\w]"
+        <input type="password" name="password_user" placeholder="Mot de passe (obligatoire)" pattern="[A-Z]{4}\d{6}"
             minlength="6" maxlength="10" required><br>
         <input type="password" name="password_user_2" placeholder="Resaisir Mot de passe (obligatoire)"
             pattern="[A-Z]{4}\d{6}" minlength="6" maxlength="10" required><br>
