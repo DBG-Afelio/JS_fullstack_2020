@@ -42,7 +42,7 @@ Début carreMagique
 
     Si sommeDiag1 = sommeDiag2
         Alors 
-            Tant que i =< TailleCarreMagique && CarreMagique != Faux
+            Tant que i =< TailleCarreMagique*2 && CarreMagique != Faux
             
                 Si tabSommesLignesEtColonnes[i] != sommeDiag1
                     CarreMagique = Faux
