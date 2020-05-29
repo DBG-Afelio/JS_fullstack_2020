@@ -1,0 +1,41 @@
+
+Ecrivez une fonction ou procédure qui permet d'initialiser et retourner une date à partir des données (jour, mois, an) reçues en paramètres.
+
+DEBUT naissance
+    VARIABLES LOCALES
+        VAR jour :N <- 0
+        VAR mois :N <- 0
+        VAR an :N <- 0
+        VAR date :Date 
+    FIN VARIABLES LOCALES
+
+    SAISIR jour
+    SAISIR mois
+    SAISIR an
+
+    date <- transformDate(jour, mois , an)
+
+FIN naissance
+
+FONCTION transformDate( in j :N, in m :N, in a :N) :Date
+
+    VARIABLES LOCALES
+       var date: Date
+    FIN VARIABLES LOCALES
+
+    date <- CREER Date
+
+    date.jour <-j
+    date.mois <-m
+    date.an <-a
+
+    RETOURNE date
+)
+
+FIN transformDate
+
+STRUCTURE Date
+    VAR jour :N
+    VAR mois :N
+    VAR an :N
+FINSTRUCTURE
