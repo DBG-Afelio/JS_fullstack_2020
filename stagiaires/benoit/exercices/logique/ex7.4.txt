@@ -9,11 +9,13 @@ Début carreMagique
         Const TailleCarreMagique: N <-6
         var tabDeuxDim: N[TailleCarreMagique, TailleCarreMagique]
 
-        Const sommesLignes: N <-TailleCarreMagique 
-        Var tabSommesLignesEtColonnes: N[sommesLignes]
+        Const sommesLignesEtCol: N <-2*TailleCarreMagique 
+        Var tabSommesLignesEtColonnes: N[sommesLignesEtCol]
 
         Var CarreMagique: B <- Vrai
 
+        Var sommeDiag1: N <- 0
+        Var sommeDiag2: N <- 0
         Var somme1: N <- 0
         Var somme2: N <- 0
 
@@ -40,14 +42,14 @@ Début carreMagique
 
     Si sommeDiag1 = sommeDiag2
         Alors 
-            Pour i allant de 1 à TailleCarreMagique
-                Si tabSommesLignesEtColonnes[i] = tabSommesLignesEtColonnes[i-1] && tabSommesLignesEtColonnes[i] = sommeDiag1
-                    CarreMagique = Vrai
-                Sinon
+            Tant que i =< TailleCarreMagique && CarreMagique != Faux
+            
+                Si tabSommesLignesEtColonnes[i] != sommeDiag1
                     CarreMagique = Faux
                 Fin Si
 
-            i suivant
+                i++
+            Fin Tant que
     Sinon
         CarreMagique = Faux   
     Fin Si
