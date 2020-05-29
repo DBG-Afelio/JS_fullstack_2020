@@ -19,7 +19,9 @@ Debut enversTexte
 	
 		texteRetourne <- texteRetourne (+) carac(texte, i)
 	
-	i--
+		i--
+	
+	Fin Pour
 
 	Afficher "texteRetourne"
 
