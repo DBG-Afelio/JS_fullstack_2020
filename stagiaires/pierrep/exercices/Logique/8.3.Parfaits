@@ -1,0 +1,37 @@
+DEBUT
+
+    VAR LOC
+
+    Tab :N <- []
+    DIV :N <- 0
+    Count :N <- 0
+
+    FIN VAR LOC
+
+    POUR CHAQUE i DE 1 à 99
+
+        POUR CHAQUE j de 1 à i - 1
+
+            SI (i MOD DIV = 0) 
+
+            DIV <- DIV + j
+
+            j ++
+
+        FIN BOUCLE
+
+    DIV <- 0
+
+    SI DIV = i 
+
+        Count ++        
+
+        ALORS Tab[Count] = i
+    
+        i ++ 
+
+    FIN BOUCLE
+
+    AFFICHE Tab
+
+FIN
