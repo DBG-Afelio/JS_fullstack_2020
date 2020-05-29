@@ -1,0 +1,82 @@
+DÉBUT
+
+ \\ VARIABLE LOCALES    
+      
+       num1 :N <- 0
+       num2 :N <- 0
+       num3 :N <- 0
+
+   \\ FIN VARIABLE LOCALES
+
+AFFICHER "entrer 1er numero : " 
+SAISIR num1
+
+AFFICHER "entrer 2eme numero : " 
+SAISIR num2
+
+AFFICHER "entrer 3eme numero : " 
+SAISIR num3
+
+\\ VERIFIE LES EGALITES
+
+SI num1 = num2 ALORS
+
+    AFFICHER "le numéro 1 et le numéro 2 sont identiques" 
+
+SINON SI num1 = num3 ALORS
+
+    AFFICHER "le numéro 1 et le numéro 3 sont identiques" 
+
+SINON SI num2 = num3 ALORS
+
+    AFFICHER "le numéro 2 et le numéro 3 sont identiques" 
+
+SINON SI num1 < num2 ALORS
+         
+        SI num2 < num3 ALORS
+              AFFICHER( num1 + "<" + num2  + "<" + num3 )
+            SINON
+              AFFICHER( num1 + "<" + num3  + "<"+ num2 )
+        FINSI
+
+SINON SI num3 < num1 ALORS
+         
+        SI num1 < num2  ALORS
+            AFFICHER( num3 + "<" + num1  + "<" + num2 )
+        SINON
+            AFFICHER( num3 + "<" + num2  + "<" + num1)
+        FINSI
+
+SINON SI num1 < num3 ALORS
+         
+        SI num3 < num2 ALORS
+              AFFICHER( num1 + "<" + num3  + "<" + num2)
+            SINON
+              AFFICHER( num2 + "<" + num1  + "<" + num3 )
+        FINSI
+
+SINON SI num2 < num1 ALORS
+         
+        SI num1 < num3 ALORS
+            AFFICHER( num2 + "<" + num1  + "<" + num3 )
+        SINON
+            AFFICHER( num2 + "<" + num3  + "<" + num1 ) 
+        FINSI
+
+SINON SI num2 < num3 ALORS
+         
+        SI num3 < num1  ALORS
+            AFFICHER( num2 + "<" + num3  + "<" + num1 )
+        SINON
+            AFFICHER( num2 + "<" + num1  + "<" + num3 )
+        FINSI
+
+SINON SI num3 < num2 ALORS
+         
+        SI num2 < num1 ALORS
+            AFFICHER( num3 + "<" + num2  + "<" + num1 )
+        SINON
+            AFFICHER( num2 + "<" + num1  + "<" + num3 )
+        FINSI
+FINSI
+FIN
