@@ -1,9 +1,11 @@
 // Exercice 1
 
  STRUCTURE Date
-        VAR jour : N
-        VAR mois : N
-        VAR annee : N
+ 
+        var jour : N
+        var mois : N
+        var annee : N
+        
  FINSTRUCTURE    
 
 
