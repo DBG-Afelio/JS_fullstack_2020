@@ -2,9 +2,9 @@
 
  STRUCTURE Date
  
-        var jour : N
-        var mois : N
-        var annee : N
+        var jour :N
+        var mois :N
+        var annee :N
         
  FINSTRUCTURE    
 
