@@ -1,0 +1,54 @@
+// Exercice 1
+
+ STRUCTURE Date
+        VAR jour : N
+        VAR mois : N
+        VAR annee : N
+ FINSTRUCTURE    
+
+
+PROCEDURE demanderDate()
+
+VARIABLES LOCALES
+
+    var saisiejour :N
+    var saisiemois :N
+    var saisieannee :N
+    var resultat :Date 
+
+FIN VARIABLES LOCALES
+
+AFFICHER("Entrer jour : ")
+SAISIR saisiejour
+
+AFFICHER("Entrer mois : ")
+SAISIR saisiemois
+
+AFFICHER("Entrer annee : ")
+SAISIR saisieannee
+
+resultat <- initDate(saisiejour, saisiemois, saisieannee)
+
+AFFICHER(date.jour + "/" + date.mois + "/" + date.annee)
+
+FIN demanderDate
+
+ 
+FONCTION initDate(in jour:N, in mois :N, in annee :N) :Date 
+
+VARIABLE LOCALE 
+
+var date :Date 
+
+FIN VARIABLE LOCALE 
+
+date <- CREER Date
+
+date.jour <- jour
+date.mois <- mois
+date.annee <- annee
+
+RETOURNE date
+
+FIN initDate
+
