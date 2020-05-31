@@ -62,4 +62,11 @@ DEBUT PROGRAMME
 
     FINPOUR
 
+    AFFICHER("Le minimum de votre série est : ", minVal)
+    AFFICHER("Le maximum de votre série est : ", maxVal)
+    AFFICHER("la position du premier maximum : ", firstMaxPos)
+    AFFICHER("la position du dernier maximum : ", lastMaxPos)
+    AFFICHER("le nombre d'occurrences du maximum : ", maxOccur)
+    AFFICHER("le nombre d'occurrences du minimum : ", minOccur)
+
 FIN PROGRAMME
