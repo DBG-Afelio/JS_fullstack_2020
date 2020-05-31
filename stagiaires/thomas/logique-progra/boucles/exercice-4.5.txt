@@ -17,4 +17,6 @@ SAISIR userSaisie
 
     FINPOUR
 
+    AFFICHER("La factorielle est de votre saisie est de : ", produit)
+
 FIN PROGRAMME
