@@ -1,0 +1,64 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+        var tab :N <- []
+        var userSaisie :N <- 0
+        var minVal :N <- 0
+        var maxVal :N <- 0
+        var firstMaxPos :N <- 0
+        var lastMaxPos :N <- 0
+        var minOccur :N <- 0
+        var maxOccur :N <- 0
+        var i :N <- 1
+        var j :N <- 0
+        var k :N <- 0 
+
+    FIN VARIABLE LOCALES
+
+    // Boucles pour remplir le tableau des valeurs entrés par l'utilisateur 
+
+    TANTQUE userSaisie != 100
+
+        AFFICHER("Entrer nombre")
+        SAISIR userSaisie
+        tab[i] <- saisie
+
+        i <- i + 1   
+    FINTANTQUE
+
+    minVal <- tab[1]
+    maxVal <- tab[1]    
+
+
+    POUR j ALLANT DE 1 a longeur(tab)
+    
+        SI tab[j] < minVal ALORS
+            minVal <- tab[j]
+
+        SINON SI tab[j] > maxVal ALORS 
+
+            SI firstMaxPos = 0 ALORS 
+                firstMaxPos <- j
+            FINSI
+
+            maxVal <- tab[j]
+            lastMaxPos <- j 
+        FINSI
+
+    FINPOUR
+
+
+    POUR k ALLANT DE 1 a longeur(tab)
+
+        SI tab[k] = minVal ALORS 
+           minOccur <- minOccur + 1    
+        FINSI  
+
+        SI tab[k] = maxVal ALORS 
+           maxOccur <- maxOccur + 1    
+        FINSI
+
+    FINPOUR
+
+FIN PROGRAMME
