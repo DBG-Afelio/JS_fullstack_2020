@@ -70,4 +70,11 @@ DEBUT PROGRAMME
 
     FINPOUR
 
+    AFFICHER("la position du premier maximum : ", firstMaxPos)
+    AFFICHER("la position du dernier maximum : ", lastMaxPos)
+    AFFICHER("la position du premier maximum : ", firstMinPos)
+    AFFICHER("la position du dernier maximum : ", lastMinPos)
+    AFFICHER("le nombre d'occurrences du maximum : ", maxOccur)
+    AFFICHER("le nombre d'occurrences du minimum : ", minOccur)
+
 FIN PROGRAMME
