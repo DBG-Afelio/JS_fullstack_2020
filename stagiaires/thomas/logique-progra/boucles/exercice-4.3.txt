@@ -31,7 +31,7 @@ DEBUT PROGRAMME
     maxVal <- tab[1]    
 
     // MINIMUM - MAXIMUM
-    
+
     POUR j ALLANT DE 1 a longeur(tab)
     
         SI tab[j] < minVal ALORS
@@ -48,9 +48,9 @@ DEBUT PROGRAMME
 
         SI tab[k] = maxVal ALORS
 
-            SI firstMaxPos = 0 ALORS 
-                firstMaxPos <- k
-            FINSI
+           SI firstMaxPos = 0 ALORS 
+            firstMaxPos <- k
+           FINSI
 
            lastMaxPos <- k 
            maxOccur <- maxOccur + 1    
