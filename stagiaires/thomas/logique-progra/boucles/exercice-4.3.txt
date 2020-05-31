@@ -30,34 +30,35 @@ DEBUT PROGRAMME
     minVal <- tab[1]
     maxVal <- tab[1]    
 
-
+    // MINIMUM - MAXIMUM
+    
     POUR j ALLANT DE 1 a longeur(tab)
     
         SI tab[j] < minVal ALORS
             minVal <- tab[j]
-
         SINON SI tab[j] > maxVal ALORS 
-
-            SI firstMaxPos = 0 ALORS 
-                firstMaxPos <- j
-            FINSI
-
             maxVal <- tab[j]
-            lastMaxPos <- j 
         FINSI
 
     FINPOUR
 
+    // OCCURENCES ET POSITIONS
 
     POUR k ALLANT DE 1 a longeur(tab)
+
+        SI tab[k] = maxVal ALORS
+
+            SI firstMaxPos = 0 ALORS 
+                firstMaxPos <- k
+            FINSI
+
+           lastMaxPos <- k 
+           maxOccur <- maxOccur + 1    
+        FINSI
 
         SI tab[k] = minVal ALORS 
            minOccur <- minOccur + 1    
         FINSI  
-
-        SI tab[k] = maxVal ALORS 
-           maxOccur <- maxOccur + 1    
-        FINSI
 
     FINPOUR
 
