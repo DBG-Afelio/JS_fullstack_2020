@@ -4,25 +4,44 @@ DEBUT PROGRAMME
 
     var userSaisie :T <- ""
     var i :N <- 0
-    var resultat :T <- "" 
+    var texte-modif :T <- ""
+    var temp :T <- ""
+    var reversedWord :T <- "" 
 
     FIN VARIABLE LOCALES
 
 AFFICHER("Entrer texte : ") 
 SAISIR userSaisie
 
+    // On parcours la boucle a l'envers pour inverser les mots plus facilement 
+
     POUR i ALLANT DE longeur(userSaisie) A 1 PAR PAS DE -1
 
-        resultat <- resultat + sousChaine(userSaisie, i, longeur(userSaisie[i] - 1) + " "
+        SI caract(userSaisie, i) != " " ALORS 
+            temp <- temp + caract(userSaisie, i) 
+        FINSI 
+    
+    // On remet le mot dans l'ordre
+
+        POUR J ALLANT DE 1 A longeur(temp)
+            reversedWord <- reversedWord + temp[j]
+        FINPOUR
+
+        // On remet le mot (partant du dernier) dans le texte modifié
+
+        texte-modif  <- texte-modif + reversedWord + " "
+
+        temp <- ""
+        reversedWord <- "" 
 
     FINPOUR
 
-    //Supprime le dernier espace blanc
+    // Supprime le dernier espace blanc
 
-    SI userSaisie[longeur(userSaisie)] = " " ALORS
-        userSaisie[longeur(userSaisie)] <- ""
+    SI userSaisie[longeur(texte-modif)] = " " ALORS
+        userSaisie[longeur(texte-modif)] <- ""
     FINSI
 
-AFFICHER(resultat)
+AFFICHER(texte-modif)
 
 FIN PROGRAMME
