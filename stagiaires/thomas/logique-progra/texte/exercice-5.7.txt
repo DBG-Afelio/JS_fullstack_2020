@@ -6,20 +6,24 @@ DEBUT PROGRAMME
     var i :N <- 0
     var texte-modif :T <- ""
     var temp :T <- ""
-    var reversedWord :T <- "" 
+    var reversedWord :T <- ""
+    var indexTemp :N <- 0
 
     FIN VARIABLE LOCALES
 
 AFFICHER("Entrer texte : ") 
 SAISIR userSaisie
 
+indexTemp <- longeur(userSaisie)
+
     // On parcours la boucle a l'envers pour inverser les mots plus facilement 
 
     POUR i ALLANT DE longeur(userSaisie) A 1 PAR PAS DE -1
 
-        SI caract(userSaisie, i) != " " ALORS 
-            temp <- temp + caract(userSaisie, i) 
-        FINSI 
+        TANTQUE caract(userSaisie, indexTemp) != " " ALORS 
+            temp <- temp + caract(userSaisie, indexTemp)
+            indexTemp <- indexTemp - 1
+        FINTANTQUE 
     
     // On remet le mot dans l'ordre
 
