@@ -30,7 +30,8 @@ SAISIR userSaisie
         // On remet le mot (partant du dernier) dans le texte modifié
 
         texte-modif  <- texte-modif + reversedWord + " "
-
+    
+        // On reset les variables temporaire 
         temp <- ""
         reversedWord <- "" 
 
