@@ -1,0 +1,36 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var userSaisie :T <- ""
+    var texte-modif :T <- ""
+    var i :N <- 0
+    var j :N <- 0 
+    var wordInText :T <- ""
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer texte : ") 
+SAISIR userSaisie
+
+POUR i ALLANT DE longeur(userSaisie) a 1 PAR PAS DE -1
+
+    // On groupe le mot
+    SI caract(userSaisie, i) != " " ALORS
+        wordInText <- wordInText + caract(userSaisie, i)
+    FINSI
+
+    // On ajoute le mot reversé
+    texte-modif <- texte-modif + wordInText + " "
+
+    // Reset des variables temporaires
+    wordInText <- "" 
+
+FINPOUR
+
+// Supprimer le dernier espace
+texte-modif[longeur(texte-modif)] <- ""
+
+AFFICHER(texte-modif)
+
+FIN PROGRAMME
