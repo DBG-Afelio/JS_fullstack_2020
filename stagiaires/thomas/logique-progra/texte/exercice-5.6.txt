@@ -29,6 +29,7 @@ POUR i ALLANT DE 1 a longeur(userSaisie)
     // On ajoute le mot reversé
     texte-modif <- texte-modif + tempReverse
     
+    // On reset les variables temporaire 
      wordInText <- ""
      tempReverse <- "" 
 
