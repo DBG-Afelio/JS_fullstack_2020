@@ -1,0 +1,28 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+        var userSaisie :N <- 0
+        var random <- aleatoire(100)
+
+    FIN VARIABLE LOCALES
+
+
+    TANTQUE userSaisie != random  
+
+       AFFICHER("Entrez valeur : ")
+       SAISIR userSaisie
+
+       SI userSaisie < random 
+
+            AFFICHER("C'est plus !")
+       SINON 
+            AFFICHER("C'est moins !")
+       FINSI  
+
+    FINTANTQUE
+
+    AFFICHER("Bravo ! Vous avez trouvé la valeur.")
+
+
+FIN PROGRAMME
