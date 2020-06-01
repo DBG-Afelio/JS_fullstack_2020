@@ -6,6 +6,7 @@ DEBUT PROGRAMME
     var texte-modif :T <- ""
     var i :N <- 0
     var j :N <- 0 
+    var wordInText :T <- ""
     var tempReverse :T <- "" 
 
     FIN VARIABLE LOCALES
@@ -15,17 +16,12 @@ SAISIR userSaisie
 
 POUR i ALLANT DE 1 a longeur(userSaisie)
 
-    SI userSaisie[i] != " " ALORS
-
-        tempReverse <- caract(userSaisie, i)
-
+    SI caract(userSaisie, i) != " " ALORS
+        wordInText <- wordInText + caract(userSaisie[i], i)
     FINSI
 
-
-    POUR j ALLANT DE longeur(tempReverse) A 1 PAR PAS DE -1
-
-        tempReverse <- tempReverse + caract(userSaisie, j) + " "
-
+    POUR j ALLANT DE longeur(wordInText) A 1 PAR PAS DE -1
+        tempReverse <- tempReverse + caract(wordInText, j) + " "
     FINPOUR
 
     texte-modif <- texte-modif + tempReverse
