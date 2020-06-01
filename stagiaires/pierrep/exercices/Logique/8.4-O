@@ -6,15 +6,15 @@ DEBUT
 
     Number :N <- 0                          // Nombre qu'on va tester pour voir s'il est premier
 
-    isFirstNumberCount :N <- 0              // Var compteur pour savoir si on est toujours en dessous des 100 premiers nombres premiers
+    firstNumberCount :N <- 0              // Var compteur pour savoir si on est toujours en dessous des 100 premiers nombres premiers
 
-    divCount :N <- 0                        // Var compteur qui compte le nombre de diviseurs pour chaque nombre. S'il y en a 
+    divCount :N <- 0                        // Var compteur qui compte le nombre de diviseurs pour chaque nombre. Si cette var prend 1, alors ça veut dire que ce n'est pas premier
 
     _FIN VAR LOC
 
     TANT QUE  isFirstNumber < 101
 
-        Number ++
+        Number <- Number + 2
 
         SI (Number MOD 2 != 0)
 
