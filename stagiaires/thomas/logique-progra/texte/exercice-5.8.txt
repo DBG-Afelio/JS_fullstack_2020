@@ -29,6 +29,8 @@ POUR i ALLANT DE longeur(userSaisie) a 1 PAR PAS DE -1
 
     // Reset des variables temporaires
     wordInText <- "" 
+    
+    i <- indexTemp
 FINPOUR
 
 // Supprimer le dernier espace
