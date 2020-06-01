@@ -2,7 +2,7 @@ DEBUT PROGRAMME
 
     VARIABLE LOCALES
     
-    var texte-source :N <- ""
+    var texte-source :T <- ""
     var firstPosition :N <- 0
     var lastPosition :N <- 0
     var result :T <- ""
