@@ -19,7 +19,7 @@ SAISIR texte-cible
 
     POUR i ALLANT DE 1 A longeur(texte-source)
 
-        SI texte-cible = sousChaine(texte, i, i + longeur(texte-cible)) ALORS
+        SI texte-cible = sousChaine(texte-source, i, i + longeur(texte-cible)) ALORS
 
             SI firstTextPos = 0 ALORS
                 firstTextPos <- i 
