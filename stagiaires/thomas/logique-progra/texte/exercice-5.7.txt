@@ -1,0 +1,28 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var userSaisie :T <- ""
+    var i :N <- 0
+    var resultat :T <- "" 
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer texte : ") 
+SAISIR userSaisie
+
+    POUR i ALLANT DE longeur(userSaisie) A 1 PAR PAS DE -1
+
+        resultat <- resultat + sousChaine(userSaisie, i, longeur(userSaisie[i] - 1) + " "
+
+    FINPOUR
+
+    //Supprime le dernier espace blanc
+
+    SI userSaisie[longeur(userSaisie)] = " " ALORS
+        userSaisie[longeur(userSaisie)] <- ""
+    FINSI
+
+AFFICHER(resultat)
+
+FIN PROGRAMME
