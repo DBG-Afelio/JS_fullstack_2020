@@ -1,0 +1,61 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+        var text1 :T <- ""
+        var text2 :T <- ""
+        var alphabet :N <- [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+        var isText1Second :B <- faux
+        var i :N <- 0
+        indexCaractText1 :N <- 0
+        indexCaractText2 :N <- 0
+        var indexLettre :N <- 1 
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrez premier texte : ") 
+SAISIR text1 
+
+AFFICHER("Entrez deuxième texte : ") 
+SAISIR text2
+
+    // Recupérer l'indice de la 1ere lettre de chaque texte par rapport au tableau alphabet 
+
+    POUR i ALLANT DE 1 A longueur(alphabet)
+    
+        SI caract(text1, indexLettre) = alphabet[i] ALORS
+
+            SI indexCaractText1 = 0 ALORS
+                indexCaractText1 <- i 
+            FINSI
+
+        FINSI
+
+        SI caract(text2, indexLettre) = alphabet[i] ALORS
+
+            SI indexCaractText2 = 0 ALORS
+                indexCaractText2 <- i 
+            FINSI
+        FINSI
+
+        SI caract(text1, indexLettre) = caract(text1, indexLettre) ALORS
+            indexLettre <- indexLettre + 1
+        FINSI 
+
+    FINPOUR 
+
+    // On vérifie la position des 2 lettres dans le tableau alphabet
+
+    SI indexCaractText1 > indexCaractText2
+        isText1Second <- vrai
+    SINON
+        isText1Second <- faux
+    FINSI
+
+    SI isText1Second ALORS
+     AFFICHER("VRAI")
+    SINON 
+     AFFICHER("FAUX")
+    FINSI
+
+FIN PROGRAMME
