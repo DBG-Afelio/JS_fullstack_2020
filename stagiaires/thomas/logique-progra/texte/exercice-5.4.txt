@@ -1,0 +1,42 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+    
+    var texte-source :N <- ""
+    var firstPosition :N <- 0
+    var lastPosition :N <- 0
+    var result :T <- ""
+    var i :N <- 0
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer votre texte : ") 
+SAISIR texte-source
+
+AFFICHER("Entrer position de depart : ") 
+SAISIR firstPosition
+
+AFFICHER("Entrer position de fin : ") 
+SAISIR lastPosition
+
+
+SI (firstPosition <= 0 OU 
+    lastPosition <= 0 OU 
+    lastPosition < firstPosition OU
+    lastPosition > longueur(texte-source)) ALORS
+
+    AFFICHER("ERREUR dans les indices, veuillez recommencer")
+
+SINON 
+
+    POUR i ALLANT DE firstPosition A lastPosition
+
+        result <- result + texte-source[i]
+    
+    FINPOUR
+
+FINSI 
+
+    AFFICHER(result)
+
+FIN PROGRAMME
