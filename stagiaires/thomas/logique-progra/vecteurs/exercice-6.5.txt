@@ -6,8 +6,6 @@ DEBUT PROGRAMME
         var texte-modif :T <- ""
         var i :N <- 0
         var j :N <- 0 
-        var wordInText :T <- ""
-        var indexTemp :N <- 0
         var nombresDespaces <- 0 
 
     FIN VARIABLE LOCALES
@@ -23,8 +21,10 @@ SAISIR userSaisie
             texte-modif <- texte-modif + caract(userSaisie, i)
         SINON
             nombresDespaces <- nombresDespaces + 1 
-            
+
     FINPOUR
+
+// On remet les espaces a la fin
 
     POUR j ALLANT DE 1 A nombresDespaces 
 
