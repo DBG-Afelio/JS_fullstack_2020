@@ -27,7 +27,9 @@ SI (firstPosition <= 0 OU
 
     AFFICHER("ERREUR dans les indices, veuillez recommencer")
 
-SINON 
+SINON
+
+    i <- firstPosition
 
     POUR i ALLANT DE firstPosition A lastPosition
 
