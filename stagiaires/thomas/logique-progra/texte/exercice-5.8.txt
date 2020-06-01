@@ -19,7 +19,7 @@ indexTemp <- longeur(userSaisie)
 POUR i ALLANT DE longeur(userSaisie) a 1 PAR PAS DE -1
 
     // On groupe le mot
-    TANTQUE caract(userSaisie, indexTemp) != " " 
+    TANTQUE caract(userSaisie, indexTemp) != " " ET indexTemp >= 1
         wordInText <- wordInText + caract(userSaisie, indexTemp)
         indexTemp <- indexTemp - 1 
     FINTANTQUE
