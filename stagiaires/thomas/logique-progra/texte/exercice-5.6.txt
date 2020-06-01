@@ -1,0 +1,22 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var userSaisie :T <- ""
+    var i :N <- 0
+    var resultat :T <- "" 
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer texte : ") 
+SAISIR userSaisie
+
+    POUR i ALLANT DE longeur(userSaisie) A 1 PAR PAS DE -1
+
+        resultat <- resultat + caract(userSaisie, i)
+
+    FINPOUR
+
+AFFICHER(resultat)
+
+FIN PROGRAMME
