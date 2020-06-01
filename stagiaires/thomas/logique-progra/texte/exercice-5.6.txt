@@ -17,7 +17,7 @@ SAISIR userSaisie
 POUR i ALLANT DE 1 a longeur(userSaisie)
 
     SI caract(userSaisie, i) != " " ALORS
-        wordInText <- wordInText + caract(userSaisie[i], i)
+        wordInText <- wordInText + caract(userSaisie, i)
     FINSI
 
     POUR j ALLANT DE longeur(wordInText) A 1 PAR PAS DE -1
