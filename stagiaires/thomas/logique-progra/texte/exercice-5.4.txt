@@ -31,7 +31,7 @@ SINON
 
     i <- firstPosition
 
-    POUR i ALLANT DE firstPosition A lastPosition
+    POUR i ALLANT DE firstPosition A lastPosition + 1
 
         result <- result + texte-source[i]
     
