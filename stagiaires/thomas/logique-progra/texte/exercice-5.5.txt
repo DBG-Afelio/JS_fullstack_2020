@@ -38,6 +38,8 @@ SAISIR text2
             FINSI
         FINSI
 
+        // Si les 2 lettres sont identiques, on passe a la lettre suivante (ex: Avion, Abribus)
+        
         SI caract(text1, indexLettre) = caract(text1, indexLettre) ALORS
             indexLettre <- indexLettre + 1
         FINSI 
