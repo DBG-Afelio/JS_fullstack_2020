@@ -79,25 +79,21 @@ function isSurnameValid(surname){
     
     if (surname.value.length >= 3 && surname.value.length <= 50) {
         
-        surname.nextElementSibling.classList.add('hidden');
         validReturn = true;
         
     } else if (surname.value.length < 3 && surname.value.length > 0) {
   
         surname.nextElementSibling.innerHTML = "3 caractères minimum";
-        surname.nextElementSibling.classList.remove('hidden');
         validReturn = false;
 
         
     } else if(surname.value.length === 0){
         
         validReturn = true;
-        surname.nextElementSibling.classList.add('hidden');
         
     }else{
         
         surname.nextElementSibling.innerHTML = "50 caractères maximum";
-        surname.nextElementSibling.classList.remove('hidden');
         validReturn = false;
 
     }
@@ -111,11 +107,15 @@ surnameInput.addEventListener('input',()=>{
     if (isSurnameValid(surnameInput)) {
         
         isFormValid[1] = true;
+        
+        surnameInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[1].style.backgroundPositionX = 'right';
         
     } else {
         
         isFormValid[1] = false;
+        
+        surnameInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[1].style.backgroundPositionX = 'left';
         
     }
@@ -144,19 +144,16 @@ function isMailValid(eMail){
     if(eMail.value.length === 0){
         
         validReturn = true;
-        eMail.nextElementSibling.classList.add('hidden');
         
     }else{
         
         if(eMail.value.match(mailRule)){
             
             validReturn = true;
-            eMail.nextElementSibling.classList.add('hidden');
             
         }else{
             
             validReturn = false;
-            eMail.nextElementSibling.classList.remove('hidden');
             eMail.nextElementSibling.innerHTML = "Email non valide";
         }
         
@@ -173,13 +170,14 @@ mailInput.addEventListener('input',()=>{
         
         isFormValid[2] = true;
         
+        mailInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[2].style.backgroundPositionX = 'right';
         
         
     } else {
         
         isFormValid[2] = false;
-        
+        mailInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[2].style.backgroundPositionX = 'left';
         
     }
@@ -207,18 +205,15 @@ function isPhoneValid(phone){
     if(phone.value.length === 0){
         
         validReturn = true;
-        phone.nextElementSibling.classList.add('hidden');
-        
+                
     }else if(phone.value.match(phoneRule)){
             
         validReturn = true;
-        phone.nextElementSibling.classList.add('hidden');
             
     }else{
         
         validReturn = false;
-            phone.nextElementSibling.classList.remove('hidden');
-            phone.nextElementSibling.innerHTML = "Veuillez saisir un numéro valide";
+        phone.nextElementSibling.innerHTML = "Veuillez saisir un numéro valide";
         
     }
 
@@ -233,14 +228,14 @@ phoneInput.addEventListener('input',()=>{
     if (isPhoneValid(phoneInput)) {
         
         isFormValid[3] = true;
-        
+        phoneInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[3].style.backgroundPositionX = 'right';
         
         
     } else {
         
         isFormValid[3] = false;
-        
+        phoneInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[3].style.backgroundPositionX = 'left';
         
     }
@@ -278,7 +273,6 @@ function isDateValid(date) {
 	if (!date.value.match(dateRule)){
         
         validReturn = false;
-        date.nextElementSibling.classList.remove('hidden');
         date.nextElementSibling.innerHTML = "Veuillez saisir une date valide";
         
     }
@@ -317,12 +311,10 @@ function isDateValid(date) {
 	if( month >= 1 && month <=12 && day >= 1 && day <= nbJours[month-1] ){
         
         validReturn = true;
-        date.nextElementSibling.classList.add('hidden');
         
     }else{
         
         validReturn = false;
-        date.nextElementSibling.classList.remove('hidden');
         date.nextElementSibling.innerHTML = "Veuillez saisir une date valide";
     }
 }
@@ -336,13 +328,13 @@ dateInput.addEventListener('input',()=>{
     if (isDateValid(dateInput)) {
         
         isFormValid[4] = true;
-        
+        dateInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[4].style.backgroundPositionX = 'right';
         
     } else {
         
         isFormValid[4] = false;
-        
+        dateInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[4].style.backgroundPositionX = 'left';
         
     }
@@ -375,24 +367,20 @@ function isLoginValid(login){
     if(login.value.length === 0 || login.value.length < 6 || login.value.length > 10){
         
         validReturn = false;
-        login.nextElementSibling.classList.remove('hidden');
         login.nextElementSibling.innerHTML = "Veuillez saisir un mot entre 6 et 10 caractères";
             
     }else if(compareTabString(loginTab,login.value)){
         
         validReturn = false;
-        login.nextElementSibling.classList.remove('hidden');
         login.nextElementSibling.innerHTML = "Login déja utilisé";
             
     }else if(login.value.match(loginRule)){
         
         validReturn = true;
-        login.nextElementSibling.classList.add('hidden');
         
     }else{
         
         validReturn = false;
-        login.nextElementSibling.classList.remove('hidden');
         login.nextElementSibling.innerHTML = 'utilisez uniquement des chiffres, des lettres ou les symboles "_-!$"';
         
     }
@@ -413,13 +401,13 @@ loginInput.addEventListener('input',()=>{
     if (isLoginValid(loginInput)) {
         
         isFormValid[5] = true; 
-        
+        loginInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[5].style.backgroundPositionX = 'right';
         
     } else {
         
         isFormValid[5] = false;
-        
+        loginInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[5].style.backgroundPositionX = 'left';
         
     }
@@ -509,18 +497,15 @@ function isPasswordValid(password) {
     if(password.value.length === 0 || password.value.length < 6 || password.value.length > 10){
         
         validReturn = false;
-        password.nextElementSibling.classList.remove('hidden');
         password.nextElementSibling.innerHTML = "Veuillez saisir un mot entre 6 et 10 caractères";
             
     }else if(password.value.match(passwordRule)){
         
         validReturn = true;
-        password.nextElementSibling.classList.add('hidden');
         
     }else{
         
         validReturn = false;
-        password.nextElementSibling.classList.remove('hidden');
         password.nextElementSibling.innerHTML = 'utilisez uniquement des chiffres, des lettres ou les symboles "_-!$"';
         
     }
@@ -535,14 +520,14 @@ passwordInput.addEventListener('input',()=>{
     if (isPasswordValid(passwordInput)) {
         
         isFormValid[6] = true;
-        
+        passwordInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[6].style.backgroundPositionX = 'right';
         
         
     } else {
         
         isFormValid[6] = false;
-        
+        passwordInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[6].style.backgroundPositionX = 'left';
         
     }
@@ -566,16 +551,20 @@ function isPasswordConfirmValid(passwordConfirm,password) {
 
 	let validReturn = false;
     
-    if(passwordConfirm.value === password.value){
+    if(passwordConfirm.value === password.value && passwordConfirm.value !== ''){
         
         validReturn = true;
-        passwordConfirm.nextElementSibling.classList.add('hidden');
         
     }else{
         
         validReturn = false;
-        passwordConfirm.nextElementSibling.classList.remove('hidden');
         passwordConfirm.nextElementSibling.innerHTML = 'ERREUR : mot de passe différent';
+        
+        if(passwordConfirm.value === ''){
+            
+            passwordConfirm.nextElementSibling.innerHTML = 'Veuillez confirmer votre mot de passe';
+            
+        }
         
     }
             
@@ -589,13 +578,13 @@ passwordConfirmInput.addEventListener('input',()=>{
     if (isPasswordConfirmValid(passwordConfirmInput,passwordInput)) {
         
         isFormValid[7] = true;
-        
+        passwordConfirmInput.nextElementSibling.classList.add('hidden');
         document.querySelectorAll(".validIcon")[7].style.backgroundPositionX = 'right';
         
     } else {
         
         isFormValid[7] = false;
-        
+        passwordConfirmInput.nextElementSibling.classList.remove('hidden');
         document.querySelectorAll(".validIcon")[7].style.backgroundPositionX = 'left';
         
     }
@@ -615,11 +604,13 @@ passwordInput.addEventListener('input',()=>{
     if (isPasswordConfirmValid(passwordConfirmInput,passwordInput)) {
         
         isFormValid[7] = true; 
-        
+        passwordConfirmInput.nextElementSibling.classList.add('hidden');
+        document.querySelectorAll(".validIcon")[7].style.backgroundPositionX = 'right';
     } else {
         
         isFormValid[7] = false;
-        
+        passwordConfirmInput.nextElementSibling.classList.remove('hidden');
+        document.querySelectorAll(".validIcon")[7].style.backgroundPositionX = 'left';
     }
     
     if(validateForm()){
@@ -632,6 +623,7 @@ passwordInput.addEventListener('input',()=>{
         
     }
 });
+
 /*----------------passwordSignal---------------*/
 
 const passSignal = document.querySelectorAll('.passSignal');
@@ -746,7 +738,26 @@ for(button of document.getElementsByTagName('button')){
     });
     
 }
+/*-------------------------------------createFormResume--------------------------------------*/
 
+function createFormResume(form){
+    
+    const container = document.createElement('div');
+    
+    const avatar = document.createElement('span');
+    const name = document.createElement('span');
+    const surname = document.createElement('span');
+    const age = document.createElement('span');
+    const email = document.createElement('span');
+    const country = document.createElement('span');
+    const login = document.createElement('span');
+    const gender = document.createElement('span');
+    const skills = document.createElement('span');
+   
+}
+
+
+/*-------------------------------------------------------------------------------------------*/
 //reloadValues
 
 function reloadValues(){
