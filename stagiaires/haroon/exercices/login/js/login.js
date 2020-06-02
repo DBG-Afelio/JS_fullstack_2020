@@ -1,10 +1,14 @@
 
 let button = document.getElementById("validerButton");
 let inputValid = document.getElementById("lastName");
+let firstName = document.getElementById("firstName");
 
 inputValid.addEventListener('input',()=>{
     validateHaroon(inputValid);
 
+})
+firstName.addEventListener('input',()=>{
+    validatefirstName(firstName);
 })
 button.addEventListener('click',()=>{
     
@@ -12,17 +16,41 @@ button.addEventListener('click',()=>{
 })
 function validateInput() {
     if (!validateHaroon(inputValid)){
-    console.log(inputValid);
+    
     alert ('Error message');
     } 
 }
+function validatefirstName(inputeFirst){
+    const firstNameValue=inputeFirst.value;
+    console.log(firstNameValue);
+    let FirstNameTrue= true ; 
+    if (firstNameValue.trim()===''){
+        FirstNameTrue = false ; 
+        inputeFirst.classList.add('valide');
+        inputeFirst.classList.add('error-required');
+    
+    }
+    else{
+        const validFirst=validetNom(firstNameValue);
+        if(validFirst===1){
+            document.getElementById("errorFirst-min").style.display = "block";
+            FirstNameTrue = false
+        }
+        else if (validFirst===0){
+            document.getElementById("errorFirst-max").style.display = "block";
+            FirstNameTrue = false;
 
+        }
+        else if (validFirst===2){
+        document.getElementById("errorFirst-min").style.display = "none"; 
+        document.getElementById("errorFirst-max").style.display = "none";
+    }
+    }
+}
 
 
 function validateHaroon(inputedValue){
-    console.log(inputedValue);
     const value = inputedValue.value;
-    console.log(value);
     let falseTrue = true ; 
     inputedValue.classList.remove('valide');
     inputedValue.classList.remove('invalide');
@@ -37,18 +65,24 @@ function validateHaroon(inputedValue){
         if (valid === 1){
             
             inputedValue.classList.add('invalide');
-            inputedValue.classList.add('error-max-length');
+            
+            document.getElementById("error-min").style.display = "block"; 
+            
             falseTrue = false;
         }
         else if  (valid === 0){
            
             inputedValue.classList.add('invalide');
-            inputedValue.classList.add('error-max-length');
+            
+            document.getElementById("error-max").style.display = "block";
             falseTrue = false;
         }
         else if (valid ===2){
 
             inputedValue.classList.add('valide');
+            
+            document.getElementById("error-min").style.display = "none"; 
+            document.getElementById("error-max").style.display = "none";
         }
     }
         return falseTrue ;
