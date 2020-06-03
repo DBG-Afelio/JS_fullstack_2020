@@ -1,36 +1,50 @@
+let tests = [];
+
 // Vérifie si un des éléments du tableau est plus grand que 10
 
-function unPlusGrandQue10 () {
+function unPlusGrandQue10 (tab) {
+	return tab.some(element => element>10);
 };
 
-
+tests.push(['unPlusGrandQue10', unPlusGrandQue10([2, 3, 4, 11]) === true]);
+tests.push(['unPlusGrandQue10', unPlusGrandQue10([2, 3, 4, 10]) === false]);
 
 
 // Vérifie si un des mots dans un tableau de chaînes de caractères comporte plus de 10 lettres.
 
-function motPlusGrandQue10 () {
+function motPlusGrandQue10 (tab) {
+	return tab.some(element => element.length>10);
 };
 
+tests.push(['motPlusGrandQue10', motPlusGrandQue10(['croxeldifivique','bonjour']) === true]);
+tests.push(['motPlusGrandQue10', motPlusGrandQue10(['bonjour','adieu']) === false]);
 
 
 // Vérifie que tous les élements d'un tableau sont pairs
 
-function tousPairs() {
+function tousPairs(tab) {
+	return tab.every(element => element%2 === 0);
 };
-
+tests.push(['tousPairs', tousPairs([2,4,6]) === true]);
+tests.push(['tousPairs', tousPairs([2,4,6,5,9]) === false]);
+tests.push(['tousPairs', tousPairs([3,5,7]) === false]);
 
 
 // Vérifie si 'manger' est dans une phrase.
 
-function contientManger(){
+function contientManger(string){
+	return string.includes('manger');
 };
-
+tests.push(['contientManger', contientManger('il faut manger') === true]);
+tests.push(['contientManger', contientManger('et boire aussi') === false]);
 
 // Renvoie la somme de tous les nombres dans un tableau
 
-function sommeTous(){
+function sommeTous(tab){
+	return tab.reduce((somme, nextelement) => somme + nextelement,0);
 }
 
+tests.push(['sommeTous', sommeTous([2,5,4]) === 11]);
 
 // Affiche tous les éléments d'un tableau sur une ligne séparée.
 
@@ -267,7 +281,5 @@ function kebabToCamel(){
 
 
 
-let tests = [];
-tests.push(['unPlusGrandQue10', unPlusGrandQue10([2, 3, 4, 11]) === true]);
 
 tests.forEach(test => console.log(test[0], test[1]));
