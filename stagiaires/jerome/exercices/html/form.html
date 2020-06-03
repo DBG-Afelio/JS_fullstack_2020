@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulaire</title>
+    <meta charset="UTF-8">
+    <link href="style/style.css" rel="Stylesheet" type="text/css"/>
+  </head>
+  <body>
+  	<div>
+	  	<form>
+	      <input type="text" name="nom" placeholder="Nom(obligatoire)" required minlength="3" maxlength="50" >
+		  <br>
+		  <input type="text" name="prenom" placeholder="Prénom" minlength="3" maxlength="50">
+		  <br>
+		  <input type="email" name="email" placeholder="Email">	
+		  <br>
+		  <input type="text" name="telephone" placeholder="Téléphone">
+		  <br>
+		  <input type="date" name="date" placeholder="date de naissance(obligatoire)" max="2020/12/31" min="1980/01/01" required>
+		  <br>
+		  <input type="text" name="champLogin" placeholder="Login (obligatoire)" minlength="6" maxlength="10" required>
+		  <br>
+		  <input type="password" name="password" placeholder="Mot de passe (obligatoire)" required minlength="6" maxlength="10">
+		  <br>
+		  <input type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)" required minlength="6" maxlength="10">
+		  <br>
+		  <select required>
+		  	<option value="">Nationalité</option>
+		  	<option value="0">Belge</option>
+		  	<option value="1">Français</option>
+		  	<option value="2">Allemand</option>
+		  	<option value="3">Italien</option>
+		  	<option value="4">Kryptonien</option>
+		  </select>
+		  <br>
+		  <input type="radio" name="Sexe">
+		  <label>Femme</label>
+		  <input type="radio" name="Sexe">
+		  <label>Homme</label>
+		  <input type="radio" name="Sexe" checked>
+		  <label>Autre</label>
+		  <br>
+	      <input type="submit" value="Valider" class="submit-button">
+	    </form>
+    </div>
+  <script type="text/javascript" src="script/script.js"></script>
+  </body>
+</html>
