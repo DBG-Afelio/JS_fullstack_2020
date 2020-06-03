@@ -86,8 +86,12 @@ function initiales(nameStr) {
 tests.push(['initiales', initiales('Godefroy de Montmirail') === 'G.D.M']);
 
 //12 Renvoie les chaines de caractères qui ne contiennent qu'un seul mot
-function seulementUnMot(){
+function seulementUnMot(arr) {
+    let oneWordArr = arr.filter(str => console.log(str.includes(' ')));
+    console.log(oneWordArr);
+    return oneWordArr;
 }
+tests.push(['seulementUnMot', seulementUnMot(['je suis partie', 'hello','je suis la', 'personnel']) === ['hello', 'personnel']]);
 
 //13 Concatène deux tableaux : le plus long doit suivre le premier. Si ils ont la même longueur, le second suit le premier.
 function concateneTableaux(arr1, arr2) {
@@ -130,7 +134,6 @@ function tousIdentiques(arr) {
 tests.push(['tousIdentiques', tousIdentiques([5, 5, 5, 5, 5]) === true]);
 tests.push(['tousIdentiques', tousIdentiques([5, 5, 5, 4, 6]) === false]);
 
-
 // Incrémente chaque élement d'un tableau de nombres de 1 (dans un nouveau tableau).
 function incrementeTableau(arr) {
     let newArr = Array.from(arr, el => el + 1);         //ou map()
@@ -138,7 +141,6 @@ function incrementeTableau(arr) {
     return newArr;
 }
 tests.push(['incrementeTableau', incrementeTableau([5, 1, 10, 0, -2]) === [ 6, 2, 11, 1, -1 ]]);
-
 
 // Renvoie le plus long mot contenu dans une chaine de caractères.
 function plusLong(str) {
