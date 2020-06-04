@@ -1,8 +1,8 @@
 const oMaree = document.querySelector('.maree');
 const oButtons  = document.querySelector('.buttons');
 const oMessage  = document.querySelector('.message');
-const lines = 3;
-const column = 3;
+const lines = 20;
+const column = 20;
 const colors = [
     'rouge', 
     'vert',
@@ -32,7 +32,8 @@ function play(couleur) {
     changeColor(firstDiv.getAttribute('data-color'), couleur, firstDiv);
 
     if (isWin(maree, couleur)) {
-       oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + (turn <= 1) ? 's':'';
+       oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + ((turn > 1) ? 's':'');
+       //oButtons.innerHTML = '';
     }
     
 }
@@ -85,7 +86,7 @@ function getRandomColor(tabColors) {
  */
 function generateButtons(tabColors) {
     tabColors.forEach(createButton);
-}
+} 
 
 /**
  * fonction générant un bouton
@@ -118,7 +119,6 @@ function changeColor(oldColor, newColor, div){
 
     //let all = [getBas(div)];
     all.forEach(carre => {   
-        
         if (carre !== null) {
             let carreColor =  carre.getAttribute('data-color');    
             if (carreColor === oldColor && carreColor !== newColor) { 
@@ -126,14 +126,6 @@ function changeColor(oldColor, newColor, div){
             };
         }
     });
-
-
-    if (div.getAttribute('data-color') === oldColor) {
-        div.setAttribute('data-color', newColor);
-        let x = Number(div.getAttribute('data-ligne'));
-        let y = Number(div.getAttribute('data-colonne'));
-        maree[x][y] = newColor;
-    }
 }
 
 /**
@@ -213,14 +205,5 @@ function setCouleur(div, couleur) {
  * @returns {boolean}
  */
 function isWin(divs, couleur){
-
-
-    return divs.every(line => {
-        
-        line.every(carre => {
-            
-        carre === couleur
-        })
-    });
+    return divs.every(line => line.every(carre => carre === couleur));
 }
-
