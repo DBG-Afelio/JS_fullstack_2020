@@ -1,8 +1,8 @@
 const oMaree = document.querySelector('.maree');
 const oButtons  = document.querySelector('.buttons');
 const oMessage  = document.querySelector('.message');
-const lines = 20;
-const column = 20;
+const lines = 3;
+const column = 3;
 const colors = [
     'rouge', 
     'vert',
@@ -10,8 +10,15 @@ const colors = [
     'violet'
 ];
 
-generateButtons(colors);
-//generateMaree([], lines, column, oMaree);
+let turn = 0;
+let maree = [];
+
+startGame();
+function startGame() {
+    generateButtons(colors);
+    maree = generateMaree(colors, lines, column, oMaree);
+}
+
 
 /**
  * Fonctions appelée au click sur un bouton qui lance la marée, teste la victoire et compte les coups
@@ -19,7 +26,15 @@ generateButtons(colors);
  * @param {string} couleur 
  */
 function play(couleur) {
-    alert(couleur);
+    turn++;
+    console.log(turn);
+    let firstDiv = getDiv(0,0);
+    changeColor(firstDiv.getAttribute('data-color'), couleur, firstDiv);
+
+    if (isWin(maree, couleur)) {
+       oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + (turn <= 1) ? 's':'';
+    }
+    
 }
 
 
@@ -33,8 +48,34 @@ function play(couleur) {
 * @returns {DivHTMLElement[]} un tableau à deux dimensions contenant les références des divs générés
 *           <div class="carre" data-ligne="2" data-colonne="4" data-color='rouge'></div>
 */
-function generateMaree (tabColors, lines, column, divParent){
+function generateMaree (tabColors, lines, column, divParent) {    
+    for(let i = 0; i< lines; i++) {
+        maree[i] = [];
+        for(let j = 0; j< column; j++) {
+            let color = getRandomColor(tabColors);
+            maree[i][j] = color;
+            generateCarre(i, j, color);
+        }
+    }
+    
+    return maree;
+}
 
+function generateCarre (x, y, color) {
+    let oCarre = document.createElement('div');
+    oCarre.classList.add('carre');
+    oCarre.setAttribute('data-color', color);
+    oCarre.setAttribute('data-ligne', x);
+    oCarre.setAttribute('data-colonne', y);
+    
+    oMaree.appendChild(oCarre);
+    return color;
+}
+
+function getRandomColor(tabColors) {
+    let nb = Math.floor(Math.random()*tabColors.length);
+
+    return tabColors[nb];
 }
 
 /**
@@ -42,7 +83,7 @@ function generateMaree (tabColors, lines, column, divParent){
  * Les boutons générés écoute l'évènement click
  * @param {string[]} tabColors 
  */
-function generateButtons(tabColors){
+function generateButtons(tabColors) {
     tabColors.forEach(createButton);
 }
 
@@ -66,7 +107,33 @@ function createButton(color) {
  * @param {HTMLDivElement} div le div qui doit changer de couleur
  */
 function changeColor(oldColor, newColor, div){
-    div.setAttribute('data-color', newColor);
+
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+    let color = div.getAttribute('data-color');
+
+    setCouleur(div, newColor); 
+
+    let all = [getHaut(div), getBas(div), getGauche(div), getDroite(div)];
+
+    //let all = [getBas(div)];
+    all.forEach(carre => {   
+        
+        if (carre !== null) {
+            let carreColor =  carre.getAttribute('data-color');    
+            if (carreColor === oldColor && carreColor !== newColor) { 
+                changeColor(oldColor, newColor, carre);
+            };
+        }
+    });
+
+
+    if (div.getAttribute('data-color') === oldColor) {
+        div.setAttribute('data-color', newColor);
+        let x = Number(div.getAttribute('data-ligne'));
+        let y = Number(div.getAttribute('data-colonne'));
+        maree[x][y] = newColor;
+    }
 }
 
 /**
@@ -75,11 +142,10 @@ function changeColor(oldColor, newColor, div){
  * @returns {HTMLDivElement | null} le div du dessus ou null
  */
 function getHaut(div) {
-    let x = div.getAttribute('data-ligne');
-    let y = div.getAttribute('data-colonne');
-    if (x === 0) {
-        return document.querySelector('')
-    }
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+
+    return (x === 0) ? null : getDiv(x-1, y);
 }
 
 /**
@@ -87,21 +153,33 @@ function getHaut(div) {
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div du dessous ou null
  */
-function getBas(div) {}
+function getBas(div) {
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+    return (x === lines-1) ? null : getDiv(x+1, y);
+}
 
 /**
  * fonction renvoyant le div à gauche s'il existe
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div à gauche ou null
  */
-function getGauche(div) {}
+function getGauche(div) {
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+    return (y === 0) ? null : getDiv(x, y-1);
+}
 
 /**
  * fonction renvoyant le div à droite s'il existe
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div à droite ou null
  */
-function getDroite(div) {}
+function getDroite(div) {
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+    return (y === column-1) ? null : getDiv(x, y+1);
+}
 
 /**
  * fonction renvoyant le div sur base de son position ligne/colonne s'il existe
@@ -111,6 +189,9 @@ function getDroite(div) {}
  */
 function getDiv(ligne, colonne) {
     
+    let div = document.querySelector('[data-ligne="'+ligne+'"][data-colonne="'+colonne+'"]');
+   
+    return div;
 }
 
 /**
@@ -118,8 +199,11 @@ function getDiv(ligne, colonne) {
  * @param {DivHTMLElement} div 
  * @param {string} couleur 
  */
-function setCouleur(div, couleur) {
-    div.setCouleur('data-color', couleur);
+function setCouleur(div, couleur) {   
+    div.setAttribute('data-color', couleur);
+    let x = Number(div.getAttribute('data-ligne'));
+    let y = Number(div.getAttribute('data-colonne'));
+    maree[x][y] = couleur;
 }
 
 /**
@@ -128,4 +212,15 @@ function setCouleur(div, couleur) {
  * @param {string} couleur 
  * @returns {boolean}
  */
-function isWin(divs, couleur){}
+function isWin(divs, couleur){
+
+
+    return divs.every(line => {
+        
+        line.every(carre => {
+            
+        carre === couleur
+        })
+    });
+}
+

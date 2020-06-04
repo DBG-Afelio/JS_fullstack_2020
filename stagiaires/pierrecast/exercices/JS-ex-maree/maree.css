@@ -5,7 +5,7 @@ CSS pour la mise en forme de la marée
 .carre{
     width: 20px;
     height: 20px;
-    margin: 20px;
+    margin: 10px;
 }
 
 .carre[data-color='rouge'] {
@@ -26,4 +26,15 @@ CSS pour la mise en forme de la marée
 
 .carre[data-color='vert'] {
     background-color: green;
+}
+
+.maree {
+    border: 1px solid red;
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+} 
+.message {
+    border:1px solid green;
+    min-height: 40px;
 }
