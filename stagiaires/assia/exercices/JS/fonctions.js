@@ -58,7 +58,6 @@ ajouteTest(tousIdentiques, 'dernier different', ['a', 'a', 'a', 'b'], false);
 
 function tousMonoVoyelle(mots){
 }
-
 ajouteTest(tousMonoVoyelle, 'tous monovoyelles'           , ['allah', 'bibi', 'taratata'] , true);
 ajouteTest(tousMonoVoyelle, 'premier mot non monovoyelles', ['allaih', 'bibi', 'taratata'], false);
 
@@ -66,14 +65,12 @@ ajouteTest(tousMonoVoyelle, 'premier mot non monovoyelles', ['allaih', 'bibi', '
 function doubleLettre(lettre) {
     return lettre.repeat(2);
 }
-
 ajouteTest(doubleLettre, 'lettre a', 'a', 'aa');
 
 // Applique une fonction à toutes les lettres d'un mot
 function appliqueAuxVoyelles(fonction, mot){
     return mot.split('').map(lettre => estVoyelle(lettre) ? fonction(lettre) : lettre).join('');
 }
-
 ajouteTest(appliqueAuxVoyelles, 'applique doubleLettre', doubleLettre, "bonjour", "boonjoouur");
 
 // Répète une lettre un nombre n de fois
@@ -85,12 +82,10 @@ function repeteLettre(lettre, n) {
         return lettre + repeteLettre(lettre, n - 1);
     }
 }
-
 ajouteTest(repeteLettre, 'repete 3 fois j', 'j', 3, 'jjj');
 
 // Renvoie une FONCTION qui prend une lettre et renvoie cette lettre répétée n fois
 function repeteNfoisLettre(n){
-
 }
 
 // Répète une lettre 5 fois
