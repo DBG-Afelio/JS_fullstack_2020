@@ -6,7 +6,6 @@ const voyelleRegex = /[aeiouy]/i;
 function estVoyelle(lettre) {
     return voyelleList.includes(lettre);
 }
-
 // fonction pour ajouter un test, qui prend (minimum) 4 arguments
 // 1                 : la fonction (pas une string)
 // 2                 : la description du test
@@ -19,7 +18,6 @@ ajouteTest(estVoyelle, 'consonne', 'b', false);
 function possedeVoyelle(mot) {
     return voyelleRegex.test(mot);
 }
-
 ajouteTest(possedeVoyelle, 'mot sans voyelle', 'bjr',     false);
 ajouteTest(possedeVoyelle, 'mot avec voyelle', 'bonjour', true);
 ajouteTest(possedeVoyelle, 'mot vide',         '',        false);
@@ -28,8 +26,6 @@ ajouteTest(possedeVoyelle, 'mot vide',         '',        false);
 function gardeVoyelles(mot) {
     return mot.split('').filter(estVoyelle).join('');
 }
-
-
 ajouteTest(gardeVoyelles, 'voyelles et consonnes', 'hello', 'eo'   );
 ajouteTest(gardeVoyelles, 'uniquement voyelles'  , 'aeiou', 'aeiou');
 ajouteTest(gardeVoyelles, 'sans voyelles'        , 'hll',   ''     );
@@ -38,7 +34,6 @@ ajouteTest(gardeVoyelles, 'sans voyelles'        , 'hll',   ''     );
 function avecVoyelle(mots) {
     return mots.filter(possedeVoyelle) ;
 }
-
 ajouteTest(avecVoyelle, 'un mot sans voyelles'  , ['bonjour', 'ls', 'amis'], ['bonjour', 'amis']);
 ajouteTest(avecVoyelle, 'aucun mot avec voyelle', ['bjr', 'ls', 'ms']      , []                 );
 
@@ -48,14 +43,12 @@ ajouteTest(avecVoyelle, 'aucun mot avec voyelle', ['bjr', 'ls', 'ms']      , [] 
 function tableauVoyelles(mots) {
     return avecVoyelle(mots).map(gardeVoyelles);
 }
-
 ajouteTest(tableauVoyelles, 'aucun mot avec voyelle', ['hll', 'qs', 'ztr']  , []    );
 ajouteTest(tableauVoyelles, 'un mot avec voyelle'   , ['hello', 'qs', 'ztr'], ['eo']);
 
 function tousIdentiques(tab) {
  
 }
-
 ajouteTest(tousIdentiques, 'tous identiques'  , ['a', 'a', 'a', 'a'], true);
 ajouteTest(tousIdentiques, 'premier different', ['b', 'a', 'a', 'a'], false);
 ajouteTest(tousIdentiques, 'dernier different', ['a', 'a', 'a', 'b'], false);
@@ -87,23 +80,20 @@ ajouteTest(appliqueAuxVoyelles, 'applique doubleLettre', doubleLettre, "bonjour"
 // Utilisez une fonction récursive
 function repeteLettre(lettre, n) {
     if (n === 0) {
-        return;
+        return '';
     } else {
-        console.log(lettre += lettre);
-        repeteLettre(lettre, n - 1);
+        return lettre + repeteLettre(lettre, n - 1);
     }
 }
 
 ajouteTest(repeteLettre, 'repete 3 fois j', 'j', 3, 'jjj');
 
 // Renvoie une FONCTION qui prend une lettre et renvoie cette lettre répétée n fois
-
 function repeteNfoisLettre(n){
 
 }
 
 // Répète une lettre 5 fois
-
 function repete5FoisLettre(){
 }
 
@@ -111,13 +101,10 @@ ajouteTest(repete5FoisLettre, 'lettre i', 'i', 'iiiii');
 
 
 // Répète 5 fois chaque voyelle de chaque mot
-
 function repete5FoisVoyelles(mot){
 
 }
 ajouteTest(repete5FoisVoyelles, 'voyelles et consonnes', 'allo', 'aaaaallooooo');
-
-
 
 
 // Vous pouvez ajouter une fonction en paramètre pour afficher les tests d'une fonction en particulier
