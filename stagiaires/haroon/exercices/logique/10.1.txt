@@ -1,0 +1,20 @@
+Ecrivez une fonction ou procédure qui permet d'initialiser et retourner une date à partir des données (jour, mois, an) reçues en paramètres.
+
+Debut Programme
+STRACTURE date
+	VAR jour : N
+	VAR mois : N
+	VAR an : N
+FINSTRACTURE
+ 
+
+
+	fonction dateHaroon (in jour:N , in mois:N , in an:N) : Date
+		VAR date : DATE
+
+		date  <- Cree date
+		date :jour <- jour
+		date.mois <- mois
+		date.an <-an
+	retourn date
+Fin Programme
