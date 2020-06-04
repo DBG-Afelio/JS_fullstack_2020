@@ -8,35 +8,43 @@
         <div class="form">
             <div class="champ">
                 <input type="text" id="nom" placeholder="Nom (Obligatoire)" minlength="3" maxlength="50">
+                <output id="icone" class="icone"></output>
                 <output id="repnom" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="text" id="prenom" placeholder="Prénom" minlength="3" maxlength="50">
+                <output id="iconep" class="icone"></output>
                 <output id="repprenom" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="email" id="mail" placeholder="Mail">
+                <output id="iconee" class="icone"></output>
                 <output id="repmail" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="tel" id="telephone" placeholder="Téléphone">
+                <output id="iconet" class="icone"></output>
                 <output id="reptel" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="date" id="date" placeholder="Date de naissance">
+                <output id="iconed" class="icone"></output>
                 <output id="repdate" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="text" id="login" placeholder="Login (Obligatoire)">
+                <output id="iconetxt" class="icone"></output>
                 <output id="replogin" class="invalid"></output>
                 <input type="submit" id="sugg" value="Suggérrer un login" class="input">
             </div>
             <div class="champ">
-                <input type="password" id="mp" placeholder="Mot de passe (Obligatoire)">
+                <input type="password" id="mp" placeholder="Mot de passe (Obligatoire)" minlength="6" maxlength="10">
+                <output id="iconepass" class="icone"></output>
                 <output id="repMP" class="invalid"></output>
             </div>
             <div class="champ">
                 <input type="password" id="mpc" placeholder="Ressaisir Mot de passe (Obligatoire)" width="220">
+                <output id="iconepassbis" class="icone"></output>
                 <output id="repMPC" class="invalid"></output>
             </div>
             <div class="champ">
@@ -50,6 +58,7 @@
                     <option value="Espagne">Espagne</option>
                     <option value="Angleterre">Angleterre</option>
                 </select>
+                <output id="iconepays" class="icone"></output>
                 <output id="repays" class="invalid"></output>
             </div>
             <div class="button">

@@ -1,3 +1,4 @@
+let tabmp = ['gtr_342', 'fde_765', 'Yht_897', 'Ygh_034'];
 
 document.getElementById('sub').addEventListener('click', execute);
 document.getElementById('sugg').addEventListener('click', suggestionlogin);
@@ -19,13 +20,14 @@ function execute (){
     document.getElementById('repmail').value = mail(MAIL);
     document.getElementById('reptel').value = tel(TEL);
     document.getElementById('repdate').value = date(DATE);
-    document.getElementById('replogin').value = login(LOGIN);
+    document.getElementById('replogin').value = login(LOGIN,tabmp);
     document.getElementById('repMP').value = mp(MP1);
     document.getElementById('repMPC').value = mpc(MPC, MP1);
     document.getElementById('repays').value = ORIGINE(pays);
 }
 
 function nom(NOM){
+    document.getElementById('icone').value = "❌";
     if (NOM.length == 0) {
         return "Veuillez compléter ce champ merci";
     } else {
@@ -35,6 +37,7 @@ function nom(NOM){
             if (NOM.length > 50){
                 return "Votre nom doit contenir moins de 50 carctères";
             } else{
+                document.getElementById('icone').value = "✅";
                 return ""
             }
         } 
@@ -42,18 +45,21 @@ function nom(NOM){
 }
 
 function prenom(PRENOM){
+    document.getElementById('iconep').value = "❌";
     if(PRENOM.length < 3 && PRENOM.length != 0) {
         return "Votre nom doit contenir au minimun 3 carctères";
     } else {
         if (PRENOM.length > 50){
             return "Votre nom doit contenir moins de 50 carctères";
         } else {
+            document.getElementById('iconep').value = "✅";
             return "";
         }
     }
 }
 
 function date(DATE){
+    document.getElementById('iconed').value = "❌";
     if(DATE != null){
         let aujourdhui = new Date('january 01, 2020 00:00:00');
         let age = getAge(DATE, aujourdhui);
@@ -64,6 +70,7 @@ function date(DATE){
             if (age > 67) {
                 return "Vous avez dépassé l'âge maximun";
             } else {
+                document.getElementById('iconed').value = "✅";
                 return "";
             }
         }
@@ -96,7 +103,9 @@ function getAge(DATE, aujourdhui) {
 }
 
 function tel(TEL){
-    if (TEL.slice(0, 4) == "0032" || TEL.slice(0, 3) == "+32" || TEL.slice(0, 2) == "00") {
+    document.getElementById('iconet').value = "❌";
+    if ((TEL.slice(0, 4) == "0032" && TEL.length >= 13 && TEL.length <= 16) || (TEL.slice(0, 3) == "+32" && TEL.length >= 12 && TEL.length <= 15) || (TEL.slice(0, 1) == "0" && TEL.length >= 10 && TEL.length <= 13)) {
+        document.getElementById('iconet').value = "✅";
         return "";
     } else {
         return "Numéro invalide";
@@ -104,22 +113,35 @@ function tel(TEL){
 }
 
 function mail(MAIL){
-    const carac = '@';
-    if (MAIL.includes(carac) == false ) {
+    document.getElementById('iconee').value = "❌";
+    const carac = /^\w+(\.\w+)*@\w+(\.\w+)*\.\w{2,}$/;
+    if (carac.test(MAIL) == false ) {
         return "L'email ne respecte pas le format";
     } else {
+        document.getElementById('iconee').value = "✅";
         return "";
     }
 }
 
-function login(LOGIN){
+function login(LOGIN,tabmp){
+    document.getElementById('iconetxt').value = "❌";
     if (LOGIN.length == 0) {
         return "Veuillez complèter ce champ merci"
     } else {
         if (LOGIN.length < 6 || LOGIN.length >10) {
             return "Le login doit contenir entre 6 et 10 caractères";
         } else {
-            return "";
+            let q = 0;
+            for ( let i = 0; i < tabmp.length; i++) {
+                if (LOGIN == tabmp[i]) {
+                    return "Mot de passe déjà existant! Veuillez en choisir un autre";
+                }
+                q++;
+            }
+            if (q == tabmp.length) {
+                document.getElementById('iconetxt').value = "✅";
+                return "";
+            }
         }
     }
     
@@ -133,13 +155,19 @@ function suggestionlogin (){
     let newprenom = sugprenom.slice(0, 1);
     let a = Math.floor(Math.random()*1000);
 
+    if ( a < 100) {
+        a = ("0"+a);
+    }
+
     let newlogin = (newprenom+newnom+"_"+a);
 
     document.getElementById('login').value = newlogin;
 }
 
 function mp(MP1){
+    document.getElementById('iconepass').value = "✅";
     if (MP1.length == 0) {
+        document.getElementById('iconepass').value = "❌";
         return "Veuillez complèter ce champ merci";
     } else {
         if (MP1.length < 6) {
@@ -158,17 +186,21 @@ function mp(MP1){
 }
 
 function mpc(MPC, MP1){
-    if (MPC != MP1){
-        return "Les mots de passe de correspondent pas!";   
+    document.getElementById('iconepassbis').value = "❌";
+    if (MPC != MP1 || MPC.length == 0){
+        return "Les mots de passe de correspondent pas ou veuillez ressaissir le MP!";   
     } else{
+        document.getElementById('iconepassbis').value = "✅";
         return "";
     }
 }
 
 function ORIGINE(pays){
+    document.getElementById('iconepays').value = "❌";
     if (pays == "") {
         return "Veuillez faire une sélection";
     } else {
+        document.getElementById('iconepays').value = "✅";
         return "";
     }
 }
