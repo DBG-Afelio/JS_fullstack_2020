@@ -1,4 +1,4 @@
-const tests = [];
+ const tests = [];
 
 // Vérifie si une lettre est une voyelle
 
@@ -120,32 +120,15 @@ ajouteTest(repeteLettre, 'repete 3 fois j', 'j', 3, 'jjj');
 
 // Renvoie une FONCTION qui prend une lettre et renvoie cette lettre répétée n fois
 
-/*
-function repeteNfoisLettre(n) {
-    return repeteLettre('i', n);
-}
-*/ 
-
-function repeteNfoisLettre(n) {
-    return (lettre) => repeteLettre(lettre, 5);
-}
-
-/*
-function repeteNfoisLettre(lettre){
-    function interne(n) { 
+function repeteNfoisLettre(n){
+    function interne(lettre) { 
         return repeteLettre(lettre, n);
     }
-    return interne(5);
+    return interne;
 }
-*/
-
-
-
 // Répète une lettre 5 fois
-
-function repete5FoisLettre() {
-    return repeteNfoisLettre(5);
-}
+let repete5FoisLettre = repeteNfoisLettre(5);
+console.log(repete5FoisLettre('A'));
 
 ajouteTest(repete5FoisLettre, 'lettre i', 'i', 'iiiii');
 
