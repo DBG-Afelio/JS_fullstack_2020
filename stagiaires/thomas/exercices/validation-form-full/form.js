@@ -236,9 +236,10 @@ checkboxFullStack.addEventListener("click", () => {
 // ENVOYER 
 
 submit.addEventListener("click", (e) => {
+    
     e.preventDefault();
 
     checkName(nom)
     checkName(prenom)
-    
+   
 });
