@@ -37,7 +37,7 @@ function play(couleur) {
 
     if (isWin(maree, couleur)) {
         oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + ((turn > 1) ? 's':'');
-        //oButtons.forEach(button => button.removeEventListener('click', action));
+        oButtons.querySelectorAll("button.carre").forEach(button => button.removeEventListener('click', action));
         oButtons.innerHTML = '';
         oMessage.style.display = "block";
     }
@@ -219,8 +219,8 @@ function isWin(divs, couleur){
 function getAnimation(oldColor, newColor, div) {
     div.animate([
         // keyframes
-        { transform: 'rotateX(0deg) rotateY(0deg)', backgroundColor: oldColor}, 
-        { transform: 'rotateX(90deg) rotateX(90deg)', backgroundColor: newColor }
+        { transform: 'rotateX(0deg) rotateY(0deg)','background-color': oldColor}, 
+        { transform: 'rotateX(90deg) rotateX(90deg)', 'background-color': newColor }
     ], { 
     // timing options
     duration: 200,
