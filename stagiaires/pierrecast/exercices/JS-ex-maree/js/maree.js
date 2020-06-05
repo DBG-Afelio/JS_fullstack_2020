@@ -188,7 +188,7 @@ function getDroite(div) {
  */
 function getDiv(ligne, colonne) {
     
-    let div = document.querySelector('[data-ligne="'+ligne+'"][data-colonne="'+colonne+'"]');
+    let div = document.querySelector(`[data-ligne="${ligne}"][data-colonne="${colonne}"]`);
    
     return div;
 }
