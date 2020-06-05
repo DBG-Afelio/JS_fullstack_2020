@@ -1,3 +1,12 @@
+/*
+    - Soit une grille de x ligne y colonne composée de carré de couleur aléatoire
+    - et un bouton par couleur possible
+    - quand on clique sur un bouton on transmet la couleur du bouton au carré qui est en haut à gauche
+    - les carrés qui se trouvent à gauche, en haaut, à droite, en bas s'il sont de la couleur d'origine du carré de référence change aussi de couleur
+    - on propage l'opération
+    - Si tous les carrés sont de la même couleur c'est gagné
+*/
+
 
 const colors = [
     'rouge', 
@@ -22,7 +31,7 @@ function play(couleur) {}
 * @param {number} lines le nombre de ligne
 * @param {number} column le nombre de colonnes
 * @param {HTMLDivElement} divParent le div où on l'on place les divs générés
-* @returns {DivHTMLElement[]} un tableau à deux dimensions contenant les références des divs générés
+* @returns {DivHTMLElement[][]} un tableau à deux dimensions contenant les références des divs générés
 *           <div class="carre" data-ligne="2" data-colonne="4" data-color='rouge'></div>
 */
 function generateMaree (tabColors, lines, column, divParent){}
@@ -75,7 +84,7 @@ function getDroite(div) {}
  * fonction renvoyant le div sur base de son position ligne/colonne s'il existe
  * @param {number} ligne le numéro de ligne
  * @param {number} colonne le numéro de colonne
- * @returns {HTMLDivElement | null} le div à gauche ou null
+ * @returns {HTMLDivElement | null} le div ou null
  */
 function getDiv(ligne, colonne) {}
 
