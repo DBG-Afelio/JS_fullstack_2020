@@ -18,11 +18,11 @@
 		  <br>
 		  <input type="date" name="date" placeholder="date de naissance(obligatoire)" max="2020/12/31" min="1980/01/01" required>
 		  <br>
-		  <input type="text" name="champLogin" placeholder="Login (obligatoire)" minlength="6" maxlength="10" required>
+		  <input type="text" name="champLogin" placeholder="Login (obligatoire)" minlength="6"pattern="[\d\w]+" maxlength="10" required>
 		  <br>
-		  <input type="password" name="password" placeholder="Mot de passe (obligatoire)" required minlength="6" maxlength="10">
+		  <input type="password" name="password" placeholder="Mot de passe (obligatoire)" pattern="^[A-Z]{4}\d{6}$" required minlength="6" maxlength="10">
 		  <br>
-		  <input type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)" required minlength="6" maxlength="10">
+		  <input type="password" name="repassword" placeholder="Resaisir Mot de passe(obligatoire)" pattern="^[A-Z]{4}\d{6}$" required minlength="6" maxlength="10">
 		  <br>
 		  <select required>
 		  	<option value="">Nationalité</option>
