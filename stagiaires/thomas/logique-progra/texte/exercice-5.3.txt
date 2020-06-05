@@ -1,0 +1,37 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+        var texte-source :T <- ""
+        var textToReplace :T <- ""
+        var texte-cible :T <- ""
+        var texte-modified:T <- ""
+        var i :N <- ""
+        
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer votre texte") 
+SAISIR texte-source
+
+AFFICHER("Entrer le texte a rechercher") 
+SAISIR texte-cible 
+
+AFFICHER("Entrer le texte a remplacer") 
+SAISIR textToReplace
+
+texte-modified <- texte-source
+
+    POUR i ALLANT DE 1 A longeur(texte-modified)
+
+        SI texte-cible = sousChaine(texte-modified, i, i + longeur(texte-cible)) ALORS
+
+          sousChaine(texte-modified, i, i + longeur(texte-cible)) <- textToReplace   
+
+        FINSI 
+
+    FINPOUR 
+
+    AFFICHER("le texte original : ", texte-source)
+    AFFICHER("le texte avec les changements : ", texte-modified)
+
+FIN PROGRAMME
