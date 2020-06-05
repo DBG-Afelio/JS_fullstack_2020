@@ -6,14 +6,18 @@
     - on propage l'opération
     - Si tous les carrés sont de la même couleur c'est gagné
 */
-
-
+const buttonsEl = document.querySelector('.buttons');
+const messageEl = document.querySelector('.message');
+const mareeEl = document.querySelector('.maree'); 
 const colors = [
     'rouge', 
     'vert',
     'bleu',
     'violet'
 ];
+const nbLines = 15;
+const nbColumns = 15;
+let grille = [lines, columns];
 
 
 /**
@@ -35,16 +39,38 @@ function play(couleur) {}
 *           <div class="carre" data-ligne="2" data-colonne="4" data-color='rouge'></div>
 */
 function generateMaree(tabColors, lines, column, divParent) {
-    const nbCases = lines * column;
-    let div;
-    let i = 0;
-    do {
-        div = divParent.createElement('div');
-        divParent.appendChild(div);
-        i++
-    } while (i <= nbCases);
-    let grille = [lines, column];
-    
+
+    let colorPicked ; //= 'string'
+    for (let row = 0; row < lines; row++){
+        for (let col = 0; col < column; col++){
+            colorPicked = pickColor(tabColors);
+            createCell(divParent, row, col, colorPicked);
+            grille[row][col] = colorPicked; 
+        }
+    }
+    return grille;
+}
+/**
+ * Fonction qui renvoit une couleur aleatoire parmis les valeurs authorisees
+ * Renvoit la couleur qui se trouve a l'index selectionne au hasrad
+ * @param {*} tabColors 
+ */
+function pickColor(tabColors) {
+    return tabColors[Math.floor(Math.random() * tabColors.length)];
+}
+
+/**
+ * Fonction qui cree 1 cellule (= 1 div enfant de divParent)
+ * devrait me servir pour la creation des cases dans Maree et des 4 boutons de jeu
+ * @param {}  
+ */
+function createCell(divParent, cellLine, cellColumn, cellColor) {
+    let cellEl = document.createElement('div');
+    cellEl.setAttribute('date-ligne', cellLine);
+    cellEl.setAttribute('data-colonne', cellColumn);
+    cellEl.setAttribute('data-color', cellColor);
+    cellEl.classList.add('carre');
+    divParent.appendChild(cellEl);
 }
 
 /**
@@ -52,7 +78,15 @@ function generateMaree(tabColors, lines, column, divParent) {
  * Les boutons générés écoute l'évènement click
  * @param {string[]} tabColors 
  */
-function generateButtons(tabColors){}
+function generateButtons(divParent, tabColors) {
+    tabColors.forEach(color => {
+        let buttonEl = document.createElement('div');
+        buttonEl.setAttribute('data-color', color);
+        buttonEl.classList.add('carre');
+        buttonEl.addEventListener('click', play); //a voir...
+        divParent.appendChild(buttonEl);
+    });
+}
 
 /**
  * Fonction permettant de changer la couleur d'un div passé en paramètre si celui-ci possède la couleur de oldColor 
@@ -97,14 +131,21 @@ function getDroite(div) {}
  * @param {number} colonne le numéro de colonne
  * @returns {HTMLDivElement | null} le div ou null
  */
-function getDiv(ligne, colonne) {}
+function getDiv(ligne, colonne) {
+    return document.querySelector(`.carre[data-ligne="${ligne}"][data-colonne="${colonne}"]'`);
+}
 
 /**
  * Fonction modifiant la couleur d'un div passé en paramètre
  * @param {DivHTMLElement} div 
  * @param {string} couleur 
  */
-function setCouleur(div, couleur) {}
+function setCouleur(div, couleur) {
+    let cellRow = div.getAttribute('data-ligne');
+    let cellCol = div.getAttribute('data-colonne');
+    grille[cellRow][cellCol] = couleur;
+    div.setAttribute('data-color', couleur);
+}
 
 /**
  * Fonction testant si tous les divs sont de la couleur passée en paramètre 
@@ -112,4 +153,7 @@ function setCouleur(div, couleur) {}
  * @param {string} couleur 
  * @returns {boolean}
  */
-function isWin(divs, couleur){}
+function isWin(divs, couleur) {
+    return divs.some(row => row.some(cell => cell === couleur));
+}
+
