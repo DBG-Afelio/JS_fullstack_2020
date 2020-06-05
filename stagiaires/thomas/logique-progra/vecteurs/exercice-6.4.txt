@@ -1,0 +1,25 @@
+
+Ecrire le programme qui inverse un tableau de 10 nombres.
+
+DEBUT PROGRAMME
+
+    DEBUT VARIABLES LOCALES
+
+    var taille :N <- 10 
+    var tableau :N <- [taille]
+    var compteur :N <- 0
+    var temp :N <- 0
+
+    FIN VARIABLES LOCALES
+
+POUR compteur ALLANT DE 1 A (taille / 2)
+
+   tmp <- tableau[compteur]
+   tableau[compteur] <- tableau[taille - compteur + 1]
+   tableau[taille - compteur + 1] <- temp
+
+FIN POUR
+
+AFFICHER(tableau)
+
+FIN PROGRAMME

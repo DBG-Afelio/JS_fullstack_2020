@@ -1,0 +1,40 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var nb1 :N <- 0 
+    var nb2 :N <- 0
+    var total :N <- 0
+    var temp :N <- 0 
+
+    FIN VARIABLE LOCALES
+
+
+AFFICHER("Saisir nombre 1 : ") 
+SAISIR nb1
+
+AFFICHER("Saisir nombre 2 : ") 
+SAISIR nb2
+
+    SI nb1 = nb2 ALORS
+
+        AFFICHER("Total : " nb1)
+
+    \\ Si l'utilisateur se trompe dans l'ordre
+    SINON SI nb2 < nb1 ALORS 
+
+        temp <- nb1
+        nb1 <- nb2
+        nb2 <- temp
+
+    FIN SI 
+
+    POUR nb1 ALLANT DE nb1 A nb2 
+
+        total <- total + nb1 
+
+    FIN POUR
+
+    AFFICHER("Total : ", total)
+
+FIN PROGRAMME

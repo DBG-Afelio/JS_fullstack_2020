@@ -1,0 +1,19 @@
+Soient 3 tableaux de même longueur : le premier contient des entiers,
+ le deuxième des logiques et le troisième sera rempli par les valeurs du premier. 
+
+Pour un même index, quand la valeur du tableau 2 est vraie, la valeur du tableau 1 est ajoutée au tableau 3. 
+Quand la valeur du tableau 2 est fausse, la valeur inverse du tableau 1 est ajoutée au tableau 3.
+dbt pgm
+var loc
+const TAILLE:N<-10
+var tab1:N[TAILLE]
+var tabBool:B[TAILLE]
+var newtab:N[TAILLE]
+var i:N<-1
+fin var loc
+pour i allant de 1 a TAILLE
+	Si tabBoo[i]=Vrai
+		alors newtab[i]<- tab1[i]
+		sinonnewtab[i]<- (-tab1[i])
+renvoie i
+fin pgm

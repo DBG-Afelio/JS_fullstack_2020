@@ -1,0 +1,21 @@
+Ecrire le programme qui affiche les 100 premiers nombres premiers.
+
+Debut Programme
+VARIABLES LOCALES
+	VAR i : N<- 1
+	VAR j : N<- 1
+	
+	
+
+FIN VARIABLES LOCALES 
+		TANTQUE (i < 100)
+			j <-2
+			TANTQUE (j < i ET i mod j != 0)	
+				j <-j+1
+			FINTANTQUE
+			SI (i =j)
+				Afficher i , "est nombre premier"
+ 			FINSI
+		i<-i+1
+		FINTANTQUE
+Fin Progrmame

@@ -1,0 +1,33 @@
+// Soient 3 tableaux de même longueur : le premier contient des entiers, le deuxième des logiques 
+// et le troisième sera rempli par les valeurs du premier. 
+// Quand dans le tableau 2 le booléen est vrai par la valeur du tableau 1.
+// Quand dans le tableau 2 le booléen est  faux par le négatif de la valeur du tableau 1.
+
+Début tableaux
+
+Variables locales
+    Const Taille: N <-10
+    Var tab: N[Taille]
+
+    Const Taille: N <-10
+    Var tabBoolean: B[Taille]
+
+    Const Taille: N <-10
+    Var tabNegatifOuPas: N[Taille]
+
+Fin variables locales
+
+Pour i allant de i à Taille
+
+    Si tabBoolean[i] = vrai
+        Alors
+        tabNegatifOuPas[i] <- tab[i]
+
+    Sinon
+        tabNegatifOuPas[i] <- -(tab[i])
+    FinSi
+
+i suivant
+
+
+Fin Tableaux

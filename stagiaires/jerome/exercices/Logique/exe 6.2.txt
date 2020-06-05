@@ -1,0 +1,28 @@
+Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, ainsi que leur position dans le tableau.
+dbt pgm
+var loc
+const taille:N<-15
+var tab:N[taille]
+var nbr:N
+var i:N<-1
+var max:N<-tab[1]
+var min:N<-tab[1]
+var posmax:N<-0
+var pos min:N<-0
+fin var loc
+pour i allant de 1 a 15
+	saisie de nbr
+	tab[i]<-nbr
+	Si (nbr>max)
+		alors max<-nbr
+		      posmax<-i
+		sinon si nbr<min
+				alors min<-nbr
+			      	      posmin<-i
+		      fin de si
+	fin de si
+	
+i suivant
+Afficher max, min, posmax, posmin
+	
+fin pgm

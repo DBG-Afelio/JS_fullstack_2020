@@ -1,0 +1,33 @@
+Début programme
+        Variable locale
+        Const COLONE :N <- 6
+        Const LIGNE :N <- 8
+        Var tab :N[COLONE, LIGNE]
+        Var max_tab :N[LIGNE]
+	Var min_tab :N[LIGNE]
+	Var moyenne_tab :N[LIGNE]
+        Var index :N <- 0
+	Var total :N <- 0
+        Fin variable locale
+
+
+
+    POUR index ALLANT DE 1 A COLONE * LIGNE
+	SI (index/COLONE) MOD 1 = 0 ALORS
+		max_tab[index DIV COLONE] <- tab[index DIV COLONE, 1]
+		min_tab[index DIV COLONE] <- tab[index DIV COLONE, 1]
+	FINSI
+	SI max_tab[index DIV COLONE] < tab[index DIV COLONE, index MOD COLONE + 1] ALORS
+		max_tab[index DIV COLONE] <- tab[index DIV COLONE, index MOD COLONE + 1]
+	FINSI
+	SI min_tab[index DIV COLONE] > tab[index DIV COLONE, index MOD COLONE + 1] ALORS
+		min_tab[index DIV COLONE] <- tab[index DIV COLONE, index MOD COLONE + 1]
+	FINSI
+	total <- total + tab[index DIV COLONE, index MOD COLONE + 1]
+	SI (index MOD COLONE + 1) = COLONE ALORS
+		moyenne_tab[index DIV COLONE] <- total / COLONE
+		total <- 0
+	FINSI
+    index SUIVANT
+
+Fin de programme

@@ -1,0 +1,128 @@
+body {
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    background-image: linear-gradient(
+      to left top,
+      #97aecf,
+      #b5c1db,
+      #d0d4e7,
+      #e9e9f2,
+      #ffffff
+    );
+  }
+  
+  form {
+    background: white;
+    width: 60%;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 20px 20px 60px lightslategray;
+  }
+  
+  input {
+    color: black;
+    position: relative;
+  }
+  
+  input,
+  select {
+    border: none;
+    outline: none;
+  }
+  
+  ::placeholder,
+  button {
+    font-family: "Roboto", sans-serif;
+    transition: all ease-in-out 0.15s;
+  }
+  
+  .nom:focus,
+  .prenom:focus,
+  .email:focus,
+  .telephone:focus,
+  .login:focus,
+  .mot-de-passe:focus,
+  .confirm-mot-de-passe:focus {
+    border-width: 100%;
+    border-bottom: 1px solid gray;
+    transition: all ease-in-out 0.5s;
+  }
+  
+  .nom:focus::placeholder,
+  .prenom:focus::placeholder,
+  .email:focus::placeholder,
+  .telephone:focus::placeholder,
+  .login:focus::placeholder,
+  .mot-de-passe:focus::placeholder,
+  .confirm-mot-de-passe:focus::placeholder {
+    font-size: 0.6em;
+    position: relative;
+    top: -1.5em;
+  }
+  
+  input:focus:valid {
+    border-bottom-color: #2ecc71;
+  }
+  
+  .nom,
+  .prenom,
+  .email,
+  .telephone,
+  .date-de-naissance,
+  .login,
+  .mot-de-passe,
+  .confirm-mot-de-passe {
+    padding: 1.3em 0;
+    width: 100%;
+    height: 0.5em;
+    border-width: 0%;
+  }
+  
+  input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
+  input[type="date"]::-webkit-input-placeholder {
+    visibility: hidden !important;
+  }
+  
+  .form-item.gender label {
+    padding: 0 0.3em 0 0.5em;
+  }
+  
+  .form-item.gender label:first-child {
+    padding-left: 0;
+  }
+  
+  .country {
+    width: 100%;
+    margin: 1em 0 2em 0;
+  }
+  
+  .job,
+  .submit {
+    margin: 1.5em 0;
+  }
+  
+  .checkboxes-job {
+    margin: 0.5em 0;
+  }
+  
+  button {
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 100%;
+    background: none;
+    border: 1px solid lightslategray;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background: lightslategray;
+  }
+  

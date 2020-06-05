@@ -1,0 +1,17 @@
+Ecrire le programme qui affiche les tables de multiplication de 1 à 10.
+1 X 1 = 1    à    10 X 10 = 100)
+
+dbt pgm
+var loc
+var i:N<-1
+var j:N<-1
+fin var loc
+tant que i<=10
+	tant que j <=10
+		afficher i*j
+		j<-j+1
+	fin tant que
+	j<-1
+	i<-i+1
+fin tant que
+fin pgm

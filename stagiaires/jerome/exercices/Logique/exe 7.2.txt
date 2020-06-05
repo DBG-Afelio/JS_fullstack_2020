@@ -1,0 +1,31 @@
+Ecrire le programme  qui copie les éléments d’un tableau à 2 dimensions dans un tableau à une dimension du même nombre de cases.
+
+1. Faire l’exercice en utilisant 3 variables d’indice
+2. Faire l’exercice en utilisant 2 variables d’indice
+3. Faire l’exercice en utilisant 1 variable d’indice
+dbt pgm
+var loc
+var LIGNE:N
+var COL:N
+var tab:N[LIGNE,COL]
+va tab2:N[LIGNE*COL]
+var i:N<-1
+var j:N<-1
+var k:N<-1
+fin var loc
+pour k allant de 1 a LIGNE*COL
+   pour i allant de 1 a LIGNE
+      pour j allant de 1 a COL
+	  tab[k]<-tab[i,j]
+      j suivant
+   i suivant
+k suivant
+fin pgm
+
+.................................................................
+pour i allant de 1 a LIGNE
+  pour j allant de 1 a COL
+	tab2[(i-1)*col+j)]<-tab[i,j]
+  j suivant
+i suivant
+k suivant

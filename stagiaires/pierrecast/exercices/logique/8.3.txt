@@ -1,0 +1,27 @@
+Ecrire le programme qui affiche les nombres parfaits inférieurs à 100.
+nombre parfait est un entier égal à la somme de ses diviseurs sauf lui-même.
+
+DEBUT 8-3
+    VARIABLES LOCALES :
+        VAR i :N <- 1
+        VAR j :N <- 1
+        var sum :N <- 0
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A 99
+        j<- 1
+        POUR j ALLANT DE 1 A i 
+            SI (i mod j = 0 )
+                ALORS
+                    sum <- sum + j
+            FINS I
+        j SUIVANT
+
+        SI (sum = i)
+            ALORS 
+                Afficher i," est un nombre parfait"
+        FIN SI
+    i SUIVANT
+  
+FIN 8-3

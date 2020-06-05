@@ -1,0 +1,23 @@
+DEBUT PROGRAMME
+
+DEBUT VARIABLES LOCALES
+
+    var taille :N <- 4
+    var tableau2dim :N [taille, taille];
+    var compteur :N <- 0
+    var indiceInverse :N <- 4;
+
+FIN VARIABLES LOCALES
+
+
+    POUR compteur ALLANT DE 1 a taille
+
+        tableau2dim[compteur, compteur] <- 1
+        tableau2dim[compteur, indiceInverse] <- 2     
+        indiceInverse <- indiceInverse - 1
+
+    FIN POUR
+
+AFFICHER(tableau2dim);
+
+FIN PROGRAMME

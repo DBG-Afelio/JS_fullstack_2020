@@ -1,0 +1,60 @@
+Ecrire le programme  qui affiche la moyenne le maximum et le minimum de chaque ligne d’un tableau à deux dimensions.
+
+Debut exercice
+    VARIABLES LOCALES
+
+        CONST RAW :N
+        CONST COL :N 
+        VAR arr :N[RAW][COL]
+        VAR somme :N <- 0
+        VAR moyenne :N <- 0
+        VAR min :N <- 0
+        VAR max :N <- 0
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR k :N
+        VAR next <- 1
+    FIN VARIABLES
+
+    
+    POUR i ALLANT DE 1 A RAW 
+
+        POUR j ALLANT DE 1 A COL
+
+            somme <- somme + arr[i][j]
+
+            SI j = 1
+            ALORS
+                min <- arr[i][j]
+                max <- arr[i][j]
+            SINON
+                SI arr[i][j] < min
+                ALORS
+                    min <- arr[i][j]
+                FINSI
+                SI arr[i][j] > max
+                ALORS
+                    max <- arr[i][j]
+                FINSI
+            FINSI
+
+        j SUIVANT 
+
+        moyenne <- somme / COL
+
+        REPETER
+            Afficher "Pour la ligne ", i, " du tableau ", arr, " le minimin est ", min, " le maximum ", max, " et la moyenne est ", moyenne
+            Afficher "Taper '0' pour continuer"
+            Saisir next
+        TANT QUE next ≠ 0
+        
+        min <- 0
+        max <- 0
+        somme <- 0
+        moyenne <- 0
+
+    i SUIVANT
+
+    Afficher "Nous avons parcouru toutes les lignes du tableau !"
+
+Fin exercice

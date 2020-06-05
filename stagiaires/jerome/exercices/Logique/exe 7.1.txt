@@ -1,0 +1,20 @@
+Ecrire le programme  qui initialise les cases de la diagonale principale d’un tableau carré avec la valeur 1
+ et les cases de la diagonale secondaire avec la valeur 2.
+dbt pgm
+var loc
+var taille:N<-4
+var tab:N[taille,taille]
+var i:N<-1
+var j:N<-1
+fin var loc
+pour i allant de 1 a TAILLE
+   pour j allant de 1 a Taille
+	if i=j
+	   alors tab [i,j]<-1
+	fin de si
+	if j=taille-i+1
+	   alors tab[i,j]<-2
+	fin de i
+   j suivant
+i suivant
+fin pgm

@@ -1,0 +1,22 @@
+Ecrire le programme qui inverse un tableau de 10 nombres.
+
+Debut Programme 
+VARIABLES LOCALES
+	VAR tab : N [10]
+	VAR ind : N <- 1
+	VAR intermédiaire : N <-0
+	
+	
+FIN VARIABLES LOCALES 
+
+
+	POUR ind ALLANT DE 10 A 1 
+		intermédiaire = tab[ind]  
+		tab[ind] <- tab[10-ind+1]
+		tab[10 - in + 1 ] <-intermédiaire 
+	ind SUIVANT 	
+		
+Afficher tab
+		
+		
+Fin Programme

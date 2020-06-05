@@ -1,0 +1,58 @@
+DÉBUT PROGRAMME
+
+DEBUT VARIABLES LOCALES
+
+    lignes <- 3
+    colonnes <- 3
+    i <- 1
+    j <- 1
+    total <- 0
+    compteur <- 0
+    messagesCounter <- 3
+    tableau2Dim <- [lignes, colonnes]
+    minimums <- [3]
+    maximums <- [3]
+    moyennes <- [3]
+
+FIN VARIABLES LOCALES
+
+TANTQUE i <= lignes FAIRE
+
+    minimums[i] <- tableau2Dim[i][1]
+    maximums[i] <- tableau2Dim[i][1]
+    
+    TANTQUE j <= colonnes FAIRE
+
+        // POUR LE MINIMUM
+         SI tableau2Dim[i][j] <= minimums[i] ALORS
+             minimums[i] <- tableau2Dim[i][j]
+         FINSI                           
+
+        // POUR LE MAXIMUM
+         SI tableau2Dim[i][j] >= maximums[i] ALORS
+             maximums[i] <- tableau2Dim[i][j]
+         FINSI
+
+        // POUR LA MOYENNE
+          total <- total + tableau2Dim[i][j]
+          j = j + 1
+
+    FINTANTQUE
+     
+     moyennes[i] <- total / lignes
+     total <- 0
+     j <- 1
+     i <- i + 1
+
+FINTANTQUE
+
+POUR messagesCounter ALLANT DE 1 A messagesCounter
+
+    AFFICHER("Le minimum de la" (+) compteur (+)  "e ligne est : ", minimum[compteur])
+    AFFICHER("Le maximum de la" (+) compteur (+)  "e ligne est : ", maximum[compteur])
+    AFFICHER("Le moyenne de la" (+) compteur (+)  "e ligne est : ", moyenne[compteur])
+
+FIN POUR
+
+
+FIN PROGRAMME

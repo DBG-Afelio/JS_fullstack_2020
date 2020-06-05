@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title> Exo circonférence </title>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<link href="circo.css" rel="stylesheet" type="text/css"/>
+			
+		</head>
+
+	<body>
+
+<p> Valeurs RGB </p>
+
+<div>
+  <input type="range" id="rgba-R" name="rgba-R"
+         min="0" max="255" value="1">
+  <label for="rgba-R"> Rouge </label>
+</div>
+
+<div>
+  <input type="range" id="rgba-G" name="rgba-G" 
+         min="0" max="255" value="0">
+  <label for="rgba-G">Vert </label>
+</div>
+
+<div>
+  <input type="range" id="rgba-B" name="rgba-B" 
+         min="0" max="255" value="0">
+  <label for="rgba-B">Bleu</label>
+</div>
+
+<div>
+  <input type="range" id="rgba-A" name="rgba-A" 
+         min="0" max="1" value="1" step="0.1">
+  <label for="rgba-A"> Alpha </label>
+</div>
+
+	<form>
+	<label> Entrer le rayon du cercle </label>
+	<input type="text" name="r" value="0">
+	<input type="button" name="circonfValidation" value="OK">
+	</form>
+
+
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <circle cx="50" cy="20" r="15" fill="rgba(255, 0, 0, 1)" id="circle1"/>
+
+</svg>
+
+	</body>
+
+	<script src="circo-svg.js"> </script>
+
+	</html>

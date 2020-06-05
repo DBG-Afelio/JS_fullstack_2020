@@ -1,0 +1,26 @@
+Ecrire le programme qui affiche les nombres parfaits inférieurs à 100.
+ Un nombre parfait est un entier égal
+ à la somme de ses diviseurs sauf lui-même.
+
+Début pgm
+var loc
+var nbr:N<-1
+var cpt:N<-1
+var somme:N<-0
+Fin variables locales
+
+tant que nbre < 100
+        tant que cpt < nbr
+            SI nbr 1MODcpt = 0
+                alors somme<-somme + cpt
+            FINSI
+            cpt<-cpt + 1
+        FINTANTQUE
+        SI somme == nbr
+            alors Afficher nbr "parfait"
+        FINSI
+        somme <- 0
+        nbr <- nbre + 1
+        cpt <- 1
+fin tant que
+fin pgm

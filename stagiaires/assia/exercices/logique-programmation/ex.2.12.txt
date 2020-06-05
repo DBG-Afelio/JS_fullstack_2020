@@ -1,0 +1,57 @@
+Ecrire l'expression pour savoir si la personne peut entrer ou non.
+Sachant que:
+
+-  Les variables suivantes représentent les caractéristiques de la personne.
+  +  Var a : B // la personne a un ticket
+  +  Var b : B // la personne a un ticket réduit
+  +  Var age : N // âge de la personne.
+- Un enfant de moins de 6 ans peut entrer gratuitement,
+- Un enfant de moins de 12 ans peut entrer avec un ticket réduit,
+- Il faut un ticket à toute personne n'entrant dans aucune des deux catégories,
+
+****************************************************************************************************************************************
+    a   b   c   d       E
+pas de ticket, only (-6ans =1 ET -12ans = 0)
+1   0   0   0   0   |   0
+2   0   0   0   1   |   0
+3   0   0   1   0   |   1    = c
+4   0   0   1   1   |   0                                   |
+----------------------------                                |
+ticket reduit ET (-12ans ou -6ans)                          |--
+5   0   1   0   0   |   0                                   |
+6   0   1   0   1   |   1   |                               |
+7   0   1   1   0   |   1   }= b . d  = m1           |
+8   0   1   1   1   |   1   |                              /
+----------------------------                                      \_________________________________________/
+ticket (qqsoit l'age)                                             /
+9   1   0   0   0   |   1   |                                    /
+10  1   0   0   1   |   1   |                                   /
+11  1   0   1   0   |   1   |                                  /
+12  1   0   1   1   |   1   } = a ____________________________/===> E = a + b . d + c
+13  1   1   0   0   |   1   |
+14  1   1   0   1   |   1   |
+15  1   1   1   0   |   1   |
+16  1   1   1   1   |   1   |
+****************************************************************************************************************************************
+
+Debut Entrer
+    VARIABLE LOCALES :
+        VAR a :B <- 0  //ticket
+        VAR b :B <- 0  //ticket reduit
+        VAR c :B <- 0  //age < 6 ans
+        VAR d :B <- 0  //6 ans < age < 12 ans
+        VAR age :N <- 0
+        VAR pass :B <- 0 //resultat
+    FIN VARIABLES LOCALES
+    Afficher "la personne a un ticket ? : "
+    Saisir a
+    Afficher "la personne a un ticket réduit ? : "
+    Saisir b
+    Afficher "âge de la personne ? : "
+    Saisir age
+    c <- N ≤ 6
+    d <- N ≤ 12 ET N > 6
+
+    pass <- a OU b ET d OU C
+    "Autorisation a entrer ? REponse :", pass
+Fin Entrer

@@ -1,0 +1,20 @@
+Début programme
+    Variables locales
+        nbre :N <- 0
+        somme :N <- 0
+        cpt :N <- 0
+        cptmoy :N <- 0
+    Fin variables locales
+
+    TANTQUE cpt <= 30
+        Affichez "Entrez un nombre: "
+        Saisir nbre
+        SI nbre>10 ET nbre<20
+            somme <- somme + nbre
+            cptmoy <- cptmoy + 1
+        FINSI
+        cpt <- cpt + 1
+    FINTANTQUE
+
+    Affichez "La moyenne des nombres entrés est " , somme/cptmoy 
+Fin de programme

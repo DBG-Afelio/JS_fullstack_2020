@@ -1,0 +1,24 @@
+Début programme
+	Variable locale
+        Var index :N <- 3
+	Var nombre :N <- 0
+	Var compteur :N <- 1
+	Var found_another_div :B <- false
+	Fin variable locale
+	
+	Afficher "2"	
+	TANT QUE compteur != 100
+		found_another_div <- false
+		POUR nombre ALLANT DE 2 A index - 1
+			SI index MOD nombre = 0 ALORS
+				found_another_div <- true	
+			FINSI
+		nombre SUIVANT
+		SI NON found_another_div ALORS
+			Afficher index
+			compteur <- compteur + 1
+		FINSI
+		index <- index + 1
+	FIN TANT QUE
+
+Fin de programme

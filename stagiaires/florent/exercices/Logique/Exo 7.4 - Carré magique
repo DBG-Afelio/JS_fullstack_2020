@@ -1,0 +1,60 @@
+
+Début programme
+    Variables locales
+        Var sommeDiago :N <- 0
+        Var sommeBis :N <- 0
+        Var somme :N <- 0
+        Var Tab :Tab[taille, taille]
+        Var i,j :N <- 1
+        Var magique :B <- Vrai
+    Fin variables locales
+
+    TANTQUE i <= taille - 1
+        somme <- 0
+        TANTQUE j <= taille - 1
+            somme <- somme + tab[i,j]
+            j <- j + 1
+        FINTANTQUE
+        tab[i,taille] <- somme
+        i <- i + 1
+    FINTANTQUE
+    
+    i <- 1
+    j <- 1
+    TANTQUE j <= taille - 1
+        somme <- 0
+        TANTQUE i <= taille - 1
+            somme <- somme + tab[i,j]
+            i <- i + 1
+        FINTANTQUE
+        tab[taille,j] <- somme
+        j <- j + 1
+    FINTANTQUE
+
+    i <- 1
+    TANTQUE i <= taille
+        sommeBis <- sommeBis + tab[i,taille-i]
+        sommeDiago <- sommeDiago + tab[i,i]
+        i + 1
+    FINTANTQUE
+
+    SI sommeBis != sommeDiago
+        ALORS magique <- Faux
+    SINON
+        tab[taille,taille] <- somme
+        i <- 0
+        TANTQUE i <= taille && magique
+            SI sommeBis != tab[taille,i] || sommeBis != tab[i,taille]
+                ALORS magique <- Faux
+            FINSI
+            i <- i + 1
+        FINTANTQUE
+    FINSI
+
+    SI magique
+        ALORS Afficher "Carré magique!"
+    SINON
+        Afficher "Carré non magique..."
+    FINSI
+
+Fin de programme

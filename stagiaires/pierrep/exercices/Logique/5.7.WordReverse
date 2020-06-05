@@ -1,0 +1,45 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les mots.
+
+Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.
+
+Début WordReverse
+
+    VAR LOCALES
+
+    uTxt :T <- ''
+    space :T <- ''
+    nTxt :T <- ''
+
+
+    FIN VAR LOCALES
+
+    affiche "Veuillez entrer une phrase"
+
+    saisie uTxt
+
+    space <- ' '
+
+    POUR i ALLANT DE longueur(Utxt) à 1 par -1
+
+        SI caract(uTxt, i) <- space
+
+            ALORS
+
+                nTxt <- nTxt (+) souschaine(uTxt, i+1, i+start+1)
+    
+                start <- 0
+                
+                i suivant
+
+        SINON
+
+            start <- start + 1
+
+            i suivant
+
+    affiche nTxt 
+
+Fin WordReverse
+

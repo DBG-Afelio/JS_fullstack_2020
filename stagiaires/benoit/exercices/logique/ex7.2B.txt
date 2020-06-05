@@ -1,0 +1,31 @@
+// Ecrire le programme  qui copie les éléments d’un tableau à 2 dimensions 
+// dans un tableau à une dimension du même nombre de cases.
+
+// 1. Faire l’exercice en utilisant 3 variables d’indice
+// 2. Faire l’exercice en utilisant 2 variables d’indice
+// 3. Faire l’exercice en utilisant 1 variable d’indice
+
+Début copieTableau
+
+    Variables locales
+
+        Const TabDeuxDimA: N <-8
+        Const TabDeuxDimB: N <-10
+        var tabDeuxDim: N[tabDeuxDimA, tabDeuxDimB]
+        Const TailleTab: N <- TabDeuxDimA*TabDeuxDimB
+        var tab: T[TailleTab]
+
+    Fin variables locales
+
+    Pour i allant de 1 à TabDeuxDimA
+
+        Pour j allant de 1 à TabDeuxDimB
+            tab[i+(i-1)*TabDeuxDimA] = tab[i,j]
+            
+        j suivant
+
+    i suivant        
+
+    Afficher tabDeuxDim
+
+Fin copieTableau

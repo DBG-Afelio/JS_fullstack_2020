@@ -1,0 +1,56 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var userSaisie :N <- 0
+    var prix :N <- 0
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrez votre taux de TVA :
+    - Entrez 1 pour la TVA a 6%
+    - Entrez 2 pour la TVA a 12%
+    - Entrez 3 pour la TVA a 21%
+    - Entrez 4 pour la TVA a 0%
+    - Entrez 0 pour sortir")
+SAISIR userSaisie
+
+
+AFFICHER("Entrez votre prix : ")
+SAISIR prix
+
+
+SI userSaisie = 1 ALORS
+
+    AFFICHER("Votre choix", userSaisie)
+    AFFICHER("Prix (hors TVA) : ", prix)
+    AFFICHER("Le montant de la TVA est :", prix / 100 * 6)
+    AFFICHER("Le prix T.V.A.C est : ", prix * 1.6)
+
+SINON SI userSaisie = 2 ALORS
+
+    AFFICHER("Votre choix", userSaisie)
+    AFFICHER("Prix (hors TVA) : ", prix)
+    AFFICHER("Le montant de la TVA est :", prix / 100 * 12)
+    AFFICHER("Le prix T.V.A.C est : ", prix * 1.12)
+
+SINON SI userSaisie = 3 ALORS
+
+    AFFICHER("Votre choix", userSaisie)
+    AFFICHER("Prix (hors TVA) : ", prix)
+    AFFICHER("Le montant de la TVA est :", prix / 100 * 21)
+    AFFICHER("Le prix T.V.A.C est : ", prix * 1.21)
+
+SINON SI userSaisie = 4 ALORS
+
+    AFFICHER("Votre choix", userSaisie)
+    AFFICHER("Prix (hors TVA) : ", prix)
+    AFFICHER("Le montant de la TVA est :", 0)
+    AFFICHER("Le prix T.V.A.C est : ", prix)
+
+SINON SI userSaisie = 0 ALORS
+
+    AFFICHER("Sortie du programme")
+
+
+FIN PROGRAMME

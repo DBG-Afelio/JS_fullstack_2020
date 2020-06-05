@@ -1,0 +1,15 @@
+Ecrire le programme qui inverse un tableau de 10 nombres.
+
+Debut exercice
+    VARIABLES LOCALES
+        CONST length :N <- 10
+        VAR arrIn :N[length]
+        VAR arrOut :N[length]
+        VAR i :N <- 0
+    FIN VARIABLES
+
+    POUR i ALLANT DE length A 1
+        arrOut[length - i + 1] <- arrIn[i] 
+    i SUIVANT
+
+Fin exercice

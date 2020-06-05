@@ -1,0 +1,28 @@
+/* Soient 3 tableaux de même longueur : le premier contient des entiers, le deuxième des logiques et le troisième sera rempli par les valeurs du premier.*/
+
+Début programme
+
+    VARIABLES LOCALES :
+        CONST SIZE:N <- 10
+        VAR vect :N[SIZE]
+        VAR vect2 :N[SIZE]
+        VAR newVect :N[SIZE]
+        VAR idx :N <- 1
+        var spaces :N <- 0
+    FIN VARIABLES LOCALES
+
+vect <- [10, -5, -6, 48, 20, -6, 13, 56, -89, 108]
+vect2 <- [vrai, faux, faux, vrai, vrai, faux, faux, vrai, faux, vrai]
+
+Pour idx ALLANT DE 1 à SIZE
+
+    SI vect2[idx]
+        newVect[idx] <- vect2[idx]
+
+    SINON 
+        newVect[idx] <- -vect2[idx]
+
+    i SUIVANT
+
+
+Fin programme

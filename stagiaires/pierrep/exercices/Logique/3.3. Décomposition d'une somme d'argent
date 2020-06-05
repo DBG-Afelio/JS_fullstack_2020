@@ -1,0 +1,50 @@
+Début programme
+    
+    Var locale
+    
+        var montant :N <- 0
+        var reste :N <- 0
+
+    Fin var locale
+
+saisie montant
+
+montant <- reste
+
+SI montant > 100
+
+    ALORS reste <- montant % 100
+
+FINSI
+
+SI reste > 50
+
+    ALORS reste <- montant % 50
+
+FINSI
+
+SI reste > 20
+
+    ALORS reste <- montant % 20
+
+FINSI
+
+SI reste > 5
+
+    ALORS reste <- montant % 5
+
+FINSI
+
+SI reste > 2
+
+   ALORS reste <- montant % 2
+
+SI reste > 1
+
+    ALORS reste <- montant % 1
+
+SI reste > 0.2
+
+    ALORS reste <- montant % 0.2
+
+Fin de programme

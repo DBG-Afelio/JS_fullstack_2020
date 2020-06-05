@@ -1,0 +1,37 @@
+Ecrire un programme qui demande à l’utilisateur de rentrer deux textes.
+Le programme affichera VRAI si le premier texte se situe après le deuxième dans l’ordre alphabétique sinon il affichera FAUX.
+
+*Remarques :
+- Les opérateurs de comparaison sur les textes ne peuvent pas être utilisés :-).
+- Algorithme au seul niveau primaire.*
+
+Debut Programme 
+VARAIBLES LOCALES 
+	VAR text1:T <- ""
+	VAR text2 : T <- ""
+	VAR alphabétique :B <- false 
+	VAR min :N <-0
+	VAR i  :N <- 0
+FIN VARAIBLES LOCALES
+Afficher "Entrez Le premier texte"
+Saiser text1
+Afficher "Entrez Le deuxième texte"
+Saiser text2
+
+
+SI longueur(text1) > longueur(text2)
+ALORS 
+	min <- longueur(text2)
+SINON 
+	min <- longueur(text1)
+
+FINSI
+
+REPETER
+	i <- i+1
+	alphabétique <- carac(text1,i) < carac (text2,i)
+JUSQUACEQUE carac(text1,i) != carac (text2,i) ou i = min 
+Afficher  alphabétique 
+FIN Programme
+
+  

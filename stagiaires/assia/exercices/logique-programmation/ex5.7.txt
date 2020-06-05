@@ -1,0 +1,36 @@
+Ecrire un programme qui demande à l’utilisateur d’entrer un texte.
+Le programme affichera le texte en ayant inversé les mots.
+
+*Remarque :
+Les mots sont des sous-chaines ne contenant pas d’espace.*
+
+
+Debut Exercice
+
+    VARIABLE LOCALES :
+        CONST textIn:T <- ""
+        VAR textOut :T <- ""
+        VAR word :T <- ""
+        CONST espace :C <- ' '
+        VAR c :N <- 0
+    FIN VARIABLES LOCALES
+
+    Afficher "Saisir un texte : "
+    Saisir textIn
+
+    REPETER
+        REPETER                                                                 // je construis le mot => word = mot+espace
+            c <- c + 1
+            word <- word (+) caract(textIn, c)
+        JUSQUE A CE QUE caract(textIn, c) = espace OU c = longueur(textIn)
+
+        textOut <- word (+) espace (+) textOut                                  // je construis le texte de maniere a ce le dernier soit en 1er
+        word <- ""
+    JUSQUE A CE QUE c = longueur(textIn)
+
+    textOut <- sousChaine(textOut, 1, longueur(textOut))                        // je supprime le dernier espace du texte qui s'est construit a la 1ere iter.
+
+    Afficher "Votre texte d'origine : ", textIn
+    Afficher "Votre texte avec les mots inverses : ", textOut
+
+Fin Exercice

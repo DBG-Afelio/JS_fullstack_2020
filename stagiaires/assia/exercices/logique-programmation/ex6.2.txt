@@ -1,0 +1,38 @@
+Ecrire le programme qui affiche le maximum et le minimum des valeurs d’un vecteur de nombres, ainsi que leur position dans le tableau.
+
+Debut exercice
+    VARIABLES LOCALES
+        VAR min :N <- 0
+        VAR posMin :N <- 0
+        VAR max :N <- 0
+        VAR posMax :N <- 0
+        CONST length :N <- 10
+        VAR arr :N[length]
+        VAR i :N <- 0
+    FIN VARIABLES
+
+    Afficher "Saisir", length, " valeurs :"
+    POUR i ALLANT DE 1 A length
+        Saisir arr[i]
+        SI i ≠ 1 
+        ALORS
+            SI arr[i] < min         //update min et posMIN
+            ALORS
+                min <- arr[i]
+                posMin <- i
+            FINSI
+            SI arr[i] > max         //update max et posMAX
+            ALORS
+                max <- arr[i]
+                posMax <- i
+            FINSI
+        SINON
+            min <- arr[i]           //init
+            max <- arr[i]           //init
+            posMin <- i
+            posMax <- i
+        FINSI
+    i SUIVANT
+
+    Afficher "Sur les " length, " valeurs entrees, le min est : ", min, " et se trouve en position ", posMin, ", le max est : ", max, " et se trouve en position : ", posMax
+Fin exercice

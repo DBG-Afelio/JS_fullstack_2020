@@ -1,0 +1,34 @@
+Ecrire le programme qui calcule la plus grande et la plus petite valeur d'une série de nombres entrés au clavier.
+
+    La fin de la série sera annoncée par un 100.
+    Le programme affichera également :
+        le plus grand;
+        le plus petit des nombres;
+        la position du premier maximum (optionnel);
+        la position du dernier maximum (optionnel);
+        le nombre d'occurrence du maximum (optionnel);
+        Idem pour le minimum (optionnel).
+
+dbt plgp
+var loc
+var ppn:N<-0
+var pgn:N<-0
+var val:N<-0
+fin var loc
+
+afficher "Entrez des nombre et finir par 100"
+Saisie de val
+ppn<-val
+pgn<-val
+tant que (val><100)
+
+	Si val>pgn
+	    Alors pgn<-val
+	  Sinon si val<ppn
+	    Alors ppn<-val
+	Saisie de val
+
+fin tant que
+afficher"le plus grand est :" pgn
+afficher"le plus petit est :" ppn
+fin plgp

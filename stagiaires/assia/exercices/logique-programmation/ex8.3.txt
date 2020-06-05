@@ -1,0 +1,39 @@
+Ecrire le programme qui affiche les nombres parfaits inférieurs à 100.
+Un nombre parfait est un entier égal à la somme de ses diviseurs sauf lui-même.
+
+Debut exercice
+
+    VARIABLES LOCALES
+        VAR nombre :N <- 1
+        VAR diviseur :N <- 1
+        VAR sommeDiviseur :N <- 0
+        VAR listeNbParfaits :N [100]
+        VAR index, i N: <- 1
+    FIN VARIABLES
+
+
+    POUR nombre ALLANT DE 1 A 100                // on parcourt tous les nombres jusqu'a 100
+        
+        POUR diviseur ALLANT DE 1 A (nombre - 1)         // on parcourt tous les potentiels DIVISEURs propres
+            
+            SI (nombre MOD diviseur) = 0
+            ALORS
+                sommeDiviseur <- sommeDiviseur + diviseur
+            FINSI
+
+        diviseur SUIVANT
+
+        SI sommeDiviseur = nombre
+        ALORS
+            listeNbParfaits[index] <- nombre
+            index <- index + 1
+        FINSI
+
+    nombre SUIVANT
+
+    Afficher "Voici la liste des nombres parfaits inferieurs a 100 : ",
+    POUR i ALLANT DE 1 A index
+        Afficher "Le ", i, "er/eme nombre parfait est le : ", listeNbParfaits[i]
+    i SUIVANT
+
+Fin exercice

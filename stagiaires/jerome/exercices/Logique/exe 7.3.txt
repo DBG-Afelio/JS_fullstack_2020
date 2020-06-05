@@ -1,0 +1,33 @@
+Ecrire le programme  qui affiche la moyenne le maximum et le minimum
+ de chaque ligne d’un tableau à deux dimensions.
+
+dbt pgm
+var loc
+var ligne:N
+var col:N
+var tab:N[ligne,col]
+var i:N
+var j:N
+var min:N
+var max:N
+var somme:N
+var moyenne:N
+fin var loc
+pour i allant de 1 a LIGNE
+	min<-tab[i,j]
+	max<-tab[i,j]
+	somme<-0
+	moyenne<-0
+	pour j allant de 1 a COL
+		Si tab[i,j]<min
+		   alors min<-tab[i,j]
+		   sinon Si tab[i,j]>max
+			    alors max<-tab[i,j]
+			fin de si
+		fin de si
+		somme<-somme+tab[i,j]
+		moyenne<-somme/COL
+	j suivant
+		afficher min max moyenne
+i suivant
+fin pgm

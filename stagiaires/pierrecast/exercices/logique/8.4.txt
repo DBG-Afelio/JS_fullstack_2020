@@ -1,0 +1,27 @@
+Ecrire le programme qui affiche les 100 premiers nombres premiers.
+
+DEBUT 8-4
+    VARIABLES LOCALES :
+        VAR i :N <- 1
+        VAR j :N <- 1
+        var sum :N <- 0
+        var cpt :N<-0
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    TANT QUE (cpt < 100)
+        j<- 2
+        TANTQUE (i mod j != 0 ET j < i)
+            j <- j + 1
+        FIN TANTQUE
+        
+        SI (i = j)
+            ALORS 
+                Afficher i, " est un nombre premier" 
+                cpt <- cpt + 1
+        FIN SI
+
+        i <- i + 1
+    FIN TANTQUE
+  
+FIN 8-4
