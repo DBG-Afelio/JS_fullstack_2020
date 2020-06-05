@@ -21,7 +21,7 @@ const jobNone = document.querySelector(".job-none");
 
 // FUNCTIONS  
 
-function checkName(champ) { // EN COURS DE DEBUG
+function checkName(champ) {
 
    const icoImg = document.querySelector("[name='"+ champ.name +"']+.ico-input");
    const errorContainer = document.querySelector("[name='"+ champ.name +"']~.alert-message");
@@ -50,7 +50,7 @@ function checkName(champ) { // EN COURS DE DEBUG
             } else {
                 icoImg.classList.remove("valide");
                 icoImg.classList.add("warning");
-                errorContainer.classList.remove("visible");
+                errorContainer.classList.add("visible");
                 errorMessage.textContent = "Votre champ doit contenir entre 3 et 50 caractères";   
             }
 
@@ -167,7 +167,7 @@ nom.addEventListener("input", () => checkName(nom));
 
 // PRENOM
 
-// prenom.addEventListener("input", () => checkName(nom));
+prenom.addEventListener("input", () => checkName(prenom));
 
 // EMAIL
 
