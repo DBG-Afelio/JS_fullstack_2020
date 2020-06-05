@@ -137,9 +137,23 @@ button.carre{
     margin: 20px auto;
     padding: 20px;
     position: relative;
-    left:-160px;
+    left:0;
 
+    width: 750px;
+    height: 670px;
+    background-color: rgba(255,255,255,.7);
+	border-radius: 20px;
+	box-shadow:  1px 3px 3px rgba(0,0,0, 0.3);
+	background-color: black;
+	background: radial-gradient(
+      circle at top 5px right 5px,
+      #3d3d3e,
+      #292a2c 20%,
+      #111 60%
+    );
 } 
+
+
 .message {
     
     min-height: 40px;

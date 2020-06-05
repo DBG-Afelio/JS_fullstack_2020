@@ -37,7 +37,7 @@ function play(couleur) {
 
     if (isWin(maree, couleur)) {
         oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + ((turn > 1) ? 's':'');
-        //oButtons.forEach(button => button.removeEventListener('click', action));
+        oButtons.querySelectorAll("button.carre").forEach(button => button.removeEventListener('click', action));
         oButtons.innerHTML = '';
         oMessage.style.display = "block";
     }
@@ -77,8 +77,8 @@ function generateHexa (x, y, color) {
     oHexa.setAttribute('data-ligne', x);
     oHexa.setAttribute('data-colonne', y);
     //oHexa.innerHTML=x+'-'+y;
-    oHexa.style.top = (x*36)+"px";
-   oHexa.style.left = (x < lines) ? (40*y) + (0-20*x) +"px" : (40*y) - (2*lines-x-2)*20+"px" ;
+    oHexa.style.top = 50+(x*36)+"px";
+   oHexa.style.left = (x < lines) ? 220+(40*y) + (0-20*x) +"px" : 220+(40*y) - (2*lines-x-2)*20+"px" ;
     oMaree.appendChild(oHexa);
     return color;
 }
@@ -122,7 +122,7 @@ function changeColor(oldColor, newColor, div){
 
     let x = Number(div.getAttribute('data-ligne'));
     let y = Number(div.getAttribute('data-colonne'));
-
+    getAnimation(oldColor, newColor, div);
     setCouleur(div, newColor); 
 
     let all = [getNW(div), getNE(div), getW(div), getE(div),getSW(div), getSE(div)];
@@ -238,4 +238,17 @@ function setCouleur(div, couleur) {
  */
 function isWin(divs, couleur){
     return divs.every(line => line.every(carre => carre === couleur));
+}
+
+
+function getAnimation(oldColor, newColor, div) {
+    div.animate([
+        // keyframes
+        { transform: 'rotateX(0deg) rotateY(0deg)','background-color': oldColor}, 
+        { transform: 'rotateX(90deg) rotateX(90deg)', 'background-color': newColor }
+    ], { 
+    // timing options
+    duration: 200,
+    iterations: 1
+    });
 }
