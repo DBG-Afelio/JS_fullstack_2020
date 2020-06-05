@@ -93,10 +93,11 @@ tests.push(['tableauMoinsPremier', tableauMoinsPremier([1,2,6,4]).join('|') === 
 // séparés par des virgules, sauf le dernier qui est précédé de "et".
 // Exemple : listeNoms(['Jean', 'Jacques', 'Aline']) ==> 'Jean, Jacques et Aline'
 
-function listeNoms(tab){
-    let last = tab[tab.length-1];
-    tab.pop();
-    return tab.join(', ')+ " et " + last;
+function listeNoms(tabIn){
+    let tabOut = [...tabIn];
+    let last = tabOut[tabOut.length-1];
+    tabOut.pop();
+    return tabOut.join(', ')+ " et " + last;
 }
 tests.push(['listeNoms', listeNoms(['Jean', 'Jacques', 'Aline']) === 'Jean, Jacques et Aline']);
 
@@ -157,10 +158,7 @@ tests.push(['ajouteSiPas', ajouteSiPas(["A", "B", "C"], "C").join('|') === ["A",
 //   Ex : applatit([[2, 3, 4], [5, 6, 7]]) ==> [2, 3, 4, 5, 6, 7].
 
 function applatit(tabIn){
-    let tabOut = [];
-    /*tabIn.forEach(item => {
-        tabOut.push(...item);
-    });*/
+    let tabOut = tabIn.flat();
     return tabOut;
 }
 tests.push(['applatit', applatit([[2, 3, 4], [5, 6, 7]]).join('|') === [2, 3, 4, 5, 6, 7].join('|')]); 
@@ -171,17 +169,18 @@ tests.push(['applatit', applatit([[2, 3, 4], [5, 6, 7]]).join('|') === [2, 3, 4,
 function tousIdentiques(tab){
     return tab.every(item => item === tab[0]);
 }
-tests.push(['tousIdentiques', applatit([ 1,1,1,1,1,1]) === true]); 
-tests.push(['tousIdentiques', applatit([ 1,1,2,1,1,1]) === false]); 
+
+tests.push(['tousIdentiques', tousIdentiques([ 1,1,1,1,1,1]) === true]); 
+tests.push(['tousIdentiques', tousIdentiques([ 1,1,2,1,1,1]) === false]); 
 
 
 // Incrémente chaque élement d'un tableau de nombres de 1 (dans un nouveau tableau).
 
-function incrementeTableau(tabIn){
-    tabOut = [...tabIn];
-    return tabOut.map(item => item +1);
+function incrementeTableau(tab){
+    return tab.map(item => item +1);
 }
-
+tests.push(['incrementeTableau', incrementeTableau([ 1,1,6,1,1,1]).join('|') === [ 2,2,7,2,2,2].join('|')]); 
+tests.push(['incrementeTableau', incrementeTableau([ 1,1,6,1,1,1]).join('|') !== [ 2,2,8,2,2,2].join('|')]); 
 
 
 // Renvoie le plus long mot contenu dans une chaine de caractères.
@@ -194,7 +193,8 @@ function plusLong(string){
     });
     return  max;
 }
-
+tests.push(['plusLong', plusLong('Dont Worry Be Happppy') === 'Happppy']);
+tests.push(['plusLong', plusLong('Dont Worrrry Be Happy') === 'Worrrry']);
 
 // Renvoie la somme des éléments d'un tableau
 
@@ -204,31 +204,25 @@ function somme(tab){
 tests.push(['somme', somme([1,2,6,4]) === 13]);
 
 // Renvoie la moyenne des éléments d'un tableau
-function moyenne(){
+function moyenne(tab){
     let nb = tab.length;
     return tab.reduce((sum, item)  => sum + item, 0) / nb
 }
-
+tests.push(['moyenne', moyenne([1,2,5,4]) === 3]);
 
 
 // Renvoie le produit des éléments d'un tableau
-function produit(){
+function produit(tab){
     return tab.reduce((sum, item)  => sum * item, 1);
 }
-
+tests.push(['produit', produit([1,2,3]) === 6]);
 
 
 // Renvoie le produit des éléments non-nuls d'un tableau
-function produitNonNuls(){
-    let total = 0;
-    tab.forEach(item => {
-        if (item !== 0) {
-            total *= item;
-        }
-    });
-    return total;
+function produitNonNuls(tab){ 
+    return produit(tab.filter(item => item > 0));
 }
-
+tests.push(['produitNonNuls', produitNonNuls([1,2,3, 0]) === 6]);
 
 
 // Double les nombres dans une matrice, en gardant la structure.
@@ -237,30 +231,43 @@ function produitNonNuls(){
 //                    [5, 6, 7]])      [10, 12, 14]]
 
 function doubleMatrice(tab){
-    tab.forEach(array => array.map(item => item * 2));
+    tab = tab.map(array => array.map(item => item * 2));
+    return tab;
 }
-
+let tab1 = [[2, 3, 4], [5, 6, 7]];
+let tab2 = [[4, 6, 8], [10, 12, 14]];
+tests.push([ 'doubleMatrice', doubleMatrice(tab1).join('|') === tab2.join('|') ]);
 
 
 // Trie un tableau de nombres.
 
-function trieNombres(tab){
+function trieNombres(tab) {
     return tab.sort((a, b) => a - b);
 }
-
+tab1 = [15, 2, 7];
+tab2 = [2, 7, 15];
+tests.push([ 'trieNombres', trieNombres(tab1).join('|') === tab2.join('|') ]);
 
 // Renvoie le deuxieme maximum d'un tableau.
 
 // ex: secondMax([2, 6, 7, 3, 1, 8, 3]) => 7
 
 function secondMax(tab){
-    tab.sort();   
+    trieNombres(tab)  // tab.sort(compareNumeric);   
     return tab[tab.length-2];
 }
 
+
+
+tests.push([ 'secondMax', secondMax([2, 6, 7, 3, 1, 8, 3]) === 7 ]);
+
+
+
+
+/*
 // Renvoie un tableau avec les voyelles des mots reçus en input
 function seulementVoyelles(tab) {
-    
+   
 };
 
 
@@ -341,7 +348,7 @@ function sommeProduitsNonNuls(){
 function kebabToCamel(){
 
 }
-
+*/
 
 
 

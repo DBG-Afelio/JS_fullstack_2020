@@ -128,7 +128,6 @@ function repeteNfoisLettre(n){
 }
 // Répète une lettre 5 fois
 let repete5FoisLettre = repeteNfoisLettre(5);
-console.log(repete5FoisLettre('A'));
 
 ajouteTest(repete5FoisLettre, 'lettre i', 'i', 'iiiii');
 
