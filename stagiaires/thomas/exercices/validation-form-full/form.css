@@ -38,6 +38,7 @@ body {
 
   .form-item {
       display: flex;
+      position: relative;
   }
 
   .ico-input {
@@ -45,14 +46,14 @@ body {
     display: none;
   }
 
-  .ico-input.ico-name.warning {
+  .ico-input.warning {
       display: block;
       content: url("./img/cross.png");
       width: 30px;
       height: 30px;
   }
 
-  .ico-input.ico-name.valide {
+  .ico-input.valide {
     display: block;
     content: url("./img/tick.png");
     width: 30px;
@@ -65,7 +66,7 @@ body {
 
   .ico-input {
       position: relative;
-      top: 0.2em;
+      top: 1.2em;
   }
   
   .nom:focus,
@@ -104,6 +105,25 @@ body {
     width: 90%;
     height: 0.5em;
     border-width: 0%;
+    margin: 0.7em 0;
+  }
+
+  .alert-message {
+    width: 100%;
+    position: absolute;
+    bottom: -1.5em;
+    font-size: 0.9em;
+    color: red;
+    text-align: center;
+    display: none;
+  }
+
+  .alert-message.visible {
+    display: block;
+  }
+
+  .message-to-insert {
+
   }
 
   .suggest-login {

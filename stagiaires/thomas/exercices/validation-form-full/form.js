@@ -22,20 +22,39 @@ const jobNone = document.querySelector(".job-none");
 // FUNCTIONS  
 
 function checkName(champ) { // EN COURS DE DEBUG
-   const icoImg = document.querySelector(".ico-input .ico-name");
 
-    if (champ.value.length === 0 || champ.value === undefined) {
-        // icoImg.classList.remove("valide");
-        icoImg.classList.add("warning");
+   const icoImg = document.querySelector("[name='"+ champ.name +"']+.ico-input");
+   const errorContainer = document.querySelector("[name='"+ champ.name +"']~.alert-message");
+   const errorMessage = document.querySelector("[name='"+ champ.name +"']~.alert-message > .message-to-insert")
 
-    } else if(champ.value.length >= 3 && champ.value.length <= 50) {
-        icoImg.classList.remove("warning");
-        icoImg.classList.add("valide");
+     if (champ.value.length === 0) {
+
+        if(champ.hasAttribute("required")) {
+            icoImg.classList.remove("valide");
+            icoImg.classList.add("warning");
+            errorContainer.classList.add("visible");
+            errorMessage.textContent = "champ obligatoire";
+        } else {
+            icoImg.classList.remove("valide");
+            icoImg.classList.add("warning");
+            errorContainer.classList.add("visible");
+            errorMessage.textContent = "champ vide";
+        }
+
     } else {
-        icoImg.classList.remove("valide");
-        icoImg.classList.add("warning");  
-    }
 
+            if(champ.value.length >= 3 && champ.value.length <= 50) {
+                icoImg.classList.remove("warning");
+                icoImg.classList.add("valide");
+                errorContainer.classList.remove("visible");
+            } else {
+                icoImg.classList.remove("valide");
+                icoImg.classList.add("warning");
+                errorContainer.classList.remove("visible");
+                errorMessage.textContent = "Votre champ doit contenir entre 3 et 50 caractères";   
+            }
+
+        }
 }
 
 function getUserAge(dateDeNaissance) {
@@ -144,13 +163,11 @@ const passwordRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
 
 // NOM
 
-// nom.addEventListener("blur", () => checkName(nom));
-// nom.addEventListener("submit", () => checkName(nom));
+nom.addEventListener("input", () => checkName(nom));
 
 // PRENOM
 
-// prenom.addEventListener("blur", () => checkName(nom));
-// prenom.addEventListener("change", () => checkName(nom));
+// prenom.addEventListener("input", () => checkName(nom));
 
 // EMAIL
 
@@ -235,9 +252,10 @@ checkboxFullStack.addEventListener("click", () => {
 
 // ENVOYER 
 
-checkName(nom);
+
 
 submit.addEventListener("click", (e) => {    
     e.preventDefault();
     checkName(nom);
+    checkName(prenom);
 });

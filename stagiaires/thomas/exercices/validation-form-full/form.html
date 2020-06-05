@@ -14,36 +14,54 @@
 
   <h1>JS Form</h1>
 
-  <form action="">
+  <form action="" novalidate>
 
     <div class="form-item">
-      <input type="text" class="nom" name="nom" placeholder="Nom (obligatoire)">
-      <span class="ico-input ico-name"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <input type="text" class="nom" name="nom" placeholder="Nom (obligatoire)" required>
+      <span class="ico-input"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
       <input type="text" class="prenom" name="prenom" placeholder="Prénom">
       <span class="ico-input "><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
       <input type="email" class="email" name="email" placeholder="Email">
       <span class="ico-input"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
       <input type="tel" class="telephone" name="telephone" placeholder="Téléphone">
       <span class="ico-input"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
       <input type="date" class="date-de-naissance" name="date-of-birth" value="jj-mm-aaaa">
       <span class="ico-input"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
       <input type="text" class="login" name="login" placeholder="Choisissez un login (obligatoire)">
       <span class="ico-input"><img src="https://via.placeholder.com/30" alt="ico-message"></span>
+      <div class="alert-message">
+        <p class="message-to-insert"></p>
+      </div>
     </div>
 
     <div class="form-item">
@@ -373,7 +391,7 @@
         </ul>   
     </div>
 
-    <button type="submit" class="submit">Envoyer</button>
+    <button type="submit" class="submit" javascript:void(0)>Envoyer</button>
 
   </form>
     <script src="./form.js"></script>
