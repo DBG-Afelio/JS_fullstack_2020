@@ -21,12 +21,12 @@ const jobNone = document.querySelector(".job-none");
 
 // FUNCTIONS  
 
-function checkName(champ) {
-   const icoImg = document.querySelector(".ico-name img");
+function checkName(champ) { // EN COURS DE DEBUG
+   const icoImg = document.querySelector(".ico-input .ico-name");
 
-    if (champ.value.length === 0) {
-        icoImg.classList.remove("warning");
-        icoImg.classList.remove("valide");
+    if (champ.value.length === 0 || champ.value === undefined) {
+        // icoImg.classList.remove("valide");
+        icoImg.classList.add("warning");
 
     } else if(champ.value.length >= 3 && champ.value.length <= 50) {
         icoImg.classList.remove("warning");
@@ -144,25 +144,25 @@ const passwordRegex = /^[a-zA-Z!$0-9-_]{6,10}$/;
 
 // NOM
 
-nom.addEventListener("blur", () => checkName(nom));
-nom.addEventListener("change", () => checkName(nom));
+// nom.addEventListener("blur", () => checkName(nom));
+// nom.addEventListener("submit", () => checkName(nom));
 
 // PRENOM
 
-prenom.addEventListener("blur", () => checkName(nom));
-prenom.addEventListener("change", () => checkName(nom));
+// prenom.addEventListener("blur", () => checkName(nom));
+// prenom.addEventListener("change", () => checkName(nom));
 
 // EMAIL
 
-email.addEventListener("input", () => checkMail());
+// email.addEventListener("input", () => checkMail());
 
 // TELEPHONE
 
-telephone.addEventListener("input", () => checkPhone());
+// telephone.addEventListener("input", () => checkPhone());
 
 // DATE DE NAISSANCE 
 
-dateDeNaissance.addEventListener("change", () => checkAge());
+// dateDeNaissance.addEventListener("change", () => checkAge());
 
 // LOGIN
 
@@ -235,11 +235,9 @@ checkboxFullStack.addEventListener("click", () => {
 
 // ENVOYER 
 
-submit.addEventListener("click", (e) => {
-    
-    e.preventDefault();
+checkName(nom);
 
-    checkName(nom)
-    checkName(prenom)
-   
+submit.addEventListener("click", (e) => {    
+    e.preventDefault();
+    checkName(nom);
 });

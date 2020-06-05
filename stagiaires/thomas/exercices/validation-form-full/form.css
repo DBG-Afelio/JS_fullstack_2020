@@ -42,15 +42,18 @@ body {
 
   .ico-input {
     margin-left: auto;
+    display: none;
   }
 
-  .ico-input .warning {
+  .ico-input.ico-name.warning {
+      display: block;
       content: url("./img/cross.png");
       width: 30px;
       height: 30px;
   }
 
-  .ico-input .valide {
+  .ico-input.ico-name.valide {
+    display: block;
     content: url("./img/tick.png");
     width: 30px;
     height: 30px;
