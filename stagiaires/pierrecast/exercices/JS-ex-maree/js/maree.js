@@ -1,6 +1,7 @@
 const oMaree = document.querySelector('.maree');
 const oButtons  = document.querySelector('.buttons');
 const oMessage  = document.querySelector('.message');
+const newGame = document.querySelector('#newGame button')
 const lines = 20;
 const column = 20;
 const colors = [
@@ -9,16 +10,19 @@ const colors = [
     'bleu',
     'violet'
 ];
+const action =  (event) => { play(event.target.getAttribute('data-color')); }
 
 let turn = 0;
 let maree = [];
 
+newGame.addEventListener('click', startGame);
+
 startGame();
 function startGame() {
+    oMessage.style.display = "none";
     generateButtons(colors);
     maree = generateMaree(colors, lines, column, oMaree);
 }
-
 
 /**
  * Fonctions appelée au click sur un bouton qui lance la marée, teste la victoire et compte les coups
@@ -27,15 +31,16 @@ function startGame() {
  */
 function play(couleur) {
     turn++;
-    console.log(turn);
+    
     let firstDiv = getDiv(0,0);
     changeColor(firstDiv.getAttribute('data-color'), couleur, firstDiv);
 
     if (isWin(maree, couleur)) {
-       oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + ((turn > 1) ? 's':'');
-       //oButtons.innerHTML = '';
+        oMessage.innerHTML = 'Bravo ! Vous avez gagné en ' + turn + ' coup' + ((turn > 1) ? 's':'');
+        //oButtons.forEach(button => button.removeEventListener('click', action));
+        oButtons.innerHTML = '';
+        oMessage.style.display = "block";
     }
-    
 }
 
 
@@ -49,7 +54,8 @@ function play(couleur) {
 * @returns {DivHTMLElement[]} un tableau à deux dimensions contenant les références des divs générés
 *           <div class="carre" data-ligne="2" data-colonne="4" data-color='rouge'></div>
 */
-function generateMaree (tabColors, lines, column, divParent) {    
+function generateMaree (tabColors, lines, column, divParent) {  
+    divParent.innerHTML = '';  
     for(let i = 0; i< lines; i++) {
         maree[i] = [];
         for(let j = 0; j< column; j++) {
@@ -85,6 +91,7 @@ function getRandomColor(tabColors) {
  * @param {string[]} tabColors 
  */
 function generateButtons(tabColors) {
+    oButtons.innerHTML = '';
     tabColors.forEach(createButton);
 } 
 
@@ -96,7 +103,7 @@ function createButton(color) {
     let oButton = document.createElement('button');
     oButton.classList.add('carre');
     oButton.setAttribute('data-color', color);
-    oButton.addEventListener('click', () => { play(color); });
+    oButton.addEventListener('click', action);
     oButtons.appendChild(oButton);
 }
 
@@ -112,8 +119,8 @@ function changeColor(oldColor, newColor, div){
     let x = Number(div.getAttribute('data-ligne'));
     let y = Number(div.getAttribute('data-colonne'));
     let color = div.getAttribute('data-color');
-
-    setCouleur(div, newColor); 
+    getAnimation(oldColor, newColor, div);
+    setCouleur(div, newColor);
 
     let all = [getHaut(div), getBas(div), getGauche(div), getDroite(div)];
 
@@ -206,4 +213,17 @@ function setCouleur(div, couleur) {
  */
 function isWin(divs, couleur){
     return divs.every(line => line.every(carre => carre === couleur));
+}
+
+
+function getAnimation(oldColor, newColor, div) {
+    div.animate([
+        // keyframes
+        { transform: 'rotateX(0deg) rotateY(0deg)', backgroundColor: oldColor}, 
+        { transform: 'rotateX(90deg) rotateX(90deg)', backgroundColor: newColor }
+    ], { 
+    // timing options
+    duration: 200,
+    iterations: 1
+    });
 }
