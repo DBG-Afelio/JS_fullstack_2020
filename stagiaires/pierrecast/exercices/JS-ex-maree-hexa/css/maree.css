@@ -1,0 +1,232 @@
+/*
+CSS pour la mise en forme de la marée
+*/
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    height: 100px;
+}
+
+button.carre{
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.carre[data-color='rouge'] {
+    background-color: red; 
+}
+.carre[data-color='bleu'] {
+    background-color: blue; 
+}
+.carre[data-color='violet'] {
+    background-color: violet; 
+}
+.carre[data-color='vert'] {
+    background-color: green; 
+}
+
+.hexa{
+    margin: 5px;
+    /*box-shadow: 5px 5px 5px rgba(0,0,0,.4);*/
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 30px; 
+    height: 17px;
+    margin: 8px 0; 
+    font-size: 10px;
+}
+  
+.hexa:before,
+.hexa:after {
+    content: "";
+    position: absolute;
+    left:0;
+    width: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+  
+
+
+.hexa[data-color='rouge'] {
+    background-color: red;
+    
+}
+.hexa[data-color='rouge']:before {
+    bottom: 100%;
+    border-bottom: 8px solid red;
+}
+  
+.hexa[data-color='rouge']:after {
+    top: 100%;
+    width: 0;
+    border-top: 8px solid red;
+}
+
+
+
+.hexa[data-color='bleu'] {
+    background-color: blue;
+    
+}
+.hexa[data-color='bleu']:before {
+    bottom: 100%;
+    border-bottom: 8px solid blue;
+}
+  
+.hexa[data-color='bleu']:after {
+    top: 100%;
+    width: 0;
+    border-top: 8px solid blue;
+}
+
+
+.hexa[data-color='cyan'] {
+    background-color: cyan;
+    
+}
+
+.hexa[data-color='cyan']:before {
+    bottom: 100%;
+    border-bottom: 8px solid cyan;
+}
+  
+.hexa[data-color='cyan']:after {
+    top: 100%;
+    width: 0;
+    border-top: 8px solid cyan;
+}
+
+.hexa[data-color='violet'] {
+    background-color: violet;
+}
+.hexa[data-color='violet']:before {
+    bottom: 100%;
+    border-bottom: 8px solid violet;
+}
+  
+.hexa[data-color='violet']:after {
+    top: 100%;
+    width: 0;
+    border-top: 8px solid violet;
+}
+
+.hexa[data-color='vert'] {
+    background-color: green;
+}
+.hexa[data-color='vert']:before {
+    bottom: 100%;
+    border-bottom: 8px solid green;
+}
+  
+.hexa[data-color='vert']:after {
+    top: 100%;
+    width: 0;
+    border-top: 8px solid green;
+}
+
+.maree {
+    width: 0;    
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    left:-160px;
+
+} 
+.message {
+    
+    min-height: 40px;
+    display: none;
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    top :50%;
+    left: 50%;
+    margin: -100px 0 0 -200px;
+    padding: 60px;
+    font-size: 32px;
+    text-align: center;
+    box-sizing:  border-box;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.4);
+}
+
+/* *************** */
+
+body {
+    background-color: #7a5100;
+	background-image: url('../img/wood-pattern.png');
+	font-family: Helvetica, Arial, "Roboto", sans-serif;
+}
+
+main {
+    width: 1000px;
+    height: 1000px;
+    padding: 50px;
+    margin: 30px auto;
+    position: relative;
+}
+
+footer, header {
+	position: fixed;
+	left:0;
+	width: 100%;
+	height: auto;
+	padding: 8px;
+	background-color: #a5a5a5;
+	z-index: 5;
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+footer {
+	bottom: 0;
+}
+
+header {
+	top: 0;
+}
+
+header h1 {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 0 25px;
+    position: absolute;
+    font: 25px/40px  "Roboto", Helvetica, Arial, sans-serif;;
+    text-transform: uppercase;
+}
+
+
+#newGame {
+	background-color: rgba(255,255,255, .1);
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+#newGame button {
+	height: 40px;
+	margin: 5px 10px;
+	padding: 0;
+	display: inline-block;
+	border: 2px solid white; 
+	background-color: rgba(255,255,255, .5);
+	width: 150px;
+	border-radius: 18px; 
+}
+
+#newGame button:hover {
+    cursor: pointer;
+    background-color: rgb(92, 18, 40);
+	color: white;
+}
