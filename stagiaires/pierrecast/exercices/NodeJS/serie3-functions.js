@@ -40,10 +40,17 @@ console.log('2-Après  Modif : tab' , tab, ' - tabOut', tabOut);
 function orderMatriceOnFirstPlace(tabIn) {
     let tabOut = copyMatrice(tabIn);
     
-    return tabOut.sort();
+    return tabOut.sort(compareNumeric);
 }
-tab = [[3,2], [2,3], [1,8]];
+tab = [[15,2], [2,3], [1,8]];
 tabOut = orderMatriceOnFirstPlace(tab); 
 
 console.log('\nExercice 3');
 console.log('3- tab' ,  tab,' - tabOut', tabOut);
+
+function compareNumeric(a, b) {
+    if (a[0] > b[0]) return 1;
+    if (a[0] == b[0]) return 0;
+    if (a[0] < b[0]) return -1;
+}
+ 
