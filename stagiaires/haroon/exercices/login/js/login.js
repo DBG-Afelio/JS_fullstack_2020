@@ -28,9 +28,9 @@ inputedDate.addEventListener('input',()=>{
 inputedLogin.addEventListener('input',()=>{
     validateLogin(inputedLogin);
 })
-button.addEventListener('click',()=>{
-    
-    validateInput();x
+button.addEventListener('click',(e)=>{
+    e.preventDefault();
+    validateInput();
 })
 function validateInput() {
     if (!validateHaroon(inputValid)){
@@ -43,27 +43,23 @@ function validatefirstName(inputeFirst){
     console.log(firstNameValue);
     let FirstNameTrue= true ; 
     if (firstNameValue.trim()===''){
-        FirstNameTrue = false ; 
         inputeFirst.classList.add('valide');
         inputeFirst.classList.add('error-required');
-    
-    }
-    else{
+    } else{
         const validFirst=validetNom(firstNameValue);
-        if(validFirst===1){
+        if(validFirst === 1){
             document.getElementById("errorFirst-min").style.display = "block";
             FirstNameTrue = false
-        }
-        else if (validFirst===0){
+        } else if (validFirst===0){
             document.getElementById("errorFirst-max").style.display = "block";
             FirstNameTrue = false;
 
-        }
-        else if (validFirst===2){
-        document.getElementById("errorFirst-min").style.display = "none"; 
-        document.getElementById("errorFirst-max").style.display = "none";
+        } else if (validFirst===2){
+            document.getElementById("errorFirst-min").style.display = "none"; 
+            document.getElementById("errorFirst-max").style.display = "none";
     }
     }
+    return FirstNameTrue;
 }
 
 
@@ -76,30 +72,18 @@ function validateHaroon(inputedValue){
         falseTrue = false ; 
         inputedValue.classList.add('valide');
         inputedValue.classList.add('error-required');
-    
-    }
-    
-    else{
-    const valid = validetNom(value);
+    } else {
+        const valid = validetNom(value);
         if (valid === 1){
-            
             inputedValue.classList.add('invalide');
-            
             document.getElementById("error-min").style.display = "block"; 
-            
             falseTrue = false;
-        }
-        else if  (valid === 0){
-           
+        } else if  (valid === 0){
             inputedValue.classList.add('invalide');
-            
             document.getElementById("error-max").style.display = "block";
             falseTrue = false;
-        }
-        else if (valid ===2){
-
+        } else if (valid ===2){
             inputedValue.classList.add('valide');
-            
             document.getElementById("error-min").style.display = "none"; 
             document.getElementById("error-max").style.display = "none";
         }
@@ -112,27 +96,25 @@ function validateHaroon(inputedValue){
             console.log(mail.value);
             console.log(emailTest.test(mail.value));
             return emailTest.test(mail.value);
+    }
 
-        }
-        function validatePhone(number){
-            const phoneTest=/^((\+|00(\s|\s?\-\s?)?)32(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9])((\s|\s?-\s?)?[0-9])((\s|\s?-\s?)?[0-9])\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]$/;
-            console.log(number.value.length);
-            
-                console.log(number.value);
-                console.log(phoneTest.test(number.value));
-                return phoneTest.test(number.value);                
-
-            }
+    function validatePhone(number){
+        const phoneTest=/^((\+|00(\s|\s?\-\s?)?)32(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9])((\s|\s?-\s?)?[0-9])((\s|\s?-\s?)?[0-9])\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]$/;
+        console.log(number.value.length);
+        console.log(number.value);
+        console.log(phoneTest.test(number.value));
+        return phoneTest.test(number.value);                
+    }
         
-            function validateDate(newdate){
-                
-            }
-            function validateLogin(login){
-                console.log(login.value);
-                const loginTest= /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
-                console.log(loginTest.test(login.value));
+    function validateDate(newdate){
+        
+    }
 
-            }
+    function validateLogin(login){
+        console.log(login.value);
+        const loginTest= /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+        console.log(loginTest.test(login.value));
+    }
     
         function validetNom(name){
         
