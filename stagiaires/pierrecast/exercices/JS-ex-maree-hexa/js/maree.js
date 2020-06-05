@@ -126,7 +126,7 @@ function changeColor(oldColor, newColor, div){
     setCouleur(div, newColor); 
 
     let all = [getNW(div), getNE(div), getW(div), getE(div),getSW(div), getSE(div)];
-    //let all = [getBas(div)];
+
     all.forEach(carre => {   
         if (carre !== null) {
             let carreColor =  carre.getAttribute('data-color');    
@@ -191,7 +191,7 @@ function getSE(div) {
     let x = Number(div.getAttribute('data-ligne'));
     let y = Number(div.getAttribute('data-colonne'));
 
-    return getDiv(x+1, y);
+    return getDiv(x+1, y+1);
 }
 
 /**
@@ -202,7 +202,7 @@ function getSE(div) {
 function getSW(div) {
     let x = Number(div.getAttribute('data-ligne'));
     let y = Number(div.getAttribute('data-colonne'));
-    return getDiv(x+1, y-1);
+    return getDiv(x+1, y);
 }
 
 /**
@@ -211,11 +211,8 @@ function getSW(div) {
  * @param {number} colonne le numéro de colonne
  * @returns {HTMLDivElement | null} le div à gauche ou null
  */
-function getDiv(ligne, colonne) {
-    
-    let div = document.querySelector('[data-ligne="'+ligne+'"][data-colonne="'+colonne+'"]');
-   
-    return div;
+function getDiv(ligne, colonne) {    
+    return document.querySelector('[data-ligne="'+ligne+'"][data-colonne="'+colonne+'"]');
 }
 
 /**
