@@ -1,3 +1,12 @@
 /*
 CSS pour la mise en forme de la marée
 */
+.buttons, .maree {
+    display :grid;
+
+}
+.buttons > .carre {
+    width : 10px;
+    height : 10px;
+
+}

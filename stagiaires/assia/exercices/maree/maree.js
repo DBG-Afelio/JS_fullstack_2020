@@ -17,15 +17,21 @@ const colors = [
 ];
 const nbLines = 15;
 const nbColumns = 15;
-let grille = [lines, columns];
+let grille = [nbLines, nbColumns];
+let roundShots = 0;
 
+const newClickEvent = (e) => play(e.target.event.getAttribute('data-color'));
 
 /**
  * Fonctions appelée au click sur un bouton qui lance la marée, teste la victoire et compte les coups
  * fonction impure
  * @param {string} couleur 
  */
-function play(couleur) {}
+function play(couleur) {
+    generateMaree(colors, nbLines, nbColumns, mareeEl);
+    isWin(grille, couleur);
+    roundShots++;
+}
 
 
 /** 
@@ -44,7 +50,7 @@ function generateMaree(tabColors, lines, column, divParent) {
     for (let row = 0; row < lines; row++){
         for (let col = 0; col < column; col++){
             colorPicked = pickColor(tabColors);
-            createCell(divParent, row, col, colorPicked);
+            generateCell(divParent, row, col, colorPicked);
             grille[row][col] = colorPicked; 
         }
     }
@@ -60,17 +66,16 @@ function pickColor(tabColors) {
 }
 
 /**
- * Fonction qui cree 1 cellule (= 1 div enfant de divParent)
- * devrait me servir pour la creation des cases dans Maree et des 4 boutons de jeu
+ * Fonction qui genere 1 cellule (= 1 div enfant de divParent)
+ * et set ses attributs
  * @param {}  
  */
-function createCell(divParent, cellLine, cellColumn, cellColor) {
-    let cellEl = document.createElement('div');
+function generateCell(divParent, cellLine, cellColumn, cellColor) {
+    const cellEl = createDiv(divParent);
     cellEl.setAttribute('date-ligne', cellLine);
     cellEl.setAttribute('data-colonne', cellColumn);
     cellEl.setAttribute('data-color', cellColor);
     cellEl.classList.add('carre');
-    divParent.appendChild(cellEl);
 }
 
 /**
@@ -80,12 +85,21 @@ function createCell(divParent, cellLine, cellColumn, cellColor) {
  */
 function generateButtons(divParent, tabColors) {
     tabColors.forEach(color => {
-        let buttonEl = document.createElement('div');
+        let buttonEl = createDiv(divParent);
         buttonEl.setAttribute('data-color', color);
         buttonEl.classList.add('carre');
-        buttonEl.addEventListener('click', play); //a voir...
-        divParent.appendChild(buttonEl);
+        buttonEl.addEventListener('click', newClickEvent); //pas sure pour la fonction a executer...a voir...
     });
+}
+
+/**
+ * Fonction simple qui creee un div enfant a partir d'un Div Parent passé en parametre (ici va me servir pour les cases et buttons)
+ * @param {HTMLDivEleement} divParent 
+ */
+function createDiv(divParent) {
+    const childDiv = document.createElement('div');
+    divParent.appendChild(childDiv);
+    return childDiv;
 }
 
 /**
@@ -102,28 +116,36 @@ function changeColor(oldColor, newColor, div){}
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div du dessus ou null
  */
-function getHaut(div) {}
+function getHaut(div) {
+    return getDivFromCoord(getCoordFromDiv(div)[0] - 1, getCoordFromDiv(div)[1]);
+}
 
 /**
  * fonction renvoyant le div du dessous s'il existe
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div du dessous ou null
  */
-function getBas(div) {}
+function getBas(div) {
+    return getDivFromCoord(getCoordFromDiv(div)[0] + 1, getCoordFromDiv(div)[1]);
+}
 
 /**
  * fonction renvoyant le div à gauche s'il existe
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div à gauche ou null
  */
-function getGauche(div) {}
+function getGauche(div) {
+    return getDivFromCoord(getCoordFromDiv(div)[0], getCoordFromDiv(div)[1] - 1);
+}
 
 /**
  * fonction renvoyant le div à droite s'il existe
  * @param {HTMLDivElement} div 
  * @returns {HTMLDivElement | null} le div à droite ou null
  */
-function getDroite(div) {}
+function getDroite(div) {
+    return getDivFromCoord(getCoordFromDiv(div)[0], getCoordFromDiv(div)[1] + 1);
+}
 
 /**
  * fonction renvoyant le div sur base de son position ligne/colonne s'il existe
@@ -131,8 +153,17 @@ function getDroite(div) {}
  * @param {number} colonne le numéro de colonne
  * @returns {HTMLDivElement | null} le div ou null
  */
-function getDiv(ligne, colonne) {
+function getDivFromCoord(ligne, colonne) {
     return document.querySelector(`.carre[data-ligne="${ligne}"][data-colonne="${colonne}"]'`);
+}
+
+/**
+ * Fonction qui renvoit les coordonnes row col a partir d'un div
+ * @param {div} div 
+ * @returns {coord[rowCell,colCell]} couleur 
+ */
+function getCoordFromDiv(divCell) {
+    return [divCell.getAttribute('data-ligne'), divCell.getAttribute('data-colonne')];
 }
 
 /**
@@ -141,9 +172,7 @@ function getDiv(ligne, colonne) {
  * @param {string} couleur 
  */
 function setCouleur(div, couleur) {
-    let cellRow = div.getAttribute('data-ligne');
-    let cellCol = div.getAttribute('data-colonne');
-    grille[cellRow][cellCol] = couleur;
+    grille[div.getAttribute('data-ligne')][div.getAttribute('data-colonne')] = couleur;
     div.setAttribute('data-color', couleur);
 }
 
