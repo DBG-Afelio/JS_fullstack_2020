@@ -15,8 +15,8 @@ const colors = [
     'bleu',
     'violet'
 ];
-const nbLines = 15;
-const nbColumns = 15;
+const nbLines = 10;
+const nbColumns = 10;
 let grille = [nbLines, nbColumns];
 let roundShots = 0;
 
@@ -46,12 +46,13 @@ function play(couleur) {
 */
 function generateMaree(tabColors, lines, column, divParent) {
 
-    let colorPicked ; //= 'string'
+    let colorPicked = ''; 
     for (let row = 0; row < lines; row++){
         for (let col = 0; col < column; col++){
             colorPicked = pickColor(tabColors);
+         //   grille[row][col] = colorPicked;
             generateCell(divParent, row, col, colorPicked);
-            grille[row][col] = colorPicked; 
+            console.log(row, col);
         }
     }
     return grille;
@@ -72,7 +73,7 @@ function pickColor(tabColors) {
  */
 function generateCell(divParent, cellLine, cellColumn, cellColor) {
     const cellEl = createDiv(divParent);
-    cellEl.setAttribute('date-ligne', cellLine);
+    cellEl.setAttribute('data-ligne', cellLine);
     cellEl.setAttribute('data-colonne', cellColumn);
     cellEl.setAttribute('data-color', cellColor);
     cellEl.classList.add('carre');
@@ -98,7 +99,7 @@ function generateButtons(divParent, tabColors) {
  */
 function createDiv(divParent) {
     const childDiv = document.createElement('div');
-    divParent.appendChild(childDiv);
+    divParent.appendChild(childDiv); 
     return childDiv;
 }
 
@@ -183,6 +184,6 @@ function setCouleur(div, couleur) {
  * @returns {boolean}
  */
 function isWin(divs, couleur) {
-    return divs.some(row => row.some(cell => cell === couleur));
+   // return divs.some(row => row.some(cell => cell === couleur)); // genere une erreur console
 }
 

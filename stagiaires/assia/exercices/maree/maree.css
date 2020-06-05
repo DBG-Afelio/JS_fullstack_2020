@@ -1,12 +1,16 @@
 /*
 CSS pour la mise en forme de la marée
 */
-.buttons, .maree {
-    display :grid;
 
+.message {
+    display : block;
+    background-color: tomato;
 }
-.buttons > .carre {
-    width : 10px;
-    height : 10px;
-
+.maree {
+    display : block ;
+    background-color: blue;
+}
+.buttons {
+    display : block ;
+    background-color: yellow;
 }
