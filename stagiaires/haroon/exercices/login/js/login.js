@@ -2,6 +2,15 @@
 let button = document.getElementById("validerButton");
 let inputValid = document.getElementById("lastName");
 let firstName = document.getElementById("firstName");
+let inputedMail=document.getElementById('email');
+let inputedPhone = document.getElementById('phone');
+let inputedDate= document.getElementById('dateOfBirth');
+let inputedLogin= document.getElementById('login');
+
+
+inputedMail.addEventListener('input',()=>{
+    validateEmail(inputedMail);
+})
 
 inputValid.addEventListener('input',()=>{
     validateHaroon(inputValid);
@@ -10,9 +19,18 @@ inputValid.addEventListener('input',()=>{
 firstName.addEventListener('input',()=>{
     validatefirstName(firstName);
 })
+inputedPhone.addEventListener('input',()=>{
+    validatePhone(inputedPhone);
+})
+inputedDate.addEventListener('input',()=>{
+    validateDate(inputedDate);
+})
+inputedLogin.addEventListener('input',()=>{
+    validateLogin(inputedLogin);
+})
 button.addEventListener('click',()=>{
     
-    validateInput();
+    validateInput();x
 })
 function validateInput() {
     if (!validateHaroon(inputValid)){
@@ -60,6 +78,7 @@ function validateHaroon(inputedValue){
         inputedValue.classList.add('error-required');
     
     }
+    
     else{
     const valid = validetNom(value);
         if (valid === 1){
@@ -88,6 +107,33 @@ function validateHaroon(inputedValue){
         return falseTrue ;
         
     }
+    function validateEmail(mail){
+        const emailTest= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            console.log(mail.value);
+            console.log(emailTest.test(mail.value));
+            return emailTest.test(mail.value);
+
+        }
+        function validatePhone(number){
+            const phoneTest=/^((\+|00(\s|\s?\-\s?)?)32(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9])((\s|\s?-\s?)?[0-9])((\s|\s?-\s?)?[0-9])\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]\s?[0-9]$/;
+            console.log(number.value.length);
+            
+                console.log(number.value);
+                console.log(phoneTest.test(number.value));
+                return phoneTest.test(number.value);                
+
+            }
+        
+            function validateDate(newdate){
+                
+            }
+            function validateLogin(login){
+                console.log(login.value);
+                const loginTest= /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+                console.log(loginTest.test(login.value));
+
+            }
+    
         function validetNom(name){
         
             if (name.length > 5 ){
