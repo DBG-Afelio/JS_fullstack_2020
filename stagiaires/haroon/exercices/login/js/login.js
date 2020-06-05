@@ -107,12 +107,15 @@ function validateHaroon(inputedValue){
     }
         
     function validateDate(newdate){
+        // valider la date
+        // valider >= 18 ans
+        // valider <= 65 ans
         
     }
 
     function validateLogin(login){
         console.log(login.value);
-        const loginTest= /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+        const loginTest= /^[a-zA-Z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]*$/;
         console.log(loginTest.test(login.value));
     }
     
