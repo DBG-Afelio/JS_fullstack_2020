@@ -102,7 +102,7 @@ function validate(submitBtn, nameF, firstNameF, dateF, nationF, sexF, statusAutr
 
         let ageTimeMs = today.getTime() - new Date(date.valueAsDate).getTime(); //en ms
         let ageFloat = ageTimeMs / 1000 / 60 / 60 / 24 / 365; //en 'annee,decimale'
-        let age = Math.floor(ageFloat);
+        let age = Math.floor(ageFloat) + ' ans';
 
         myOutputs[0].value = nom.value;
         myOutputs[1].value = prenom.value;
@@ -181,7 +181,7 @@ function validateFieldTel(telField) {
  * @returns boolean
  */
 function isTelValid(telNumber) {
-    const patternTel = new RegExp(/(?:(^([+32]{3}|[0032]{4}|[0])([1-9])([0-9]{5,8})$))/g);
+    const patternTel = new RegExp(/^(\+32|0032|0)([1-9][0-9]{5,8})$/g);
     const isValid = patternTel.test(telNumber); console.log('isTelValid fct ? : ' +isValid);
     return isValid;
 }
@@ -344,9 +344,9 @@ function pwdConfStatus(pwd1, pwd2) {
 function getPasswordStrength(password) {  
     console.log(password);
 
-    let matchAZ = password.match(/[a-zA-Z]/); console.log('AZ'+matchAZ);
-    let match09 = password.match(/[0-9]/); console.log('09'+match09);
-    let matchSi = password.match(/[!$-_]/); console.log('sign'+matchSi);
+    //let matchAZ = password.match(/[a-zA-Z]/); console.log('AZ'+matchAZ);
+   // let match09 = password.match(/[0-9]/); console.log('09'+match09);
+   // let matchSi = password.match(/[!$-_]/); console.log('sign'+matchSi);
 
     let isLetters = password.match(/[a-zA-Z]/) !== null ? 1 : 0; console.log(isLetters);
     let isDigits = password.match(/[0-9]/) !== null ? 1 : 0; console.log(isDigits);
@@ -354,24 +354,7 @@ function getPasswordStrength(password) {
     return (isLetters + isDigits + isSymbols);    
 }
 
-/*
-function getPasswordStrength(password) {
-    const regex = RegExp(/(?<letters>[a-zA-Z])*(?<digits>[0-9])*(<symbols>[-_!$])/); *
 
-    const matches = password.match(regex);
-    console.log(matches);
-
-    const isLetters = matches.groups.letters; console.log(isLetters);
-    const isDigits = matches.groups.digits; console.log(isDigits);
-    const isSymbols = matches.groups.symbols; console.log(isSymbols);
-    
-    let l = isLetters != undefined ? 1 : 0; console.log(l);
-    let d = isDigits != undefined ? 1 : 0; console.log(d);
-    let s = isSymbols != undefined ? 1 : 0; console.log(s);
-    return l + d + s;
-    
-}
-*/
 
 /**
  * Fonction qui valide les regles du LOGIN ou du MOT DE PASSE
@@ -441,7 +424,8 @@ function validateFieldEmail(emailField) {
  * @returns boolean
  */
 function isEmailValid(email) {
-    const emailReg = new RegExp(/^([\w-\.]+)@((?:[\w-]+\.)+)([a-zA-Z]{2,})/i);
+    //(/^([\w-\.]+)@((?:[\w-]+\.)+)([a-zA-Z]{2,})/i)
+    const emailReg = new RegExp(/^\w+(\.\w+)*(\-\w+)*@\w+(\.\w+)*(\.[a-zA-Z]{2,})$/);
     const isValid = emailReg.test(email);
     return isValid;
 }
@@ -556,23 +540,25 @@ function validateFieldDate(dateField) {
  * Fonction validant les règles du champ date
  */
 function validateDate(date) {
-    let ageTime = today.getTime() - new Date(date).getTime(); //en ms
-    let age = ageTime / 1000 / 60 / 60 / 24 / 365; //en 'annee,decimale'
-
+  //  let ageTime = today.getTime() - new Date(date).getTime(); //en ms
+  //  let age = ageTime / 1000 / 60 / 60 / 24 / 365; //en 'annee,decimale'
+    const dateMs = new Date(date).getTime();
+   
     const january = new Date('01/01/'+today.getFullYear()); //date a partir de laquelle on verfie que l'age soit >18 ou <67
-    let ageJanuaryTime = january.getTime() - new Date(date).getTime(); //age de la personne au 1/1/annee en cours (ms)
+    let ageJanuaryTime = january.getTime() - dateMs; //age de la personne au 1/1/annee en cours (ms)
     let ageJanuary = ageJanuaryTime / 1000 / 60 / 60 / 24 / 365; // en annee
 
-    if (isValidDate(date) && age >= 18 && ageJanuary < 67) {
+    if (ageJanuary >= 18 && ageJanuary < 67) {
         return 0;
-    } else if (!isValidDate(date)) {
+    } else if (dateMs > today.getTime()) {
         return 1;
-    } else if (age < 18) {
+    } else if (ageJanuary < 18) {
         return 2;
     } else {
         return 3;
     }
 }
+/*
 function isValidDate(date) {
     //valide la veracite de la valeur date (exclue 32 janvier par ex...) et que date ne soit pas dans le futur
     date = new Date(date);
@@ -590,3 +576,4 @@ function isBissextile(year) {
     //permettra de definir le dernier jour de Fevrier (28 ou 29) en fonction de l'annee entree en param
     return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
+*/
