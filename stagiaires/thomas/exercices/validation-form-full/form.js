@@ -25,7 +25,7 @@ function checkName(champ) {
 
    const icoImg = document.querySelector("[name='"+ champ.name +"']+.ico-input");
    const errorContainer = document.querySelector("[name='"+ champ.name +"']~.alert-message");
-   const errorMessage = document.querySelector("[name='"+ champ.name +"']~.alert-message > .message-to-insert")
+   const errorMessage = document.querySelector("[name='"+ champ.name +"']~.alert-message > .message-to-insert");
 
      if (champ.value.length === 0) {
 
@@ -109,7 +109,42 @@ function generateUserLogin(nom, prenom) {
 
 }
 
-function checkMail() {
+function checkMail(champ) {
+
+    const icoImg = document.querySelector("[name='"+ champ.name +"']+.ico-input");
+    const errorContainer = document.querySelector("[name='"+ champ.name +"']~.alert-message");
+    const errorMessage = document.querySelector("[name='"+ champ.name +"']~.alert-message > .message-to-insert");
+
+
+    if (champ.value.length === 0) {
+
+        if(champ.hasAttribute("required")) {
+            icoImg.classList.remove("valide");
+            icoImg.classList.add("warning");
+            errorContainer.classList.add("visible");
+            errorMessage.textContent = "champ obligatoire";
+        } else {
+            icoImg.classList.remove("valide");
+            icoImg.classList.add("warning");
+            errorContainer.classList.add("visible");
+            errorMessage.textContent = "champ vide";
+        }
+
+    } else {
+
+            if(champ.value.length >= 3 && champ.value.length <= 50) {
+                icoImg.classList.remove("warning");
+                icoImg.classList.add("valide");
+                errorContainer.classList.remove("visible");
+            } else {
+                icoImg.classList.remove("valide");
+                icoImg.classList.add("warning");
+                errorContainer.classList.add("visible");
+                errorMessage.textContent = "Votre champ doit contenir entre 3 et 50 caractères";   
+            }
+
+        }
+
    
     if(email.value.length === 0) {
         email.style.borderColor = "lightslategray"
