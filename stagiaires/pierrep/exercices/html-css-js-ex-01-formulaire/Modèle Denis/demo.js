@@ -66,3 +66,5 @@ function validateName(name) {
         return 2;
     }
 }
+
+console.log(fieldName.classList);
