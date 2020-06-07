@@ -1,0 +1,119 @@
+Ecrire le programme qui déplace les valeurs d’un tableau carré d’un quart de tour dans le sens horlogique.
+• Version 1 : utilisation d’un tableau intermédiaire de même taille
+• Version 2 : utilisation d’une seule variable intermédiaire. 
+
+DEBUT 7-5a
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tab :N[n, n]
+        VAR tab2 :N[n, n]
+        VAR i :N <- 1
+        VAR j :N <- 1
+    FIN VARIABLES LOCALES
+
+    i <- 1
+    POUR i ALLANT DE 1 A n
+        j<- 1
+        POUR j ALLANT DE 1 A n
+            tab2[j, n+1-i] <- tab[i,j] 
+        j SUIVANT
+    i SUIVANT
+
+FIN 7-5a
+
+
+DEBUT 7-5b
+    VARIABLES LOCALES :
+        CONST n:N <- 6
+        VAR tab :N[n, n]
+        VAR int :N <- 0
+        VAR k :N <- 0
+        VAR i :N <- 1
+        VAR j :N <- 1
+        VAR l :N <- 1
+        VAR cpt :N 
+    FIN VARIABLES LOCALES
+
+    cpt <- 1
+    POUR cpt ALLANT DE 1 à n-1
+        i <- 1
+        j <- cpt
+        int <- tab[i,j]
+        k <- 0
+        TANTQUE (k < 4)
+            tab[i,j] <- tab[n+1-j, i]
+            l <- i
+            i <- n+1-j
+            j <- l
+            k <- k + 1
+        FIN TANT QUE
+        tab[i,j] <- int
+    cpt SUIVANT
+    
+FIN 7-5b
+
+
+
+[1,2,3], 
+[4,5,6], 
+[7,8,9]
+
+n = 3
+===> CPT 1
+INITIALISATION
+
+CPT K   I J L   INT     TAB                             n+1-j
+1   0   1 1 1   0       [[1,2,3], [4,5,6], [7,8,9]]     3+1-1 = 3  
+
+=> FIN DU WHILE k=1     (3-1 => 1-1)
+
+CPT K   I J L   INT     TAB 
+1   1   3 1 1   1       [[7,2,3], [4,5,6], [7,8,9]]     3+1-1 = 3  
+
+=> FIN DU WHILE k=2     (3-3 => 3-1)
+
+CPT K   I J L   INT     TAB 
+1   2   3 3 3   1       [[7,2,3], [4,5,6], [9,8,9]]     3+1-3 = 1  
+
+=> FIN DU WHILE k=3     (1-3 => 3-3)
+
+CPT K   I J L   INT     TAB 
+1   3   1 3 3   1       [[7,2,3], [4,5,6], [9,8,3]]     3+1-3 = 1
+
+SORTIE DU WHILE
+CPT K   I J L   INT     TAB 
+1   4   1 3 3   1       [[7,2,1], [4,5,6], [9,8,3]]     
+
+
+
+
+===> CPT 2
+INITIALISATION
+
+CPT K   I J L   INT     TAB 
+2   0   1 2 3   1       [[7,2,1], [4,5,6], [9,8,3]]     3+1-2 = 2
+
+
+=> FIN DU WHILE k=1     (2-1 => 1-2)
+
+CPT K   I J L   INT     TAB 
+2   1   2 1 1   2       [[7,4,1], [4,5,6], [9,8,3]]     3+1-1 = 3  
+
+=> FIN DU WHILE k=2     (3-2 => 2-1)
+
+CPT K   I J L   INT     TAB 
+2   2   3 2 2   2       [[7,4,1], [8,5,6], [9,8,3]]     3+1-2 = 2  
+
+=> FIN DU WHILE k=3     (2-3 => 3-2)
+
+CPT K   I J L   INT     TAB 
+2   3   2 3 3   2       [[7,4,1], [8,5,6], [9,6,3]]     3+1-3 = 1
+
+SORTIE DU WHILE
+CPT K   I J L   INT     TAB 
+2   4   2 3 3   2       [[7,4,1], [8,5,2], [9,6,3]]    
+
+
+[7,4,1], 
+[8,5,2], 
+[9,6,3]
