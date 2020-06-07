@@ -1,8 +1,11 @@
 let tabmp = ['gtr_342', 'fde_765', 'Yht_897', 'Ygh_034'];
 
 document.getElementById('sub').addEventListener('click', execute);
-document.getElementById('sugg').addEventListener('click', suggestionlogin);
+document.getElementById('sugg').addEventListener('click', suggestion);
 
+function suggestion(){
+    suggestionlogin(tabmp);
+}
 
 function execute (){
     let NOM = document.getElementById('nom').value;
@@ -115,7 +118,7 @@ function tel(TEL){
 function mail(MAIL){
     document.getElementById('iconee').value = "❌";
     const carac = /^\w+(\.\w+)*@\w+(\.\w+)*\.\w{2,}$/;
-    if (carac.test(MAIL) == false ) {
+    if (carac.test(MAIL) === false ) {
         return "L'email ne respecte pas le format";
     } else {
         document.getElementById('iconee').value = "✅";
@@ -125,43 +128,70 @@ function mail(MAIL){
 
 function login(LOGIN,tabmp){
     document.getElementById('iconetxt').value = "❌";
-    if (LOGIN.length == 0) {
+    if (LOGIN.length === 0) {
         return "Veuillez complèter ce champ merci"
     } else {
         if (LOGIN.length < 6 || LOGIN.length >10) {
             return "Le login doit contenir entre 6 et 10 caractères";
         } else {
-            let q = 0;
-            for ( let i = 0; i < tabmp.length; i++) {
-                if (LOGIN == tabmp[i]) {
-                    return "Mot de passe déjà existant! Veuillez en choisir un autre";
+            let i = 0;
+            while ( i < tabmp.length) {
+                if (LOGIN === tabmp[i]) {
+                    return "Login déjà existant! Veuillez en choisir un autre";
                 }
-                q++;
+                i++;
             }
-            if (q == tabmp.length) {
-                document.getElementById('iconetxt').value = "✅";
-                return "";
-            }
+    
+            document.getElementById('iconetxt').value = "✅";
+            return "";
         }
     }
     
 }
 
-function suggestionlogin (){
+function suggestionlogin(tabmp){
     let sugnom = document.getElementById('nom').value;
-    let sugprenom = document.getElementById('prenom').value;
+    if (sugnom.length === 0) {
+        document.getElementById('replogin').value = "Veuillez entre un nom pour bénéficier de la suggestion";
+    } else {
+        let sugprenom = document.getElementById('prenom').value;
 
-    let newnom = sugnom.slice(0, 2);
-    let newprenom = sugprenom.slice(0, 1);
-    let a = Math.floor(Math.random()*1000);
+        let newnom = sugnom.slice(0, 2);
+        let newprenom = sugprenom.slice(0, 1);
+        let log = false;
+        let newlogin = "";
 
-    if ( a < 100) {
-        a = ("0"+a);
+        while (log === false){
+            let a = Math.floor(Math.random()*1000);
+
+            if ( a < 100) {
+                a = ("0"+a);
+            }
+
+            if ( a < 10) {
+                a = ("00"+a);
+            }
+
+            newlogin = (newprenom+newnom+"_"+a);
+            console.log(newlogin);
+
+            let i = 0;
+            while ( i < tabmp.length) {
+                if (newlogin === tabmp[i]) {
+                    log = false;
+                }
+                i++;
+            }
+
+            console.log(i);
+            if ( i === tabmp.length) {
+                log = true;
+            }
+        }
+        document.getElementById('login').value = newlogin;
+        
     }
-
-    let newlogin = (newprenom+newnom+"_"+a);
-
-    document.getElementById('login').value = newlogin;
+    
 }
 
 function mp(MP1){
