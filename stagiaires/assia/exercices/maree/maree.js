@@ -15,24 +15,35 @@ const colors = [
     'bleu',
     'violet'
 ];
-const nbLines = 10;
-const nbColumns = 10;
-let grille = [nbLines, nbColumns];
+const nbLines = 15;
+const nbColumns = 15;
+let grille = [[],[]];
 let roundShots = 0;
 
+begin();
 const newClickEvent = (e) => play(e.target.event.getAttribute('data-color'));
 
 /**
- * Fonctions appelée au click sur un bouton qui lance la marée, teste la victoire et compte les coups
+ * Fonction qui lance le jeu (1shot au chargement du nav)
+ *   
+ */
+function begin() {
+    generateButtons(buttonsEl, colors);
+    generateMaree(colors, nbLines, nbColumns, mareeEl);
+    messageEl.classList.add('msg-invisible');
+}
+/**
+ * Fonctions appelée au click sur un bouton qui maj la marée, teste la victoire et compte les coups
  * fonction impure
  * @param {string} couleur 
  */
-function play(couleur) {
-    generateMaree(colors, nbLines, nbColumns, mareeEl);
+function play(couleur) {  
     isWin(grille, couleur);
     roundShots++;
+    const myDivRef = getDivFromCoord(0, 0);
+    let myDivRefColor = myDivRef.getAttribute('data-color');
+    myDivRefColor === couleur ? '' : changeColor(myDivRefColor, couleur, myDivRef);
 }
-
 
 /** 
 * fonctions générant les divs dans l'HTML sur base du nombre de lignes et de colonnes passées en paramètres
@@ -45,14 +56,13 @@ function play(couleur) {
 *           <div class="carre" data-ligne="2" data-colonne="4" data-color='rouge'></div>
 */
 function generateMaree(tabColors, lines, column, divParent) {
-
     let colorPicked = ''; 
     for (let row = 0; row < lines; row++){
         for (let col = 0; col < column; col++){
             colorPicked = pickColor(tabColors);
-         //   grille[row][col] = colorPicked;
+            grille[row][col] = colorPicked;
             generateCell(divParent, row, col, colorPicked);
-            console.log(row, col);
+            console.log(row, col, colorPicked);
         }
     }
     return grille;
@@ -89,7 +99,7 @@ function generateButtons(divParent, tabColors) {
         let buttonEl = createDiv(divParent);
         buttonEl.setAttribute('data-color', color);
         buttonEl.classList.add('carre');
-        buttonEl.addEventListener('click', newClickEvent); //pas sure pour la fonction a executer...a voir...
+ //       buttonEl.addEventListener('click', newClickEvent); 
     });
 }
 
@@ -110,7 +120,18 @@ function createDiv(divParent) {
  * @param {string} newColor nouvelle couleur
  * @param {HTMLDivElement} div le div qui doit changer de couleur
  */
-function changeColor(oldColor, newColor, div){}
+function changeColor(oldColor, newColor, div) {
+    setCouleur(div, newColor);
+    let listOfchange = [[0, 0],[]];
+    if () {
+        listOfChange.push()
+    } else {
+        
+    }
+    div.setAttribute('data-color', newColor);
+        (getHaut(div))
+    }
+}
 
 /**
  * fonction renvoyant le div du dessus s'il existe
@@ -184,6 +205,6 @@ function setCouleur(div, couleur) {
  * @returns {boolean}
  */
 function isWin(divs, couleur) {
-   // return divs.some(row => row.some(cell => cell === couleur)); // genere une erreur console
+    return divs.every(row => row.every(cell => cell === couleur)); // genere une erreur console
 }
 

@@ -4,13 +4,40 @@ CSS pour la mise en forme de la marée
 
 .message {
     display : block;
-    background-color: tomato;
+    background-color: cyan;
 }
 .maree {
-    display : block ;
+    display : grid ;
+    grid-gap: 0.5em;
+    justify-content: space-evenly;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    background-color: black;
+}
+div[data-color='rouge']{
+    background-color: red;
+}
+div[data-color='vert']{
+    background-color: green;
+}
+div[data-color='bleu']{
     background-color: blue;
 }
+div[data-color='violet']{
+    background-color: violet;
+}
 .buttons {
-    display : block ;
+    display : grid;
+    grid-template: 4 1;
     background-color: yellow;
+}
+.buttons > * {
+    height: 20px;
+    width: 20px;
+}
+.message.visible {
+    display: block;
+}
+.message.invisible {
+    display:none;
 }
