@@ -1,0 +1,7 @@
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input{
+    border-radius: 5px;
+}

@@ -1,0 +1,80 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+        var tab :N <- []
+        var userSaisie :N <- 0
+        var minVal :N <- 0
+        var maxVal :N <- 0
+        var firstMaxPos :N <- 0
+        var lastMaxPos :N <- 0
+        var firstMinPos :N <- 0
+        var lastMinPos :N <- 0
+        var minOccur :N <- 0
+        var maxOccur :N <- 0
+        var i :N <- 1
+        var j :N <- 0
+        var k :N <- 0 
+
+    FIN VARIABLE LOCALES
+
+    // Boucles pour remplir le tableau des valeurs entrés par l'utilisateur 
+
+    TANTQUE userSaisie != 100
+
+        AFFICHER("Entrer nombre")
+        SAISIR userSaisie
+        tab[i] <- saisie
+
+        i <- i + 1   
+    FINTANTQUE
+
+    minVal <- tab[1]
+    maxVal <- tab[1]    
+
+    // MINIMUM - MAXIMUM
+
+    POUR j ALLANT DE 1 a longeur(tab)
+    
+        SI tab[j] < minVal ALORS
+            minVal <- tab[j]
+        SINON SI tab[j] > maxVal ALORS 
+            maxVal <- tab[j]
+        FINSI
+
+    FINPOUR
+
+    // OCCURENCES ET POSITIONS
+
+    POUR k ALLANT DE 1 a longeur(tab)
+
+        SI tab[k] = maxVal ALORS
+
+           SI firstMaxPos = 0 ALORS 
+            firstMaxPos <- k
+           FINSI
+
+           lastMaxPos <- k 
+           maxOccur <- maxOccur + 1    
+        FINSI
+
+        SI tab[k] = minVal ALORS
+
+           SI firstMinPos = 0 ALORS 
+            firstMinPos <- k
+           FINSI
+
+           lastMinPos <- k 
+           minOccur <- minOccur + 1    
+        FINSI
+
+    FINPOUR
+
+    AFFICHER("la position du premier maximum : ", firstMaxPos)
+    AFFICHER("la position du dernier maximum : ", lastMaxPos)
+    AFFICHER("la position du premier maximum : ", firstMinPos)
+    AFFICHER("la position du dernier maximum : ", lastMinPos)
+    AFFICHER("le nombre d'occurrences du maximum : ", maxOccur)
+    AFFICHER("le nombre d'occurrences du minimum : ", minOccur)
+
+FIN PROGRAMME
