@@ -1,19 +1,19 @@
 
 let button = document.getElementById("validerButton");
-let inputValid = document.getElementById("lastName");
+let inputLastName = document.getElementById("lastName");
 let firstName = document.getElementById("firstName");
 let inputedMail=document.getElementById('email');
 let inputedPhone = document.getElementById('phone');
 let inputedDate= document.getElementById('dateOfBirth');
 let inputedLogin= document.getElementById('login');
-
+let inputedPassword=document.getElementById('password');
 
 inputedMail.addEventListener('input',()=>{
     validateEmail(inputedMail);
 })
 
-inputValid.addEventListener('input',()=>{
-    validateHaroon(inputValid);
+inputLastName.addEventListener('input',()=>{
+    validateLastName(inputLastName);
 
 })
 firstName.addEventListener('input',()=>{
@@ -28,12 +28,15 @@ inputedDate.addEventListener('input',()=>{
 inputedLogin.addEventListener('input',()=>{
     validateLogin(inputedLogin);
 })
+inputedPassword.addEventListener('input',()=>{
+    validatePassword(inputedPassword);
+})
 button.addEventListener('click',(e)=>{
     e.preventDefault();
     validateInput();
 })
 function validateInput() {
-    if (!validateHaroon(inputValid)){
+    if (! validateLastName(inputValid)){
     
     alert ('Error message');
     } 
@@ -63,7 +66,7 @@ function validatefirstName(inputeFirst){
 }
 
 
-function validateHaroon(inputedValue){
+function  validateLastName(inputedValue){
     const value = inputedValue.value;
     let falseTrue = true ; 
     inputedValue.classList.remove('valide');
@@ -106,22 +109,69 @@ function validateHaroon(inputedValue){
         return phoneTest.test(number.value);                
     }
         
-    function validateDate(newdate){
-        // valider la date
-        // valider >= 18 ans
-        // valider <= 65 ans
-        
+    function validateDate(newDate){
+        var currentDate = new Date() ;
+        var currentYear = currentDate.getFullYear();
+        var currenMonth = currentDate.getMonth()+1;
+        var currentDay = currentDate.getDate(); 
+        var birhtDate =new Date (newDate.value);        
+        var birthYear = birhtDate.getFullYear();
+        var birthMonth = birhtDate.getMonth()+1;
+        var birthDay = birhtDate.getDate();
+        var ageYear = currentYear - birthYear ;
+        var ageMonth = currenMonth - birthMonth ;
+        var ageDay = currentDay - birthDay ;
+
+        if (ageYear > 65 ){
+            document.getElementById("wrong").style.display = "block";
+            document.getElementById("correct").style.display = "none";
+        }
+        else if  (ageYear == 18){
+            if(ageMonth < 0){
+                document.getElementById("wrong").style.display = "block";
+                document.getElementById("correct").style.display = "none";
+            }
+                else if (ageMonth == 0 && ageDay < 0 ){
+                    document.getElementById("wrong").style.display = "block";
+                    document.getElementById("correct").style.display = "none";
+                }
+                else {
+                    document.getElementById("wrong").style.display = "none";
+                    document.getElementById("correct").style.display = "block";
+                }
+            }
+        else if (ageYear > 18){
+            document.getElementById("wrong").style.display = "none";
+            document.getElementById("correct").style.display = "block";
+        }
     }
+        
 
     function validateLogin(login){
         console.log(login.value);
-        const loginTest= /^[a-zA-Z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]*$/;
+        const loginTest= /^[a-zA-Z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]{6,10}$/;
         console.log(loginTest.test(login.value));
+        return loginTest.test(login.value);
     }
-    
+    function validatePassword(password){
+        let pV = password.value;
+        const numbersTest = /^\d{6,10}$/;
+        const lettersTest=/^[a-zA-Z]{6,10}$/
+        const passwordTest=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,10}$/;
+        let pT =passwordTest.test(pV);
+        let lT=lettersTest.test(pV);
+        let nT=numbersTest.test(pV)
+        
+        if(pT==true){
+            console.log("Strong Password");
+        }
+        else if (lT == true && nT==true ){
+            console.log("good Password");
+        }
+    }
         function validetNom(name){
         
-            if (name.length > 5 ){
+            if (name.length > 50 ){
                 return 0 ;
             }
             else if  (name.length < 3 ){

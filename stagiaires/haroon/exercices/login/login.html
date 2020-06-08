@@ -22,8 +22,12 @@
                 <div class="error-message error-max-length" id="errorFirst-max">le nom doit être au maximum de 50 caractères</div>
             <input type="email" data-pristine="true"  id="email"  placeholder="email"><br><br>
             <input type="tel" data-pristine="true"  id="phone"  placeholder="Telephone"><br><br>
-            <input type="date" data-pristine="true"  id="dateOfBirth"  placeholder="date of birth" required><br><br>
+            <input type="date" data-pristine="true"  id="dateOfBirth"  placeholder="date of birth" required><span id="correct">V</span>
+            <span id="wrong">X</span><br><br>
             <input type="text" data-pristine="true"  id="login"  placeholder="login" required><br><br>
+            <input type="password" data-pristine="true"  id="password"  placeholder="Mot de pass" required>
+            <span id="weak">faible</span><span id="medium">moyen</span><span id="strong">fort</span>
+            
             <input type="submit" value="Valider" id="validerButton" >
             
     </div>
