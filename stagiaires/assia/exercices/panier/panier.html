@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="source/panier.css">
+    <title>Panier</title>
+</head>
+<body>
+    <form>
+        <div class='photo-list articles'>
+            <div class='list-entete'>
+                <output class='output-panier-quantite'>Nombre d'articles</output>
+                <output class='output-panier-montant-total'>Total</output>
+            </div>
+            <!-- ici je viens generer mes articles dispo a la vente -->
+        </div>
+        <div class='photo-titre'></div>
+        <div class='photo-img-details'></div>
+        <div class='photo-auteur-pays'></div>
+        <div class='photo-comments'></div>
+        <div class='photo-prix'></div>
+        <div class='user-inputs'>
+            <input type='number' class='input-photo-quantite'>Quantité</input>
+            <input type='submit' class='btn-commander' value='Commander'></input>
+        </div>
+
+    </form>
+
+
+    <script src="source/sourceJSON.js"></script>
+    <script src="source/panier.js"></script>
+    
+</body>
+</html>
