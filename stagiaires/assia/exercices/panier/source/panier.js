@@ -1,18 +1,19 @@
 let listEl = document.querySelector('.photo-list');
-let quantiteInput_el = document.querySelector('.input-photo-quantite');
-let commanderBtn_el = document.querySelector('.btn-commander');
+let myForm = document.querySelector('.form'); console.log(myForm.querySelector('.photo-img-details'));
+let quantiteInputEl = document.querySelector('.input-photo-quantite');
+let commanderBtnEl = document.querySelector('.btn-commander');
 //console.log(tab_img);
-displayArticles_El(listEl);
-/*
 const selectArticle = (e) => {
-    updateView(e.target.dataset.id);
+    updateView(Number(e.target.closest('.articles').dataset.id), myForm);
 };
-
 
 const mouseOverArticle = (e) => {
-    e.target.style.backgroundColor='#ccc';
+    e.target.classList.add('surbrillance');
 };
-*/
+const mouseOutArticle = (e) => {
+    e.target.classList.remove('surbrillance')
+}
+displayArticles_El(listEl);
 
 function displayArticles_El(parentEl) {
     tab_img.forEach(articleObj => {
@@ -20,8 +21,9 @@ function displayArticles_El(parentEl) {
         parentEl.append(articleEl);
         articleEl.setAttribute('data-id', articleObj.id);
         articleEl.classList.add('articles');
-      //  articleEl.addEventListener('mouseover', mouseOverArticle);
-      //  articleEl.addEventListener('click', selectArticle);
+        articleEl.addEventListener('mouseover', mouseOverArticle);
+        articleEl.addEventListener('mouseout', mouseOutArticle);
+        articleEl.addEventListener('click', selectArticle);
 
         let articleImage = document.createElement('img');
         articleImage.src = `img/${articleObj.image.petite}`;
@@ -34,13 +36,18 @@ function displayArticles_El(parentEl) {
         let articlePrix = document.createElement('div');
         articlePrix.textContent = articleObj.Prix;
         articleEl.append(articlePrix);
-
-       
-    })
+    });
 }
 
-function updateView(articleId) {
-    console.log(articleId);
+function updateView(articleId, parentEl) {
+
+    let thisArticle = tab_img.filter(articleObj => Number(articleObj.id) === articleId);
+    parentEl.querySelector('.photo-titre').textContent = thisArticle.titre;
+    parentEl.querySelector('.photo-img-details').src = `img/${thisArticle.image.moyenne}`;
+    parentEl.querySelector('.photo-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
+    parentEl.querySelector('.photo-comments').textContent = thisArticle.commentaire;
+    parentEl.querySelector('.photo-prix').textContent = thisArticle.Prix;
+
 }
 
 

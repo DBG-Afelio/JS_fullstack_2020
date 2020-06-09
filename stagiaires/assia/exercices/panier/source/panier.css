@@ -1,28 +1,52 @@
 body{
-    
+    background-color: white;
     display:flex;
     flex-direction: row;
 }
-form{
+.banner{
     position:fixed;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+    background-color:#def;
+    background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+    radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+    background-size:80px 80px;
+    background-position:0 0, 40px 40px;
+}
+
+form{
+    border-style: dotted;
+    position:fixed;
+    z-index: 2;
+    left: 50px;
+    top: 200px;
 }
 .photo-list{
     position: absolute;
+    top:120px;
     right : 10px ;
+ 
     width: 400px;
     display:flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 20px;
-    background-color: cyan;
+    padding-left: 10px;
+    background-color:#9AA6B1;
 }
 .photo-list > div{
-    
-    background-color: rgb(217, 0, 255);
+    width: 100%;
+    background-color: #9AA6B1;
+    color:black;
 }
 .articles{
-    width:100%;
     display:flex;
     justify-content: space-between;
     align-items: center;
+}
+.articles.surbrillance {
+    border: solid;
+
 }
