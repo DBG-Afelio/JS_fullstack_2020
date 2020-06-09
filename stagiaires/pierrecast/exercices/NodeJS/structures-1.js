@@ -187,40 +187,33 @@ tests.push(['pizzaGratuite', deepEqual(pizzaGratuite(clients, 5, 100), [])]);
 
 //*****************************************************************************************************************************
 //    Ecrire une fonction qui prend un tableau de groupes, et un tableau d'etudiants, et qui renvoie un tableau des groupes "fusionnés" avec les étudiants.
-//
-//   groupesAvecEtudiants([
-//     {
-//       id: 1,
-//       name: "GROUP1",
-//       studentIds: [2, 1]
-//     }
-//   ], [
-//     {
-//       id: 1,
-//       name: "John"
-//     },
-//     {
-//       id: 2,
-//       name: "Steve"
-//     }
-//   ])
-//   =>  [
-//     {
-//       id: 1,
-//       name: "GROUP1",
-//       students: [
-//         {
-//           id: 2,
-//           name: "Steve"
-//         },
-//         {
-//           id: 1,
-//           name: "John"
-//         }
-//       ]
-//     }
-//   ]
-//
+
+const groupesAvecEtudiants = [[ { id: 1,name: "GROUP1",studentIds: [2, 1]}], [{id: 1,name: "John"},{ id: 2, name: "Steve" } ]];
+
+function group(groupesAvecEtudiants) {    
+    const groupe = groupesAvecEtudiants[0][0];
+    const students = groupesAvecEtudiants[1];
+    let groupOut = [{id: groupe.id, name: groupe.name, students: [] }]; 
+    
+    for (let id of groupe.studentIds) {
+        let student = getStudent(students, id);
+        groupOut[0].students.push(student);
+    }
+
+    return groupOut;
+}
+function getStudent(students, id) {
+    for (let student of students) {
+       if (student.id === id) {
+           return student;
+       }
+    }
+
+    return false;
+}
+
+let groupOut = [{  id: 1,name: "GROUP1",students: [{ id: 2,name: "Steve" }, { id: 1, name: "John"} ]}];
+tests.push(['groupesAvecEtudiants', deepEqual(group(groupesAvecEtudiants),  groupOut )]);
 
 afficheTests();
 /* *******************************************
