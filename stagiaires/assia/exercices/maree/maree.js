@@ -60,7 +60,7 @@ function generateMaree(tabColors, lines, column, divParent) {
     for (let row = 0; row < lines; row++){
         for (let col = 0; col < column; col++){
             colorPicked = pickColor(tabColors);
-            grille[row][col] = colorPicked;
+        //    grille[row][col] = colorPicked;
             generateCell(divParent, row, col, colorPicked);
             console.log(row, col, colorPicked);
         }
@@ -77,7 +77,7 @@ function pickColor(tabColors) {
 }
 
 /**
- * Fonction qui genere 1 cellule (= 1 div enfant de divParent)
+ * Fonction qui genere 1 cellule (= 1 div enfant de maree)
  * et set ses attributs
  * @param {}  
  */
@@ -86,7 +86,7 @@ function generateCell(divParent, cellLine, cellColumn, cellColor) {
     cellEl.setAttribute('data-ligne', cellLine);
     cellEl.setAttribute('data-colonne', cellColumn);
     cellEl.setAttribute('data-color', cellColor);
-    cellEl.classList.add('carre');
+    cellEl.classList.add('carre'); console.log(cellEl);
 }
 
 /**
@@ -122,15 +122,10 @@ function createDiv(divParent) {
  */
 function changeColor(oldColor, newColor, div) {
     setCouleur(div, newColor);
-    let listOfchange = [[0, 0],[]];
-    if () {
-        listOfChange.push()
-    } else {
-        
-    }
-    div.setAttribute('data-color', newColor);
-        (getHaut(div))
-    }
+    let cellsAround = [getHaut(div),getBas(div),getDroite(div),getGauche(div)];
+
+    cellsAround.forEach(isCell => (isCell && isCell.getAttribute('data-color') === oldColor && isCell.getAttribute('data-color') !== newColor) ? changeColor(oldColor, newColor, isCell) : 1);
+    
 }
 
 /**
