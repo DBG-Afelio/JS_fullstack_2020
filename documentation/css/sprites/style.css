@@ -5,28 +5,30 @@
 .sprite {
     width: 528px; 
     height: 560px;
+    background-image: url('css_sprites.png');
+
 }
 
 .view {
     width: 264px;   
     height: 280px;
-    background-size: 300% 200%  ;
+    background-size: 300% 200% ;
     background-image: url('css_sprites.png');
 
 }
 
 .bg-avataaars__2_ {
-    background: url('css_sprites.png') -10px -10px;
+    background-position: -10px -10px;
 }
 
 .bg-avataaars__3_ {
-    background: url('css_sprites.png') -558px -10px;
+    background-position: -558px -10px;
 }
 
 .bg-avataaars__1_ {
-    background: url('css_sprites.png') -1106px -10px;
+    background-position: -1106px -10px;
 }
 
 .bg-avataaars__4_ {
-    background: url('css_sprites.png') -10px -590px;
+    background-position: -10px -590px;
 }
