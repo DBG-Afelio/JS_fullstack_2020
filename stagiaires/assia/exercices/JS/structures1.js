@@ -210,15 +210,12 @@ function getStudentObj(id, arrStudents) {
     return arrStudents.find(student => student.id === id);
 }
 function groupStudents(arrGroups, arrStudents) {
-  
     return arrGroups.map(objGroup => ({
         id: objGroup.id,
         name: objGroup.name,
         studentIds: objGroup.studentIds.map(id => getStudentObj(id, arrStudents))
     }));
-
 }
-console.log(groupStudents(groupes, students));
 tests.push(['Groupe Etudiants', deepEqual(groupStudents(groupes, students), fusion)]);
 
 afficheTests();
