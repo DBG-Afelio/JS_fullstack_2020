@@ -69,7 +69,6 @@ function generateMaree(tabColors, lines, column, divParent) {
             colorPicked = pickColor(tabColors);
             grille[row][col] = colorPicked;
             generateCell(divParent, row, col, colorPicked);
-            console.log(row, col, colorPicked);
         }
     }
     return grille;
@@ -93,7 +92,7 @@ function generateCell(divParent, cellLine, cellColumn, cellColor) {
     cellEl.setAttribute('data-ligne', cellLine);
     cellEl.setAttribute('data-colonne', cellColumn);
     cellEl.setAttribute('data-color', cellColor);
-    cellEl.classList.add('carre'); console.log(cellEl);
+    cellEl.classList.add('carre');
 }
 
 /**
