@@ -1,0 +1,28 @@
+body{
+    
+    display:flex;
+    flex-direction: row;
+}
+form{
+    position:fixed;
+}
+.photo-list{
+    position: absolute;
+    right : 10px ;
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    background-color: cyan;
+}
+.photo-list > div{
+    
+    background-color: rgb(217, 0, 255);
+}
+.articles{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
