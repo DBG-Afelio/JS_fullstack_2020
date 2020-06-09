@@ -1,0 +1,43 @@
+main {
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* ------ BLOCK DETAIL ------ */
+.block-detail {
+    border: 1px solid blue;
+    width: 65%;
+}
+/* ------ BLOCK LISTE ------ */
+.block-liste {
+    border: 1px solid red;
+    width: 33%;
+    min-width: 200px;
+    height: 75vh;
+    overflow: auto scroll;
+    font-size: 16px;
+}
+
+.block-liste .item { 
+    display: grid;
+    grid-template-columns: 100px auto 65px 20px;
+    
+}
+.block-liste .item:nth-of-type(2n) {
+    background-color: silver;
+}
+.block-liste .item:nth-of-type(2n+1) {
+    background-color: whitesmoke;
+}
+
+.block-liste .item.active { 
+    background-color: grey;
+}
+.block-liste .item > * { 
+    padding: 5px;
+    height: 75px;
+}
+.block-liste .item .price {
+    text-align: right; 
+}
