@@ -9,7 +9,6 @@ CSS pour la mise en forme de la marée
 .maree {
     display : grid ;
     grid-gap: 0.5em;
-
     background-color: rgba(0, 0, 0, 0.103);
 }
 div[data-color='rouge']{

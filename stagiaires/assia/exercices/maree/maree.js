@@ -21,6 +21,7 @@ let grille = [[],[]];
 let roundShots = 0;
 
 begin();
+
 const newClickEvent = (e) => play(e.target.event.getAttribute('data-color'));
 
 /**
