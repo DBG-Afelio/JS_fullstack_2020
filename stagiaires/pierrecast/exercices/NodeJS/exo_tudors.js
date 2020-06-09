@@ -679,7 +679,10 @@ function getAllCouples(arbre) {
     let femaleTree = getFemaleTree(arbre);
     let allCouples = [];
     for (let person of femaleTree) {
-        allCouples.push([...getCouples(arbre, person)]);
+        let couples = getCouples(arbre, person);
+        if (couples.length > 0) {
+            allCouples.push([...couples]);
+        }
     }
 
     return allCouples;
@@ -688,19 +691,18 @@ function getAllCouples(arbre) {
 function getCouples(arbre, person) {
     let couples = [];
     
-    if (person.relationships !== undefined) {
+    if (person.relationships !== undefined && person.relationships.length > 0) {
         for (let relation of person.relationships) {
-            console.log(relation);
-            if (relation.children !== [] && relation.children.length > 0) {
-                couples.push(getNamesFromID(arbre, relation.partnerId)+" & "+getNamesFromID(arbre, person.id));
-                
+            if (relation.children !== undefined && relation.children.length > 0) {
+                let couple = getNamesFromID(arbre, relation.partnerId)+" & "+getNamesFromID(arbre, person.id);
+                couples.push(couple);
             }
         }
     }
     
     return couples; 
 }
-console.log('last');
+
 
 console.log(getAllCouples(arbre));
 
@@ -735,4 +737,4 @@ function getParentWithChildNamesTree(arbre) {
     return tree;
 }
 
-//console.log(getParentWithChildNamesTree(arbre));
+console.log(getParentWithChildNamesTree(arbre));
