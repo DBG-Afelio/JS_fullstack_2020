@@ -144,43 +144,43 @@ tests.push(['Pizza gratuite', deepEqual(pizzaGratuite(clients, 5, 100), [])]);
 //*****************************************************************************************************************************
 //    Ecrire une fonction qui prend un tableau de groupes, et un tableau d'etudiants, et qui renvoie un tableau des groupes "fusionnés" avec les étudiants.
 //
-let groupesAvecEtudiants = [
-    [
-        {
-            id: 1,
-            name: "Equipe Masculine",
-            studentIds: [2, 1]
-        },
-        {
-            id: 2,
-            name: "Equipe Feminine",
-            studentIds: [3, 4]
-        }
-    ],
-    [
-        {
-            id: 1,
-            name: "John"
-        },
-        {
-            id: 2,
-            name: "Steve"
-        },
-        {
-            id: 3,
-            name: "Bernadette"
-        },
-        {
-            id: 4,
-            name: "Felicie"
-        }
-    ]
+let groupes = [
+    
+    {
+        id: 1,
+        name: "Equipe Masculine",
+        studentIds: [2, 1]
+    },
+    {
+        id: 2,
+        name: "Equipe Feminine",
+        studentIds: [3, 4]
+    }
+];
+    
+let students = [
+    {
+        id: 1,
+        name: "John"
+    },
+    {
+        id: 2,
+        name: "Steve"
+    },
+    {
+        id: 3,
+        name: "Bernadette"
+    },
+    {
+        id: 4,
+        name: "Felicie"
+    }
 ];
 let fusion = [
     {
         id: 1,
         name: "Equipe Masculine",
-        students: [
+        studentIds: [
             {
                 id: 2,
                 name: "Steve"
@@ -206,16 +206,20 @@ let fusion = [
         ]
     }
 ];
-
-function groupStudents(arrGroupsStudents) {
-    let arrIn = [...arrGroupsStudents]; //arrIn[0][n] => group et arr[1][n] => student
-    let arrOut = [];
-   
-    arrOut = arrIn[0].forEach(objGroup => objGroup.studentIds.map(id => console.log(arrIn[1].filter(studentObj => studentObj.id === id))));
-    //console.log(arrOut);
-    return arrOut;
+function getStudentObj(id, arrStudents) {
+    return arrStudents.find(student => student.id === id);
 }
-tests.push(['Groupe Etudiants', deepEqual(groupStudents(groupesAvecEtudiants), fusion)]);
+function groupStudents(arrGroups, arrStudents) {
+  
+    return arrGroups.map(objGroup => ({
+        id: objGroup.id,
+        name: objGroup.name,
+        studentIds: objGroup.studentIds.map(id => getStudentObj(id, arrStudents))
+    }));
+
+}
+console.log(groupStudents(groupes, students));
+tests.push(['Groupe Etudiants', deepEqual(groupStudents(groupes, students), fusion)]);
 
 afficheTests();
 /* *******************************************
