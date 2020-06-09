@@ -1,0 +1,93 @@
+
+.wrap {
+    position: relative;
+}
+
+.wrap2 {
+    margin-top: 150px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    position: absolute;
+    top: 160px;
+    left: 500px;
+    transform: scale3d(0.5, 0.5, 0.5);
+}
+.cube {
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+}
+
+.cube img {
+    position: absolute;
+    opacity: .8;
+}
+
+.cube img:nth-child(1) {
+    transform:rotateY(0deg) translateZ(100px)
+}
+.cube img:nth-child(2) {
+    transform:rotateY(90deg) translateZ(100px)
+}
+.cube img:nth-child(3) {
+    transform:rotateY(180deg) translateZ(100px)
+}
+.cube img:nth-child(4) {
+    transform:rotateY(-90deg) translateZ(100px)
+}
+.cube img:nth-child(5) {
+    transform:rotateX(90deg) translateZ(100px)
+}
+.cube img:nth-child(6) {
+    transform:rotateX(-90deg) translateZ(100px)
+}
+
+@keyframes loop {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.cube {
+    animation: loop 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+
+@keyframes bounce {
+    from {
+       top: 200px;
+       left: 200px;
+       transform: scale3d(1, 1, 1);
+    }
+    25% {
+        top: 20px;
+    }
+    50% {
+        top: 200px;        
+    }
+    66% {
+        top: 80px;        
+    }
+    78% {
+        top: 180px;        
+    }
+    85% {
+        top: 120px;        
+    }
+    to {
+        top: 160px;
+        left: 500px;
+        transform: scale3d(0.5, 0.5, 0.5);
+    }
+}
+.wrap2 {
+    animation: bounce 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}

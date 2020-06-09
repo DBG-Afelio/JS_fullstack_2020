@@ -1,0 +1,51 @@
+.wrap {
+    margin-top: 150px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+.cube {
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+}
+
+.cube img {
+   /* position: absolute;*/
+    opacity: .8;
+}
+
+.cube img:nth-child(1) {
+    /*transform: ??*/
+}
+.cube img:nth-child(2) {
+    /*transform: ??*/
+}
+.cube img:nth-child(3) {
+    /*transform: ??*/
+}
+.cube img:nth-child(4) {
+   /*transform: ??*/
+}
+.cube img:nth-child(5) {
+    /*transform: ??*/
+}
+.cube img:nth-child(6) {
+   /*transform: ??*/
+}
+
+
+/* rotation complète sur l'axe X et Y */
+@keyframes loop {
+    from {
+       /*transform: ??*/
+    }
+    to {
+       /*transform: ??*/
+    }
+}
+
+.cube {
+    /*animation: loop 10s linear infinite;*/
+}
