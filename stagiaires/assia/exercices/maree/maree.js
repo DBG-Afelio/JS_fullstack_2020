@@ -20,9 +20,13 @@ const nbColumns = 15;
 let grille = [[],[]];
 let roundShots = 0;
 
+const newClickEvent = (e) => {
+    console.log(e.target);
+    
+    play(e.target.getAttribute('data-color'))};
+
 begin();
 
-const newClickEvent = (e) => play(e.target.event.getAttribute('data-color'));
 
 /**
  * Fonction qui lance le jeu (1shot au chargement du nav)
@@ -30,7 +34,7 @@ const newClickEvent = (e) => play(e.target.event.getAttribute('data-color'));
  */
 function begin() {
     generateButtons(buttonsEl, colors);
-    generateMaree(colors, nbLines, nbColumns, mareeEl);
+    grille = generateMaree(colors, nbLines, nbColumns, mareeEl);
     messageEl.classList.add('msg-invisible');
 }
 /**
@@ -58,10 +62,12 @@ function play(couleur) {
 */
 function generateMaree(tabColors, lines, column, divParent) {
     let colorPicked = ''; 
+    let grille = [];
     for (let row = 0; row < lines; row++){
+        grille[row] = [];
         for (let col = 0; col < column; col++){
             colorPicked = pickColor(tabColors);
-        //    grille[row][col] = colorPicked;
+            grille[row][col] = colorPicked;
             generateCell(divParent, row, col, colorPicked);
             console.log(row, col, colorPicked);
         }
@@ -100,7 +106,7 @@ function generateButtons(divParent, tabColors) {
         let buttonEl = createDiv(divParent);
         buttonEl.setAttribute('data-color', color);
         buttonEl.classList.add('carre');
- //       buttonEl.addEventListener('click', newClickEvent); 
+        buttonEl.addEventListener('click', newClickEvent); 
     });
 }
 
@@ -135,7 +141,7 @@ function changeColor(oldColor, newColor, div) {
  * @returns {HTMLDivElement | null} le div du dessus ou null
  */
 function getHaut(div) {
-    return getDivFromCoord(getCoordFromDiv(div)[0] - 1, getCoordFromDiv(div)[1]);
+    return getDivFromCoord(getCoordFromDiv(div).ligne - 1, getCoordFromDiv(div)[1]);
 }
 
 /**
@@ -172,7 +178,7 @@ function getDroite(div) {
  * @returns {HTMLDivElement | null} le div ou null
  */
 function getDivFromCoord(ligne, colonne) {
-    return document.querySelector(`.carre[data-ligne="${ligne}"][data-colonne="${colonne}"]'`);
+    return document.querySelector(`.carre[data-ligne="${ligne}"][data-colonne="${colonne}"]`);
 }
 
 /**
@@ -181,6 +187,10 @@ function getDivFromCoord(ligne, colonne) {
  * @returns {coord[rowCell,colCell]} couleur 
  */
 function getCoordFromDiv(divCell) {
+    return {
+        ligne : Number(divCell.dataset.ligne),
+        colonne : Number(divCell.dataset.colonne)
+    }
     return [divCell.getAttribute('data-ligne'), divCell.getAttribute('data-colonne')];
 }
 
