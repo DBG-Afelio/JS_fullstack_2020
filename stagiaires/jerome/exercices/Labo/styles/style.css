@@ -1,0 +1,21 @@
+.articles{
+    margin-right: 1500px;
+    background-color: beige;
+    float:left;
+}
+.article{
+
+}
+img{
+    margin: 10px;
+}
+span{
+    margin: 10px;
+}
+.detail{
+    border: 2px solid red;
+    margin-left: 350px;
+    margin-bottom: -210px;
+    position: absolute;
+    float:right;
+}
