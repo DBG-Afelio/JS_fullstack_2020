@@ -15,6 +15,25 @@ const mouseOutArticle = (e) => {
 }
 displayArticles_El(listEl);
 updateView(1, myForm);
+commanderBtnEl.addEventListener('click', (e) => {
+    isQuantiteValid(quantiteInputEl) ? addArticle(quantiteInputEl): alert();
+    e.preventDefault();
+});
+quantiteInputEl.addEventListener('change', isQuantiteValid());
+
+
+/**
+ * Fonction qui ajoute un article en quantite choisie, dans le panier au click button
+ * @param
+ * @return
+ */
+function addArticle(articleQte) {
+
+    
+}
+function isQuantiteValid() {
+    return true;
+}
 
 function displayArticles_El(parentEl) {
     tab_img.forEach(articleObj => {
