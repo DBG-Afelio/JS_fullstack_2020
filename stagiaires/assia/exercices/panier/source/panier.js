@@ -14,6 +14,7 @@ const mouseOutArticle = (e) => {
     e.target.classList.remove('surbrillance')
 }
 displayArticles_El(listEl);
+updateView(1, myForm);
 
 function displayArticles_El(parentEl) {
     tab_img.forEach(articleObj => {
@@ -43,7 +44,11 @@ function updateView(articleId, parentEl) {
 
     let thisArticle = tab_img.filter(articleObj => Number(articleObj.id) === articleId);
     parentEl.querySelector('.photo-titre').textContent = thisArticle.titre;
+    console.log('titre ' + parentEl.querySelector('.photo-titre').textContent);
+    console.log('div titre ' + parentEl.querySelector('.photo-titre'));
     parentEl.querySelector('.photo-img-details').src = `img/${thisArticle.image.moyenne}`;
+    console.log('lien image'+parentEl.querySelector('.photo-img-details').src);
+    console.log('div img'+parentEl.querySelector('.photo-img-details'));
     parentEl.querySelector('.photo-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
     parentEl.querySelector('.photo-comments').textContent = thisArticle.commentaire;
     parentEl.querySelector('.photo-prix').textContent = thisArticle.Prix;
