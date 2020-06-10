@@ -41,3 +41,28 @@ main {
 .block-liste .item .price {
     text-align: right; 
 }
+
+
+/* ---- BLOCK DETAIL ---- */
+
+.block-detail  { 
+    text-align: center;
+
+}
+
+.block-detail img {
+    width: 100%;
+    max-width: 500px;
+    
+}
+
+/* --- BLOCK PANIER --- */
+.block-panier{
+    width: 100%;
+    border: 1px solid green;
+    min-height:500px;
+}
+
+.block-panier .item{
+    border: 1px solid red;
+}
