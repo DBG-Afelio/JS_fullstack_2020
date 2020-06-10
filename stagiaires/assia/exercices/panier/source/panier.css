@@ -18,11 +18,19 @@ body{
 }
 
 form{
+    height: 550px;
     border-style: dotted;
     position:fixed;
     z-index: 2;
-    left: 50px;
-    top: 200px;
+    left: 150px;
+    top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.data-input-quantite{
+    width: 30px;
 }
 .photo-list{
     position: absolute;
@@ -36,13 +44,14 @@ form{
     padding-left: 10px;
     background-color:#9AA6B1;
 }
-.liste-entete{
-    
-}
+
 .photo-list > div{
     width: 100%;
     background-color: #9AA6B1;
     color:black;
+}
+.list-entete{
+    height: 100px;
 }
 .articles{
     display:flex;

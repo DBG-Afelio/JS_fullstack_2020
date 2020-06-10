@@ -8,10 +8,10 @@ const selectArticle = (e) => {
 };
 
 const mouseOverArticle = (e) => {
-    e.target.classList.add('surbrillance');
+    e.currentTarget.classList.add('surbrillance');
 };
 const mouseOutArticle = (e) => {
-    e.target.classList.remove('surbrillance')
+    e.currentTarget.classList.remove('surbrillance');
 }
 displayArticles_El(listEl);
 updateView(1, myForm);
@@ -41,18 +41,12 @@ function displayArticles_El(parentEl) {
 }
 
 function updateView(articleId, parentEl) {
-
-    let thisArticle = tab_img.filter(articleObj => Number(articleObj.id) === articleId);
+    let thisArticle = tab_img.find(articleObj => Number(articleObj.id) === articleId);
     parentEl.querySelector('.data-titre').textContent = thisArticle.titre;
-    
-    console.log('div image'+parentEl.querySelector('.photo-img-details'));
-    parentEl.querySelector('.data-img-details').src = `img/${thisArticle.image.moyenne}`;
-    
- 
     parentEl.querySelector('.data-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
     parentEl.querySelector('.data-comments').textContent = thisArticle.commentaire;
     parentEl.querySelector('.data-prix').textContent = thisArticle.Prix;
-
+    parentEl.querySelector('.data-img-details').src = `img/${thisArticle.image.moyenne}`;
 }
 
 
