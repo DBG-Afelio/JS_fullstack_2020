@@ -1,5 +1,5 @@
 let listEl = document.querySelector('.photo-list');
-let myForm = document.querySelector('.form'); console.log(myForm.querySelector('.photo-img-details'));
+let myForm = document.querySelector('.form'); 
 let quantiteInputEl = document.querySelector('.input-photo-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
 //console.log(tab_img);
@@ -43,15 +43,15 @@ function displayArticles_El(parentEl) {
 function updateView(articleId, parentEl) {
 
     let thisArticle = tab_img.filter(articleObj => Number(articleObj.id) === articleId);
-    parentEl.querySelector('.photo-titre').textContent = thisArticle.titre;
-    console.log('titre ' + parentEl.querySelector('.photo-titre').textContent);
-    console.log('div titre ' + parentEl.querySelector('.photo-titre'));
-    parentEl.querySelector('.photo-img-details').src = `img/${thisArticle.image.moyenne}`;
-    console.log('lien image'+parentEl.querySelector('.photo-img-details').src);
-    console.log('div img'+parentEl.querySelector('.photo-img-details'));
-    parentEl.querySelector('.photo-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
-    parentEl.querySelector('.photo-comments').textContent = thisArticle.commentaire;
-    parentEl.querySelector('.photo-prix').textContent = thisArticle.Prix;
+    parentEl.querySelector('.data-titre').textContent = thisArticle.titre;
+    
+    console.log('div image'+parentEl.querySelector('.photo-img-details'));
+    parentEl.querySelector('.data-img-details').src = `img/${thisArticle.image.moyenne}`;
+    
+ 
+    parentEl.querySelector('.data-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
+    parentEl.querySelector('.data-comments').textContent = thisArticle.commentaire;
+    parentEl.querySelector('.data-prix').textContent = thisArticle.Prix;
 
 }
 
