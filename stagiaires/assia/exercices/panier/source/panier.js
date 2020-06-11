@@ -95,8 +95,8 @@ function addNewArticleToList(thisArticle, qteSaisi) {
     let newArticle =  {
     idArticle: thisArticle.id,
     qteArticle: qteSaisi,
-    prixArticleUnitaire: parseInt(thisArticle.Prix),
-    prixArticleTotal: parseInt(thisArticle.Prix) * qteSaisi,
+    prixArticleUnitaire: parseFloat(thisArticle.Prix),
+    prixArticleTotal: parseFloat(thisArticle.Prix) * qteSaisi,
     };
     console.log(newArticle);
     return newArticle;
@@ -137,30 +137,3 @@ function updateView(thisArticle, parentEl) {
     parentEl.querySelector('.data-prix').textContent = thisArticle.Prix;
     parentEl.querySelector('.data-img-details').src = `img/${thisArticle.image.moyenne}`;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------
-//bacAsable
-/*
-for (let [key, value] of Object.entries(articleObj)) {
-            console.log(key, value);
-            if (value instanceof Object) {
-
-            } else {
-                articleEl.setAttribute(`$key, value);
-            }
-        }
-*/
