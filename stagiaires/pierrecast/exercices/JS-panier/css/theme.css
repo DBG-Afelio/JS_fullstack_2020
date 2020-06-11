@@ -1,9 +1,23 @@
 main {
     border: 1px solid green;
+    
+}
+
+.view {
+    width: 100%;
+    background-color: whitesmoke;
+    /* display:none;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.view.active {
+    width: 100%;
+    background-color: beige;
+    display: flex;
+}
+
 /* ------ BLOCK DETAIL ------ */
 .block-detail {
     border: 1px solid blue;
@@ -57,12 +71,21 @@ main {
 }
 
 /* --- BLOCK PANIER --- */
-.block-panier{
-    width: 100%;
+.block-basket{
+    width: 30%;
     border: 1px solid green;
-    min-height:500px;
+float: right;
 }
 
-.block-panier .item{
+.block-basket .item{
     border: 1px solid red;
+}
+
+.block-recap .item {
+    border-bottom: 1px solid silver;
+}
+
+
+.block-recap .item > * {
+    display: inline-block;
 }

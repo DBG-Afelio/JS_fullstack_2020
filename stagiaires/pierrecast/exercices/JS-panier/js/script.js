@@ -1,186 +1,311 @@
 const shop = tab_img;
-const oList = document.querySelector('.block-liste');
+const oViewList = document.querySelector('.view-list');
+const oList = oViewList.querySelector('.block-liste');
+
 const oDetail = document.querySelector('.block-detail');
-const oRecap = document.querySelector('.block-recap');
-const generateDetail = () => {
-    zoom(event.currentTarget.closest('.item'));
+const oForm = oDetail.querySelector('form');
+
+const oBasket = document.querySelector('.block-basket');
+const oConfirm = oBasket.querySelector('button');
+const oNbArticles = oBasket.querySelector('output.nb-articles');
+const oTotal = oBasket.querySelector('output.total');
+
+const oViewRecap = document.querySelector('.view-recap');
+const oRecap = oViewRecap.querySelector('.block-recap');
+const oRecapTotal = oViewRecap.querySelector('output.total');
+const oBack = oViewRecap.querySelector('.backToList');
+const oClear = oViewRecap.querySelector('.clearBasket');
+
+let basket = [];
+const showDetail = (event) => {
+   generateDetail(basket, shop, event.currentTarget.closest('.item').dataset.id);
 }
-
-const panier = [];
-
-showList(shop);
-
-function showList(shop) {
-    shop.forEach(article => generateArticle(article)); 
-}
-
-function generateArticle(article) {
-    let oArticle = document.createElement('div');
-    oArticle.classList.add('item');
-    oArticle.setAttribute('data-id', article.id);
-    generateImage(article, oArticle);
-    generateTitle(article, oArticle);
-    generatePrice(article, oArticle);
-    oList.appendChild(oArticle);
-    
-    oArticle.addEventListener('click', generateDetail);
-}
-
-function generateImage(article, oArticle) {
-    let oImg = document.createElement('img');
-    oImg.setAttribute('src', 'img/'+article.image.petite);
-    oImg.setAttribute('alt', article.title);
-    oArticle.appendChild(oImg);
-}
-
-function generateTitle(article, oArticle) {
-    let oTitle = document.createElement('div');
-    oTitle.classList.add('title');
-    oTitle.appendChild(document.createTextNode(article.titre))
-    oArticle.appendChild(oTitle);
-}
-
-function generatePrice(article, oArticle) {
-    let oPrice = document.createElement('div');
-    oPrice.classList.add('price');
-    let price = article.Prix.split(' ')[0];
-    oPrice.appendChild(document.createTextNode(Number(price).toFixed(2)));
-    oArticle.appendChild(oPrice);
-
-    let oUnit = document.createElement('div');
-    oUnit.classList.add('unit'); 
-    oUnit.appendChild(document.createTextNode('€'))
-    oArticle.appendChild(oUnit);
-}
-
-function getArticleFromId(id) {
-    let seletedArticle = null;
-    shop.forEach(article => {
-        if (article.id === Number(id)) {
-            seletedArticle = article;
-        }
-    });
-
-    return seletedArticle;
-}
-
-function zoom(oArticle) {
-    activeArticle(oArticle);
-   
-    let id = Number(oArticle.getAttribute('data-id')); 
-    console.log('id' ,id)
-    let seletedArticle = getArticleFromId(id);
-
-    oDetail.innerHTML = '';
-    if (seletedArticle !== null) {
-        generateZoom(seletedArticle);
+const updateRecap = (event) => {
+    let oInput = event.currentTarget;
+    let qte = parseFloat(oInput.value);
+    let id = oInput.closest('.item').dataset.id;
+    if (checkQuantity(qte)) {
+        sendCommand(qte, id);
     }
-}
+};
 
-function activeArticle(oArticle) {
-    let active = oList.querySelector('.active');
-    if (active !== null) {
-        active.classList.remove('active');
-    }
-    oArticle.classList.add('active');
-}
-
-function generateZoom(article) {
-    let oTitle = document.createElement('h2');
-    oTitle.appendChild(document.createTextNode(article.titre));
-    oDetail.appendChild(oTitle);
-    
-    let oImg = document.createElement('img');
-    oImg.classList.add('img-zoom');
-    oImg.setAttribute('src', 'img/'+article.image.grande);
-    oImg.setAttribute('alt', article.titre)
-    oDetail.appendChild(oImg);
-
-    let oOrigin = document.createElement('p');
-    oOrigin.appendChild(document.createTextNode(`De ${article.auteur}, ${article.Pays}`));
-    oDetail.appendChild(oOrigin);
-
-    let oComment = document.createElement('p');
-    oComment.appendChild(document.createTextNode(article.commentaire))
-    oDetail.appendChild(oComment);
-
-    generatePrice(article, oDetail);
-    generateInput(article, oDetail);
-    generateButton(article, oDetail);
-}
-
-function generateInput(article) {
-    let oInput = document.createElement('input');
-    oInput.setAttribute('type', 'number');
-    oInput.setAttribute('data-id', article.id);
-    oDetail.appendChild(oInput);
-}
-
-function generateButton() {
-    let oButton = document.createElement('button');
-    oButton.appendChild(document.createTextNode('commander'));
-    oDetail.appendChild(oButton);
-    oButton.addEventListener('click', sendQuantity);   
-}
-
-function sendQuantity() {
-    let oInput = document.querySelector('.block-detail input');
-    let qte = Number(oInput.value);
+oForm.addEventListener('submit', (e) => {
+    let oInput = oDetail.querySelector('input')
+    let qte = parseFloat(oInput.value);
     let id = oInput.dataset.id;
-    if (qte > 0) {
-        commandArticle(id, qte);    
-    } else if (qte === 0) {
-        removeArticle(id);
+    if (checkQuantity(qte)) {
+        sendCommand(qte, id);
     }
-}
+    e.preventDefault();
+}); 
 
-function commandArticle(id, qte) {
-    console.log('commande id', id);
-    let article = getArticleFromId(id);
-    let present = false;
-    panier.forEach(command => {
-        if (command.article.id === article.id) {
-            present = true;
-            command.qte = qte;
-            alert('modify');
-        }
-    });
-
-    if (!present) {
-        addArticle(article, qte);   
+function checkQuantity(qte) {
+    if (parseFloat(qte) === NaN || !(Number.isInteger(qte)) ||  qte < 0 ) {
+        alert('Quantité non valide');
+        return false;
     }
-
-    console.log(panier);
+    return true;
 }
 
-function addArticle(article, qte) {
-    alert('add');
-    let command = {
-        article: article,
-        qte, qte
-    };
+oConfirm.addEventListener('click', showRecap);
+oBack.addEventListener('click', backToList);
+oClear.addEventListener('click', clearBasket);
 
-    // ajouter dans Objet 
-    panier.push(command);
+backToList();
 
-    // affiche dans block-panier
-    oRecap.append(createItem(command));
+function backToList() {
+    showList(shop);
+    generateDetail(basket, shop);
+    updateBasket(basket);
+    oViewList.classList.add('active');
+    oViewRecap.classList.remove('active');
 }
 
-function removeArticle(article) {
-    alert('remove')
-    panier.filter(command => command.article.id !== article.id );
-    console.log(panier);
+
+/**
+ * 
+ * @param {*} shop 
+ */
+function showList(shop) {
+    shop.forEach(item => generateArticle(item)); 
 }
 
-function createItem(command) {
+/**
+ * 
+ * @param {*} item 
+ */
+function generateArticle(item) {
     let oItem = document.createElement('div');
     oItem.classList.add('item');
+    oItem.setAttribute('data-id', item.id);
+    generateImage(item, oItem, 'petite');
+    generateTitle(item, oItem);
+    generatePrice(item, oItem);
+    oList.appendChild(oItem);
+    
+    oItem.addEventListener('click', showDetail);
+}
 
+/**
+ * 
+ * @param {*} item 
+ * @param {*} oItem 
+ * @param {*} taille 
+ */
+function generateImage(item, oItem, taille) {
     let oImg = document.createElement('img');
-    oImg.setAttribute('src', 'img/'+command.article.image.petite);
-    oImg.setAttribute('alt', command.article.title);
-    oItem.append(oImg) ;
+    oImg.setAttribute('src', 'img/'+item.image[taille]);
+    oImg.setAttribute('alt', item.titre);
+    oItem.append(oImg);
+}
 
-    return oItem;
+/**
+ * 
+ * @param {*} item 
+ * @param {*} oItem 
+ */
+function generateTitle(item, oItem) {
+    let oTitle = document.createElement('div');
+    oTitle.classList.add('title');
+    oTitle.appendChild(document.createTextNode(item.titre))
+    oItem.appendChild(oTitle);
+}
+
+/**
+ * 
+ * @param {*} item 
+ * @param {*} oItem 
+ */
+function generatePrice(item, oItem) {
+    let oPrice = document.createElement('div');
+    oPrice.classList.add('price');
+    oPrice.appendChild(document.createTextNode(getPrice(item.Prix).toFixed(2)+' €'));
+    oItem.appendChild(oPrice);
+}
+
+function getPrice(prix) {
+    return Number(prix.split(' ')[0]);
+}
+
+/**
+ * fonction qui récupere l'item depuis le magasin et retourne l'objet item ou null
+ */
+function getItemFromShop(shop, id) {
+    return shop.find(article => article.id === Number(id));
+}
+
+/**
+ * 
+ */
+function generateDetail(basket, shop, id = 0) {
+    id = (id === 0)? shop[0].id : id;
+    let item = getItemFromShop(shop, id);
+    let command = getCommandFromBasket(basket, id);
+
+    oDetail.querySelector('h2').innerHTML = item.titre;
+    oDetail.querySelector('img').setAttribute('src', `img/${item.image.grande}`);
+    oDetail.querySelector('img').setAttribute('alt', item.titre);
+    oDetail.querySelector('.origin').innerHTML = `De ${item.auteur}, ${item.Pays}`;
+    oDetail.querySelector('.comment').innerHTML = item.commentaire;
+    oDetail.querySelector('input').value = (command !== undefined )? command.qte: 0;
+    oDetail.querySelector('input').dataset.id = item.id;
+
+    activeItemInList(id);
+}
+
+/**
+ * 
+ * @param {*} id 
+ */
+function activeItemInList(id) {    
+    oList.querySelectorAll('.item').forEach(item => {
+        if (item.dataset.id === id) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+
+/* ----- fonctions de commande --- */
+
+/**
+ * fonction qui vérifie si l'item est dans le panier et retourne l'objet item ou null
+ */
+function getCommandFromBasket(basket, id) {
+    return basket.find(command => command.id === Number(id));
+}
+
+function sendCommand(qte, id) {
+    let command = getCommandFromBasket(basket, id);
+    let item = getItemFromShop(shop, id);
+
+    if (command === undefined) {
+        if (qte !== 0 ) {
+            addItemToBasket(basket, item, qte);   
+        } else {
+            alert('NON');
+        }
+    } else {
+        if (qte !== 0 ) {
+            modifyItemFromBasket(command, qte)
+        } else {
+            removeItemFromBasket(command)
+        }
+    }
+
+    updateBasket(basket);
+    // localStorage here !!!
+}
+
+/**
+ * function qui ajoute une commande dans le panier
+ */
+function addItemToBasket(basket, item, qte) {
+    let command = {
+        id: item.id,
+        qte: qte,
+        prix: getPrice(item.Prix),
+    }
+    basket.push(command);
+    addToRecap(command);
+}
+
+/**
+ * function qui retire l'item du panier
+ */
+function removeItemFromBasket(command) {
+    let pos = basket.indexOf(command);
+    basket.splice(pos, 1);
+    removeFromRecap(command);
+}
+
+/**
+ * function qui modifie l'item dans le panier
+ * 
+ */
+function modifyItemFromBasket(command, qte) {
+    command.qte = qte;
+    modifyRecap(command);
+}
+
+function updateBasket(basket) {
+    oNbArticles.innerHTML = updateNbArticles(basket);;
+    oTotal.innerHTML = updateTotal(basket);
+    oRecapTotal.value = oTotal.innerHTML;
+}
+
+function updateTotal(basket) {
+    return basket.reduce((sum, command) => sum + command.qte * command.prix, 0).toFixed(2) + " €";
+}
+function updateNbArticles(basket) {
+    return  basket.reduce((sum, command) => sum + command.qte, 0);
+}
+
+function showRecap() {
+    alert('vue sur Recap');
+    oViewList.classList.remove('active');
+    oViewRecap.classList.add('active');
+}
+
+function addToRecap(command) {
+    let item = getItemFromShop(shop, command.id);
+    oItem = document.createElement('div');
+    oItem.classList.add('item');
+    oItem.setAttribute('data-id', command.id);
+    
+    generateImage(item, oItem, 'toute_petite');
+    generateTitle(item, oItem);
+    generateQuantity(command, oItem);
+    generateX(oItem);
+    generatePrice(item, oItem);
+    generateEqual(oItem);
+    generateSubTotal(command, oItem);
+    oRecap.append(oItem);
+}
+
+function modifyRecap(command) {
+    let oItem = oRecap.querySelector(`[data-id="${command.id}"]`);
+    oItem.querySelector('.qte').value = command.qte;
+    oItem.querySelector('.subTotal').value = (command.qte*command.prix).toFixed(2)+" €";
+}
+
+function removeFromRecap(command) {
+    let oItem = oRecap.querySelector(`[data-id="${command.id}"]`);
+    oRecap.removeChild(oItem);
+}
+
+function generateSubTotal(command, oItem) {
+    oOutput = document.createElement('output');
+    oOutput.classList.add('subTotal');
+    oOutput.value = (command.prix * command.qte).toFixed(2) +' €'
+    oItem.append(oOutput);
+}
+
+function generateX(oItem) {
+    let oDiv= document.createElement('div');
+    oDiv.append(document.createTextNode(' x '));
+    oItem.append(oDiv);
+}
+function generateEqual(oItem) {
+    let oDiv= document.createElement('div');
+    oDiv.append(document.createTextNode(' = '));
+    oItem.append(oDiv);
+}
+
+function generateQuantity(command, oItem) {
+    let oInput = document.createElement('input')
+    oInput.setAttribute('type', 'Number');
+    oInput.classList.add('qte');
+    oInput.addEventListener('change', updateRecap);
+    oInput.value = command.qte;
+    oItem.append(oInput);
+}
+
+function clearBasket() {
+    if (confirm('Etes-vous sûr de vouloir vider le panier ?')) {
+        basket = [];
+        oRecap.innerHTML = '';
+        updateBasket(basket);
+    }
 }

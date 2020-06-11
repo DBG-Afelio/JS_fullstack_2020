@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/theme.css">
-    <title>Panier</title>
-</head>
-<body>
-    <header>
-        <h1>Panier</h1>
-    </header>
-    <main>
-        <div class="block-detail">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/theme.css">
+        <title>Panier</title>
+    </head>
+    <body>
+        <header>
+            <h1>Panier</h1>
+        </header>
+        <main>
+            <div class="view view-list active">
+                <div class="block-detail">
+                    <h2>Nom de l'article</h2>
+                    <img src="#" alt="image" />
+                    
+                    <div class="origin">De source, Pays</div>
+                    <div class="comment">
+                        commentaire
+                    </div>
+                    <form>
+                        <input type="Number" placeholder="Nombre à commander" />
+                        <button>Commander</button>
+                    </form>
+                </div>
+                
+                <div class="block-liste"></div>
+                <div class="block-basket">
+                    <div>Nombre d'article<output class='nb-articles'>0</output></div>
+                    <div>Total<output class='total'>0</output></div>
+                    <button class="button-confirm">Confirmer</button>
+                </div>
+            </div>
+            <div class="view view-recap">
+                <div class="block-recap">
+                    
+                </div>
+                <div class="recap-bottom">
+                    <output class="total">0</output>
+                    <button class="clearBasket">Vide le panier</button>
+                    <button class="backToList">Revenir à la liste</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            
+        </footer>
 
-        </div>
-        
-        <div class="block-liste"></div>
-        <div class="block-panier"></div>
-        <div class="block-recap"></div>
-
-    </main>
-    <footer>
-        
-    </footer>
-
-    <script src="source/sourceJSON.js"></script>
-    <script src="js/script.js"></script>
-</body>
+        <script src="source/sourceJSON.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
