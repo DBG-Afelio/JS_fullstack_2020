@@ -15,6 +15,8 @@ let panierObj = {
 let listArticlesPanier = [];
 const firstArticle = tab_img.find(obj => obj.id === 1);
 
+let returnToList = document.querySelector('.btn-retournerListe');
+
 const selectArticle = (e) => {
     thisArticleId = Number(e.target.closest('.articles').dataset.id);
     thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId);
@@ -29,6 +31,8 @@ commanderBtnEl.addEventListener('click', (e) => {
    e.preventDefault();
 });
 //quantiteSaisiEl.addEventListener('change', isQuantiteValid);
+
+
 
 init();
 
