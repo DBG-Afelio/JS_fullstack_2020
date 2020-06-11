@@ -1,6 +1,8 @@
 let listEl = document.querySelector('.photo-list');
 let panierQteEl = document.querySelector('.data-panier-quantite');
+console.log(panierQteEl);
 let panierTotalEl = document.querySelector('.data-panier-total');
+console.log(panierTotalEl);
 let myForm = document.querySelector('.form'); 
 let quantiteSaisiEl = document.querySelector('.data-input-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
@@ -17,6 +19,7 @@ const selectArticle = (e) => {
     thisArticleId = Number(e.target.closest('.articles').dataset.id);
     thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId);
     updateView(thisArticleFullObj, myForm);
+    updateInputQuantity(quantiteSaisiEl);
 };
 const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
@@ -34,10 +37,14 @@ init();
 function init() {
     displayArticles_El(listEl);
     updateView(firstArticle, myForm);
-    thisArticleId = 1;
-    thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId); console.log(thisArticleFullObj);
     panierTotalEl.value = '€ ' + panierObj.prixTotalPanier; 
     panierQteEl.value = panierObj.totalArticlesPanier;
+    updateInputQuantity(quantiteSaisiEl);
+}
+
+function updateInputQuantity(inputQte) {
+    let articleIndex = listArticlesPanier.findIndex(obj => obj.idArticle === thisArticleId);
+    articleIndex === -1 ? inputQte.value = 0 : inputQte.value = listArticlesPanier[articleIndex].qteArticle;
 }
 
 function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
