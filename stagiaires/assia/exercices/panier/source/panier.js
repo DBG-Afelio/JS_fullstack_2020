@@ -1,47 +1,88 @@
 let listEl = document.querySelector('.photo-list');
+let panierQteEl = document.querySelector('.data-panier-quantite');
+let panierTotalEl = document.querySelector('data-panier-total');
 let myForm = document.querySelector('.form'); 
-let quantiteInputEl = document.querySelector('.data-input-quantite');
+let quantiteSaisiEl = document.querySelector('.data-input-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
 //console.log(tab_img);
-let currentArticleId = 0;
+let thisArticle = {}; console.log(thisArticle);
+let thisArticleId = 0;
 let panierObj = {
-    totalArticlesPanier : 0,
-    prixTotalPanier     : 0,
-    listArticlesPanier  : [
-                        {
-                            idArticle           : 0,
-                            qteArticle          : 0,
-                            prixArticleUnitaire : 0,
-                            prixArticleTotal    : 0,
-                        }
-                    ]
+    totalArticlesPanier: 0,
+    prixTotalPanier: 0
 };
+let listArticlesPanier = [];
+
+
 const selectArticle = (e) => {
-    currentArticleId = Number(e.target.closest('.articles').dataset.id);
-    updateView(currentArticleId, myForm);
+    thisArticleId = Number(e.target.closest('.articles').dataset.id);
+    thisArticle = tab_img.find(obj => obj.id === thisArticleId); console.log(thisArticle)
+    updateView(thisArticle, myForm);
 };
 
 const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
 displayArticles_El(listEl);
-updateView(1, myForm);
+
+const firstArticle = tab_img.find(obj => obj.id = 1);
+updateView(firstArticle, myForm);
 
 commanderBtnEl.addEventListener('click', (e) => {
-    isQuantiteValid(quantiteInputEl) ? addArticle(quantiteInputEl): alert('Quantite incorrecte'); //classList.add ('message-qte-incorrecte')
+    isQuantiteValid(quantiteSaisiEl) ? updatePanier(thisArticle, quantiteSaisiEl, panierTotalEl, panierQteEl) : alert('Quantite incorrecte');
+    //classList.add ('message-qte-incorrecte')
     e.preventDefault();
 });
-quantiteInputEl.addEventListener('change', isQuantiteValid);
+//quantiteSaisiEl.addEventListener('change', isQuantiteValid);
 
 
-/**
- * Fonction qui ajoute un article en quantite choisie, dans le panier au click button
- * @param
- * @return
- */
-function addArticle(articleQte, panierObj) {
-    panierObj.
-    
+function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
+
+    let qteSaisi = parseInt(qteSaisiEl.value);
+    let articleExists = listArticlesPanier.find(obj => obj === thisArticle); 
+    let articleIndex = listArticlesPanier.indexOf(obj => obj === thisArticle);
+    if (articleExists === undefined && qteSaisi > 0) {
+        listArticlesPanier.push(addNewArticleToList(thisArticle, qteSaisi)); 
+    } else if (articleExists) {
+        qteSaisi === 0 ? listArticlesPanier.splice(articleIndex, 1) : listArticlesPanier.splice(articleIndex, 1, updateSinglegArticle(articleExists, qteSaisi));
+    }
+ 
+    listArticlesPanier.forEach(articlePanier => {
+        panierObj.totalArticlesPanier += articlePanier.qteArticle;
+        panierObj.prixTotalPanier += articlePanier.prixArticleTotal;
+    });
+    console.log('Qut :' + panierObj.totalArticlesPanier, 'Total :' + panierObj.prixTotalPanier);
+    totalEl.value = '€ ' + panierObj.prixTotalPanier; 
+    quantiteEl.value = panierObj.totalArticlesPanier;
 }
+/**
+ * Fonction qui met a jour les quantite et prix pour 1 article ajouté/modifié et renvoit l'objet modifié : {
+            idArticle: <inchange>,
+            qteArticle: updated,
+            prixArticleUnitaire: <inchange>,
+            prixArticleTotal: updated,
+        }
+ * @param {{}} articleToUpdate 
+ * @param {number} qteSaisi 
+ * @return {{}}
+ */
+function updateSingleArticle(articleToUpdate, qteSaisi) {
+    articleToUpdate.qteArticle = qteSaisi;
+    articleToUpdate.prixArticleTotal = articleToUpdate.prixArticleUnitaire * qteSaisi;
+    return articleToUpdate    
+}
+
+function addNewArticleToList(thisArticle, qteSaisi) {
+ 
+    newArticle = {
+    idArticle: thisArticle.id,
+    qteArticle: qteSaisi,
+    prixArticleUnitaire: parseInt(thisArticle.Prix),
+    prixArticleTotal: parseInt(thisArticle.Prix) * qteSaisi,
+    };
+    console.log(newArticle);
+    return newArticle;
+}
+
 function isQuantiteValid() {
     return true;
 }
@@ -70,8 +111,7 @@ function displayArticles_El(parentEl) {
     });
 }
 
-function updateView(articleId, parentEl) {
-    let thisArticle = tab_img.find(articleObj => Number(articleObj.id) === articleId);
+function updateView(thisArticle, parentEl) {
     parentEl.querySelector('.data-titre').textContent = thisArticle.titre;
     parentEl.querySelector('.data-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
     parentEl.querySelector('.data-comments').textContent = thisArticle.commentaire;
