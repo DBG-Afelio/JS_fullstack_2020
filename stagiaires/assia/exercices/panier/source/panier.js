@@ -1,25 +1,36 @@
 let listEl = document.querySelector('.photo-list');
 let myForm = document.querySelector('.form'); 
-let quantiteInputEl = document.querySelector('.input-photo-quantite');
+let quantiteInputEl = document.querySelector('.data-input-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
 //console.log(tab_img);
+let currentArticleId = 0;
+let panierObj = {
+    totalArticlesPanier : 0,
+    prixTotalPanier     : 0,
+    listArticlesPanier  : [
+                        {
+                            idArticle           : 0,
+                            qteArticle          : 0,
+                            prixArticleUnitaire : 0,
+                            prixArticleTotal    : 0,
+                        }
+                    ]
+};
 const selectArticle = (e) => {
-    updateView(Number(e.target.closest('.articles').dataset.id), myForm);
+    currentArticleId = Number(e.target.closest('.articles').dataset.id);
+    updateView(currentArticleId, myForm);
 };
 
-const mouseOverArticle = (e) => {
-    e.currentTarget.classList.add('surbrillance');
-};
-const mouseOutArticle = (e) => {
-    e.currentTarget.classList.remove('surbrillance');
-}
+const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
+const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
 displayArticles_El(listEl);
 updateView(1, myForm);
+
 commanderBtnEl.addEventListener('click', (e) => {
-    isQuantiteValid(quantiteInputEl) ? addArticle(quantiteInputEl): alert();
+    isQuantiteValid(quantiteInputEl) ? addArticle(quantiteInputEl): alert('Quantite incorrecte'); //classList.add ('message-qte-incorrecte')
     e.preventDefault();
 });
-quantiteInputEl.addEventListener('change', isQuantiteValid());
+quantiteInputEl.addEventListener('change', isQuantiteValid);
 
 
 /**
@@ -27,8 +38,8 @@ quantiteInputEl.addEventListener('change', isQuantiteValid());
  * @param
  * @return
  */
-function addArticle(articleQte) {
-
+function addArticle(articleQte, panierObj) {
+    panierObj.
     
 }
 function isQuantiteValid() {
