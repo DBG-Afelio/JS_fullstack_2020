@@ -1,59 +1,80 @@
 let listEl = document.querySelector('.photo-list');
 let panierQteEl = document.querySelector('.data-panier-quantite');
-let panierTotalEl = document.querySelector('data-panier-total');
+let panierTotalEl = document.querySelector('.data-panier-total');
 let myForm = document.querySelector('.form'); 
 let quantiteSaisiEl = document.querySelector('.data-input-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
 //console.log(tab_img);
-let thisArticle = {}; console.log(thisArticle);
+let thisArticleFullObj = {}; 
 let thisArticleId = 0;
 let panierObj = {
     totalArticlesPanier: 0,
     prixTotalPanier: 0
 };
 let listArticlesPanier = [];
-
+panierTotalEl.value = '€ ' + panierObj.prixTotalPanier; 
+panierQteEl.value = panierObj.totalArticlesPanier;
 
 const selectArticle = (e) => {
     thisArticleId = Number(e.target.closest('.articles').dataset.id);
-    thisArticle = tab_img.find(obj => obj.id === thisArticleId); console.log(thisArticle)
-    updateView(thisArticle, myForm);
+    thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId);
+    updateView(thisArticleFullObj, myForm);
 };
 
 const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
 displayArticles_El(listEl);
 
-const firstArticle = tab_img.find(obj => obj.id = 1);
+const firstArticle = tab_img.find(obj => obj.id === 1);
 updateView(firstArticle, myForm);
 
 commanderBtnEl.addEventListener('click', (e) => {
-    isQuantiteValid(quantiteSaisiEl) ? updatePanier(thisArticle, quantiteSaisiEl, panierTotalEl, panierQteEl) : alert('Quantite incorrecte');
+    isQuantiteValid(quantiteSaisiEl) ? updatePanier(thisArticleFullObj, quantiteSaisiEl, panierTotalEl, panierQteEl) : alert('Quantite incorrecte');
     //classList.add ('message-qte-incorrecte')
-    e.preventDefault();
+
+
+   e.preventDefault();
 });
 //quantiteSaisiEl.addEventListener('change', isQuantiteValid);
 
 
 function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
-
     let qteSaisi = parseInt(qteSaisiEl.value);
-    let articleExists = listArticlesPanier.find(obj => obj === thisArticle); 
-    let articleIndex = listArticlesPanier.indexOf(obj => obj === thisArticle);
-    if (articleExists === undefined && qteSaisi > 0) {
-        listArticlesPanier.push(addNewArticleToList(thisArticle, qteSaisi)); 
-    } else if (articleExists) {
-        qteSaisi === 0 ? listArticlesPanier.splice(articleIndex, 1) : listArticlesPanier.splice(articleIndex, 1, updateSinglegArticle(articleExists, qteSaisi));
+    let articleIndex = listArticlesPanier.findIndex(obj => obj.idArticle === thisArticle.id);
+    let delta = qteSaisi;
+
+    if (articleIndex === -1 && qteSaisi === 0) {
+
+    } else if (articleIndex === -1 && qteSaisi > 0) {
+        console.log('New Article');
+        myArticleInList = addNewArticleToList(thisArticle, qteSaisi);
+        listArticlesPanier.push(myArticleInList); console.log(addNewArticleToList);
+        updateQtePrixPanier(myArticleInList, delta, totalEl, quantiteEl);
+    } else {
+        console.log('NOT New Article');
+        let myArticleInList = listArticlesPanier[articleIndex];
+        let prevQte = myArticleInList.qteArticle;
+        delta = qteSaisi - prevQte;
+        if (delta !== 0) {
+            if (qteSaisi === 0) {
+                listArticlesPanier.splice(articleIndex, 1);
+                updateQtePrixPanier(myArticleInList, delta, totalEl, quantiteEl);
+            } else {
+                let articleUpdated = updateSingleArticle(myArticleInList, qteSaisi); console.log(articleUpdated);
+                listArticlesPanier.splice(articleIndex, 1, articleUpdated);
+                updateQtePrixPanier(articleUpdated, delta, totalEl, quantiteEl);
+            }
+        }
     }
- 
-    listArticlesPanier.forEach(articlePanier => {
-        panierObj.totalArticlesPanier += articlePanier.qteArticle;
-        panierObj.prixTotalPanier += articlePanier.prixArticleTotal;
-    });
-    console.log('Qut :' + panierObj.totalArticlesPanier, 'Total :' + panierObj.prixTotalPanier);
+}
+function updateQtePrixPanier(articleObj,delta, totalEl, quantiteEl) {
+    panierObj.totalArticlesPanier += delta; 
+    panierObj.prixTotalPanier += articleObj.prixArticleUnitaire * delta;
+    console.log(panierObj.totalArticlesPanier, panierObj.prixTotalPanier);
     totalEl.value = '€ ' + panierObj.prixTotalPanier; 
     quantiteEl.value = panierObj.totalArticlesPanier;
 }
+    
 /**
  * Fonction qui met a jour les quantite et prix pour 1 article ajouté/modifié et renvoit l'objet modifié : {
             idArticle: <inchange>,
@@ -68,12 +89,10 @@ function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
 function updateSingleArticle(articleToUpdate, qteSaisi) {
     articleToUpdate.qteArticle = qteSaisi;
     articleToUpdate.prixArticleTotal = articleToUpdate.prixArticleUnitaire * qteSaisi;
-    return articleToUpdate    
+    return articleToUpdate;
 }
-
 function addNewArticleToList(thisArticle, qteSaisi) {
- 
-    newArticle = {
+    let newArticle =  {
     idArticle: thisArticle.id,
     qteArticle: qteSaisi,
     prixArticleUnitaire: parseInt(thisArticle.Prix),
