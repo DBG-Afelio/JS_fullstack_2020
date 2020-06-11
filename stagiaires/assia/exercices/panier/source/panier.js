@@ -4,39 +4,41 @@ let panierTotalEl = document.querySelector('.data-panier-total');
 let myForm = document.querySelector('.form'); 
 let quantiteSaisiEl = document.querySelector('.data-input-quantite');
 let commanderBtnEl = document.querySelector('.btn-commander');
-//console.log(tab_img);
 let thisArticleFullObj = {}; 
-let thisArticleId = 0;
+let thisArticleId= 0;
 let panierObj = {
-    totalArticlesPanier: 0,
-    prixTotalPanier: 0
+    totalArticlesPanier :0,
+    prixTotalPanier     :0
 };
 let listArticlesPanier = [];
-panierTotalEl.value = '€ ' + panierObj.prixTotalPanier; 
-panierQteEl.value = panierObj.totalArticlesPanier;
+const firstArticle = tab_img.find(obj => obj.id === 1);
 
 const selectArticle = (e) => {
     thisArticleId = Number(e.target.closest('.articles').dataset.id);
     thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId);
     updateView(thisArticleFullObj, myForm);
 };
-
 const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
-displayArticles_El(listEl);
-
-const firstArticle = tab_img.find(obj => obj.id === 1);
-updateView(firstArticle, myForm);
-
 commanderBtnEl.addEventListener('click', (e) => {
     isQuantiteValid(quantiteSaisiEl) ? updatePanier(thisArticleFullObj, quantiteSaisiEl, panierTotalEl, panierQteEl) : alert('Quantite incorrecte');
     //classList.add ('message-qte-incorrecte')
-
-
    e.preventDefault();
 });
 //quantiteSaisiEl.addEventListener('change', isQuantiteValid);
 
+init();
+
+/**--------------------------------- */
+
+function init() {
+    displayArticles_El(listEl);
+    updateView(firstArticle, myForm);
+    thisArticleId = 1;
+    thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId); console.log(thisArticleFullObj);
+    panierTotalEl.value = '€ ' + panierObj.prixTotalPanier; 
+    panierQteEl.value = panierObj.totalArticlesPanier;
+}
 
 function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
     let qteSaisi = parseInt(qteSaisiEl.value);
