@@ -1,7 +1,10 @@
 .articles{
+    border: 2px solid red;
     margin-right: 1500px;
     background-color: beige;
     float:left;
+    overflow-y: scroll;
+    height: 685px;
 }
 .article{
 
@@ -12,10 +15,21 @@ img{
 span{
     margin: 10px;
 }
-.detail{
+.divArticle{
     border: 2px solid red;
-    margin-left: 350px;
+    margin-left: 360px;
     margin-bottom: -210px;
     position: absolute;
     float:right;
+}
+.panier{
+    border: 2px solid red;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    text-align: center;
+    border: 2px solid red;
 }

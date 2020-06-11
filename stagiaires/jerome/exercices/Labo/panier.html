@@ -10,7 +10,9 @@
       <header>
           <div class="panier">
               <label>Nombre d'articles : </label>
+              <span class="quantite">0</span>
               <label>Total : </label>
+              <span class="somme">0</span>
           </div>
 
       </header>
@@ -19,13 +21,15 @@
         <div class="articles"></div>
       </aside>
       <main>
-        <div class="detail"></div>
+        <div class="detail">
+          <div class='divArticle'></div>
+        </div>
       </main>
       
       <footer>
           <label>Quantitée de l'article choisis : </label>
-          <input type="number" value="1">
-          <input type="button" value="Envoyer vers le panier">
+          <input class="quantArt" type="number" value="0">
+          <input class="commander" type="button" value="Envoyer vers le panier">
       </footer>
       <script src="source/script.js"></script>
   </body>
