@@ -7,30 +7,31 @@
         <title>Panier</title>
     </head>
     <body>
-        <header>
-            <h1>Panier</h1>
-        </header>
         <main>
             <div class="view view-list active">
-                <div class="block-detail">
-                    <h2>Nom de l'article</h2>
-                    <img src="#" alt="image" />
-                    
-                    <div class="origin">De source, Pays</div>
-                    <div class="comment">
-                        commentaire
+                <div class="wrap-detail">
+                    <div class="block block-detail">
+                        <img src="#" alt="image" />
+                        <div class="info-detail">
+                            <h2>Nom de l'article</h2>
+                            <div class="origin">De source, Pays</div>
+                            <div class="comment">commentaire</div>
+                            <form>
+                                <input type="Number" placeholder="Nombre à commander" />
+                                <button>Commander</button>
+                            </form>
+                        </div>
                     </div>
-                    <form>
-                        <input type="Number" placeholder="Nombre à commander" />
-                        <button>Commander</button>
-                    </form>
                 </div>
-                
-                <div class="block-liste"></div>
-                <div class="block-basket">
-                    <div>Nombre d'article<output class='nb-articles'>0</output></div>
-                    <div>Total<output class='total'>0</output></div>
-                    <button class="button-confirm">Confirmer</button>
+                <div class="wrap-basket">
+                    <div class="block block-basket">
+                        <div>Nb articles :<output class='nb-articles'>0</output></div>
+                        <div>Total :<output class='total'>0</output></div>
+                        <button class="button-confirm">Voir le panier</button>
+                    </div>
+                </div>
+                <div class="wrap-liste">
+                    <div class="block block-liste"></div>
                 </div>
             </div>
             <div class="view view-recap">
@@ -44,10 +45,6 @@
                 </div>
             </div>
         </main>
-        <footer>
-            
-        </footer>
-
         <script src="source/sourceJSON.js"></script>
         <script src="js/script.js"></script>
     </body>

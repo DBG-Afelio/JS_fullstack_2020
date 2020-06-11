@@ -243,7 +243,6 @@ function updateNbArticles(basket) {
 }
 
 function showRecap() {
-    alert('vue sur Recap');
     oViewList.classList.remove('active');
     oViewRecap.classList.add('active');
 }
