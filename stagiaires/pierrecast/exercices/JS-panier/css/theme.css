@@ -66,6 +66,7 @@ button:hover, button:active, button:focus {
     justify-self: right;
 }
 
+.recap-bottom button,
 .block-detail button, 
 .block-detail input {
     font: 20px/35px arial, helvetica, sans-serif;
@@ -78,6 +79,7 @@ button:hover, button:active, button:focus {
     box-sizing: border-box;
     text-align: center;
 }
+
 .block-detail button {
     background-color: black;
     color: whitesmoke;
@@ -102,16 +104,14 @@ button:hover, button:active, button:focus {
 /* ------ BLOCK LISTE ------ */
 
 .wrap-liste {
-    
     padding: 25px 0 120px 0;
     box-sizing: border-box;
 }
+
 .block-liste {
     font-size: 16px;
     grid-template-columns: 32% 32% 32%;
     gap: 2%;
-
-
 }
 
 .block-liste .item { 
@@ -138,7 +138,10 @@ button:hover, button:active, button:focus {
 
 .block-liste .item.active { 
     background-color: grey;
+    border: 3px solid grey;
+    color: white;
 }
+
 .block-liste .item > * { 
     padding: 5px;
 }
@@ -152,6 +155,7 @@ button:hover, button:active, button:focus {
     padding-left: 10px;
     font-weight: bold;
 }
+
 .block-liste .item .price {
     text-align: right; 
     grid-row-start: 2;
@@ -167,24 +171,44 @@ button:hover, button:active, button:focus {
     grid-column-start: 1;
     grid-column-end: 2;
     height: 75px;
-
 }
+
+@media screen and (max-width: 990px) {
+    .block-liste {
+        grid-template-columns: 49% 49%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .block-liste {
+        grid-template-columns: 100%;
+    }
+
+    .block-liste .item {
+        margin-bottom: 0;
+    }
+}
+
 /* --- BLOCK PANIER --- */
 .block-basket {
+    margin: 90px auto 10px auto;
     grid-template-columns: 32% 32% 32%;
     gap: 2%;
-    padding: 90px 0 20px 0;
 }
 
 .block-basket > * {
-    width: 60%;
+    width: 100%;
+    max-width: 250px;
     box-shadow: 5px 5px 5px rgba(0,0,0,.05);
     text-align: center;
-    font: 20px/40px arial, helvetica, sans-serif;
+    padding: 5px 0;
+    font: 20px/30px arial, helvetica, sans-serif;
     font-variant: small-caps;
     font-weight: bold;
     cursor: pointer;
+    box-sizing: border-box;
 }
+
 .block-basket output {
     padding: 0 8px;
 } 
@@ -204,33 +228,89 @@ button:hover, button:active, button:focus {
     color: white;
 }
 
+@media screen and (max-width: 600px) {
+    .block-basket {
+        display: block;
+    }
+
+    .block-basket > * {
+        width: 100%;
+        margin: 5px 0;
+        max-width: 500px;
+    }
+}
+
 /* --- BLOCK PANIER --- */
 
 .view-recap {
     height: 40vh;
     box-sizing: border-box;
+    padding: 50px;
+}
+
+.wrap-recap {
+    position: relative;
+    width: 550px;
+    top: 150px;
+    max-width: 95%;
+    margin : 0 auto;
+    padding: 50px 50px 75px 50px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0,0,0, .6);
+    color: black;
 }
 
 .block-recap {
-    position: absolute;
-    width: 500px;
-    top: 150px;
-    left: 50%;
-    margin-left: -250px;
-    padding: 25px;
     text-align: right;
     align-content: center;
-    border:1px solid red;
     min-height: 600px;
-    background-color: white;
+}
+
+.block-recap .item {
+    display: grid;
+    grid-template-columns: 80px auto 50px 5px 80px 5px 80px;
+    align-content: center;
+    padding: 12px 0;
+}
+
+.block-recap .item > * {
+    align-self: center;
+    padding-left: 3px;
+}
+
+.block-recap .item .title {
+    justify-self: left;
+}
+
+.recap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recap-bottom > output {
+    width: 100%;
+    text-align: right;
+    font: 25px/35px 'Gafata', sans-serif;
+    border-top: 1px solid black;
+    padding-top: 5px;
+
+}
+
+.recap-bottom > button {
+    width: 40%;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    margin: 25px 0 10px 0;
 }
 
 .block-recap .item {
     border-bottom: 1px solid silver;
 }
-
-.block-recap .item > * {
-    display: inline-block;
-}
-
-
