@@ -1,36 +1,32 @@
-let listEl = document.querySelector('.photo-list');
-let panierQteEl = document.querySelector('.data-panier-quantite');
-console.log(panierQteEl);
-let panierTotalEl = document.querySelector('.data-panier-total');
-console.log(panierTotalEl);
-let myForm = document.querySelector('.form'); 
-let quantiteSaisiEl = document.querySelector('.data-input-quantite');
-let commanderBtnEl = document.querySelector('.btn-commander');
-let thisArticleFullObj = {}; 
-let thisArticleId= 0;
-let panierObj = {
-    totalArticlesPanier :0,
-    prixTotalPanier     :0
+let itemsListNode = document.querySelector('.photo-list');
+let outputQuantityCart = document.querySelector('.data-panier-quantite');
+let outputPriceCart = document.querySelector('.data-panier-total');
+let homeForm = document.querySelector('.form'); 
+let inputQuantity = document.querySelector('.data-input-quantite');
+let btnConfirmItem = document.querySelector('.btn-commander');
+let selectedItem = {}; 
+let selectedItemID= 0;
+let myCart = {
+    quantityCart :0,
+    priceCart   :0
 };
-let listArticlesPanier = [];
-const firstArticle = tab_img.find(obj => obj.id === 1);
+let itemsInCart = [];
+const firstItemToShow = tab_img.find(obj => obj.id === 1);
 
-let returnToList = document.querySelector('.btn-retournerListe');
-
-const selectArticle = (e) => {
-    thisArticleId = Number(e.target.closest('.articles').dataset.id);
-    thisArticleFullObj = tab_img.find(obj => obj.id === thisArticleId);
-    updateView(thisArticleFullObj, myForm);
-    updateInputQuantity(quantiteSaisiEl);
+const selectItem = (e) => {
+    selectedItemID = Number(e.target.closest('.articles').dataset.id);
+    selectedItem = tab_img.find(obj => obj.id === selectedItemID);
+    updateView(selectedItem, homeForm);
+    updateInputQuantity(inputQuantity);
 };
-const mouseOverArticle = (e) => e.currentTarget.classList.add('surbrillance');
-const mouseOutArticle = (e) => e.currentTarget.classList.remove('surbrillance');
-commanderBtnEl.addEventListener('click', (e) => {
-    isQuantiteValid(quantiteSaisiEl) ? updatePanier(thisArticleFullObj, quantiteSaisiEl, panierTotalEl, panierQteEl) : alert('Quantite incorrecte');
+const mouseOverItem = (e) => e.currentTarget.classList.add('surbrillance');
+const mouseOutItem = (e) => e.currentTarget.classList.remove('surbrillance');
+btnConfirmItem.addEventListener('click', (e) => {
+    isQuantiteValid(inputQuantity) ? updateCart(selectedItem, inputQuantity, outputPriceCart, outputQuantityCart) : alert('Quantite incorrecte');
     //classList.add ('message-qte-incorrecte')
    e.preventDefault();
 });
-//quantiteSaisiEl.addEventListener('change', isQuantiteValid);
+//inputQuantity.addEventListener('change', isQuantiteValid);
 
 
 
@@ -39,114 +35,131 @@ init();
 /**--------------------------------- */
 
 function init() {
-    displayArticles_El(listEl);
-    updateView(firstArticle, myForm);
-    panierTotalEl.value = '€ ' + panierObj.prixTotalPanier; 
-    panierQteEl.value = panierObj.totalArticlesPanier;
-    updateInputQuantity(quantiteSaisiEl);
+    displayItems(itemsListNode);
+    updateView(firstItemToShow, homeForm);
+    updateCartDisplay(outputPriceCart, outputQuantityCart);
+    updateInputQuantity(inputQuantity);
 }
 
 function updateInputQuantity(inputQte) {
-    let articleIndex = listArticlesPanier.findIndex(obj => obj.idArticle === thisArticleId);
-    articleIndex === -1 ? inputQte.value = 0 : inputQte.value = listArticlesPanier[articleIndex].qteArticle;
+    let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItemID);
+    itemIndex === -1 ? inputQte.value = 0 : inputQte.value = itemsInCart[itemIndex].myItemQuantity;
 }
+/**Fonction  qui met a jour le prix total et la quantite total du panier 
+ * 
+*/
+function updateCart(selectedItem, inputQuantity, outputPriceCart, outputQuantityCart) {
+    let qttyIn = parseInt(inputQuantity.value);
+    let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItem.id);
+    let delta = qttyIn;
 
-function updatePanier(thisArticle, qteSaisiEl, totalEl, quantiteEl) {
-    let qteSaisi = parseInt(qteSaisiEl.value);
-    let articleIndex = listArticlesPanier.findIndex(obj => obj.idArticle === thisArticle.id);
-    let delta = qteSaisi;
-
-    if (articleIndex === -1 && qteSaisi === 0) {
-
-    } else if (articleIndex === -1 && qteSaisi > 0) {
-        console.log('New Article');
-        myArticleInList = addNewArticleToList(thisArticle, qteSaisi);
-        listArticlesPanier.push(myArticleInList); console.log(addNewArticleToList);
-        updateQtePrixPanier(myArticleInList, delta, totalEl, quantiteEl);
+    if (itemIndex === -1 && qttyIn === 0) {
+    } else if (itemIndex === -1 && qttyIn > 0) {
+        let myNewItem = addItemIntoList(selectedItem, qttyIn);
+        updateCartValues(myNewItem, delta);
+        updateCartDisplay(outputPriceCart, outputQuantityCart)
     } else {
-        console.log('NOT New Article');
-        let myArticleInList = listArticlesPanier[articleIndex];
-        let prevQte = myArticleInList.qteArticle;
-        delta = qteSaisi - prevQte;
+        let myItem = itemsInCart[itemIndex];
+        let previousQtte = myItem.myItemQuantity;
+        delta = qttyIn - previousQtte;
         if (delta !== 0) {
-            if (qteSaisi === 0) {
-                listArticlesPanier.splice(articleIndex, 1);
-                updateQtePrixPanier(myArticleInList, delta, totalEl, quantiteEl);
+            if (qttyIn === 0) {
+                itemsInCart.splice(itemIndex, 1);
+                updateCartValues(myItem, delta);
+                updateCartDisplay(outputPriceCart, outputQuantityCart)
             } else {
-                let articleUpdated = updateSingleArticle(myArticleInList, qteSaisi); console.log(articleUpdated);
-                listArticlesPanier.splice(articleIndex, 1, articleUpdated);
-                updateQtePrixPanier(articleUpdated, delta, totalEl, quantiteEl);
+                let modifiedItem = modifyItemQttyIntoList(myItem, qttyIn); 
+                itemsInCart.splice(itemIndex, 1, modifiedItem);
+                updateCartValues(modifiedItem, delta);
+                updateCartDisplay(outputPriceCart, outputQuantityCart)
             }
         }
     }
 }
-function updateQtePrixPanier(articleObj,delta, totalEl, quantiteEl) {
-    panierObj.totalArticlesPanier += delta; 
-    panierObj.prixTotalPanier += articleObj.prixArticleUnitaire * delta;
-    console.log(panierObj.totalArticlesPanier, panierObj.prixTotalPanier);
-    totalEl.value = '€ ' + panierObj.prixTotalPanier; 
-    quantiteEl.value = panierObj.totalArticlesPanier;
+
+/**
+ * Fonction qui met a jour les valeurs du panier
+ * @param {{}} item 
+ * @param {number} delta 
+ */
+function updateCartValues(item,delta) {
+    myCart.quantityCart += delta; 
+    myCart.priceCart+= item.myItemUnitPrice * delta;
+}
+
+/**
+ * Fonction qui met a jour l'affichage des valeurs du panier
+ * @param {OutputHTMLElement} outputPriceCart 
+ * @param {OutputHTMLElement} outputQuantityCart 
+ */
+function updateCartDisplay(outputPriceCart, outputQuantityCart) {
+    outputPriceCart.value = '€ ' + myCart.priceCart; 
+    outputQuantityCart.value = myCart.quantityCart;
 }
     
 /**
- * Fonction qui met a jour les quantite et prix pour 1 article ajouté/modifié et renvoit l'objet modifié : {
-            idArticle: <inchange>,
-            qteArticle: updated,
-            prixArticleUnitaire: <inchange>,
-            prixArticleTotal: updated,
+ * Fonction qui met a jour les quantite et prix pour 1 article ajouté/diminue et renvoit l'objet modifié : {
+            myItemId: <inchange>,
+            myItemQuantity: updated,
+            myItemUnitPrice: <inchange>,
+            myItemTotalPrice: updated,
         }
- * @param {{}} articleToUpdate 
- * @param {number} qteSaisi 
+ * @param {{}} itemToUpdate 
+ * @param {number} qttyIn 
  * @return {{}}
  */
-function updateSingleArticle(articleToUpdate, qteSaisi) {
-    articleToUpdate.qteArticle = qteSaisi;
-    articleToUpdate.prixArticleTotal = articleToUpdate.prixArticleUnitaire * qteSaisi;
-    return articleToUpdate;
+function modifyItemQttyIntoList(modifiedItem, qttyIn) {
+    modifiedItem.myItemQuantity = qttyIn;
+    modifiedItem.myItemTotalPrice = modifiedItem.myItemUnitPrice * qttyIn;
+    return modifiedItem;
 }
-function addNewArticleToList(thisArticle, qteSaisi) {
-    let newArticle =  {
-    idArticle: thisArticle.id,
-    qteArticle: qteSaisi,
-    prixArticleUnitaire: parseFloat(thisArticle.Prix),
-    prixArticleTotal: parseFloat(thisArticle.Prix) * qteSaisi,
+
+/**
+ * Fonction qui cree l'objet {new item} ajouté par le user et l'ajoute dans le panier 
+ * */
+function addItemIntoList(selectedItem, qttyIn) {
+    let newItem =  {
+    myItemId: selectedItem.id,
+    myItemQuantity: qttyIn,
+    myItemUnitPrice: parseFloat(selectedItem.Prix),
+    myItemTotalPrice: parseFloat(selectedItem.Prix) * qttyIn,
     };
-    console.log(newArticle);
-    return newArticle;
+    itemsInCart.push(newItem); 
+    return newItem;
 }
 
 function isQuantiteValid() {
     return true;
 }
 
-function displayArticles_El(parentEl) {
-    tab_img.forEach(articleObj => {
-        let articleEl = document.createElement('div');
-        parentEl.append(articleEl);
-        articleEl.setAttribute('data-id', articleObj.id);
-        articleEl.classList.add('articles');
-        articleEl.addEventListener('mouseover', mouseOverArticle);
-        articleEl.addEventListener('mouseout', mouseOutArticle);
-        articleEl.addEventListener('click', selectArticle);
+function displayItems(listItemParentNode) {
+    tab_img.forEach(item => {
+        let itemNode = document.createElement('div');
+        listItemParentNode.append(itemNode);
+        itemNode.setAttribute('data-id', item.id);
+        itemNode.classList.add('articles');
+        itemNode.addEventListener('mouseover', mouseOverItem);
+        itemNode.addEventListener('mouseout', mouseOutItem);
+        itemNode.addEventListener('click', selectItem);
 
-        let articleImage = document.createElement('img');
-        articleImage.src = `img/${articleObj.image.petite}`;
-        articleEl.append(articleImage);
+        let itemImage = document.createElement('img');
+        itemImage.src = `img/${item.image.petite}`;
+        itemNode.append(itemImage);
 
-        let articleNom = document.createElement('div');
-        articleNom.textContent = articleObj.titre;
-        articleEl.append(articleNom);
+        let itemName = document.createElement('div');
+        itemName.textContent = item.titre;
+        itemNode.append(itemName);
 
-        let articlePrix = document.createElement('div');
-        articlePrix.textContent = articleObj.Prix;
-        articleEl.append(articlePrix);
+        let itemPrice = document.createElement('div');
+        itemPrice.textContent = item.Prix;
+        itemNode.append(itemPrice);
     });
 }
 
-function updateView(thisArticle, parentEl) {
-    parentEl.querySelector('.data-titre').textContent = thisArticle.titre;
-    parentEl.querySelector('.data-auteur-pays').textContent = `De ${thisArticle.auteur}, ${thisArticle.Pays}`;
-    parentEl.querySelector('.data-comments').textContent = thisArticle.commentaire;
-    parentEl.querySelector('.data-prix').textContent = thisArticle.Prix;
-    parentEl.querySelector('.data-img-details').src = `img/${thisArticle.image.moyenne}`;
+function updateView(selectedItem, detailViewParentNode) {
+    detailViewParentNode.querySelector('.data-titre').textContent = selectedItem.titre;
+    detailViewParentNode.querySelector('.data-auteur-pays').textContent = `De ${selectedItem.auteur}, ${selectedItem.Pays}`;
+    detailViewParentNode.querySelector('.data-comments').textContent = selectedItem.commentaire;
+    detailViewParentNode.querySelector('.data-prix').textContent = selectedItem.Prix;
+    detailViewParentNode.querySelector('.data-img-details').src = `img/${selectedItem.image.moyenne}`;
 }
