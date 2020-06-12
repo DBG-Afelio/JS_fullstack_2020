@@ -36,7 +36,7 @@ button:hover, button:active, button:focus {
 }
 /* ------ BLOCK DETAIL ------ */
 
-.wrap-detail {
+.wrap-detail, .view-recap {
     color: white;
     padding: 75px 0;
     background: url('../img/wave-545048_1920.jpg') black no-repeat center center;
@@ -108,8 +108,9 @@ button:hover, button:active, button:focus {
 }
 .block-liste {
     font-size: 16px;
-    grid-template-columns: 31% 31% 31%;
+    grid-template-columns: 32% 32% 32%;
     gap: 2%;
+
 
 }
 
@@ -149,6 +150,7 @@ button:hover, button:active, button:focus {
     grid-column-end: 3;
     font: 20px/25px 'Gafata', sans-serif;
     padding-left: 10px;
+    font-weight: bold;
 }
 .block-liste .item .price {
     text-align: right; 
@@ -169,7 +171,7 @@ button:hover, button:active, button:focus {
 }
 /* --- BLOCK PANIER --- */
 .block-basket {
-    grid-template-columns: 31% 31% 31%;
+    grid-template-columns: 32% 32% 32%;
     gap: 2%;
     padding: 90px 0 20px 0;
 }
@@ -202,9 +204,26 @@ button:hover, button:active, button:focus {
     color: white;
 }
 
-.block-basket > *
-
 /* --- BLOCK PANIER --- */
+
+.view-recap {
+    height: 40vh;
+    box-sizing: border-box;
+}
+
+.block-recap {
+    position: absolute;
+    width: 500px;
+    top: 150px;
+    left: 50%;
+    margin-left: -250px;
+    padding: 25px;
+    text-align: right;
+    align-content: center;
+    border:1px solid red;
+    min-height: 600px;
+    background-color: white;
+}
 
 .block-recap .item {
     border-bottom: 1px solid silver;
@@ -213,3 +232,5 @@ button:hover, button:active, button:focus {
 .block-recap .item > * {
     display: inline-block;
 }
+
+
