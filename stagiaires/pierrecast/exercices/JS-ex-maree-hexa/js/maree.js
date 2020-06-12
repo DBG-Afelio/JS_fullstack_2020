@@ -19,6 +19,7 @@ newGame.addEventListener('click', startGame);
 
 startGame();
 function startGame() {
+    turn = 0;
     oMessage.style.display = "none";
     generateButtons(colors);
     maree = generateMaree(colors, lines, column, oMaree);
