@@ -87,11 +87,8 @@ form{
    border: solid;
 }
 .cart-info > *{
-    
-    
+  
     color: whitesmoke;
-
-   
 }
 .data-input-quantite{
     width: 30px;
@@ -110,8 +107,8 @@ form{
 img{
     border-radius: 10px;
 }
-.btn-goBackHome{
+.btn-goBackHome, .btn-empty-list{
     height: 50px;
-    width: 50px;
+    width: 100px;
     background-color: yellow;
 }

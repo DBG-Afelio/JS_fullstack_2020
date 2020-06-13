@@ -35,29 +35,38 @@ btnConfirmItem.addEventListener('click', (e) => {
 });
 //inputQuantity.addEventListener('change', isQuantiteValid);
 goToCartNode.addEventListener('click', () => {
-    homePageNode.classList.remove('show');
-    cartRecapPageNode.classList.remove('hide');
-    homePageNode.classList.add('hide');
-    cartRecapPageNode.classList.add('show');
-    showCartRecap(itemCartNode);
+    showCartRecapPage(homePageNode, cartRecapPageNode)
+    displayCartRecap(itemCartNode);
 });
 goBackHomePageNode.addEventListener('click', () => {
-    homePageNode.classList.remove('hide');
-    cartRecapPageNode.classList.remove('show');
-    homePageNode.classList.add('show');
-    cartRecapPageNode.classList.add('hide');
+    showHomePage(homePageNode, cartRecapPageNode);
+ 
 })
 
 init();
 
 /**--------------------------------- */
 
+function showHomePage(homePageNode, cartRecapPageNode) {
+    homePageNode.classList.remove('hide');
+    cartRecapPageNode.classList.remove('show');
+    homePageNode.classList.add('show');
+    cartRecapPageNode.classList.add('hide');
+}
+
+function showCartRecapPage(homePageNode, cartRecapPageNode) {
+    homePageNode.classList.remove('show');
+    cartRecapPageNode.classList.remove('hide');
+    homePageNode.classList.add('hide');
+    cartRecapPageNode.classList.add('show');
+}
+
 function init() {
     homePageNode.classList.add('show');
     cartRecapPageNode.classList.add('hide');
     const firstItemToShow = tab_img.find(obj => obj.id === 1);
     selectedItem = firstItemToShow;
-    displayItems(itemListNode);
+    displayItemlist(itemListNode);
     updateView(firstItemToShow, homeForm);
     updateInputQuantity(inputQuantity); 
     updateCartDisplay(outputPriceCart, outputQuantityCart);
@@ -155,7 +164,7 @@ function isQuantiteValid() {
     return true;
 }
 
-function displayItems(listItemParentNode) {
+function displayItemlist(listItemParentNode) {
     tab_img.forEach(item => {
         let itemNode = document.createElement('div');
         listItemParentNode.append(itemNode);
@@ -187,6 +196,6 @@ function updateView(selectedItem, detailViewParentNode) {
     detailViewParentNode.querySelector('.data-img-details').src = `img/${selectedItem.image.moyenne}`;
 }
 
-function showCartRecap(itemCartNode) {
+function displayCartRecap(itemCartNode) {
     
 }
