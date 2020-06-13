@@ -1,9 +1,16 @@
-let itemsListNode = document.querySelector('.photo-list');
+let itemListNode = document.querySelector('.photo-list');
 let outputQuantityCart = document.querySelector('.data-panier-quantite');
 let outputPriceCart = document.querySelector('.data-panier-total');
 let homeForm = document.querySelector('.form'); 
 let inputQuantity = document.querySelector('.data-input-quantite');
 let btnConfirmItem = document.querySelector('.btn-commander');
+let goToCartNode = document.querySelector('.cart-info');
+let goBackHomePageNode = document.querySelector('.btn-goBackHome');
+let itemCartNode = document.querySelector('.recap-list');
+let homePageNode = document.querySelector('.homePage');
+let cartRecapPageNode = document.querySelector('.cartRecapPage');
+
+
 let selectedItem = {}; 
 let selectedItemID= 0;
 let myCart = {
@@ -27,17 +34,30 @@ btnConfirmItem.addEventListener('click', (e) => {
    e.preventDefault();
 });
 //inputQuantity.addEventListener('change', isQuantiteValid);
-
-
+goToCartNode.addEventListener('click', () => {
+    homePageNode.classList.remove('show');
+    cartRecapPageNode.classList.remove('hide');
+    homePageNode.classList.add('hide');
+    cartRecapPageNode.classList.add('show');
+    showCartRecap(itemCartNode);
+});
+goBackHomePageNode.addEventListener('click', () => {
+    homePageNode.classList.remove('hide');
+    cartRecapPageNode.classList.remove('show');
+    homePageNode.classList.add('show');
+    cartRecapPageNode.classList.add('hide');
+})
 
 init();
 
 /**--------------------------------- */
 
 function init() {
+    homePageNode.classList.add('show');
+    cartRecapPageNode.classList.add('hide');
     const firstItemToShow = tab_img.find(obj => obj.id === 1);
     selectedItem = firstItemToShow;
-    displayItems(itemsListNode);
+    displayItems(itemListNode);
     updateView(firstItemToShow, homeForm);
     updateInputQuantity(inputQuantity); 
     updateCartDisplay(outputPriceCart, outputQuantityCart);
@@ -165,4 +185,8 @@ function updateView(selectedItem, detailViewParentNode) {
     detailViewParentNode.querySelector('.data-comments').textContent = selectedItem.commentaire;
     detailViewParentNode.querySelector('.data-prix').textContent = selectedItem.Prix;
     detailViewParentNode.querySelector('.data-img-details').src = `img/${selectedItem.image.moyenne}`;
+}
+
+function showCartRecap(itemCartNode) {
+    
 }

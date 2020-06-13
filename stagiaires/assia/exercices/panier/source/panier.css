@@ -22,12 +22,13 @@ body{
     background-size:80px 80px;
     background-position:0 0, 40px 40px;
 }
-.homePage{
+.homePage.show, .cartRecapPage.show{
     display: block;
+    z-index: 11;
 }
-.recapCartPage{
-    background-color: lavender;
-    display:block;
+
+.recapCartPage.hide, .homePage.hide{
+    display:none;
 }
 form{
     height: 550px;
@@ -106,7 +107,11 @@ form{
     border: solid;
 
 }
-
 img{
     border-radius: 10px;
+}
+.btn-goBackHome{
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
 }
