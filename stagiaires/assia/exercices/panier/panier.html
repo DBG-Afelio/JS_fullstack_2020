@@ -4,35 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="source/panier.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
     <title>Panier</title>
 </head>
 <body>
     <div class='banner'></div>
-    <div class='photo-list'>
-        <div class='list-entete'> 
-            <label>Nombre d'articles
-                <output class='data-panier-quantite'></output>
-            </label>
-            <label>Prix total
-                <output class='data-panier-total'></output>
-            </label> 
-        </div>
-        <!-- ici je viens generer mes articles dispo a la vente -->
+    <div class='cart-info'>
+        <!--label>Nombre d'articles</label-->
+        <i class="far fa-shopping-cart"></i>
+        <output class='data-panier-quantite'></output>
+        <!--label>Prix total</label--> 
+        <output class='data-panier-total'></output>
     </div>
-    <form class='form'>
-        <div class='data-titre'></div>
-        <img class='data-img-details'>
-        <div class='data-auteur-pays'></div>
-        <div class='data-comments'></div>
-        <div class='data-prix'></div>
-        <div class='user-inputs'>
-            <input type='number' class='data-input-quantite' min="0">Quantité</input>
-            <div class='message-quantite-incorrecte'>
-                
-            </div>
-            <input type='submit' class='btn-commander' value='Commander'></input>
+    <div class='homePage'> 
+        <div class='photo-list'>
+            <!-- ici je viens generer mes articles dispo a la vente -->
         </div>
-    </form>
+        <form class='form'>
+            <div class='data-titre'></div>
+            <img class='data-img-details'>
+            <div class='data-auteur-pays'></div>
+            <div class='data-comments'></div>
+            <div class='data-prix'></div>
+            <div class='user-inputs'>
+                <input type='number' class='data-input-quantite' min="0">Quantité</input>
+                <div class='message-quantite-incorrecte'>
+                </div>
+                <input type='submit' class='btn-commander' value='Commander'></input>
+            </div>
+        </form>
+    </div>
+    <div class='cartRecapPage'>
+        <!--ici la liste des articles ajoutes au panier-->
+
+    </div>
     <script src="source/sourceJSON.js"></script>
     <script src="source/panier.js"></script>
     

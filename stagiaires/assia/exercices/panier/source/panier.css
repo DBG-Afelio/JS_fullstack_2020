@@ -4,6 +4,7 @@
     font-family: 'Ubuntu', sans-serif;
 }
 body{
+    width:auto;
     background-color: white;
     display:flex;
     flex-direction: row;
@@ -15,43 +16,49 @@ body{
     width: 100%;
     height: 120px;
     z-index: 1;
-    background-color:#def;
+    background-color:rgb(82, 2, 119); /* #def */
     background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
     radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
     background-size:80px 80px;
     background-position:0 0, 40px 40px;
 }
-
+.homePage{
+    display: block;
+}
+.recapCartPage{
+    background-color: lavender;
+    display:block;
+}
 form{
     height: 550px;
     width: 350px;
-   
+    margin: auto;
     padding: 10px 10px;
     position:fixed;
     z-index: 2;
-    left: 150px;
+    left: 300px; 
     top: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-.data-input-quantite{
-    width: 30px;
-}
+
 .photo-list{
     position: absolute;
-    top:230px;
+    top:120px;
 
     right : 10px ;
     width: 400px;
+    scroll-behavior: smooth;
+
     margin-right: 10px;
 
     display:flex;
     flex-direction: column;
     align-items: flex-start;
     
-    background-color: #9AA6B1 ; /*#DDEEFF; */
+  /*  background-color:rgba(66, 5, 94, 0.678); /* #9AA6B1 */
 }
 
 .photo-list > div{
@@ -59,23 +66,35 @@ form{
     display:flex;
     flex-wrap: nowrap;
     width: 100%;
-    background-color: #9AA6B1; 
-    color:black;
+    background-color: rgb(57, 4, 83);
+    color:whitesmoke;
     padding: 5px 10px 5px 10px;
 }
-.list-entete{
-    
-    height: 100px;
-    width: 100%;
+.cart-info {
+    z-index: 10;
     position: fixed;
-    top: 120px;
+    top: 30px;
+    right: 30px;
+    
+    height: 60px;
+    width: 20%;
+  
     display:flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    
+   border: solid;
+}
+.cart-info > *{
+    
+    
+    color: whitesmoke;
+
    
 }
-.list-entete > *{
-    
+.data-input-quantite{
+    width: 30px;
+    background-image: url();
 }
 
 .articles{
@@ -86,4 +105,8 @@ form{
 .articles.surbrillance {
     border: solid;
 
+}
+
+img{
+    border-radius: 10px;
 }
