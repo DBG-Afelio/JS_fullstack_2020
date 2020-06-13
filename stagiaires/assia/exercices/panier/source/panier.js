@@ -21,7 +21,7 @@ let itemsInCart = [];
 
 
 const selectItem = (e) => {
-    selectedItemID = Number(e.target.closest('.articles').dataset.id);
+    selectedItemID = Number(e.target.closest('.item').dataset.id);
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
     updateView(selectedItem, homeForm);
     updateInputQuantity(inputQuantity);
@@ -36,7 +36,7 @@ btnConfirmItem.addEventListener('click', (e) => {
 //inputQuantity.addEventListener('change', isQuantiteValid);
 goToCartNode.addEventListener('click', () => {
     showCartRecapPage(homePageNode, cartRecapPageNode)
-    displayCartRecap(itemCartNode);
+    displayCartRecap(itemCartNode, itemsInCart);
 });
 goBackHomePageNode.addEventListener('click', () => {
     showHomePage(homePageNode, cartRecapPageNode);
@@ -47,25 +47,13 @@ init();
 
 /**--------------------------------- */
 
-function showHomePage(homePageNode, cartRecapPageNode) {
-    homePageNode.classList.remove('hide');
-    cartRecapPageNode.classList.remove('show');
-    homePageNode.classList.add('show');
-    cartRecapPageNode.classList.add('hide');
-}
 
-function showCartRecapPage(homePageNode, cartRecapPageNode) {
-    homePageNode.classList.remove('show');
-    cartRecapPageNode.classList.remove('hide');
-    homePageNode.classList.add('hide');
-    cartRecapPageNode.classList.add('show');
-}
 
 function init() {
-    homePageNode.classList.add('show');
-    cartRecapPageNode.classList.add('hide');
+    
     const firstItemToShow = tab_img.find(obj => obj.id === 1);
     selectedItem = firstItemToShow;
+    showHomePage(homePageNode, cartRecapPageNode);
     displayItemlist(itemListNode);
     updateView(firstItemToShow, homeForm);
     updateInputQuantity(inputQuantity); 
@@ -166,26 +154,25 @@ function isQuantiteValid() {
 
 function displayItemlist(listItemParentNode) {
     tab_img.forEach(item => {
-        let itemNode = document.createElement('div');
-        listItemParentNode.append(itemNode);
+        let itemNode = createNewElement('div', listItemParentNode);
         itemNode.setAttribute('data-id', item.id);
-        itemNode.classList.add('articles');
+        itemNode.classList.add('item-list', 'item');
         itemNode.addEventListener('mouseover', mouseOverItem);
         itemNode.addEventListener('mouseout', mouseOutItem);
         itemNode.addEventListener('click', selectItem);
-
-        let itemImage = document.createElement('img');
+        let itemImage = createNewElement('img', itemNode);
         itemImage.src = `img/${item.image.petite}`;
-        itemNode.append(itemImage);
-
-        let itemName = document.createElement('div');
+        let itemName = createNewElement('div', itemNode);
         itemName.textContent = item.titre;
-        itemNode.append(itemName);
-
-        let itemPrice = document.createElement('div');
+        let itemPrice = createNewElement('div', itemNode);
         itemPrice.textContent = item.Prix;
-        itemNode.append(itemPrice);
     });
+}
+
+function createNewElement(elementType, parentNode) {
+    let newElement = document.createElement(elementType);
+    parentNode.append(newElement);
+    return newElement;
 }
 
 function updateView(selectedItem, detailViewParentNode) {
@@ -196,6 +183,51 @@ function updateView(selectedItem, detailViewParentNode) {
     detailViewParentNode.querySelector('.data-img-details').src = `img/${selectedItem.image.moyenne}`;
 }
 
-function displayCartRecap(itemCartNode) {
-    
+function displayCartRecap(itemCartNode, itemsInCart) {
+
+    itemsInCart.forEach(cartItem => {
+        let fullInfoItem = tab_img.find(listItem => listItem.id === cartItem.myItemId);
+        let itemNode = createNewElement('div', itemCartNode);
+        itemNode.setAttribute('data-id', fullInfoItem.id);
+        itemNode.classList.add('myItems', 'item');
+        itemNode.addEventListener('mouseover', mouseOverItem);
+        itemNode.addEventListener('mouseout', mouseOutItem);
+        itemNode.addEventListener('click', selectItem);
+
+        let itemImage = createNewElement('img', itemNode);
+        itemImage.src = `img/${fullInfoItem.image.toute_petite}`;
+        
+
+        let itemName = createNewElement('div', itemNode);
+        itemName.textContent = fullInfoItem.titre;
+
+        let itemQtte = createNewElement('input', itemNode);
+        itemQtte.classList.add('data-item-qtte');
+        itemQtte.setAttribute('type', 'number');
+        itemQtte.setAttribute('min', 1);
+        
+        let itemUnitPrice = createNewElement('div', itemNode);
+        itemUnitPrice.textContent = `x € ${cartItem.myItemUnitPrice} = `;
+
+        let itemTotalPrice = createNewElement('div', itemNode);
+        itemTotalPrice.classList.add('data-item-totalPrice');
+
+        let itemDelete = createNewElement('div', itemNode);
+        itemDelete.classList.add('data-item-delete');
+
+    })
+}
+
+function showHomePage(homePageNode, cartRecapPageNode) {
+    homePageNode.classList.remove('hide');
+    cartRecapPageNode.classList.remove('show');
+    homePageNode.classList.add('show');
+    cartRecapPageNode.classList.add('hide');
+}
+
+function showCartRecapPage(homePageNode, cartRecapPageNode) {
+    homePageNode.classList.remove('show');
+    cartRecapPageNode.classList.remove('hide');
+    homePageNode.classList.add('hide');
+    cartRecapPageNode.classList.add('show');
 }
