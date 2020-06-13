@@ -11,7 +11,7 @@ let myCart = {
     priceCart   :0
 };
 let itemsInCart = [];
-const firstItemToShow = tab_img.find(obj => obj.id === 1);
+
 
 const selectItem = (e) => {
     selectedItemID = Number(e.target.closest('.articles').dataset.id);
@@ -35,10 +35,13 @@ init();
 /**--------------------------------- */
 
 function init() {
+    const firstItemToShow = tab_img.find(obj => obj.id === 1);
+    selectedItem = firstItemToShow;
     displayItems(itemsListNode);
     updateView(firstItemToShow, homeForm);
+    updateInputQuantity(inputQuantity); 
     updateCartDisplay(outputPriceCart, outputQuantityCart);
-    updateInputQuantity(inputQuantity);
+    
 }
 
 function updateInputQuantity(inputQte) {
