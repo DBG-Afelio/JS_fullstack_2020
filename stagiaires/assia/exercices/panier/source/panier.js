@@ -6,6 +6,7 @@ let inputQuantity = document.querySelector('.data-input-quantite');
 let btnConfirmItem = document.querySelector('.btn-commander');
 let goToCartNode = document.querySelector('.cart-info');
 let goBackHomePageNode = document.querySelector('.btn-goBackHome');
+let emptyCartNode = document.querySelector('.btn-empty-list');
 let itemCartNode = document.querySelector('.recap-list');
 let homePageNode = document.querySelector('.homePage');
 let cartRecapPageNode = document.querySelector('.cartRecapPage');
@@ -21,7 +22,7 @@ let itemsInCart = [];
 
 
 const selectItem = (e) => {
-    selectedItemID = Number(e.target.closest('.item').dataset.id);
+    selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
     updateView(selectedItem, homeForm);
     updateInputQuantity(inputQuantity);
