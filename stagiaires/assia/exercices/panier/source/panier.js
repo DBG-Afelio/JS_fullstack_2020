@@ -59,13 +59,23 @@ goToCartNode.addEventListener('click', () => {
 goBackHomePageNode.addEventListener('click', () => {
     showHomePage(homePageNode, cartRecapPageNode);
 });
-/*
+
 emptyCartNode.addEventListener('click', () => {
-    myCart.quantityCart = 0;
-    myCart.priceCart = 0;
+    firstItemToShowId = 1;
+    firstItemToShow = tab_img.find(obj => obj.id === firstItemToShowId);
+    selectedItem = firstItemToShow;
+    selectedItemID = firstItemToShowId;
+    myCart = {
+        quantityCart: 0,
+        priceCart: 0
+    };  
     itemsInCart = [];
+    updateView(firstItemToShow, homeForm);
+    removeRecapItemNodes(itemCartNode);
+    updateHomePageInputQttyOnClick(inputQuantityHome, itemCartNode); 
+    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode,itemsInCart);
 });
-*/
+
 
 
 
@@ -80,6 +90,11 @@ function init() {
     const firstItemToShow = tab_img.find(obj => obj.id === firstItemToShowId);
     selectedItem = firstItemToShow;
     selectedItemID = firstItemToShowId;
+    myCart = {
+        quantityCart: 0,
+        priceCart: 0
+    };  
+    itemsInCart = [];
     showHomePage(homePageNode, cartRecapPageNode);
     displayItemlist(itemListNode);
     updateView(firstItemToShow, homeForm);
@@ -143,6 +158,12 @@ function deleteItem(itemsInCart, itemCartNode) {
     let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItem.id);
     itemsInCart.splice(itemIndex, 1);
     
+}
+
+function removeRecapItemNodes(itemCartNode) {
+    while (itemCartNode.hasChildNodes()) {
+        itemCartNode.removeChild(itemCartNode.firstChild);
+    } 
 }
 
 /**
