@@ -134,6 +134,19 @@ form{
 img{
     border-radius: 10px;
 }
+.empty-cart-img{
+    position: absolute;
+    left: 27%;
+    top:30%;
+    width: 1000px;
+    height:600px;
+}
+.empty-cart-img.show {
+    display:block;
+}
+.empty-cart-img.hide{
+    display:none;
+}
 .cmd-fromCart{
     z-index: 30;
     position: fixed;

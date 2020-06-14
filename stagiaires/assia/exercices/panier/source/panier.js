@@ -42,6 +42,7 @@ const changeQttyFromRecap = (e) => {
     /* let inputQttyToGetFrom = e.currentTarget('.input') */
     let inputQttyToGetFrom = getRecapItemNode(itemCartNode).querySelector('.item-qtte');
     updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+    manageEmptyCartImg(cartRecapPageNode);
 };
 const deleteItemFromRecap = (e) => {
     selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
@@ -50,6 +51,7 @@ const deleteItemFromRecap = (e) => {
     inputQttyToGetFrom.value = 0; 
     updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
+    manageEmptyCartImg(cartRecapPageNode);
 };
 //inputQuantityHome.addEventListener('change', isQuantiteValid);
 goToCartNode.addEventListener('click', () => {
@@ -72,7 +74,8 @@ emptyCartNode.addEventListener('click', () => {
     updateHomeView(firstItemToShow, homeForm);
     removeRecapItemNodes(itemCartNode);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
-    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode,itemsInCart);
+    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode, itemsInCart);
+    manageEmptyCartImg(cartRecapPageNode);
 });
 
 init();
@@ -300,4 +303,16 @@ function showCartRecapPage(homePageNode, cartRecapPageNode) {
     homePageNode.classList.add('hide');
     cartRecapPageNode.classList.add('show');
     document.title = "Recapitulatif Panier";
+    manageEmptyCartImg(cartRecapPageNode);
+}
+
+function manageEmptyCartImg(cartRecapPageNode) {
+    let imgEmptyCart = cartRecapPageNode.querySelector('.empty-cart-img');
+    if (itemsInCart.length === 0) {
+        imgEmptyCart.classList.add('show');
+        imgEmptyCart.classList.remove('hide');
+    } else {
+        imgEmptyCart.classList.add('hide');
+        imgEmptyCart.classList.remove('show');
+    }
 }
