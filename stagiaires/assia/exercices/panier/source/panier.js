@@ -2,7 +2,7 @@ let itemListNode = document.querySelector('.photo-list');
 let outputQuantityCart = document.querySelector('.data-panier-quantite');
 let outputPriceCart = document.querySelector('.data-panier-total');
 let homeForm = document.querySelector('.form'); 
-let inputQuantity = document.querySelector('.data-input-quantite');
+let inputQuantityHome = document.querySelector('.data-input-quantite');
 let btnConfirmItem = document.querySelector('.btn-commander');
 let goToCartNode = document.querySelector('.cart-info');
 let goBackHomePageNode = document.querySelector('.btn-goBackHome');
@@ -25,24 +25,41 @@ const selectItem = (e) => {
     selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
     updateView(selectedItem, homeForm);
-    updateInputQuantity(inputQuantity);
+    updateHomePageInputQttyOnClick(inputQuantityHome);
+    showHomePage(homePageNode, cartRecapPageNode);
+    
 };
 const mouseOverItem = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutItem = (e) => e.currentTarget.classList.remove('surbrillance');
+
 btnConfirmItem.addEventListener('click', (e) => {
-    isQuantiteValid(inputQuantity) ? updateCart(selectedItem, inputQuantity, outputPriceCart, outputQuantityCart) : alert('Quantite incorrecte');
-    //classList.add ('message-qte-incorrecte')
+    let inputQttyToGetFrom = inputQuantityHome;
+    updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
    e.preventDefault();
 });
-//inputQuantity.addEventListener('change', isQuantiteValid);
+const changeQttyFromRecap = (e) => {
+    selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
+    selectedItem = tab_img.find(obj => obj.id === selectedItemID);
+    let inputQttyToGetFrom = getRecapItemNode(itemCartNode).querySelector('.item-qtte');
+    updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+}
+//inputQuantityHome.addEventListener('change', isQuantiteValid);
 goToCartNode.addEventListener('click', () => {
     showCartRecapPage(homePageNode, cartRecapPageNode)
-    displayCartRecap(itemCartNode, itemsInCart);
+  /*  displayCartRecap(itemCartNode, itemsInCart); */
 });
 goBackHomePageNode.addEventListener('click', () => {
     showHomePage(homePageNode, cartRecapPageNode);
- 
 })
+/*
+emptyCartNode.addEventListener('click', () => {
+    myCart.quantityCart = 0;
+    myCart.priceCart = 0;
+    itemsInCart = [];
+});
+*/
+
+
 
 init();
 
@@ -51,48 +68,60 @@ init();
 
 
 function init() {
-    
-    const firstItemToShow = tab_img.find(obj => obj.id === 1);
+    const firstItemToShowId = 1;
+    const firstItemToShow = tab_img.find(obj => obj.id === firstItemToShowId);
     selectedItem = firstItemToShow;
+    selectedItemID = firstItemToShowId;
     showHomePage(homePageNode, cartRecapPageNode);
     displayItemlist(itemListNode);
     updateView(firstItemToShow, homeForm);
-    updateInputQuantity(inputQuantity); 
-    updateCartDisplay(outputPriceCart, outputQuantityCart);
+    updateHomePageInputQttyOnClick(inputQuantityHome, itemCartNode); 
+    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, '', itemCartNode);
     
 }
 
-function updateInputQuantity(inputQte) {
+function updateHomePageInputQttyOnClick(homeInputQte) {
     let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItemID);
-    itemIndex === -1 ? inputQte.value = 0 : inputQte.value = itemsInCart[itemIndex].myItemQuantity;
+    if (itemIndex === -1) {
+        homeInputQte.value = 0
+    } else {
+        homeInputQte.value = itemsInCart[itemIndex].myItemQuantity;
+    }
 }
+
+function getRecapItemNode(itemCartNode) {
+    let myItem = itemsInCart.find(item => item.myItemId === selectedItemID);
+    return itemCartNode.querySelector(`[data-id="${myItem.myItemId}"]`); 
+}
+
 /**Fonction  qui met a jour le prix total et la quantite total du panier 
  * 
 */
-function updateCart(selectedItem, inputQuantity, outputPriceCart, outputQuantityCart) {
-    let qttyIn = parseInt(inputQuantity.value);
+function updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode) {
+    let qttyIn = inputQttyToGetFrom.valueAsNumber;
     let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItem.id);
-    let delta = qttyIn;
 
     if (itemIndex === -1 && qttyIn === 0) {
     } else if (itemIndex === -1 && qttyIn > 0) {
         let myNewItem = addItemIntoList(selectedItem, qttyIn);
-        updateCartValues(myNewItem, delta);
-        updateCartDisplay(outputPriceCart, outputQuantityCart)
+        let inputQttyToSetTo = createItemForRecapView(itemCartNode, myNewItem).querySelector('.item-qtte');
+        updateCartValues(myNewItem, qttyIn);
+        updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode);
     } else {
+        let inputQttyToSetTo = getInputQttyNodeToCopyFrom(inputQttyToGetFrom, itemCartNode);
         let myItem = itemsInCart[itemIndex];
         let previousQtte = myItem.myItemQuantity;
-        delta = qttyIn - previousQtte;
+        let delta = qttyIn - previousQtte;
         if (delta !== 0) {
             if (qttyIn === 0) {
                 itemsInCart.splice(itemIndex, 1);
                 updateCartValues(myItem, delta);
-                updateCartDisplay(outputPriceCart, outputQuantityCart)
+                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode);
             } else {
                 let modifiedItem = modifyItemQttyIntoList(myItem, qttyIn); 
                 itemsInCart.splice(itemIndex, 1, modifiedItem);
                 updateCartValues(modifiedItem, delta);
-                updateCartDisplay(outputPriceCart, outputQuantityCart)
+                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode);
             }
         }
     }
@@ -113,11 +142,22 @@ function updateCartValues(item,delta) {
  * @param {OutputHTMLElement} outputPriceCart 
  * @param {OutputHTMLElement} outputQuantityCart 
  */
-function updateCartDisplay(outputPriceCart, outputQuantityCart) {
+function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadFrom, inputQttyWriteTo, itemCartNode) {
     outputPriceCart.value = '€ ' + myCart.priceCart; 
     outputQuantityCart.value = myCart.quantityCart;
+    if (itemsInCart.length !== 0) {
+        synchroInputsQttyValue(inputQttyReadFrom, inputQttyWriteTo);
+        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').valueAsNumber = myCart.myItemTotalPrice;
+    }
 }
-    
+
+function synchroInputsQttyValue(inputQttyReadFrom, inputQttyWriteTo) {
+    inputQttyWriteTo.valueAsNumber = inputQttyReadFrom.valueAsNumber;
+}
+
+function getInputQttyNodeToCopyFrom(inputQttyModified, itemCartNode) {
+    return inputQttyModified === inputQuantityHome ? getRecapItemNode(itemCartNode).querySelector('.item-qtte') : inputQuantityHome;
+}
 /**
  * Fonction qui met a jour les quantite et prix pour 1 article ajouté/diminue et renvoit l'objet modifié : {
             myItemId: <inchange>,
@@ -184,6 +224,45 @@ function updateView(selectedItem, detailViewParentNode) {
     detailViewParentNode.querySelector('.data-img-details').src = `img/${selectedItem.image.moyenne}`;
 }
 
+
+function createItemForRecapView(itemCartNode, cartItem){
+    
+    let fullInfoItem = tab_img.find(listItem => listItem.id === cartItem.myItemId);
+    let itemNode = createNewElement('div', itemCartNode);
+    itemNode.setAttribute('data-id', fullInfoItem.id);
+    itemNode.classList.add('myItems', 'item');
+    itemNode.addEventListener('mouseover', mouseOverItem);
+    itemNode.addEventListener('mouseout', mouseOutItem);
+    
+
+    let itemImage = createNewElement('img', itemNode);
+    itemImage.src = `img/${fullInfoItem.image.toute_petite}`;
+    itemImage.addEventListener('click', selectItem);
+
+    let itemName = createNewElement('div', itemNode);
+    itemName.textContent = fullInfoItem.titre;
+    itemName.addEventListener('click', selectItem);
+
+    let itemQtte = createNewElement('input', itemNode);
+    itemQtte.classList.add('item-qtte');
+    itemQtte.setAttribute('type', 'number');
+    itemQtte.setAttribute('min', 1);
+    itemQtte.setAttribute('value', `${cartItem.myItemQuantity}`);
+    itemQtte.addEventListener('change', changeQttyFromRecap);
+
+    let itemUnitPrice = createNewElement('div', itemNode);
+    itemUnitPrice.textContent = `x € ${cartItem.myItemUnitPrice} = `;
+
+    let itemTotalPrice = createNewElement('div', itemNode);
+    itemTotalPrice.classList.add('item-totalPrice');
+    itemTotalPrice.setAttribute('value', `${cartItem.myItemTotalPrice}`);
+
+    let itemDelete = createNewElement('div', itemNode);
+    itemDelete.classList.add('data-item-delete');
+    /* itemDelete.addEventListener('click', deleteItem ); */
+    return itemNode;
+}
+/*
 function displayCartRecap(itemCartNode, itemsInCart) {
 
     itemsInCart.forEach(cartItem => {
@@ -218,6 +297,7 @@ function displayCartRecap(itemCartNode, itemsInCart) {
 
     })
 }
+*/
 
 function showHomePage(homePageNode, cartRecapPageNode) {
     homePageNode.classList.remove('hide');

@@ -123,10 +123,23 @@ form{
 img{
     border-radius: 10px;
 }
-.btn-goBackHome, .btn-empty-list{
+.cmd-fromCart{
     z-index: 30;
     position: fixed;
-    height: 50px;
-    width: 100px;
+    right : 200px;
+    top: 30px;
+    height: 55px;
+    width: 200px;
     background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    border: solid;
+    color: rgb(185, 31, 31);
+}
+.cmd-fromCart > *{
+    border: solid;
+    width: 80px;
+    
+
 }
