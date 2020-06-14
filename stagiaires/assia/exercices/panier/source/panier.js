@@ -218,8 +218,9 @@ function addItemIntoList(selectedItem, qttyIn) {
     return newItem;
 }
 
-function isQuantiteValid() {
-    return true;
+function isQuantiteValid(value) {
+    const patternNb = new RegExp(/^\d+$/g);
+    return (patternNb.test(value) && !(value.includes(',')));
 }
 
 function displayItemlist(listItemParentNode) {
