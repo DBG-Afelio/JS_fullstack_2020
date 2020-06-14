@@ -111,14 +111,17 @@ form{
     position: fixed;
     scroll-behavior: smooth;
     overflow-y: scroll;
-    left: 10%; 
-    top: 25%;
+    left: 15%; 
+    top: 30%;
     display:flex;
     flex-flow: column nowrap;
-    width: 80%;
-    height: 70%;
+    width: 70%;
+    height: 60%;
     border: solid;
-
+    color:purple;
+}
+.recap-list > input, .recap-list > output {
+    border:none;
 }
 img{
     border-radius: 10px;
