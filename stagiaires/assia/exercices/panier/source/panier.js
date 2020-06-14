@@ -165,7 +165,7 @@ function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadF
     outputQuantityCart.value = myCart.quantityCart;
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
         synchroInputsQttyValue(inputQttyReadFrom, inputQttyWriteTo);
-        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = itemsInCart.myItemTotalPrice;
+        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = parseFloat(itemsInCart.myItemTotalPrice);
     }
 }
 

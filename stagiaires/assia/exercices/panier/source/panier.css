@@ -97,13 +97,7 @@ form{
     width: 30px;
 }
 
-.item{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
 .item.surbrillance {
     border: solid;
 }
@@ -120,8 +114,22 @@ form{
     border: solid;
     color:purple;
 }
-.recap-list > input, .recap-list > output {
+.item, .myItems{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.myItems > input, .myItems > output {
     border:none;
+    background-color: springgreen;
+}
+.myItems > .data-item-delete{
+    background-color: rgba(0,0,0,.3);
+    border:solid;
+    height: 100%;
+    width: 50px;
 }
 img{
     border-radius: 10px;
