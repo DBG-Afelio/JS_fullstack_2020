@@ -157,7 +157,7 @@ function removeRecapItemNodes(itemCartNode) {
  */
 function updateCartValues(item,delta) {
     myCart.quantityCart += delta; 
-    myCart.priceCart+= item.myItemUnitPrice * delta;
+    myCart.priceCart += item.myItemUnitPrice * delta;
 }
 
 /**
@@ -166,7 +166,7 @@ function updateCartValues(item,delta) {
  * @param {OutputHTMLElement} outputQuantityCart 
  */
 function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadFrom, inputQttyWriteTo, itemCartNode, itemsInCart) {
-    outputPriceCart.value = '€ ' + myCart.priceCart; 
+    outputPriceCart.value = '€ ' + myCart.priceCart.toFixed(2); 
     outputQuantityCart.value = myCart.quantityCart;
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
         inputQttyWriteTo.valueAsNumber = inputQttyReadFrom.valueAsNumber;
@@ -197,7 +197,7 @@ function getInputQttyNodeToCopyFrom(inputQttyModified, itemCartNode) {
  */
 function modifyItemQttyIntoList(modifiedItem, qttyIn) {
     modifiedItem.myItemQuantity = qttyIn;
-    modifiedItem.myItemTotalPrice = modifiedItem.myItemUnitPrice * qttyIn;
+    modifiedItem.myItemTotalPrice = (modifiedItem.myItemUnitPrice * qttyIn);
     return modifiedItem;
 }
 
@@ -278,7 +278,7 @@ function createItemForRecapView(itemCartNode, cartItem){
 
     let itemTotalPrice = createNewElement('output', itemNode);
     itemTotalPrice.classList.add('item-totalPrice');
-    itemTotalPrice.setAttribute('value', `${cartItem.myItemTotalPrice}`);
+    itemTotalPrice.setAttribute('value', `${cartItem.myItemTotalPrice.toFixed(2)}`);
 
     let itemDelete = createNewElement('div', itemNode);
     itemDelete.classList.add('data-item-delete');
