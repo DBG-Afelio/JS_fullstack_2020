@@ -1,7 +1,7 @@
 .articles{
-    border: 2px solid red;
+    border: 2px solid grey;
     margin-right: 1500px;
-    background-color: beige;
+    background-color: lightgrey;
     float:left;
     overflow-y: scroll;
     height: 685px;
@@ -16,14 +16,14 @@ span{
     margin: 10px;
 }
 .divArticle{
-    border: 2px solid red;
+    border: 2px solid grey;
     margin-left: 360px;
     margin-bottom: -210px;
     position: absolute;
     float:right;
 }
 .panier{
-    border: 2px solid red;
+    border: 2px solid grey;
 }
 footer{
     position: fixed;
@@ -31,5 +31,11 @@ footer{
     bottom: 0;
     width:100%;
     text-align: center;
-    border: 2px solid red;
+    border: 2px solid grey;
+}
+.selection{
+    background-color: darkgray;
+}
+.inPanier{
+    display: none;
 }

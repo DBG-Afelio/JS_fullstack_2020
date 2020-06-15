@@ -7,8 +7,10 @@
     <meta charset="UTF-8">
   </head>
   <body>
+    <div class="fenetre1">
       <header>
           <div class="panier">
+              <span class="buttonPanier">panier</span>
               <label>Nombre d'articles : </label>
               <span class="quantite">0</span>
               <label>Total : </label>
@@ -18,11 +20,15 @@
       </header>
       
       <aside>
-        <div class="articles"></div>
+        <div class="articles">
+
+        </div>
       </aside>
       <main>
         <div class="detail">
-          <div class='divArticle'></div>
+          <div class='divArticle'>
+
+          </div>
         </div>
       </main>
       
@@ -31,6 +37,17 @@
           <input class="quantArt" type="number" value="0">
           <input class="commander" type="button" value="Envoyer vers le panier">
       </footer>
+    </div>
+      
+    <div class="fenetre2 inPanier">
+      <h1>Récapitulatif du panier</h1>
+      <div class="resume">
+        
+      </div>
+      <label>Total :<output class="totalResume"></output></label>
+      <input class='retourAchat' type="button" value="retour aux achats">
+      <input type="button" value="vider le panier">
+    </div>
       <script src="source/script.js"></script>
   </body>
 </html>
