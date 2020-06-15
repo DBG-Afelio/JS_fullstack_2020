@@ -1,0 +1,7 @@
+main .page{
+    display: none;
+}
+
+main.eshop .eshop{
+    display:block;
+}

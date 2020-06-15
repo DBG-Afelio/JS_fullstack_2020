@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>toDo list</title>
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>ToDO list</h1>
+				<div id="filter">
+					<button id="all" class="filter active">All</button>
+					<button id="active" class="filter">Active</button>
+					<button id="complete" class="filter">Complete</button>
+				</div>
+			</header>
+			<div id="content">
+				<form action="#" method="post" id="form">
+					<label for="input"></label>
+					<input type="text" placeholder="ajouter un élément" id="input">
+					<input type="submit" value=">" id="submit">
+				</form>
+				<ul id="toDoList">
+				</ul>
+			</div>
+			<footer>
+				<div id="itemsLeft"></div>
+				<div></div>
+				<button id="clearComplete">clear</button>
+			</footer>
+		</main>
+		<script src="js/index.js"></script>
+	</body>
+</html>
