@@ -27,6 +27,7 @@ const selectItem = (e) => {
     updateHomeInputQtty(inputQuantityHome);
     showHomePage(homePageNode, cartRecapPageNode);
     
+    
 };
 const mouseOverItem = (e) => e.currentTarget.classList.add('surbrillance');
 const mouseOutItem = (e) => e.currentTarget.classList.remove('surbrillance');
