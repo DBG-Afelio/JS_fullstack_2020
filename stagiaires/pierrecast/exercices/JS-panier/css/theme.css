@@ -53,17 +53,29 @@ button:hover, button:active, button:focus {
     padding: 25px;
     text-align: right;
     align-content: center;
+
+    grid-template-areas: 
+    "img info"
+    "img form";
 }
 
 .block-detail img { 
     border: 8px solid white;
     box-sizing: border-box;
-    
+    align-self: center;
     width: 100%;
+    max-width: 35vh;
+    max-height: 35vh;
+    grid-area: img;
 }
 .block-detail .info-detail {
     align-self: center;
     justify-self: right;
+    grid-area: info;
+}
+
+form {
+    grid-area: form;
 }
 
 .recap-bottom button,
@@ -73,7 +85,8 @@ button:hover, button:active, button:focus {
     font-variant: small-caps;
     font-weight: bold;
     border: 3px solid whitesmoke;
-    width: 215px;
+    width: 40%;
+    max-width: 215px;
     padding: 3px;
     margin: 35px 0 15px  30px ;
     box-sizing: border-box;
@@ -100,6 +113,83 @@ button:hover, button:active, button:focus {
     font: 20px/25px 'Gafata', sans-serif;
     
 }
+
+@media screen and (max-width: 990px) {
+    .block-detail {
+        grid-template-columns: 36% 60%;
+        grid-template-areas: 
+    "img info"
+    "form form";
+    }
+    
+    .block-detail h2{
+        font: 30px/35px 'Gafata', sans-serif;
+    }
+    
+    .block-detail .comment, 
+    .block-detail .origin {
+        padding: 5px;
+        font: 16px/20px 'Gafata', sans-serif;
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+        .block-detail {
+        grid-template-columns: 100%;
+        grid-gap: 2%;
+        padding: 25px;
+        grid-template-areas: 
+    "img "
+    "info"
+    "form";
+    }
+
+    .block-detail h2{
+        font: 20px/25px 'Gafata', sans-serif;
+    }
+    
+    .block-detail .comment, 
+    .block-detail .origin {
+        padding: 2px;
+        font: 14px/18px 'Gafata', sans-serif;
+    }
+    .block-detail  img {
+        max-width: 50%;
+    }
+
+    .block-detail button, 
+    .block-detail input {
+        font: 20px/25px arial, helvetica, sans-serif;
+        font-variant: small-caps;
+        font-weight: bold;
+        border: 3px solid whitesmoke;
+        max-width: 215px;
+        padding: 3px;
+        margin: 5px 0 15px 5px ;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .block-detail button {
+        width: 45%;
+    }
+    .block-detail input {
+        width: 45%;
+        
+    }
+}
+
+@media screen and (max-width: 400px) {
+  
+    .block-detail button {
+        width: 65%;
+    }
+    .block-detail input {
+        width: 25%;
+        
+    }
+}
+    
 
 /* ------ BLOCK LISTE ------ */
 
@@ -137,8 +227,8 @@ button:hover, button:active, button:focus {
 }
 
 .block-liste .item.active { 
-    background-color: grey;
-    border: 3px solid grey;
+    background-color: #050608;
+    border: 3px solid #050608;
     color: white;
 }
 
@@ -250,15 +340,16 @@ button:hover, button:active, button:focus {
 
 .wrap-recap {
     position: relative;
-    width: 550px;
     top: 150px;
-    max-width: 95%;
+    max-width: 550px;
+    width: 95vw;
     margin : 0 auto;
     padding: 50px 50px 75px 50px;
     border: 1px solid black;
     background-color: white;
     box-shadow: 5px 5px 5px rgba(0,0,0, .6);
     color: black;
+    box-sizing: border-box;
 }
 
 .block-recap {
@@ -277,10 +368,11 @@ button:hover, button:active, button:focus {
 .block-recap .item > * {
     align-self: center;
     padding-left: 3px;
+    
 }
 
 .block-recap .item .title {
-    justify-self: left;
+    text-align: left;
 }
 
 .recap-bottom {
@@ -309,8 +401,21 @@ button:hover, button:active, button:focus {
     background-color: black;
     color: white;
     margin: 25px 0 10px 0;
+    font: 20px/25px  arial, helvetica, sans-serif;;
+    padding: 8px 3px;
+    font-variant: small-caps;
+    font-weight: bold;
 }
 
 .block-recap .item {
     border-bottom: 1px solid silver;
+}
+
+@media screen and (max-width: 990px) {
+    .wrap-recap {
+        position: relative;
+        max-width: 550px;
+        width: 95vw;
+        top: 150px;
+    }
 }

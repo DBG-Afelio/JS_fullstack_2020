@@ -16,7 +16,8 @@ const oRecapTotal = oViewRecap.querySelector('output.total');
 const oBack = oViewRecap.querySelector('.backToList');
 const oClear = oViewRecap.querySelector('.clearBasket');
 
-let basket = [];
+
+
 const showDetail = (event) => {
    generateDetail(basket, shop, event.currentTarget.closest('.item').dataset.id);
 }
@@ -51,6 +52,7 @@ oConfirm.addEventListener('click', showRecap);
 oBack.addEventListener('click', backToList);
 oClear.addEventListener('click', clearBasket);
 
+let basket = getStorage();
 backToList();
 
 function backToList() {
@@ -60,7 +62,6 @@ function backToList() {
     oViewList.classList.add('active');
     oViewRecap.classList.remove('active');
 }
-
 
 /**
  * 
@@ -183,9 +184,9 @@ function sendCommand(qte, id) {
     if (command === undefined) {
         if (qte !== 0 ) {
             addItemToBasket(basket, item, qte);   
-        } else {
+        } /*else {
             alert('NON');
-        }
+        }*/
     } else {
         if (qte !== 0 ) {
             modifyItemFromBasket(command, qte)
@@ -195,7 +196,8 @@ function sendCommand(qte, id) {
     }
 
     updateBasket(basket);
-    // localStorage here !!!
+    localStorage.setItem('basket', JSON.stringify(basket));
+ console.log(localStorage.getItem('basket'));
 }
 
 /**
@@ -307,4 +309,18 @@ function clearBasket() {
         oRecap.innerHTML = '';
         updateBasket(basket);
     }
+}
+
+function getStorage() {
+    let basket = []
+    let store = (localStorage.getItem('basket') !== null) ? JSON.parse(localStorage.getItem('basket')) :[];
+
+    store.forEach(command => {
+        if (shop.find(item => command.id === item.id) !== null) {
+            basket.push(command);
+            addToRecap(command);
+        }
+    });
+
+    return basket;
 }
