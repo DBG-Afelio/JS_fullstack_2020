@@ -33,7 +33,11 @@ const mouseOutItem = (e) => e.currentTarget.classList.remove('surbrillance');
 
 btnConfirmItem.addEventListener('click', (e) => {
     let inputQttyToGetFrom = inputQuantityHome;
-    updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+    if (isQuantityValid(inputQttyToGetFrom)) {
+        updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+    } else {
+        updateHomeInputQtty(inputQttyToGetFrom);
+    }
    e.preventDefault();
 });
 const changeQttyFromRecap = (e) => {
@@ -41,8 +45,13 @@ const changeQttyFromRecap = (e) => {
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
     /* let inputQttyToGetFrom = e.currentTarget('.input') */
     let inputQttyToGetFrom = getRecapItemNode(itemCartNode).querySelector('.item-qtte');
-    updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
-    manageEmptyCartImg(cartRecapPageNode);
+    if (isQuantityValid(inputQttyToGetFrom)) {
+        updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+        updateHomeInputQtty(inputQuantityHome, itemCartNode); 
+        manageEmptyCartImg(cartRecapPageNode);
+    } else {
+        updateHomeInputQtty(inputQttyToGetFrom);
+    }
 };
 const deleteItemFromRecap = (e) => {
     selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
@@ -51,9 +60,10 @@ const deleteItemFromRecap = (e) => {
     inputQttyToGetFrom.value = 0; 
     updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
+    
     manageEmptyCartImg(cartRecapPageNode);
 };
-//inputQuantityHome.addEventListener('change', isQuantiteValid);
+//inputQuantityHome.addEventListener('change', isQuantityValid();
 goToCartNode.addEventListener('click', () => {
     showCartRecapPage(homePageNode, cartRecapPageNode);
 });
@@ -104,7 +114,7 @@ function init() {
  * 
 */
 function updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode) {
-    let qttyIn = inputQttyToGetFrom.valueAsNumber;
+    let qttyIn = parseInt(inputQttyToGetFrom.value);
     let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItem.id);
 
     if (itemIndex === -1 && qttyIn === 0) {
@@ -172,7 +182,7 @@ function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadF
     outputPriceCart.value = '€ ' + myCart.priceCart.toFixed(2); 
     outputQuantityCart.value = myCart.quantityCart;
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
-        inputQttyWriteTo.valueAsNumber = inputQttyReadFrom.valueAsNumber;
+        inputQttyWriteTo.value = inputQttyReadFrom.value;
         getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = itemsInCart.myItemTotalPrice;
     }
 }
@@ -218,9 +228,9 @@ function addItemIntoList(selectedItem, qttyIn) {
     return newItem;
 }
 
-function isQuantiteValid(value) {
+function isQuantityValid(inputQttyNode) {
     const patternNb = new RegExp(/^\d+$/g);
-    return (patternNb.test(value) && !(value.includes(',')));
+    return patternNb.test(inputQttyNode.value);
 }
 
 function displayItemlist(listItemParentNode) {
@@ -272,8 +282,8 @@ function createItemForRecapView(itemCartNode, cartItem){
 
     let itemQtte = createNewElement('input', itemNode);
     itemQtte.classList.add('item-qtte');
-    itemQtte.setAttribute('type', 'number');
-    itemQtte.setAttribute('min', 1);
+    itemQtte.setAttribute('type', 'text');
+  /*  itemQtte.setAttribute('min', 1); */
     itemQtte.setAttribute('value', `${cartItem.myItemQuantity}`);
     itemQtte.addEventListener('change', changeQttyFromRecap);
 
