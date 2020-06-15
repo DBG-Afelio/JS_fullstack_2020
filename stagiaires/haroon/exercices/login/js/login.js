@@ -7,6 +7,11 @@ let inputedPhone = document.getElementById('phone');
 let inputedDate= document.getElementById('dateOfBirth');
 let inputedLogin= document.getElementById('login');
 let inputedPassword=document.getElementById('password');
+let inputedNationality= document.getElementById('country');
+
+inputedNationality.addEventListener('input',()=>{
+    validateNationality();
+})
 
 inputedMail.addEventListener('input',()=>{
     validateEmail(inputedMail);
@@ -36,9 +41,9 @@ button.addEventListener('click',(e)=>{
     validateInput();
 })
 function validateInput() {
-    if (! validateLastName(inputValid)){
+    if (! validateLastName(inputLastName)){
     
-    alert ('Error message');
+    console.log("Error");
     } 
 }
 function validatefirstName(inputeFirst){
@@ -95,6 +100,7 @@ function  validateLastName(inputedValue){
         
     }
     function validateEmail(mail){
+        inputedMail.required = true; 
         const emailTest= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             console.log(mail.value);
             console.log(emailTest.test(mail.value));
@@ -121,8 +127,11 @@ function  validateLastName(inputedValue){
         var ageYear = currentYear - birthYear ;
         var ageMonth = currenMonth - birthMonth ;
         var ageDay = currentDay - birthDay ;
+        console.log(ageYear);
+        console.log(ageMonth);
+        console.log(ageDay);
 
-        if (ageYear > 65 ){
+        if (ageYear > 65 || ageYear < 18 ){
             document.getElementById("wrong").style.display = "block";
             document.getElementById("correct").style.display = "none";
         }
@@ -148,27 +157,40 @@ function  validateLastName(inputedValue){
         
 
     function validateLogin(login){
+        
         console.log(login.value);
         const loginTest= /^[a-zA-Z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]{6,10}$/;
+        
         console.log(loginTest.test(login.value));
         return loginTest.test(login.value);
     }
     function validatePassword(password){
         let pV = password.value;
-        const numbersTest = /^\d{6,10}$/;
-        const lettersTest=/^[a-zA-Z]{6,10}$/
-        const passwordTest=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,10}$/;
-        let pT =passwordTest.test(pV);
-        let lT=lettersTest.test(pV);
-        let nT=numbersTest.test(pV)
+        console.log(pV);
+        const numbersTest = /^\d/;
+        const lettersTest=/^[a-zA-Z]/;
+        const symbolTest = /^[!@#\$%\^&]/;
+        const letNumber =/^[a-zA-Z0-9]{6,10}$/;
+        const letSymbol =/^(?=.*[a-zA-Z])(?=.*[0-9])$/;
+        const passwordTest=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]/;
         
-        if(pT==true){
-            console.log("Strong Password");
+    
+        if (pV.length >= 6 && pV.length <=10) {
+            if(passwordTest.test(pV)==true){
+                console.log("Strong Password");
+                
         }
-        else if (lT == true && nT==true ){
-            console.log("good Password");
+        else if (letSymbol.test(pV)==true){
+            console.log("good password");
         }
+            else{
+                console.log("weak passowrd");
+            }
+        }
+        
     }
+        
+    
         function validetNom(name){
         
             if (name.length > 50 ){
@@ -183,3 +205,30 @@ function  validateLastName(inputedValue){
         
         }
     }
+    function validateNationality(){
+        let index = document.getElementById("country").selectedIndex;
+        let option = document.getElementById("country").options;
+        console.log(option[index].text);
+    }
+    function setLoginRequired(){
+        inputedLogin.required = true; 
+        return inputedLogin;
+    }
+    function setPasswordRequired(){
+        inputedPassword.required=true;
+        return inputedPassword;
+    }
+    function setDateRequired(){
+        inputedDate.required=true;
+        return inputedDate;
+    }
+    function setNationalityRequired(){
+        inputedNationality.required=true;
+        return inputedNationality ;
+    }
+    
+    
+    setPasswordRequired();
+    setDateRequired();
+    setLoginRequired();
+    setNationalityRequired();

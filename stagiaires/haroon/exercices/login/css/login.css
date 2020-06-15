@@ -18,3 +18,12 @@
 .form-element.invalide .valide-ko{
     display: block
 }
+input[type=text], input[type=password] , input[type=email],input[type=tel],input[type=date],select {
+    
+    width: 35%;
+    padding: 7px 7px;
+    margin: 1px 1px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }

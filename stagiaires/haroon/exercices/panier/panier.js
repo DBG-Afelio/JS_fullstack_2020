@@ -36,15 +36,15 @@ function creatList() {
      
 }
 function showDetails(id) {
-    console.log(id);
-    photoId = id.substring(5);
-    document.getElementById("detailsPrix").innerHTML = tab_img[photoId].Prix;
-    document.getElementById("detailsTitre").innerHTML = tab_img[photoId].titre;
+   
+    photoId = id;
+    document.getElementById("detailsPrix").innerHTML = tab_img[id.substring(5)].Prix;
+    document.getElementById("detailsTitre").innerHTML = tab_img[id.substring(5)].titre;
     let grandImage = document.getElementById("imageGrand");
-    grandImage.setAttribute("src", "img/" + tab_img[photoId].image.grande);
-    document.getElementById("detailsCommentaire").innerHTML = tab_img[photoId].commentaire;
-    document.getElementById("detailsPays").innerHTML = tab_img[photoId].Pays;
-    document.getElementById("detailsAuteur").innerHTML = tab_img[photoId].auteur;
+    grandImage.setAttribute("src", "img/" + tab_img[id.substring(5)].image.grande);
+    document.getElementById("detailsCommentaire").innerHTML = tab_img[id.substring(5)].commentaire;
+    document.getElementById("detailsPays").innerHTML = tab_img[id.substring(5)].Pays;
+    document.getElementById("detailsAuteur").innerHTML = tab_img[id.substring(5)].auteur;
     return photoId;
 }
 
@@ -59,18 +59,51 @@ let panier = [];
 //panier.priceChosen = [];
 //panier.photosChosen = [];
 
-
+let totalPriceChosen = 0 ;
 function ordering() {
     
     let numberOforders = document.getElementById("quantity").value;
     if (numberOforders > 0) {
         let command ={};
         command.quantinty=Number(numberOforders);
-        photoIdNumerique = Number(photoId);
-        command.idChosecPhotos=photoIdNumerique;
-        command.priceChosen=tab_img[photoId].Prix;
-        command.photosChosen=tab_img[photoId].image.toute_petite;
+        command.idChosecPhotos=photoId;
+        command.priceChosen=tab_img[photoId.substring(5)].Prix; 
+        command.photosChosen=tab_img[photoId.substring(5)].image.toute_petite; 
+        //calculating price of photos chosen
+        totalPriceChosen=parseFloat(command.priceChosen) * numberOforders;
+        totaOfTotal =totaOfTotal + totalPriceChosen;
+        document.getElementById("totalOfTotalPriceChosen").innerHTML=totaOfTotal;
         panier.push(command);
+        console.log(totaOfTotal);
+        //console.log(command.idChosecPhotos.includes(photoId));
+        /*console.log(photoId);
+        if (panier.length == 0 ){
+            console.log("zero");
+            panier.push(command);
+            console.log(panier);
+        }
+        else if (panier.length > 0 ) {
+            for (let i=0  ; i < panier.length ; i++){
+                if (panier[i].idChosecPhotos.includes(photoId)==true){
+                    command.quantinty=Number(numberOforders)+panier[i].quantinty;
+                    console.log("the quantity is :"+command.quantinty);
+                    console.log(panier[i].idChosecPhotos.includes(photoId)==true);
+                    
+                }
+                else {
+                    
+                    panier.push(command);
+                    console.log(panier);
+                    
+                }
+            }
+            
+        }
+        */
+        //console.log(panier[0].idChosecPhotos.includes(photoId));
+        
+        //console.log(panier[0].idChosecPhotos.includes(photoId));
+
         showingArticles();
         
     }
@@ -81,8 +114,8 @@ let = totalQuantities = 0 ;
 function showingArticles(){
     let numberOforders = document.getElementById("quantity").value;
     totalQuantities = totalQuantities + Number(numberOforders) ;
-    console.log(totalQuantities);
     document.getElementById("totalArticleNumber").innerHTML=totalQuantities;
+    console.log(totaOfTotal);
 }
 
 
@@ -93,8 +126,11 @@ buttonPanier.addEventListener('click', (e) => {
 })
 let priceTotalOfOnePhoto = 0; // declaration a variable of price for one photo
 let totaOfTotal = 0 ;  // declation of a variable of the total price of all photos chosen 
-// function for showing the basket 
+// function for showing the basket
+let totalNumeric = 0;
 function panierShowing() {
+
+   
     document.getElementById("pageAllPhotos").style.display = "none";
     document.getElementById("pagePanier").style.display = "block";
     if (panier.length == 0) {
@@ -105,7 +141,9 @@ function panierShowing() {
         let ulPanier = document.getElementById("panierList");
         
         for (let i = 0; i < panier.length; i++) {
-            let totalNumeric = 0 ;
+            let totalNumeric = 0;
+             
+            
             let liPanier = document.createElement("li");
             ulPanier.appendChild(liPanier);
             let images = document.createElement("img");
@@ -113,8 +151,8 @@ function panierShowing() {
             let sourceImages = document.createAttribute("src");
             sourceImages.value = "img/" + panier[i].photosChosen;
             images.setAttributeNode(sourceImages);
-            totalNumeric=panier[i].quantinty * parseFloat(panier[i].priceChosen); 
-            priceTotalOfOnePhoto =totalNumeric.toFixed(2)+" €";
+            totalNumeric=Number(panier[i].quantinty) * parseFloat(panier[i].priceChosen); 
+            totalNumeric.toFixed(2);
             let pPrice = document.createElement("p");
             pPrice.textContent = parseFloat(panier[i].priceChosen)+" =  ";
             liPanier.appendChild(pPrice);
@@ -127,16 +165,35 @@ function panierShowing() {
             //adding type attribute to input to make input accepts just Numbers 
             let inputType = document.createAttribute("type");
             inputType.value ="number";
+            
             //adding add event Listter for controlling quantity of photos
             pQuantinty.addEventListener("input", function(){
+                 
                 
-                priceTotalOfOnePhoto = pQuantinty.value * parseFloat(panier[i].priceChosen);
-                pPriceTotal.textContent = priceTotalOfOnePhoto;
-                totaOfTotal = totaOfTotal +priceTotalOfOnePhoto;
-                document.getElementById("totalPriceOfAll").innerHTML="Total ="+totaOfTotal+" €";
-                totaOfTotal = 0;
-            });
+                console.log("ptice total for one photo Befor="+priceTotalOfOnePhoto);
+                
+                console.log("total of total befor="+totaOfTotal);
 
+                let quantityNumeric = Number(pQuantinty.value);
+                console.log("numberof photos befor="+quantityNumeric);
+                priceTotalOfOnePhoto = (quantityNumeric * Number(parseFloat(panier[i].priceChosen)));
+                console.log("quantity"+quantityNumeric);
+                
+                
+                pPriceTotal.textContent = priceTotalOfOnePhoto.toFixed(2);
+                
+                totaOfTotal = totaOfTotal+priceTotalOfOnePhoto ;
+                console.log("ptice total for one photo Affter="+priceTotalOfOnePhoto);
+                
+                console.log("total of total After="+totaOfTotal);
+                console.log(typeof priceTotalOfOnePhoto);
+                document.getElementById("totalPriceOfAll").innerHTML="Total ="+totaOfTotal+" €";
+                console.log(priceTotalOfOnePhoto);
+                
+                
+                
+            });
+            
             pQuantinty.setAttributeNode(inputType);
 
             let inputMin = document.createAttribute("min");
@@ -144,21 +201,32 @@ function panierShowing() {
             pQuantinty.setAttributeNode(inputMin);
             let pPriceTotal = document.createElement("p");
             liPanier.appendChild(pPriceTotal);
-            pPriceTotal.textContent = priceTotalOfOnePhoto ;
+            
+            pPriceTotal.textContent = totalNumeric ;
             let classPrice = document.createAttribute("class");//creating class attribute in p price
             pPrice.setAttributeNode(classPrice);
             classPrice.value = "onePhotoPrice" ;
             let classPriceTotal = document.createAttribute("class");//creating class attribute in p price  total
             pPriceTotal.setAttributeNode(classPriceTotal);
             classPriceTotal.value = "totalPhotoPrice" ;
-            console.log(classPriceTotal.value);
             let classQuantity = document.createAttribute("class");
             pQuantinty.setAttributeNode(classQuantity);
             classQuantity.value = "quantityPhoto" ;
-            totaOfTotal = totaOfTotal +totalNumeric ;
-            document.getElementById("totalPriceOfAll").innerHTML="Total ="+totaOfTotal+" €";
+            
+           
+            console.log(totalNumeric);
+            console.log(totaOfTotal);
+
+            
             
         }
+        console.log(totalNumeric);
+        console.log(totaOfTotal);
+        totaOfTotal = totaOfTotal +totalNumeric;
+        console.log( totaOfTotal);
+        document.getElementById("totalPriceOfAll").innerHTML="Total ="+totaOfTotal+" €";
+        console.log(totaOfTotal);
+        
         
     }
 
@@ -186,12 +254,15 @@ buttonEmptying.addEventListener('click', (e) => {
     viderLePaner()
 })
 function viderLePaner() {
-    
+    // vider total pixe et quantities
+    totaOfTotal = 0 ; 
+    console.log(totaOfTotal);
     totalQuantities =0;
     document.getElementById("totalArticleNumber").innerHTML=totalQuantities;
     totaOfTotal = 0 ;
     document.getElementById("totalPriceOfAll").innerHTML="Total ="+0+" €";
     panier=[];
+    document.getElementById("totalOfTotalPriceChosen").innerHTML=totaOfTotal;
     let ulPanier = document.querySelectorAll('#panierList li');
     if (ulPanier.length > 0) {
         document.getElementById("panierEmpty").innerHTML = "vous avez supprimé toutes les photos de votre panier, votre panier est maintenant vide retour à la page principale pour choisir la photo que vous souhaitez";
