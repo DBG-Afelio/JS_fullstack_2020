@@ -185,7 +185,7 @@ function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadF
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
         inputQttyWriteTo.value = inputQttyReadFrom.value;
         let itemTotalPrice = itemsInCart.find(item => item.myItemId === selectedItemID).myItemTotalPrice;
-        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = itemTotalPrice.toFixed(2);
+        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = '€ ' + itemTotalPrice.toFixed(2);
     }
 }
 
