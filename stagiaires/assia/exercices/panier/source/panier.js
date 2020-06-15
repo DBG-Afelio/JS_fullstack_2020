@@ -184,7 +184,8 @@ function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadF
     outputQuantityCart.value = myCart.quantityCart;
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
         inputQttyWriteTo.value = inputQttyReadFrom.value;
-        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = itemsInCart.myItemTotalPrice;
+        let itemTotalPrice = itemsInCart.find(item => item.myItemId === selectedItemID).myItemTotalPrice;
+        getRecapItemNode(itemCartNode).querySelector('.item-totalPrice').value = itemTotalPrice.toFixed(2);
     }
 }
 
@@ -293,7 +294,7 @@ function createItemForRecapView(itemCartNode, cartItem){
 
     let itemTotalPrice = createNewElement('output', itemNode);
     itemTotalPrice.classList.add('item-totalPrice');
-    itemTotalPrice.setAttribute('value', `${cartItem.myItemTotalPrice.toFixed(2)}`);
+    itemTotalPrice.setAttribute('value', `${cartItem.myItemTotalPrice}`);
 
     let itemDelete = createNewElement('div', itemNode);
     itemDelete.classList.add('data-item-delete');
