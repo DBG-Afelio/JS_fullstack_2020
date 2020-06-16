@@ -324,8 +324,12 @@ function manageEmptyCartImg(cartRecapPageNode) {
     if (itemsInCart.length === 0) {
         imgEmptyCart.classList.add('show');
         imgEmptyCart.classList.remove('hide');
+        emptyCartNode.classList.add('hide');
+        emptyCartNode.classList.remove('show');
     } else {
         imgEmptyCart.classList.add('hide');
         imgEmptyCart.classList.remove('show');
+        emptyCartNode.classList.add('show');
+        emptyCartNode.classList.remove('hide');
     }
 }

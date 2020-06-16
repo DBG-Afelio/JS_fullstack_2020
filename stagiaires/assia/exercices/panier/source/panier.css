@@ -81,9 +81,9 @@ form{
     border-radius: 10px;
 }
 .cart-info {
-    z-index: 30;
+    z-index: 35;
     position: fixed;
-    top: 30px;
+    top: 36px;
     right: 30px;
     
     height: 55px;
@@ -92,7 +92,7 @@ form{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    border: solid;
+
 
     color: whitesmoke;
 }
@@ -103,8 +103,8 @@ form{
 
 
 .item.surbrillance {
-    background-color:black;
-    color: white;
+    background-color:rgb(253, 253, 253);
+    color: black;
     font-weight: bolder;
     
 }
@@ -128,16 +128,23 @@ form{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.myItems > input, .myItems > output {
+.myItems > *, .item > * {
     border:none;
+    font-size: large;
+    text-align: center;
+    align-self: center;
+    background-color: none;
     
 }
 .myItems > .data-item-delete{
-    background-color: rgb(142, 5, 5);
-    
     height: 40px;
     width: 40px;
+    background: url("../img/trashOne.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+
 }
+
 img{
     border-radius: 10px;
 }
@@ -148,10 +155,12 @@ img{
     width: 1000px;
     height:600px;
 }
-.empty-cart-img.show {
+.empty-cart-img.show,
+.btn-empty-list.show {
     display:block;
 }
-.empty-cart-img.hide{
+.empty-cart-img.hide,
+.btn-empty-list.hide {
     display:none;
 }
 .cmd-fromCart{
@@ -169,15 +178,17 @@ img{
 }
 
 .btn-empty-list{
-    width:40%;
-    height:100%;
-    color:white;
-    border: solid;
-    text-align: center;  
+    height: 60px;
+    width: 60px;
+    background: url("../img/trashAll.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    text-align: center;
+
 }
 .btn-goBackHome{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background: url("../img/home.png") no-repeat 0 0;
     background-size: 100%;
     align-self: baseline;
@@ -185,10 +196,11 @@ img{
 }
 
 .data-panier-quantite{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background: url("../img/cart.png") no-repeat 0 0;
     background-size: 100%;
     align-self: baseline;
     text-align: center;
+  
 }
