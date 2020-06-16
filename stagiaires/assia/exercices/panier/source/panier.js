@@ -23,7 +23,7 @@ let itemsInCart = [];
 const selectItem = (e) => {
     selectedItemID = Number(e.currentTarget.closest('.item').dataset.id);
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
-    updateHomeView(selectedItem, homeForm);
+    updateHomeView(homeForm);
     updateHomeInputQtty(inputQuantityHome);
     showHomePage(homePageNode, cartRecapPageNode);
     
@@ -35,7 +35,7 @@ const mouseOutItem = (e) => e.currentTarget.classList.remove('surbrillance');
 btnConfirmItem.addEventListener('click', (e) => {
     let inputQttyToGetFrom = inputQuantityHome;
     if (isQuantityValid(inputQttyToGetFrom)) {
-        updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+        updateCart(inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
     } else {
         updateHomeInputQtty(inputQttyToGetFrom);
     }
@@ -47,7 +47,7 @@ const changeQttyFromRecap = (e) => {
     /* let inputQttyToGetFrom = e.currentTarget('.input') */
     let inputQttyToGetFrom = getRecapItemNode(itemCartNode).querySelector('.item-qtte');
     if (isQuantityValid(inputQttyToGetFrom)) {
-        updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+        updateCart(inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
         updateHomeInputQtty(inputQuantityHome, itemCartNode); 
         manageEmptyCartImg(cartRecapPageNode);
     } else {
@@ -59,7 +59,7 @@ const deleteItemFromRecap = (e) => {
     selectedItem = tab_img.find(obj => obj.id === selectedItemID);
     inputQttyToGetFrom = e.currentTarget.closest('.item').querySelector('input');
     inputQttyToGetFrom.value = 0; 
-    updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
+    updateCart(inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
     
     manageEmptyCartImg(cartRecapPageNode);
@@ -82,10 +82,10 @@ emptyCartNode.addEventListener('click', () => {
         priceCart: 0
     };  
     itemsInCart = [];
-    updateHomeView(firstItemToShow, homeForm);
+    updateHomeView(homeForm);
     removeRecapItemNodes(itemCartNode);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
-    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode, itemsInCart);
+    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode);
     manageEmptyCartImg(cartRecapPageNode);
 });
 
@@ -105,25 +105,25 @@ function init() {
     itemsInCart = [];
     showHomePage(homePageNode, cartRecapPageNode);
     displayItemlist(itemListNode);
-    updateHomeView(firstItemToShow, homeForm);
+    updateHomeView(homeForm);
     updateHomeInputQtty(inputQuantityHome, itemCartNode); 
-    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode,itemsInCart);
+    updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQuantityHome, 0, itemCartNode);
     
 }
 
 /**Fonction  qui met a jour le prix total et la quantite total du panier 
  * 
 */
-function updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode) {
+function updateCart(inputQttyToGetFrom, outputPriceCart, outputQuantityCart, itemCartNode) {
     let qttyIn = parseInt(inputQttyToGetFrom.value);
-    let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItem.id);
+    let itemIndex = itemsInCart.findIndex(item => item.myItemId === selectedItemID);
 
     if (itemIndex === -1 && qttyIn === 0) {
     } else if (itemIndex === -1 && qttyIn > 0) {
-        let myNewItem = addItemIntoList(selectedItem, qttyIn);
+        let myNewItem = addItemIntoList(qttyIn);
         let inputQttyToSetTo = createItemForRecapView(itemCartNode, myNewItem).querySelector('.item-qtte');
         updateCartValues(myNewItem, qttyIn);
-        updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode, itemsInCart);
+        updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode);
     } else {
         let inputQttyToSetTo = getInputQttyNodeToCopyFrom(inputQttyToGetFrom, itemCartNode);
         let myItem = itemsInCart[itemIndex];
@@ -131,14 +131,14 @@ function updateCart(selectedItem, inputQttyToGetFrom, outputPriceCart, outputQua
         let delta = qttyIn - previousQtte;
         if (delta !== 0) {
             if (qttyIn === 0) {
-                deleteItem(itemsInCart, itemCartNode);
+                deleteItem(itemCartNode);
                 updateCartValues(myItem, delta);
-                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, 0, itemCartNode, itemsInCart);
+                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, 0, itemCartNode);
             } else {
                 let modifiedItem = modifyItemQttyIntoList(myItem, qttyIn); 
                 itemsInCart.splice(itemIndex, 1, modifiedItem);
                 updateCartValues(modifiedItem, delta);
-                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode, itemsInCart);
+                updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyToGetFrom, inputQttyToSetTo, itemCartNode);
             }
         }
     }
@@ -153,9 +153,9 @@ function updateHomeInputQtty(homeInputQte) {
     }
 }
 
-function deleteItem(itemsInCart, itemCartNode) {
+function deleteItem(itemCartNode) {
     itemCartNode.removeChild(getRecapItemNode(itemCartNode));
-    itemsInCart.splice(itemsInCart.findIndex(item => item.myItemId === selectedItem.id), 1);  
+    itemsInCart.splice(itemsInCart.findIndex(item => item.myItemId === selectedItemID), 1);  
 }
 
 function removeRecapItemNodes(itemCartNode) {
@@ -179,7 +179,7 @@ function updateCartValues(item,delta) {
  * @param {OutputHTMLElement} outputPriceCart 
  * @param {OutputHTMLElement} outputQuantityCart 
  */
-function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadFrom, inputQttyWriteTo, itemCartNode, itemsInCart) {
+function updateOutputDisplay(outputPriceCart, outputQuantityCart, inputQttyReadFrom, inputQttyWriteTo, itemCartNode) {
     outputPriceCart.value = '€ ' + myCart.priceCart.toFixed(2); 
     outputQuantityCart.value = myCart.quantityCart;
     if (itemsInCart.length !== 0 && inputQttyWriteTo !== 0) {
@@ -219,7 +219,7 @@ function modifyItemQttyIntoList(modifiedItem, qttyIn) {
 /**
  * Fonction qui cree l'objet {new item} ajouté par le user et l'ajoute dans le panier 
  * */
-function addItemIntoList(selectedItem, qttyIn) {
+function addItemIntoList(qttyIn) {
     let newItem =  {
     myItemId: selectedItem.id,
     myItemQuantity: qttyIn,
@@ -258,7 +258,7 @@ function createNewElement(elementType, parentNode) {
     return newElement;
 }
 
-function updateHomeView(selectedItem, detailViewParentNode) {
+function updateHomeView(detailViewParentNode) {
     detailViewParentNode.querySelector('.data-titre').textContent = selectedItem.titre;
     detailViewParentNode.querySelector('.data-auteur-pays').textContent = `De ${selectedItem.auteur}, ${selectedItem.Pays}`;
     detailViewParentNode.querySelector('.data-comments').textContent = selectedItem.commentaire;
