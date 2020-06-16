@@ -98,7 +98,16 @@ form{
 }
 
 .data-input-quantite{
+    width: 22px;
+    text-align: center;
+}
+.btn-commander {
+    height: 30px;
     width: 30px;
+    background: url("../img/refresh.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    
 }
 
 
@@ -118,7 +127,7 @@ form{
     flex-flow: column nowrap;
     width: 70%;
     height: 60%;
-    border: solid;
+    border-style: groove;
     color:black
 }
 .item, .myItems{
@@ -142,18 +151,21 @@ form{
     background: url("../img/trashOne.png") no-repeat 0 0;
     background-size: 100%;
     align-self: baseline;
-
+}
+.item-qtte{
+    background-color: transparent;
+    width: 25px;
 }
 
 img{
     border-radius: 10px;
 }
 .empty-cart-img{
-    position: absolute;
-    left: 27%;
-    top:30%;
-    width: 1000px;
-    height:600px;
+    position: fixed;
+    left: 35%;
+    top:35%;
+    width: 30%;
+    height:50%;
 }
 .empty-cart-img.show,
 .btn-empty-list.show {
