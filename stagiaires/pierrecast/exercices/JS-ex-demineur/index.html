@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Dénimeur</title>
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+		<header>
+			
+			<div id="levels">
+				<button id="level1" class="level activeLevel" value="1">NIVEAU 1</button>
+				<button id="level2" class="level" value="2">NIVEAU 2</button>
+				<button id="level3" class="level" value="3">NIVEAU 3</button>
+			</div>
+		</header>
+		<main>
+			<h1>Démineur</h1>
+			<table id="boardgame" class="level1">
+
+			</table>
+		</main>
+		<footer>
+			<p>Nombre de bombes : 
+			<span id="bombs"></span> - Nombre de cases à découvrir :
+			<span id="rest" data-status='false'></span></p>
+		</footer>
+
+		<script src="js/index.js"></script>
+	</body>
+</html>
