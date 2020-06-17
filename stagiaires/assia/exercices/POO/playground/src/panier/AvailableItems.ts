@@ -1,7 +1,6 @@
-import { ItemInfoModel } from "./ItemInfoModel"
-import { ItemInfoListModel } from "./ItemInfoListModel"
+import { ItemListModel } from "./ItemListModel"
 
-export const AvailableItems: ItemInfoListModel = [
+export const AvailableItems: ItemListModel = [
     {
         titre: "Bulles",
         auteur: "E. Lassaux",

@@ -1,25 +1,22 @@
 import { AvailableItems } from "./AvailableItems";
+import { ItemModel } from "./ItemModel";
+import { ItemListModel } from "./ItemListModel";
 
 export class Item {
-    private item: object;
 
-    constructor(item:object) {
-
+    constructor(private item: ItemModel) {
+        this.item = item;
     }
+
+    createListView() {
+        
+    }
+
+    createDetailView() {
+        
+    }
+    createRecapView() {
+        
+    }
+
 }
-
-
-
-
-
-// class item
-    //set valeurs sur base de tab_img
-
-    //methodes : 
-//createItem
-//createList
-//displayItemList
-//displayDetailView
-
-
- 

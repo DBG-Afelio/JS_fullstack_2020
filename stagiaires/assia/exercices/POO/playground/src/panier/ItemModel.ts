@@ -1,4 +1,4 @@
-export interface ItemInfoModel {
+export interface ItemModel {
     readonly titre: string,
     readonly auteur: string,
     readonly commentaire: string,

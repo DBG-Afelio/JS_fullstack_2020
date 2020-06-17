@@ -26,22 +26,29 @@ export class ShoppingCart {
     }
 
     //calculer le nombre d'articles dns le panier
-    setCartCount() {
+    setCartQuantity():void {
         
     }
 
     //connaître le nombre d'articles avec 
-    getCartCount() {
-        
+    getCartQuantity():number {
+        return 0;
     }
 
     //calculer le prix total du panier avec 
-    setTotalPrice() {
-
+    setTotalPrice():void {
     }
 
     //connaitre le prix total du panier avec 
-    getTotalPrice() {
+    getTotalPrice(): number {
+        return 0;
+    }
+
+    displayCartQuantity(): void {
+    }
+
+    displayCartPrice(): void {
 
     }
+
 }
