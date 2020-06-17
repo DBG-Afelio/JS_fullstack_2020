@@ -1,4 +1,4 @@
-export enum raceEnum {
+export enum RaceEnum {
     ELFE = "ELFE",
     NAIN = "NAIN",
 }
