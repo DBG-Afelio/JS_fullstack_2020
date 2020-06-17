@@ -1,12 +1,15 @@
-import { ItemStock } from "./ItemStock";
+import { AvailableItems } from "./AvailableItems";
 
 export class Item {
     private item: object;
 
     constructor(item:object) {
-        this.item = 
+
     }
 }
+
+
+
 
 
 // class item
@@ -18,13 +21,5 @@ export class Item {
 //displayItemList
 //displayDetailView
 
-// class basket : itemOrdered, totalPrice, totalQtty
-    //get value en public
-    //set value en fonction de itemOrdered
-    //methodes :
-//addItemIntoBasket
-//updateQttyItem
-//removeItemFromBasket
-//emptyBasket
 
  
