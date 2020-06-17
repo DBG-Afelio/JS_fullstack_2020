@@ -1,29 +1,14 @@
-import { Cochon } from './examples/two/cochon';
+import { Cochon } from './examples/heritage/cochon';
+import { Chien } from './examples/heritage/chien';
 
-const baby = new Cochon('Baby', 'F'); // instanciation
-const piggy = new Cochon('Piggy', 'M'); // instanciation
+const peggy = new Cochon('BiffiII', 'F', 'pink');
 
-const baggy = baby.rencontreCochon(piggy);
-if (baggy) {
-    console.log(`l'enfant est né il s'appelle ${baggy.getNom()}`)
-}
+const fouslecamp = new Chien('fouslecamp', 'bichon', 'M', 'rouge');
 
-// baby.disBonjour();
-// piggy.disBonjour();
+// console.log(fouslecamp.ecrire());
+console.log(fouslecamp.toString());
+console.log(fouslecamp+'');
+// console.log(peggy.ecrire());
 
-// Accesseur et encapsulation
 
-// console.log(`la couleur de piggy ${piggy.couleur}`);
 
-// piggy.couleur = 'rouge';
-
-// console.log(`la couleur de piggy ${piggy.couleur}`);
-// console.log(`la couleur de piggy ${piggy.sexe}`); // erreur
-
-// piggy.setCouleur('rouge');
-// console.log ('La couleur de Piggy est', piggy.getCouleur());
-
-// // baby.setCouleur('rouge');
-// console.log ('La couleur de Baby est', baby.getCouleur());
-// baby.Sexe = 'M';
-// console.log ('Le sexe de Baby est', baby.Sexe);
