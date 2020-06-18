@@ -3,13 +3,13 @@
 
 export class articles{
     public titre : string;
-    public prix : string;
+    public prix : number;
     public img : string;
     public id : number=0; // pourquoi ajoute-t-on =0 ?
 
     constructor(titre:string, prix:string, img:string,id:number ){
         this.titre=titre;
-        this.prix=prix;
+        this.prix = parseFloat(prix);
         this.img=img;
         this.id=id;
     }
@@ -18,4 +18,17 @@ export class articles{
     // donc en fait ça sert simplement à articles.Title() et à afficher ainsi le titre d'un article en q. ? 
         return this.titre;
     }
+
+    getPrice() : number{
+        return this.prix;
+    }
+
+    getImg() : string{
+        return this.img;
+    }
+
+    getId() : number{
+        return this.id;
+    }
+
 }
