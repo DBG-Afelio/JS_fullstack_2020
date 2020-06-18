@@ -31,7 +31,7 @@ export class Magasin{
 
     }
 
-    getListArticle(Magasin:any):articles[]{ 
+    getListArticle():articles[]{ 
         return this.liste;
     }
 

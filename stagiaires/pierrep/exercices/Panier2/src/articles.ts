@@ -14,7 +14,7 @@ export class articles{
         this.id=id;
     }
 
-    get Title() : string{ // à quoi servent ces get ? => get = syntaxe qui permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété
+    getTitle() : string{ // à quoi servent ces get ? => get = syntaxe qui permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété
     // donc en fait ça sert simplement à articles.Title() et à afficher ainsi le titre d'un article en q. ? 
         return this.titre;
     }

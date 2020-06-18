@@ -28,3 +28,4 @@ import { Magasin } from "./magasin";
 // sélectionner uniquement un article précis.
 let magasin=new Magasin(tab_img);
 console.log(magasin.getListArticle());
+console.log(articles.getTitle)
