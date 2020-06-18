@@ -1,4 +1,4 @@
-tab_img=
+export const tab_img =
   [{
       titre         : "Bulles",
       auteur        : "E. Lassaux",

@@ -122,16 +122,17 @@ function generatePrice(item, oItem) {
     oItem.appendChild(oPrice);
 }
 
+/*
 function getPrice(prix) {
     return Number(prix.split(' ')[0]);
-}
+}*/
 
 /**
  * fonction qui récupere l'item depuis le magasin et retourne l'objet item ou null
- */
+ *//*
 function getItemFromShop(shop, id) {
     return shop.find(article => article.id === Number(id));
-}
+}*/
 
 /**
  * 
@@ -174,7 +175,7 @@ function activeItemInList(id) {
 function getCommandFromBasket(basket, id) {
     return basket.find(command => command.id === Number(id));
 }
-
+/*
 function sendCommand(qte, id) {
     let command = getCommandFromBasket(basket, id);
     let item = getItemFromShop(shop, id);
@@ -182,9 +183,7 @@ function sendCommand(qte, id) {
     if (command === undefined) {
         if (qte !== 0 ) {
             addItemToBasket(basket, item, qte);   
-        } /*else {
-            alert('NON');
-        }*/
+        } 
     } else {
         if (qte !== 0 ) {
             modifyItemFromBasket(command, qte)
@@ -196,7 +195,7 @@ function sendCommand(qte, id) {
     updateBasket(basket);
     localStorage.setItem('basket', JSON.stringify(basket));
  console.log(localStorage.getItem('basket'));
-}
+}*/
 
 /**
  * function qui ajoute une commande dans le panier
