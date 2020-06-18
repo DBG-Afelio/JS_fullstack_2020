@@ -5,17 +5,7 @@ export declare class ShoppingCart {
     constructor(orderedList: OrderedItemModel[]);
     getOrderedItemList(): null | OrderedItemModel[];
     findIndexAndItem(searchedItem: ItemModel): undefined | {
-        OrderedItemModel: any;
-        number: any;
+        findOItem: OrderedItemModel;
+        indexItem: number;
     };
-    addItem(item: ItemModel, qtty: number): OrderedItemModel;
-    removeItem(item: OrderedItemModel): void;
-    deleteItem(): void;
-    emptyCart(): void;
-    setCartQuantity(): void;
-    getCartQuantity(): number;
-    setTotalPrice(): void;
-    getTotalPrice(): number;
-    displayCartQuantity(): void;
-    displayCartPrice(): void;
 }
