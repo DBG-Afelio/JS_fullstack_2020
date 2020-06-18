@@ -8,6 +8,6 @@ export interface ItemModel {
     readonly image: ImageModel,
     readonly id: number,
 
-    getId(): number;
+    getId(): number,
     getItem():ItemModel,
 }
