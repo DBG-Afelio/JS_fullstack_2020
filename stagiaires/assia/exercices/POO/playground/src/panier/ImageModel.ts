@@ -1,6 +1,6 @@
 export interface ImageModel {
-    grande: string,
-    moyenne: string,
-    petite: string,
-    toute_petite: string,
+    readonly grande: string,
+    readonly moyenne: string,
+    readonly petite: string,
+    readonly toute_petite: string,
 }

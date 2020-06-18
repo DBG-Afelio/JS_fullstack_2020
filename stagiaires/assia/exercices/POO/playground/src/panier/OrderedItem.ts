@@ -2,28 +2,26 @@ import { OrderedItemModel } from "./OrderedItemModel"
 import { ItemModel } from "./ItemModel";
 
 export class OrderedItem implements OrderedItemModel {
-    item: ItemModel
-    quantity: number;
-    totalPrice: number;
-
-    constructor(item: ItemModel, qtty: number, ttPrice: number) {
+    public readonly item: ItemModel;
+    public quantity: number = 0;
+ 
+    constructor(item: ItemModel, qtty: number) {
+        this.item = item;
         this.quantity = qtty;
-        this.totalPrice = ttPrice;
     }
-
-  
-
-    getOrderedItemPrice() {
-        
+    public getId(): number{
+        return this.item.getId();
     }
-    function setOrderedItemPrice() {
-        
+    public getOrderedItem(): OrderedItemModel{
+        return this;
     }
-    getOrderedItemQtty() {
-        
+    public getTotalPrice(): number{
+        return this.item.prix * this.quantity;
+    } 
+    public getQuantity(): number{
+        return this.quantity;
     }
-    function setOrderedItemQtty() {
-        
-    }
-
+    public setQuantity(qtty:number): void{
+        this.quantity = qtty;
+    }   
 }

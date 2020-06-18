@@ -1,4 +1,5 @@
-function loadPage(): void{
+//gestions des EventsListener
+function loadPage(): void {
     
 }
 function clickDetails(): void{
@@ -6,7 +7,7 @@ function clickDetails(): void{
 }
 
 function clickCommand():void{
-
+// or clickAddQtty + clickRemoveQtyy
 }
 
 function clickRecapPage(): void{
@@ -28,9 +29,23 @@ function clickChangeQuantityFromRecap(): boolean{
     return false;
 }
 
+////
 function saveCart() {
 
 }
 function retrieveCart() {
     
 }
+
+/* bac a sable
+createListView() {
+        
+}
+
+createDetailView() {
+    
+}
+createRecapView() {
+    
+} 
+*/

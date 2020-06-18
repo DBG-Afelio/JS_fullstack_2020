@@ -1,27 +1,30 @@
+import { OrderedItemModel } from "./OrderedItemModel";
+import { ItemModel } from "./ItemModel";
+import { OrderedItem } from "./OrderedItem";
+
+
 export class ShoppingCart {
+    private orderList: OrderedItemModel[] = [];
 
-    constructor() {
-        
+    constructor(orderedList:OrderedItemModel[]) {
+        this.orderList = orderedList;
     }
 
-    //methodes:
-
-
-    getOrderedItemById():boolean {
-        return false;
+    getOrderedItemList(): null | OrderedItemModel[] {
+        return this.orderList;
     }
 
-    getOrderedItemList():boolean {
-        return false;
+    findIndexAndItem(searchedItem: ItemModel): undefined | [] {
+        return this.orderList.find(orderItem => orderItem.getId() === searchedItem.getId());
     }
     
     // ajouter un article avec 
-    addItem() {
-        
+    addItem(item:ItemModel, qtty:number):OrderedItemModel {
+        return new OrderedItem(item, qtty);
     }
     //retirer un article, devra renvoyer false si l'item que l'on essaye de supprimer n'existe pas;
-    removeItem() {
-        
+    removeItem(item:OrderedItemModel): void {
+        this.orderList.splice()
     }
 
     //supprimer tout l'article du panier
@@ -60,7 +63,6 @@ export class ShoppingCart {
     displayCartPrice(): void {
 
     }
-
 
 
 }

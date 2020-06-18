@@ -1,12 +1,12 @@
-import { ItemInfoListModel } from "./ItemInfoListModel"
+import { ItemModel } from "./ItemModel"
 
-export const AvailableItems: ItemInfoListModel = [
+export const AvailableItems: ItemModel[] = [
     {
         titre: "Bulles",
         auteur: "E. Lassaux",
         commentaire: "Spécialisé dans les photos d'objet, \"Neness\" aime aussi photographier les animaux",
         pays: "Suède",
-        prix: "208 euros",
+        prix: 208,
         image: {
             grande: "bulle_gd.jpg",
             moyenne: "bulle_pt.jpg",
@@ -20,7 +20,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "J. Herman",
         commentaire: "Tout droit sorti de la nouvelle école Portugaise, il nous donne là une de ses plus belle oeuvres",
         pays: "Brasil",
-        prix: "228 euros",
+        prix: 228,
         image: {
             grande: "escalier_gd.jpg",
             moyenne: "escalier_pt.jpg",
@@ -34,7 +34,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "JTjiel",
         commentaire: "Ce Finlandais un peu déjanté, ouvre son coeur et son objectif",
         pays: "Helsinski",
-        prix: "28 euros",
+        prix: 28,
         image: {
             grande: "fenetre_gd.jpg",
             moyenne: "fenetre_pt.jpg",
@@ -48,7 +48,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "DBoo",
         commentaire: "Ce sympatique gailliard, nous invite chez lui en toute simplicité",
         pays: "Helsinski",
-        prix: "28 euros",
+        prix: 28,
         image: {
             grande: "interieur_gd.jpg",
             moyenne: "interieur_pt.jpg",
@@ -62,7 +62,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "Sabina",
         commentaire: "Oeuvre originale issue d'une artiste du sac",
         pays: "Casablanka",
-        prix: "245 euros",
+        prix: 245,
         image: {
             grande: "pantone_gd.jpg",
             moyenne: "pantone_pt.jpg",
@@ -76,7 +76,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "Anonyme",
         commentaire: "Oeuvre anonyme...",
         pays: "Bruxelles",
-        prix: "8 euros",
+        prix: 8,
         image: {
             grande: "roul_gd.jpg",
             moyenne: "roul_pt.jpg",
@@ -91,7 +91,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "Marie N.",
         commentaire: "Première photo d'une série d'une artiste trop vite disparue",
         pays: "Huy",
-        prix: "43 euros",
+        prix: 43,
         image: {
             grande: "tourne_gd.jpg",
             moyenne: "tourne_pt.jpg",
@@ -105,7 +105,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "Coppe",
         commentaire: "Cette photo un peu mégalo nous illustre la démesure de ce brave roumain",
         pays: "Belgrade",
-        prix: "2.8 euros",
+        prix: 2.8,
         image: {
             grande: "vitres_gd.jpg",
             moyenne: "vitres_pt.jpg",
@@ -119,7 +119,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "S. alade",
         commentaire: "Du rêve dans un légume...",
         pays: "Bressoux",
-        prix: "13 euros",
+        prix: 13,
         image: {
             grande: "laitue_gd.jpg",
             moyenne: "laitue_pt.jpg",
@@ -133,7 +133,7 @@ export const AvailableItems: ItemInfoListModel = [
         auteur: "Toto",
         commentaire: "Du grand, du lourd",
         pays: "Varsovie",
-        prix: "12 euros",
+        prix: 12,
         image: {
             grande: "immeuble_gd.jpg",
             moyenne: "immeuble_pt.jpg",
