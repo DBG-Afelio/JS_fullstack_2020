@@ -5,6 +5,7 @@ export declare class OrderedItem implements OrderedItemModel {
     quantity: number;
     constructor(item: ItemModel, qtty: number);
     getId(): number;
+    getOrderedItem(): OrderedItemModel;
     getTotalPrice(): number;
     getQuantity(): number;
     setQuantity(qtty: number): void;

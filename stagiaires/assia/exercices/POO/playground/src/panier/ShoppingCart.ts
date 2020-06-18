@@ -14,8 +14,14 @@ export class ShoppingCart {
         return this.orderList;
     }
 
-    findIndexAndItem(searchedItem: ItemModel): undefined | [] {
-        return this.orderList.find(orderItem => orderItem.getId() === searchedItem.getId());
+    findIndexAndItem(searchedItem: ItemModel): undefined | { OrderedItemModel, number } {
+        this.orderList.find(orderItem, i => {
+            if (orderItem.getId() === searchedItem.getId()) {
+                const index = i;
+                const findOItem = orderItem;
+            }
+        }
+        return { findOItem, index };
     }
     
     // ajouter un article avec 

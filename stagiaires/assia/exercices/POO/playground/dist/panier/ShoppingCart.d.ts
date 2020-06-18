@@ -1,12 +1,15 @@
 import { OrderedItemModel } from "./OrderedItemModel";
 import { ItemModel } from "./ItemModel";
 export declare class ShoppingCart {
-    private orderedList;
+    private orderList;
     constructor(orderedList: OrderedItemModel[]);
     getOrderedItemList(): null | OrderedItemModel[];
-    findItem(searchedItem: ItemModel): undefined | OrderedItemModel;
-    addItem(): void;
-    removeItem(): void;
+    findIndexAndItem(searchedItem: ItemModel): undefined | {
+        OrderedItemModel: any;
+        number: any;
+    };
+    addItem(item: ItemModel, qtty: number): OrderedItemModel;
+    removeItem(item: OrderedItemModel): void;
     deleteItem(): void;
     emptyCart(): void;
     setCartQuantity(): void;

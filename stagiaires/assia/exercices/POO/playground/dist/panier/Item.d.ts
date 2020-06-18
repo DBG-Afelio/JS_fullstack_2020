@@ -9,4 +9,6 @@ export declare class Item implements ItemModel {
     readonly image: ImageModel;
     readonly id: number;
     constructor(title: string, autor: string, comments: string, country: string, price: number, picture: ImageModel, id: number);
+    getId(): number;
+    getItem(): ItemModel;
 }
