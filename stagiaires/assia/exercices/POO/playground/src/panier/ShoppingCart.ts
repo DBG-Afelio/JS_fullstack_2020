@@ -6,6 +6,15 @@ export class ShoppingCart {
 
     //methodes:
 
+
+    getOrderedItemById():boolean {
+        return false;
+    }
+
+    getOrderedItemList():boolean {
+        return false;
+    }
+    
     // ajouter un article avec 
     addItem() {
         
@@ -25,6 +34,7 @@ export class ShoppingCart {
         
     }
 
+    
     //calculer le nombre d'articles dns le panier
     setCartQuantity():void {
         
@@ -50,5 +60,7 @@ export class ShoppingCart {
     displayCartPrice(): void {
 
     }
+
+
 
 }

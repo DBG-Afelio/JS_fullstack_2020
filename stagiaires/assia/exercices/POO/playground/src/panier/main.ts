@@ -10,19 +10,27 @@ function clickCommand():void{
 }
 
 function clickRecapPage(): void{
-
+// switchPage() ?
 }
 function clickHomePage(): void{
-
+// switchPage() ?
 }
+
 function clickEmptyCart(): boolean{
-    let isEmpty = false;
-    return isEmpty;
+    
+    return false;
 }
 function clickDeleteItemFromRecap(): void{
 
 }
 function clickChangeQuantityFromRecap(): boolean{
-    let isQttyChanged = false;
-    return isQttyChanged;
+  
+    return false;
+}
+
+function saveCart() {
+
+}
+function retrieveCart() {
+    
 }

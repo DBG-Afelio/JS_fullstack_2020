@@ -1,6 +1,6 @@
-import { ItemListModel } from "./ItemListModel"
+import { ItemInfoListModel } from "./ItemInfoListModel"
 
-export const AvailableItems: ItemListModel = [
+export const AvailableItems: ItemInfoListModel = [
     {
         titre: "Bulles",
         auteur: "E. Lassaux",
@@ -142,5 +142,5 @@ export const AvailableItems: ItemListModel = [
         },
         id: 10
     }
-];
+]
     

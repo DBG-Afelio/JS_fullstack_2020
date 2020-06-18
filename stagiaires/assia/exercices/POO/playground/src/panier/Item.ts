@@ -1,12 +1,15 @@
-import { AvailableItems } from "./AvailableItems";
 import { ItemModel } from "./ItemModel";
-import { ItemListModel } from "./ItemListModel";
 
-export class Item {
+export class Item implements ItemModel{
+ 
 
-    constructor(private item: ItemModel) {
-        this.item = item;
+     
+    constructor( 
+
+    ) {
+
     }
+    
 
     createListView() {
         

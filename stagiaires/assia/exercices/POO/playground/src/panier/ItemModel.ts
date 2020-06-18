@@ -1,14 +1,11 @@
+import { ImageModel } from "./ImageModel";
+
 export interface ItemModel {
-    readonly titre: string,
-    readonly auteur: string,
-    readonly commentaire: string,
-    readonly pays: string,
-    readonly prix: string,
-    readonly image: {
-        grande: string,
-        moyenne: string,
-        petite: string,
-        toute_petite: string,
-    },
-    readonly id: number
+    titre: string,
+    auteur: string,
+    commentaire: string,
+    pays: string,
+    prix: string,
+    image: ImageModel,
+    id: number
 }
