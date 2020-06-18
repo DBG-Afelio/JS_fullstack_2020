@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Gafata&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0; padding: 0;
+    background-color: whitesmoke;
+}
+
+.view {
+    width: 100%;
+    display: none;
+}
+
+.view.active {
+    width: 100%;
+    display: block;
+    
+}
+
+.block {
+    max-width : 1280px;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 31% 64%;
+    gap: 2%;
+    box-sizing: border-box;
+}
+
+button:hover, button:active, button:focus {
+    scale: 1.04;
+    cursor: pointer;
+}
+/* ------ BLOCK DETAIL ------ */
+
+.wrap-detail, .view-recap {
+    color: white;
+    padding: 75px 0;
+    background: url('../img/wave-545048_1920.jpg') black no-repeat center center;
+    background-size: cover;
+    font-family: 'Gafata', sans-serif;
+}
+
+.block-detail {
+    background-color: rgba(0,0,0, 0.7);
+    border-right: 8px solid white;
+    max-height: 40vh;
+    grid-template-columns: 31% 64%;
+    grid-gap: 2%;
+    padding: 25px;
+    text-align: right;
+    align-content: center;
+
+    grid-template-areas: 
+    "img info"
+    "img form";
+}
+
+.block-detail img { 
+    border: 8px solid white;
+    box-sizing: border-box;
+    align-self: center;
+    width: 100%;
+    max-width: 35vh;
+    max-height: 35vh;
+    grid-area: img;
+}
+.block-detail .info-detail {
+    align-self: center;
+    justify-self: right;
+    grid-area: info;
+}
+
+form {
+    grid-area: form;
+}
+
+.recap-bottom button,
+.block-detail button, 
+.block-detail input {
+    font: 20px/35px arial, helvetica, sans-serif;
+    font-variant: small-caps;
+    font-weight: bold;
+    border: 3px solid whitesmoke;
+    width: 40%;
+    max-width: 215px;
+    padding: 3px;
+    margin: 35px 0 15px  30px ;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.block-detail button {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.block-detail input {
+    background-color: rgba(255,255,255, .6);
+    color: black;
+}
+
+.block-detail h2{
+    font: 45px/50px 'Gafata', sans-serif;
+}
+
+.block-detail .comment, 
+.block-detail .origin {
+    padding: 5px;
+    font: 20px/25px 'Gafata', sans-serif;
+    
+}
+
+@media screen and (max-width: 990px) {
+    .block-detail {
+        grid-template-columns: 36% 60%;
+        grid-template-areas: 
+    "img info"
+    "form form";
+    }
+    
+    .block-detail h2{
+        font: 30px/35px 'Gafata', sans-serif;
+    }
+    
+    .block-detail .comment, 
+    .block-detail .origin {
+        padding: 5px;
+        font: 16px/20px 'Gafata', sans-serif;
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+        .block-detail {
+        grid-template-columns: 100%;
+        grid-gap: 2%;
+        padding: 25px;
+        grid-template-areas: 
+    "img "
+    "info"
+    "form";
+    }
+
+    .block-detail h2{
+        font: 20px/25px 'Gafata', sans-serif;
+    }
+    
+    .block-detail .comment, 
+    .block-detail .origin {
+        padding: 2px;
+        font: 14px/18px 'Gafata', sans-serif;
+    }
+    .block-detail  img {
+        max-width: 50%;
+    }
+
+    .block-detail button, 
+    .block-detail input {
+        font: 20px/25px arial, helvetica, sans-serif;
+        font-variant: small-caps;
+        font-weight: bold;
+        border: 3px solid whitesmoke;
+        max-width: 215px;
+        padding: 3px;
+        margin: 5px 0 15px 5px ;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .block-detail button {
+        width: 45%;
+    }
+    .block-detail input {
+        width: 45%;
+        
+    }
+}
+
+@media screen and (max-width: 400px) {
+  
+    .block-detail button {
+        width: 65%;
+    }
+    .block-detail input {
+        width: 25%;
+        
+    }
+}
+    
+
+/* ------ BLOCK LISTE ------ */
+
+.wrap-liste {
+    padding: 25px 0 120px 0;
+    box-sizing: border-box;
+}
+
+.block-liste {
+    font-size: 16px;
+    grid-template-columns: 32% 32% 32%;
+    gap: 2%;
+}
+
+.block-liste .item { 
+    display: grid;
+    grid-template-columns: 100px auto;
+    margin-bottom: 25px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+}
+
+.block-liste > *:hover, .block-liste > *:active, .block-liste > *:focus {
+    scale: 1.04;
+}
+
+.block-liste .item:nth-of-type(2n) {
+    background-color: silver;
+    border: 3px solid silver;
+}
+.block-liste .item:nth-of-type(2n+1) {
+    background-color: whitesmoke;
+    border: 3px solid silver;
+}
+
+.block-liste .item.active { 
+    background-color: #050608;
+    border: 3px solid #050608;
+    color: white;
+}
+
+.block-liste .item > * { 
+    padding: 5px;
+}
+
+.block-liste .item .title {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font: 20px/25px 'Gafata', sans-serif;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.block-liste .item .price {
+    text-align: right; 
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font: 16px/20px 'Gafata', sans-serif;
+}
+
+.block-liste .item img {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 75px;
+}
+
+@media screen and (max-width: 990px) {
+    .block-liste {
+        grid-template-columns: 49% 49%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .block-liste {
+        grid-template-columns: 100%;
+    }
+
+    .block-liste .item {
+        margin-bottom: 0;
+    }
+}
+
+/* --- BLOCK PANIER --- */
+.block-basket {
+    margin: 90px auto 10px auto;
+    grid-template-columns: 32% 32% 32%;
+    gap: 2%;
+}
+
+.block-basket > * {
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+    text-align: center;
+    padding: 5px 0;
+    font: 20px/30px arial, helvetica, sans-serif;
+    font-variant: small-caps;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.block-basket output {
+    padding: 0 8px;
+} 
+
+.block-basket > *:nth-child(3n+1) {
+    justify-self: right;
+    border: 3px solid black;
+}
+.block-basket > *:nth-child(3n+2) {
+    justify-self: center;
+    border: 3px solid black;
+}
+.block-basket > *:nth-child(3n) {
+    justify-self: left;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .block-basket {
+        display: block;
+    }
+
+    .block-basket > * {
+        width: 100%;
+        margin: 5px 0;
+        max-width: 500px;
+    }
+}
+
+/* --- BLOCK PANIER --- */
+
+.view-recap {
+    height: 40vh;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.wrap-recap {
+    position: relative;
+    top: 150px;
+    max-width: 550px;
+    width: 95vw;
+    margin : 0 auto;
+    padding: 50px 50px 75px 50px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0,0,0, .6);
+    color: black;
+    box-sizing: border-box;
+}
+
+.block-recap {
+    text-align: right;
+    align-content: center;
+    min-height: 600px;
+}
+
+.block-recap .item {
+    display: grid;
+    grid-template-columns: 80px auto 50px 5px 80px 5px 80px;
+    align-content: center;
+    padding: 12px 0;
+}
+
+.block-recap .item > * {
+    align-self: center;
+    padding-left: 3px;
+    
+}
+
+.block-recap .item .title {
+    text-align: left;
+}
+
+.recap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recap-bottom > output {
+    width: 100%;
+    text-align: right;
+    font: 25px/35px 'Gafata', sans-serif;
+    border-top: 1px solid black;
+    padding-top: 5px;
+
+}
+
+.recap-bottom > button {
+    width: 40%;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    margin: 25px 0 10px 0;
+    font: 20px/25px  arial, helvetica, sans-serif;;
+    padding: 8px 3px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.block-recap .item {
+    border-bottom: 1px solid silver;
+}
+
+@media screen and (max-width: 990px) {
+    .wrap-recap {
+        position: relative;
+        max-width: 550px;
+        width: 95vw;
+        top: 150px;
+    }
+}
