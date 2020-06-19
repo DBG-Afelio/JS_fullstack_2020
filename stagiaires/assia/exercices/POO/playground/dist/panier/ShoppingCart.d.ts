@@ -3,9 +3,18 @@ import { ItemModel } from "./ItemModel";
 export declare class ShoppingCart {
     private orderList;
     constructor(orderedList: OrderedItemModel[]);
-    getOrderedItemList(): null | OrderedItemModel[];
-    findIndexAndItem(searchedItem: ItemModel): undefined | {
+    getOrderedList(): null | OrderedItemModel[];
+    findItemAndIndex(searchedItem: ItemModel): null | {
         findOItem: OrderedItemModel;
-        indexItem: number;
+        index: number;
+    };
+    addItem(item: ItemModel, qtty: number): OrderedItemModel;
+    updateItemQtty(item: OrderedItemModel, qtty: number): void;
+    deleteItem(item: OrderedItemModel): void;
+    private getItemIndex;
+    emptyCart(): void;
+    getTotal(): {
+        qtty: number;
+        price: number;
     };
 }

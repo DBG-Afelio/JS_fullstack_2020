@@ -21,7 +21,8 @@ export class OrderedItem implements OrderedItemModel {
     public getQuantity(): number{
         return this.quantity;
     }
-    public setQuantity(qtty:number): void{
+    public setQuantity(qtty:number): OrderedItemModel{
         this.quantity = qtty;
+        return this;
     }   
 }

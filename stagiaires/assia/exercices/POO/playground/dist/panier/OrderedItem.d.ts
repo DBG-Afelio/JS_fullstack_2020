@@ -8,5 +8,5 @@ export declare class OrderedItem implements OrderedItemModel {
     getOrderedItem(): OrderedItemModel;
     getTotalPrice(): number;
     getQuantity(): number;
-    setQuantity(qtty: number): void;
+    setQuantity(qtty: number): OrderedItemModel;
 }

@@ -33,6 +33,6 @@ export class Item implements ItemModel{
     }
     
     public getItem(): ItemModel{
-        this;
+        return this;
     }
 }

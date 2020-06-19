@@ -9,6 +9,6 @@ export interface OrderedItemModel {
     getId(): number;
     getTotalPrice(): number,
     getQuantity(): number,
-    setQuantity(quantity: number): void,
+    setQuantity(quantity: number): OrderedItemModel,
 
 }
