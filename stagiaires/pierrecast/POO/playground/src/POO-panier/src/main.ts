@@ -21,3 +21,19 @@ if (art2) {
     basket.updateBasket(art2, 0, 3);
     console.log('delete', basket);
 }
+
+if (art4 && art5) {
+    basket.updateBasket(art4, 6, 1);
+    basket.updateBasket(art5, 4, 5);
+    
+}
+
+console.log('final' ,basket);
+if (basket) {
+    console.log('Total', basket.getTotal()); 
+}
+
+
+
+//const savedBasket = basket.retrieve(shop);
+//console.log(savedBasket);

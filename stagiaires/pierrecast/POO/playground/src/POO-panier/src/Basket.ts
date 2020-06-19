@@ -9,7 +9,7 @@ export class Basket {
         this.listCommands = []; 
     }
 
-    public getListCommand():Command[] 
+    public getListCommand(): Command[] 
     {
         return this.listCommands;
     }
@@ -62,9 +62,21 @@ export class Basket {
         this.listCommands = [];
     }
 
+    public getTotal(): {totalQuantity: number, totalPrice: number} 
+    {
+       let total = {totalQuantity: 0, totalPrice: 0}
+       this.listCommands.forEach(command => {
+           total.totalQuantity += command.getPrice();
+           total.totalPrice += command.getPrice() * command.getQuantity();
+       });
+
+       return total;
+    }
+
     private save(): void
     {
         localStorage.setItem('basket', JSON.stringify(this.listCommands));
+        console.log('savedStorage', localStorage.getItem('basket'));
     }
 
     public retrieve(shop: Shop) :Basket 
@@ -73,27 +85,39 @@ export class Basket {
         let storageJSON = localStorage.getItem('basket');
         let storage = [];
         if (storageJSON) {
-            storage =  JSON.parse(storageJSON);
-            storage.forEach(item => {
-                let command = new Command(item.article, item.price, item.quantity);
-                if (list.find(command => command === shop.findCommand(command.getArticle()))) {
-                    basket.addCommand(command);
-                }
-            });
+            storage = JSON.parse(storageJSON).toBasket();console.log(storage);
+            /*storage.forEach(item => {
+                let command = new Comman
+            })*/
         } 
-        let list = shop.getListArticles();
+        //let list = shop.getListArticles();
         
         return basket;
     }
-        
-    public getTotal(): {totalQuantity: number, totalPrice: number} 
-    {
-       let total = {totalQuantity: 0, totalPrice: 0}
-       this.listCommands.forEach(command => {
-           total.totalQuantity += command.getPrice(),
-           total.totalPrice += command.getPrice() * command.getQuantity();
-       });
 
-       return total;
+    /*public static toBasket(elt: any): Basket {
+        return new Basket(
+            elt.listCommands.toCommand(),
+        );
+    }*/
+
+    public static toCommand(elt: any): Command {
+        return new Command(
+            elt.article.toArticle(),
+            elt.price as number,
+            elt.quantity as number,
+        );
+    }
+
+    public static toArticle(elt: any): Article {
+        return new Article(
+            elt.id as number, 
+            elt.title as string, 
+            elt.author as string, 
+            elt.comment as string, 
+            elt.country as string, 
+            elt.price as number, 
+            elt.image as any,
+        );
     }
 }
