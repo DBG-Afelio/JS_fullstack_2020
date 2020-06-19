@@ -1,41 +1,24 @@
+import { Disk } from "./hanoi/Disk";
+import { Tour } from "./hanoi/Tour";
 
 
-import { AvailableItems } from './panier/AvailableItems'
-import { ItemModel } from './panier/ItemModel';
-import { Stock } from './panier/Stock';
-import { ShoppingCart } from './panier/ShoppingCart';
-import { OrderedItemModel } from './panier/OrderedItemModel';
+// function creerTours(nbTours: number = 3, nbJetons: number = 8): Tour[] {
+//     let listTours: Tour[] = [];
+//     for (let t: number = nbTours; t >= 1; t++) {
+//         const maTour = new Tour({ tourNum: t, listJetons: creerJetons(nbJetons) });
+//         listTours.push(maTour);
+//     }
+//     return listTours;
+// }
+// function creerJetons(nbJetons: number = 8): Jeton[]{
+//     let listJetons: Jeton[] = [];
+//     for (let j: number = nbJetons; j >= 1 ; j++){
+//         const monJeton = new Jeton(j);
+//         listJetons.push(monJeton);
+//     }
+//     return listJetons;
+// }
 
-function afficheMonStock(stock: Stock): void{
-    if (stock) {
-        console.log("mon stock", stock.getList());
-    } else {
-        console.log("mons stock est vide");
-    }
-}
-
-function afficheMonPanier(panier: ShoppingCart): void{
-    console.log("mon panier", panier);
-}
-
-
-const myStock = new Stock([]);
-//afficheMonStock(myStock);
-
-// const maListdeCommandes: OrderedItemModel[] = [{ item: myStock.getItemById(6), quantity: 20 }, item: myStock.getItemById(10), quantity: 8}, item: myStock.getItemById(8), quantity: 11}];
-// const myCart = new ShoppingCart(maListdeCommandes);
-// afficheMonPanier(myCart);
-
-function afficheItembyId(stock:Stock, id: number) {
-    if (stock.getList.length > 0) {
-        if (stock.getItemById(id)) {
-            console.log(stock.getItemById(id))
-        } else {
-            console.log("ID item introuvable dans le stock");
-        }
-    } else {
-        console.log('le Stock est vide');
-    }
-}
-
-afficheItembyId(myStock, 10);
+// let monJeu: Tour[] = creerTours(3, 8);
+// console.log(monJeu);
+console.log('tata');
