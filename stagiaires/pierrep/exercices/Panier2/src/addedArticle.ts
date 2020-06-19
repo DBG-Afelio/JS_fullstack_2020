@@ -3,7 +3,7 @@
 
 import { articles } from "./articles";
 
-export class selectedArticle{
+export class addeddArticle{
     protected article: articles;
     protected prix: number;
     protected quantity: number;
