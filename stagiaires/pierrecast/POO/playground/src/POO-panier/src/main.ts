@@ -35,5 +35,5 @@ if (basket) {
 
 
 
-//const savedBasket = basket.retrieve(shop);
-//console.log(savedBasket);
+const savedBasket = basket.retrieve(shop);
+console.log(savedBasket);

@@ -76,7 +76,7 @@ export class Basket {
     private save(): void
     {
         localStorage.setItem('basket', JSON.stringify(this.listCommands));
-        console.log('savedStorage', localStorage.getItem('basket'));
+        //console.log('savedStorage', localStorage.getItem('basket'));
     }
 
     public retrieve(shop: Shop) :Basket 
@@ -85,21 +85,17 @@ export class Basket {
         let storageJSON = localStorage.getItem('basket');
         let storage = [];
         if (storageJSON) {
-            storage = JSON.parse(storageJSON).toBasket();console.log(storage);
-            /*storage.forEach(item => {
-                let command = new Comman
-            })*/
+            storage = JSON.parse(storageJSON).toBasket();
+            storage.forEach((item:any) => {
+                let command = Basket.toCommand(item);
+                if (shop.getArticleById(command.getArticle().getId())){
+                    basket.getListCommand().push(command);
+                }
+            });
         } 
-        //let list = shop.getListArticles();
         
         return basket;
     }
-
-    /*public static toBasket(elt: any): Basket {
-        return new Basket(
-            elt.listCommands.toCommand(),
-        );
-    }*/
 
     public static toCommand(elt: any): Command {
         return new Command(
