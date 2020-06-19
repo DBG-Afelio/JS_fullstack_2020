@@ -1,6 +1,6 @@
 import { ItemModel } from "./ItemModel"
 
-export const AvailableItems: ItemModel[] = [
+export const AvailableItems: any[] = [
     {
         titre: "Bulles",
         auteur: "E. Lassaux",
