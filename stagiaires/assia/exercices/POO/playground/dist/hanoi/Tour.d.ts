@@ -1,15 +1,18 @@
 import { Disk } from "./Disk";
-import { TourEnum } from "./TourEnum";
+import { TourId } from "./TourEnum";
 export declare class Tour {
     private id;
-    private disklist;
-    constructor(id: TourEnum, disklist: Disk[]);
-    getId(): TourEnum;
-    setId(idIn: TourEnum): void;
-    getDiskList(): Disk[];
-    setDiskList(listIn: Disk[]): void;
-    getNombresDisk(): number;
+    private stack;
+    constructor(id: TourId, stack: Disk[]);
+    getId(): TourId;
+    setId(idIn: TourId): void;
+    showStack(): Disk[];
+    setFullStack(nbDisk?: number): void;
+    setEmptyStack(): void;
+    isStackEmpty(): boolean;
+    isStackFull(): boolean;
+    getNbDisk(): number;
     getDiskOnTop(): Disk | null;
-    ajouteDisk(diskIn: Disk): boolean;
-    retireDisk(diskOut: Disk): boolean;
+    stackDisk(diskIn: Disk): boolean;
+    unstackDisk(diskOut: Disk): boolean;
 }

@@ -1,5 +1,5 @@
-export declare enum TourEnum {
+export declare enum TourId {
     GAUCHE = "GAUCHE",
-    MILIEU = "MILIEU",
+    CENTRE = "CENTRE",
     DROITE = "DROITE"
 }

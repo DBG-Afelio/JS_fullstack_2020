@@ -1,28 +1,14 @@
-import { DiskEnum } from "./DiskEnum";
-import { EtageEnum } from "./EtageEnum";
-
 export class Disk {
-    private id: DiskEnum;
-    private etage: EtageEnum;
 
-    constructor(id: DiskEnum, etage:number) {
+    constructor(private id: number) {
         this.id = id;
-        this.etage = etage;
     }
 
-    public setId(idIn: DiskEnum):void {
+    public setId(idIn: number):void {
         this.id = idIn;
     }
 
-    public getId(): DiskEnum{
+    public getId(): number{
         return this.id;
-    }
-
-    public setEtage(etageIn: EtageEnum): void{
-        this.etage = etageIn;
-    }
-
-    public getEtage(): EtageEnum {
-        return this.etage;
     }
 }

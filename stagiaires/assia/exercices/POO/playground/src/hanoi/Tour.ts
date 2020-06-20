@@ -1,57 +1,70 @@
 import { Disk } from "./Disk";
-import { TourEnum } from "./TourEnum";
+import { TourId } from "./TourEnum";
 
 export class Tour {
-    private id: TourEnum;
-    private disklist: Disk[];
-
-    constructor(id: TourEnum, disklist: Disk[]) {
+  
+    constructor(private id: TourId, private stack: Disk[]) {
         this.id = id;
-        this.disklist = disklist;
+        this.stack = stack;
     }
 
-    public getId(): TourEnum {
+    public getId(): TourId {
         return this.id;
     }
 
-    public setId(idIn: TourEnum): void {
+    public setId(idIn: TourId): void {
         this.id = idIn;
     }
 
-    public getDiskList(): Disk[] {
-        return this.disklist;
+    public showStack(): Disk[] {
+        return this.stack;
     }
 
-    public setDiskList(listIn: Disk[]): void {
-        this.disklist = listIn;
+    public setFullStack(nbDisk: number = 8): void {
+        for (let d: number = 0; d < nbDisk; d++) {
+            const disk = new Disk(d);
+            this.stack.push(disk);
+        }
     }
 
-    public getNombresDisk(): number {
-        return this.disklist.length;
+    public setEmptyStack(): void{
+        this.stack = [];
+    }
+
+    public isStackEmpty(): boolean{
+        return this.stack === [];
+    }
+
+    public isStackFull(): boolean{
+        return this.stack.every((disk, index) => disk.getId() === index);
+    }
+
+    public getNbDisk(): number {
+        return this.stack.length;
     }
 
     public getDiskOnTop(): Disk | null {
-        if (this.getNombresDisk() !== 0) {
-            return this.disklist[0];
+        if (this.getNbDisk() !== 0) {
+            return this.stack[0];
         } else {
             return null;
         }
     }
-    public ajouteDisk(diskIn: Disk): boolean {
+    public stackDisk(diskIn: Disk): boolean {
         let ajoutOk: boolean = false;
         const diskOnTop: Disk | null = this.getDiskOnTop();
         if (diskOnTop === null || diskOnTop.getId() > diskIn.getId()) {
-            this.disklist.push(diskIn);
+            this.stack.splice(0, 0, diskIn); //0 <=> ajoute diskIn a l'index 0, 0 <=> sans supprimer le reste
             ajoutOk = true;
         }
         return ajoutOk;
     }
 
-    public retireDisk(diskOut: Disk): boolean {
+    public unstackDisk(diskOut: Disk): boolean {
         let retraitOk: boolean = false;
         const diskOnTop: Disk | null = this.getDiskOnTop();
         if (diskOnTop !== null && diskOnTop.getId() === diskOut.getId()) {
-            this.disklist.splice(0, 1);
+            this.stack.shift();
             retraitOk = true;
         }
         return retraitOk;
