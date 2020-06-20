@@ -17,8 +17,9 @@ export class Tour {
     }
     
 
-    public showStack(): Disk[] {
-        return this.stack;
+    public showStack(): void {
+        console.log(this.id);
+        this.stack.forEach(disk => console.log(disk.getId()));
     }
 
     public setFullStack(nbDisk: number = 8): void {

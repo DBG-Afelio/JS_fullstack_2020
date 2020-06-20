@@ -6,7 +6,7 @@ export declare class Tour {
     constructor(id: TourId, stack: Disk[]);
     getId(): TourId;
     setId(idIn: TourId): void;
-    showStack(): Disk[];
+    showStack(): void;
     setFullStack(nbDisk?: number): void;
     setEmptyStack(): void;
     isStackEmpty(): boolean;
