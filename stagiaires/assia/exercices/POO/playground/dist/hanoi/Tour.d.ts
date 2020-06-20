@@ -12,7 +12,7 @@ export declare class Tour {
     isStackEmpty(): boolean;
     isStackFull(): boolean;
     getNbDisk(): number;
-    getDiskOnTop(): Disk | null;
+    private getDiskOnTop;
     stackDisk(diskIn: Disk): boolean;
-    unstackDisk(diskOut: Disk): boolean;
+    unstackDisk(): Disk | undefined;
 }

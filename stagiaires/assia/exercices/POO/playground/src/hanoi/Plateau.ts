@@ -1,6 +1,5 @@
 import { Tour } from "./Tour";
 import { TourId } from "./TourEnum";
-import { Disk } from "./Disk";
 
 export class Plateau {
     private tourGauche: Tour;
@@ -18,17 +17,37 @@ export class Plateau {
         this.movesCount = movesCount
         this.challenge = { accepted: false, bet: 100 };
 
+    }
+    
+    public getTourById(id: TourId): Tour{
+        let tour = this.tourCentre; //je n'arrive pas a initialiser correctement tour ---- ? let tour: Tour = { id : ... , stack : ....};
+        switch (id) {
+            case TourId.GAUCHE: {
+                tour = this.tourGauche;
+                break;
+            }   
+            case TourId.CENTRE: {
+                tour = this.tourCentre;
+                break;
+            }
+            case TourId.DROITE: {
+                tour = this.tourDroite;
+                break;
+            }
         }
-
+        return tour;
+    }
+    
     public moveDisk(fromTour: TourId, toTour: TourId): boolean{
         let moveOK: boolean = false;
         if (fromTour !== toTour) {
-
-            this.incrementsMoves();
-            moveOK = true;
-        } else {
-            
-        }
+            const diskToMove = this.getTourById(fromTour).unstackDisk();
+            if (diskToMove) {
+                this.getTourById(toTour).stackDisk(diskToMove);
+                this.incrementsMoves();
+                moveOK = true;
+            }
+        } 
         return moveOK;
     }
 

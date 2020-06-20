@@ -15,6 +15,7 @@ export class Tour {
     public setId(idIn: TourId): void {
         this.id = idIn;
     }
+    
 
     public showStack(): Disk[] {
         return this.stack;
@@ -43,7 +44,7 @@ export class Tour {
         return this.stack.length;
     }
 
-    public getDiskOnTop(): Disk | null {
+    private getDiskOnTop(): Disk | null {
         if (this.getNbDisk() !== 0) {
             return this.stack[0];
         } else {
@@ -60,14 +61,8 @@ export class Tour {
         return ajoutOk;
     }
 
-    public unstackDisk(diskOut: Disk): boolean {
-        let retraitOk: boolean = false;
-        const diskOnTop: Disk | null = this.getDiskOnTop();
-        if (diskOnTop !== null && diskOnTop.getId() === diskOut.getId()) {
-            this.stack.shift();
-            retraitOk = true;
-        }
-        return retraitOk;
+    public unstackDisk(): Disk | undefined {
+        return this.stack.shift();
     }
 
 }
