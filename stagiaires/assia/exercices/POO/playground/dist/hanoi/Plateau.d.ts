@@ -13,8 +13,8 @@ export declare class Plateau {
     }, nbDisk?: number);
     showPlateau(): void;
     startOver(): void;
-    getTourById(id: TourId): Tour;
-    moveDisk(fromTour: TourId, toTour: TourId): boolean;
+    getTourById(id: TourId | string): Tour;
+    moveDisk(fromTour: TourId | string, toTour: TourId | string): boolean;
     private incrementsMoves;
     getMovesCount(): number;
     isWin(): boolean;

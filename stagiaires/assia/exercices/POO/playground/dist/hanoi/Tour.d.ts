@@ -6,13 +6,14 @@ export declare class Tour {
     constructor(id: TourId, stack: Disk[]);
     getId(): TourId;
     setId(idIn: TourId): void;
+    getStack(): Disk[];
     showStack(): void;
     setFullStack(nbDisk?: number): void;
     setEmptyStack(): void;
     isStackEmpty(): boolean;
     isStackFull(): boolean;
     getNbDisk(): number;
-    private getDiskOnTop;
+    getDiskOnTop(): Disk | null;
     stackDisk(diskIn: Disk): boolean;
     unstackDisk(): Disk | undefined;
 }

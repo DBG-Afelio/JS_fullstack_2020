@@ -19,6 +19,7 @@ export class Plateau {
         this.nbDisk = nbDisk;
 
     }
+    
     public showPlateau(): void{
         console.log(`Jeu en cours : `);   
         this.tourGauche.showStack();
@@ -30,10 +31,13 @@ export class Plateau {
         this.tourGauche.setFullStack(this.nbDisk);
         this.tourCentre.setEmptyStack();
         this.tourDroite.setEmptyStack();
+        this.movesCount = 0;
+        this.challenge.accepted = false;
+        this.challenge.bet = 0;
         console.log("//-*-*-*-*-*-*-*-*- Let's start over again -*-*-*-*-*-*-*-*-//");
     }
 
-    public getTourById(id: TourId): Tour{
+    public getTourById(id: TourId | string): Tour{
         let tour = this.tourCentre; //je n'arrive pas a initialiser correctement tour ---- ? let tour: Tour = { id : ... , stack : ....};
         switch (id) {
             case TourId.GAUCHE: {
@@ -52,11 +56,12 @@ export class Plateau {
         return tour;
     }
     
-    public moveDisk(fromTour: TourId, toTour: TourId): boolean{
+    public moveDisk(fromTour: TourId | string, toTour: TourId | string): boolean{
         let moveOK: boolean = false;
         if (fromTour !== toTour) {
-            const diskToMove = this.getTourById(fromTour).unstackDisk();
-            if (diskToMove !== undefined && this.getTourById(toTour).stackDisk(diskToMove)) {
+            const diskToMove = this.getTourById(fromTour).getDiskOnTop();
+            if (diskToMove !== null && this.getTourById(toTour).stackDisk(diskToMove)) {
+                this.getTourById(fromTour).unstackDisk();
                 this.incrementsMoves();
                 moveOK = true;
                 console.log('*** Move DONE ***');

@@ -16,7 +16,10 @@ export class Tour {
         this.id = idIn;
     }
     
-
+    public getStack(): Disk[]{
+        return this.stack;
+    }
+    
     public showStack(): void {
         console.log(this.id);
         this.stack.forEach(disk => console.log(disk.getId()));
@@ -46,7 +49,7 @@ export class Tour {
         return this.stack.length;
     }
 
-    private getDiskOnTop(): Disk | null {
+    public getDiskOnTop(): Disk | null {
         if (this.getNbDisk() !== 0) {
             return this.stack[0];
         } else {

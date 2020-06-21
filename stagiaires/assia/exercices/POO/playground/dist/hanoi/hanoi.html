@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanoi Tours</title>
+    <link rel="stylesheet" href="hanoi.css">
+</head>
+<body>
+<section class="jeu-plateau">
+    <table class="tour-gauche">
+        <thead>
+            <tr>
+                <th colspan="1">Tour GAUCHE</th>
+            </tr>
+        </thead>
+        <tbody class="stack-gauche">
+            <tr>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="tour-centre">
+        <thead>
+            <tr>
+                <th colspan="1">Tour CENTRE</th>
+            </tr>
+        </thead>
+        <tbody class="stack-centre">
+            <tr>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="tour-droite">
+        <thead>
+            <tr>
+                <th colspan="1">Tour DROITE</th>
+            </tr>
+        </thead>
+        <tbody class="stack-droite">
+            <!-- <tr>
+                <td>1</td>
+            </tr> -->
+        </tbody>
+    </table>
+</section>
+<section class="commands">
+    <label for="fromTour">Move disk from 
+        <select class="tourFrom tour" id="fromTour"">
+            <option value="GAUCHE">GAUCHE</option>
+            <option value="CENTRE">CENTRE</option>
+            <option value="DROITE">DROITE</option>
+        </select>
+    </label>
+    <label for="toTour"> to
+        <select class="tourTo tour" id="toTour">
+            <option value="GAUCHE">GAUCHE</option>
+            <option value="CENTRE">CENTRE</option>
+            <option value="DROITE">DROITE</option>
+        </select>
+    </label>
+    
+    <input type="submit" class="play-btn" value="PLAY">
+    <input type="submit" class="reset-btn" value="START OVER">
+
+</section>
+<section class="interface-in-out">
+    <label for="nbdisk">Nombre de disques : 
+        <input class="nombre-disk" id="nbdisk" type="number" min="2" max="10" value="8">
+    </label>
+    <div class="challenge">
+        <label for="checkChallenge">Make a challenge ? 
+            <input class="check-challenge" id="checkChallenge" type="checkbox">
+        </label>
+        <label for="betChallenge">Shots bet : 
+            <input class="bet-challenge" id="betChallenge" type="number" min="2">
+        </label>
+    </div>
+    <label for="coups">Coups : 
+        <output class="nb-coups" id="coups">0</output>
+    </label>
+</section>
+<section>
+    <output class="message-player"></output>
+</section>
+<script src="../app.bundle.js"></script>
+</body>
+</html>
