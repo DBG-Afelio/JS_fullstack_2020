@@ -23,6 +23,7 @@ export class Tour {
     }
 
     public setFullStack(nbDisk: number = 8): void {
+        this.stack = [];
         for (let d: number = 0; d < nbDisk; d++) {
             const disk = new Disk(d);
             this.stack.push(disk);

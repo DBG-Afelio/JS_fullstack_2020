@@ -8,14 +8,15 @@ export class Plateau {
     private movesCount: number;
     
     constructor(
-        private challenge: { accepted: boolean, bet: number},
+        private challenge: { accepted: boolean, bet: number}, private nbDisk:number = 8
     ) {
         this.tourGauche = new Tour(TourId.GAUCHE, []);
-        this.tourGauche.setFullStack(8);
+        this.tourGauche.setFullStack(nbDisk);
         this.tourCentre = new Tour(TourId.CENTRE, []);
         this.tourDroite = new Tour(TourId.DROITE, []);
         this.movesCount = 0;
         this.challenge = { accepted: false, bet: 100 };
+        this.nbDisk = nbDisk;
 
     }
     public showPlateau(): void{
@@ -23,6 +24,13 @@ export class Plateau {
         this.tourGauche.showStack();
         this.tourCentre.showStack();
         this.tourDroite.showStack();
+    }
+
+    public startOver(): void{
+        this.tourGauche.setFullStack(this.nbDisk);
+        this.tourCentre.setEmptyStack();
+        this.tourDroite.setEmptyStack();
+        console.log("//-*-*-*-*-*-*-*-*- Let's start over again -*-*-*-*-*-*-*-*-//");
     }
 
     public getTourById(id: TourId): Tour{

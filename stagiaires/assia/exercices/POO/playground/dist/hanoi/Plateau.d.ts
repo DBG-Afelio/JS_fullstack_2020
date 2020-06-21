@@ -2,6 +2,7 @@ import { Tour } from "./Tour";
 import { TourId } from "./TourEnum";
 export declare class Plateau {
     private challenge;
+    private nbDisk;
     private tourGauche;
     private tourCentre;
     private tourDroite;
@@ -9,8 +10,9 @@ export declare class Plateau {
     constructor(challenge: {
         accepted: boolean;
         bet: number;
-    });
+    }, nbDisk?: number);
     showPlateau(): void;
+    startOver(): void;
     getTourById(id: TourId): Tour;
     moveDisk(fromTour: TourId, toTour: TourId): boolean;
     private incrementsMoves;
