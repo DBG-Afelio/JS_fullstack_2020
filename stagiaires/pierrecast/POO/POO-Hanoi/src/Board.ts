@@ -15,9 +15,9 @@ export class Board {
         }
     }
 
-    public getListTowers(): Tower[] {
+    /*public getListTowers(): Tower[] {
         return this.listTowers;
-    }
+    }*/
 
     public move(idFrom: number, idTo: number): void{
         let towerFrom = this.getTowerById(idFrom);
@@ -36,9 +36,24 @@ export class Board {
                 }
             }
         }
+        this.checkWin();
     }
     
     public getTowerById(id: number) : Tower|undefined {
         return this.listTowers.find(tower => tower.getId() === id);
+    }
+
+    public showTowersContent():void {
+        
+        this.listTowers.forEach(tower => {
+            console.log(tower.getId(), ' => ' ,tower.getListTokens());
+        });
+    }
+
+    public checkWin() {
+        let listTokens = this.getTowerById(3)?.getListTokens();
+        if (listTokens && listTokens.length === 8) {
+            console.log('Bravo !');
+        }
     }
 }

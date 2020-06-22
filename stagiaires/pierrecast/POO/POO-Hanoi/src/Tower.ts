@@ -22,7 +22,7 @@ export class Tower {
     }
 
     public init(): void {
-        for (let i = 8; i > 1; i--) {
+        for (let i = 8; i > 0; i--) {
             this.listTokens.push(new Token(i));
         }
     }
@@ -30,4 +30,8 @@ export class Tower {
     public getLastToken():Token|null {
         return (this.listTokens.length === 0) ? null : this.listTokens[this.listTokens.length-1];
     }
+
+    public addToken() {}
+
+    public removeToken() {}
 }
