@@ -18,8 +18,9 @@
 // ... pas du tout : voir le détail du fonctionnement de Magasin dans le fichier magasin.ts
 
 import { tab_img } from "./sourceJSON";
-import { articles } from "./articles";
 import { Magasin } from "./magasin";
+import { AddedArticle } from "./addedArticle";
+import { Panier } from "./panier";
 
 
 // création d'une nouvelle instance de la classe Magasin assignée à une variable nommée aussi magasin ;-) 
@@ -27,4 +28,26 @@ import { Magasin } from "./magasin";
 // de l'instanciation de magasin le tableau tab_img); mais on peut choisir, et c'est bien ça qui est pratique j'imagine, de faire fonctionner la méthode getArticleById(id) pour 
 // sélectionner uniquement un article précis.
 let magasin=new Magasin(tab_img);
-console.log(magasin.getListArticle());
+//console.log(magasin.getListArticle());
+//console.log(magasin.getArticleById(2));
+
+let panierInstance1 = new Panier();
+
+console.log(panierInstance1);
+
+let art2 = magasin.getArticleById(2);
+let art3 = magasin.getArticleById(3);
+
+
+
+if(art2 && art3){
+panierInstance1.updatePanier(art2, 3);
+panierInstance1.updatePanier(art2, 5);
+panierInstance1.updatePanier(art3, 6);
+panierInstance1.updatePanier(art2, 2);
+
+//panierInstance1.getListAddedArticles;
+console.log(panierInstance1);
+}
+
+console.log(panierInstance1.getTotal());

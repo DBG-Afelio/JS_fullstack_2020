@@ -1,15 +1,12 @@
-import { articles } from "./articles";
-
-// la classe magasin crée un nouvel objet qui correspond à la classe article (?), quand je fais console.log(articles) il me dit [Function: articles] ce qui me laisse penser que 
-// articles correspond à une fonction qui renvoie un tableau? est-ce que c'est correct ? 
+import { Article } from "./articles";
 
 // 
 
 export class Magasin{
-    protected liste:articles[]=[]; // ajout de protected pour préciser l'accès
+    protected liste:Article[]=[]; 
     
     // liste est la key et articles[]=[] la value; donc on aurait pu appeler liste comme on veut en fait. la particularité de cette déclaration
-    // c'est qu'on est dans du typescript on doit déclarer que articles correspond à un tableau ...? reposer la question
+    // c'est qu'on est dans du typescript on doit déclarer à quel type correspond cette propriété : et on dit qu'elle correspond à un tableau composé à partir de l'objet/class Article
     // ensuite le constructor permet de déclarer une fonction qui est propre à la classe magasin et qui prend comme paramètre un tableau
     // à chaque tour de boucle, on crée une nouvelle instance de la classe article, avec comme arguments les différentes propriétés qui nous intéressent, et qui 
     // correspond à la variable article
@@ -20,18 +17,19 @@ export class Magasin{
 
         tab.forEach(element => {
 
-            let article=new articles(element.titre,element.Prix,element.image.toute_petite,element.id);
+            let article=new Article(element);
             this.liste.push(article);
 
         });
     }
-    getArticleById(id:number):articles|undefined{
+    getArticleById(id:number):Article|undefined{ // méthode qui permet d'obtenir l'id sur d'un élément du tableau créé à l'aide du constructor qui lui-même instanciait à chaque
+    // tour de boucle un nouvel article
 
         return this.liste.find(object=> id==object.id );
 
     }
 
-    getListArticle():articles[]{ 
+    getListArticle():Article[]{ // méthode qui permet de rendre la liste en question
         return this.liste;
     }
 

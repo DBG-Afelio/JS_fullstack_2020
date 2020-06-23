@@ -1,17 +1,17 @@
 // on définit ici une classe nommée articles qui prend en propriétés les différentes propriétés des objets à acheter qui nous intéressent
 
 
-export class articles{
+export class Article{
     public titre : string;
     public prix : number;
-    public img : string;
-    public id : number=0; // pourquoi ajoute-t-on =0 ?
+    public img : {toute_petite:string; petite:string,moyenne:string,grande:string};
+    public id : number; 
 
-    constructor(titre:string, prix:string, img:string,id:number ){
-        this.titre=titre;
-        this.prix = parseFloat(prix);
-        this.img=img;
-        this.id=id;
+    constructor(article:any){
+        this.titre=article.titre;
+        this.prix = parseFloat(article.Prix);
+        this.img=article.image;
+        this.id=article.id; 
     }
 
     getTitle() : string{ // à quoi servent ces get ? => get = syntaxe qui permet de lier une propriété d'un objet à une fonction qui sera appelée lorsqu'on accédera à la propriété
@@ -23,7 +23,7 @@ export class articles{
         return this.prix;
     }
 
-    getImg() : string{
+    getImg() : {}{
         return this.img;
     }
 
