@@ -16,5 +16,7 @@ if(tour1 && tour2 && tour3){
 
 }
 
+
+
 console.log(tour1,tour2,tour3);
 
