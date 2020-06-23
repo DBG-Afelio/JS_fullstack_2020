@@ -1,0 +1,498 @@
+html, body, main {
+    height: 100%;
+    margin: 0; 
+    padding: 0;
+    border: 1px solid transparent;
+}
+
+body {
+    font-family:  'Roboto',Arial, Helvetica, sans-serif;
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f3f3f3 0%, #f3f3f3 70%, #f8e6d8 70.01%, #f8e6d8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #f3f3f3 0%,#f3f3f3 70%,#f8e6d8 70.01%,#f8e6d8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #f3f3f3 0%,#f3f3f3 70%,#f8e6d8 70.01%,#f8e6d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    color: #4B4D4D;
+}
+
+form {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    padding: 50px;
+    margin: 50px auto 0 auto;
+    box-sizing: border-box;
+    z-index: 5;
+
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 60%, #ffffff 60.01%, #fbc153 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 60%,#fbc153 60.01%,#fbc153 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ffffff 0%,#ffffff 60%,#fbc153 60.01%,#fbc153 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    box-shadow: 5px 5px 15px rgba(0,0,0, .5);
+
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+
+form.complete {
+    max-width: 450px;
+    padding-bottom: 30px;
+}
+
+form.incomplete #leftPart,
+form.incomplete #rightPart,
+form.complete #infos-part .insidePart {
+    display: block;
+}
+
+form.complete #leftPart,
+form.complete #rightPart,
+form.incomplete #infos-part .insidePart {
+    display: none;
+}
+
+form.incomplete #infos-part {
+    background-color: #fbc153;
+    position: absolute;
+    top: -300px;
+    left: -700px;
+    transform: rotate(-45deg);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 80px;
+    z-index:-1;
+}
+
+form > * {
+    margin: 0 0 12px 0
+}
+
+#leftPart, #rightPart {
+    width: 45%;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+#leftPart .insidePart {
+    background-color: rgba(255,255,255,0);
+    
+}
+
+#rightPart .insidePart {
+    box-shadow: 5px 5px 15px rgba(0,0,0, .5);
+}
+
+form.incomplete .insidePart {
+    background-color: white;
+    padding: 60px;
+}
+
+form.incomplete #leftPart .insidePart {
+    padding: 60px 80px 60px 40px;
+}
+
+@media screen and (max-width : 1050px) {
+    form {
+        display: block;
+        width: 90%;
+        min-width :300px;
+    }
+    #leftPart, #rightPart {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 450px;
+    }
+
+    form.incomplete #leftPart .insidePart {
+        padding: 60px;
+    }
+}
+
+
+label {
+    display: none;
+}
+
+.form-element {
+    position: relative;
+    margin: 5px 0;
+}
+.form-element.valide .valide-ok, 
+.form-element.invalide .valide-ko {
+    display: block
+}
+
+.form-element.valide .valide-ko, 
+.form-element.invalide .valide-ok{
+    display: none
+}
+
+.error-message-container {
+    margin-bottom: 6px;
+    text-align: right;
+}
+.form-element .error-message {
+    display: none;
+}
+
+.form-element.error-difference .error-message.error-difference,
+.form-element.error-not-available .error-message.error-not-available,
+.form-element.error-min-age .error-message.error-min-age,
+.form-element.error-max-age .error-message.error-max-age,
+.form-element.error-format .error-message.error-format,
+.form-element.error-required .error-message.error-required,
+.form-element.error-min-length .error-message.error-min-length,
+.form-element.error-max-length .error-message.error-max-length {
+    display: block;
+}
+
+.valide-container {
+    position: absolute;
+    top:0;
+    left: -20px;
+}
+
+.valide-ko,
+.valide-ok {
+    width: 30px;
+    height: 40px; 
+    border-radius: 12px;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border: 2px solid white;
+    font-size: 20px;
+    transform: scaleX(-1) rotate(-45deg);
+    
+}
+
+.valide-ok {
+    background-color:green;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.valide-ok::before {
+   content: 'L';
+}
+
+.valide-ko {
+    background-color:rgb(178,34,34);
+    font-size: 30px;
+    font-weight: bold;
+}
+.valide-ko::before {
+    content: '+';
+ }
+
+.error-message-container {
+    min-height: 25px;
+}
+
+.error-message {
+    display: block;
+    border-radius: 5px;
+    color: white; background-color:rgb(178,34,34);
+    padding: 3px 8px;
+    margin: 2px 0
+}
+
+.submit-container {
+    width: 150px;
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    height: 200px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.submit-container button.submit-button {
+    background: url('../img/arrowL.png') #282828 no-repeat -176px -165px; 
+    background-size: 300px 300px;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: -20px; 
+    right: -100px;
+    border-radius: 30px;
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    font-size:50px;
+    padding: 20px 0 0 35px;
+    transform: rotate(-45deg);
+    overflow: hidden;
+    display: block;
+    border: 3px solid #fbc153;
+}
+
+input, select, #sugestButton {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Roboto',  Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid black;
+}
+
+#leftPart input, #leftPart select {
+    border-radius: 12px 0 0 12px;
+    background-color: rgba(255,255,255,.3);
+}
+
+
+#sugestButton {
+    margin : 10px 20%;
+    background-color:#fbc153;
+    color: white;
+    text-transform: uppercase;
+    width: 60%;
+    border: 1px solid #fbc153;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+select, select option {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    text-align: center;
+
+  text-align-last: center;
+}
+
+
+.form-role label,
+.form-sex label {
+    display: inline-block;
+}
+
+#strength, #radioButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#radioButtons {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+#radioButtons > * {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+.force {
+    display: inline-block;
+    width: 30%;
+    height: 15px;
+    background-color:silver;
+    border: 2px solid white;
+    text-align: center;
+    top: 15px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-top: 10px;
+    color: white;
+}
+
+#weak.active {
+    background-color: rgb(178,34,34);
+}
+#medium.active {
+    background-color: orange;
+}
+#strong.active {
+    background-color: green;
+}
+
+.form-password input{
+    margin-bottom: 10px;
+}
+
+.form-sex input[type=radio] { 
+    display: inline-block;
+}
+
+.form-role input[type=checkbox] { 
+    display: inline-block;
+    width :10%;
+}
+
+.form-role #checkboxes{
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.checkboxButton {
+    padding: 2px 2px 2px 50px;
+}
+
+.form-role .checkboxButton:first-child,
+.form-role .checkboxButton:last-child {
+    padding: 2px 2px 2px  0;
+}
+
+.form-avatar .avatars,
+.form-avatar .avatar{
+    display: inline-block;
+}
+.form-avatar .avatars {
+    width: 60%;
+    margin-top: 80px;
+    text-align: right;
+}
+
+.form-avatar .avatars img {
+    width: 100%;
+}
+
+@media screen and (max-width: 1230px) {
+    .form-avatar .avatars {
+        width: 100%;
+        margin-top: 0;
+        text-align: right;
+    }  
+    .form-avatar .avatars img{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .form-avatar .avatars img{
+        width: 100%;
+        margin-top: 25px;
+    }
+}
+
+.form-avatar .avatar {
+    width: 132px;
+    height: 140px;
+    overflow:hidden;
+    position: relative;
+}
+.form-avatar .avatar img {
+    width: 400%;
+    position: absolute;
+    top: 0;
+    left: -400%;
+}
+
+.form-avatar .form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.form-avatar .avatar {
+    border: 3px solid #fbc153;
+    background:url('../img/avataaars-0-0.png') no-repeat center center;
+    background-size: 95%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width : 550px) {
+    form {
+        padding: 20px;
+    }
+    form.incomplete #leftPart .insidePart {
+        padding: 60px 15px;
+    }
+    form.incomplete #rightPart .insidePart {
+        padding: 30px 25px;
+    }
+    .checkboxButton {
+        padding: 2px 2px 2px 20px;
+    }
+}
+
+
+.info-element {
+    font-size: 18px;
+    line-height: 32px;
+    border-bottom: 1px solid #efefef;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-element output {
+    display: block;
+    width: 90%;
+}
+
+.info-element i {
+
+    margin : 8px 20px 0 0;
+    display: block;
+    width: 5%;
+}
+
+.info-avatar {
+    float: left;
+    width: 132px;
+    height: 140px;
+    border: 3px solid #fbc153;
+}
+
+.info-avatar img {
+    width: 100%;
+}
+
+.info-element.info-nom,
+.info-element.info-prenom,
+.info-element.info-age {
+    width: 60%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    text-align: right;
+    border: none;
+}
+
+.info-element.info-age {
+    margin-bottom: 20px;
+}
+
+.info-element.info-nom {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 55px;
+}
+
+.info-element.info-prenom {
+    font-size: 22px;
+}
+
+.modify {
+    display: block;
+    width: 60%;
+    border-radius: 10px;
+    font-size: 25px; line-height: 35px;
+    margin: 70px 0 30px 0;
+    text-transform: uppercase;
+    background: url('../img/arrow50.png') #282828 no-repeat -26px -58px;
+    background-size: 150px 150px;
+    border: 1px solid transparent;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 30px;
+}
+
+@media screen and (max-width: 500px) {
+    .info-element.info-nom,
+    .info-element.info-prenom,
+    .info-element.info-age {
+        width: 100%;
+    }
+}

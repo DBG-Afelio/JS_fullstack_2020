@@ -1,0 +1,156 @@
+html, body, main {
+    height: 100%;
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    background: rgb(204,228,215); /* Old browsers */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    font-family:  'Comic Neue',Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin: -265px 0 0 -100px;
+    display: block;
+    background-color: #282828;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 10;
+    color: white;
+}
+
+form {
+    position: relative;
+    width: 900px;
+    border-radius: 10px;
+    border: 5px solid rgba(204,228,215,1);
+    padding: 50px;
+    margin: 50px auto 0 auto;
+    box-sizing: border-box;
+    z-index: 5;
+
+    background: rgb(204,228,215); /* Old browsers */
+    background: -moz-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%, rgba(5,65,73,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(80% 40px, ellipse cover, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at 80% 40px, rgba(204,228,215,1) 0%,rgba(5,65,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+form > * {
+    margin: 0 0 12px 0
+}
+
+#shadow {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    background-color: rgba(0,0,0,0.3);
+    width: 400px;
+    height: 20px;
+
+    /*box-shadow: 0 0 25px rgba(0,0,0,0.3);*/
+    border-radius: 50%;
+    margin: 280px 0 0 -200px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(40,52,59,1) 0%, rgba(40,52,59,0.82) 13%, rgba(170,178,189,0) 71%, rgba(181,189,200,0) 76%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(40,52,59,1) 0%,rgba(40,52,59,0.82) 13%,rgba(170,178,189,0) 71%,rgba(181,189,200,0) 76%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(40,52,59,1) 0%,rgba(40,52,59,0.82) 13%,rgba(170,178,189,0) 71%,rgba(181,189,200,0) 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+input, select, #sugestButton {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Comic Neue',  Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 1px solid transparent;
+    background-color:rgba(255,255,255, .7);
+}
+#sugestButton {
+    margin : 10px 0;
+    background-color:rgba(255,255,255, .1);
+}
+
+
+select option {
+    font-family: 'Comic Neue', Arial, Helvetica, sans-serif;
+
+}
+
+select option:hover {
+    background-color: orange;
+    text-align: center;
+}
+
+
+input[type=submit] {
+    background-color: #282828;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    border-radius: 100px 0 0 0;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    font-size:50px;
+    padding: 20px 0 0 35px;
+}
+
+#results {
+    margin-top: 25px;
+    background-color: rgba(255,255,255, .1);
+    padding: 15px 15px 25px 15px; 
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 20px;
+    display: none;
+    grid-template-columns: 59% 39%;
+    grid-gap: 2%;
+}
+
+#results.active {
+    display: grid;
+}
+
+#results p:nth-of-type(2n) {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    padding: 3px;
+    display: block;
+}
+/*
+#cce4d7
+#054149
+#282828
+*/
+
+
+#results > * {
+    display: block;
+    margin:0 0 5px 0;
+    padding: 0;
+    height: 25px;
+}
+
+#results > output {
+    border-radius: 3px;
+    background-color: rgba(255,255,255, .3);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+}
+
