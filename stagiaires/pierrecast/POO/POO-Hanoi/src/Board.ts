@@ -15,11 +15,8 @@ export class Board {
         }
     }
 
-    /*public getListTowers(): Tower[] {
-        return this.listTowers;
-    }*/
-
-    public move(idFrom: number, idTo: number): void{
+    public move(idFrom: number, idTo: number): Boolean{
+        let ok = false;
         let towerFrom = this.getTowerById(idFrom);
         let towerTo = this.getTowerById(idTo);
         if (towerFrom && towerTo) {
@@ -31,12 +28,14 @@ export class Board {
                     // deplacement autorisé
                     towerTo.getListTokens().push(tokenFrom);// ajouter token1 sur tower2
                     towerFrom.getListTokens().pop(); //retirer token1 de tower1
+                    ok = true;
                 } else {
-                    // deplacement non autorisé
+                    console.log('deplacement non autorisé');
                 }
             }
         }
         this.checkWin();
+        return ok;
     }
     
     public getTowerById(id: number) : Tower|undefined {

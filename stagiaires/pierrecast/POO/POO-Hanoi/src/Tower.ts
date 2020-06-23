@@ -30,8 +30,4 @@ export class Tower {
     public getLastToken():Token|null {
         return (this.listTokens.length === 0) ? null : this.listTokens[this.listTokens.length-1];
     }
-
-    public addToken() {}
-
-    public removeToken() {}
 }
