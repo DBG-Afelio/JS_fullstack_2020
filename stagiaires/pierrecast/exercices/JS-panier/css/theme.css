@@ -31,7 +31,7 @@ body {
 }
 
 button:hover, button:active, button:focus {
-    scale: 1.04;
+    transform: scale(1.04);
     cursor: pointer;
 }
 /* ------ BLOCK DETAIL ------ */
@@ -214,7 +214,7 @@ form {
 }
 
 .block-liste > *:hover, .block-liste > *:active, .block-liste > *:focus {
-    scale: 1.04;
+    transform: scale(1.04);
 }
 
 .block-liste .item:nth-of-type(2n) {
