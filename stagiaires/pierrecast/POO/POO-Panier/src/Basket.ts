@@ -35,7 +35,7 @@ export class Basket {
             }
         }
 
-        this.save();
+        /*this.save();*/
     }
 
     private addCommand(command: Command): void 
@@ -73,16 +73,16 @@ export class Basket {
        return total;
     }
 
-    private save(): void
+    /*private save(): void
     {
         localStorage.setItem('basket', JSON.stringify(this.listCommands));
         //console.log('savedStorage', localStorage.getItem('basket'));
-    }
+    }*/
 
     public retrieve(shop: Shop) :Basket 
     {
         let basket = new Basket();
-        let storageJSON = localStorage.getItem('basket');
+        /*let storageJSON = localStorage.getItem('basket');
         let storage = [];
         if (storageJSON) {
             storage = JSON.parse(storageJSON).toBasket();
@@ -92,7 +92,7 @@ export class Basket {
                     basket.getListCommand().push(command);
                 }
             });
-        } 
+        } */
         
         return basket;
     }
