@@ -1,0 +1,11 @@
+<div class="div_summary">
+  <app-dataPriceQuantity></app-dataPriceQuantity>
+</div>
+
+<div class="div_one_article" *ngFor="let product of products" (click)="onSelect(product)">
+
+  <img src="../assets/img/{{product.image.toute_petite}}">
+  <span class="title_article">{{product.titre}}</span>
+  <span class="price_article">{{product.Prix}}</span>
+
+</div>

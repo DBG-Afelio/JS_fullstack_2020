@@ -1,0 +1,36 @@
+h2{
+    text-transform: uppercase;
+    color:rgb(145, 5, 5);
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.big_image{
+    width: 30vw;
+    height: auto;
+}
+
+.app-articleDisplayed{
+    background-color: blue;
+}
+
+.main_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+.description{
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.price{
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

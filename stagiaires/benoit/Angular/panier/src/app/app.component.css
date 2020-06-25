@@ -1,0 +1,21 @@
+.main_div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+main{
+    width: 100%;
+}
+
+nav{
+    width: 30vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}

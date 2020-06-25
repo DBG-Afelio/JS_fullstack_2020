@@ -1,0 +1,30 @@
+.div_one_article{
+    background-color: rgb(211, 211, 211);
+    width: 20vw;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.div_summary{
+    background-color: rgb(117, 117, 117);
+    width: 20vw;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+}
+
+.title_article{
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.div_one_article:hover{
+    background-color: grey;
+}

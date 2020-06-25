@@ -1,0 +1,14 @@
+<div class="main_div" *ngIf="selectedProduct">
+
+  <h2>{{product.title}}</h2>
+  <div>
+      <img class="big_image" src="../assets/img/{{article.image.grande}}">
+      <p class="description">
+        De {{product.author}}, {{product.country}}
+      </p>
+      <p class="price">
+        {{product.price}} euros
+      </p>
+      <input [(ngModel)]="selectedProduct.quantity"/>
+  </div>
+</div>
