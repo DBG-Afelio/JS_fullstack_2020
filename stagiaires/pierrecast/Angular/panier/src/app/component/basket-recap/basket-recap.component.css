@@ -1,0 +1,88 @@
+
+.view-recap {
+    height: 40vh;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.wrap-recap {
+    position: relative;
+    top: 150px;
+    max-width: 550px;
+    width: 95vw;
+    margin : 0 auto;
+    padding: 50px 50px 75px 50px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0,0,0, .6);
+    color: black;
+    box-sizing: border-box;
+}
+
+.block-recap {
+    text-align: right;
+    align-content: center;
+    min-height: 600px;
+}
+
+.block-recap .item {
+    display: grid;
+    grid-template-columns: 80px auto 50px 5px 80px 5px 80px;
+    align-content: center;
+    padding: 12px 0;
+}
+
+.block-recap .item > * {
+    align-self: center;
+    padding-left: 3px;
+    
+}
+
+.block-recap .item .title {
+    text-align: left;
+}
+
+.recap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recap-bottom > output {
+    width: 100%;
+    text-align: right;
+    font: 25px/35px 'Gafata', sans-serif;
+    border-top: 1px solid black;
+    padding-top: 5px;
+
+}
+
+.recap-bottom > button {
+    width: 40%;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    margin: 25px 0 10px 0;
+    font: 20px/25px  arial, helvetica, sans-serif;;
+    padding: 8px 3px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.block-recap .item {
+    border-bottom: 1px solid silver;
+}
+
+@media screen and (max-width: 990px) {
+    .wrap-recap {
+        position: relative;
+        max-width: 550px;
+        width: 95vw;
+        top: 150px;
+    }
+}
