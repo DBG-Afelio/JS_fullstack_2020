@@ -1,0 +1,7 @@
+<div *ngIf="detailInfo">
+  <h2>Détails de l'article {{detailInfo.getTitle()}}</h2>
+  <input type="number" (change)="changeQt($event.target.valueAsNumber)">
+</div>
+<div *ngIf="!detailInfo">
+  <h2>Détails de l'article (pas d'article sélectionné)</h2>
+</div>

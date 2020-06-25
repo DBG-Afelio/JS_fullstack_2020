@@ -1,0 +1,7 @@
+<div>
+  eshop works!
+  <a routerLink="/panier">Panier</a>
+  <app-list-article [listeArticle]="listeArticle" (selectArticleEvent)="changeCurrent($event)"></app-list-article>
+  <app-detail-article [detailInfo]="currentArticle" (changeQuantity)="changeQuantity($event)"></app-detail-article>
+  <app-basket-summary [totalPrice]="panier.getTotal().totalPrice" [totalQt]="panier.getTotal().totalQuantity"></app-basket-summary>
+</div>
