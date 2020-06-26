@@ -46,6 +46,14 @@ export class AppComponent {
     }
   ];
 
+  smileyTest(varT: string){
+    this.picture = varT;
+  }
+
+  urlPicChange(newUrl: string){
+    this.picture2 = newUrl;
+  }
+
   picture = "urltothepicture"
 
   picture2 = "https://pic.clubic.com/v1/images/1772982/raw"

@@ -1,8 +1,8 @@
 <p>post-list-component works!!</p>
-<div class="article" *ngFor="let article of appareils" [ngStyle]="{color: getColor()}">{{ article.name }} : {{ article.status }} 
-    <button class="liked" [disabled]="!disCheck" (click)="onClicked()"> Like </button>
+<div class="article" *ngFor="let article of listearticles" [ngStyle]="{color: getColor(article)}">{{ article.nom }} : {{ article.description }} 
+    <button class="liked" [disabled]="disCheck(article)" (click)="onClicked()"> Like </button>
     <button class="disliked" (click)="onClicked()"> Dislike </button>
     <span> {{ lastUpdate | date }}</span>
 </div>
-<div> <button (click)="onClicked()"></button> </div>
+<div> <button (click)="changePicture()"></button> </div>
 
