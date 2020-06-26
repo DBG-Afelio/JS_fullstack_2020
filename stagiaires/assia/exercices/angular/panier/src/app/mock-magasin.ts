@@ -1,4 +1,4 @@
-import { IArticle } from './interfaces/article';
+import { IArticle } from './interfaces/iarticle';
 
 export const MAGASIN: IArticle[] =
     [{

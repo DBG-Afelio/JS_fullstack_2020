@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticle } from 'src/app/interfaces/article';
+import { IArticle } from 'src/app/interfaces/iarticle';
 import { MAGASIN } from '../../mock-magasin';
 
 @Component({
