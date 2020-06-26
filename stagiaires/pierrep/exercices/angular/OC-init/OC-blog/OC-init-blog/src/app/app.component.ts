@@ -44,5 +44,12 @@ export class AppComponent {
       loveIts: 0,
       created_at: ""
     }
-  ]
+  ];
+
+  picture = "urltothepicture"
+
+  picture2 = "https://pic.clubic.com/v1/images/1772982/raw"
+
+
+
 }
