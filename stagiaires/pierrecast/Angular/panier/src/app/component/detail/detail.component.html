@@ -1,1 +1,16 @@
-<p>detail works!</p>
+<div class="block block-detail" *ngIf="detailInfo">
+    <img src="assets/img/{{ detailInfo.getImage().grande }}" alt="Bulles">
+    <div class="info-detail">
+        <h2>{{ detailInfo.getTitle() }}</h2>
+        <div class="origin">De {{ detailInfo.getAuthor() }}, {{ detailInfo.getCountry() }}</div>
+        <div class="comment">{{ detailInfo.getComment() }}</div>
+    </div>
+    <form onSubmit="return false;">
+        <input type="Number" placeholder="Quantité" [value] = "currentQuantity ? currentQuantity : 0"
+            (change)="changeQt($event.target.valueAsNumber);">
+        <button>Commander</button>
+    </form>
+</div>
+<div class="block block-detail" *ngIf="!detailInfo">
+    <h2>Détails de l'article (pas d'article sélectionné)</h2>
+</div>

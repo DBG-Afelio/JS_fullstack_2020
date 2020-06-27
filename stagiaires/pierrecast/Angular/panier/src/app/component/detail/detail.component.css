@@ -1,11 +1,5 @@
 
-.wrap-detail, .view-recap {
-    color: white;
-    padding: 75px 0;
-    background: url('../img/wave-545048_1920.jpg') black no-repeat center center;
-    background-size: cover;
-    font-family: 'Gafata', sans-serif;
-}
+
 
 .block-detail {
     background-color: rgba(0,0,0, 0.7);

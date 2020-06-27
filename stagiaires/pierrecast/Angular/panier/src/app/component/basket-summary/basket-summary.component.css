@@ -36,6 +36,11 @@
     color: white;
 }
 
+.block-basket a {
+    text-decoration: none;
+    display: block;
+}
+
 @media screen and (max-width: 600px) {
     .block-basket {
         display: block;

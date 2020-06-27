@@ -1,0 +1,18 @@
+
+ .item {
+    display: grid;
+    grid-template-columns: 80px auto 50px 5px 80px 5px 80px;
+    align-content: center;
+    padding: 12px 0;
+    border-bottom: 1px solid silver;
+}
+
+ .item > * {
+    align-self: center;
+    padding-left: 3px;
+    
+}
+
+ .item .title {
+    text-align: left;
+}

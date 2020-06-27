@@ -1,9 +1,3 @@
-
-.wrap-liste {
-    padding: 25px 0 120px 0;
-    box-sizing: border-box;
-}
-
 .block-liste {
     font-size: 16px;
     grid-template-columns: 32% 32% 32%;
@@ -33,8 +27,8 @@
 }
 
 .block-liste .item.active { 
-    background-color: #050608;
-    border: 3px solid #050608;
+    background-color: #4f4f4f;
+    border: 3px solid #4f4f4f;
     color: white;
 }
 

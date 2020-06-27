@@ -1,1 +1,8 @@
-<p>basket-recap works!</p>
+<div *ngIf="listCommands">
+   <app-basket-item *ngFor="let command of listCommands"
+        [command] = "command"
+   ></app-basket-item>
+</div>
+<div *ngIf="!listCommands">
+    <p>Le panier est vide !</p>
+</div>

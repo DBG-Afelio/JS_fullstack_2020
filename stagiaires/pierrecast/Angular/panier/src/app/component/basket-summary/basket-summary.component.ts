@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-basket-summary',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basket-summary.component.css']
 })
 export class BasketSummaryComponent implements OnInit {
+  
+  @Input() totalPrice: number;
+  @Input() totalQuantity: number;
 
   constructor() { }
 

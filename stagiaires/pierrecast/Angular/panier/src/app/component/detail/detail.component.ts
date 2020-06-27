@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Article } from 'src/app/model/Article';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  @Input() currentQuantity: number = 0;
+  @Input() detailInfo: Article = null;
+  @Output() changeQuantityEvent: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  changeQt(qt: number) {
+    this.changeQuantityEvent.emit(qt);
+  }
 }

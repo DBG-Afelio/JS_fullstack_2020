@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ShopService } from 'src/app/service/shop.service';
-import { Shop } from 'src/app/model/Shop';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Article } from 'src/app/model/Article';
 
 @Component({
@@ -10,12 +8,17 @@ import { Article } from 'src/app/model/Article';
 })
 export class ShopComponent implements OnInit {
   @Input() listArticles: Article[] = [];
+  @Output() selectArticleEvent: EventEmitter<Article> = new EventEmitter();
 
-  constructor() { 
-    
+  selectedArticle: Article = null;
+
+  constructor() { }
+
+  selectArticle(article: Article) {
+    this.selectedArticle = article;
+    this.selectArticleEvent.emit(article);
   }
 
   ngOnInit(): void {
   }
-
 }
