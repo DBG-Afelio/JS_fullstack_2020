@@ -1,1 +1,14 @@
-<app-basket-recap></app-basket-recap>
+<div class="view view-recap">
+    <div class="wrap-recap">
+        <div class="block-recap">
+            <app-basket-recap
+                [listCommands] = "basket.getListCommand()">
+            </app-basket-recap>
+            <div class="recap-bottom">
+                <app-basket-totals
+                    [totalPrice] = "basket.getTotal().totalPrice">
+                </app-basket-totals> 
+            </div>
+        </div>
+    </div>
+</div>

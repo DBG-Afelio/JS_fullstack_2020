@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Gafata&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0; padding: 0;
+    background-color: whitesmoke;
+}
+
+.view {
+    width: 100%;
+    display: block;
+    
+}
+
+.block {
+    max-width : 1280px;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 31% 64%;
+    gap: 2%;
+    box-sizing: border-box;
+}
+
+button:hover, button:active, button:focus {
+    scale: 1.04;
+    cursor: pointer;
+}
+
+
+.wrap-detail{
+    color: white;
+    padding: 75px 0;
+    background: url('assets/img/wave-545048_1920.jpg') black no-repeat center center;
+   background-color: black;
+    background-size: cover;
+    font-family: 'Gafata', sans-serif;
+}
+
+.wrap-liste {
+    padding: 25px 0 120px 0;
+    box-sizing: border-box;
+}
+
+
+.view-recap {
+    height: 40vh;
+    box-sizing: border-box;
+    padding: 50px;
+    color: white;
+    padding: 75px 0;
+   background: url('assets/img/wave-545048_1920.jpg') black no-repeat center center;
+   background-color: black;
+    background-size: cover;
+    font-family: 'Gafata', sans-serif;
+}
+
+.wrap-recap {
+    position: relative;
+    top: 150px;
+    max-width: 550px;
+    width: 95vw;
+    margin : 0 auto;
+    padding: 50px 50px 75px 50px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0,0,0, .6);
+    color: black;
+    box-sizing: border-box;
+}

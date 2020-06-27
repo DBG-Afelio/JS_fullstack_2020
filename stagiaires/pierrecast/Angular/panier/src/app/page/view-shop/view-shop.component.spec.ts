@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasketRecapComponent } from './basket-recap.component';
+import { ViewShopComponent } from './view-shop.component';
 
-describe('BasketRecapComponent', () => {
-  let component: BasketRecapComponent;
-  let fixture: ComponentFixture<BasketRecapComponent>;
+describe('ViewShopComponent', () => {
+  let component: ViewShopComponent;
+  let fixture: ComponentFixture<ViewShopComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BasketRecapComponent ]
+      declarations: [ ViewShopComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BasketRecapComponent);
+    fixture = TestBed.createComponent(ViewShopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

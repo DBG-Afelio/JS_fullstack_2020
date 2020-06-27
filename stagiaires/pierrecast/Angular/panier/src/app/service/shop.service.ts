@@ -13,7 +13,11 @@ export class ShopService {
     this.shop = new Shop(tab_img);
   }
 
-  getListArticles():Article[] {
+  public getListArticles():Article[] {
     return this.shop.getListArticles();
+  }
+
+  public getArticleById(id: number): Article {
+    return this.shop.getArticleById(id);
   }
 }
