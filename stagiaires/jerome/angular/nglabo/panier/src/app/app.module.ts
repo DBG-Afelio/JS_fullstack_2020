@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from  './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ShowCaseComponent } from './components/show-case/show-case.component';
@@ -19,7 +20,8 @@ import { ResumePanierComponent } from './components/show-case/resume-panier/resu
     ResumePanierComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

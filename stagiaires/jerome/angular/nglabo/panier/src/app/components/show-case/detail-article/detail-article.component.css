@@ -1,0 +1,9 @@
+:host{
+}
+.detailArticle{
+    border: 1px solid lightgrey;
+    margin:80px;
+    position: absolute;
+    float:inline-start;
+
+}

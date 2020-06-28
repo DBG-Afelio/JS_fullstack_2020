@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Article } from './article';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesService {
 
-  private articles : any = [{
+  private articles : Article[] = [{
     titre         : "Bulles",
     auteur        : "E. Lassaux",
     commentaire   : "Spécialisé dans les photos d'objet, \"Neness\" aime aussi photographier les animaux",
@@ -147,14 +148,17 @@ export class ArticlesService {
     id :10
   }]
   constructor() { }
-  getArticlesList(){
+  getArticlesList():Article[]{
 
     return this.articles
 
   }
-  getArticleById(id:number){
+  getArticleById(id:number):Article{
 
     return this.articles.find(element => element.id === id);
 
+  }
+  getPrice(prix : string): number {
+    return Number(prix.split(' ')[0]);
   }
 }

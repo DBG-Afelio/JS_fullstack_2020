@@ -1,1 +1,9 @@
 <p>detail-panier works!</p>
+<ul>
+    <li *ngFor="let article of listCommand">
+        <p>{{article.price}}</p>
+        <p>{{article.article.titre}}</p>
+        <p>{{article.quantity}}</p>
+    </li>
+</ul>
+<button routerLink="/">Retour Aux Articles</button>

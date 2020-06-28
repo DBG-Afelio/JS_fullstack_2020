@@ -1,7 +1,7 @@
 <ul>
-    <li *ngFor="let article of tabArticles">
+    <li *ngFor="let article of tabArticles" (click)="clickArticle(article)">
         <img src='assets/img/{{article.image.petite}}'>
-        <h2>{{article.titre}}</h2>
+        <h2 class="detail-article">{{article.titre}}</h2>
         <p>{{article.Prix}}</p>
     </li>
 </ul>

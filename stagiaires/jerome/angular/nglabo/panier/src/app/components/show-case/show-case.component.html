@@ -1,3 +1,4 @@
-<app-list-articles></app-list-articles>
-<app-detail-article></app-detail-article>
-<app-resume-panier></app-resume-panier>
+<app-list-articles class="list-article" (articleSelected)="updateSelectedArticle($event)"></app-list-articles>
+<app-detail-article class="detail-article" [articleDetail]="currentArticleSelected"(setQuantityEvent)="changeQt($event)"></app-detail-article>
+<app-resume-panier class="resume-panier"[totalPrice]="currentPanierArticle.getTotal().totalPrice" [totalQt]="currentPanierArticle.getTotal().totalQuantity"></app-resume-panier>
+<button routerLink="/panier" >Détail Panier</button>
