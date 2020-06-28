@@ -201,7 +201,8 @@ form {
 .block-liste {
     font-size: 16px;
     grid-template-columns: 32% 32% 32%;
-    gap: 2%;
+    column-gap: 2%;
+    margin-bottom: 50px;
 }
 
 .block-liste .item { 

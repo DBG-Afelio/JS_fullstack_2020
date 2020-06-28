@@ -56,7 +56,9 @@ let basket = getStorage();
 backToList();
 
 function backToList() {
-    showList(shop);
+    if (oList.innerHTML === "") {
+        showList(shop);
+    }
     generateDetail(basket, shop);
     updateBasket(basket);
     oViewList.classList.add('active');
