@@ -1,7 +1,9 @@
 <div class="item" >
     <img src="assets/img/{{ command.getArticle().getImage().toute_petite }}" alt="{{ command.getArticle().getTitle() }}">
     <div class="title">{{ command.getArticle().getTitle() }}</div>
-    <input type="Number" class="qte" value="{{ command.getQuantity() }}">
+    <input type="Number" class="qte" value="{{ command.getQuantity() }}"
+        (change)="changeQtEvent($event.target.valueAsNumber);">
+  
     <div> x </div>
     <div class="price">{{ command.getPrice().toFixed(2) }} €</div>
     <div> = </div>

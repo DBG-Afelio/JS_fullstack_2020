@@ -7,6 +7,7 @@ import { Article } from 'src/app/model/Article';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  
   @Input() currentQuantity: number = 0;
   @Input() detailInfo: Article = null;
   @Output() changeQuantityEvent: EventEmitter<number> = new EventEmitter();
