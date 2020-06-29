@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticle } from 'src/app/interfaces/iarticle';
-import { MAGASIN } from '../../mock-magasin';
+import { Article } from '../../model/article';
 
 @Component({
   selector: 'app-liste-articles',
@@ -8,14 +7,14 @@ import { MAGASIN } from '../../mock-magasin';
   styleUrls: ['./liste-articles.component.css']
 })
 export class ListeArticlesComponent implements OnInit {
-  listeArticles = MAGASIN;
-  selectedArticle: IArticle;
+  listeArticles: Article[];
+  selectedArticle: Article;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSelect(article: IArticle): void {
+  onSelect(article: Article): void {
     this.selectedArticle = article;
   }
 

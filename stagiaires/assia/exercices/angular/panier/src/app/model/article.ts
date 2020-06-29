@@ -1,14 +1,14 @@
-import { IArticle } from '../interfaces/iarticle';
+
 import { IArticleImages } from '../interfaces/iarticle-images';
 
-export class Article implements IArticle {
-    readonly titre: string;
-    readonly auteur: string;
-    readonly commentaire: string;
-    readonly pays: string;
-    readonly prix: number;
-    readonly image: IArticleImages;
-    readonly id: number;
+export class Article {
+    private titre: string;
+    private auteur: string;
+    private commentaire: string;
+    private pays: string;
+    private prix: number;
+    private image: IArticleImages;
+    private id: number;
     constructor(titre: string, auteur: string, commentaire: string, pays: string, prix: number, image: IArticleImages, id: number) {
         this.titre = titre;
         this.auteur = auteur;

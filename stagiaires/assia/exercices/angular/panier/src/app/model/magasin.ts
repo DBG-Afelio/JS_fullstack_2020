@@ -1,15 +1,18 @@
-import { IArticle } from '../interfaces/iarticle';
+import { Article } from '../model/article';
 
 export class Magasin {
-    readonly listeArticles: IArticle[];
-    constructor(articleEnStock: IArticle[]) {
-        this.listeArticles = articleEnStock;
+    readonly listeArticles: Article[];
+    constructor(articleEnStock: Article[]) {
+        articleEnStock.forEach(el => {
+            const art = new Article(el.getTitre(), el.getAuteur(), el.getComments(), el.getPays(), el.getPrix(), el.getImage(), el.getId());
+            this.listeArticles.push(art);
+        });
     }
 
-    getList(): null | IArticle[]{
+    getList(): null | Article[]{
         return this.listeArticles;
     }
-    getArticleById(chercheId: number): undefined | IArticle{
-        return this.listeArticles.find(article => article.id === chercheId);
+    getArticleById(chercheId: number): undefined | Article{
+        return this.listeArticles.find(article => article.getId() === chercheId);
     }
 }
