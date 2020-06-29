@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PanierResumeComponent } from './panier-resume.component';
+import { PanierTotauxComponent } from './panier-totaux.component';
 
-describe('PanierResumeComponent', () => {
-  let component: PanierResumeComponent;
-  let fixture: ComponentFixture<PanierResumeComponent>;
+describe('PanierTotauxComponent', () => {
+  let component: PanierTotauxComponent;
+  let fixture: ComponentFixture<PanierTotauxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PanierResumeComponent ]
+      declarations: [ PanierTotauxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PanierResumeComponent);
+    fixture = TestBed.createComponent(PanierTotauxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

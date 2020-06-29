@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EShopPageComponent } from './pages/e-shop-page/e-shop-page.component';
 import { PanierPageComponent } from './pages/panier-page/panier-page.component';
-import { PanierResumeComponent } from './components/panier-resume/panier-resume.component';
+import { PanierTotauxComponent } from './components/panier-totaux/panier-totaux.component';
 import { ListeArticlesComponent } from './components/liste-articles/liste-articles.component';
 import { DetailsArticleComponent } from './components/details-article/details-article.component';
 import { ListeArticlesCommandesComponent } from './components/liste-articles-commandes/liste-articles-commandes.component';
@@ -15,7 +15,7 @@ import { ListeArticlesCommandesComponent } from './components/liste-articles-com
     AppComponent,
     EShopPageComponent,
     PanierPageComponent,
-    PanierResumeComponent,
+    PanierTotauxComponent,
     ListeArticlesComponent,
     DetailsArticleComponent,
     ListeArticlesCommandesComponent

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-panier-resume',
-  templateUrl: './panier-resume.component.html',
-  styleUrls: ['./panier-resume.component.css']
+  selector: 'app-panier-totaux',
+  templateUrl: './panier-totaux.component.html',
+  styleUrls: ['./panier-totaux.component.css']
 })
-export class PanierResumeComponent implements OnInit {
+export class PanierTotauxComponent implements OnInit {
   quantiteTotale: number;
   prixTotal: number;
   constructor() { }
