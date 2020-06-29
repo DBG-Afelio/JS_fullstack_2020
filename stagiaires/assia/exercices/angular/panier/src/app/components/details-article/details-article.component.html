@@ -1,15 +1,16 @@
-<!-- <p>
-    details-article
-</p>
-<div>
-    <span class="articleTitre">{{selected.titre}}</span>
-    <img class="articleImage" src={{selected.image.toute_petite}}>
-    <span class="articleComments">{{selected.commentaire}}</span>
-    <span class="articleAuteur">{{selected.auteur}}</span>
-    <span class="articlePays">{{selected.pays}}</span>
-    <span class="articlePrix">{{selected.prix}}</span>
-    <label>Quantite:
-        <input [(ngModel)]="quantite">
-    </label>
-</div> -->
+<p>Mon detail d'article :</p>
+<div *ngIf="selection">
+    <span class="titre">{{ selection.getTitre() }}</span>
+    <img class="image" src="/src/assets/img/{{ selection.getImage().moyenne }}">
+    <div class="comments">{{ selection.getComments() }}</div>
+    <div class="auteur-pays">
+        {{ selection.getAuteur() }}, 
+        {{ selection.getPays() }}</div>
+    <div class="prix">{{ selection.getPrix() }}</div>
+    <input type="number" placeholder="quantite" 
+    [value]="quantite"
+    (changeQtteEvent)="changeQte($event)">
+    <button>Actualiser Panier</button>
+</div>
+<div *ngIf="!selection">Selectionner un article pour afficher son detail</div>
 

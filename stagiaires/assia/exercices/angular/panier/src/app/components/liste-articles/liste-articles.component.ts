@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Article } from '../../model/article';
+import { Component, OnInit, Input, Output , EventEmitter } from '@angular/core';
+import { Article } from '../../model/Article';
 
 @Component({
   selector: 'app-liste-articles',
@@ -7,8 +7,8 @@ import { Article } from '../../model/article';
   styleUrls: ['./liste-articles.component.css']
 })
 export class ListeArticlesComponent implements OnInit {
-  listeArticles: Article[];
-  selectedArticle: Article;
+  @Input() listeArticles: Article[];
+  selectedArticle: Article = null;
   constructor() { }
 
   ngOnInit(): void {

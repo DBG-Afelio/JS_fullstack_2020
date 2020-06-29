@@ -1,26 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IArticle } from 'src/app/interfaces/iarticle';
-
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Article } from 'src/app/model/Article';
 @Component({
   selector: 'app-details-article',
   templateUrl: './details-article.component.html',
   styleUrls: ['./details-article.component.css']
 })
-export class DetailsArticleComponent {}
+export class DetailsArticleComponent implements OnInit {
+  @Input() selection: Article = null;
+  @Input() quantite = 0;
+  @Output() changedQtteEvent: EventEmitter<number> = new EventEmitter();
 
-//  export class DetailsArticleComponent implements OnInit {
-//    @Input() selected: IArticle;
-//    quantite: number;
+  constructor() { }
 
-//    constructor(qte: number) {
-//      this.quantite = qte;
-//    }
+  ngOnInit(): void {
+  }
 
-//    ngOnInit(): void {
-//    }
-
-//    getQte(): number {
-//      return this.quantite;
-//    }
-// }
+  changeQte(qt: number): void {
+    this.changedQtteEvent.emit(qt);
+  }
+}

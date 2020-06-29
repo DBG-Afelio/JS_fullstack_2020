@@ -1,46 +1,60 @@
-import { IArticleCommande } from '../interfaces/iarticle-commande';
-import { IArticle } from '../interfaces/iarticle';
 import { Article } from './article';
 import { ArticleCommande } from './article-commande';
 
 export class Panier {
-    private articlesCommandes: IArticleCommande[];
+    private listeCommandes: ArticleCommande[];
     constructor() {
-        this.articlesCommandes = [];
+        this.listeCommandes = [];
     }
-    getList(): null | IArticleCommande[]{
-        return this.articlesCommandes;
+    getList(): null | ArticleCommande[]{
+        return this.listeCommandes;
     }
-    trouveArticleEtIndex(chercheArticle: IArticle): null | { articleTrouve: IArticleCommande, index: number } {
-        const trouveIndex: number = this.articlesCommandes.findIndex(artCom => artCom.getId() === chercheArticle.id);
+
+    updatePanier(article: Article, qt: number): void{
+        const artCom = this.findArticleEtIndex(article);
+        if ( artCom === null && qt !== 0) {
+            this.ajouteArticle(article, qt);
+        } else {
+            if (qt === 0) {
+                this.supprimerArticle(artCom.articleTrouve);
+            } else {
+                this.updateArticleQtty(artCom.articleTrouve, qt);
+            }
+        }
+    }
+
+    private findArticleEtIndex(chercheArticle: Article): null | { articleTrouve: ArticleCommande, index: number } {
+        const trouveIndex: number = this.listeCommandes.findIndex(artCom => artCom.getArticle() === chercheArticle);
         if (trouveIndex !== -1) {
-            return { articleTrouve: this.articlesCommandes[trouveIndex], index: trouveIndex };
+            return { articleTrouve: this.listeCommandes[trouveIndex], index: trouveIndex };
         } else {
             return null;
         }
     }
-    ajouteArticle(article: IArticle, qtty: number): IArticleCommande{
-        const nouvelAjout: IArticleCommande = new ArticleCommande();
-        nouvelAjout.article = article;
+
+    private ajouteArticle(article: Article, qtty: number): ArticleCommande{
+        const nouvelAjout: ArticleCommande = new ArticleCommande();
+        nouvelAjout.setArticle(article);
         nouvelAjout.setQtte(qtty);
-        this.articlesCommandes.push(nouvelAjout);
+        nouvelAjout.setPrix(article.getPrix());
+        this.listeCommandes.push(nouvelAjout);
         return nouvelAjout;
     }
-    updateArticleQtty(articleCom: IArticleCommande, qtty: number): void{
-        this.articlesCommandes.map(art => art === articleCom ? art.setQtte(qtty) : art);
+    private updateArticleQtty(articleCom: ArticleCommande, qtty: number): void{
+        this.listeCommandes.map(art => art === articleCom ? art.setQtte(qtty) : art);
     }
-    supprimerArticle(articleCom: IArticleCommande): void {
-        const index: number = this.articlesCommandes.findIndex(art => art === articleCom);
-        this.articlesCommandes.splice(index, 1);
+    private supprimerArticle(articleCom: ArticleCommande): void {
+        const index: number = this.listeCommandes.findIndex(art => art === articleCom);
+        this.listeCommandes.splice(index, 1);
     }
 
     viderPanier(): void {
-        this.articlesCommandes = [];
+        this.listeCommandes = [];
     }
 
     getTotal(): { qtte: number, prix: number} {
         const total = {qtte: 0, prix: 0};
-        this.articlesCommandes.forEach(artCom => {
+        this.listeCommandes.forEach(artCom => {
             total.qtte += artCom.getQtte();
             total.prix += artCom.getPrixTotal();
         });

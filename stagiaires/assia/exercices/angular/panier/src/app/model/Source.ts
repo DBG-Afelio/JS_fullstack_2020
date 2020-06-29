@@ -1,6 +1,4 @@
-import { IArticle } from './interfaces/iarticle';
-
-export const MAGASIN: IArticle[] =
+export const SOURCE =
     [{
         titre: 'Bulles',
         auteur: 'E. Lassaux',

@@ -1,6 +1,5 @@
 <p>
-    <a routerLink="/panier">Recapitulatif Panier</a>
+    <a routerLink="/panier">Voir mon Panier</a>
     <app-panier-resume></app-panier-resume>
-    <app-liste-articles></app-liste-articles>
-    <app-details-article></app-details-article>
+    <app-liste-articles [listeArticles]="articlesEnStock"></app-liste-articles>
 </p>

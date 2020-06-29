@@ -1,15 +1,12 @@
-
-import { IArticleImages } from '../interfaces/iarticle-images';
-
 export class Article {
     private titre: string;
     private auteur: string;
     private commentaire: string;
     private pays: string;
     private prix: number;
-    private image: IArticleImages;
+    private image: any;
     private id: number;
-    constructor(titre: string, auteur: string, commentaire: string, pays: string, prix: number, image: IArticleImages, id: number) {
+    constructor(titre: string, auteur: string, commentaire: string, pays: string, prix: number, image: any, id: number) {
         this.titre = titre;
         this.auteur = auteur;
         this.commentaire = commentaire;
@@ -34,9 +31,11 @@ export class Article {
     getPrix(): number {
         return this.prix;
     }
-    getImage(): IArticleImages {
+    getImage(): any {
         return this.image;
     }
+    // type Image = { grande: string, moyenne: string, petite: string, toute_petite: string };
+
     getId(): number {
         return this.id;
     }

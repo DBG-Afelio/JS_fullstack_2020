@@ -1,11 +1,11 @@
-<p>liste-articles</p>
+<p>Ma liste d'articles :</p>
 <ul class="listeArticles">
     <li *ngFor="let article of listeArticles" 
     [class.selected]="article === selectedArticle"
     (click)="onSelect(article)">
-        <img class="articleImage" src="../../../assets/img/{{article.getImage()}}">
-        <span class="articleTitre">{{article.getTitre()}}</span>
-        <span class="articlePrix">{{article.getPrix()}}</span>
+        <img class="articleImage" src="../../../assets/img/{{ article.getImage().petite }}">
+        <div class="titre">{{ article.getTitre() }}</div>
+        <div class="articlePrix">€ {{ article.getPrix() }}</div>
     </li>
 </ul>
-<app-details-article>[article]="selectedArticle"</app-details-article>
+<app-details-article [selection]="selectedArticle"></app-details-article>
