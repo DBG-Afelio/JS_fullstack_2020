@@ -1,0 +1,14 @@
+<p>Liste d'item depuis le MOCK:</p>
+
+<ul>
+    <li *ngFor="let item of itemList">
+        Nom : {{item.getNom()}}, 
+        Quantite : 
+        <app-view-quantite 
+        [value]="item.getQt()" 
+        [max]="item.getStock()"
+        (valueChange)="updateQt($event, item)">
+        </app-view-quantite>, 
+        Stock : {{item.getStock()}}
+    </li>
+</ul>
