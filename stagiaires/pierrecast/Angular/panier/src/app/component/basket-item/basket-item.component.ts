@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Command } from 'src/app/model/Command';
+import { BasketService } from 'src/app/service/basket.service';
 
 @Component({
   selector: 'app-basket-item',
@@ -8,7 +9,7 @@ import { Command } from 'src/app/model/Command';
 })
 export class BasketItemComponent implements OnInit {
 
-  @Input() command:Command;
+  @Input() command: Command;
   @Output() changeQuantityEvent: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
@@ -17,6 +18,7 @@ export class BasketItemComponent implements OnInit {
   }
 
   changeQtEvent(qt: number) {
+    
     this.changeQuantityEvent.emit(qt);
   }
 }

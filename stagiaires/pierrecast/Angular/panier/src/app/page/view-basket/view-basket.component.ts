@@ -19,5 +19,4 @@ export class ViewBasketComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -1,6 +1,7 @@
 <div *ngIf="listCommands">
    <app-basket-item *ngFor="let command of listCommands"
         [command] = "command"
+        (changeQuantityEvent) = 'changeCommandQuantity($event, command)'
    ></app-basket-item>
 </div>
 <div *ngIf="!listCommands">
