@@ -5,17 +5,24 @@
       <p> Mis à jour : {{ lastUpdate | date: 'short' }} </p>
       <ul class="list-group">
 
-
-        <app-appareil  *ngFor="let appareil of appareils"
+        <!-- 9. à l'intérieur de chaque instance d'app, nous avons une variable i qui correspond à l'index de l'appareil dans le tableau des appareils. on peut utiliser du coup cet
+        index et le passer comme argument dans une méthode. voir point 10. dans le appareil.component.ts -->
+        <app-appareil  *ngFor="let appareil of appareils; let i = index" 
+                        [indexOfAppareil]="i"
                        [appareilName]="appareil.name"
                        [appareilStatus]="appareil.status"
-                      ></app-appareil>
+                       
+                      ></app-appareil> <!-- 11. ici on a ajouté la propriété [indexOfAppareil] qu'on a associé à la valeur i; ce qu'il faudrait maintenant
+                      ce sont des méthodes du service qui permettent en passant l'index correspondant à un appareil, d'allumer ou d'éteindre un appareil; on va donc créer
+                      deux méthdoes (12.) dans appareil.service.ts => go there  -->
       
       
       </ul>
-      <button class="btn btn-success" 
-      [disabled]="!isAuth"
-      (click)="onAllumer()">Tout allume</button>
+
+      <!-- 7. on crée deux eventlisteners qui correspondent à des fonctions qui doivent être définies dans app.component.ts ==> go there now (8.) -->
+      <button (click)="onAllumer()"> Tout allumer </button>
+      <button (click)="onEteindre()"> Tout éteindre </button>
+
       
     </div>
   </div>

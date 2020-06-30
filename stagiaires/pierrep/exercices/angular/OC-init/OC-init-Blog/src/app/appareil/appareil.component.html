@@ -1,6 +1,15 @@
 <li class="list-group-item">
-    <div style="width:20px;height:20px;background-color:red;" 
-    *ngIf="appareilStatus === 'éteint'"></div>
+    <!--<div style="width:20px;height:20px;background-color:red;" 
+    *ngIf="appareilStatus === 'éteint'"></div> Retiré lors de l'étape 16 --> 
     <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
-    <input type="text" class="form-control" [(ngModel)]="appareilName">
+    <!-- <input type="text" class="form-control" [(ngModel)]="appareilName"> Retiré lors de l'étape 16-->
+    <button (click)="onSwitchOn()" 
+    [disabled]="appareilStatus === 'allumé'"> Allumer </button>
+    <button (click)="onSwitchOff()"
+    [disabled]="appareilStatus === 'éteint'"> Eteindre </button>
   </li>
+
+  <!-- 16. Maintenant qu'on en est à ce stade, je vais commenter les éléments dont on a plus besoin pour si je veux relire le tuto plus tard
+  Ensuite on crée les deux boutons qui sont ci-dessus et on y ajoute les méthodes onSwitchOn lors du click ainsi que, pour plus de dynamisme, une propriété disabled qui permet
+  de ne pas les afficher s'ils sont éteints ou allumés
+  -->
