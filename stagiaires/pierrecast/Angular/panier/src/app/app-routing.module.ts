@@ -5,6 +5,7 @@ import { ViewShopComponent } from './page/view-shop/view-shop.component';
 
 const routes: Routes = [
   { path:'panier', component: ViewBasketComponent },
+  { path: ':id', component: ViewShopComponent },
   { path:'', component: ViewShopComponent },
 ];
 
