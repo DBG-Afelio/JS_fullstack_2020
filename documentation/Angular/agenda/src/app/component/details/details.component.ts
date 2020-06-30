@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-details',
@@ -12,15 +11,17 @@ export class DetailsComponent implements OnInit {
   private personId: number;
 
   constructor(private activatedRoute: ActivatedRoute) { 
-    this.activatedRoute.paramMap.subscribe((params) => 
-      {
-        this.personId = Number(params.get('personId'))
-        console.log(this.personId);
-      });
-    console.log('2', this.activatedRoute.snapshot.paramMap.get('personId'));
+    // console.log('activated route', this.activatedRoute);
+    // console.log('id de la route', this.activatedRoute.snapshot.params.id);
+    
+    this.activatedRoute.paramMap.subscribe((params) => {
+        console.log('parammap has changed values', params)
+    });
+    console.log('id de la route', this.activatedRoute.snapshot.params.id);
   }
 
   ngOnInit() {
+   
   }
 
 }
