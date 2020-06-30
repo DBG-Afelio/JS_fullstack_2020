@@ -1,0 +1,56 @@
+
+    <div class="pizza-form">
+      <form >
+        <label>
+          <h4>Pizza name</h4>
+          <input
+            type="text"
+            placeholder="e.g. Pepperoni"
+            class="pizza-form__input"
+            [class.error]="true">
+          <div
+            class="pizza-form__error">
+            <p>Pizza must have a name</p>
+          </div>
+        </label>
+
+        <pizza-display></pizza-display>
+
+        <label>
+          <h4>Select toppings</h4>
+        </label>
+        <div class="pizza-form__list">
+          <pizza-toppings>
+          </pizza-toppings>
+        </div>
+
+        <div class="pizza-form__actions">
+          <button
+            id="create_button"
+            type="button"
+            class="btn btn__ok"
+            >
+            <!-- visible que dans le cas d'une nouvelle pizzas -->
+            Create Pizza
+          </button>
+
+            <button
+              id="update_button"
+              type="button"
+              class="btn btn__ok"
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Save changes
+            </button>
+
+            <button
+              type="button"
+              class="btn btn__warning"
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Delete Pizza
+            </button>
+        </div>
+      </form>
+    </div>
+  
