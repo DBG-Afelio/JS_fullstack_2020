@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PersonneService } from '../../service/personne.service';
+import { Personne } from '../../models/personne';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-
-  constructor(private activatedRoute: ActivatedRoute) { 
-    
+  list: Personne[] = [];
+  constructor(
+    public personnesService: PersonneService) { 
+    this.personnesService.getList().subscribe((listeRecue) => {
+      this.list = listeRecue
+    });
   }
 
   ngOnInit() {
