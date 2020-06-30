@@ -1,0 +1,23 @@
+<div class="view view-list">
+    <div class="wrap-detail">
+        <app-detail
+            [currentQuantity] = "basket?.findCommand(currentArticle)?.getQuantity()"
+            [detailInfo] = "currentArticle" 
+            (changeQuantityEvent) = "changeQuantity($event)">
+        </app-detail>
+    </div>
+
+    <div class="wrap-basket">
+        <app-basket-summary 
+            [totalPrice] = "basket.getTotal().totalPrice"  
+            [totalQuantity] = "basket.getTotal().totalQuantity">
+        </app-basket-summary>
+    </div>
+
+    <div class="wrap-liste">
+        <app-shop 
+            [listArticles] = "shopService.getListArticles()"
+            (selectArticleEvent) = "changeCurrent($event)">
+        </app-shop>  
+    </div>
+</div>
