@@ -16,3 +16,8 @@
  .item .title {
     text-align: left;
 }
+
+.item a {
+    text-decoration: none;
+    color: black;
+}

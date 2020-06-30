@@ -7,7 +7,7 @@ const routes: Routes = [
 
   { path:'magasin', component: ViewShopComponent },
   { path:'panier', component: ViewBasketComponent },
-  { path: 'magasin/:id', component: ViewShopComponent },
+  { path:'magasin/:id', component: ViewShopComponent },
   { path:'', redirectTo:'/magasin', pathMatch: 'full' },
   { path:'**', redirectTo:'/magasin', pathMatch: 'full' },
 ];
