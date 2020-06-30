@@ -1,3 +1,8 @@
 :host{
+    max-height: 100vh;
+    overflow: auto;
     
+}
+li{
+    list-style: none;
 }
