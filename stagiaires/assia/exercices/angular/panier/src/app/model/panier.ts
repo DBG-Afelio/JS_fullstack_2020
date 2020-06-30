@@ -23,7 +23,7 @@ export class Panier {
         }
     }
 
-    private findArticleEtIndex(chercheArticle: Article): null | { articleTrouve: ArticleCommande, index: number } {
+    public findArticleEtIndex(chercheArticle: Article): null | { articleTrouve: ArticleCommande, index: number } {
         const trouveIndex: number = this.listeCommandes.findIndex(artCom => artCom.getArticle() === chercheArticle);
         if (trouveIndex !== -1) {
             return { articleTrouve: this.listeCommandes[trouveIndex], index: trouveIndex };

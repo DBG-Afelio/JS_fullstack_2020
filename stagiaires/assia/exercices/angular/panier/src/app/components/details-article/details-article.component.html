@@ -1,18 +1,20 @@
-<p>Mon detail d'article :</p>
 <div *ngIf="selection">
+    Mon detail d'article :
+    <hr>
     <span class="titre">{{ selection.getTitre() }}</span>
-    <img class="image" src="/src/assets/img/{{ selection.getImage().moyenne }}">
+<img class="image" src="../../../assets/img/{{ selection.getImage().moyenne }}">
     <div class="comments">{{ selection.getComments() }}</div>
     <div class="auteur-pays">
         {{ selection.getAuteur() }}, 
         {{ selection.getPays() }}</div>
     <div class="prix">€ {{ selection.getPrix() }}</div>
-    <button (click)="remove()"> - </button>
-    <span> {{ qtteIn }} </span>
-    <button (click)="add()"> + </button>
-    <!-- <input type="number" placeholder="quantite" min="0" step="1"
-    [value]="quantite"
-    <button (click)="changeQtte(selection, quantite)"> Actualiser Panier </button> -->
+    <app-quantite 
+        [qtteIn]="qtteIn"
+        (changedQtteEvent)="relayQtteEvent($event)">
+    </app-quantite>
+
 </div>
-<div *ngIf="!selection">Selectionner un article pour afficher son detail</div>
+<div *ngIf="!selection">
+    Selectionner un article pour afficher son detail>
+</div>
 

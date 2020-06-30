@@ -13,7 +13,7 @@ export class EShopPageComponent implements OnInit {
   articlesEnStock: Article[];
   panier: Panier;
   articleSelected: Article;
-  constructor(panierService: PanierServiceService, stockService: MagasinServiceService) { 
+  constructor(public panierService: PanierServiceService, public stockService: MagasinServiceService) { 
     this.panier = panierService.getPanier();
     this.articlesEnStock = stockService.getArticlesStock();
     this.articleSelected = this.articlesEnStock[0]; //on a choisi d'afficher le 1er item au chargement de la page
@@ -21,8 +21,12 @@ export class EShopPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  updatePanier(qtte: number, art: Article): void {
-    this.panier.updatePanier(art, qtte);
+  updateSelection(art: Article): void {
+    this.articleSelected = art;
   }
+  updateArticleQtte(qt: number): void {
+   // this.panier.updatePanier(this.articleSelected, qt);
+    this panierService.getPanier().updatePanier(this.articleSelected, qt);
+  }
+
 }

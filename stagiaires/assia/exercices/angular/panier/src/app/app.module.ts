@@ -9,6 +9,7 @@ import { PanierTotauxComponent } from './components/panier-totaux/panier-totaux.
 import { ListeArticlesComponent } from './components/liste-articles/liste-articles.component';
 import { DetailsArticleComponent } from './components/details-article/details-article.component';
 import { ListeArticlesCommandesComponent } from './components/liste-articles-commandes/liste-articles-commandes.component';
+import { QuantiteComponent } from './components/quantite/quantite.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListeArticlesCommandesComponent } from './components/liste-articles-com
     PanierTotauxComponent,
     ListeArticlesComponent,
     DetailsArticleComponent,
-    ListeArticlesCommandesComponent
+    ListeArticlesCommandesComponent,
+    QuantiteComponent
   ],
   imports: [
     BrowserModule,

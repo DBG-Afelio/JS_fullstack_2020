@@ -1,2 +1,15 @@
-<a routerLink="/">Retour a la liste</a>
+<a routerLink="/eshop">Retour a la liste</a>
+
+<h1>
+    Mon Recapitulatif Panier
+</h1>
+
+<app-panier-totaux
+    [totaux]="panier.getTotal()">
+</app-panier-totaux>
+
+<app-liste-articles-commandes
+    [listeCommandes]="panier.getList()"
+    (changeQtteEvent)="updateArticleQtte($event)" >
+</app-liste-articles-commandes>
 

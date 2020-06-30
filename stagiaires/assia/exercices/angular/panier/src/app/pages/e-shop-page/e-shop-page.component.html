@@ -1,5 +1,19 @@
 <p>
     <a routerLink="/panier">Voir mon Panier</a>
-    <app-panier-totaux></app-panier-totaux>
-    <app-liste-articles [listeArticles]="articlesEnStock.getList()"></app-liste-articles>
+
+    <app-panier-totaux
+        [totaux]="panier.getTotal()">
+    </app-panier-totaux>
+
+    <app-details-article
+        [selection]="articleSelected"
+        [qtteIn]="panier?.findArticleEtIndex(articleSelected)?.articleTrouve.getQtte()"
+        (changeQtteEvent)="updateArticleQtte($event)" >
+    </app-details-article>
+
+    <app-liste-articles
+        [listeArticles]="articlesEnStock"
+        (selectedArticleEvent)="updateSelection($event)" >
+    </app-liste-articles>
+
 </p>

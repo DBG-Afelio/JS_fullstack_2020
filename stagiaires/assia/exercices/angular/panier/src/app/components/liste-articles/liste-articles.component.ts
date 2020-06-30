@@ -8,16 +8,14 @@ import { Article } from '../../model/Article';
 })
 export class ListeArticlesComponent implements OnInit {
   @Input() listeArticles: Article[];
-  selectedArticle: Article = null;
+  @Output() selectedArticleEvent: EventEmitter<Article> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onSelect(article: Article): void {
-    this.selectedArticle = article;
+    this.selectedArticleEvent.emit(article);
   }
-  updatePanier(qttechanged: number, article: Article) {
-  
-}
+
 }

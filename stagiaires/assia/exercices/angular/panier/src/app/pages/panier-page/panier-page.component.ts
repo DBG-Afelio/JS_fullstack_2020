@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleCommande } from 'src/app/model/Article-commande';
+import { Panier } from 'src/app/model/Panier';
+import { PanierServiceService } from 'src/app/services/panier-service.service';
 
 @Component({
   selector: 'app-panier-page',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanierPageComponent implements OnInit {
 
-  constructor() { }
+  panier: Panier;
+  constructor(private panierService: PanierServiceService) { 
+    this.panier = panierService.getPanier();
+   }
 
   ngOnInit(): void {
   }
-
+  updateArticleQtte(qt:number, artCom:ArticleCommande): void{
+    this.panierService.getPanier().updatePanier(artCom.getArticle(), qt);
+  }
 }

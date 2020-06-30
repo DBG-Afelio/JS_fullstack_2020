@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-panier-totaux',
@@ -6,20 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panier-totaux.component.css']
 })
 export class PanierTotauxComponent implements OnInit {
-  quantiteTotale: number = 0;
-  prixTotal: number = 0;
+  
+  @Input() totaux : { qtte: number, prix: number } 
+
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  getPanier(): { qte: number, prix: number } {
-    return {qte: this.quantiteTotale, prix: this.prixTotal};
-  }
-
-  setPanier(qte: number, prix: number): void {
-    this.quantiteTotale = qte;
-    this.prixTotal = prix;
   }
 
 }

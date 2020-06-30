@@ -1,1 +1,18 @@
-<p>liste-articles-commandes works!</p>
+<div *ngIf="listeCommandes" >
+    <ul>
+        <li *ngFor="let itemCom of listeCommandes">
+            <img src="../../../assets/img/{{ itemCom.getArticle().getImage().tres_petite }}">
+            <span class="titre">{{ itemCom.getArticle().getTitre() }}</span>
+            <span class="articlePrix">€ {{ itemCom.getArticle().getPrix() }}</span>
+            <app-quantite 
+                [qtteIn]="itemCom.getQtte()"
+                (changedQtteEvent)="relayQtteEvent($event)">
+            </app-quantite>
+            <span {{ itemCom.getPrixTotal() }}
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="!listeCommandes">
+    Votre Panier est vide !
+</div>

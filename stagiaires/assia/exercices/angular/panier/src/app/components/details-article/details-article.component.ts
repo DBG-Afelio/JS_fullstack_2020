@@ -6,31 +6,16 @@ import { Article } from 'src/app/model/Article';
   styleUrls: ['./details-article.component.css']
 })
 export class DetailsArticleComponent implements OnInit {
-  @Input() selection: Article = null;
-  @Input() qtteIn = 0;
-  @Input() min = 0;
-  @Input() max = 10;
-  @Input() step = 1;
-  @Output() changedQtteEvent: EventEmitter<{ art: Article, qte: number }> = new EventEmitter();
+  @Input() selection: Article;
+  @Input() qtteIn: number;
+  @Output() changedQtteEvent: EventEmitter<number> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
-  add(): void {
-    if (this.qtteIn + this.step <= this.max) {
-      this.qtteIn += this.step;
-      this.changedQtteEvent.emit({ art: this.selection, qte: this.qtteIn });
-    }
+  relayQtteEvent(qt: number): void {
+    this.changedQtteEvent.emit(qt);
   }
-
-  remove(): void {
-    if (this.qtteIn - this.step >= this.min) {
-      this.qtteIn -= this.step;
-      this.changedQtteEvent.emit({ art: this.selection, qte: this.qtteIn });
-    }
-  }
-  // changeQtte(article: Article, qte: number): void{
-  //   this.changedQtteEvent.emit({ art: this.selection, qte: this.qtteIn });
-  // }
+  
 }

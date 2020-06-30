@@ -1,14 +1,9 @@
 <p>Ma liste d'articles :</p>
 <ul class="listeArticles">
     <li *ngFor="let article of listeArticles" 
-    [class.selected]="article === selectedArticle"
     (click)="onSelect(article)">
         <img class="image" src="../../../assets/img/{{ article.getImage().petite }}">
         <span class="titre">{{ article.getTitre() }}</span>
         <span class="articlePrix">€ {{ article.getPrix() }}</span>
     </li>
 </ul>
-<app-details-article 
-[selection]="selectedArticle"
-(changedQtteEvent)="updatePanier($event, selectedArticle)"
-></app-details-article>

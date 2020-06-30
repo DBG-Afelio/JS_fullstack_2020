@@ -6,7 +6,8 @@ import { EShopPageComponent } from './pages/e-shop-page/e-shop-page.component';
 
 const routes: Routes = [
   { path: 'panier', component: PanierPageComponent },
-  { path: '', component: EShopPageComponent}
+  { path: 'eshop', component: EShopPageComponent },
+  { path: '', redirectTo:'/eshop', pathMatch:'full' }
 ];
 
 @NgModule({
