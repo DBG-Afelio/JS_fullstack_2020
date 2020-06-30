@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panier-totaux.component.css']
 })
 export class PanierTotauxComponent implements OnInit {
-  quantiteTotale: number;
-  prixTotal: number;
+  quantiteTotale: number = 0;
+  prixTotal: number = 0;
   constructor() { }
 
   ngOnInit(): void {

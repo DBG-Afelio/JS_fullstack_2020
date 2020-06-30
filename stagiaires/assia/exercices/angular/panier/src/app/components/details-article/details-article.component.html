@@ -6,11 +6,13 @@
     <div class="auteur-pays">
         {{ selection.getAuteur() }}, 
         {{ selection.getPays() }}</div>
-    <div class="prix">{{ selection.getPrix() }}</div>
-    <input type="number" placeholder="quantite" 
+    <div class="prix">€ {{ selection.getPrix() }}</div>
+    <button (click)="remove()"> - </button>
+    <span> {{ qtteIn }} </span>
+    <button (click)="add()"> + </button>
+    <!-- <input type="number" placeholder="quantite" min="0" step="1"
     [value]="quantite"
-    (changeQtteEvent)="changeQte($event)">
-    <button>Actualiser Panier</button>
+    <button (click)="changeQtte(selection, quantite)"> Actualiser Panier </button> -->
 </div>
 <div *ngIf="!selection">Selectionner un article pour afficher son detail</div>
 

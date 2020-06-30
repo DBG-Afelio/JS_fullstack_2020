@@ -1,6 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Shop } from 'src/app/model/Shop';
-import { SOURCE } from 'src/app/model/source';
+import { PanierServiceService } from 'src/app/services/panier-service.service';
+import { Panier } from 'src/app/model/Panier';
+import { Article } from 'src/app/model/Article';
+import { MagasinServiceService } from 'src/app/services/magasin-service.service';
 
 @Component({
   selector: 'app-e-shop-page',
@@ -8,10 +10,19 @@ import { SOURCE } from 'src/app/model/source';
   styleUrls: ['./e-shop-page.component.css']
 })
 export class EShopPageComponent implements OnInit {
-  articlesEnStock = new Shop(SOURCE);
-  constructor() { }
+  articlesEnStock: Article[];
+  panier: Panier;
+  articleSelected: Article;
+  constructor(panierService: PanierServiceService, stockService: MagasinServiceService) { 
+    this.panier = panierService.getPanier();
+    this.articlesEnStock = stockService.getArticlesStock();
+    this.articleSelected = this.articlesEnStock[0]; //on a choisi d'afficher le 1er item au chargement de la page
+  }
 
   ngOnInit(): void {
   }
 
+  updatePanier(qtte: number, art: Article): void {
+    this.panier.updatePanier(art, qtte);
+  }
 }

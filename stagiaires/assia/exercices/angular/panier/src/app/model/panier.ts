@@ -1,5 +1,5 @@
-import { Article } from './article';
-import { ArticleCommande } from './article-commande';
+import { Article } from './Article';
+import { ArticleCommande } from './Article-commande';
 
 export class Panier {
     private listeCommandes: ArticleCommande[];

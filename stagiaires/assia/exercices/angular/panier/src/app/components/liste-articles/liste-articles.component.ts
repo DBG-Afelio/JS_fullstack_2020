@@ -17,5 +17,7 @@ export class ListeArticlesComponent implements OnInit {
   onSelect(article: Article): void {
     this.selectedArticle = article;
   }
-
+  updatePanier(qttechanged: number, article: Article) {
+  
+}
 }

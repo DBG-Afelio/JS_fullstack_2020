@@ -5,7 +5,7 @@ export class Shop {
 
     constructor(articleEnStock: any[]) {
         articleEnStock.forEach(el => {
-            const art = new Article(el.getTitre(), el.getAuteur(), el.getComments(), el.getPays(), el.getPrix(), el.getImage(), el.getId());
+            const art = new Article(el.titre, el.auteur, el.commentaire, el.pays, el.prix, el.image, el.id);
             this.listeArticles.push(art);
         });
     }

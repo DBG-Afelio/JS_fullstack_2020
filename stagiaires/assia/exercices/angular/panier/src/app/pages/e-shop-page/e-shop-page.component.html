@@ -1,5 +1,5 @@
 <p>
     <a routerLink="/panier">Voir mon Panier</a>
-    <!-- <app-panier-totaux></app-panier-totaux> -->
-    <app-liste-articles [listeArticles]="articlesEnStock"></app-liste-articles>
+    <app-panier-totaux></app-panier-totaux>
+    <app-liste-articles [listeArticles]="articlesEnStock.getList()"></app-liste-articles>
 </p>

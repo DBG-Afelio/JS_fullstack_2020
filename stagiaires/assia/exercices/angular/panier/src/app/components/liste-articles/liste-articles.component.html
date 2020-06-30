@@ -3,9 +3,12 @@
     <li *ngFor="let article of listeArticles" 
     [class.selected]="article === selectedArticle"
     (click)="onSelect(article)">
-        <img class="articleImage" src="../../../assets/img/{{ article.getImage().petite }}">
-        <div class="titre">{{ article.getTitre() }}</div>
-        <div class="articlePrix">€ {{ article.getPrix() }}</div>
+        <img class="image" src="../../../assets/img/{{ article.getImage().petite }}">
+        <span class="titre">{{ article.getTitre() }}</span>
+        <span class="articlePrix">€ {{ article.getPrix() }}</span>
     </li>
 </ul>
-<app-details-article [selection]="selectedArticle"></app-details-article>
+<app-details-article 
+[selection]="selectedArticle"
+(changedQtteEvent)="updatePanier($event, selectedArticle)"
+></app-details-article>
