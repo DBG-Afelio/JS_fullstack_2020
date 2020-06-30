@@ -1,0 +1,10 @@
+<div class="block block-liste">
+    <div class="item" 
+        [class.active]="article === selectedArticle"
+        (click)="selectArticle(article)" 
+        *ngFor="let article of listArticles">
+        <img src="assets/img/{{ article.getImage().petite }}" alt="{{ article.getTitle() }}">  
+        <div class="title">{{ article.getTitle() }}</div>
+        <div class="price">{{ article.getPrice().toFixed(2) }} €</div>
+    </div>
+</div>
