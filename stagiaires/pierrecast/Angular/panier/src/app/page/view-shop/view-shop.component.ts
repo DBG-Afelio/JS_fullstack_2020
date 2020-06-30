@@ -16,16 +16,19 @@ export class ViewShopComponent implements OnInit {
   public basket: Basket;
   public currentArticle: Article;
   private location: Location;
-  private route: ActivatedRoute;
+  
 
   constructor(
     public shopService:ShopService,
     private basketService: BasketService,
+    private route: ActivatedRoute
     ) {
     this.listArticles = this.shopService.getListArticles();
     this.basket = this.basketService.getBasket();
-    this.currentArticle = this.listArticles[0];
+    
+    this.getArticle();
   }
+  
 
   public changeCurrent(article: Article) {
     this.currentArticle = article;
@@ -36,12 +39,17 @@ export class ViewShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.getArticle();
+   
   }
 
   public getArticle(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    const article = this.shopService.getArticleById(id);
-    return this.changeCurrent(article);
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      this.currentArticle = this.shopService.getArticleById(id);
+      
+      if (!this.currentArticle) {
+        this.currentArticle = this.listArticles[0];
+      }
+    });
   }
 }

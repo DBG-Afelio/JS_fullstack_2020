@@ -4,9 +4,12 @@ import { ViewBasketComponent } from './page/view-basket/view-basket.component';
 import { ViewShopComponent } from './page/view-shop/view-shop.component';
 
 const routes: Routes = [
+
+  { path:'magasin', component: ViewShopComponent },
   { path:'panier', component: ViewBasketComponent },
-  { path: ':id', component: ViewShopComponent },
-  { path:'', component: ViewShopComponent },
+  { path: 'magasin/:id', component: ViewShopComponent },
+  { path:'', redirectTo:'/magasin', pathMatch: 'full' },
+  { path:'**', redirectTo:'/magasin', pathMatch: 'full' },
 ];
 
 @NgModule({
