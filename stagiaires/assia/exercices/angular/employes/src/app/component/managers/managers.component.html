@@ -1,0 +1,9 @@
+<a routerLink="/list">Retour a la liste de tous les employes</a>
+
+<h2>Liste des Managers</h2>
+<ul>
+    <li *ngFor="let manager of listManagers">
+        <a [routerLink]="['/','detail', manager.id]">
+            {{ manager.nom }} , {{ manager.prenom }}</a>
+    </li>
+</ul>
