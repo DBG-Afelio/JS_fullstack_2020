@@ -1,0 +1,43 @@
+/*
+CSS pour la mise en forme de la marée
+*/
+.maree{
+    
+    display: grid;
+    grid-gap: 5px;
+    width: max-content;
+    
+}
+button{
+    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    
+}
+.carre{
+    
+    width: 10px;
+    height: 10px;
+    
+}
+[data-color='rouge']{
+    
+    background-color: orangered;
+    
+}
+[data-color='vert']{
+    
+    background-color: green;
+    
+}
+[data-color='bleu']{
+    
+    background-color: skyblue;
+    
+}
+[data-color='violet']{
+    
+    background-color: violet;
+    
+}
