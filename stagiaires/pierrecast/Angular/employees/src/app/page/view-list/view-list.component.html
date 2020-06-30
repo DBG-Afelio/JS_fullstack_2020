@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let employee of list"> 
+        <a [routerLink]="['/', 'detail', employee.id]">
+            {{ employee.prenom }} {{ employee.nom }} {{ employee.manager ? '(Manager)' : ''}}
+        </a>
+    </li>
+</ul>
