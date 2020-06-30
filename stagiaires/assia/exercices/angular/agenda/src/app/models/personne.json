@@ -1,0 +1,24 @@
+{
+  "personnes": [
+    {
+      "id": 1,
+      "nom": "Denis"
+    },
+    {
+      "id": 2,
+      "nom": "Geoffroy"
+    },
+    {
+      "nom": "Oshinovo",
+      "id": 3
+    },
+    {
+      "nom": "Nicolas",
+      "id": 4
+    },
+    {
+      "nom": "Haroonovo",
+      "id": 5
+    }
+  ]
+}
