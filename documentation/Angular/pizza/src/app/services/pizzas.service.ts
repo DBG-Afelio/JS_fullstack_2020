@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError, Subject } from 'rxjs';
+import { Observable, throwError, Subject, of } from 'rxjs';
 import { catchError, timeout, timeInterval, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -15,15 +15,11 @@ export class PizzasService {
   constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<Pizza[]> {
-    return this.http
-      .get<Pizza[]>(`${environment.baseUrl}/pizzas`)
-      .pipe(catchError((error: any) => throwError(error.json())));
+    return of(null);
   }
 
   getPizzasById(id: number): Observable<Pizza> {
-    return this.http
-      .get<Pizza>(`${environment.baseUrl}/pizzas/${id}`)
-      .pipe(catchError((error: any) => throwError(error.json())));
+    return of(null);
   }
 
 
@@ -31,7 +27,7 @@ export class PizzasService {
     return this.http
       .post<Pizza>(`http://localhost:3000/pizzas`, payload)
       .pipe(
-        tap(()=> console.log('passe')),catchError((error: any) => throwError(error.json())));
+        catchError((error: any) => throwError(error.json())));
   }
 
   updatePizza(payload: Pizza): Observable<Pizza> {
