@@ -1,0 +1,11 @@
+<div *ngIf='pizza' class="product-item">
+      <pizza-form 
+      [pizza]='pizza'
+      [toppings]='toppings'
+      [mode]='mode'
+      (create)='onCreatePizza($event)'
+      (update)='onUpdatePizza($event)'
+      (remove)='onRemovePizza($event)'
+      >
+      </pizza-form>
+</div>

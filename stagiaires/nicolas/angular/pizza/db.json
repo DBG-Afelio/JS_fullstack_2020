@@ -1,0 +1,109 @@
+{
+  "toppings": [
+    "anchovy",
+    "bacon",
+    "basil",
+    "chili",
+    "mozzarella",
+    "mushroom",
+    "olive",
+    "onion",
+    "pepper",
+    "pepperoni",
+    "sweetcorn",
+    "tomato"
+  ],
+  "pizzas": [
+    {
+      "name": "La super mega pizza de la mort qui tue la race a sa grand-mere",
+      "toppings": [
+        "anchovy",
+        "bacon",
+        "basil",
+        "chili",
+        "onion",
+        "olive",
+        "mushroom",
+        "mozzarella",
+        "pepper",
+        "pepperoni",
+        "sweetcorn",
+        "tomato"
+      ],
+      "id": 1
+    },
+    {
+      "name": "La classique",
+      "toppings": [
+        "tomato",
+        "mushroom",
+        "mozzarella",
+        "pepperoni"
+      ],
+      "id": 3
+    },
+    {
+      "name": "pizza toute viande (et un peu de tomate)",
+      "toppings": [
+        "pepperoni",
+        "bacon",
+        "anchovy",
+        "tomato"
+      ],
+      "id": 4
+    },
+    {
+      "name": "pizza a la pate a pizza",
+      "toppings": [],
+      "id": 5
+    },
+    {
+      "name": "Pizza qui pue",
+      "toppings": [
+        "anchovy",
+        "onion",
+        "pepperoni",
+        "mushroom",
+        "olive"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Pizza aux feuilles (vegan)",
+      "toppings": [
+        "basil"
+      ],
+      "id": 7
+    },
+    {
+      "name": "Pizza puriste",
+      "toppings": [
+        "tomato",
+        "mozzarella",
+        "basil",
+        "olive"
+      ],
+      "id": 8
+    },
+    {
+      "name": "pizza moisie (champignons)",
+      "toppings": [
+        "mushroom"
+      ],
+      "id": 9
+    },
+    {
+      "name": "Veggie",
+      "toppings": [
+        "tomato",
+        "onion",
+        "mushroom",
+        "pepper",
+        "mozzarella",
+        "olive",
+        "basil"
+      ],
+      "id": 10
+    }
+  ]
+}

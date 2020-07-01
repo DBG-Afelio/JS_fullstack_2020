@@ -1,0 +1,16 @@
+<div class="products" >
+    <div class="products__new">
+      <a class="btn btn__ok" href="./new">
+        New Pizza
+      </a>
+    </div>
+    <div class="products__list">
+
+      <div *ngIf='pizzas.length === 0'>
+        No pizzas, add one to get started.
+      </div>
+      
+      <pizza-item *ngFor ="let pizza of pizzas" [pizza] = "pizza" (remove)='deletePizza($event)'></pizza-item>
+      
+    </div>
+</div> 

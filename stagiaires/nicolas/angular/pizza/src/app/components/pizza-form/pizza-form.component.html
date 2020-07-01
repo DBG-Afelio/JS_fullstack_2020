@@ -1,0 +1,72 @@
+
+    <div class="pizza-form">
+      <form >
+        <label>
+          <h4>Pizza name</h4>
+          <input
+            type="text"
+            [value]='pizza.name'
+            (change)='updatePizzaName($event.target.value)'
+            placeholder="e.g. Pepperoni"
+            class="pizza-form__input"
+            [class.error]="true">
+          <div
+            class="pizza-form__error">
+            <p>Pizza must have a name</p>
+          </div>
+        </label>
+
+        <pizza-display [pizza]='pizza'></pizza-display>
+
+        <label>
+          <h4>Select toppings</h4>
+        </label>
+        <div class="pizza-form__list">
+          <pizza-toppings [toppings]='toppings' [value]='pizza.toppings' (toppingsChange)='updatePizzaToppings($event)'>
+          </pizza-toppings>
+        </div>
+
+        <div class="pizza-form__actions">
+          <button
+            (click)='onClickCreateButton()'
+            id="create_button"
+            type="button"
+            class="btn btn__ok"
+            *ngIf='isNewPizza()'
+            >
+            <!-- visible que dans le cas d'une nouvelle pizzas -->
+            Create Pizza
+          </button>
+
+            <button
+            (click)='onClickUpdateButton()'
+              id="update_button"
+              type="button"
+              class="btn btn__ok"
+              *ngIf='isNewPizza() === false'
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Save changes
+            </button>
+            <button
+            (click)='onClickReturnButton()'
+              type="button"
+              class="btn btn__return"
+              >
+           
+              Retour
+            </button>
+              <!-- visible que dans le cas d'une pizzas existante -->
+            <button
+            (click)='onClickDeleteButton()'
+              type="button"
+              class="btn btn__warning"
+              *ngIf='isNewPizza() === false'
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Delete Pizza
+            </button>
+        </div>
+      </form>
+    </div>
+  
