@@ -14,7 +14,9 @@ export class ProductsComponent implements OnInit {
 
   public pizzas: Pizza[];
 
-  constructor(private pizzaService: PizzasService) { }
+  constructor(private pizzaService: PizzasService) {
+    
+   }
 
   ngOnInit() {
     this.pizzaService.getPizzas().subscribe((pizzas) => {
