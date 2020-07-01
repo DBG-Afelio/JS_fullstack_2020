@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Pizza } from '../../models/pizza.model';
 import { PizzasService } from '../../services/pizzas.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'products',
@@ -14,8 +15,7 @@ export class ProductsComponent implements OnInit {
 
   public pizzas: Pizza[];
 
-  constructor(private pizzaService: PizzasService) {
-    
+  constructor(private pizzaService: PizzasService) { 
    }
 
   ngOnInit() {

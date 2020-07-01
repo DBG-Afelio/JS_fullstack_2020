@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Pizza } from 'src/app/models/pizza.model';
 
 @Component({
     selector: 'pizza-item',
@@ -6,5 +7,9 @@ import { Component, Input } from '@angular/core';
     templateUrl : './pizza-item.component.html'
 })
 export class PizzaItemComponent {
-    @Input() pizza: any;
+    @Input() pizza: Pizza;
+
+    constructor() {
+        
+    }
 }

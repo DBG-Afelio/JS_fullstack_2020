@@ -1,8 +1,8 @@
 <div class="pizza-item" >
-  <a href="/products/1">
-    <pizza-display>
+  <a [routerLink]="['/', 'products', pizza.id]">
+    <pizza-display [pizza]="pizza">
     </pizza-display>
-    <h4>Le nom de ma pizza</h4>
+    <h4>{{ pizza.name }}</h4>
     <button type="button" class="btn btn__ok">
       View Pizza
     </button>

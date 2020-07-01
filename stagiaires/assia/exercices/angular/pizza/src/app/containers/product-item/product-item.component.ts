@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { PizzasService } from 'src/app/services/pizzas.service';
+import { ToppingsService } from 'src/app/services/toppings.service';
 
 @Component({
   selector: 'product-item',

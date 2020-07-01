@@ -4,13 +4,11 @@
         New Pizza
       </a>
     </div>
-    <div class="products__list">
-      <div>
-        No pizzas, add one to get started.
-      </div>
-      <pizza-item></pizza-item>
-      <pizza-item></pizza-item>
-      <pizza-item></pizza-item>
-      <pizza-item></pizza-item>
+    <div *ngIf="!pizzas" class="products__list">
+      No pizzas, add one to get started.
     </div>
+    <div *ngIf="pizzas" class="products__list">
+      <pizza-item *ngFor="let pizza of pizzas" [pizza]="pizza"></pizza-item>
+    </div>
+
   </div> 

@@ -15,7 +15,7 @@ export class PizzasService {
   constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<Pizza[]> {
-    return of(null);
+    return this.http.get<Pizza[]>('http://localhost:3000/pizzas');
   }
 
   getPizzasById(id: number): Observable<Pizza> {
