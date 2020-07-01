@@ -36,4 +36,8 @@ export class PizzaFormComponent implements OnInit {
 
     ngOnInit() {
     }
+
+    updateToppings(toppingsUp: string[]): void {
+        this.pizza.toppings = toppingsUp;
+    }
 }

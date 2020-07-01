@@ -2,7 +2,7 @@
     <div class="pizza-form">
       <form >
         <label>
-          <h4>Pizza name</h4>
+          <h4>{{ pizza.name }}</h4>
           <input
             type="text"
             placeholder="e.g. Pepperoni"
@@ -14,18 +14,23 @@
           </div>
         </label>
 
-        <pizza-display></pizza-display>
+        <pizza-display
+        [pizza]="pizza">
+        </pizza-display>
 
         <label>
           <h4>Select toppings</h4>
         </label>
         <div class="pizza-form__list">
-          <pizza-toppings>
+          <pizza-toppings
+          [toppings]="toppings"
+          [selectedToppings]="pizza.toppings"
+          (toppingsChange)="updateToppings($event)">
           </pizza-toppings>
         </div>
 
         <div class="pizza-form__actions">
-          <button
+          <button *ngIf="pizza.id === 0"
             id="create_button"
             type="button"
             class="btn btn__ok"
@@ -34,22 +39,22 @@
             Create Pizza
           </button>
 
-            <button
-              id="update_button"
-              type="button"
-              class="btn btn__ok"
-              >
-            <!-- visible que dans le cas d'une pizzas existante -->
-              Save changes
-            </button>
+          <button *ngIf="pizza.id !== 0"
+            id="update_button"
+            type="button"
+            class="btn btn__ok"
+            >
+          <!-- visible que dans le cas d'une pizzas existante -->
+            Save changes
+          </button>
 
-            <button
-              type="button"
-              class="btn btn__warning"
-              >
-            <!-- visible que dans le cas d'une pizzas existante -->
-              Delete Pizza
-            </button>
+          <button *ngIf="pizza.id !== 0"
+            type="button"
+            class="btn btn__warning"
+            >
+          <!-- visible que dans le cas d'une pizzas existante -->
+            Delete Pizza
+          </button>
         </div>
       </form>
     </div>

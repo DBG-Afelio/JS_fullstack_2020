@@ -10,7 +10,7 @@ export class PizzaToppingsComponent {
 
     @Output() toppingsChange: EventEmitter<string[]>= new EventEmitter(); //emeteur quand on change les toppings sélectionnés 
 
-    @Input() value: string[] = []; // toppings sélectionnés
+    @Input() selectedToppings: string[] = []; // toppings sélectionnés
 
     constructor() { }
 
@@ -18,7 +18,8 @@ export class PizzaToppingsComponent {
         
     }
 
-    existsInToppings(topping: string) {
-        return this.value && this.value.includes(topping);
+    existsInToppings(topping: string):boolean {
+        return this.selectedToppings && this.selectedToppings.includes(topping);
     }
+
 }
