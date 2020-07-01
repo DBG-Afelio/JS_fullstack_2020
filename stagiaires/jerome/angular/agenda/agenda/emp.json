@@ -1,0 +1,304 @@
+{
+  "employees": [
+    {
+      "id": 0,
+      "prenom": "Kole",
+      "nom": "Herzog",
+      "manager": true
+    },
+    {
+      "id": 1,
+      "prenom": "Juliana",
+      "nom": "Schmidt",
+      "manager": false
+    },
+    {
+      "id": 2,
+      "prenom": "Mackenzie",
+      "nom": "Raynor",
+      "manager": false
+    },
+    {
+      "id": 3,
+      "prenom": "Gino",
+      "nom": "Bergstrom",
+      "manager": true
+    },
+    {
+      "id": 4,
+      "prenom": "Lina",
+      "nom": "Kihn",
+      "manager": false
+    },
+    {
+      "id": 5,
+      "prenom": "Toni",
+      "nom": "Gaylord",
+      "manager": false
+    },
+    {
+      "id": 6,
+      "prenom": "Merritt",
+      "nom": "Terry",
+      "manager": false
+    },
+    {
+      "id": 7,
+      "prenom": "Bertha",
+      "nom": "Gottlieb",
+      "manager": false
+    },
+    {
+      "id": 8,
+      "prenom": "Isaiah",
+      "nom": "Gerhold",
+      "manager": false
+    },
+    {
+      "id": 9,
+      "prenom": "Mario",
+      "nom": "Sanford",
+      "manager": false
+    },
+    {
+      "id": 10,
+      "prenom": "Nelle",
+      "nom": "Barrows",
+      "manager": false
+    },
+    {
+      "id": 11,
+      "prenom": "Friedrich",
+      "nom": "Turner",
+      "manager": true
+    },
+    {
+      "id": 12,
+      "prenom": "Jeanne",
+      "nom": "Marquardt",
+      "manager": false
+    },
+    {
+      "id": 13,
+      "prenom": "Godfrey",
+      "nom": "Raynor",
+      "manager": true
+    },
+    {
+      "id": 14,
+      "prenom": "Marina",
+      "nom": "Kuhlman",
+      "manager": false
+    },
+    {
+      "id": 15,
+      "prenom": "Brett",
+      "nom": "Schowalter",
+      "manager": false
+    },
+    {
+      "id": 16,
+      "prenom": "Humberto",
+      "nom": "Wisozk",
+      "manager": false
+    },
+    {
+      "id": 17,
+      "prenom": "Eldora",
+      "nom": "Lehner",
+      "manager": false
+    },
+    {
+      "id": 18,
+      "prenom": "Isaiah",
+      "nom": "Bode",
+      "manager": false
+    },
+    {
+      "id": 19,
+      "prenom": "Zena",
+      "nom": "Cummings",
+      "manager": true
+    },
+    {
+      "id": 20,
+      "prenom": "Katrine",
+      "nom": "Runolfsson",
+      "manager": false
+    },
+    {
+      "id": 21,
+      "prenom": "Russell",
+      "nom": "Heller",
+      "manager": false
+    },
+    {
+      "id": 22,
+      "prenom": "Kurt",
+      "nom": "Hamill",
+      "manager": false
+    },
+    {
+      "id": 23,
+      "prenom": "Clark",
+      "nom": "Feest",
+      "manager": false
+    },
+    {
+      "id": 24,
+      "prenom": "Bridget",
+      "nom": "Purdy",
+      "manager": false
+    },
+    {
+      "id": 25,
+      "prenom": "Noemie",
+      "nom": "Schimmel",
+      "manager": false
+    },
+    {
+      "id": 26,
+      "prenom": "Jasper",
+      "nom": "Zieme",
+      "manager": false
+    },
+    {
+      "id": 27,
+      "prenom": "Kory",
+      "nom": "Batz",
+      "manager": false
+    },
+    {
+      "id": 28,
+      "prenom": "Kayden",
+      "nom": "Lockman",
+      "manager": false
+    },
+    {
+      "id": 29,
+      "prenom": "Rebeka",
+      "nom": "Tremblay",
+      "manager": true
+    },
+    {
+      "id": 30,
+      "prenom": "Daren",
+      "nom": "Lockman",
+      "manager": false
+    },
+    {
+      "id": 31,
+      "prenom": "Camille",
+      "nom": "Hamill",
+      "manager": false
+    },
+    {
+      "id": 32,
+      "prenom": "Kelli",
+      "nom": "Hahn",
+      "manager": true
+    },
+    {
+      "id": 33,
+      "prenom": "Ena",
+      "nom": "Dach",
+      "manager": false
+    },
+    {
+      "id": 34,
+      "prenom": "Horacio",
+      "nom": "Jerde",
+      "manager": true
+    },
+    {
+      "id": 35,
+      "prenom": "Cathrine",
+      "nom": "Hodkiewicz",
+      "manager": false
+    },
+    {
+      "id": 36,
+      "prenom": "Rosanna",
+      "nom": "Ernser",
+      "manager": false
+    },
+    {
+      "id": 37,
+      "prenom": "Naomi",
+      "nom": "Mayer",
+      "manager": false
+    },
+    {
+      "id": 38,
+      "prenom": "Roel",
+      "nom": "Langworth",
+      "manager": false
+    },
+    {
+      "id": 39,
+      "prenom": "Nash",
+      "nom": "Buckridge",
+      "manager": false
+    },
+    {
+      "id": 40,
+      "prenom": "Tierra",
+      "nom": "Gutmann",
+      "manager": false
+    },
+    {
+      "id": 41,
+      "prenom": "Craig",
+      "nom": "Brakus",
+      "manager": true
+    },
+    {
+      "id": 42,
+      "prenom": "Vicky",
+      "nom": "McGlynn",
+      "manager": true
+    },
+    {
+      "id": 43,
+      "prenom": "Darrin",
+      "nom": "Bailey",
+      "manager": false
+    },
+    {
+      "id": 44,
+      "prenom": "Hulda",
+      "nom": "Kuhn",
+      "manager": false
+    },
+    {
+      "id": 45,
+      "prenom": "Moses",
+      "nom": "Bergstrom",
+      "manager": false
+    },
+    {
+      "id": 46,
+      "prenom": "Vernie",
+      "nom": "Lakin",
+      "manager": false
+    },
+    {
+      "id": 47,
+      "prenom": "Edgardo",
+      "nom": "Rau",
+      "manager": false
+    },
+    {
+      "id": 48,
+      "prenom": "Jaylin",
+      "nom": "Zieme",
+      "manager": false
+    },
+    {
+      "id": 49,
+      "prenom": "Christ",
+      "nom": "Rowe",
+      "manager": false
+    }
+  ]
+}

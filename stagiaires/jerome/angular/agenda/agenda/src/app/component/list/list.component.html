@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let employe of tabEmploye">
+        <p>{{employe.prenom}}</p>
+        <p>{{employe.nom}}</p>
+        <a [routerLink]="['/detail',employe.id]">Detail</a>
+    </li>
+</ul>
