@@ -1,0 +1,15 @@
+<div class="item" >
+    <img src="assets/img/{{ command.getArticle().getImage().toute_petite }}" alt="{{ command.getArticle().getTitle() }}">
+    <div class="title">
+        <a routerLink="/magasin/{{ command.getArticle().getId() }}">
+            {{ command.getArticle().getTitle() }}
+        </a>
+    </div>
+    <input type="Number" class="qte" value="{{ command.getQuantity() }}"
+        (change)="changeQtEvent($event.target.valueAsNumber);">
+  
+    <div> x </div>
+    <div class="price">{{ command.getPrice().toFixed(2) }} €</div>
+    <div> = </div>
+    <output class="subTotal">{{ (command.getPrice() * command.getQuantity()).toFixed(2) }} €</output>
+</div>

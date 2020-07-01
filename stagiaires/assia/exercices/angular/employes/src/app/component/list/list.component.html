@@ -1,0 +1,6 @@
+<a routerLink="/managers">Afficher uniquement les Managers</a>
+<ul>
+    <li *ngFor="let emp of listEmployes">
+        <a [routerLink]="['/', 'detail', emp.id]"> {{ emp.nom }} </a>
+    </li> 
+</ul>
