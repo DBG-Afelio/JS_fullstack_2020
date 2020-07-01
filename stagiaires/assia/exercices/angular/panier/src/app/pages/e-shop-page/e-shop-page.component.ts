@@ -26,7 +26,7 @@ export class EShopPageComponent implements OnInit {
   }
   updateArticleQtte(qt: number): void {
    // this.panier.updatePanier(this.articleSelected, qt);
-    this panierService.getPanier().updatePanier(this.articleSelected, qt);
+    this.panierService.getPanier().updatePanier(this.articleSelected, qt);
   }
 
 }
