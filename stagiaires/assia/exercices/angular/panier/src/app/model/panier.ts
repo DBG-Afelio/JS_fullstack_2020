@@ -6,6 +6,9 @@ export class Panier {
     constructor() {
         this.listeCommandes = [];
     }
+    setList(list: ArticleCommande[]): void {
+        this.listeCommandes = list;
+    }
     getList(): null | ArticleCommande[]{
         return this.listeCommandes;
     }

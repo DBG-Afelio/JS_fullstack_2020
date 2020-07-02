@@ -10,6 +10,7 @@ import { ListeArticlesComponent } from './components/liste-articles/liste-articl
 import { DetailsArticleComponent } from './components/details-article/details-article.component';
 import { ListeArticlesCommandesComponent } from './components/liste-articles-commandes/liste-articles-commandes.component';
 import { QuantiteComponent } from './components/quantite/quantite.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { QuantiteComponent } from './components/quantite/quantite.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

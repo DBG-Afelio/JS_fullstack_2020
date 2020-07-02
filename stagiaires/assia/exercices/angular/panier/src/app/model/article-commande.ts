@@ -4,6 +4,7 @@ export class ArticleCommande {
     private article: Article;
     private quantite: number;
     private prix: number;
+    public panierId?: number;
 
     getArticle(): Article{
         return this.article;

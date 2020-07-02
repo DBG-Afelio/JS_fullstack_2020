@@ -12,12 +12,14 @@ export class PanierPageComponent implements OnInit {
 
   panier: Panier;
   constructor(private panierService: PanierService) { 
-    this.panier = panierService.getPanier();
+    this.panierService.getListCommande().subscribe((listeRecue) => {
+      this.panier.setList(listeRecue);
+    });
    }
 
   ngOnInit(): void {
   }
   updateArticleQtte(qt:number, artCom:ArticleCommande): void{
-    this.panierService.getPanier().updatePanier(artCom.getArticle(), qt);
+//    this.panierService.getPanier().updatePanier(artCom.getArticle(), qt);
   }
 }

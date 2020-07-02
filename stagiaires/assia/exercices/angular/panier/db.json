@@ -1,5 +1,5 @@
 {
-    "artice": [
+    "articles": [
         {
             "titre": "Bulles",
             "auteur": "E. Lassaux",
@@ -140,5 +140,6 @@
             },
             "id": 10
         }
-    ]
+    ],
+    "panier": []
 }
