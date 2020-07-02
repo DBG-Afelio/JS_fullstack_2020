@@ -1,0 +1,9 @@
+<div class="pizza-toppings">
+  <div *ngFor="let topping of toppings;let i=index"
+    class="pizza-toppings-item"
+    (click) = "selectTopping(topping)" 
+    [class.active]="existsInToppings(topping)">
+    <img src="/assets/img/toppings/singles/{{ topping }}.svg">
+      {{ topping }}
+  </div>
+</div>

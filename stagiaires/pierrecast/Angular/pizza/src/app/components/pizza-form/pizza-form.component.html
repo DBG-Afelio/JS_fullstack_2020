@@ -1,0 +1,82 @@
+
+    <div *ngIf="pizza" class="pizza-form">
+      <form >
+        <label *ngIf = "pizza.id !== 0">
+          <h4>{{ pizza.name }}</h4>
+        </label>
+
+        <label *ngIf = "pizza.id === 0">
+          <input
+            (change) = "changeName($event.target.value)"
+            type="text"
+            placeholder="e.g. Pepperoni"
+            class="pizza-form__input"
+            [class.error]="pizza.name === ''">
+          <div *ngIf = "pizza.name === ''"
+            class="pizza-form__error">
+            <p>Pizza must have a name</p>
+          </div>
+        </label>
+
+        <div class="pizza-favorite">
+          
+          <button  
+          (click) = "updateFavorite()"
+          id="favorite"
+          type="button"
+          class="btn btn__ok button-favorite"
+          >
+          Favorite
+        </button>
+        </div>
+
+        <pizza-display 
+          [pizza] = "pizza"
+        ></pizza-display>
+
+        <label>
+          <h4>Select toppings</h4>
+        </label>
+        <div class="pizza-form__list">
+          <pizza-toppings
+            [value] = "pizza.toppings"
+            [toppings] = "toppings"
+            (toppingsChange) = "updateToppingsEvent($event)"
+          >
+          </pizza-toppings>
+        </div>
+
+        <div class="pizza-form__actions">
+          <button  *ngIf = "pizza.id === 0"
+            (click) = "createPizza()"
+            [disabled] = "pizza.name === ''"
+            id="create_button"
+            type="button"
+            class="btn btn__ok"
+            >
+            <!-- visible que dans le cas d'une nouvelle pizza -->
+            Create Pizza
+          </button>
+
+            <button  *ngIf = "pizza.id !== 0"
+              (click) = "saveChanges()"
+              id="update_button"
+              type="button"
+              class="btn btn__ok"
+              >
+            <!-- visible que dans le cas d'une pizza existante -->
+              Save changes
+            </button>
+
+            <button  *ngIf = "pizza.id !== 0"
+              (click) = "deletePizza()"
+              type="button"
+              class="btn btn__warning"
+              >
+            <!-- visible que dans le cas d'une pizza existante -->
+              Delete Pizza
+            </button>
+        </div>
+      </form>
+    </div>
+  
