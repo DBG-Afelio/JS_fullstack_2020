@@ -18,6 +18,18 @@
           </div>
         </label>
 
+        <div class="pizza-favorite">
+          
+          <button  
+          (click) = "updateFavorite()"
+          id="favorite"
+          type="button"
+          class="btn btn__ok button-favorite"
+          >
+          Favorite
+        </button>
+        </div>
+
         <pizza-display 
           [pizza] = "pizza"
         ></pizza-display>

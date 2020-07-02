@@ -1,10 +1,9 @@
-<div class="pizza-item" >
+<div class="pizza-item" 
+  [class.favorite] = "pizza.favorite">
   <a routerLink = "/products/{{ pizza.id }}">
     <pizza-display 
-
       [pizza] = "pizza"
-      >
-    </pizza-display>
+    ></pizza-display>
     <h4>{{ pizza.name }}</h4>
     <button type="button" class="btn btn__ok">
       View Pizza

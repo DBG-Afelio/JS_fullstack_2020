@@ -1,4 +1,6 @@
 <div class="pizza-display">
+  <img *ngIf= "pizza.favorite" class="star"
+        src='assets/img/favorite-icon.png' alt='favorite'>
   <div class="pizza-display__base">
     <img src="/assets/img/pizza.svg">
     
@@ -7,6 +9,5 @@
       [style.zIndex]="i"
       class="pizza-display__topping active"
       @drop>
-    
   </div>
 </div>

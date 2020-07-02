@@ -34,9 +34,7 @@ export class PizzaFormComponent implements OnInit {
     public createPizza() {
         if (this.pizza.name !== '') {
             this.create.emit(this.pizza);
-        } else {
-            // afficher l'erreur du form
-        }  
+        } 
     }
 
     public saveChanges() {
@@ -51,6 +49,10 @@ export class PizzaFormComponent implements OnInit {
 
     public changeName(name: string) {
         this.pizza.name = name;
+    }
+
+    public updateFavorite() {
+        this.pizza.favorite = (this.pizza.favorite) ? false : true;
     }
 
     ngOnInit() {

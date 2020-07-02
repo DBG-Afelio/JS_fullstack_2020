@@ -58,4 +58,12 @@
   &__list {
     margin: -20px 0 0;
   }
+
+  .pizza-favorite{
+    text-align: right;
+    
+    .button-favorite{
+      margin-bottom: 20px;
+    }
+  }
 }
