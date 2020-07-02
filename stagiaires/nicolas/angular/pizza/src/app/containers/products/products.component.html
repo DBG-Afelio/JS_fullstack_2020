@@ -1,3 +1,4 @@
+
 <div class="products" >
     <div class="products__new">
       <a class="btn btn__ok" href="./new">
@@ -6,7 +7,7 @@
     </div>
     <div class="products__list">
 
-      <div *ngIf='pizzas.length === 0'>
+      <div *ngIf='pizzas?.length === 0'>
         No pizzas, add one to get started.
       </div>
       
@@ -14,3 +15,4 @@
       
     </div>
 </div> 
+

@@ -27,35 +27,17 @@
         </div>
 
         <div class="pizza-form__actions">
-          <button
-            (click)='onClickCreateButton()'
-            id="create_button"
-            type="button"
-            class="btn btn__ok"
-            *ngIf='isNewPizza()'
-            >
-            <!-- visible que dans le cas d'une nouvelle pizzas -->
-            Create Pizza
-          </button>
-
-            <button
-            (click)='onClickUpdateButton()'
-              id="update_button"
-              type="button"
-              class="btn btn__ok"
-              *ngIf='isNewPizza() === false'
-              >
-            <!-- visible que dans le cas d'une pizzas existante -->
-              Save changes
-            </button>
+          <app-pizza-resume-pop-up *ngIf='isNewPizza()' [mode]='mode' [pizza]='pizza' (save)='onClickCreateButton()'></app-pizza-resume-pop-up>
+          <app-pizza-resume-pop-up *ngIf='isNewPizza() === false' [mode]='mode' [pizza]='pizza' (save)='onClickUpdateButton()'></app-pizza-resume-pop-up>
             <button
             (click)='onClickReturnButton()'
               type="button"
               class="btn btn__return"
               >
            
-              Retour
+              Back
             </button>
+
               <!-- visible que dans le cas d'une pizzas existante -->
             <button
             (click)='onClickDeleteButton()'

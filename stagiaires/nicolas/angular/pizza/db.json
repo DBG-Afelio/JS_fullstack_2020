@@ -43,12 +43,12 @@
       "id": 3
     },
     {
-      "name": "pizza toute viande (et un peu de tomate)",
+      "name": "pizza full viande (+ 2-3 feuilles)",
       "toppings": [
         "pepperoni",
+        "basil",
         "bacon",
-        "anchovy",
-        "tomato"
+        "anchovy"
       ],
       "id": 4
     },
@@ -60,11 +60,11 @@
     {
       "name": "Pizza qui pue",
       "toppings": [
-        "anchovy",
         "onion",
         "pepperoni",
         "mushroom",
-        "olive"
+        "olive",
+        "anchovy"
       ],
       "id": 6
     },
@@ -76,11 +76,10 @@
       "id": 7
     },
     {
-      "name": "Pizza puriste",
+      "name": "Pizza des puristes",
       "toppings": [
         "tomato",
         "mozzarella",
-        "basil",
         "olive"
       ],
       "id": 8

@@ -13,7 +13,7 @@ export class PizzaItemComponent {
 
     deletePizza(){
 
-        let confirmDelete = confirm("Etes-vous sur de vouloir supprimer la pizza ???");
+        let confirmDelete = confirm(`Voulez-vous supprimer cette pizza ? :\n\n\t<< ${this.pizza.name} >>`);
         if(confirmDelete){
 
             this.remove.emit(this.pizza);

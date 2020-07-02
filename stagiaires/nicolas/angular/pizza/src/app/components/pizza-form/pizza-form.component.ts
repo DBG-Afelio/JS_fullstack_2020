@@ -8,7 +8,7 @@ import {
 
 
 import { Pizza } from '../../models/pizza.model';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'pizza-form',
@@ -48,12 +48,8 @@ export class PizzaFormComponent implements OnInit {
     onClickCreateButton():void{
 
         if(this.pizza.name != ''){
-            let confirmCreate = confirm(`Créer la pizza "${this.pizza.name}" ?`);
-            if(confirmCreate){
 
                 this.create.emit(this.pizza);
-
-            }
             
         }else{
 
@@ -64,12 +60,9 @@ export class PizzaFormComponent implements OnInit {
     onClickUpdateButton():void{
 
         if(this.pizza.name != ''){
-            let confirmCreate = confirm(`appliquer les changements et retourner au choix des pizzas ?`);
-            if(confirmCreate){
+            
 
                 this.update.emit(this.pizza);
-
-            }
             
         }else{
 
@@ -81,7 +74,7 @@ export class PizzaFormComponent implements OnInit {
     }
     onClickDeleteButton():void{
 
-        let confirmDelete = confirm("Etes-vous sur de vouloir supprimer la pizza ???");
+        let confirmDelete = confirm(`Voulez-vous supprimer cette pizza ? :\n\n\t<< ${this.pizza.name} >>`);
         if(confirmDelete){
 
             this.remove.emit(this.pizza);
@@ -90,7 +83,13 @@ export class PizzaFormComponent implements OnInit {
     }
     onClickReturnButton(){
 
-        this.router.navigate(['']);
+        let confirmReturn = confirm("Quitter sans sauvegarder ?");
+        if(confirmReturn){
+
+            this.router.navigate(['']);
+
+        }
+        
 
     }
     updatePizzaName(newName:string){

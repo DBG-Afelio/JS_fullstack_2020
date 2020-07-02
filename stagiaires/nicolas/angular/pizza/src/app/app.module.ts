@@ -13,12 +13,21 @@ import { PizzaToppingsComponent } from './components/pizza-toppings/pizza-toppin
 import { HttpClientModule } from '@angular/common/http';
 
 
+import { ModalModule } from 'ngx-bootstrap/modal';  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PizzaResumePopUpComponent } from './components/pizza-form/pizza-resume-pop-up/pizza-resume-pop-up.component'
+
+
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   declarations: [
     AppComponent,
@@ -27,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     PizzaDisplayComponent,
     PizzaFormComponent,
     PizzaItemComponent,
-    PizzaToppingsComponent
+    PizzaToppingsComponent,
+    PizzaResumePopUpComponent,
+
   ],
   bootstrap: [AppComponent],
 })

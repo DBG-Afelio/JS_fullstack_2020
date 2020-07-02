@@ -1,0 +1,47 @@
+<div style="width: fit-content;margin: auto;margin-left: 10px;">  
+
+  <button type="button" class="btn btn__ok" (click)="openModalWithClass(template)">{{mode == 'create' ? 'create' : 'save'}} pizza</button>  
+
+</div>
+
+<ng-template #template>  
+
+  <div class="modal-header">  
+    <h1>Save this pizza ?</h1>
+
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">  
+
+      <span aria-hidden="true">×</span>
+
+    </button>
+
+  </div> 
+  <div style='border-bottom: 1px solid #dee2e6;'>
+    <h4 style="text-align: center;"><<{{pizza.name}}>></h4>
+  </div>
+  <pizza-display [pizza]='pizza'></pizza-display>
+  <div class="modal-body">  
+
+    <h3>My toppings</h3>  
+
+    <div class="pizza-toppings">
+
+        <div
+          *ngFor='let topping of pizza.toppings'
+          class="pizza-toppings-item">      
+          <img src="/assets/img/toppings/singles/{{topping}}.svg">
+          {{topping}}
+        </div>
+
+    </div>
+
+  </div>  
+
+  <div class="modal-footer">  
+
+    <button type="button" class="btn btn__ok" (click)="onClickSave()">Yes, save-it</button>
+    <button type="button" class="btn btn__warning" (click)="modalRef.hide()">No, cancel</button> 
+
+  </div>  
+
+</ng-template>
