@@ -2,9 +2,9 @@
   <div class="pizza-display__base">
     <img src="/assets/img/pizza.svg">
     
-    <img *ngFor="let topping of pizza.toppings"
+    <img *ngFor="let topping of pizza.toppings; let i=index"
       src="/assets/img/toppings/{{ topping }}.svg" 
-      [style.zIndex]="0"
+      [style.zIndex]="i"
       class="pizza-display__topping active"
       @drop>
     

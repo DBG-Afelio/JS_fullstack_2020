@@ -48,6 +48,11 @@
       &:last-child {
         margin-left: auto;
       }
+
+      &:disabled {
+        opacity:.2;
+        cursor: default;
+      }
     }
   }
   &__list {

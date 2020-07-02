@@ -9,18 +9,17 @@ export class PizzaToppingsComponent {
     @Input() toppings: string[] = []; //tous les toppings existants
     @Input() value: string[] = []; // toppings sélectionnés
 
-    @Output() toppingsChange: EventEmitter<string[]>= new EventEmitter(); //emeteur quand on change les toppings sélectionnés 
+    @Output() toppingsChange: EventEmitter<string[]>= new EventEmitter(); //emetteur quand on change les toppings sélectionnés 
 
     constructor() { }
 
     public selectTopping(topping: string) {
         if (this.existsInToppings(topping)) {
-            //  retirer  this.value.push
+            this.value = this.value.filter(item => item !== topping);
         } else {
             this.value.push(topping);
         }
-    
-        this.toppingsChange.emit(this.value)
+        this.toppingsChange.emit(this.value);
     }
 
     public existsInToppings(topping: string) :boolean {
