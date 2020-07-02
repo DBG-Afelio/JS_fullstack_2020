@@ -1,19 +1,8 @@
 <div class="pizza-toppings">
-      <div
-        class="pizza-toppings-item"
-        [class.active]="true">
-        <img src="/assets/img/toppings/singles/pepperoni.svg">
-         pepperoni
+      <div *ngFor="let topping of toppings" class="pizza-toppings-item"
+        [class.active]="existsInToppings(topping)"
+        (click)="selectTopping(topping)">
+        <img src="/assets/img/toppings/singles/{{topping}}.svg">
+        {{topping}}
       </div>
-      <div
-        class="pizza-toppings-item active">
-        <img src="/assets/img/toppings/singles/tomato.svg">
-         tomato
-      </div>
-      <div
-        class="pizza-toppings-item"
-        [class.active]="false">
-        <img src="/assets/img/toppings/singles/sweetcorn.svg">
-         sweetcorn
-      </div>
-    </div>
+</div>

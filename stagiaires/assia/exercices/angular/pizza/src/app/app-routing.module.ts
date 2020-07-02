@@ -5,18 +5,11 @@ import { ProductItemComponent } from './containers/product-item/product-item.com
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ProductsComponent,
-  },
-  {
-    path: 'products/:id',
-    component: ProductItemComponent,
-  },
-  {
-    path: 'new',
-    component: ProductItemComponent,
-  }
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductItemComponent },
+  { path: 'new', component: ProductItemComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' }
+
 ];
 
 @NgModule({

@@ -35,7 +35,6 @@
         "mushroom",
         "anchovy",
         "pepper",
-        "olive",
         "onion",
         "sweetcorn",
         "tomato"
@@ -53,17 +52,50 @@
       "id": 8
     },
     {
-      "name": "My Favorite",
+      "id": 10,
+      "name": "Gourmande",
       "toppings": [
-        "anchovy",
+        "olive",
+        "sweetcorn",
+        "tomato",
+        "pepper",
+        "pepperoni",
+        "mushroom",
         "bacon",
-        "sweetcorn"
-      ],
-      "sizes": [],
-      "id": 9
+        "anchovy",
+        "mozzarella",
+        "onion",
+        "basil",
+        "chili"
+      ]
     },
     {
-      "id": 10
+      "id": 11,
+      "name": "Nicoise",
+      "toppings": [
+        "pepper",
+        "tomato",
+        "mozzarella",
+        "anchovy",
+        "onion",
+        "basil",
+        "mushroom",
+        "olive"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "TEX-MEX",
+      "toppings": [
+        "pepperoni",
+        "pepper",
+        "mushroom",
+        "olive",
+        "tomato",
+        "onion",
+        "chili",
+        "sweetcorn"
+      ]
     }
   ]
 }

@@ -1,17 +1,21 @@
 
-    <div class="pizza-form">
+    <div *ngIf="pizza" class="pizza-form">
       <form >
-        <label>
-          <h4>{{ pizza.name }}</h4>
+        <label *ngIf="pizza.name === ''">
+          <h4>Donner un nom a ma pizza</h4>
           <input
             type="text"
             placeholder="e.g. Pepperoni"
             class="pizza-form__input"
-            [class.error]="true">
+            [class.error]="true"
+            (change)="addName($event.target.value)">
           <div
             class="pizza-form__error">
             <p>Pizza must have a name</p>
           </div>
+        </label>
+        <label *ngIf="pizza.name">
+          <h4>{{ pizza.name }}</h4>
         </label>
 
         <pizza-display
@@ -25,16 +29,18 @@
           <pizza-toppings
           [toppings]="toppings"
           [selectedToppings]="pizza.toppings"
-          (toppingsChange)="updateToppings($event)">
+          (toppingsChangeEvent)="updateToppings($event)">
           </pizza-toppings>
         </div>
 
         <div class="pizza-form__actions">
           <button *ngIf="pizza.id === 0"
+            [disabled]="pizza.name.length === 0"
             id="create_button"
             type="button"
             class="btn btn__ok"
-            >
+            (click)="createPizza($event)">
+            <!-- routerLink='/products' -->
             <!-- visible que dans le cas d'une nouvelle pizzas -->
             Create Pizza
           </button>
@@ -43,15 +49,18 @@
             id="update_button"
             type="button"
             class="btn btn__ok"
-            >
+            (click)="updatePizza($event)">
+            <!-- routerLink='/products'> -->
           <!-- visible que dans le cas d'une pizzas existante -->
             Save changes
           </button>
 
           <button *ngIf="pizza.id !== 0"
+            id="delete_button"
             type="button"
             class="btn btn__warning"
-            >
+            (click)="removePizza($event)">
+            <!-- routerLink='/products'> -->
           <!-- visible que dans le cas d'une pizzas existante -->
             Delete Pizza
           </button>

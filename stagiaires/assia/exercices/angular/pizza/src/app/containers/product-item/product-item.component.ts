@@ -11,9 +11,9 @@ import { Pizza } from 'src/app/models/pizza.model';
 })
 export class ProductItemComponent implements OnInit {
 
-  public pizzas: Pizza[];
+ // public pizzas: Pizza[];
   public toppings: string[];
-  public pizza: Pizza = {};
+  public pizza: Pizza;
   public pizzaId: number = 0;
 /**
  * CLASSE container gérant à partir de la route les cas 'nouvelle pizza' ou 'modifcation pizza existante'
@@ -22,20 +22,21 @@ export class ProductItemComponent implements OnInit {
 
   constructor(
     private toppingService: ToppingsService,
-    private pizzaService: PizzasService,
+    public pizzaService: PizzasService,
     private routeActive: ActivatedRoute
   ) {
     this.routeActive.paramMap.subscribe((params) => {
       this.pizzaId = Number(params.get('id'));
-      if (this.pizzaId !== NaN) {
+      console.log('pizzaID = ', this.pizzaId);
+      if (this.pizzaId !== 0) {
         this.pizzaService.getPizzasById(this.pizzaId).subscribe((pizzouille: Pizza) => {
           this.pizza = pizzouille;
         })
       } else {
-        this.pizza = {};
-        this.pizza.id = 0;
+        this.pizza = { id: 0 , name: '', toppings: [] };
       }
     })
+   
   }
 
   ngOnInit() {
@@ -43,4 +44,5 @@ export class ProductItemComponent implements OnInit {
       this.toppings = toppings;
     })
   }
+
 }

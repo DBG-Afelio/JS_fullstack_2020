@@ -8,6 +8,7 @@ import {
 
 
 import { Pizza } from '../../models/pizza.model';
+import { ResourceLoader } from '@angular/compiler';
 
 @Component({
     selector: 'pizza-form',
@@ -16,13 +17,13 @@ import { Pizza } from '../../models/pizza.model';
 })
 export class PizzaFormComponent implements OnInit {
 
-    @Input() pizza: Pizza;
+    @Input() pizza: Pizza; 
     @Input() toppings: string[];
 
-    @Output() selected = new EventEmitter<Pizza>();
-    @Output() create = new EventEmitter<Pizza>();
-    @Output() update = new EventEmitter<Pizza>();
-    @Output() remove = new EventEmitter<Pizza>();
+  //  @Output() pizzaChangeEvent = new EventEmitter<Pizza>();
+    @Output() createEvent = new EventEmitter<Pizza>();
+    @Output() updateEvent = new EventEmitter<Pizza>();
+    @Output() removeEvent = new EventEmitter<Pizza>();
 
 /**
  * classe gérant les actions sur le formulaire de création/modification de pizza
@@ -33,11 +34,32 @@ export class PizzaFormComponent implements OnInit {
 
     constructor() { 
     }
-
     ngOnInit() {
+    
     }
 
     updateToppings(toppingsUp: string[]): void {
         this.pizza.toppings = toppingsUp;
+        console.log(this.pizza.name.length);
+    }
+
+    updatePizza(pizza: Pizza): void{
+        this.updateEvent.emit(pizza);
+       
+    }
+    createPizza(pizza: Pizza): void{
+        
+        this.createEvent.emit(pizza);
+    }
+    removePizza(pizza: Pizza): void{
+        const isRemoveConfirmed: boolean = window.confirm(`Etes-vous certain de vouloir supprimer la pizza ${pizza.name}`);
+        if (isRemoveConfirmed) {
+            this.removeEvent.emit(pizza);
+        } 
+    }
+
+    addName(nameadded: string): void{
+        this.pizza.name = nameadded;
+        console.log('name :', this.pizza.name);
     }
 }

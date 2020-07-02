@@ -19,7 +19,7 @@ export class PizzasService {
   }
 
   getPizzasById(id: number): Observable<Pizza> {
-    return this.http.get<Pizza>(`http://localhost:3000/pizzas${id}`);
+    return this.http.get<Pizza>(`http://localhost:3000/pizzas/${id}`);
   }
 
 

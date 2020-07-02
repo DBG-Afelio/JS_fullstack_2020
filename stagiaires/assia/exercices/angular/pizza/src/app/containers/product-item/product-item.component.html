@@ -1,6 +1,9 @@
 <div class="product-item">
       <pizza-form 
-      [pizza]="pizza"
-      [toppings]="toppings">
+        [pizza]="pizza"
+        [toppings]="toppings"
+        (createEvent)="pizzaService.createPizza(pizza).subscribe()"
+        (updateEvent)="pizzaService.updatePizza(pizza).subscribe()"
+        (removeEvent)="pizzaService.removePizza(pizza).subscribe()">
       </pizza-form>
     </div>
