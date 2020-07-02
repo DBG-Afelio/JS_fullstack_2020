@@ -42,15 +42,18 @@
   &__actions {
     margin: 35px 0 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     button {
-      &:last-child {
-        margin-left: auto;
-      }
+      // &:last-child {
+      //   // margin: auto;
+      // }
       &:disabled{
         opacity: .2;
         cursor: default;
+      }
+      &.btn__favorites{
+        background-color: orange;
       }
     }
   }

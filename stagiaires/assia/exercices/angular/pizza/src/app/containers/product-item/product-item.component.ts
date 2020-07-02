@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { PizzasService } from 'src/app/services/pizzas.service';
 import { ToppingsService } from 'src/app/services/toppings.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pizza } from 'src/app/models/pizza.model';
 
 @Component({
@@ -22,8 +22,9 @@ export class ProductItemComponent implements OnInit {
 
   constructor(
     private toppingService: ToppingsService,
-    public pizzaService: PizzasService,
-    private routeActive: ActivatedRoute
+    private pizzaService: PizzasService,
+    private routeActive: ActivatedRoute,
+    private router: Router
   ) {
     this.routeActive.paramMap.subscribe((params) => {
       this.pizzaId = Number(params.get('id'));
@@ -33,7 +34,7 @@ export class ProductItemComponent implements OnInit {
           this.pizza = pizzouille;
         })
       } else {
-        this.pizza = { id: 0 , name: '', toppings: [] };
+        this.pizza = { id: 0 , name: '', toppings: [], favorite: false};
       }
     })
    
@@ -43,6 +44,18 @@ export class ProductItemComponent implements OnInit {
     this.toppingService.getToppings().subscribe((toppings) => {
       this.toppings = toppings;
     })
+  }
+
+  create(pizza: Pizza): void{
+    this.pizzaService.createPizza(pizza).subscribe(() => this.router.navigate(['/']));
+  }
+
+  update(pizza: Pizza): void {
+    this.pizzaService.updatePizza(pizza).subscribe(() => this.router.navigate(['/']));
+  }
+
+  remove(pizza: Pizza): void {
+    this.pizzaService.removePizza(pizza).subscribe(() => this.router.navigate(['/']));
   }
 
 }

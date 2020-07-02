@@ -2,8 +2,8 @@
       <pizza-form 
         [pizza]="pizza"
         [toppings]="toppings"
-        (createEvent)="pizzaService.createPizza(pizza).subscribe()"
-        (updateEvent)="pizzaService.updatePizza(pizza).subscribe()"
-        (removeEvent)="pizzaService.removePizza(pizza).subscribe()">
+        (createEvent)="create($event)"
+        (updateEvent)="update($event)"
+        (removeEvent)="remove($event)">
       </pizza-form>
     </div>

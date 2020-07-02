@@ -26,7 +26,8 @@
         "sweetcorn"
       ],
       "id": 1,
-      "sizes": []
+      "sizes": [],
+      "favorite": true
     },
     {
       "name": "Seaside Surfin'",
@@ -39,17 +40,20 @@
         "sweetcorn",
         "tomato"
       ],
-      "id": 2
+      "id": 2,
+      "favorite": false
     },
     {
       "name": "My Favorite",
       "toppings": [
         "anchovy",
         "bacon",
-        "sweetcorn"
+        "sweetcorn",
+        "mushroom"
       ],
       "sizes": [],
-      "id": 8
+      "id": 8,
+      "favorite": false
     },
     {
       "id": 10,
@@ -67,7 +71,8 @@
         "onion",
         "basil",
         "chili"
-      ]
+      ],
+      "favorite": false
     },
     {
       "id": 11,
@@ -81,7 +86,8 @@
         "basil",
         "mushroom",
         "olive"
-      ]
+      ],
+      "favorite": true
     },
     {
       "id": 12,
@@ -95,7 +101,22 @@
         "onion",
         "chili",
         "sweetcorn"
-      ]
+      ],
+      "favorite": true
+    },
+    {
+      "id": 13,
+      "name": "tarte au citron ",
+      "toppings": [],
+      "favorite": false
+    },
+    {
+      "id": 14,
+      "name": "tarte au citron meringuee",
+      "toppings": [
+        "mozzarella"
+      ],
+      "favorite": true
     }
   ]
 }

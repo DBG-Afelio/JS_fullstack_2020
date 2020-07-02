@@ -1,5 +1,6 @@
 <div class="pizza-display">
   <div class="pizza-display__base">
+    <img class="pizza-display__favStar" *ngIf="pizza.favorite" src="/assets/img/star.png">
     <img src="/assets/img/pizza.svg">
     <img *ngFor="let topping of pizza.toppings ; let i=index"
       src="/assets/img/toppings/{{topping}}.svg"

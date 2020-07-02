@@ -1,0 +1,13 @@
+<div class="products" >
+    <div class="products__new">
+      <a class="btn btn__ok" href="./new">
+        New Pizza
+      </a>
+    </div>
+    <div *ngIf="!favorites" class="products__list">
+      No favorite pizzas.
+    </div>
+    <div *ngIf="favorites" class="products__list">
+      <pizza-item *ngFor="let favz of favorites" [pizza]="favz"></pizza-item>
+    </div>
+  </div> 

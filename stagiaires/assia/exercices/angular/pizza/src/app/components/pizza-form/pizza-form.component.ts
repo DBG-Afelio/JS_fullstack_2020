@@ -8,7 +8,6 @@ import {
 
 
 import { Pizza } from '../../models/pizza.model';
-import { ResourceLoader } from '@angular/compiler';
 
 @Component({
     selector: 'pizza-form',
@@ -35,31 +34,31 @@ export class PizzaFormComponent implements OnInit {
     constructor() { 
     }
     ngOnInit() {
-    
     }
-
     updateToppings(toppingsUp: string[]): void {
         this.pizza.toppings = toppingsUp;
         console.log(this.pizza.name.length);
     }
-
-    updatePizza(pizza: Pizza): void{
-        this.updateEvent.emit(pizza);
+    updatePizza(): void{
+        this.updateEvent.emit(this.pizza);
        
     }
-    createPizza(pizza: Pizza): void{
-        
-        this.createEvent.emit(pizza);
+    createPizza(): void{
+        this.createEvent.emit(this.pizza);
     }
-    removePizza(pizza: Pizza): void{
-        const isRemoveConfirmed: boolean = window.confirm(`Etes-vous certain de vouloir supprimer la pizza ${pizza.name}`);
+    removePizza(): void{
+        const isRemoveConfirmed: boolean = window.confirm(`Etes-vous certain de vouloir supprimer la pizza ${this.pizza.name}`);
         if (isRemoveConfirmed) {
-            this.removeEvent.emit(pizza);
+            this.removeEvent.emit(this.pizza);
         } 
     }
-
     addName(nameadded: string): void{
         this.pizza.name = nameadded;
         console.log('name :', this.pizza.name);
     }
+    updateFavorites(): void{
+        this.pizza.favorite = !this.pizza.favorite  
+        console.log('fav ? : ', this.pizza.favorite);
+    }
+
 }

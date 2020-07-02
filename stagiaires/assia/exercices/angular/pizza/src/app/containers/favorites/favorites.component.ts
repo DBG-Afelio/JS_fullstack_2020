@@ -3,19 +3,17 @@ import { Pizza } from '../../models/pizza.model';
 import { PizzasService } from '../../services/pizzas.service';
 
 @Component({
-  selector: 'products',
-  styleUrls: ['products.component.scss'],
-  templateUrl: './products.component.html'
-
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.scss']
 })
-export class ProductsComponent implements OnInit {
-
-  public pizzas: Pizza[];
+export class FavoritesComponent implements OnInit {
+  public favorites: Pizza[];
   constructor(private pizzaService: PizzasService) {}
 
   ngOnInit() {
     this.pizzaService.getPizzas().subscribe((pizzas) => {
-      this.pizzas = pizzas;
-    })
+      this.favorites = pizzas.filter((pizza) => pizza.favorite === true);
+    });
   }
 }

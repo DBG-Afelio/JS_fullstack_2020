@@ -39,8 +39,7 @@
             id="create_button"
             type="button"
             class="btn btn__ok"
-            (click)="createPizza($event)">
-            <!-- routerLink='/products' -->
+            (click)="createPizza()">
             <!-- visible que dans le cas d'une nouvelle pizzas -->
             Create Pizza
           </button>
@@ -49,21 +48,26 @@
             id="update_button"
             type="button"
             class="btn btn__ok"
-            (click)="updatePizza($event)">
-            <!-- routerLink='/products'> -->
+            (click)="updatePizza()">
           <!-- visible que dans le cas d'une pizzas existante -->
             Save changes
+          </button>
+
+          <button
+            (click)="updateFavorites($event.preventDefault())"
+            class="btn btn__favorites">
+            Favorites
           </button>
 
           <button *ngIf="pizza.id !== 0"
             id="delete_button"
             type="button"
             class="btn btn__warning"
-            (click)="removePizza($event)">
-            <!-- routerLink='/products'> -->
+            (click)="removePizza()">
           <!-- visible que dans le cas d'une pizzas existante -->
             Delete Pizza
           </button>
+        
         </div>
       </form>
     </div>

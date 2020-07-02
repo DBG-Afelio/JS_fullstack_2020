@@ -11,6 +11,7 @@ import { PizzaFormComponent } from './components/pizza-form/pizza-form.component
 import { PizzaItemComponent } from './components/pizza-item/pizza-item.component';
 import { PizzaToppingsComponent } from './components/pizza-toppings/pizza-toppings.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FavoritesComponent } from './containers/favorites/favorites.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     PizzaDisplayComponent,
     PizzaFormComponent,
     PizzaItemComponent,
-    PizzaToppingsComponent
+    PizzaToppingsComponent,
+    FavoritesComponent
   ],
   bootstrap: [AppComponent],
 })
