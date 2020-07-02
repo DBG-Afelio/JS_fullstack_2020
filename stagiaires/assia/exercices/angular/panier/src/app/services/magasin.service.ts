@@ -6,7 +6,7 @@ import { Article } from '../model/Article';
 @Injectable({
   providedIn: 'root'
 })
-export class MagasinServiceService {
+export class MagasinService {
   private magasin: Shop;
   constructor() { 
     this.magasin = new Shop(SOURCE);

@@ -5,7 +5,7 @@ import { ArticleCommande } from '../model/Article-commande';
 @Injectable({
   providedIn: 'root'
 })
-export class PanierServiceService {
+export class PanierService {
   private panier: Panier;
 
   constructor() { 
