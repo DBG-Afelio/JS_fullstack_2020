@@ -79,7 +79,7 @@ export class Basket {
         //console.log('savedStorage', localStorage.getItem('basket'));
     }*/
 
-    public retrieve(shop: Shop) :Basket
+    public retrieve(shop: Shop): Basket
     {
         let basket = new Basket();
         /*let storageJSON = localStorage.getItem('basket');
