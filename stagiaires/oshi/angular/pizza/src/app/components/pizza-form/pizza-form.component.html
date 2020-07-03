@@ -1,0 +1,61 @@
+
+    <div class="pizza-form">
+      <form >
+        <label>
+          <h4 *ngIf="pizza?.name; else defaultTitre">{{pizza.name}}</h4>
+          <ng-template #defaultTitre><h4>Pizza name</h4></ng-template>
+          <input
+            type="text"
+            placeholder="e.g. Pepperoni"
+            class="pizza-form__input"
+            [class.error]="input_error"
+            [value]="pizza?.name"
+            (input)="inputNameEvent($event.target.value)">
+          <div *ngIf="input_error"
+            class="pizza-form__error">
+            <p>Pizza must have a name</p>
+          </div>
+        </label>
+
+        <pizza-display [toppings]="pizza?.toppings"></pizza-display>
+
+        <label>
+          <h4>Select toppings</h4>
+        </label>
+        <div class="pizza-form__list">
+          <pizza-toppings [toppings]="toppings" [selected_toppings]="pizza?.toppings" (toppingsChange)="selectTopping($event)">
+          </pizza-toppings>
+        </div>
+
+        <div class="pizza-form__actions">
+          <button *ngIf="!pizza?.id" (click)="createPizza()"
+            id="create_button"
+            type="button"
+            class="btn btn__ok"
+            [disabled]="input_error"
+            >
+            <!-- visible que dans le cas d'une nouvelle pizzas -->
+            Create Pizza
+          </button>
+
+            <button *ngIf="pizza?.id" (click)="updatePizza()"
+              id="update_button"
+              type="button"
+              class="btn btn__ok"
+              [disabled]="input_error"
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Save changes
+            </button>
+
+            <button *ngIf="pizza?.id" (click)="removePizza()"
+              type="button"
+              class="btn btn__warning"
+              >
+            <!-- visible que dans le cas d'une pizzas existante -->
+              Delete Pizza
+            </button>
+        </div>
+      </form>
+    </div>
+  

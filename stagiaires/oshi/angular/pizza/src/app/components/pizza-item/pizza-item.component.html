@@ -1,0 +1,13 @@
+<div class="pizza-item" >
+  <button *ngIf="user" type="button" class="btn btn__favorite">
+    +
+  </button>
+  <pizza-display [toppings]="pizza.toppings">
+  </pizza-display>
+  <h4>{{pizza.name}}</h4>
+  <a routerLink="/products/{{pizza.id}}">
+    <button type="button" class="btn btn__ok">
+      View Pizza
+    </button>
+  </a>
+</div>

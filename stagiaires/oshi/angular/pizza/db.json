@@ -1,0 +1,60 @@
+{
+  "toppings": [
+    "anchovy",
+    "bacon",
+    "basil",
+    "chili",
+    "mozzarella",
+    "mushroom",
+    "olive",
+    "onion",
+    "pepper",
+    "pepperoni",
+    "sweetcorn",
+    "tomato"
+  ],
+  "pizzas": [
+    {
+      "name": "Forestiere",
+      "toppings": [
+        "tomato",
+        "onion",
+        "olive",
+        "mushroom",
+        "bacon"
+      ],
+      "id": 1
+    },
+    {
+      "name": "Tom",
+      "toppings": [
+        "bacon",
+        "pepperoni",
+        "basil",
+        "tomato"
+      ],
+      "id": 2
+    },
+    {
+      "name": "Oshi",
+      "toppings": [
+        "tomato",
+        "onion",
+        "olive",
+        "mushroom",
+        "mozzarella",
+        "basil",
+        "pepper"
+      ],
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "username": "Oshimia",
+      "favorite_pizzas_id": [],
+      "id": 1,
+      "password": "FC5A0E758EBDABA2FDFA9F5C78E8663F"
+    }
+  ]
+}
