@@ -1,0 +1,5 @@
+<div>Title : {{ article?.name}}</div>
+<div>date: {{ article?.date }}</div>
+
+<input #articleInput type="number">
+<button (click)= "getArticle(articleInput.value)"></button>
