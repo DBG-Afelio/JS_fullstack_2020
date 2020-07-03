@@ -103,6 +103,18 @@
         "basil"
       ],
       "id": 10
+    },
+    {
+      "name": "Une pizza",
+      "toppings": [
+        "mushroom",
+        "onion",
+        "basil",
+        "anchovy",
+        "pepper",
+        "sweetcorn"
+      ],
+      "id": 12
     }
   ]
 }
