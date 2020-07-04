@@ -6,6 +6,10 @@
         [prixTotal]="getTotaleQtte()"
         >
     </app-panier-totaux> -->
+    <app-quantite
+        [qtteIn]="findArticleDansPanier()?.getQtte()"
+        (changedQtteEvent)="updatePanier($event)">
+    </app-quantite>
 
     <app-details-article
         [articleSelected]="articleSelected" >

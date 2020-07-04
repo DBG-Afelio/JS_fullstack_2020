@@ -2,13 +2,13 @@
 <ul *ngIf="currentView === 'E-Shop-View' " class="liste_Eshop">
     <li *ngFor="let article of listeArticles" 
     (click)="onSelect(article)">
-        <img class="image" src="../../../assets/img/{{ article.getImage().petite }}">
-        <div class="titre">{{ article.getTitre() }}</div>
-        <div class="articlePrix">€ {{ article.getPrix() }}</div>
+        <img class="image" src="../../../assets/img/{{ article.image.petite }}">
+        <div class="titre">{{ article.titre }}</div>
+        <div class="articlePrix">€ {{ article.prix }}</div>
     </li>
 </ul>
 
-<ul *ngIf="currentView === 'Recapitulatif-Panier-View' " class="liste_Recap">
+<!-- <ul *ngIf="currentView === 'Recapitulatif-Panier-View' " class="liste_Recap">
     <li *ngFor="let articleCom of listeArticles" 
     (click)="onSelect(articleCom.getArticle())">
         <img class="image" src="../../../assets/img/{{ articleCom.getArticle().getImage().tres_petite }}">
@@ -16,4 +16,4 @@
         <div class="articlePrix">€ {{ articleCom.getArticle().getPrix() }}</div>
         <div class="articlePrixTotal">€ {{ articleCom.getPrixTotal() }}</div>
     </li>
-</ul>
+</ul> -->

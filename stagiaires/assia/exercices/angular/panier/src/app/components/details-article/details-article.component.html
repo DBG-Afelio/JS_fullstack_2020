@@ -1,13 +1,13 @@
 <div *ngIf="articleSelected">
     Mon detail d'article :
     <hr>
-    <div class="titre">{{ articleSelected.getTitre() }}</div>
-    <img class="image" src="../../../assets/img/{{ articleSelected.getImage().moyenne }}">
-    <div class="comments">{{ articleSelected.getComments() }}</div>
+    <div class="titre">{{ articleSelected.titre }}</div>
+    <img class="image" src="../../../assets/img/{{ articleSelected.image.moyenne }}">
+    <div class="comments">{{ articleSelected.commentaire }}</div>
     <div class="auteur-pays">
-        {{ articleSelected.getAuteur() }}, 
-        {{ articleSelected.getPays() }}</div>
-    <div class="prix">€ {{ articleSelected.getPrix() }}</div>  
+        {{ articleSelected.auteur }}, 
+        {{ articleSelected.pays }}
+    </div>
 </div>
 
 <div *ngIf="!articleSelected">

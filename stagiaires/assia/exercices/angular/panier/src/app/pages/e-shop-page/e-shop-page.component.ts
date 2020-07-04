@@ -11,9 +11,9 @@ import { View } from 'src/app/model/view.enum';
   styleUrls: ['./e-shop-page.component.css']
 })
 export class EShopPageComponent implements OnInit {
-  public articlesStock: Article[];
-  public articlesCom: ArticleCommande[];
-  public viewEshop = View.ESHOP ;
+  public articlesStock: Article[]=[];
+  public articlesCom: ArticleCommande[]=[];
+  public viewEshop = View.ESHOP;
   public articleSelected: Article;
 
   constructor(
@@ -28,14 +28,20 @@ export class EShopPageComponent implements OnInit {
     // })
     this.stockService.getArticlesStock().subscribe((stockRecue) => {
       this.articlesStock = stockRecue;
-      console.log('stock recu : ', this.articlesStock);
     })
     this.articleSelected = this.articlesStock[0];
-    console.log('selection : ', this.articleSelected);
   }
   updateSelection(art: Article): void {
     this.articleSelected = art;
   }
+
+  findArticleDansPanier(): ArticleCommande | undefined {
+    return this.articlesCom.find(artCom => artCom?.getArticle() === this.articleSelected);
+  }
+
+  updatePanier(qt: number): void{
+    console.log('qtty : ', qt, ' to save in Panier for article : ', this.articleSelected);
+}
   updateArticle(articleCom: ArticleCommande): void {
 
   }
