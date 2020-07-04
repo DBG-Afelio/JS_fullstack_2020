@@ -7,6 +7,7 @@ import { Article } from 'src/app/model/Article';
 })
 export class DetailsArticleComponent implements OnInit {
   @Input() articleSelected: Article;
+  
 
   constructor() {}
 

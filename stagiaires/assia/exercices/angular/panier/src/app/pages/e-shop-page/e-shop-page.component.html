@@ -6,12 +6,12 @@
         [prixTotal]="getTotaleQtte()"
         >
     </app-panier-totaux> -->
-    <app-quantite
-        [qtteIn]="findArticleDansPanier()?.getQtte()"
+    <app-quantite *ngIf="articleSelected"
+        [qtteIn]="articlePanier?.quantite ? articlePanier?.quantite : 0"
         (changedQtteEvent)="updatePanier($event)">
     </app-quantite>
 
-    <app-details-article
+    <app-details-article 
         [articleSelected]="articleSelected" >
     </app-details-article>
 

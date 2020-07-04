@@ -1,9 +1,9 @@
 import { Article } from './Article';
 
 export class ArticleCommande {
-    private article: Article;
-    private quantite: number;
-    private prix: number;
+    public article: Article;
+    public quantite: number;
+    public prix: number;
     public panierId?: number;
 
     getArticle(): Article{
