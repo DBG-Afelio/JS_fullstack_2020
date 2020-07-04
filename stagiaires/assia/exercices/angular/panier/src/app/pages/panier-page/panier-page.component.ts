@@ -19,7 +19,5 @@ export class PanierPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  updateArticleQtte(qt:number, artCom:ArticleCommande): void{
-//    this.panierService.getPanier().updatePanier(artCom.getArticle(), qt);
-  }
+
 }

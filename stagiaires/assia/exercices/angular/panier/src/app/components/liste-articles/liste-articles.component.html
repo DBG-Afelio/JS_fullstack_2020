@@ -1,9 +1,19 @@
-<p>Ma liste d'articles :</p>
-<ul class="listeArticles">
+
+<ul *ngIf="currentView === 'E-Shop-View' " class="liste_Eshop">
     <li *ngFor="let article of listeArticles" 
     (click)="onSelect(article)">
         <img class="image" src="../../../assets/img/{{ article.getImage().petite }}">
-        <span class="titre">{{ article.getTitre() }}</span>
-        <span class="articlePrix">€ {{ article.getPrix() }}</span>
+        <div class="titre">{{ article.getTitre() }}</div>
+        <div class="articlePrix">€ {{ article.getPrix() }}</div>
+    </li>
+</ul>
+
+<ul *ngIf="currentView === 'Recapitulatif-Panier-View' " class="liste_Recap">
+    <li *ngFor="let articleCom of listeArticles" 
+    (click)="onSelect(articleCom.getArticle())">
+        <img class="image" src="../../../assets/img/{{ articleCom.getArticle().getImage().tres_petite }}">
+        <div class="titre">{{ articleCom.getArticle().getTitre() }}</div>
+        <div class="articlePrix">€ {{ articleCom.getArticle().getPrix() }}</div>
+        <div class="articlePrixTotal">€ {{ articleCom.getPrixTotal() }}</div>
     </li>
 </ul>

@@ -7,6 +7,7 @@ import { EShopPageComponent } from './pages/e-shop-page/e-shop-page.component';
 const routes: Routes = [
   { path: 'panier', component: PanierPageComponent },
   { path: 'eshop', component: EShopPageComponent },
+  { path: 'eshop/:id', component: EShopPageComponent },
   { path: '', redirectTo:'/eshop', pathMatch:'full' }
 ];
 

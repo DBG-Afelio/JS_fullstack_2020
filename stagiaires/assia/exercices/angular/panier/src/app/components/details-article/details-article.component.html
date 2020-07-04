@@ -1,20 +1,16 @@
-<div *ngIf="selection">
+<div *ngIf="articleSelected">
     Mon detail d'article :
     <hr>
-    <span class="titre">{{ selection.getTitre() }}</span>
-<img class="image" src="../../../assets/img/{{ selection.getImage().moyenne }}">
-    <div class="comments">{{ selection.getComments() }}</div>
+    <div class="titre">{{ articleSelected.getTitre() }}</div>
+    <img class="image" src="../../../assets/img/{{ articleSelected.getImage().moyenne }}">
+    <div class="comments">{{ articleSelected.getComments() }}</div>
     <div class="auteur-pays">
-        {{ selection.getAuteur() }}, 
-        {{ selection.getPays() }}</div>
-    <div class="prix">€ {{ selection.getPrix() }}</div>
-    <app-quantite 
-        [qtteIn]="qtteIn"
-        (changedQtteEvent)="relayQtteEvent($event)">
-    </app-quantite>
-
+        {{ articleSelected.getAuteur() }}, 
+        {{ articleSelected.getPays() }}</div>
+    <div class="prix">€ {{ articleSelected.getPrix() }}</div>  
 </div>
-<div *ngIf="!selection">
-    Selectionner un article pour afficher son detail>
+
+<div *ngIf="!articleSelected">
+    Cliquer sur un article pour afficher son detail
 </div>
 

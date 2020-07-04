@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PanierTotauxComponent implements OnInit {
   
-  @Input() totaux : { qtte: number, prix: number } 
+  @Input() qtteTotale: number;
+  @Input() prixTotal: number;
+
 
   constructor() { }
 

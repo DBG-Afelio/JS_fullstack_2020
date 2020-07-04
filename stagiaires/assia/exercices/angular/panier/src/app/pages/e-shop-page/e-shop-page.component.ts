@@ -1,10 +1,9 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PanierService } from 'src/app/services/panier.service';
 import { Article } from 'src/app/model/Article';
-import { MagasinService } from 'src/app/services/magasin.service';
+import { StockService } from 'src/app/services/stock.service';
 import { ArticleCommande } from 'src/app/model/Article-commande';
-import { Panier } from 'src/app/model/Panier';
-import { Shop } from 'src/app/model/Shop';
+import { View } from 'src/app/model/view.enum';
 
 @Component({
   selector: 'app-e-shop-page',
@@ -12,30 +11,51 @@ import { Shop } from 'src/app/model/Shop';
   styleUrls: ['./e-shop-page.component.css']
 })
 export class EShopPageComponent implements OnInit {
-  public panier: Panier;
-  public articlesEnStock: Shop;
+  public articlesStock: Article[];
+  public articlesCom: ArticleCommande[];
+  public viewEshop = View.ESHOP ;
   public articleSelected: Article;
 
   constructor(
     private panierService: PanierService,
-    private stockService: MagasinService) {}
+    private stockService: StockService
+  ) { }
 
   ngOnInit(): void {
-    this.panierService.getListCommande().subscribe((listeRecue) => {
-      this.panier.setList(listeRecue);
-    })
+    // this.panierService.getListCommande().subscribe((listeRecue) => {
+    //   this.articlesCom = listeRecue;
+    //   console.log('panier recu : ', this.articlesCom);
+    // })
     this.stockService.getArticlesStock().subscribe((stockRecue) => {
-      this.articlesEnStock.setList(stockRecue);
+      this.articlesStock = stockRecue;
+      console.log('stock recu : ', this.articlesStock);
     })
+    this.articleSelected = this.articlesStock[0];
+    console.log('selection : ', this.articleSelected);
   }
   updateSelection(art: Article): void {
     this.articleSelected = art;
   }
-  updateArticleQtte(qt: number): void {
-   // this.panier.updatePanier(this.articleSelected, qt);
-  //  this.panierService.getPanier().updatePanier(this.articleSelected, qt);
+  updateArticle(articleCom: ArticleCommande): void {
+
+  }
+  removeArticle(articleCom: ArticleCommande): void {
+
+  }
+  addArticle(articleCom: ArticleCommande): void {
+
   }
 
+  // getTotalPrix(): number{
+  //   let prixRecu: number;
+  //   this.panierService.getPrixTotal().subscribe(prix => prixRecu = prix);
+  //   return prixRecu;
+  // }
+  // getTotaleQtte(): number{
+  //   let qtteRecu: number;
+  //   this.panierService.getQtteTotale().subscribe(qt => qtteRecu = qt);
+  //   return qtteRecu;
+  // }
 
 
 }
