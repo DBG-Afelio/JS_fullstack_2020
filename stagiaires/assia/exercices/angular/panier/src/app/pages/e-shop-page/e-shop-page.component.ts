@@ -17,10 +17,12 @@ export class EShopPageComponent implements OnInit {
 
   public panier: Panier = new Panier();
   public stock: Stock = new Stock([]);
-  public articlesCom: ArticleCommande[]=[];
+  public articlesCom: ArticleCommande[] = [];
   public viewEshop = View.ESHOP;
   public articleSelected: Article = null;
   public commandMatch: ArticleCommande = new ArticleCommande(this.articleSelected, 0);
+  public prix: number = 0;
+  public qtte: number = 0;
 
   constructor(
     private panierService: PanierService,
@@ -29,10 +31,11 @@ export class EShopPageComponent implements OnInit {
     this.stockService.getArticlesStock().subscribe((stockRecue) => {
       this.stock.setList(stockRecue);
       this.articleSelected = this.stock.getList()[0];
-      });
+    });
     this.panierService.getListCommande().subscribe((listeRecue) => {
       this.panier.setList(listeRecue);
       this.updateCommandMatch();
+      //add update totaux
     });
     
   }
@@ -47,7 +50,7 @@ export class EShopPageComponent implements OnInit {
     this.updateCommandMatch();
   }
 
-  updateCommandMatch(): void{
+  updateCommandMatch(): void {
     const found = this.panier.getList().find(artCom => artCom.article.id === this.articleSelected.id);
     if (found !== undefined) {
       this.commandMatch = found;
@@ -55,27 +58,14 @@ export class EShopPageComponent implements OnInit {
       this.commandMatch.article = this.articleSelected;
       this.commandMatch.quantite = 0;
     }
+    
   }
 
   updatePanier(qt: number): void {
     this.panierService.updatePanier(this.commandMatch, qt).subscribe();
+    this.panierService.getPrixTotal().subscribe((prixRecu) => this.prix = prixRecu);
+    this.panierService.getQtteTotale().subscribe((qtRecu) => this.qtte = qtRecu);
   }
 
-    
 }
-
- 
-
-  // getTotalPrix(): number{
-  //   let prixRecu: number;
-  //   this.panierService.getPrixTotal().subscribe(prix => prixRecu = prix);
-  //   return prixRecu;
-  // }
-  // getTotaleQtte(): number{
-  //   let qtteRecu: number;
-  //   this.panierService.getQtteTotale().subscribe(qt => qtteRecu = qt);
-  //   return qtteRecu;
-  // }
-
-
 

@@ -1,11 +1,11 @@
 <p>
     <a routerLink="/panier/">Voir mon Panier</a>
 
-    <!-- <app-panier-totaux
-        [qtteTotale]="getTotalPrix()"
-        [prixTotal]="getTotaleQtte()"
+    <app-panier-totaux
+        [qtteTotale]="qtte"
+        [prixTotal]="prix"
         >
-    </app-panier-totaux> -->
+    </app-panier-totaux>
     <app-quantite *ngIf="articleSelected"
         [qtteIn]="commandMatch.quantite"
         (changedQtteEvent)="updatePanier($event)">
