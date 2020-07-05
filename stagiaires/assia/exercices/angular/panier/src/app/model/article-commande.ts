@@ -6,6 +6,7 @@ export class ArticleCommande {
         public article: Article,
         public quantite: number,
         public panierId?: number,
+        public id?: number,
     ) { }
     
 

@@ -25,53 +25,45 @@ export class EShopPageComponent implements OnInit {
   constructor(
     private panierService: PanierService,
     private stockService: StockService,
-    private router: Router
-  ) {  this.panierService.getListCommande().subscribe((listeRecue) => {
-    this.panier?.setList(listeRecue);
-    console.log("Mon panier :", this.panier.getList());
-  })
-  this.stockService.getArticlesStock().subscribe((stockRecue) => {
-    this.stock?.setList(stockRecue);
-    console.log("Mon stock :", this.stock.getList());
-  })
-
-  this.articleSelected = this.stock.getList()[0];
-    console.log("Mon 1er acrticle a afficher :", this.articleSelected);
+  ) {
+    this.stockService.getArticlesStock().subscribe((stockRecue) => {
+      this.stock.setList(stockRecue);
+      this.articleSelected = this.stock.getList()[0];
+      });
+    this.panierService.getListCommande().subscribe((listeRecue) => {
+      this.panier.setList(listeRecue);
+      this.updateCommandMatch();
+    });
+    
   }
 
   ngOnInit(): void {
-    this.findArticleDansPanier() ? this.commandMatch = this.findArticleDansPanier() : this.commandMatch;
+    this.articleSelected = this.stock.getList()[0];
+    console.log("Mon 1er acrticle a afficher :", this.articleSelected);
+    
   }
   updateSelection(art: Article): void {
     this.articleSelected = art;
-    const reponse = this.findArticleDansPanier(); console.log('reponse : ',reponse);
-    if (reponse !== undefined) {
-      this.commandMatch = reponse;
-      console.log(this.commandMatch);
+    this.updateCommandMatch();
+  }
+
+  updateCommandMatch(): void{
+    const found = this.panier.getList().find(artCom => artCom.article.id === this.articleSelected.id);
+    if (found !== undefined) {
+      this.commandMatch = found;
     } else {
       this.commandMatch.article = this.articleSelected;
       this.commandMatch.quantite = 0;
     }
-    console.log("updateSelect :", this.articleSelected?.titre);
-    console.log("updateMatchPanier :", this.commandMatch?.article?.titre, this.commandMatch?.quantite);
   }
 
-  findArticleDansPanier(): ArticleCommande | undefined {
-    const found = this.panier.getList().find(artCom => artCom?.article?.id === this.articleSelected?.id);
-    return found;
+  updatePanier(qt: number): void {
+    this.panierService.updatePanier(this.commandMatch, qt).subscribe();
   }
 
-  updatePanier(qt: number): void{
-    this.commandMatch.quantite = qt;
-    this.panierService.addArticle(this.commandMatch).subscribe(() => this.router.navigate(['/']));
-    console.log('qtty : ', qt, ' saved in Panier for article : ', this.articleSelected.titre);
+    
 }
-  updateArticle(articleCom: ArticleCommande): void {
 
-  }
-  removeArticle(articleCom: ArticleCommande): void {
-
-  }
  
 
   // getTotalPrix(): number{
@@ -86,4 +78,4 @@ export class EShopPageComponent implements OnInit {
   // }
 
 
-}
+
