@@ -15,11 +15,17 @@ export class PanierService {
   constructor(private http: HttpClient) { }
 
   getListCommande(): Observable<ArticleCommande[]> {
-    return this.http.get<ArticleCommande[]>(this.panierUrl)
+    return this.http
+      .get<ArticleCommande[]>(this.panierUrl)
       .pipe(
-        catchError(()=> throwError('getListCommande failed')))
+        catchError(() => throwError('getListCommande failed')));
   }
-
+  findIfArticlePanierById(id: number): Observable<ArticleCommande | any>{
+    return this.http
+      .get<ArticleCommande>(`${this.panierUrl}/${id}`)
+      .pipe(
+        catchError(() => throwError('Article introuvable dans le panier')));
+  }
   getPrixTotal(): Observable<number> {
     return this.getListCommande().pipe(map(articlesCom => articlesCom.reduce((accPrix, currArt) => accPrix + (currArt.article.prix * currArt.quantite), 0 )))
   }

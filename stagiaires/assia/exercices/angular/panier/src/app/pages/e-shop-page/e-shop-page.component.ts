@@ -6,7 +6,6 @@ import { ArticleCommande } from 'src/app/model/Article-commande';
 import { View } from 'src/app/model/view.enum';
 import { Panier } from 'src/app/model/panier';
 import { Stock } from 'src/app/model/stock';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-e-shop-page',
@@ -17,10 +16,9 @@ export class EShopPageComponent implements OnInit {
 
   public panier: Panier = new Panier();
   public stock: Stock = new Stock([]);
-  public articlesCom: ArticleCommande[] = [];
   public viewEshop = View.ESHOP;
   public articleSelected: Article = null;
-  public commandMatch: ArticleCommande = new ArticleCommande(this.articleSelected, 0);
+ private commandMatch = new ArticleCommande(null, 0, 0); 
   public prix: number = 0;
   public qtte: number = 0;
 
@@ -30,41 +28,63 @@ export class EShopPageComponent implements OnInit {
   ) {
     this.stockService.getArticlesStock().subscribe((stockRecue) => {
       this.stock.setList(stockRecue);
-      this.articleSelected = this.stock.getList()[0];
+      this.articleSelected = this.stock.getList()[0]; 
     });
     this.panierService.getListCommande().subscribe((listeRecue) => {
       this.panier.setList(listeRecue);
-      this.updateCommandMatch();
-      //add update totaux
+      this.panierService.getPrixTotal().subscribe((prixRecu) => this.prix = prixRecu);
+      this.panierService.getQtteTotale().subscribe((qtRecu) => this.qtte = qtRecu);
+
+      this.updateCommandMatch(this.articleSelected); 
+      console.log('------------constructor----------------');
+      
     });
     
   }
 
   ngOnInit(): void {
-    this.articleSelected = this.stock.getList()[0];
-    console.log("Mon 1er acrticle a afficher :", this.articleSelected);
-    
+
   }
+  getCommandMatch(): ArticleCommande {
+    return this.commandMatch;
+  }
+  
+  setCommandMatch(art: Article, qt:number, id: number) : void{
+    this.commandMatch.article = art;
+    this.commandMatch.quantite = qt;
+    this.commandMatch.id = id;
+  }
+
   updateSelection(art: Article): void {
     this.articleSelected = art;
-    this.updateCommandMatch();
+    console.log('commandMatch avant modif : ', this.getCommandMatch());
+    this.updateCommandMatch(art);
+    console.log("mon match select :", this.getCommandMatch());
   }
 
-  updateCommandMatch(): void {
-    const found = this.panier.getList().find(artCom => artCom.article.id === this.articleSelected.id);
-    if (found !== undefined) {
-      this.commandMatch = found;
+  updateCommandMatch(artEnCours: Article): void {
+    const found = this.findCommand(artEnCours);
+    if (found) {
+      console.log('FOUND', found);
+      this.setCommandMatch(found.article, found.quantite, found.id);
     } else {
-      this.commandMatch.article = this.articleSelected;
-      this.commandMatch.quantite = 0;
+      console.log('NOT FOUND: ', found);
+      this.setCommandMatch(artEnCours, 0, 0);
     }
-    
   }
-
+  findCommand(art: Article): ArticleCommande | undefined {
+    return this.panier.getList().find(artCom => artCom?.article?.id === art.id);
+}
   updatePanier(qt: number): void {
-    this.panierService.updatePanier(this.commandMatch, qt).subscribe();
-    this.panierService.getPrixTotal().subscribe((prixRecu) => this.prix = prixRecu);
-    this.panierService.getQtteTotale().subscribe((qtRecu) => this.qtte = qtRecu);
+    this.panierService.updatePanier(this.getCommandMatch(), qt).subscribe((articleRecu) => {
+      this.setCommandMatch(articleRecu.article, articleRecu.quantite, articleRecu.id);
+      this.panierService.getListCommande().subscribe((listeUpdated) => {
+        this.panier.setList(listeUpdated);
+        this.panierService.getPrixTotal().subscribe((prixRecu) => this.prix = prixRecu);
+        this.panierService.getQtteTotale().subscribe((qtRecu) => this.qtte = qtRecu);
+        
+      });
+    });
   }
 
 }

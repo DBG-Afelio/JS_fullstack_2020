@@ -6,8 +6,8 @@
         [prixTotal]="prix"
         >
     </app-panier-totaux>
-    <app-quantite *ngIf="articleSelected"
-        [qtteIn]="commandMatch.quantite"
+    <app-quantite *ngIf="articleSelected && getCommandMatch()"
+        [qtteIn]="getCommandMatch().quantite"
         (changedQtteEvent)="updatePanier($event)">
     </app-quantite>
 

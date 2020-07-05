@@ -5,7 +5,6 @@ export class ArticleCommande {
     constructor(
         public article: Article,
         public quantite: number,
-        public panierId?: number,
         public id?: number,
     ) { }
     

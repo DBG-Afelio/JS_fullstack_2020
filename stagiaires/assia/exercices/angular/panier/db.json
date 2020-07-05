@@ -144,22 +144,21 @@
   "panier": [
     {
       "article": {
-        "titre": "Intimité",
-        "auteur": "DBoo",
-        "commentaire": "Ce sympatique gailliard, nous invite chez lui en toute simplicité",
-        "pays": "Helsinski",
-        "prix": 28,
+        "titre": "Buildings",
+        "auteur": "Toto",
+        "commentaire": "Du grand, du lourd",
+        "pays": "Varsovie",
+        "prix": 12,
         "image": {
-          "grande": "interieur_gd.jpg",
-          "moyenne": "interieur_pt.jpg",
-          "petite": "interieur_tpt.jpg",
-          "toute_petite": "interieur_ttpt.jpg"
+          "grande": "immeuble_gd.jpg",
+          "moyenne": "immeuble_pt.jpg",
+          "petite": "immeuble_tpt.jpg",
+          "toute_petite": "immeuble_ttpt.jpg"
         },
-        "id": 4
+        "id": 10
       },
       "quantite": 1,
-      "panierId": 0,
-      "id": 2
+      "id": 4
     },
     {
       "article": {
@@ -176,9 +175,26 @@
         },
         "id": 1
       },
-      "quantite": 4,
-      "panierId": 0,
-      "id": 3
+      "quantite": 1,
+      "id": 5
+    },
+    {
+      "article": {
+        "titre": "L'Oeil du tig",
+        "auteur": "J. Herman",
+        "commentaire": "Tout droit sorti de la nouvelle école Portugaise, il nous donne là une de ses plus belle oeuvres",
+        "pays": "Brasil",
+        "prix": 228,
+        "image": {
+          "grande": "escalier_gd.jpg",
+          "moyenne": "escalier_pt.jpg",
+          "petite": "escalier_tpt.jpg",
+          "toute_petite": "escalier_ttpt.jpg"
+        },
+        "id": 2
+      },
+      "quantite": 1,
+      "id": 6
     }
   ]
 }
