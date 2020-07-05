@@ -46,7 +46,7 @@ export class EShopPageComponent implements OnInit {
     this.articleSelected = art;
     const reponse = this.findArticleDansPanier(); console.log('reponse : ',reponse);
     if (reponse !== undefined) {
-      this.commandMatch = this.findArticleDansPanier()
+      this.commandMatch = reponse;
       console.log(this.commandMatch);
     } else {
       this.commandMatch.article = this.articleSelected;
