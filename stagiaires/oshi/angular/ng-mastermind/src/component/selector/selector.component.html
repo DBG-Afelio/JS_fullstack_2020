@@ -1,0 +1,19 @@
+<div class="selector" *ngIf="actual_lvl">
+  <nav class="nav npc">
+    <div *ngFor="let color of colors; index as i"
+      class="btn-circle"
+      [style.backgroundColor]="color"
+      (click)="selectColor(color, i)">
+    </div>
+  </nav>
+</div>
+<div class="selector" *ngIf="actual_lvl">
+  <nav class="nav npc">
+    <div *ngFor="let color of sel_colors; index as i"
+      class="btn-circle"
+      [style.backgroundColor]="color"
+      (click)="unselectColor(color, i)">
+    </div>
+    <button class="send-btn" *ngIf="send_button_aff" (click)="sendColors()">ENVOYER</button>
+  </nav>
+</div>

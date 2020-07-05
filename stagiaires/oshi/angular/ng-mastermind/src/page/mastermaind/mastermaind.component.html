@@ -1,0 +1,5 @@
+
+<app-alert [max_try]="results.length === 10" [success]="success" (restart)="changeLvl(actual_lvl)"></app-alert>
+<app-navigation (actual_lvl)="changeLvl($event)"></app-navigation>
+<app-selector [colors]="colors_f" [actual_lvl]="actual_lvl" (send_sel_colors)="newResult($event)"></app-selector>
+<app-results [results]="results"></app-results>

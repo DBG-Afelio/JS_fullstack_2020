@@ -1,0 +1,9 @@
+<div class="alert" *ngIf="max_try && !success" style="background-color: red;">
+  <p class="alert-text">Vous avez atteint le nombre maximum de tentatives sans trouver la solution, voulez-vous recommencer ?</p>
+  <button class="confirmer" (click)="restartClick()">CONFIRMER</button>
+</div>
+
+<div class="alert" *ngIf="success" style="background-color: green;">
+  <p class="alert-text">Vous avez réussi ! Voulez vous recommencez ?</p>
+  <button class="confirmer" (click)="restartClick()">CONFIRMER</button>
+</div>

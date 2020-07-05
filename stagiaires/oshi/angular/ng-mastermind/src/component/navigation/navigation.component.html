@@ -1,0 +1,6 @@
+<nav class="nav npc">
+  <a class="nav-item" #lvl_1_btn [class.is-active]="lvl_1_btn === act_lvl_button" [ngStyle]="{'color': lvl_1_btn === act_lvl_button ? IndicatorColor : '#83818c'}" active-color="green" (click)="select_lvl($event.target)">Niveau 1</a>
+  <a class="nav-item" #lvl_2_btn [class.is-active]="lvl_2_btn === act_lvl_button" [ngStyle]="{'color': lvl_2_btn === act_lvl_button ? IndicatorColor : '#83818c'}" active-color="orange" (click)="select_lvl($event.target)">Niveau 2</a>
+  <a class="nav-item" #lvl_3_btn [class.is-active]="lvl_3_btn === act_lvl_button" [ngStyle]="{'color': lvl_3_btn === act_lvl_button ? IndicatorColor : '#83818c'}" active-color="red" (click)="select_lvl($event.target)">Niveau 3</a>
+  <span class="nav-indicator" [ngStyle]="{'width': IndicatorWidth, 'left': IndicatorLeft, 'backgroundColor': IndicatorColor}"></span>
+</nav>

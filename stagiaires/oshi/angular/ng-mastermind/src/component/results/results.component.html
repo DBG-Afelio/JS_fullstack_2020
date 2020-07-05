@@ -1,0 +1,12 @@
+<div *ngFor="let result of results" class="result">
+  <nav class="nav npc">
+    <div *ngFor="let color of result[0]"
+      class="btn-circle"
+      [style.backgroundColor]="color">
+    </div>
+    <div *ngFor="let color of result[1]"
+      class="borw-result"
+      [style.backgroundColor]="color">
+    </div>
+  </nav>
+</div>
