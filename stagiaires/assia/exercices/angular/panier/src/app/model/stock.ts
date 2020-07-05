@@ -1,6 +1,6 @@
 import { Article } from './Article';
 
-export class Shop {
+export class Stock {
     private listeArticles: Article[] = [];
 
     constructor(articleEnStock: any[]) {
@@ -17,7 +17,7 @@ export class Shop {
         this.listeArticles = maList;
     }
     getArticleById(chercheId: number): undefined | Article{
-        return this.listeArticles.find(article => article.getId() === chercheId);
+        return this.listeArticles.find(article => article.id === chercheId);
     }
 
 }

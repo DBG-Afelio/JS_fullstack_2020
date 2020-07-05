@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, NgModule, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-quantite',
   templateUrl: './quantite.component.html',
   styleUrls: ['./quantite.component.css']
 })
-export class QuantiteComponent implements OnInit {
+export class QuantiteComponent implements OnChanges {
 
   @Input() qtteIn: number;
   min = 0;
@@ -14,7 +14,8 @@ export class QuantiteComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    console.log('ma recup quantite = ', this.qtteIn);
   }
   add(): void {
     this.qtteIn += this.step;

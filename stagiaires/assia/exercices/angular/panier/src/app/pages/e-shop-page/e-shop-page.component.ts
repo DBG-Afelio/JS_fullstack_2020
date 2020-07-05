@@ -4,7 +4,9 @@ import { Article } from 'src/app/model/Article';
 import { StockService } from 'src/app/services/stock.service';
 import { ArticleCommande } from 'src/app/model/Article-commande';
 import { View } from 'src/app/model/view.enum';
-
+import { Panier } from 'src/app/model/panier';
+import { Stock } from 'src/app/model/stock';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-e-shop-page',
@@ -12,40 +14,56 @@ import { View } from 'src/app/model/view.enum';
   styleUrls: ['./e-shop-page.component.css']
 })
 export class EShopPageComponent implements OnInit {
-  public articlesStock: Article[]=[];
+
+  public panier: Panier = new Panier();
+  public stock: Stock = new Stock([]);
   public articlesCom: ArticleCommande[]=[];
   public viewEshop = View.ESHOP;
-  public articleSelected: Article;
-  public articlePanier: ArticleCommande | undefined;
+  public articleSelected: Article = null;
+  public commandMatch: ArticleCommande = new ArticleCommande(this.articleSelected, 0);
 
   constructor(
     private panierService: PanierService,
-    private stockService: StockService
-  ) { }
+    private stockService: StockService,
+    private router: Router
+  ) {  this.panierService.getListCommande().subscribe((listeRecue) => {
+    this.panier?.setList(listeRecue);
+    console.log("Mon panier :", this.panier.getList());
+  })
+  this.stockService.getArticlesStock().subscribe((stockRecue) => {
+    this.stock?.setList(stockRecue);
+    console.log("Mon stock :", this.stock.getList());
+  })
+
+  this.articleSelected = this.stock.getList()[0];
+    console.log("Mon 1er acrticle a afficher :", this.articleSelected);
+  }
 
   ngOnInit(): void {
-    // this.panierService.getListCommande().subscribe((listeRecue) => {
-    //   this.articlesCom = listeRecue;
-    //   console.log('panier recu : ', this.articlesCom);
-    // })
-    this.stockService.getArticlesStock().subscribe((stockRecue) => {
-      this.articlesStock = stockRecue;
-    })
-    this.articleSelected = this.articlesStock[0];
+    this.findArticleDansPanier() ? this.commandMatch = this.findArticleDansPanier() : this.commandMatch;
   }
   updateSelection(art: Article): void {
     this.articleSelected = art;
-    console.log('*** selection changed to : ', this.articleSelected.titre);
-    this.articlePanier = this.findArticleDansPanier();
-    console.log('*** existing in panier ? : ', this.articlePanier);
-    console.log('*** if yes, qtte is : ', this.articlePanier?.quantite);
+    const reponse = this.findArticleDansPanier(); console.log('reponse : ',reponse);
+    if (reponse !== undefined) {
+      this.commandMatch = this.findArticleDansPanier()
+      console.log(this.commandMatch);
+    } else {
+      this.commandMatch.article = this.articleSelected;
+      this.commandMatch.quantite = 0;
+    }
+    console.log("updateSelect :", this.articleSelected?.titre);
+    console.log("updateMatchPanier :", this.commandMatch?.article?.titre, this.commandMatch?.quantite);
   }
 
   findArticleDansPanier(): ArticleCommande | undefined {
-    return this.articlesCom.find(artCom => artCom?.getArticle() === this.articleSelected);
+    const found = this.panier.getList().find(artCom => artCom?.article?.id === this.articleSelected?.id);
+    return found;
   }
 
   updatePanier(qt: number): void{
+    this.commandMatch.quantite = qt;
+    this.panierService.addArticle(this.commandMatch).subscribe(() => this.router.navigate(['/']));
     console.log('qtty : ', qt, ' saved in Panier for article : ', this.articleSelected.titre);
 }
   updateArticle(articleCom: ArticleCommande): void {
@@ -54,9 +72,7 @@ export class EShopPageComponent implements OnInit {
   removeArticle(articleCom: ArticleCommande): void {
 
   }
-  addArticle(articleCom: ArticleCommande): void {
-
-  }
+ 
 
   // getTotalPrix(): number{
   //   let prixRecu: number;

@@ -7,7 +7,7 @@
         >
     </app-panier-totaux> -->
     <app-quantite *ngIf="articleSelected"
-        [qtteIn]="articlePanier?.quantite ? articlePanier?.quantite : 0"
+        [qtteIn]="commandMatch.quantite"
         (changedQtteEvent)="updatePanier($event)">
     </app-quantite>
 
@@ -16,7 +16,7 @@
     </app-details-article>
 
     <app-liste-articles
-        [listeArticles]="articlesStock"
+        [listeArticles]="stock.getList()"
         [currentView]="viewEshop"
         (selectedArticleEvent)="updateSelection($event)" >
     </app-liste-articles>

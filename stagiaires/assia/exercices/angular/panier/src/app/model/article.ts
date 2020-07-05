@@ -1,3 +1,5 @@
+import { ArticleCommande } from './Article-commande';
+
 export class Article {
     public titre: string;
     public auteur: string;
@@ -15,6 +17,7 @@ export class Article {
         this.image = image;
         this.id = id;
     }
+
 
     // getTitre(): string {
     //     return this.titre;
