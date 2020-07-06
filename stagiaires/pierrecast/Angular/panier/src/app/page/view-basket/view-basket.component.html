@@ -6,6 +6,7 @@
             </app-basket-recap>
             <div class="recap-bottom">
                 <app-basket-totals
+                    [basket] = "basket"
                     [totalPrice] = "basket.getTotal().totalPrice">
                 </app-basket-totals> 
             </div>

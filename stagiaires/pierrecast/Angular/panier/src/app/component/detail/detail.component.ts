@@ -17,7 +17,11 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  changeQt(qt: number) {
-    this.changeQuantityEvent.emit(qt);
+  changeQt(qt: number) {  
+    if (!isNaN(qt) && qt > 0) {
+      this.changeQuantityEvent.emit(qt);
+    } else {
+      alert ('quantité non valide');
+    } 
   }
 }

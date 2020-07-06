@@ -6,7 +6,8 @@
         <div class="comment">{{ detailInfo.getComment() }}</div>
     </div>
     <form onSubmit="return false;">
-        <input type="Number" placeholder="Quantité" [value] = "currentQuantity ? currentQuantity : 0"
+        <input type="Number" placeholder="Quantité" 
+            [value] = "currentQuantity ? currentQuantity : 0"
             (change)="changeQt($event.target.valueAsNumber);">
         <button>Commander</button>
     </form>

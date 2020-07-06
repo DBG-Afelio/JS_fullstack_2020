@@ -25,4 +25,5 @@ export class BasketRecapComponent implements OnInit {
   public changeCommandQuantity(qt: number, command :Command) {
       this.basketService.getBasket().updateBasket(command.getArticle(), qt, command.getPrice());
   }
+  
 }
