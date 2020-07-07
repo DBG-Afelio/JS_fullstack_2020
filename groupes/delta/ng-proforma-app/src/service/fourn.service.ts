@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, merge } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FournDto } from 'src/model/fournDto';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { Fourn } from 'src/model/fourn';
+import { ProductService } from './product.service';
+import { Product } from 'src/model/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FournService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private productService: ProductService) { }
 
 
 
@@ -29,8 +31,16 @@ export class FournService {
     )
   }
 
-  getFournByIdWithProduct(id: number): Observable<Fourn[]> {
-    return
+  getFournByIdWithProducts(id: number): Observable<Fourn> {
+    return this.getFournById(id).pipe(
+      mergeMap((fourn:Fourn) => {
+        return this.productService.getProductsByFournId(id).pipe(
+          map((products:Product[]) => {
+            return fourn.setProducts(products)
+          })
+        )
+      })
+    )
   }
 
 
