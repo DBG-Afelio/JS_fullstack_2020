@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-proforma-app"
+    }
+  },
+  "defaultProject": "ng-proforma-app",
+  "cli": {
+    "analytics": "c1924381-dee4-49ce-ae28-bd39ed0192d9"
+  }
 }
