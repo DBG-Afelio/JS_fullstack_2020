@@ -1,3 +1,20 @@
 <h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
+<div>
+<ul class="ulList">
+    <li class="liList"  *ngFor="let product of fournisseur?.products" [class.selected]="product ===selectedProduct "
+    (click)=select(product)>
+        
+    <span class="badge">{{product?.id}}</span>
+    {{product?.nom}}  
+    {{product.prix}}  
 
-<p *ngFor="let product of fournisseur?.products">{{product?.nom}}</p>
+</ul>
+</div>
+<div *ngIf="selectedProduct" class="prductDetails">
+    Nome de fournisseur :{{fournisseur.nom}}<br>
+    Nom de Produit :{{selectedProduct?.nom}}  <br>
+    Prix de produit : {{selectedProduct?.prix}}  <br>
+    Desciption:{{selectedProduct?.description}}
+    
+
+</div>
