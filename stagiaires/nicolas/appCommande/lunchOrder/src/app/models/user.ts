@@ -46,5 +46,8 @@ export class User {
         }
 
     }
+    checkPassword(password:string):boolean{
+        return this.password===password
+    }
 
 }

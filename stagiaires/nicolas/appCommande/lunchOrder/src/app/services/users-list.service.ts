@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersListService {
+  private currentUser:User;
+
 
   constructor(private http:HttpClient) { }
 
@@ -53,6 +55,32 @@ export class UsersListService {
     this.removeUser(updatedUser.id)
     this.addUser(updatedUser)
 
+  }
+
+  getUserByLogin(login:string):Observable<User>{
+    return this.http.get<UserDto[]>(`http://localhost:3000/utilisateurs?login=${login}`)
+      .pipe(
+        map((userDtoArray:UserDto[]) => {
+          return userDtoArray.length>0?User.fromDto(userDtoArray[0]):null
+        
+        })
+      )
+  }
+  setLoginUser(login:string,password:string):Observable<boolean>{
+    return this.getUserByLogin(login).pipe(
+      map(foundUser =>{
+        if(foundUser){
+            if(foundUser.checkPassword(password)){
+                this.currentUser=foundUser;
+                return true;
+            }
+          }
+          return false
+        })
+      )
+  }
+  getCurrentUser():User{
+    return this.currentUser
   }
 
 

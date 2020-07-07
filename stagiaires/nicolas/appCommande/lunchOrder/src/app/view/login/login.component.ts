@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersListService } from 'src/app/services/users-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,19 @@ import { UsersListService } from 'src/app/services/users-list.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userListService:UsersListService) { }
+  constructor(private userListService:UsersListService,private router:Router) { 
+    
+
+  }
 
   ngOnInit(): void {
+
+    if(this.userListService.getCurrentUser()){
+
+      this.router.navigate([""])
+      
+    }
+    
   }
 
 }
