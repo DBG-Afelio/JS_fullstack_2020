@@ -1,3 +1,3 @@
-<p>
-  fournisseur works!
-</p>
+<h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
+
+<p *ngFor="let product of fournisseur?.products">{{product?.nom}}</p>
