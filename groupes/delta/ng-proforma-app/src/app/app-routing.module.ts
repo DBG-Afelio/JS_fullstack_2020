@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from 'src/page/login/login.component';
 import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component';
 import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
+import { MembresComponent } from 'src/page/membres/membres.component';
+import { MembreComponent } from 'src/page/membre/membre.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: "fournisseurs",
     component: FournisseursComponent
+  },
+  {
+    path: "users",
+    component: MembresComponent
+  },
+  {
+    path: "user",
+    component: MembreComponent
   }
 ];
 
