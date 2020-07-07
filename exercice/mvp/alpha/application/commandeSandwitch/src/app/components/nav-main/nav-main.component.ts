@@ -2,7 +2,7 @@ import { Component, OnInit, Input,  Output, EventEmitter  } from '@angular/core'
 import { User } from 'src/app/models/userModel/user';
 import { Authentication } from 'src/app/models/userModel/authentication.enum';
 import { Order } from 'src/app/models/orderModel/order';
-import { Product } from 'src/app/models/Product';
+import { Product } from 'src/app/models/productModel/Product';
 
 @Component({
   selector: 'app-nav-main',
