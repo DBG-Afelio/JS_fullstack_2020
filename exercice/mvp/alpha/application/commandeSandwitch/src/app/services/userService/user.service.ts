@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { mergeMap, map } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { IUserDto } from './../../models/userModel/iuser-dto';
 import { User } from 'src/app/models/userModel/user';
 
@@ -14,10 +14,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getList(): Observable<User> {
+  public getList(): Observable<User[]> {
     return this.http.get<IUserDto[]>(this.userUrl)
       .pipe(
-        mergeMap((userDtoList) => {
+        map((userDtoList) => {
           return userDtoList.map((userDto) => User.fromDto(userDto))
         }
       )
