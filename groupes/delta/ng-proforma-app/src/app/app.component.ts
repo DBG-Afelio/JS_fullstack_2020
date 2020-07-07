@@ -9,6 +9,7 @@ import { User } from 'src/model/user';
 })
 export class AppComponent implements OnInit {
   user: User;
+
   constructor(private usersService:UsersService) {
     this.usersService.user.subscribe(user => this.user = user);
   }

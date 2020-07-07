@@ -1,3 +1,6 @@
-<p>
-  fournisseurs works!
-</p>
+<div class="container" *ngIf="fourns">
+  <div class="fourn" *ngFor="let fourn of fourns">
+    <h2>{{fourn.nom}}</h2>
+    <span class="today-status" [class.is-open]="fourn.openToday()" ></span>
+  </div>
+</div>
