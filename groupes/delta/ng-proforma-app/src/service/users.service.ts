@@ -15,7 +15,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  private getUsers(): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<UserDto[]>('http://localhost:3000/utilisateurs').pipe(
       map((usersDto:UserDto[]) => {
         return usersDto.map((userDto:UserDto) => User.fromDto(userDto));
