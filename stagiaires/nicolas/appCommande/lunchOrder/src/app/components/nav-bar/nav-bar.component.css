@@ -1,0 +1,8 @@
+:host{
+
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    padding: 10px;
+
+}

@@ -1,1 +1,16 @@
-<p>providers-list works!</p>
+<app-nav-bar></app-nav-bar>
+<button>Ajouter un nouveau commerce</button>
+<ul>
+    <li *ngFor='let provider of providersList'>
+
+        <app-provider-display [provider]='provider'></app-provider-display>
+        <div>
+
+            <button>modifier ce commerce</button>
+            <button>supprimer ce commerce</button>
+
+        </div>
+        
+
+    </li>
+</ul>
