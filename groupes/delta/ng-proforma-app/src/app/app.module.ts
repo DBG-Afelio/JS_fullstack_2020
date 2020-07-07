@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from 'src/page/login/login.component';
 import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component';
+import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FournisseurComponent
+    FournisseurComponent,
+    FournisseursComponent
   ],
   imports: [
     BrowserModule,
