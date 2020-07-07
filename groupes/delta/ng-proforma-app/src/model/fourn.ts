@@ -54,6 +54,6 @@ export class Fourn {
 
     openToday(): boolean {
         const today = new Date()
-        return this.horaire[today.getDay()];
+        return this.horaire[today.getDay()] && !this.ferme;
     }
 }
