@@ -52,4 +52,8 @@ export class Fourn {
         return this;
     }
 
+    openToday(): boolean {
+        const today = new Date()
+        return this.horaire[today.getDay()];
+    }
 }
