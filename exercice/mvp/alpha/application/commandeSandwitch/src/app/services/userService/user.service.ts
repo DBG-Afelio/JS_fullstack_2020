@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map} from 'rxjs/operators'
 import { IUserDto } from './../../models/userModel/iuser-dto';
 import { User } from 'src/app/models/userModel/user';
 
@@ -29,6 +29,13 @@ export class UserService {
       .pipe(
         map((userDto) => User.fromDto(userDto))
     );
+  }
+
+  public getAdmin(): Observable<User> {
+    return this.getList()
+      .pipe(
+        map((list) => list.find((user) => user.isAdmin))
+      );
   }
   
 }
