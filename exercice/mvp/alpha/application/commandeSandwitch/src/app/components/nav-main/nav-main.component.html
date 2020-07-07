@@ -1,1 +1,18 @@
-<p>nav-main works!</p>
+<div class="nav-main">
+
+    <nav class="nav-main_user" *ngIf="currentUser !== null && !currentUser.isAdmin">
+        <a href=""> Mon Historique </a> | 
+        <a href=""> Mon credit : € {{ currentUser.credit }}</a> |
+        <a *ngIf="!currentUser.isBlocked" href=""> Ma commande du jour : {{ getCurrentOrder() }} </a> 
+    </nav>
+
+    <nav class="nav-main_admin" *ngIf="currentUser.isAdmin">
+
+    </nav>
+
+    <button class="authent-btn">
+        {{ setAuthStatus() }}
+    </button>
+
+
+</div>

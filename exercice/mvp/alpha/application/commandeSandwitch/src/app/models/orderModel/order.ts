@@ -1,4 +1,5 @@
 import { IOrderDto } from './iorder-dto';
+import { User } from '../userModel/user';
 
 export class Order {
 
@@ -32,4 +33,5 @@ export class Order {
             date: this.date.toString()
         }
     }
+
 }
