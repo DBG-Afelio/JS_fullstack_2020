@@ -4,6 +4,6 @@ export interface fournisseurs {
     "description": string,
     "ferme": boolean,
     "archive": boolean,
-    "horaire": [boolean],
+    "horaire": boolean[],
     "tel": string
 }
