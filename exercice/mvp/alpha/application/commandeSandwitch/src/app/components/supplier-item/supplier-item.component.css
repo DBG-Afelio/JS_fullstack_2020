@@ -1,0 +1,23 @@
+.supplier {
+    border: 1px solid black;
+    padding: 15px;
+    background-color: whitesmoke;
+    display: block;
+    text-align: center;
+}
+.supplier > div {
+    margin: 3px;
+}
+.close, .open {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.close {
+    color: red;
+    
+}
+
+.open {
+    color: green;
+}

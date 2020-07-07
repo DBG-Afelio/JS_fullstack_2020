@@ -5,7 +5,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   { path : "homepage", component: HomePageComponent },
-  { path : "", redirectTo: "/homePage" , pathMatch: "full"},
+  { path : "", redirectTo: "/homepage" , pathMatch: "full"},
+  { path : "**", redirectTo: "/homepage", pathMatch: "full" },
 ];
 
 @NgModule({

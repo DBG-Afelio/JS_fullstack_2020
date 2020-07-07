@@ -1,4 +1,8 @@
 <p>home-page works!</p>
 <app-nav-main></app-nav-main>
 
-<app-supplier-item></app-supplier-item>
+<div class="listSuppliers">
+    <app-supplier-item *ngFor="let supplier of listSuppliers"
+        [supplier] = "supplier"
+    ></app-supplier-item>
+</div>

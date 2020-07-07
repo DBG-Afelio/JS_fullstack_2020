@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Supplier } from '../models/Supplier';
+import { Supplier } from '../../models/supplierModel/Supplier';
 import { Observable } from 'rxjs';
-import { SupplierDto } from '../models/SupplierDto';
+import { SupplierDto } from '../../models/supplierModel/SupplierDto';
 import { map } from 'rxjs/operators';
 
 @Injectable({

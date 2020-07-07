@@ -1,0 +1,7 @@
+.listSuppliers {
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid black;
+    width: 100%;
+    justify-content: space-around;
+}

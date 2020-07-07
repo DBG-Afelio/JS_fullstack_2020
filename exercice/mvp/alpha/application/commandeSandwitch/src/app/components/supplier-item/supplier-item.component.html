@@ -1,1 +1,11 @@
-<p>supplier-item works!</p>
+<div class="supplier" *ngIf = "!supplier.archieved">
+    <div>{{ supplier.name }}</div>
+    <div>{{ supplier.description }} </div>
+    <div>{{ supplier.phone }}</div>
+
+    <div *ngIf= "isOpened(supplier)" class='open'>Ouvert</div>
+    <div *ngIf= "!isOpened(supplier)" class='close'>Fermé</div>
+
+    
+    <a routerLink = "/" >Voir les produits</a>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SupplierService } from 'src/app/services/supplier.service';
-import { Supplier } from 'src/app/models/Supplier';
+import { SupplierService } from 'src/app/services/supplierService/supplier.service';
+import { Supplier } from 'src/app/models/supplierModel/Supplier';
 
 @Component({
   selector: 'app-home-page',
@@ -12,13 +12,14 @@ export class HomePageComponent implements OnInit {
   listSuppliers: Supplier[] = [];
 
   constructor(
-    public supplierService: SupplierService) { 
+    public supplierService: SupplierService
+  ) { 
     this.supplierService.getList().subscribe((list) => {
       this.listSuppliers = list;
+      console.log(list);
     });
   }
 
   ngOnInit(): void {
   }
-
 }

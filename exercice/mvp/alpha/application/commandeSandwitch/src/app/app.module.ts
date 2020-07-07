@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SupplierItemComponent } from './components/supplier-item/supplier-item.component';
 import { NavMainComponent } from './components/nav-main/nav-main.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SupplierItemComponent,
-    NavMainComponent
+    NavMainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

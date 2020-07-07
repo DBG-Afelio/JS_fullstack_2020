@@ -1,6 +1,6 @@
 import { ProductDto} from './ProductDto';
-import { Supplier } from './Supplier';
-import { Option } from './Option';
+import { Supplier } from '../supplierModel/Supplier';
+import { Option } from '../OptionModel/Option';
 
 export class Product {
     constructor(

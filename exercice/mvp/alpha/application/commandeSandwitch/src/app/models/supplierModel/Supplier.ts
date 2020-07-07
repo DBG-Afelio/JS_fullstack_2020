@@ -52,24 +52,25 @@ export class Supplier {
     public static fromDto(supplierDto: SupplierDto): Supplier {
         return new Supplier(
             supplierDto.id, 
-            supplierDto.name, 
+            supplierDto.nom, 
             supplierDto.description, 
-            supplierDto.closure,
-            supplierDto.archieved,
-            supplierDto.openings,
-            supplierDto.phone,
+            supplierDto.ferme,
+            supplierDto.archive,
+            supplierDto.horaire,
+            supplierDto.tel,
         );
     }
 
     public toDto(): SupplierDto {
         return {
             id: this.id,
-            name: this.name,
+            nom: this.name,
             description: this.description, 
-            closure: this.closure,
-            archieved: this.archieved,
-            openings: this.openings,
-            phone: this.phone,
+            ferme: this.closure,
+            archive: this.archieved,
+            horaire: this.openings,
+            tel: this.phone,
         }
     }
 }
+
