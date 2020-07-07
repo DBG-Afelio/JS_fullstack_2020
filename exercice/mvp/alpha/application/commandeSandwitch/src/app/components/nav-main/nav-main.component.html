@@ -1,18 +1,19 @@
-<div class="nav-main">
+<div class="nav-main" *ngIf="currentUser">
 
-    <nav class="nav-main_user" *ngIf="currentUser !== null && !currentUser.isAdmin">
-        <a href=""> Mon Historique </a> | 
-        <a href=""> Mon credit : € {{ currentUser.credit }}</a> |
-        <a *ngIf="!currentUser.isBlocked" href=""> Ma commande du jour : {{ getCurrentOrder() }} </a> 
+    <nav class="nav-main_user" *ngIf="!currentUser.isAdmin">
+        <a routerLink = "/historique" > Consulter mon Historique </a> | 
+        <a routerLink = "/historique" > Credit actuel : € {{ currentUser.credit }}</a> |
+        <a *ngIf="!currentUser.isBlocked" >
+            <!-- routerLink = `/product/${}`   -->
+            Ma commande du jour : {{ getCurrentOrder() }} 
+        </a> 
     </nav>
 
     <nav class="nav-main_admin" *ngIf="currentUser.isAdmin">
 
     </nav>
-
-    <button class="authent-btn">
-        {{ setAuthStatus() }}
-    </button>
-
-
 </div>
+
+<button class="authent-btn">
+    {{ setAuthStatus() }}
+</button>
