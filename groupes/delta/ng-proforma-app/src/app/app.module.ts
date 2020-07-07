@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from 'src/page/login/login.component';
 import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component';
 import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
+import { MembresComponent } from 'src/page/membres/membres.component';
+import { MembreComponent } from 'src/page/membre/membre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FournisseurComponent,
-    FournisseursComponent
+    FournisseursComponent,
+    MembresComponent,
+    MembreComponent
   ],
   imports: [
     BrowserModule,
