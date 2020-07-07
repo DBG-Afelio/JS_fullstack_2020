@@ -37,17 +37,17 @@ export class User {
         )
     }
 
-    toDto(user:User): UserDto {
+    toDto(): UserDto {
         return {
-            login:user.login,
-            password:user.password,
-            nom:user.nom,
-            prenom:user.prenom,
-            credit:user.credit,
-            formation:user.formation,
-            banni:user.banni,
-            admin:user.admin,
-            id:user.id
+            login:this.login,
+            password:this.password,
+            nom:this.nom,
+            prenom:this.prenom,
+            credit:this.credit,
+            formation:this.formation,
+            banni:this.banni,
+            admin:this.admin,
+            id:this.id
         }
     }
 
