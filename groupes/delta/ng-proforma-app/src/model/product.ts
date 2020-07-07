@@ -1,6 +1,8 @@
 import { Fourn } from './fourn';
+import { ProductDto } from './productDto';
 
 export class Product {
+    fournisseur: Fourn;
 
     constructor(
         public id: number,
@@ -12,8 +14,7 @@ export class Product {
             surcout:number,
             id:number
         }[],
-        public fourn_id:number,
-        public fournisseur:Fourn
+        public fourn_id:number
     ) {
         this.id = id;
         this.nom = nom;
@@ -21,7 +22,21 @@ export class Product {
         this.prix = prix;
         this.options = options;
         this.fourn_id = fourn_id;
-        this.fournisseur = fournisseur;
     }
 
+    static fromDto(productDto:ProductDto): Product {
+        return new Product(
+            productDto.id,
+            productDto.nom,
+            productDto.description,
+            productDto.prix,
+            productDto.options,
+            productDto.fourn_id
+        )
+    }
+
+    setFournisseur(fourn: Fourn):Product {
+        this.fournisseur = fourn;
+        return this;
+    }
 }

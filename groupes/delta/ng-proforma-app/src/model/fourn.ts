@@ -1,9 +1,10 @@
 import { FournDto } from './fournDto';
+import { Product } from './product';
 
 
 export class Fourn {
 
-
+    products: Product[];
 
     constructor(public  id : number ,
         public nom : string ,
@@ -44,6 +45,11 @@ export class Fourn {
             tel : this.tel
         }
 
+    }
+
+    setProducts(products: Product[]): Fourn {
+        this.products = products;
+        return this;
     }
 
 }

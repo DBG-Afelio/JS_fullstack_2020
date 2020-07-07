@@ -29,6 +29,10 @@ export class FournService {
     )
   }
 
+  getFournByIdWithProduct(id: number): Observable<Fourn[]> {
+    return
+  }
+
 
 
 }
