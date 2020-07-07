@@ -16,6 +16,7 @@ export class NavMainComponent implements OnInit {
   @Input() productList: Product[] = [];
   @Output() changedUser: EventEmitter<User> = new EventEmitter;
   public authentication: Authentication;
+  public creditMax: number = 10;
 
   constructor() { }
 
@@ -26,16 +27,39 @@ export class NavMainComponent implements OnInit {
     return this.currentUser ? this.authentication = Authentication.LOGOUT : Authentication.LOGIN;
   }
 
-  public getCurrentOrder(): string  {
-    let productName:string = 'Pas de commande en cours'
-    this.orderList.find((order) => {
-      if (order.userId === this.currentUser.id) {
-        const product = this.productList.find((prod) => prod.id === order.productId);
-        productName = product.name;
-      }
-    });
-    return productName;
+  public getCurrentOrder(): Order | undefined {
+    //or from localstorage
+    return this.orderList.find((order) => order.userId === this.currentUser.id);
   }
 
+  public isOrderConfirmed(): boolean {
+    return false; //from localstorage or db
+  }
 
+  public setCreditMessage(): string {
+    let message: string = '';
+    switch (this.currentUser.credit) {
+      case 0: {
+        message = `Il vous reste la totalite de votre credit autorise d'un montant de € ${this.creditMax}`;
+        break;
+      }
+      case 10: {
+        message = `Vous avez epuise la totalite de votre credit authorise ! Veuillez vous acquitter du montant du aupres de l'administrateur`;
+        break;
+      }
+      default: {
+        message = `Vous avez consommé € ${this.currentUser.credit} sur votre credit autorise. Veuillez vous acquitter du montant du aupres de l'administrateur`;
+      }
+    }
+    return message;
+  }
+
+  public setPanierMessage(): string {
+    let msg: string = '';
+    if (this.currentUser)
+    return 
+  }
+  public setOrderMessage(): string {
+    return 'here comes info about current order';
+  }
 }
