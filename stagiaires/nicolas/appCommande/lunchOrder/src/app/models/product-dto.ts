@@ -1,14 +1,11 @@
+import { OrderOption } from './order-option';
+
 export interface ProductDto {
 
     "nom": string;
     "description": string;
     "prix": number;
-    "options":
-      {
-        "nom": string,
-        "surcout": number,
-        "id": number
-      }[];
+    "options":OrderOption[];
     "fourn_id": number;
     "id": number;
 
