@@ -1,51 +1,29 @@
-<input type="text" value="{{provider.name}}" (change)="updateNameProvider($event.target.value)">
+<label>Nom du fournisseur : </label>
+<input type="text" value="{{provider?.name}}" (change)="updateNameProvider($event.target.value)">
+
 <br>
-<input type="text" value="{{provider.description}}" (change)="updateDescriptionProvider($event.target.value)">
+
+<label>Description du fournisseur : </label>
+<input type="text" value="{{provider?.description}}" (change)="updateDescriptionProvider($event.target.value)">
+
 <br>
-<input type="text" value="{{provider.phone}}" (change)="updatePhoneProvider($event.target.value)">
+
+<label>Téléphone du fournisseur : </label>
+<input type="text" value="{{provider?.phone}}" (change)="updatePhoneProvider($event.target.value)">
+
 <br>
-<label>Lundi :</label>
-<input type="radio" name="lundi" value="ouvert" [checked]="timeTable[0]" (change)="updateDay(0,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="lundi" value="fermé" [checked]="!timeTable[0]" (change)="updateDay(0,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Mardi :</label>
-<input type="radio" name="mardi" value="Ouvert" [checked]="timeTable[1]" (change)="updateDay(1,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="mardi" value="Fermé" [checked]="!timeTable[1]" (change)="updateDay(1,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Mercredi :</label>
-<input type="radio" name="mercredi" value="Ouvert" [checked]="timeTable[2]" (change)="updateDay(2,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="mercredi" value="Fermé" [checked]="!timeTable[2]" (change)="updateDay(2,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Jeudi :</label>
-<input type="radio" name="jeudi" value="Ouvert" [checked]="timeTable[3]" (change)="updateDay(3,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="jeudi" value="Fermé" [checked]="!timeTable[3]" (change)="updateDay(3,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Vendredi :</label>
-<input type="radio" name="vendredi" value="Ouvert" [checked]="timeTable[4]" (change)="updateDay(4,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="vendredi" value="Fermé" [checked]="!timeTable[4]" (change)="updateDay(4,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Samedi :</label>
-<input type="radio" name="samedi" value="Ouvert" [checked]="timeTable[5]" (change)="updateDay(5,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="samedi" value="Fermé" [checked]="!timeTable[5]" (change)="updateDay(5,$event.target.checked)">
-<label>Fermé</label>
-<br>
-<label>Dimanche :</label>
-<input type="radio" name="dimanche" value="Ouvert" [checked]="timeTable[6]" (change)="updateDay(6,$event.target.checked)">
-<label>Ouvert</label>
-<input type="radio" name="dimanche" value="Fermé" [checked]="!timeTable[6]" (change)="updateDay(6,$event.target.checked)">
-<label>Fermé</label>
-<br>
+
+<label>Horaire du fournisseur : </label>
+<div *ngFor="let day of ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche']; let i = index">
+    <label>{{day}} :</label>
+    <input type="radio" name="{{day}}" value="ouvert" [checked]="timeTable[i]" (change)="updateDay(i,true)">
+    <label>Ouvert</label>
+    <input type="radio" name="{{day}}" value="fermé" [checked]="!timeTable[i]" (change)="updateDay(i,false)">
+    <label>Fermé</label>
+    <br>
+
+</div>
+
 <button (click)="onSaveButtonClick()">Sauvegarder Les Changements</button>
 <button>Annuler les Changements</button>
 

@@ -1,1 +1,9 @@
-<p>modify-product works!</p>
+<input type="text" value="{{product?.name}}" (change)="updateNameProduct($event.target.value)">
+<br>
+<input type="text" value="{{product?.description}}" (change)="updateDescriptionProduct($event.target.value)">
+<br>
+<input type="text" value="{{product?.price}}" (change)="updatePriceProduct($event.target.value)">
+<br>
+
+<button (click)="onSaveButtonClick()">Sauvegarder le Produit</button>
+<button>Annuler les modifications</button>
