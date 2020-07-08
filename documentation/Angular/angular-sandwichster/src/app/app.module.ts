@@ -14,6 +14,8 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
+import { LoginService } from './services/login.service';
+
 
 //Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'
@@ -38,7 +40,9 @@ import{ DisplayItemComponent } from './components/display-item/display-item.comp
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
