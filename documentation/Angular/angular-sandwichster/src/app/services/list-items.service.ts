@@ -32,17 +32,15 @@ export class ListItemsService {
     }));
   }
 
-
-
   createItem(payload: Item): Observable<Item> {
     return this.http
-      .post<Item>(`${this.urlAPI}produits`, payload)
+      .post<Item>(`${this.urlAPI}produits`, payload.toDto())
       .pipe(catchError((error: any) => throwError(error)));
   }
 
   updateItem(payload: Item): Observable<Item> {
     return this.http
-      .put<Item>(`${this.urlAPI}produits/${payload.id}`, payload)
+      .put<Item>(`${this.urlAPI}produits/${payload.id}`, payload.toDto())
       .pipe(catchError((error: any) => throwError(error)));
   }
 

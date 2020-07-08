@@ -22,5 +22,7 @@ export class DisplayItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onDisplayDetails(id){
+    console.log(id)
+  }
 }
