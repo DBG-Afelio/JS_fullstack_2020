@@ -16,7 +16,6 @@ export class ProductsListComponent implements OnInit {
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
-      console.log(routeId)
       this.providersListService.getProductsByProviderId(Number(routeId)).subscribe(productsFound => {
         this.productList=productsFound;
       });

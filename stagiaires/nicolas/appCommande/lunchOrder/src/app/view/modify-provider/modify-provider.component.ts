@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersListService } from 'src/app/services/providers-list.service';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product';
+import { Provider } from 'src/app/models/provider';
 
 @Component({
   selector: 'app-modify-provider',
@@ -7,10 +10,24 @@ import { ProvidersListService } from 'src/app/services/providers-list.service';
   styleUrls: ['./modify-provider.component.css']
 })
 export class ModifyProviderComponent implements OnInit {
+  provider:Provider;
+  timeTable:boolean[]=[];
+  constructor(private providersListService:ProvidersListService,route:ActivatedRoute) { 
+    
+    route.paramMap.subscribe( param => {
 
-  constructor(private providersListService:ProvidersListService) { }
+      const routeId = param.get('providerId');
+      this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
+        this.provider=providerFound;
+        this.timeTable=providerFound.timeTable;
+        console.log(this.timeTable);
+      })
+    })
+  }
 
   ngOnInit(): void {
   }
-
+  onSaveButtonClick(){
+    this.providersListService.updateProvider(this.provider);
+  }
 }
