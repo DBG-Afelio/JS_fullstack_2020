@@ -20,7 +20,7 @@ export class ModifyProviderComponent implements OnInit {
       this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
         this.provider=providerFound;
         this.timeTable=providerFound.timeTable;
-        console.log(this.timeTable);
+        
       })
     })
   }
@@ -28,6 +28,12 @@ export class ModifyProviderComponent implements OnInit {
   ngOnInit(): void {
   }
   onSaveButtonClick(){
-    this.providersListService.updateProvider(this.provider);
+    this.providersListService.updateProvider(this.provider).subscribe();
+    console.log(this.timeTable);
+  }
+  updateDay(indexDay:number,statusDay:boolean){
+
+    this.provider.timeTable[indexDay]=statusDay;
+
   }
 }

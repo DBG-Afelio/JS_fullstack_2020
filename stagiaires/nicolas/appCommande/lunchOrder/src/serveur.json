@@ -64,7 +64,7 @@
       "ferme": false,
       "archive": false,
       "horaire": [
-        false,
+        true,
         true,
         true,
         true,

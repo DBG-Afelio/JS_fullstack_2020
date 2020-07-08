@@ -41,18 +41,17 @@ export class ProvidersListService {
 
   addProvider(newProvider:Provider){
 
-    this.http.post<Provider>('http://localhost:3000/fournisseurs',newProvider.toDto())
+   return this.http.post<ProviderDto>('http://localhost:3000/fournisseurs',newProvider.toDto())
 
   }
   removeProvider(providerId:number){
 
-    this.http.delete<ProviderDto>(`http://localhost:3000/commandes/${providerId}`)
+    return this.http.delete<ProviderDto>(`http://localhost:3000/fournisseurs/${providerId}`)
 
   }
   updateProvider(updatedProvider:Provider){
 
-    this.removeProvider(updatedProvider.id)
-    this.addProvider(updatedProvider)
+    return this.http.put<ProviderDto>('http://localhost:3000/fournisseurs/' + updatedProvider.id,updatedProvider.toDto())
 
   }
 
