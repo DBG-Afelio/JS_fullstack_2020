@@ -1,5 +1,6 @@
-<p>main-nav works!</p>
-
+<a href="/homepage">
+  <img class="logo" src="../../../assets/img/logo.png">
+</a>
 <nav class="volet-lateral">
       <!--  user unknown -->
     <app-authentication-form *ngIf="currentUser === null"
@@ -21,7 +22,10 @@
         [productList]="productList">
     </app-user-nav>
 
-    <p>Se deconnecter</p>
+    <a href="/"
+      (click)="updateCurrentUser(null)">
+      Se deconnecter
+    </a>
 </nav>
 
 

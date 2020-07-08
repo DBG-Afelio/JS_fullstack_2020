@@ -31,6 +31,12 @@ export class MainNavComponent implements OnInit {
 
   public updateCurrentUser(user: User): void {
     this.userService.setCurrentUser(user);
-    console.log('user changed to : ', user.firstName);
+    if (user) {
+      console.log('user changed to : ', user.firstName)
+    } else {
+      console.log('user changed to : ', user);
+    }
   }
+
+
 }

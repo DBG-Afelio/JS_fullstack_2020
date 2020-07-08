@@ -1,9 +1,15 @@
+.logo{
+    position: sticky;
+    width:15%;
+    height: 15%;
+}
 .volet-lateral{
     display:flex;
     flex-direction: column;
     border: solid;
-    position: absolute;
+    position: relative;
     right: 0px;
     top: 10%;
     width: 25%;
+    background-color: whitesmoke;
 }
