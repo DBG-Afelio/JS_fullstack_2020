@@ -8,23 +8,35 @@ import { Authentication } from 'src/app/models/userModel/authentication.enum';
   styleUrls: ['./authentication-form.component.css']
 })
 export class AuthenticationFormComponent implements OnInit {
-  @Input() currentUser: User;
+  //@Input() currentUser: User;
   @Input() userList: User[];
   public authentication: Authentication = Authentication.LOGIN
   public loginIn: string = '';
   public pwdIn: string = '';
-  @Output() UserStatusChange: EventEmitter<User> = new EventEmitter();
+ @Output() UserChange: EventEmitter<User> = new EventEmitter();
  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public changeConnexionRequest(): void {
-    
+  public changeConnexionRequest(login: string, pwd: string): void {
+
+ 
+      const foundUser = this.findUserFromAuth(login, pwd, this.userList);
+      if (foundUser) {
+        this.UserChange.emit(foundUser);
+      } else {
+        throw ('Erreur sur login/pwd ou User inexistant');
+      }
+ 
   }
 
-  public setAuthStatus(): Authentication {
-    return this.currentUser ? this.authentication = Authentication.LOGOUT : Authentication.LOGIN;
+  
+
+  public findUserFromAuth(login: string, pwd: string, registeredUsers: User[]): User | undefined {
+    return registeredUsers.find((user) => (user.login === login && user.pwd === pwd));
   }
+  
+
 }

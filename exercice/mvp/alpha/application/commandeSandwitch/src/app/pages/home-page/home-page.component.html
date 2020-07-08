@@ -1,11 +1,4 @@
 <p>home-page works!</p>
-<app-nav-main class="nav-volet"
-    [currentUser]="currentUser"
-    [userList]="userList"
-    [productList]="productList"
-    (changedUser)="updateCurrentUser($event)">
-</app-nav-main>
-
 
 <div class="listSuppliers">
     <app-supplier-item *ngFor="let supplier of listSuppliers"

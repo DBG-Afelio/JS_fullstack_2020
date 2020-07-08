@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SupplierItemComponent } from './components/supplier-item/supplier-item.component';
-import { NavMainComponent } from './components/nav-main/nav-main.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
@@ -18,13 +18,15 @@ import { DetailItemComponent } from './components/detail-item/detail-item.compon
 import { SupplierAdminPageComponent } from './pages/supplier-admin-page/supplier-admin-page.component';
 import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-form-page.component';
 import { AuthenticationFormComponent } from './components/authentication-form/authentication-form.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
+import { UserNavComponent } from './components/user-nav/user-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SupplierItemComponent,
-    NavMainComponent,
     DetailItemComponent,
     HistoryPageComponent,
     ProductDetailPageComponent,
@@ -36,7 +38,10 @@ import { AuthenticationFormComponent } from './components/authentication-form/au
     DetailItemComponent,
     SupplierAdminPageComponent,
     SupplierFormPageComponent,
-    AuthenticationFormComponent
+    AuthenticationFormComponent,
+    MainNavComponent,
+    AdminNavComponent,
+    UserNavComponent,
   ],
   imports: [
     BrowserModule,
