@@ -10,6 +10,7 @@ import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component
 import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
 import { MembresComponent } from 'src/page/membres/membres.component';
 import { MembreComponent } from 'src/page/membre/membre.component';
+import { OptionsComponent } from 'src/page/options/options.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MembreComponent } from 'src/page/membre/membre.component';
     FournisseurComponent,
     FournisseursComponent,
     MembresComponent,
-    MembreComponent
+    MembreComponent,
+    OptionsComponent,
   ],
   imports: [
     BrowserModule,
