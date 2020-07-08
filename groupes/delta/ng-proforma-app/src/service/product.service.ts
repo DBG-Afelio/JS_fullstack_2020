@@ -6,6 +6,7 @@ import { map, mergeMap } from "rxjs/operators";
 import { ProductDto } from 'src/model/productDto';
 import { Product } from 'src/model/product';
 import { Fourn } from 'src/model/fourn';
+import { Option } from 'src/model/option';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,9 @@ export class ProductService {
   getProductsByFournId(id:number):Observable<Product[]> {
     return this.http.get<ProductDto[]>(`http://localhost:3000/produits?fourn_id=${id}`).pipe(
       map((productsDto:ProductDto[]) => {
-        return productsDto.map((productDto:ProductDto) => Product.fromDto(productDto));
+        return productsDto.map((productDto:ProductDto) => {
+          return Product.fromDto(productDto).setOptions(productDto.options.map(option => Option.fromDto(option)));
+        });
       })
     )
   }

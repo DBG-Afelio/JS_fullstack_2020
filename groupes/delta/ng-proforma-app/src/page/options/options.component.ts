@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/model/product';
+import { Option } from 'src/model/option';
 
 @Component({
   selector: 'app-options',
@@ -7,11 +8,7 @@ import { Product } from 'src/model/product';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-@Input() options : {
-  nom:string;
-  surcout:number;
-  id:number
-}[];
+@Input() options : Option[];
   constructor() { 
     
   }
