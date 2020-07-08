@@ -1,15 +1,8 @@
 <div>
-  <div>
-    <h2>Poivre & Sel</h2>
-  </div>
-  <div *ngFor="let product of listProducts">
-    <span>{{product.nom}}</span><br>
-  </div>
+
+    <h4>{{item.nom}}</h4>
+    <span>{{item.prix}}</span> euros<br>
+    <a [routerLink]="['/', 'summary', item.id]">Je le prends!</a>
+
 </div>
 
-<div>
-  <h2>Da Peppe</h2>
-</div>
-<div *ngFor="let product of listProducts">
-  <span>{{product.nom}}</span><br>
-</div>

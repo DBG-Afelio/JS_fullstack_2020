@@ -20,6 +20,7 @@ import { LoginService } from './services/login.service';
 //Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'
 import{ DisplayItemComponent } from './components/display-item/display-item.component'
+import{ DisplayOptionsItemComponent } from './components/display-options-item/display-options-item.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import{ DisplayItemComponent } from './components/display-item/display-item.comp
     ProfileUserComponent,
     SummaryOrderComponent,
     ListItemsComponent,
-    DisplayItemComponent
+    DisplayItemComponent,
+    DisplayOptionsItemComponent
   ],
   imports: [
     BrowserModule,

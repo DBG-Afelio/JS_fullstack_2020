@@ -17,14 +17,39 @@ export class ListItemsService {
   constructor(private http: HttpClient) { }
 
   getListItems(): Observable<Item[]> {
-    console.log("Dans le service");
+
     return this.http.get<Item[]>(this.urlAPI + 'produits')
-    .pipe(map((arraItemDto: ItemDto []) => {
-      return arraItemDto.map(itemDto => Item.fromDto(itemDto))
+    .pipe(map((arrayItemDto: ItemDto []) => {
+      return arrayItemDto.map(itemDto => Item.fromDto(itemDto))
     }
-    
-    
     ));
+  }
+
+  getItemById(id: number): Observable<Item> {
+    return this.http.get<Item>(this.urlAPI + `produits/${id}`)
+    .pipe(map( (itemDto: ItemDto) => {
+      return Item.fromDto(itemDto)
+    }));
+  }
+
+
+
+  createItem(payload: Item): Observable<Item> {
+    return this.http
+      .post<Item>(`${this.urlAPI}produits`, payload)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  updateItem(payload: Item): Observable<Item> {
+    return this.http
+      .put<Item>(`${this.urlAPI}produits/${payload.id}`, payload)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  removeItem(payload: Item): Observable<Item> {
+    return this.http
+      .delete<any>(`${this.urlAPI}produits/${payload.id}`)
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
 }
