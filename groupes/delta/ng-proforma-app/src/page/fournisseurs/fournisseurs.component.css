@@ -1,10 +1,31 @@
-.today-status {
-    background-color: black;
-    width: 75px;
-    height: 20px;
-}
 .fourn {
     background-color: gray;
-    width: 400px;
-    height: 30px;
+    color: white;
+    width: 700px;
+    border: 1px solid darkgray;
+    position: relative;
+    padding: 10px;
+}
+.today-status {
+    background-color: red;
+    color: white;
+    width: 70px;
+    border: 2px solid black;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-align: center;
+}
+.is-open {
+    background-color: green;
+}
+.view-fourn {
+    background-color: lightgreen;
+    color: white;
+    width: 120px;
+    border: 2px solid black;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    text-align: center;
 }

@@ -28,6 +28,7 @@ export class FournisseurComponent implements OnInit {
       
       
   }
+  
   select(product : Product){
     this.selectedProduct = product ;
     

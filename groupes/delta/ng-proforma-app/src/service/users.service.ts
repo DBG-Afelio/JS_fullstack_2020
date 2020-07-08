@@ -11,6 +11,7 @@ import { UserDto } from 'src/model/userDTO';
 export class UsersService {
 
   public user: Subject<User> = new Subject<User>();
+  public user_co: User;
 
 
   constructor(private http: HttpClient) { }
@@ -36,6 +37,7 @@ export class UsersService {
     this.getUserByLogin(login).subscribe((user: User) => {
       console.log(user);
       this.user.next(user.password === password && user ? user : undefined);
+      this.user_co = user;
     })
   }
 
