@@ -13,6 +13,8 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,12 @@ import{ SummaryOrderComponent } from './pages/summary-order/summary-order.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
