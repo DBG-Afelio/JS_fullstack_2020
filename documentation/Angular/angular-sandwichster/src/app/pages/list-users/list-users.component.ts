@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User }  from 'src/app/interfaces/user'
 
 @Component({
   selector: 'app-list-users',
@@ -9,7 +10,22 @@ export class ListUsersComponent implements OnInit {
 
   constructor() { }
 
+  listUsers: User[];
+
   ngOnInit() {
+
+  }
+
+  addUser() {
+
+  }
+
+  removeUser() {
+    
+  }
+
+  updateUser() {
+    
   }
 
 }

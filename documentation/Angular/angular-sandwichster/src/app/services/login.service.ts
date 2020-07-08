@@ -7,8 +7,8 @@ export class LoginService {
 
 constructor() { }
 
-checkDBForUser() {
-  
-}
+  checkDBForUser() {
+    
+  }
 
 }
