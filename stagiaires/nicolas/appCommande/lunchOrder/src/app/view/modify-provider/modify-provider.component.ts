@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersListService } from 'src/app/services/providers-list.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Provider } from 'src/app/models/provider';
 
@@ -12,7 +12,7 @@ import { Provider } from 'src/app/models/provider';
 export class ModifyProviderComponent implements OnInit {
   provider:Provider;
   timeTable:boolean[]=[];
-  constructor(private providersListService:ProvidersListService,route:ActivatedRoute) { 
+  constructor(private providersListService:ProvidersListService,route:ActivatedRoute,private router:Router) { 
     
     route.paramMap.subscribe( param => {
 
@@ -28,12 +28,26 @@ export class ModifyProviderComponent implements OnInit {
   ngOnInit(): void {
   }
   onSaveButtonClick(){
-    this.providersListService.updateProvider(this.provider).subscribe();
-    console.log(this.timeTable);
+    this.providersListService.updateProvider(this.provider).subscribe(()=>{
+       this.router.navigate(['']);
+      }
+     
+    );
+    
+    
   }
   updateDay(indexDay:number,statusDay:boolean){
 
     this.provider.timeTable[indexDay]=statusDay;
 
+  }
+  updateNameProvider(newName:string){
+    this.provider.name=newName;
+  }
+  updateDescriptionProvider(newDescription:string){
+    this.provider.description=newDescription;
+  }
+  updatePhoneProvider(newPhone:string){
+    this.provider.phone=newPhone;
   }
 }

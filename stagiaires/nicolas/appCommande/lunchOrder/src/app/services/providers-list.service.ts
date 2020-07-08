@@ -50,7 +50,7 @@ export class ProvidersListService {
 
   }
   updateProvider(updatedProvider:Provider){
-
+    console.log(updatedProvider)
     return this.http.put<ProviderDto>('http://localhost:3000/fournisseurs/' + updatedProvider.id,updatedProvider.toDto())
 
   }
@@ -118,9 +118,7 @@ getProductsList():Observable<Product[]>{
   }
   updateProduct(updatedProduct:Product){
 
-    this.removeProduct(updatedProduct.id)
-    this.addProduct(updatedProduct)
-
+    return this.http.put<ProductDto>('http://localhost:3000/produits/' + updatedProduct.id,updatedProduct.toDto())
   }
 
 }
