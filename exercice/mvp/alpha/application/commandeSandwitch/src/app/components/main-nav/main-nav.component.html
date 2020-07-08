@@ -22,7 +22,8 @@
         [productList]="productList">
     </app-user-nav>
 
-    <a href="/"
+    <a *ngIf="currentUser"
+      href="/"
       (click)="updateCurrentUser(null)">
       Se deconnecter
     </a>
