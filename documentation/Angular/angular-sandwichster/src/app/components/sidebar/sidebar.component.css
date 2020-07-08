@@ -1,0 +1,12 @@
+.sidebar {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 1px solid black;
+    background: skyblue;
+    transform: translateX(320px);
+}
+

@@ -19,6 +19,9 @@ import{ SummaryOrderComponent } from './pages/summary-order/summary-order.compon
 import{ ListItemsComponent } from './components/list-items/list-items.component'
 import{ DisplayItemComponent } from './components/display-item/display-item.component'
 
+// Sidebar 
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import{ DisplayItemComponent } from './components/display-item/display-item.comp
     ProfileUserComponent,
     SummaryOrderComponent,
     ListItemsComponent,
-    DisplayItemComponent
+    DisplayItemComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
