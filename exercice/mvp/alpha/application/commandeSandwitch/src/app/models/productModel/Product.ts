@@ -1,6 +1,4 @@
 import { ProductDto} from './ProductDto';
-import { Supplier } from '../supplierModel/Supplier';
-import { Option } from '../OptionModel/Option';
 
 export class Product {
     constructor(
@@ -66,3 +64,5 @@ export class Product {
         }
     }
 }
+
+export type Option = {id: number, name: string, price: number}

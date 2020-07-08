@@ -1,6 +1,3 @@
-import { Supplier } from '../supplierModel/Supplier';
-import { Option } from '../OptionModel/Option';
-
 export interface ProductDto {
     id: number;
     nom: string;
@@ -9,3 +6,5 @@ export interface ProductDto {
     options: Option[];
     fourn_id: number;
 }
+
+export type Option = {id: number, name: string, price: number}
