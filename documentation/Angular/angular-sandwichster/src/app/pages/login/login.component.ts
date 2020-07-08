@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  authStatus: boolean;
+  loginError: boolean;
+
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+    this.authStatus = this.loginService.isAuth;
   }
+
+onSignIn(){
+  this.loginService.signIn();
+  
+}
+
+onSignout(){
+  this.loginService.signOut();
+}
+
+getUsersFromService(){
+ return this.loginService.getUsers().subscribe(data => data);
+}
+
+userCheck(login, password){
+  
+  this.loginService.userAuth(login, password).subscribe(isAuth => {
+    if(isAuth){
+      if(this.loginService.getCurrentUser().admin){
+        this.router.navigate(["for-today"])
+        this.loginError = false;
+      }
+      else{
+        this.router.navigate(["list-providers"])
+        this.loginError = true;
+      }
+    }
+    else{
+      this.loginError = true;
+    }
+  });
+}
+
+
 
 }

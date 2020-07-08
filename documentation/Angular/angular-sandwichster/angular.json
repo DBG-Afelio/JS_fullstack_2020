@@ -128,5 +128,10 @@
   "defaultProject": "angular-sandwichster",
   "cli": {
     "analytics": "e82ab3b7-fbe3-4db1-90eb-aaa34ac0ddcb"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

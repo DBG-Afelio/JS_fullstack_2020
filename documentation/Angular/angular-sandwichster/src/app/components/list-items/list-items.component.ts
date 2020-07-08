@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import{ ListItemsService } from '../../services/list-items.service';
-import { Item } from '../../interfaces/item';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-items',
@@ -9,17 +7,11 @@ import { Item } from '../../interfaces/item';
 })
 export class ListItemsComponent implements OnInit {
 
-  public listProducts: Item[];
+@Input() listProducts;
+@Input() supplier;
 
-  constructor(
-    public listItemsService: ListItemsService) { 
-      this.listItemsService.getListItems().subscribe((listeRecue) => {
-        this.listProducts = listeRecue;
-        console.log(this.listProducts);
-      });
-    }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

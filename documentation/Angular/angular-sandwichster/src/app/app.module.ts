@@ -14,10 +14,13 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
+import { LoginService } from './services/login.service';
+
 
 //Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'
 import{ DisplayItemComponent } from './components/display-item/display-item.component'
+import{ DisplayOptionsItemComponent } from './components/display-options-item/display-options-item.component'
 
 // Sidebar 
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
@@ -35,14 +38,17 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
     SummaryOrderComponent,
     ListItemsComponent,
     DisplayItemComponent,
-    SidebarComponent
+    SidebarComponent,
+    DisplayOptionsItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ export class Item{
         public description: string,
         public prix: number,
         public options: [string, number, number],
-        public fourn_id: string,
+        public fourn_id: number,
         public id: boolean,
         ){}
 
