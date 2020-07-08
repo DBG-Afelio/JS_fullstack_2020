@@ -1,8 +1,8 @@
-<input type="text" value="{{provider.name}}">
+<input type="text" value="{{provider.name}}" (change)="updateNameProvider($event.target.value)">
 <br>
-<input type="text" value="{{provider.description}}">
+<input type="text" value="{{provider.description}}" (change)="updateDescriptionProvider($event.target.value)">
 <br>
-<input type="text" value="{{provider.phone}}">
+<input type="text" value="{{provider.phone}}" (change)="updatePhoneProvider($event.target.value)">
 <br>
 <label>Lundi :</label>
 <input type="radio" name="lundi" value="ouvert" [checked]="timeTable[0]" (change)="updateDay(0,$event.target.checked)">

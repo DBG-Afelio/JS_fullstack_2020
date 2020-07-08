@@ -36,4 +36,13 @@ export class ModifyProviderComponent implements OnInit {
     this.provider.timeTable[indexDay]=statusDay;
 
   }
+  updateNameProvider(newName:string){
+    this.provider.name=newName;
+  }
+  updateDescriptionProvider(newDescription:string){
+    this.provider.description=newDescription;
+  }
+  updatePhoneProvider(newPhone:string){
+    this.provider.phone=newPhone;
+  }
 }
