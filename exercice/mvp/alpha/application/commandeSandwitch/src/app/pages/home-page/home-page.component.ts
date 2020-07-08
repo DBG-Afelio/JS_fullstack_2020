@@ -16,14 +16,14 @@ import { Product } from 'src/app/models/productModel/Product';
 })
 export class HomePageComponent implements OnInit {
   
-  listSuppliers: Supplier[] = [];
+  public listSuppliers: Supplier[] = [];
   public userList: User[] = [];
   public currentUser: User = null;
   public orderList: Order[] = [];
   public productList: Product[] = [];
 
   constructor(
-    public supplierService: SupplierService, //il est preferable de les mettre en private
+    private supplierService: SupplierService, 
     private productService: ProductService,
     private userService: UserService,
     private orderService: OrderService
@@ -40,7 +40,7 @@ export class HomePageComponent implements OnInit {
       this.currentUser = list[1];
     });
     this.orderService.getList().subscribe((list) => {
-      this.orderList = list;
+      //this.orderList = list;
     });
   }
 

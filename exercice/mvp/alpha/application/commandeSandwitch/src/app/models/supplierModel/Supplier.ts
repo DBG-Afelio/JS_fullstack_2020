@@ -52,6 +52,10 @@ export class Supplier {
         return this.description;
     }
 
+    public getListProducts(): Product[] {
+        return this.listProducts;
+    }
+
     public static fromDto(supplierDto: SupplierDto): Supplier {
         return new Supplier(
             supplierDto.id, 

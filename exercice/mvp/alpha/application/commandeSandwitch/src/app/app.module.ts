@@ -12,6 +12,8 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
 import { ValidatePageComponent } from './pages/validate-page/validate-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { NavProductComponent } from './components/nav-product/nav-product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
     ValidatePageComponent,
     AdminPageComponent,
     ProductPageComponent,
+    ProductItemComponent,
+    NavProductComponent,
   ],
   imports: [
     BrowserModule,

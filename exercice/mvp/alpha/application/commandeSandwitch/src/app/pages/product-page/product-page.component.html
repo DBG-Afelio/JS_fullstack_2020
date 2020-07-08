@@ -1,1 +1,15 @@
-<p>product-page works!</p>
+<nav class="nav-product">
+    <app-nav-product
+        [listSuppliers] = "listSuppliers"
+    ></app-nav-product>
+</nav>
+
+<div class="products" *ngIf = "supplier">
+    <app-product-item *ngFor = 'let product of supplier.getListProducts()'
+        [product] = "product"
+    ></app-product-item>
+</div>
+
+<div class="products" *ngIf = "!supplier">
+    Ce fournisseur n'existe pas !
+</div>

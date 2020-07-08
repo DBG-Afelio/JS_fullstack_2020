@@ -11,16 +11,20 @@ import { Supplier } from 'src/app/models/supplierModel/Supplier';
 export class ProductPageComponent implements OnInit {
 
   public supplier: Supplier;
-  
+  public listSuppliers: Supplier[];
+
   constructor(public supplierService: SupplierService, public activatedRoute: ActivatedRoute) { 
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       console.log("Id", id);
       this.supplierService.getSupplierWithProductsById(id).subscribe(supplier => {
         this.supplier = supplier;
+        
       } )
     });
-    
+    this.supplierService.getList().subscribe((list) => {
+      this.listSuppliers = list;
+    });
   }
 
   ngOnInit(): void {
