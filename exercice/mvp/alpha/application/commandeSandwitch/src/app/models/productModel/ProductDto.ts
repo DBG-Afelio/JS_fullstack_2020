@@ -5,7 +5,7 @@ export interface ProductDto {
     id: number;
     name: string;
     description: string;
-    price: number;
+    prix: number;
     options: Option[];
-    supplier: Supplier;
+    fourn_id: number;
 }

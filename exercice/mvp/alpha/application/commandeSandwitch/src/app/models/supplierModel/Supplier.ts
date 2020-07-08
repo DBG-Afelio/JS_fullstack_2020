@@ -1,4 +1,5 @@
 import { SupplierDto} from './SupplierDto';
+import { ProductService } from 'src/app/services/productService/product.service';
 
 export class Supplier {
 
@@ -10,6 +11,8 @@ export class Supplier {
         public archieved: boolean,
         public openings: boolean[],
         public phone: string,
+        /*public listProducts: Product[],
+        public productService: ProductService*/
     ) {
         this.id = id;
         this.name = name;
@@ -18,6 +21,7 @@ export class Supplier {
         this.archieved = archieved;
         this.openings = openings;
         this.phone = phone;
+        /*this.listProducts = this.productService.getProductsFromSupplier(this.id);*/
     }
     
 
@@ -73,4 +77,3 @@ export class Supplier {
         }
     }
 }
-

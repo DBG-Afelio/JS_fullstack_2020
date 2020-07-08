@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../../models/productModel/Product';
 import { ProductDto } from '../../models/productModel/ProductDto';
 import { map } from 'rxjs/operators';
+import { Supplier } from 'src/app/models/supplierModel/Supplier';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,17 @@ export class ProductService {
       )
     ;
   }
+
+  /*public getProductsFromSupplier(id: number): Observable<Product[]> {
+
+    return this.http.get<ProductDto[]>(this.url)
+      .pipe(
+        map((arrayProductDto : ProductDto[]) => {
+          return arrayProductDto
+            .filter(productDto => productDto.fourn_id = id)
+            .map(productDto => Product.fromDto(productDto));
+        })
+      )
+    ;
+  }*/
 }
