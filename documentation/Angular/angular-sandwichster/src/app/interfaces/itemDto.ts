@@ -4,7 +4,7 @@ export interface ItemDto {
     description: string,
     prix: number,
     options: [string, number, number],
-    fourn_id: string,
+    fourn_id: number,
     id: boolean,
 
 }

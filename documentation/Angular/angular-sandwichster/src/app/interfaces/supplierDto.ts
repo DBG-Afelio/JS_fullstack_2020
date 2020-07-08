@@ -1,4 +1,4 @@
-export interface fournisseurs {
+export interface SupplierDto {
     "id": number,
     "nom": string,
     "description": string,
