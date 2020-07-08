@@ -1,0 +1,9 @@
+.volet-lateral{
+    display:flex;
+    flex-direction: column;
+    border: solid;
+    position: absolute;
+    right: 0px;
+    top: 10%;
+    width: 25%;
+}

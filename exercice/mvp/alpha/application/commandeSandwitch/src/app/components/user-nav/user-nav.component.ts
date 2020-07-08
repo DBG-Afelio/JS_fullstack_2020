@@ -1,31 +1,30 @@
-import { Component, OnInit, Input,  Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/models/userModel/user';
-import { Authentication } from 'src/app/models/userModel/authentication.enum';
 import { Order } from 'src/app/models/orderModel/order';
 import { Product } from 'src/app/models/productModel/Product';
+import { Authentication } from 'src/app/models/userModel/authentication.enum';
 
 @Component({
-  selector: 'app-nav-main',
-  templateUrl: './nav-main.component.html',
-  styleUrls: ['./nav-main.component.css']
+  selector: 'app-user-nav',
+  templateUrl: './user-nav.component.html',
+  styleUrls: ['./user-nav.component.css']
 })
-export class NavMainComponent implements OnInit {
+export class UserNavComponent implements OnInit {
+
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
   @Input() orderList: Order[] = [];
   @Input() productList: Product[] = [];
-  @Output() changedUser: EventEmitter<User> = new EventEmitter;
-  public authentication: Authentication;
-  public creditMax: number = 10;
+
+
+  public creditMax: number = 10; //a integrer dans le service
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public setAuthStatus(): Authentication {
-    return this.currentUser ? this.authentication = Authentication.LOGOUT : Authentication.LOGIN;
-  }
+
 
   public getCurrentOrder(): Order | undefined {
     //or from localstorage

@@ -1,15 +1,12 @@
 <form> 
-    <div *ngIf="currentUser === null">
-        <p>Identifiant</p>
-        <input type="text">
-        <p>Mot de passe</p>
-        <input type="password">
-    </div>
-    <div *ngIf="currentUser">
-        Bienvenue {{ currentUser.firstName }} {{ currentUser.familyName | uppercase }}
-    </div>
+
+    <p>Identifiant</p>
+    <input #login type="text">
+    <p>Mot de passe</p>
+    <input #pwd type="password">
     <button class="authent-btn"
-        (click)="changeConnexionRequest()">
-        {{ setAuthStatus() }}
+        (click)="changeConnexionRequest(login.value, pwd.value)">
+        Se connecter
     </button>
+
 </form>

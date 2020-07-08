@@ -37,8 +37,10 @@ export class HomePageComponent implements OnInit {
     });
     this.userService.getList().subscribe((list) => {
       this.userList = list;
-      this.currentUser = list[1];
     });
+  
+    this.userService.getCurrentUser().subscribe(currUser => this.currentUser = currUser);
+
     this.orderService.getList().subscribe((list) => {
       this.orderList = list;
     });
@@ -47,7 +49,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateCurrentUser(user: User): void {
-    this.currentUser = user;
-  }
 }

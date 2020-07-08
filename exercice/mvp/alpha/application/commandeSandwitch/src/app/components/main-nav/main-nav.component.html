@@ -1,0 +1,28 @@
+<p>main-nav works!</p>
+
+<nav class="volet-lateral">
+      <!--  user unknown -->
+    <app-authentication-form *ngIf="currentUser === null"
+        [userList]="userList"
+        (UserChange)="updateCurrentUser($event)">
+    </app-authentication-form>
+
+      <!-- admin loggedIN -->
+    <app-admin-nav 
+        *ngIf="currentUser !== null && currentUser.isAdmin">
+    </app-admin-nav>
+
+      <!-- standard user loggedIN -->
+    <app-user-nav *ngIf="currentUser !== null && !currentUser.isAdmin"  
+  
+        [userList]="userList"
+        [currentUser]="currentUser"
+        [orderList]="orderList"
+        [productList]="productList">
+    </app-user-nav>
+
+    <p>Se deconnecter</p>
+</nav>
+
+
+
