@@ -4,5 +4,6 @@
     <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
     <a *ngIf="user" routerLink='commande/2'>Commande 2</a>
     <a routerLink='login' *ngIf="!user">Connexion</a>
+    <a routerLink='users' *ngIf="user?.admin && user">Membres</a>
 </div>
 <router-outlet></router-outlet>

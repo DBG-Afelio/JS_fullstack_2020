@@ -1,3 +1,27 @@
-<div class="membre">
-    <p>En cours d'implémentation...</p>
-</div>
+<table>
+    <caption><h1>Récapitulatif de {{membre.prenom}} {{membre.nom}}</h1></caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>PRENOM</th>
+            <th>ADMIN</th>
+            <th>LOGIN</th>
+            <th>PASSWORD</th>
+            <th>CREDIT</th>
+            <th>FORMATIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{membre.id}}</td>
+            <td>{{membre.nom}}</td>
+            <td>{{membre.prenom}}</td>
+            <td>{{membre.admin}}</td>
+            <td>{{membre.login}}</td>
+            <td>{{membre.password}}</td>
+            <td>{{membre.credit}}</td>
+            <td>{{membre.formation}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -25,11 +25,8 @@ thead th:nth-child(4) {
 thead th:nth-child(5) {
     width: 10%;
 }
-
-thead th:nth-child(5) {
-    width: 10%;
-}
   
 th, td {
     padding: 20px;
+    border: solid rosybrown 2px;
 }
