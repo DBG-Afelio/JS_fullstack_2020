@@ -1,68 +1,70 @@
-<form> app-authentication-form ?
-    <div *ngIf="currentUser === null">
-        <p>Identifiant</p>
-        <input type="text">
-        <p>Mot de passe</p>
-        <input type="password">
-    </div>
-    <div *ngIf="currentUser">
-        Bienvenue {{ currentUser.firstName }} {{ currentUser.familyName | uppercase }}
-    </div>
-    <button class="authent-btn">
-        {{ setAuthStatus() }}
-    </button>
-</form>
-
-<div class="nav-main" *ngIf="currentUser">
-    <nav class="nav-main_user" *ngIf="!currentUser.isAdmin">
-        <div *ngIf="!currentUser.isBlocked">
-            <div>
-                <h3>Commande du Jour</h3>
-                <p>
-                        <!-- <a routerLink = `/product/${}`  ></a> -->
-                        Ma commande du jour : {{ setOrderMessage() }}
-
-                </p>  
-                <button type="submit">
-                    Modifier
-                </button>
-                <button type="submit">
-                    Confirmer
-                </button>
-                <button type="submit">
-                    Supprimer
-                </button>   
+<section class="volet-lateral">
+    <form> app-authentication-form ?
+        <div *ngIf="currentUser === null">
+            <p>Identifiant</p>
+            <input type="text">
+            <p>Mot de passe</p>
+            <input type="password">
+        </div>
+        <div *ngIf="currentUser">
+            Bienvenue {{ currentUser.firstName }} {{ currentUser.familyName | uppercase }}
+        </div>
+        <button class="authent-btn">
+            {{ setAuthStatus() }}
+        </button>
+    </form>
+    
+    <div class="nav-main" *ngIf="currentUser">
+        <nav class="nav-main_user" *ngIf="!currentUser.isAdmin">
+            <div *ngIf="!currentUser.isBlocked">
+                <div>
+                    <h3>Commande du Jour</h3>
+                    <p>
+                            <!-- <a routerLink = `/product/${}`  ></a> -->
+                            Ma commande du jour : {{ setOrderMessage() }}
+    
+                    </p>  
+                    <button type="submit">
+                        Modifier
+                    </button>
+                    <button type="submit">
+                        Confirmer
+                    </button>
+                    <button type="submit">
+                        Supprimer
+                    </button>   
+                </div>
             </div>
-        </div>
-        <div *ngIf="currentUser.isBlocked">
-            <p>
-                Votre compte est bloqué et ne vous permet pas de passer commande.
-                Veuillez contacter votre administrateur afin de regulariser la situation.
-            </p>
-        </div>
-        
-        <div>
-            <h3>Portefeuille</h3>
-            <p> {{ setCreditMessage() }} </p>
-        </div>
-        
-        <div>
-            <h3>Hisorique des commandes</h3>
-            <a routerLink = "/historique" > Consulter mon Historique personnel</a>
-        </div>
-
-        <div>
-            <h3>Besoin d'aide ? </h3>
-            <p>
-                <a href="">Contacter l'administrateur</a>
-            </p>
-        </div>
-
-    </nav>
-
-    <nav class="nav-main_admin" *ngIf="currentUser.isAdmin">
-
-    </nav>
-</div>
+            <div *ngIf="currentUser.isBlocked">
+                <p>
+                    Votre compte est bloqué et ne vous permet pas de passer commande.
+                    Veuillez contacter votre administrateur afin de regulariser la situation.
+                </p>
+            </div>
+            
+            <div>
+                <h3>Portefeuille</h3>
+                <p> {{ setCreditMessage() }} </p>
+            </div>
+            
+            <div>
+                <h3>Hisorique des commandes</h3>
+                <a routerLink = "/historique" > Consulter mon Historique personnel</a>
+            </div>
+    
+            <div>
+                <h3>Besoin d'aide ? </h3>
+                <p>
+                    <a href="">Contacter l'administrateur</a>
+                </p>
+            </div>
+    
+        </nav>
+    
+        <nav class="nav-main_admin" *ngIf="currentUser.isAdmin">
+    
+        </nav>
+    </div>
+</section>
 
 

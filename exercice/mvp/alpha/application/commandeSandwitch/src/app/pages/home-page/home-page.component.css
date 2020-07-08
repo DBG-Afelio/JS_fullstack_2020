@@ -5,3 +5,12 @@
     width: 100%;
     justify-content: space-around;
 }
+
+.nav-volet {
+    display:flex;
+    border: solid;
+    position: absolute;
+    right: 0px;
+    top: 10%;
+    width: 25%;
+}

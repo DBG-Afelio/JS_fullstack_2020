@@ -17,6 +17,7 @@ import { NavProductComponent } from './components/nav-product/nav-product.compon
 import { DetailItemComponent } from './components/detail-item/detail-item.component';
 import { SupplierAdminPageComponent } from './pages/supplier-admin-page/supplier-admin-page.component';
 import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-form-page.component';
+import { AuthenticationFormComponent } from './components/authentication-form/authentication-form.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-f
     DetailItemComponent,
     SupplierAdminPageComponent,
     SupplierFormPageComponent,
+    AuthenticationFormComponent
   ],
   imports: [
     BrowserModule,
