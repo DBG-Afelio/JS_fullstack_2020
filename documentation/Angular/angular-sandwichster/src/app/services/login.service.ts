@@ -65,8 +65,8 @@ getCurrentUser(){
 
   }
 
-checkDBForUser() {
-  
-}
+  checkDBForUser() {
+    
+  }
 
 }
