@@ -2,5 +2,6 @@
     <a routerLink='fournisseurs'>Fournisseurs</a>
     <a *ngIf="user">{{user.login}}</a>
     <a routerLink='login' *ngIf="!user">Connexion</a>
+    <a routerLink='users' *ngIf="user?.admin && user">Membres</a>
 </div>
 <router-outlet></router-outlet>

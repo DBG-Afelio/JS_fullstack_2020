@@ -25,7 +25,7 @@ const routes: Routes = [
     component: MembresComponent
   },
   {
-    path: "user",
+    path: "user/:login",
     component: MembreComponent
   }
 ];
