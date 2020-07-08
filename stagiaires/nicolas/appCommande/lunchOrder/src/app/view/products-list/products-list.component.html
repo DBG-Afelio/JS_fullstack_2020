@@ -1,1 +1,14 @@
-<p>products-list works!</p>
+<app-nav-bar></app-nav-bar>
+<button>Ajouter un nouveau produit</button>
+<ul>
+    <li *ngFor='let product of productList'>
+        <p>{{product.name}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.price}}</p>
+        <div>
+            <button>Modifier ce produit</button>
+            <button>Supprimer ce produit</button>
+        </div>
+
+    </li>
+</ul>
