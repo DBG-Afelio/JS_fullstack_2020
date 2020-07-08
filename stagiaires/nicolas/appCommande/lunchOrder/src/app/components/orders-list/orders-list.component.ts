@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-orders-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-list.component.css']
 })
 export class OrdersListComponent implements OnInit {
+
+  @Input() ordersList:Order[]
 
   constructor() { }
 

@@ -58,6 +58,17 @@ export class ProvidersListService {
 
 //getProducts
 
+  
+getProductsList():Observable<Product[]>{
+
+  return this.http.get<ProductDto[]>('http://localhost:3000/produits')
+    .pipe(
+      map((arrayProductsDto:ProductDto[]) => {
+        return arrayProductsDto.map((productDto:ProductDto) => Product.fromDto(productDto)) 
+      })
+    )
+  }
+
   getProductsByProviderId(providerId:number):Observable<Product[]>{
 
     const productObservable = this.http.get<ProductDto[]>(`http://localhost:3000/produits?fourn_id=${providerId}`)

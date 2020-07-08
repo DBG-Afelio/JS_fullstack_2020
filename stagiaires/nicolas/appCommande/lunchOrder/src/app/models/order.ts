@@ -1,6 +1,14 @@
 import { OrderDto } from './order-dto';
+import { User } from './user';
+import { Product } from './product';
+import { OrderOption } from './order-option';
+
 
 export class Order {
+
+    user:User
+    product:Product
+
 
     constructor(public userId:number,
                 public productId:number,
@@ -37,4 +45,20 @@ export class Order {
         }
 
     }
+    setUser(user:User){
+
+        this.user = user
+
+    }
+    setProduct(product:Product){
+
+        this.product = product
+
+    }
+    getSelectedOptions():OrderOption[]{
+
+        return this.product.options.filter(option => this.optionsId.includes(option.id))
+
+    }
+
 }

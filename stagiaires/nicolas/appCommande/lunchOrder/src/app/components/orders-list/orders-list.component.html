@@ -1,1 +1,21 @@
-<p>orders-list works!</p>
+<table>
+    <tr>
+      <th>Utilisateur</th>
+      <th>Produit</th>
+      <th>Date</th>
+      <th>Payé</th>
+    </tr>
+    <tr *ngFor='let order of ordersList'>
+
+      <td>
+          
+        <p>{{order.user.name}}</p>
+        <p>{{order.user.surname}}</p>
+
+      </td>
+      <td>{{order.product.name}}</td>
+      <td>{{order.date | date:'d/M/y'}}</td>
+      <td>{{order.isPaid}}</td>
+
+    </tr>
+</table> 

@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Order } from '../models/order';
 import { HttpClient } from '@angular/common/http';
 import { OrderDto } from '../models/order-dto';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ProvidersListService } from './providers-list.service';
+import { UsersListService } from './users-list.service';
 
 
 @Injectable({
@@ -11,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class OrdersListService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private providersListService:ProvidersListService, private usersListService:UsersListService ) { }
 
   //getOrders
 
@@ -35,6 +37,24 @@ export class OrdersListService {
 
   }
 
+  getMergedOrdersList():Observable<Order[]>{
+
+    return forkJoin(this.getOrdersList(),this.providersListService.getProductsList(),this.usersListService.getUsersList())
+            .pipe(
+
+              map(([ordersList,productsList,usersList]) => { 
+
+                ordersList.forEach(order => {
+
+                  order.setProduct(productsList.find(product => product.id === order.productId))
+                  order.setUser(usersList.find(user => user.id === order.userId))
+
+                })
+                return ordersList
+
+              })
+            )
+  }
 
 //modifyOrders
 
