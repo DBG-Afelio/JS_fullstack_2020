@@ -1,0 +1,5 @@
+.volet-lateral {
+    display:flex;
+    flex-direction: column;
+    position: sticky;
+}
