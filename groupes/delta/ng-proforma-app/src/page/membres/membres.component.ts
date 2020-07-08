@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { User } from 'src/model/user';
 import { UsersService } from 'src/service/users.service';
 
@@ -7,7 +7,7 @@ import { UsersService } from 'src/service/users.service';
   templateUrl: './membres.component.html',
   styleUrls: ['./membres.component.css']
 })
-export class MembresComponent implements OnInit {
+export class MembresComponent implements OnInit, OnChanges {
 
   membres: User[];
 
@@ -17,6 +17,10 @@ export class MembresComponent implements OnInit {
     this.usersservice.getUsers().subscribe((membres)=>{
       this.membres = membres;
     })
+  }
+
+  ngOnChanges(){
+    
   }
 
 }
