@@ -11,10 +11,14 @@ export class ListSuppliersCompComponent implements OnInit {
 
   @Input() listSuppliers: Supplier[];
 
+  modalVisible = false;
+  idForModal: number;
+  supplierToDisplay: Supplier;
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.listSuppliers);
+
   }
 
 }

@@ -35,6 +35,6 @@
   <ng-template #nonArchive>
     <span>Non archivé</span>
   </ng-template><br>
-  <div>Modifier</div>
+  <a [routerLink]="['/', 'supplier', supplier.id]">Modifier</a>
   <hr>
 </div>
