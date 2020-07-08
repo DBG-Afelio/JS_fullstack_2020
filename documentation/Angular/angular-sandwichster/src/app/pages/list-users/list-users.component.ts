@@ -9,12 +9,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userservice: UserService) { }
 
   listUsers: User[];
 
   ngOnInit() {
-
+    
   }
 
   addUser() {
@@ -31,3 +31,5 @@ export class ListUsersComponent implements OnInit {
   }
 
 }
+
+
