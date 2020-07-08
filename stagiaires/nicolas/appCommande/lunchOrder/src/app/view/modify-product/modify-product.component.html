@@ -1,9 +1,25 @@
-<input type="text" value="{{product?.name}}" (change)="updateNameProduct($event.target.value)">
-<br>
-<input type="text" value="{{product?.description}}" (change)="updateDescriptionProduct($event.target.value)">
-<br>
-<input type="text" value="{{product?.price}}" (change)="updatePriceProduct($event.target.value)">
-<br>
+<form>
+
+    <label>
+        Nom :
+        <input type="text" value="{{product?.name}}" (change)="updateNameProduct($event.target.value)">
+    </label>
+    <br>
+    <label>
+        Description :<br>
+        <!--<input type="text" value="{{product?.description}}" (change)="updateDescriptionProduct($event.target.value)">-->
+        <textarea (change)="updateDescriptionProduct($event.target.textContent)">{{product?.description}}</textarea>
+    </label>
+    <br>
+    <label>
+        Prix :
+        <input type="text" value="{{product?.price}}" (change)="updatePriceProduct($event.target.value)"> €
+    </label>
+    
+    <br>    
+
+</form>
+
 
 <button (click)="onSaveButtonClick()">Sauvegarder le Produit</button>
 <button>Annuler les modifications</button>

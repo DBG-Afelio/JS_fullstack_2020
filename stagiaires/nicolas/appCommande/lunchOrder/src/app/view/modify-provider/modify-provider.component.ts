@@ -10,8 +10,11 @@ import { Provider } from 'src/app/models/provider';
   styleUrls: ['./modify-provider.component.css']
 })
 export class ModifyProviderComponent implements OnInit {
+
   provider:Provider;
   timeTable:boolean[]=[];
+  daysList:string[] = ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+
   constructor(private providersListService:ProvidersListService,route:ActivatedRoute,private router:Router) { 
     
     route.paramMap.subscribe( param => {

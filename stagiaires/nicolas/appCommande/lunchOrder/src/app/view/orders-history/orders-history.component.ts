@@ -20,10 +20,11 @@ export class OrdersHistoryComponent implements OnInit {
     this.orderListService.getMergedOrdersList().subscribe(ordersListFound => {
 
       this.ordersList = ordersListFound
-
+      console.log(this.ordersList)
       })
 
     this.currentUser = this.usersListService.getCurrentUser()
    
   }
+  
 }

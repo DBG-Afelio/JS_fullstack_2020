@@ -1,11 +1,11 @@
 <app-nav-bar></app-nav-bar>
+<h1>Liste des utilisateurs</h1>
 <button routerLink="/userDetails/new">Ajouter un utilisateur</button>
 <ul>
 
     <li *ngFor='let user of usersList'routerLink="/userDetails/{{user.id}}">
 
-        <p>{{user.name | uppercase }}</p>
-        <p>{{user.surname | titlecase }}</p>
+        <p>{{user.name | uppercase }} {{user.surname | titlecase }}</p>
         <p>Formation : {{user.formation}}</p>
         <p>Crédit : {{user.credit}} €</p>
 

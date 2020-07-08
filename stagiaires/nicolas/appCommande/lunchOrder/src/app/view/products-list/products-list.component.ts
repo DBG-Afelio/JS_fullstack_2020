@@ -10,14 +10,20 @@ import { Provider } from 'src/app/models/provider';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+    provider:Provider;
     productList:Product[];
   constructor(private providersListService:ProvidersListService, route:ActivatedRoute) { 
 
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
+
       this.providersListService.getProductsByProviderId(Number(routeId)).subscribe(productsFound => {
         this.productList=productsFound;
+      });
+
+      this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound => {
+        this.provider=providerFound;
       });
     })
 

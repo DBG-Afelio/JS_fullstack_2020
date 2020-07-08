@@ -1,30 +1,61 @@
-<label>Nom du fournisseur : </label>
-<input type="text" value="{{provider?.name}}" (change)="updateNameProvider($event.target.value)">
+<form>
 
-<br>
-
-<label>Description du fournisseur : </label>
-<input type="text" value="{{provider?.description}}" (change)="updateDescriptionProvider($event.target.value)">
-
-<br>
-
-<label>Téléphone du fournisseur : </label>
-<input type="text" value="{{provider?.phone}}" (change)="updatePhoneProvider($event.target.value)">
-
-<br>
-
-<label>Horaire du fournisseur : </label>
-<div *ngFor="let day of ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche']; let i = index">
-    <label>{{day}} :</label>
-    <input type="radio" name="{{day}}" value="ouvert" [checked]="timeTable[i]" (change)="updateDay(i,true)">
-    <label>Ouvert</label>
-    <input type="radio" name="{{day}}" value="fermé" [checked]="!timeTable[i]" (change)="updateDay(i,false)">
-    <label>Fermé</label>
+    <label>
+        Nom du fournisseur :
+        <input type="text" value="{{provider?.name}}" (change)="updateNameProvider($event.target.value)">
+    </label>
     <br>
 
-</div>
+    <label>
+        Description du fournisseur :
+        <input type="text" value="{{provider?.description}}" (change)="updateDescriptionProvider($event.target.value)">
+    </label>
+    <br>
+
+    <label>
+        Téléphone du fournisseur :
+        <input type="text" value="{{provider?.phone}}" (change)="updatePhoneProvider($event.target.value)">
+    </label>
+    <br>
+
+    <label>
+        Jours d'ouverture :
+        <table>
+
+            <thead>
+                <tr>
+                    <th *ngFor="let day of daysList" >
+                        {{day}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td *ngFor="let day of daysList; let i = index">
+                        <select (change)="updateDay( i , $event.target.selectedIndex === 0)">
+                            <option [selected]="timeTable[i]">Ouvert</option>
+                            <option  [selected]="!timeTable[i]">Fermé</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <!--
+        <div *ngFor="let day of ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche']; let i = index">
+
+            <label>{{day}} :</label>
+            <input type="radio" name="{{day}}" value="ouvert" [checked]="timeTable[i]" (change)="updateDay(i,true)">
+            <label>Ouvert</label>
+            <input type="radio" name="{{day}}" value="fermé" [checked]="!timeTable[i]" (change)="updateDay(i,false)">
+            <label>Fermé</label>
+            <br>
+
+        </div>-->
+    </label>
+</form>
 
 <button (click)="onSaveButtonClick()">Sauvegarder Les Changements</button>
-<button>Annuler les Changements</button>
+<button routerLink=''>Annuler les Changements</button>
 
 

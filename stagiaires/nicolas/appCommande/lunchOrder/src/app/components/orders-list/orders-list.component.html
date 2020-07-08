@@ -1,21 +1,26 @@
 <table>
-    <tr>
-      <th>Utilisateur</th>
-      <th>Produit</th>
-      <th>Date</th>
-      <th>Payé</th>
-    </tr>
-    <tr *ngFor='let order of ordersList'>
+    <thead>
+      <tr>
+        <th>Utilisateur</th>
+        <th>Produit</th>
+        <th>Date</th>
+        <th>Prix</th>
+        <th>Payement</th>
+      </tr>
+    </thead>
 
-      <td>
-          
-        <p>{{order.user.name}}</p>
-        <p>{{order.user.surname}}</p>
+    <tbody>
+      <tr *ngFor='let order of ordersList'>
 
-      </td>
-      <td>{{order.product.name}}</td>
-      <td>{{order.date | date:'d/M/y'}}</td>
-      <td>{{order.isPaid}}</td>
-
-    </tr>
+        <td>
+          {{order.user.name | uppercase}} {{order.user.surname | titlecase}}
+        </td>
+        <td>{{order.product.name}}</td>
+        <td>{{order.date | date:'d/M/y'}}</td>
+        <td>{{order.product.price}} €</td>
+        <td>{{order.isPaid?'ok':'En attente'}}</td>
+  
+      </tr>
+    </tbody>
+    
 </table> 
