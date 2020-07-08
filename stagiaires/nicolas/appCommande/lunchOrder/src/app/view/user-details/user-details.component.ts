@@ -11,19 +11,35 @@ import { ActivatedRoute } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
 
   user:User
+  editMode:string
 
   constructor(private usersListService:UsersListService,  private route:ActivatedRoute) {
     
+    route.url.subscribe(url => {
+      
+      this.editMode = url[1].path == 'new' ? 'create' : 'update';
+    }
+    );
+  
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('userId');
-      this.usersListService.getUserById(Number(routeId)).subscribe(userFound=>{
-        
-        this.user=userFound;
-        
-      })
-    })
+      
 
+      if(routeId === 'new'){
+
+        this.user = new User('','','','',0,'',false,false,0)
+
+      }else{
+
+        this.usersListService.getUserById(Number(routeId)).subscribe(userFound=>{
+          
+          this.user=userFound;
+          
+        })
+      }
+    })
+    
   }
 
   ngOnInit(): void {

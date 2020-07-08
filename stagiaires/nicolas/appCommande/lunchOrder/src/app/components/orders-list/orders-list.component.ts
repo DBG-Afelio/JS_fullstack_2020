@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Order } from 'src/app/models/order';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-orders-list',
@@ -10,9 +11,13 @@ export class OrdersListComponent implements OnInit {
 
   @Input() ordersList:Order[]
 
+  @Input() currentUser:User
+
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
 
 }

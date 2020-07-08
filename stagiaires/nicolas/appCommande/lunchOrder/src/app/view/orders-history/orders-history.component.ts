@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersListService } from 'src/app/services/orders-list.service';
 import { Order } from 'src/app/models/order';
+import { User } from 'src/app/models/user';
+import { UsersListService } from 'src/app/services/users-list.service';
 
 @Component({
   selector: 'app-orders-history',
@@ -10,8 +12,8 @@ import { Order } from 'src/app/models/order';
 export class OrdersHistoryComponent implements OnInit {
 
   ordersList:Order[]
-
-  constructor(private orderListService:OrdersListService) { }
+  currentUser:User
+  constructor(private orderListService:OrdersListService,private usersListService:UsersListService,) { }
 
   ngOnInit(): void {
 
@@ -20,5 +22,8 @@ export class OrdersHistoryComponent implements OnInit {
       this.ordersList = ordersListFound
 
       })
+
+    this.currentUser = this.usersListService.getCurrentUser()
+   
   }
 }

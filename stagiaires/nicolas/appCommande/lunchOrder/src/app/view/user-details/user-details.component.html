@@ -16,8 +16,21 @@
         <input value='{{user?.formation}}'>
     
     </label>
+    <label>
+        Login :
+        <input value='{{user?.login}}'>
+    
+    </label>
+    <label>
+        Mot de passe :
+        <input value='{{user?.password}}'>
+    
+    </label>
     
 
 </form>
+<button *ngIf='editMode === "create"'>Créer utilisateur</button>
+<button *ngIf='editMode === "update"'>Enregistrer les modifications</button>
+<button *ngIf='editMode === "update"'>Supprimer l'utilisateur</button>
 
 
