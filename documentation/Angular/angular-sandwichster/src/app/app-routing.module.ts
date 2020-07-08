@@ -22,7 +22,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'summary/:id',
+    path: 'summary',
     component: SummaryOrderComponent,
   },
   {

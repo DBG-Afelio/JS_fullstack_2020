@@ -20,12 +20,12 @@ export class ListProductsComponent implements OnInit {
     ) { 
       this.listItemsService.getListItems().subscribe((listeRecue) => {
         this.listProducts = listeRecue;
-        console.log(this.listProducts);
+
       });
 
       this.suppliersService.getListSuppliers().subscribe((listeRecue) => {
         this.listSuppliers = listeRecue;
-        console.log(this.listProducts);
+
       });
     }
 
