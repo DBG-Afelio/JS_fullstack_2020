@@ -50,7 +50,14 @@ export class UsersService {
   // removeUser(user: User): Observable<User> {
   // }
 
-  // getUserById(id: number): Observable<User> {
-  // }
+   getUserById(id: number): Observable<User> {
+     return this.http.get<UserDto>(`http://localhost:3000/utilisateurs/${id}`).pipe(
+       map((userDto :UserDto )=>{
+        return User.fromDto(userDto);
+       }
+        
+
+     ))
+   }
 
 }

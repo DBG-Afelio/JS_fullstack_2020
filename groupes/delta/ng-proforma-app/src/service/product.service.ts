@@ -39,5 +39,12 @@ export class ProductService {
       })
     )
   }
+  getProductById(id :number): Observable<Product>{
+    return this.http.get<ProductDto>(`http://localhost:3000/produits/${id}`).pipe(
+      map((productDto :ProductDto)=>{
+        return Product.fromDto(productDto).setOptions(productDto.options.map(option => Option.fromDto(option)));
+      })
+    )
+  }
 
 }

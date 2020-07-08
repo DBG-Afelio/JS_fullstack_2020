@@ -1,9 +1,9 @@
 
 
 <ul>
-  <li *ngFor="let option of options">
-    Nom :{{option.nom}} <br>
-    Surcout :{{option.surcout}}<br>
+  <li class="ulList" *ngFor="let option of options ; index as i">
+    {{i+1}} :Nom :{{option.nom}}. <br>
+    Surcout :{{option.surcout}}€.<br>
     
     
   </li>

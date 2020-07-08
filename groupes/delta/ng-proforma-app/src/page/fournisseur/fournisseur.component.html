@@ -4,17 +4,17 @@
     <li class="liList"  *ngFor="let product of fournisseur?.products ; index as i" [class.selected]="product ===selectedProduct "
     (click)="select(product)">
         
-    <span class="badge">{{i+1}}</span>
+    <span class="badge">{{i+1}} : </span>
     {{product?.nom}}  
-    {{product.prix}}  
+    ({{product.prix}}€).  
 
 </ul>
 </div>
 <div *ngIf="selectedProduct" class="prductDetails">
-    Nome de fournisseur :{{fournisseur.nom}}<br>
-    Nom de Produit :{{selectedProduct?.nom}}  <br>
-    Prix de produit : {{selectedProduct?.prix}}  <br>
-    Desciption:{{selectedProduct?.description}}
+    Nome de fournisseur :{{fournisseur.nom}}.<br>
+    Nom de Produit :{{selectedProduct?.nom}}.  <br>
+    Prix de produit : {{selectedProduct?.prix}}€.  <br>
+    Desciption:{{selectedProduct?.description}}.
     
     <app-options [options]="selectedProduct.options"></app-options>
 </div>
