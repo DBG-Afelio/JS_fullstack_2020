@@ -4,6 +4,8 @@ import { FournService } from 'src/service/fourn.service';
 import { Fourn } from 'src/model/fourn';
 import { Product } from 'src/model/product';
 import { ProductService } from 'src/service/product.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-fournisseur',
@@ -11,28 +13,60 @@ import { ProductService } from 'src/service/product.service';
   styleUrls: ['./fournisseur.component.css']
 })
 export class FournisseurComponent implements OnInit {
+  DEADLINE = {HOURS:16, MINUTES: 20};
   fourn_id: number;
   fournisseur: Fourn;
-  selectedProduct :Product ;
-  
+  selectedProduct: Product;
+  hour: Date;
+  message: string;
+ 
 
-  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute , private productService : ProductService) {
+
+
+  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute, private productService: ProductService) {
     this.activatedRoute.paramMap.subscribe(param => {
       this.fourn_id = Number(param.get('id'));
     })
+
   }
 
   ngOnInit() {
+    this.hour= new Date();
+    interval(60000).subscribe(() => this.hour =  new Date(Date.now()));
+
     this.fournService.getFournByIdWithProducts(this.fourn_id)
-      .subscribe((fourn:Fourn) => this.fournisseur = fourn);
+      .subscribe((fourn: Fourn) => this.fournisseur = fourn);
       
-      
+      console.log(this.hour.getHours());
+
+
+  }
+
+  select(product: Product) {
+    this.selectedProduct = product;
+
+  }
+
+  checkeOrder() {
+    
+    console.log(this.hour.getMinutes());
+    if ( this.fournisseur.openToday()) {
+      this.message = 'You can order any thing you like ';
+    }
+    else if ( this.hour.getHours() > 10) {
+      this.message = 'Désolé les commandes ne sont pas disponibles après 10 heures';
+    }
+    else if (this.fournisseur.openToday()===false) {
+      this.message = "Désolées les commandes ne sont pas disponibles le week-end" ; 
+    }
+
+  }
+  showCosole(){
+    console.log(this.hour);
+  }
+
+  stillInTime(){
+    return this.hour.getHours() < this.DEADLINE.HOURS && this.hour.getMinutes() < this.DEADLINE.MINUTES;
   }
   
-  select(product : Product){
-    this.selectedProduct = product ;
-    
-  }
-
-
 }

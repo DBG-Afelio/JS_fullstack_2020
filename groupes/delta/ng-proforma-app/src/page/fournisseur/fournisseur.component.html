@@ -18,3 +18,7 @@
     
     <app-options [options]="selectedProduct.options"></app-options>
 </div>
+<button *ngIf="stillInTime()" (click)="checkeOrder()">Vérifier</button>
+<p class="message">  {{message}} </p>
+{{hour}}
+<button class="show" (click)='showCosole()'>show</button>
