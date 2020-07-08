@@ -1,12 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <ul>
 
-    <li *ngFor='let user of usersList'>
+    <li *ngFor='let user of usersList'routerLink="/userDetails/{{user.id}}">
 
         <p>{{user.name | uppercase }}</p>
         <p>{{user.surname | titlecase }}</p>
         <p>Formation : {{user.formation}}</p>
         <p>Crédit : {{user.credit}} €</p>
+
+        <button routerLink="/userDetails/{{user.id}}">afficher l'utilisateur</button>
 
     </li>
 
