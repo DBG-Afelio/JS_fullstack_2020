@@ -1,6 +1,8 @@
 <div class="header">
     <a routerLink='fournisseurs'>Fournisseurs</a>
     <a *ngIf="user">{{user.login}}</a>
+    <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
+    <a *ngIf="user" routerLink='commande/2'>Commande 2</a>
     <a routerLink='login' *ngIf="!user">Connexion</a>
 </div>
 <router-outlet></router-outlet>

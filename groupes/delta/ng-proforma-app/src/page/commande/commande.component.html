@@ -1,0 +1,4 @@
+<div class="commande-container" *ngIf="commande">
+  <h3>Commande {{commande?.product.nom}}</h3>
+  <app-options [options]="commande.product.options" [selected_options]="commande.options" ></app-options>
+</div>

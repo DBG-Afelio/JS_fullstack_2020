@@ -8,7 +8,8 @@ import { Option } from 'src/model/option';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-@Input() options : Option[];
+  @Input() options : Option[];
+  @Input() selected_options : Option[];
   constructor() { 
     
   }

@@ -5,6 +5,7 @@ import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component
 import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
 import { MembresComponent } from 'src/page/membres/membres.component';
 import { MembreComponent } from 'src/page/membre/membre.component';
+import { CommandeComponent } from 'src/page/commande/commande.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "user",
     component: MembreComponent
+  },
+  {
+    path: "commande/:id",
+    component: CommandeComponent
   }
 ];
 
