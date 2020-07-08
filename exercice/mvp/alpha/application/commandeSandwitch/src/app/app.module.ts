@@ -11,6 +11,7 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { ValidatePageComponent } from './pages/validate-page/validate-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     HistoryPageComponent,
     ProductDetailPageComponent,
     ValidatePageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ProductPageComponent,
   ],
   imports: [
     BrowserModule,

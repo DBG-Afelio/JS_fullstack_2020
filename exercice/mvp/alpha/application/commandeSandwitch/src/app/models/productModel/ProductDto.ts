@@ -3,9 +3,9 @@ import { Option } from '../OptionModel/Option';
 
 export interface ProductDto {
     id: number;
-    name: string;
+    nom: string;
     description: string;
-    price: number;
+    prix: number;
     options: Option[];
-    supplier: Supplier;
+    fourn_id: number;
 }

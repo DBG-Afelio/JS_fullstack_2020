@@ -9,14 +9,14 @@ export class Product {
         public description: string,
         public price: number,
         public options: Option[],
-        public supplier: Supplier,
+        public supplierId: number,
     ) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.options = options;
-        this.supplier = supplier;
+        this.supplierId = supplierId;
     }
 
     public getId():number {
@@ -39,30 +39,30 @@ export class Product {
         return this.options;
     }
 
-    public getSupplier():Supplier {
-        return this.supplier;
+    public getSupplierId():number {
+        return this.supplierId;
     }
 
 
     public static fromDto(productDto: ProductDto): Product {
         return new Product(
             productDto.id, 
-            productDto.name, 
+            productDto.nom, 
             productDto.description, 
-            productDto.price,
+            productDto.prix,
             productDto.options,
-            productDto.supplier,
+            productDto.fourn_id,
         );
     }
 
     public toDto(): ProductDto {
         return {
             id: this.id,
-            name: this.name,
+            nom: this.name,
             description: this.description, 
-            price: this.price,
+            prix: this.price,
             options: this.options,
-            supplier: this.supplier,
+            fourn_id: this.supplierId,
         }
     }
 }
