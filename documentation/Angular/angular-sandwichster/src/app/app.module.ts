@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 //Pages
 import{ ListProductsComponent } from './pages/list-products/list-products.component'
 import{ ListProductsAdminComponent } from './pages/list-products-admin/list-products-admin.component'
-import{ ListProvidersComponent } from './pages/list-providers/list-providers.component'
+import{ ListSuppliersComponent } from './pages/list-suppliers/list-suppliers.component'
 import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-orders.component'
 import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
@@ -30,7 +30,7 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
     AppComponent,
     ListProductsComponent,
     ListProductsAdminComponent,
-    ListProvidersComponent,
+    ListSuppliersComponent,
     ListTotalOrdersComponent,
     ListUsersComponent,
     LoginComponent,
