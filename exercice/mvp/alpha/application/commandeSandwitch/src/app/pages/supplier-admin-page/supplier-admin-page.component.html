@@ -1,0 +1,24 @@
+<p>supplier-admin-page works!</p>
+
+
+<a routerLink = "/admin/fournisseur/ajouter">Ajouter un fournisseur</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>PRODUITS</th>
+
+        <th>MODIFIER</th>
+        <th>ARCHIVER</th>
+        <th>SUPPRIMER</th>
+    </tr>
+    <tr *ngFor = "let supplier of listSuppliers">
+        <td>{{ supplier.id }}</td>
+        <td>{{ supplier.name }}</td>
+        <td><!--<a routerLink = "/admin/fournisseur/{{ supplier.id }}">-->voir les produits</td>
+        <td><a routerLink = "/admin/fournisseur/modifier/{{ supplier.id }}">Mod</a></td>
+        <td><a routerLink = "/admin/fournisseur/archiver/{{ supplier.id }}">Archiv.</a></td>
+        <td><a routerLink = "/admin/fournisseur/suppimer/{{ supplier.id }}">Suppr.</a></td>
+    </tr>
+</table>

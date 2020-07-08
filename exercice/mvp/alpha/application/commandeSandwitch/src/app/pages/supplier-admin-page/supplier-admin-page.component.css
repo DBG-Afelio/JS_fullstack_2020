@@ -1,0 +1,19 @@
+table tr:nth-child(2n) {
+    background-color: whitesmoke;
+}
+
+table tr:nth-child(2n+1) {
+    background-color: lightgray;
+}
+
+
+table td {
+    border: 1px solid silver;
+    padding: 5px;
+}
+
+
+table th {
+    background-color: silver;
+    padding: 5px;
+}
