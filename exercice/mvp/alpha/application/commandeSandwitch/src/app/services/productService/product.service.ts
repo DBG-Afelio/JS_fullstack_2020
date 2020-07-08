@@ -32,16 +32,15 @@ export class ProductService {
     ;
   }
 
-  /*public getProductsFromSupplier(id: number): Observable<Product[]> {
+  public getProductsFromSupplier(id: number): Observable<Product[]> {
 
-    return this.http.get<ProductDto[]>(this.url)
+    return this.http.get<ProductDto[]>(this.url +`?fourn_id=${id}`)
       .pipe(
         map((arrayProductDto : ProductDto[]) => {
           return arrayProductDto
-            .filter(productDto => productDto.fourn_id = id)
             .map(productDto => Product.fromDto(productDto));
         })
       )
     ;
-  }*/
+  }
 }

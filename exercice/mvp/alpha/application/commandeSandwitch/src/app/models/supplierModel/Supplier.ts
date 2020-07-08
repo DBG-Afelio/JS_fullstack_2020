@@ -1,8 +1,10 @@
 import { SupplierDto} from './SupplierDto';
-import { ProductService } from 'src/app/services/productService/product.service';
+import { Product } from '../productModel/Product';
 
 export class Supplier {
 
+    private listProducts: Product[];
+    
     constructor(
         public id: number,
         public name: string,
@@ -10,9 +12,7 @@ export class Supplier {
         public closure: boolean,
         public archieved: boolean,
         public openings: boolean[],
-        public phone: string,
-        /*public listProducts: Product[],
-        public productService: ProductService*/
+        public phone: string
     ) {
         this.id = id;
         this.name = name;
@@ -21,7 +21,6 @@ export class Supplier {
         this.archieved = archieved;
         this.openings = openings;
         this.phone = phone;
-        /*this.listProducts = this.productService.getProductsFromSupplier(this.id);*/
     }
     
 
@@ -75,5 +74,9 @@ export class Supplier {
             horaire: this.openings,
             tel: this.phone,
         }
+    }
+
+    public setListProducts(listProducts: Product[]): void {
+        this.listProducts = listProducts;
     }
 }

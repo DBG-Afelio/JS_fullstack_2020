@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Supplier } from '../../models/supplierModel/Supplier';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { SupplierDto } from '../../models/supplierModel/SupplierDto';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { ProductService } from '../productService/product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class SupplierService {
   url: string = 'http://localhost:3000/fournisseurs';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private productService: ProductService) { }
 
   public getList(): Observable<Supplier[]> {
     return this.http.get<SupplierDto[]>(this.url)
@@ -30,5 +31,16 @@ export class SupplierService {
       )
     ;
   }
-}
 
+  public getSupplierWithProductsById(id: number) : Observable<Supplier>{
+    return forkJoin(this.getSupplierById(id), this.productService.getProductsFromSupplier(id))
+      .pipe(
+        tap((result) => console.log(result)),
+        map(([supplier, listProducts]) => {
+          supplier.setListProducts(listProducts);
+          return supplier;
+        })
+      )
+    ;
+  }
+}
