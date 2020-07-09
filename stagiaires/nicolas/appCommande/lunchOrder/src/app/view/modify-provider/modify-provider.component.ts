@@ -3,6 +3,7 @@ import { ProvidersListService } from 'src/app/services/providers-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Provider } from 'src/app/models/provider';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-modify-provider',
@@ -15,12 +16,25 @@ export class ModifyProviderComponent implements OnInit {
   timeTable:boolean[]=[];
   daysList:string[] = ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
 
-  constructor(private providersListService:ProvidersListService,route:ActivatedRoute,private router:Router) { 
+  providerForm = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    isClosed: new FormControl(''),
+    isArchived: new FormControl(''),
+    timeTable: new FormControl(''),
+    phone: new FormControl(''),
+    id: new FormControl('')
+  });
+
+
+  constructor(private providersListService:ProvidersListService,private route:ActivatedRoute,private router:Router) { 
     
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
+      
       this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
+        
         this.provider=providerFound;
         this.timeTable=providerFound.timeTable;
         
