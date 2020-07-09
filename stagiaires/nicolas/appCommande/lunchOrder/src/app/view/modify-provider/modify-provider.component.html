@@ -18,41 +18,20 @@
     </label>
     <br>
 
-    <label>
-        Jours d'ouverture :
-        <table>
+    <fieldset>
+        <legend>Jours d'ouverture</legend>
+        
+        <ul>
 
-            <thead>
-                <tr>
-                    <th *ngFor="let day of daysList" >
-                        {{day}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td *ngFor="let day of daysList; let i = index">
-                        <select (change)="updateDay( i , $event.target.selectedIndex === 0)">
-                            <option [selected]="timeTable[i]">Ouvert</option>
-                            <option  [selected]="!timeTable[i]">Fermé</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
-            
-        </table>
-        <!--
-        <div *ngFor="let day of ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche']; let i = index">
+            <li *ngFor="let day of daysList; let i = index" >
 
-            <label>{{day}} :</label>
-            <input type="radio" name="{{day}}" value="ouvert" [checked]="timeTable[i]" (change)="updateDay(i,true)">
-            <label>Ouvert</label>
-            <input type="radio" name="{{day}}" value="fermé" [checked]="!timeTable[i]" (change)="updateDay(i,false)">
-            <label>Fermé</label>
-            <br>
+                {{day}} :
+                <mat-slide-toggle (change)='updateDay( i , $event.checked)' [checked]="timeTable[i]">{{timeTable[i]?'ouvert':'fermé'}}</mat-slide-toggle>
 
-        </div>-->
-    </label>
+            </li>
+
+        </ul>
+    </fieldset>
 </form>
 
 <button (click)="onCreateButtonClick()">Créer ce commerce</button>

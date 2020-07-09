@@ -74,5 +74,9 @@ export class ModifyProviderComponent implements OnInit {
       }  
     );   
   }
+  msgConsole(){
 
+    console.log('toggle')
+
+  }
 }
