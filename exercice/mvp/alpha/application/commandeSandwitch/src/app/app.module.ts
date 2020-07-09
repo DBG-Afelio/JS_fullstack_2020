@@ -21,6 +21,9 @@ import { AuthenticationFormComponent } from './components/authentication-form/au
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
+import { UserFormPageComponent } from './pages/user-form-page/user-form-page.component';
+import { OrderFormPageComponent } from './pages/order-form-page/order-form-page.component';
+import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { UserNavComponent } from './components/user-nav/user-nav.component';
     MainNavComponent,
     AdminNavComponent,
     UserNavComponent,
+    UserFormPageComponent,
+    OrderFormPageComponent,
+    UserAdminPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { IOrderDto } from './../../models/orderModel/iorder-dto';
 import { Order } from 'src/app/models/orderModel/order';
 import { User } from 'src/app/models/userModel/user';
+import { UserService } from '../userService/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-
+  private currentUser: User = null;
+  private userOrder: BehaviorSubject<Order> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { 
+userService
+   }
 
   public getList(): Observable<Order[]> {
     return this.http.get<IOrderDto[]>(this.orderUrl)
