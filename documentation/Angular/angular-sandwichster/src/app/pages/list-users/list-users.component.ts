@@ -9,18 +9,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private listusersid: UserService) {
-    // this.listusersid.createUser()
    }
-=======
-  constructor(private userservice: UserService) { }
->>>>>>> bravo-sanwichster
 
   listUsers: User[];
 
   ngOnInit() {
-    
+
   }
 
   addUser() {
@@ -37,5 +32,3 @@ export class ListUsersComponent implements OnInit {
   }
 
 }
-
-
