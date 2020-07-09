@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdersService } from '../../services/orders.service';
+import{ Order } from 'src/app/interfaces/order'
 
 @Component({
   selector: 'app-list-total-orders',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTotalOrdersComponent implements OnInit {
 
-  constructor() { }
+  public todayOrders: any; //attention ici j'avais mis Order[] mais ça ne marchait pas quand j'appelais dans le template alors j'ai mis any
+
+  constructor(private orderService: OrdersService) {
+    this.orderService.getAllOrders().subscribe((receivedOrders) => {
+      this.todayOrders = receivedOrders;
+      console.log(this.todayOrders);
+   })}
 
   ngOnInit() {
+    this.getOrders();
   }
 
+getOrders(){
+  return this.todayOrders;
 }
+  
+
+}
+
