@@ -1,6 +1,6 @@
 .header {
   overflow: hidden;
-  background-color: #333;
+  background-color: #2d545e;
 }
 
 .header a {
@@ -13,7 +13,7 @@
 }
 
 .header a:hover {
-  background-color: #ddd;
+  background-color: #e1b382;
   color: black;
 }
 

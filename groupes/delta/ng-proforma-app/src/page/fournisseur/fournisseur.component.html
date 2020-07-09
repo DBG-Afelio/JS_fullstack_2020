@@ -1,14 +1,16 @@
 <h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
 <div>
+<nav>
 <ul class="ulList">
     <li class="liList"  *ngFor="let product of fournisseur?.products ; index as i" [class.selected]="product ===selectedProduct "
     (click)="select(product)">
         
-    <span class="badge">{{i+1}} : </span>
-    {{product?.nom}}  
-    ({{product.prix}}€).  
+    <span class="index">{{i+1}}  </span>
+    <span class="titles">:{{product?.nom}}  
+    ({{product.prix}}€).  </span>
 
 </ul>
+</nav>
 </div>
 <div *ngIf="selectedProduct" class="prductDetails">
     Nome de fournisseur :{{fournisseur.nom}}.<br>
@@ -20,5 +22,5 @@
 </div>
 <button *ngIf="stillInTime()" (click)="checkeOrder()">Vérifier</button>
 <p class="message">  {{message}} </p>
-{{hour}}
-<button class="show" (click)='showCosole()'>show</button>
+<p class="hour">{{hour}}</p>
+

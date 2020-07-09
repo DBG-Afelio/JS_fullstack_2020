@@ -1,20 +1,61 @@
 
- .ulList {
- 
-  list-style-type: none;
-  padding: 5px;
- 
+
+ nav ul {
+	list-style-type: none;
+  padding: 0;
+  height:650px;
+   width:18%;
+  overflow:hidden; 
+  overflow-y:scroll;
 }
-.liList {
-  padding : 5px ; 
+
+nav ul li {
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color: white;
+	border: 2px solid #2d545e;
+	letter-spacing: 0.1em;
+	width: 18em;
+	height: 3em;
+	line-height: 1.5em;
+	position: relative;
+	overflow: hidden;
+	margin: 0.5em;
+  cursor: pointer;
+  border-radius: 30px 20px;
 }
+
+nav ul li span {
+	color: white;
+	mix-blend-mode: difference;
+}
+
+nav ul li::before {
+	content: '';
+	position: absolute;
+	width: 6em;
+	height: inherit;
+	background-color: #e1b382;
+	
+	top: 0;
+	left: -4em;
+	transition: 0.3s ease-out;
+}
+
+nav ul li:hover::before {
+	transform: scale(7);
+}
+.ulList li.selected{
+  background-color:#e1b382 ; 
+}
+
 
 .prductDetails{
   width: 500px;
   height: 150px;
   position: absolute;
-  left: 250px;
-  top: 75px;
+  left: 300px;
+  top: 225px;
 }
 button{
   position: absolute;
@@ -44,4 +85,20 @@ button:hover{
   position: absolute;
   top:400px ;
   right: 200px;
+}
+.hour{
+  position: absolute;
+  top:450px ;
+  right: 150px;
+
+}
+.index{
+  position: absolute;
+  top: 8px;
+  left: 5px;
+}
+.titles{
+  position: absolute;
+  top: 8px;
+  left: 28px;
 }
