@@ -108,12 +108,12 @@ getProductsList():Observable<Product[]>{
 
   addProduct(newProduct:Product){
 
-    this.http.post<Product>('http://localhost:3000/produits',newProduct.toDto())
+    return this.http.post<Product>('http://localhost:3000/produits',newProduct.toDto())
 
   }
   removeProduct(productId:number){
 
-    this.http.delete<ProductDto>(`http://localhost:3000/produits/${productId}`)
+    return this.http.delete<ProductDto>(`http://localhost:3000/produits/${productId}`)
 
   }
   updateProduct(updatedProduct:Product){
