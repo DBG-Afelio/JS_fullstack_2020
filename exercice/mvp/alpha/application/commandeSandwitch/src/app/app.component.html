@@ -1,5 +1,18 @@
-
-    <app-main-nav></app-main-nav>
-    <router-outlet></router-outlet>
-
-
+<main>
+    <header>
+        <div class="inner-header">
+            <a href="/homepage">
+                <img class="logo" src="../assets/img/logo.png">
+            </a>
+        </div>
+    </header>
+    <aside>
+        <app-main-nav></app-main-nav>
+    </aside>
+    <content>
+        <router-outlet></router-outlet>
+    </content>
+    <footer>
+        footer
+    </footer>
+</main>

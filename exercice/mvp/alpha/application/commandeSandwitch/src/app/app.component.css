@@ -1,0 +1,48 @@
+body, html {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    position: sticky;
+    width: 300px;
+}
+    
+main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 400px;
+    grid-template-rows: auto;
+
+    grid-template-areas: 
+    "header  header"
+    "content  aside"
+    "footer  footer";
+
+    
+}
+
+main > * {
+    border: 1px solid red;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+header {
+    grid-area: header;
+    height: 40vh;
+    background: url('../assets/header/sandwich.jpg') right 75% bottom 75% no-repeat; 
+    background-size: cover;
+}
+content {
+    grid-area: content;
+}
+aside {
+    grid-area: aside;
+}
+footer{
+    grid-area: footer;
+}

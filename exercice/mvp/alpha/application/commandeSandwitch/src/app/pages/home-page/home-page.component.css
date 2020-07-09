@@ -1,8 +1,9 @@
 .listSuppliers {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    column-gap: 2%;
     border: 1px solid black;
-    width: 100%;
-    justify-content: space-around;
+    
+    justify-content: space-between;
 }
 

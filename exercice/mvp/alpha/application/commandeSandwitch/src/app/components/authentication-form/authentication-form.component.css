@@ -3,5 +3,5 @@ form {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 75%
+    width: 100%;
 }

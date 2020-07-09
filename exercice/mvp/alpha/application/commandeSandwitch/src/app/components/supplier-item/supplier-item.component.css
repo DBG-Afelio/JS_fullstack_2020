@@ -2,8 +2,11 @@
     border: 1px solid black;
     padding: 15px;
     background-color: whitesmoke;
-    display: block;
+    display: inline-block;
     text-align: center;
+    width: 80%;
+    align-self: center;
+    justify-self: center;
 }
 .supplier > div {
     margin: 3px;
