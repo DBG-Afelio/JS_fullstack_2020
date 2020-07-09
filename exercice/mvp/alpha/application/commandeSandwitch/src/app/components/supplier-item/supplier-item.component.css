@@ -1,22 +1,23 @@
+
 .supplier {
     border: 1px solid black;
     padding: 15px;
     background-color: whitesmoke;
     display: inline-block;
     text-align: center;
-    width: 80%;
     align-self: center;
-    justify-self: center;
+    justify-self: stretch;
 }
+
 .supplier > div {
     margin: 3px;
 }
-.close, .open {
+.closed, .open {
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.close {
+.closed {
     color: red;
     
 }

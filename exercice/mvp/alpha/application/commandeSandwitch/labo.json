@@ -72,7 +72,7 @@
         true,
         false
       ],
-      "tel": "04/2236550"
+      "tel": "04/2236552"
     },
     {
       "id": 2,
@@ -90,6 +90,40 @@
         true
       ],
       "tel": "04/3360262"
+    },
+    {
+      "id": 3,
+      "nom": "Pierre",
+      "description": "sgfhsgfsdfhsfg",
+      "ferme": true,
+      "archive": false,
+      "horaire": [
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "tel": "sfghsfgh"
+    },
+    {
+      "id": 4,
+      "nom": "Assia2",
+      "description": "fghjfghj",
+      "ferme": true,
+      "archive": false,
+      "horaire": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false
+      ],
+      "tel": "fghj"
     }
   ],
   "produits": [

@@ -1,3 +1,10 @@
+nav.nav-product {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    margin: 15px 0
+}
+
 a {
    border:1px solid black;
     width: 200px;

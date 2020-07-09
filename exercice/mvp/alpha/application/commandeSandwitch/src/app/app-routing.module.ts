@@ -20,9 +20,6 @@ const routes: Routes = [
 
   { path : "admin/fournisseur", component : SupplierAdminPageComponent },
   { path : "admin", component : AdminPageComponent },
-  
-
- /* { path : "admin/fournisseur/:id", component : SupplierFormPageComponent },*/
 
   { path : "", redirectTo: "/homepage" , pathMatch: "full"},
   { path : "**", redirectTo: "/homepage", pathMatch: "full" },

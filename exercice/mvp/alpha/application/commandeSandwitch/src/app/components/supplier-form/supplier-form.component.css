@@ -1,0 +1,24 @@
+form {
+    border:1px solid silver;
+}
+form > div {
+
+    padding: 5px 15px; 
+    margin: 10px 5px 5px 5px;
+} 
+
+label {
+    margin : 3px 12px;
+} 
+
+input[type='checkbox'] {
+    margin-left: 20px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}

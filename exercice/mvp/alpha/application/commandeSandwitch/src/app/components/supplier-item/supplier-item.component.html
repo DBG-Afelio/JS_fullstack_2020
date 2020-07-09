@@ -4,7 +4,7 @@
     <div>{{ supplier.phone }}</div>
 
     <div *ngIf= "isOpened(supplier)" class='open'>Ouvert</div>
-    <div *ngIf= "!isOpened(supplier)" class='close'>Fermé</div>
+    <div *ngIf= "!isOpened(supplier)" class='closed'>Fermé</div>
 
     
     <a routerLink = "/fournisseur/{{ supplier.id }}" >Voir les produits</a>

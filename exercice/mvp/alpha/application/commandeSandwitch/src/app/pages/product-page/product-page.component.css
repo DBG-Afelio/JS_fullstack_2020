@@ -1,14 +1,5 @@
-
-
 .products {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-nav.nav-product {
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    margin: 15px 0
 }

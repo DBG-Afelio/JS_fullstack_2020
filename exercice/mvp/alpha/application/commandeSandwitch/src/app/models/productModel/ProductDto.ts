@@ -7,4 +7,4 @@ export interface ProductDto {
     fourn_id: number;
 }
 
-export type Option = {id: number, name: string, price: number}
+export type Option = {id: number, nom: string, surcout: number}

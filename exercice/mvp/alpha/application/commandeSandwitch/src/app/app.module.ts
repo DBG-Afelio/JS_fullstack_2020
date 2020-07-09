@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AuthenticationFormComponent } from './components/authentication-form/au
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
+import { SupplierFormComponent } from './components/supplier-form/supplier-form.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +44,13 @@ import { UserNavComponent } from './components/user-nav/user-nav.component';
     MainNavComponent,
     AdminNavComponent,
     UserNavComponent,
+    SupplierFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

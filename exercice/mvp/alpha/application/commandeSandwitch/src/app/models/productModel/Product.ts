@@ -65,4 +65,4 @@ export class Product {
     }
 }
 
-export type Option = {id: number, name: string, price: number}
+export type Option = {id: number, nom: string, surcout: number}
