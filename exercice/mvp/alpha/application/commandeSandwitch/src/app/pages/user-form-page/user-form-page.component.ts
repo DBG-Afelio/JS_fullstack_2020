@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/userModel/user';
 import { UserService } from 'src/app/services/userService/user.service';
 import { Order } from 'src/app/models/orderModel/order';
 import { Product } from 'src/app/models/productModel/Product';
 
 @Component({
-  selector: 'app-main-nav',
-  templateUrl: './main-nav.component.html',
-  styleUrls: ['./main-nav.component.css']
+  selector: 'app-user-form-page',
+  templateUrl: './user-form-page.component.html',
+  styleUrls: ['./user-form-page.component.css']
 })
-export class MainNavComponent implements OnInit {
+export class UserFormPageComponent implements OnInit {
 
+  @Input() user: User = null;
   public currentUser: User = null;
   public userList: User[] = [];
   public orderList: Order[] = [];
@@ -18,25 +19,15 @@ export class MainNavComponent implements OnInit {
   constructor(private userService: UserService) { 
     this.userService.getList().subscribe((list) => {
       this.userList = list;
-
     });
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
-      console.log('current user (from constructor):', this.currentUser);
     });
   }
 
   ngOnInit(): void {
   }
 
-  public updateCurrentUser(user: User): void {
-    this.userService.setCurrentUser(user);
-    if (user) {
-      console.log('user changed to : ', user.firstName)
-    } else {
-      console.log('user changed to : ', user);
-    }
-  }
-
+  
 
 }

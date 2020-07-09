@@ -1,0 +1,24 @@
+<p>user-form-page works!</p>
+<form>
+    Nom <input type="text" [value]="user ? user.familyName : '' ">
+    Prenom <input type="text" [value]="user ? user.firstName : '' ">
+    Formation <input type="text" [value]="user ? user.course : '' ">
+    Login <input type="text" [value]="user ? user.login : '' ">
+    Mot de Passe <input type="text" [value]="user ? user.pwd : '' ">
+    Credit <input type="number" [value]="user ? user.credit : 0 ">
+    Compte desactivé <input type="checkbox" checked="user ? "user.isBlocked" : "false" " >
+    Compte actif <input type="checkbox" checked="user ? "user.isBlocked" : "true" " >
+
+    <button routerLinkActive="/">
+        <!-- "admin/utilisateur" -->
+        Annuler
+    </button>
+    <button routerLinkActive="/">
+        <!-- "admin/utilisateur" -->
+        Sauvegarder
+    </button>
+    <button routerLinkActive="/">
+        <!-- "admin/utilisateur" -->
+        Supprimer
+    </button>
+</form>

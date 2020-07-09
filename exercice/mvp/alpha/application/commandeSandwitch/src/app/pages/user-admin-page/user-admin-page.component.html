@@ -1,0 +1,20 @@
+<p>user-admin-page works!</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>PRENOM</th>
+
+        <th>MODIFIER</th>
+        <th>SUPPRIMER</th>
+    </tr>
+    <tr *ngFor = "let user of userList">
+        <td>{{ user.id }}</td>
+        <td>{{ user.familyName }}</td>
+        <td>{{ user.firstName }}</td>
+        
+        <td><a routerLink = "/admin/utilisateur/modifier/{{ user.id }}">Mod</a></td>
+        <td><a routerLink = "/admin/utilisateur/suppimer/{{ user.id }}">Suppr.</a></td>
+    </tr>
+</table>
