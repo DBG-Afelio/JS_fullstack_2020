@@ -60,18 +60,17 @@ export class OrdersListService {
 
   addOrder(newOrder:Order){
 
-    this.http.post<Order>('http://localhost:3000/commandes',newOrder.toDto())
+    return this.http.post<Order>('http://localhost:3000/commandes',newOrder.toDto())
 
   }
   removeOrder(orderId:number){
 
-    this.http.delete<OrderDto>(`http://localhost:3000/commandes/${orderId}`)
+    return this.http.delete<OrderDto>(`http://localhost:3000/commandes/${orderId}`)
 
   }
   updateOrder(updatedOrder:Order){
 
-    this.removeOrder(updatedOrder.id)
-    this.addOrder(updatedOrder)
+    return this.http.put<OrderDto>('http://localhost:3000/commandes/' + updatedOrder.id,updatedOrder.toDto())
 
   }
 }

@@ -32,6 +32,17 @@
       "banni": false,
       "admin": false,
       "id": 3
+    },
+    {
+      "login": "",
+      "password": "",
+      "nom": "",
+      "prenom": "",
+      "credit": 0,
+      "formation": "",
+      "banni": false,
+      "admin": false,
+      "id": 4
     }
   ],
   "commandes": [

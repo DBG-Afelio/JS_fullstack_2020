@@ -44,7 +44,11 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onCreateUserClick(){
 
+    this.usersListService.addUser(this.user).subscribe()
+
+  }
   onSaveUserClick(){
 
 

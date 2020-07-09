@@ -42,18 +42,17 @@ export class UsersListService {
 
   addUser(newUser:User){
 
-    this.http.post<User>('http://localhost:3000/utilisateurs',newUser.toDto())
+    return this.http.post<User>('http://localhost:3000/utilisateurs',newUser.toDto())
 
   }
   removeUser(userId:number){
 
-    this.http.delete<UserDto>(`http://localhost:3000/utilisateurs/${userId}`)
+    return this.http.delete<UserDto>(`http://localhost:3000/utilisateurs/${userId}`)
 
   }
   updateUser(updatedUser:User){
 
-    this.removeUser(updatedUser.id)
-    this.addUser(updatedUser)
+    return this.http.put<UserDto>('http://localhost:3000/utilisateurs/' + updatedUser.id,updatedUser.toDto())
 
   }
 
