@@ -11,7 +11,8 @@
 
 nav ul li {
 	font-size: 12px;
-	font-family: sans-serif;
+  font-family: sans-serif;
+  color: black;
 	background-color: white;
 	border: 2px solid #2d545e;
 	letter-spacing: 0.1em;
@@ -26,8 +27,8 @@ nav ul li {
 }
 
 nav ul li span {
-	color: white;
-	mix-blend-mode: difference;
+  color: #2d545e;
+	
 }
 
 nav ul li::before {
@@ -36,14 +37,15 @@ nav ul li::before {
 	width: 6em;
 	height: inherit;
 	background-color: #e1b382;
-	
+	border-radius: 70%;
 	top: 0;
 	left: -4em;
-	transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 nav ul li:hover::before {
-	transform: scale(7);
+  transform: scale(7);
+  
 }
 .ulList li.selected{
   background-color:#e1b382 ; 
@@ -51,11 +53,16 @@ nav ul li:hover::before {
 
 
 .prductDetails{
-  width: 500px;
-  height: 150px;
+  
+  
+  width: 700px;
+  height: 250px;
+  border: 5px solid #2d545e;
   position: absolute;
-  left: 300px;
+  left: 450px;
   top: 225px;
+  padding: 25px;
+
 }
 button{
   position: absolute;

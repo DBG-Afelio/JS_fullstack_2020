@@ -78,6 +78,14 @@ export class CommandesService {
       })
     )
   }
+  creatCommand(command:CommandeDto):Observable<Commande>{
+    return this.http.post<CommandeDto>(`http://localhost:3000/commandes`,command).pipe(
+      map((commandDto:CommandeDto)=>{
+        return Commande.fromDto(commandDto);
+      })
+    )
+  }
+
 
 
 }

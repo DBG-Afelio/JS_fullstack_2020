@@ -22,5 +22,5 @@
 </div>
 <button *ngIf="stillInTime()" (click)="checkeOrder()">Vérifier</button>
 <p class="message">  {{message}} </p>
-<p class="hour">{{hour}}</p>
+<p class="hour">{{hour.getHours()}}:{{hour.getMinutes()}}:{{hour.getSeconds()}}</p>
 
