@@ -1,1 +1,2 @@
-<app-detail-supplier-comp [supplierDisplayed]='supplierDisplayed' (update)="updateEvent($event)"></app-detail-supplier-comp>
+<app-detail-supplier-comp *ngIf="supplierDisplayed" [supplierDisplayed]='supplierDisplayed' 
+(create)="createEvent($event)" (update)="updateEvent($event)" (remove)="removeEvent($event)"></app-detail-supplier-comp>
