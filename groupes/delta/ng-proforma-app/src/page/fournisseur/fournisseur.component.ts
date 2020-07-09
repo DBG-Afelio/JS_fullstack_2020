@@ -13,7 +13,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./fournisseur.component.css']
 })
 export class FournisseurComponent implements OnInit {
-  DEADLINE = {HOURS:16, MINUTES: 20};
+  DEADLINE = {HOURS:10, MINUTES: 0};
   fourn_id: number;
   fournisseur: Fourn;
   selectedProduct: Product;
@@ -53,20 +53,16 @@ export class FournisseurComponent implements OnInit {
     if ( this.fournisseur.openToday()) {
       this.message = 'You can order any thing you like ';
     }
-    else if ( this.hour.getHours() > 10) {
-      this.message = 'Désolé les commandes ne sont pas disponibles après 10 heures';
-    }
+    
     else if (this.fournisseur.openToday()===false) {
       this.message = "Désolées les commandes ne sont pas disponibles le week-end" ; 
     }
 
   }
-  showCosole(){
-    console.log(this.hour);
-  }
+ 
 
   stillInTime(){
-    return this.hour.getHours() < this.DEADLINE.HOURS && this.hour.getMinutes() < this.DEADLINE.MINUTES;
+    return this.hour.getHours() < this.DEADLINE.HOURS ;
   }
   
 }
