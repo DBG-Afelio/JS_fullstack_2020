@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/interfaces/user';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
+import { Observable, throwError, of } from 'rxjs'
 
 
 @Injectable({
@@ -27,7 +28,7 @@ constructor(private http: HttpClient) { } // je suppose que HttpClient est l'éq
     return this.isAuth = false;
   }
 
-  getUsers(){
+  getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.urlAPI + 'utilisateurs');  
   }
 
