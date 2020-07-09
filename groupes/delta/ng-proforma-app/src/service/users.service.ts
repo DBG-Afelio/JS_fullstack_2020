@@ -44,8 +44,13 @@ export class UsersService {
   // updateUser(user: User): Observable<User> {
   // }
 
-  // addUser(user: User): Observable<User> {
-  // }
+   creatUser(user: User): Observable<User> {
+     return this.http.post<UserDto>(`http://localhost:3000/utilisateurs`,user).pipe(
+       map((userDto )=>{
+         return User.fromDto(userDto)
+       })
+     )
+   }
 
   // removeUser(user: User): Observable<User> {
   // }

@@ -32,12 +32,15 @@ export class FournisseurComponent implements OnInit {
 
   ngOnInit() {
     this.hour= new Date();
-    interval(6000).subscribe(() => this.hour =  new Date(Date.now()));
+    interval(100).subscribe(() => this.hour =  new Date(Date.now()));
 
     this.fournService.getFournByIdWithProducts(this.fourn_id)
-      .subscribe((fourn: Fourn) => this.fournisseur = fourn);
+      .subscribe((fourn: Fourn) => {
+        this.fournisseur = fourn ;
+        this.selectedProduct=fourn.products[0];
+      });
       
-      console.log(this.hour.getHours());
+    
 
 
   }

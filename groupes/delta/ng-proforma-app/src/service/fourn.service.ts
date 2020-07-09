@@ -42,6 +42,13 @@ export class FournService {
       })
     )
   }
+  creatFourn(fourn:Fourn): Observable<Fourn> {
+    return this.http.post<FournDto>(`http://localhost:3000/fournisseurs`,fourn).pipe(
+      map((fournDto:FournDto)=>{
+        return Fourn.fromDto(fournDto);
+      })
+    )
+  }
 
 
 

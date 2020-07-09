@@ -55,5 +55,12 @@ export class ProductService {
       })
     )
   }
+  creatProduct(prodcut : Product) : Observable<Product>{
+    return this.http.post<ProductDto>(`http://localhost:3000/produits`,prodcut).pipe(
+      map((prodcutDto:ProductDto)=>{
+        return Product.fromDto(prodcutDto);
+      })
+    )
+  }
 
 }
