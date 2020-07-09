@@ -43,6 +43,28 @@
       "banni": false,
       "admin": false,
       "id": 4
+    },
+    {
+      "login": "",
+      "password": "",
+      "nom": "",
+      "prenom": "",
+      "credit": 0,
+      "formation": "",
+      "banni": false,
+      "admin": false,
+      "id": 5
+    },
+    {
+      "login": "",
+      "password": "",
+      "nom": "",
+      "prenom": "",
+      "credit": 0,
+      "formation": "",
+      "banni": false,
+      "admin": false,
+      "id": 6
     }
   ],
   "commandes": [

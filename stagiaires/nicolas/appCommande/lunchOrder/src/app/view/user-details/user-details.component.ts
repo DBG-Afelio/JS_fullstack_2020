@@ -52,7 +52,7 @@ export class UserDetailsComponent implements OnInit {
           this.userForm.setValue(this.user)
 
         })
-      }      
+      }
 
     })
 
@@ -61,9 +61,14 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
   onCreateUserClick(){
 
-    this.usersListService.addUser(this.user).subscribe()
+    this.updateUser();
+
+    console.log(this.userForm.value)
+    this.usersListService.addUser(this.user).subscribe();
     this.router.navigate(['/usersList']);
 
   }
@@ -91,9 +96,9 @@ export class UserDetailsComponent implements OnInit {
     }
     
   }
-  consoleLog(){
+  updateUser(){
 
-    console.log(this.userForm)
+    this.user = this.userForm.value;
 
   }
 }
