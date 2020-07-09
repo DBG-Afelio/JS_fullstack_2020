@@ -109,21 +109,22 @@ button:hover{
   left: 28px;
 }
 .tableOfeDetails{
+  table-layout: fixed;
   border-collapse: collapse;
-  width: 50%;
-  height: 50%;
+  width: 500px;
+  height: 100px;
+  border-radius: 25px;
 }
 .tableOfeDetails td ,.tableOfeDetails th {
-  border: 2px solid black;
+  border: 2px solid #2d545e;
   font-weight: lighter;
   font-size: 14px;
-  padding: 5px;
- 
+  padding: 8px  8px;
+  
  
 }
-.tableOfeDetails th {
-  text-align: left ;
 
-  
-  
+
+.tableOfeDetails tr:hover{
+  background-color: #e1b382;
 }

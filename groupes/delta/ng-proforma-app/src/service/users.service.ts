@@ -41,15 +41,15 @@ export class UsersService {
     })
   }
 
-   updateUser(user: User): Observable<User> {
-     return this.http.put<UserDto>(`http://localhost:3000/utilisateurs`,user.id).pipe(
+   updateUser(user: UserDto): Observable<User> {
+     return this.http.put<UserDto>(`http://localhost:3000/utilisateurs/${user.id}`,user).pipe(
        map((userDto:UserDto)=>{
          return User.fromDto(userDto);
        })
      )
    }
 
-   creatUser(user: User): Observable<User> {
+   creatUser(user: UserDto): Observable<User> {
      return this.http.post<UserDto>(`http://localhost:3000/utilisateurs`,user).pipe(
        map((userDto )=>{
          return User.fromDto(userDto)
