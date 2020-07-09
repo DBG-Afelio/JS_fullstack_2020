@@ -11,13 +11,27 @@ import { UserService } from '../userService/user.service';
   providedIn: 'root'
 })
 export class OrderService {
-  private currentUser: User = null;
-  private userOrder: Observable<Order> = new Observable();
+
+  private userOrder: BehaviorSubject<Order> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
 
   constructor(private http: HttpClient, private userService: UserService) { 
-    userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user;
+    userService.getCurrentUser().subscribe((currentUser) => {
+      console.log('from orderService', currentUser); // quid si findOrder is undefined ?
+      if (currentUser) {
+        this.findOrderByUser(currentUser).subscribe((currOrder) => {
+          if (currOrder) {
+            this.setCurrUserOrder(currOrder);
+            console.log('commande trouvee ?', currOrder);
+          } else {
+            console.log('pas de commande trouvee pour user : ', currentUser);
+            this.setCurrUserOrder(null);
+          }
+        });
+      } else {
+        console.log('pas de user connected ');
+        this.setCurrUserOrder(null);
+      }
     });
    }
 
@@ -38,11 +52,19 @@ export class OrderService {
     );
   }
 
-  public getOrderByUser(user: User): Observable<Order> {
+  public findOrderByUser(user: User): Observable<Order> {
     return this.getList()
       .pipe(
         map((orders) => orders.find(order => order.userId === user.id))
     );
+  }
+
+  public setCurrUserOrder(order:Order): void {
+    this.userOrder.next(order);
+  }
+
+  public getCurrUserOrder(): Observable<Order> {
+    return this.userOrder.asObservable();
   }
 
 }

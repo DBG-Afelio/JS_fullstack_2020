@@ -16,16 +16,13 @@
             <input #option 
                 type="checkbox" 
                 [checked]="false"
-                (change)="updateEndPrice($event.target.checked, option.surcout)"> 
+                (change)="updateEndPrice($event.target.checked, option.surcout, option.id)"> 
             option : {{ option.nom }} + {{ option.surcout }} €
         </div>
     </div>
-
-     
     Prix recalculé : {{ updatedPrice }} €
- 
     <button
-        (click)="addOrder()">
+        (click)="saveOrderLocally()">
         AJOUTER
     </button>  
 </div>
