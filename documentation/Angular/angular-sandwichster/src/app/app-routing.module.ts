@@ -10,7 +10,7 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
-
+import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'summary/:id',
+    path: 'summary',
     component: SummaryOrderComponent,
   },
   {
@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path: 'list-suppliers',
     component: ListSuppliersComponent,
+  },
+  {
+    path: 'supplier/:id',
+    component: DetailSupplierComponent,
   },
   {
     path: 'list-products-admin',

@@ -12,13 +12,7 @@ export class DisplayItemComponent implements OnInit {
   public listProducts: Item[];
   @Input() item: Item;
 
-  constructor(
-    public listItemsService: ListItemsService) { 
-      this.listItemsService.getListItems().subscribe((listeRecue) => {
-        this.listProducts = listeRecue;
-        console.log(this.listProducts);
-      });
-    }
+  constructor() {}
 
   ngOnInit() {
   }
