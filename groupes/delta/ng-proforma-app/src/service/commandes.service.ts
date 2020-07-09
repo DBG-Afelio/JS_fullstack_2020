@@ -49,5 +49,17 @@ export class CommandesService {
     )
   }
 
+  getCommandesList(): Observable<Commande[]> {
+    return this.http.get<CommandeDto[]>(`http://localhost:3000/commandes`).pipe(
+      map((commandesDto:CommandeDto[]) => {
+        return commandesDto.map((commandeDto:CommandeDto) => Commande.fromDto(commandeDto))
+      })
+    )
+  }
+
+  getCommandesListWithObject(): Observable<Commande[]> {
+    return this.getCommandesList()
+  }
+
 
 }
