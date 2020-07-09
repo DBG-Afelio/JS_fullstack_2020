@@ -58,7 +58,25 @@ export class CommandesService {
   }
 
   getCommandesListWithObject(): Observable<Commande[]> {
-    return this.getCommandesList()
+    return this.getCommandesList().pipe(
+      mergeMap((commandesList:Commande[])=>{
+        return this.usersService.getUsers().pipe(
+          map((users:User[])=>{
+            return commandesList.map((commande)=> commande.setUser(users.find(user => user.Id === commande.user_id)));
+          })
+        ) 
+      }),
+      mergeMap((commandesList:Commande[])=>{
+        return this.productService.getProductsList().pipe(
+          map((produits:Product[])=>{
+            return commandesList.map((commande)=>commande.setProduct(produits.find(produit => produit.id===commande.product_id)));
+          })
+        )
+      }),
+      map((commandesList:Commande[])=>{
+        return commandesList.map((commande)=> commande.setOptions(commande.product.options.filter(option => commande.option_ids.includes(option.id))))
+      })
+    )
   }
 
 
