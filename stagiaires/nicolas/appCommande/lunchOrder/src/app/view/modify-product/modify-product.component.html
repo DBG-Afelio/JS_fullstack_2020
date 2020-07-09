@@ -1,19 +1,35 @@
-<form>
+<form [formGroup]="productForm">
 
     <label>
         Nom :
-        <input type="text" value="{{product?.name}}" (change)="updateNameProduct($event.target.value)">
+        <input formControlName="name">
     </label>
     <br>
     <label>
         Description :<br>
         <!--<input type="text" value="{{product?.description}}" (change)="updateDescriptionProduct($event.target.value)">-->
-        <textarea (change)="updateDescriptionProduct($event.target.textContent)">{{product?.description}}</textarea>
+        <textarea formControlName="description"></textarea>
     </label>
     <br>
+    
+    <fieldset>
+        <div *ngFor="let option of product.options">
+            <label>
+                Nom de l'option : 
+                <input  formControlName="nom">
+            </label>
+            <label>
+                Surcout de l'option : 
+                <input formControlName="surcout">
+            </label>
+        </div>
+    </fieldset>
+    
+    <br>
+
     <label>
         Prix :
-        <input type="text" value="{{product?.price}}" (change)="updatePriceProduct($event.target.value)"> €
+        <input formControlName="price"> €
     </label>
     
     <br>    
