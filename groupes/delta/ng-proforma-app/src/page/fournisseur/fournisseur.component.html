@@ -13,10 +13,26 @@
 </nav>
 </div>
 <div *ngIf="selectedProduct" class="prductDetails">
-    Nome de fournisseur :{{fournisseur.nom}}.<br>
-    Nom de Produit :{{selectedProduct?.nom}}.  <br>
-    Prix de produit : {{selectedProduct?.prix}}€.  <br>
-    Desciption:{{selectedProduct?.description}}.
+    <table class="tableOfeDetails">
+        <tr>
+            <th>Nome de fournisseur</th>
+            <th>{{fournisseur.nom}}</th>
+        </tr>
+        <tr>
+            <th>Nom de Produit</th>
+            <th>{{selectedProduct?.nom}}</th>
+        </tr>
+        <tr>
+            <th>Prix de produit</th>
+            <th>{{selectedProduct?.prix}}€</th>
+        </tr>
+    </table>
+            Desciption: {{selectedProduct?.description}}
+           
+    
+     
+     
+
     
     <app-options [options]="selectedProduct.options"></app-options>
 </div>

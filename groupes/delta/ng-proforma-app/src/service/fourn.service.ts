@@ -42,6 +42,23 @@ export class FournService {
       })
     )
   }
+  creatFourn(fourn:Fourn): Observable<Fourn> {
+    return this.http.post<FournDto>(`http://localhost:3000/fournisseurs`,fourn).pipe(
+      map((fournDto:FournDto)=>{
+        return Fourn.fromDto(fournDto);
+      })
+    )
+  }
+  deleteFourn(fourn : Fourn):Observable<{}>{
+    return this.http.delete<{}>(`http://localhost:3000/fournisseurs/${fourn.id}`);
+  }
+  updateFourn(fourn : Fourn) : Observable<Fourn>{
+    return this.http.put<FournDto>(`http://localhost:3000/fournisseurs/`,fourn.id).pipe(
+      map((fournDto: FournDto)=>{
+        return Fourn.fromDto(fournDto);
+      })
+    )
+  }
 
 
 

@@ -4,7 +4,7 @@
 	list-style-type: none;
   padding: 0;
   height:650px;
-   width:18%;
+  width:18%;
   overflow:hidden; 
   overflow-y:scroll;
 }
@@ -56,8 +56,7 @@ nav ul li:hover::before {
   
   
   width: 700px;
-  height: 250px;
-  border: 5px solid #2d545e;
+  height: 400px;
   position: absolute;
   left: 450px;
   top: 225px;
@@ -108,4 +107,23 @@ button:hover{
   position: absolute;
   top: 8px;
   left: 28px;
+}
+.tableOfeDetails{
+  border-collapse: collapse;
+  width: 50%;
+  height: 50%;
+}
+.tableOfeDetails td ,.tableOfeDetails th {
+  border: 2px solid black;
+  font-weight: lighter;
+  font-size: 14px;
+  padding: 5px;
+ 
+ 
+}
+.tableOfeDetails th {
+  text-align: left ;
+
+  
+  
 }

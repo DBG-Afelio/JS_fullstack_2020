@@ -41,14 +41,25 @@ export class UsersService {
     })
   }
 
-  // updateUser(user: User): Observable<User> {
-  // }
+   updateUser(user: User): Observable<User> {
+     return this.http.put<UserDto>(`http://localhost:3000/utilisateurs`,user.id).pipe(
+       map((userDto:UserDto)=>{
+         return User.fromDto(userDto);
+       })
+     )
+   }
 
-  // addUser(user: User): Observable<User> {
-  // }
+   creatUser(user: User): Observable<User> {
+     return this.http.post<UserDto>(`http://localhost:3000/utilisateurs`,user).pipe(
+       map((userDto )=>{
+         return User.fromDto(userDto)
+       })
+     )
+   }
 
-  // removeUser(user: User): Observable<User> {
-  // }
+   deleteUser(user: User): Observable<{}> {
+     return this.http.delete<{}>(`http://localhost:3000/utilisateurs/${user.id}`);
+  }
 
    getUserById(id: number): Observable<User> {
      return this.http.get<UserDto>(`http://localhost:3000/utilisateurs/${id}`).pipe(
