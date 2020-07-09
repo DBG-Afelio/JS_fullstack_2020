@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, Validators } from "@angular/forms";
 
 import { Supplier } from 'src/app/interfaces/supplier';
 
@@ -10,7 +9,10 @@ import { Supplier } from 'src/app/interfaces/supplier';
 })
 export class DetailSupplierCompComponent implements OnInit {
   @Input() supplierDisplayed: Supplier;
+
+  @Output() create = new EventEmitter<Supplier>();
   @Output() update = new EventEmitter<Supplier>();
+  @Output() remove = new EventEmitter<Supplier>();
 
   constructor() { }
 
@@ -22,10 +24,29 @@ export class DetailSupplierCompComponent implements OnInit {
     console.log(test.value);
   }
 
+  createSupplierEvent(){
+
+    if(this.supplierDisplayed.nom ==="" || this.supplierDisplayed.tel === ""){
+      console.log("Données manquantes")
+    } 
+    else{
+      this.create.emit(this.supplierDisplayed);
+    }
+  }
+
   updateSupplierEvent(){
-
-    this.update.emit(this.supplierDisplayed);
-
-} 
-
+    if(this.supplierDisplayed.nom ==="" || this.supplierDisplayed.tel === ""){
+      console.log("Données manquantes")
+    } 
+    else{
+      this.update.emit(this.supplierDisplayed);
+    }
+  }
+  eraseSupplierEvent(){
+    let answer =  confirm("Etes-vous sûr de vouloir supprimer ce fournisseur?/n Cette procédure est irréversible");
+    if(answer ===true){
+      console.log("true");
+      this.remove.emit(this.supplierDisplayed);
+    }
+  }
 }

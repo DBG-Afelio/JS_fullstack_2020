@@ -1,16 +1,17 @@
-
-<input type="text" placeholder="ex. Da Pepe" class="pizza-form__input" [(ngModel)]="supplierDisplayed.nom"
+<h1>Snack/Restaurant</h1>
+Nom: <input type="text" placeholder="ex. Da Pepe" class="pizza-form__input" [(ngModel)]="supplierDisplayed.nom"
     name="A"><br>
-<input type="text" placeholder="ex. Da Pepe" [(ngModel)]="supplierDisplayed.description" name="B"><br>
-<input type="text" placeholder="065621449" [(ngModel)]="supplierDisplayed.tel" name="C"><br>
+Description: <input type="text" placeholder="Sandwicherie" [(ngModel)]="supplierDisplayed.description" name="B"><br>
+Téléphone: <input type="text" placeholder="065621449" [(ngModel)]="supplierDisplayed.tel" name="C"><br>
 
-Fournisseur fermé?
+Est-ce fermé?
 <select #test (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.ferme">
     <option [ngValue]="true" [selected]="supplierDisplayed.ferme">Oui</option>
     <option [ngValue]="false" [selected]="!supplierDisplayed.ferme">Non</option>
 </select><br>
 
-Fournisseur archivé?
+Est-ce qu'il est archivé?<br>
+Les produits d'un endroit archivé ne seront plus visibles dans la liste de produits.<br>
 <select (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.archive">
     <option [ngValue]="true" [selected]="supplierDisplayed.archive">Oui</option>
     <option [ngValue]="false" [selected]="!supplierDisplayed.archive">Non</option>
@@ -28,49 +29,15 @@ Jours de fermeture: {{supplierDisplayed | json}}
       <th>Dimanche</th>
     </tr>
     <tr>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[0]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[0]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[0]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[1]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[1]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[1]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[2]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[2]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[2]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[3]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[3]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[3]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[4]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[4]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[4]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[5]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[5]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[5]">Non</option>
-            </select>
-        </td>
-        <td>
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[6]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[6]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[6]">Non</option>
+        <td *ngFor="let horaire of supplierDisplayed.horaire, index as i ">
+            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[i]">
+                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[i]">Oui</option>
+                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[i]">Non</option>
             </select>
         </td>
     </tr>
   </table>
 
-<button (click)="updateSupplierEvent()">Envoyer</button>
+<button *ngIf="supplierDisplayed.id !== 0" (click)="updateSupplierEvent()">Modifier fournisseur</button>
+<button *ngIf="supplierDisplayed.id !== 0" (click)="eraseSupplierEvent()">Effacer le fournisseur</button>
+<button *ngIf="supplierDisplayed.id === 0" (click)="createSupplierEvent()">Créer un nouveau fournisseur</button>

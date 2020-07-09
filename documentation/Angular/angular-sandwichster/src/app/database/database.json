@@ -61,7 +61,7 @@
       "id": 1,
       "nom": "Poivre & Sel",
       "description": "Sandwicherie Fine",
-      "ferme": true,
+      "ferme": false,
       "archive": false,
       "horaire": [
         false,
