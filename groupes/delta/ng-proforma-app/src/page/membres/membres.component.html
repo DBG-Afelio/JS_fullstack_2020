@@ -1,6 +1,22 @@
+<p>TRIER PAR :</p>
+<select (change)="sortMembre($event.target.value)">
+  <option value="id">ID</option>
+  <option value="prenom">PRENOM</option>
+  <option value="nom">NOM</option>
+  <option value="formation">FORMATIONS</option>
+  <option value="credit"></option>
+</select>
+
+<p>FILTRER PAR :</p>
+<select>
+  <option>TOUS</option>
+  <option>ADMIN</option>
+  <option>CREDITS</option>
+</select>
+
 <table>
   <caption><h1>Récapitulatif des membres</h1></caption>
-  <thead>
+  <thead (click)="log($event.target.textContent.toLowerCase())">
     <tr>
       <th>ID</th>
       <th>NOM</th>
@@ -8,7 +24,7 @@
       <th>ADMIN</th>
       <th>LOGIN</th>
       <th>CREDIT</th>
-      <th>FORMATIONS</th>
+      <th>FORMATION</th>
     </tr>
   </thead>
   <tbody>

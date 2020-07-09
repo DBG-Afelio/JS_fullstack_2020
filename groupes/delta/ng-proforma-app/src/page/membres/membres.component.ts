@@ -12,6 +12,7 @@ export class MembresComponent implements OnInit, OnChanges {
 
   membres: User[];
   admin: boolean;
+  sortby: [string,boolean] = ["id",false];
 
   constructor(private usersservice: UsersService, private route: Router) { }
 
@@ -23,6 +24,22 @@ export class MembresComponent implements OnInit, OnChanges {
     } else {
       this.route.navigate(['/']);
     }
+  }
+
+  sortMembre(criteretri:string){
+    this.sortby = this.sortby[0]===criteretri ? [criteretri,!this.sortby[1]] : [criteretri,false];
+    //this.membres.sort(() => this.sortby[1])
+  }
+
+  // filterMembre(criterefiltre:string){
+  //   return this.membres.filter((membre:User)=>{
+  //     return membre.criterefiltre
+  //   })
+  // }
+
+  log(ue){
+    console.log(ue);
+    
   }
 
   ngOnChanges(){

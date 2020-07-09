@@ -1,35 +1,10 @@
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    border: 3px solid purple;
+.profil{
+    margin: auto;
+    width: 300px;
+    border: saddlebrown 10px double;
+    background-clip: content-box;
+}
+
+h1{
     text-align: center;
-}
-  
-thead th:nth-child(1) {
-    width: 10%;
-}
-  
-thead th:nth-child(2) {
-    width: 10%;
-}
-  
-thead th:nth-child(3) {
-    width: 10%;
-}
-  
-thead th:nth-child(4) {
-    width: 10%;
-}
-
-thead th:nth-child(5) {
-    width: 10%;
-}
-
-thead th:nth-child(5) {
-    width: 10%;
-}
-  
-th, td {
-    padding: 20px;
 }

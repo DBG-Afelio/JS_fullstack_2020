@@ -1,27 +1,11 @@
-<table>
-    <caption><h1>Récapitulatif de {{membre.prenom}} {{membre.nom}}</h1></caption>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>ADMIN</th>
-            <th>LOGIN</th>
-            <th>PASSWORD</th>
-            <th>CREDIT</th>
-            <th>FORMATIONS</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{membre.id}}</td>
-            <td>{{membre.nom}}</td>
-            <td>{{membre.prenom}}</td>
-            <td>{{membre.admin}}</td>
-            <td>{{membre.login}}</td>
-            <td>{{membre.password}}</td>
-            <td>{{membre.credit}}</td>
-            <td>{{membre.formation}}</td>
-        </tr>
-    </tbody>
-</table>
+
+<div class="profil" *ngIf="membre">
+    <h1>{{membre.prenom}} {{membre.nom}}</h1>
+    <ul>
+        <li>ID: {{membre.id}}</li>
+        <li>LOGIN: {{membre.login}}</li>
+        <li>ADMIN: {{membre.admin}}</li>
+        <li>CREDIT: {{membre.credit}}</li>
+        <li>FORMATIONS: {{membre.formation}}</li>
+    </ul>
+</div>
