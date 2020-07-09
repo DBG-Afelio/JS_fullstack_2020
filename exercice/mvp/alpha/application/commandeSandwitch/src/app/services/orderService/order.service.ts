@@ -17,7 +17,7 @@ export class OrderService {
 
   constructor(private http: HttpClient, private userService: UserService) { 
     userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user;t
+      this.currentUser = user;
     });
    }
 
