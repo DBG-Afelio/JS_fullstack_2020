@@ -3,14 +3,17 @@
 <button>Ajouter un nouveau produit</button>
 <ul>
     <li *ngFor='let product of productList'>
+        
         <p>{{product?.name}}</p>
         <p>{{product?.description}}</p>
         <p>{{product?.price}} €</p>
         <p>Options : </p>
         <ul>
             <li *ngFor='let option of product.options'>
+
                 <p>{{option.nom}} : </p>
                 <p> + {{option.surcout}} €</p>
+
             </li>
         </ul>
         

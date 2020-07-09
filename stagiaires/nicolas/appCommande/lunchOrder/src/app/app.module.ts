@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
@@ -20,6 +22,7 @@ import { OrdersHistoryComponent } from './view/orders-history/orders-history.com
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
 import { ProviderDisplayComponent } from './components/provider-display/provider-display.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSlideToggleModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

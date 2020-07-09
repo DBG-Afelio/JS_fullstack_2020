@@ -24,7 +24,8 @@ export class ModifyProductComponent implements OnInit {
     price: new FormControl(''),
     options: this.formBuilder.array([]),
     providerId: new FormControl(''),
-    id: new FormControl('')
+    id: new FormControl(''),
+    provider: new FormControl('')
 
   });
 
@@ -72,9 +73,11 @@ export class ModifyProductComponent implements OnInit {
   }
   onSaveButtonClick(){
     const confirmUpdate = confirm("Enregistrer les modifications ?")
+    
 
     if(confirmUpdate){
-      this.product=this.productForm.value;
+
+      this.updateProductWithForm();
       this.providersListService.updateProduct(this.product).subscribe();
       this.router.navigate([`productsList/${this.product.providerId}`]);
 
@@ -106,6 +109,11 @@ export class ModifyProductComponent implements OnInit {
   deleteOption(optionIndex : number){
 
     this.getOptions().removeAt( optionIndex );
+
+  }
+  updateProductWithForm(){
+
+    this.product = Object.assign(this.product, this.productForm.value);
 
   }
 

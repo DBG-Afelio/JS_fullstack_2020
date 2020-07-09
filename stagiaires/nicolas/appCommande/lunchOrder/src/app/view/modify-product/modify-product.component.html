@@ -14,8 +14,8 @@
     
     <fieldset  formArrayName="options">
         <legend>Listes des options</legend>
-        <div *ngFor="let option of options.controls; let i = index">
-            <div [formGroup]='option'>
+        <ul *ngFor="let option of options.controls; let i = index">
+            <li [formGroup]='option'>
 
                 <label>
                     Nom de l'option : 
@@ -26,10 +26,11 @@
                     Surcout de l'option : 
                     <input formControlName="surcout">
                 </label>
+                <br>
                 <button (click)='deleteOption(i)'>supprimer cette option</button>
-            </div>
+            </li>
 
-        </div>
+        </ul>
         <button (click)='addOption()'>Ajouter une nouvelle option</button>
     </fieldset>
     

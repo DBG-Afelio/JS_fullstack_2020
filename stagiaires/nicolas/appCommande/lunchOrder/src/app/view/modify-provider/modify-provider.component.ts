@@ -44,15 +44,7 @@ export class ModifyProviderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSaveButtonClick(){
-    this.providersListService.updateProvider(this.provider).subscribe(()=>{
-       this.router.navigate(['']);
-      }
-     
-    );
-    
-    
-  }
+  
   updateDay(indexDay:number,statusDay:boolean){
 
     this.provider.timeTable[indexDay]=statusDay;
@@ -67,4 +59,20 @@ export class ModifyProviderComponent implements OnInit {
   updatePhoneProvider(newPhone:string){
     this.provider.phone=newPhone;
   }
+
+  onCreateButtonClick(){
+
+    this.providersListService.updateProvider(this.provider).subscribe(()=>{
+      this.router.navigate(['']);
+     }  
+   ); 
+
+  }
+  onSaveButtonClick(){
+    this.providersListService.updateProvider(this.provider).subscribe(()=>{
+       this.router.navigate(['']);
+      }  
+    );   
+  }
+
 }
