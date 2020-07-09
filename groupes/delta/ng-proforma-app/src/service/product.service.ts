@@ -56,7 +56,7 @@ export class ProductService {
     )
   }
   deleteProduct(product : Product) : Observable <{}>{
-    return this.http.delete<{}>(`http://localhost:3000/produits/${product.id}`);
+    return this.http.delete<any>(`http://localhost:3000/produits/${product.id}`);
   }
   creatProduct(prodcut : Product) : Observable<Product>{
     return this.http.post<ProductDto>(`http://localhost:3000/produits`,prodcut).pipe(
@@ -66,7 +66,7 @@ export class ProductService {
     )
   }
   updatProduct(product : Product):Observable<Product>{
-    return this.http.put<ProductDto>(`http://localhost:3000/produits`,product.id).pipe(
+    return this.http.put<ProductDto>(`http://localhost:3000/produits${product.id}`,product).pipe(
       map((productDto : ProductDto)=>{
         return Product.fromDto(productDto);
       })

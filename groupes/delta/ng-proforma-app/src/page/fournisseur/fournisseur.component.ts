@@ -4,8 +4,8 @@ import { FournService } from 'src/service/fourn.service';
 import { Fourn } from 'src/model/fourn';
 import { Product } from 'src/model/product';
 import { ProductService } from 'src/service/product.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { interval } from 'rxjs';
+import { TimerService } from 'src/service/timer.service';
 
 @Component({
   selector: 'app-fournisseur',
@@ -23,16 +23,14 @@ export class FournisseurComponent implements OnInit {
 
 
 
-  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute, private productService: ProductService) {
+  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute, private productService: ProductService, private timerService: TimerService) {
     this.activatedRoute.paramMap.subscribe(param => {
       this.fourn_id = Number(param.get('id'));
     })
-
+    this.timerService.date.subscribe((timer) => this.hour = timer);
   }
 
   ngOnInit() {
-    this.hour= new Date();
-    interval(100).subscribe(() => this.hour =  new Date(Date.now()));
 
     this.fournService.getFournByIdWithProducts(this.fourn_id)
       .subscribe((fourn: Fourn) => {
