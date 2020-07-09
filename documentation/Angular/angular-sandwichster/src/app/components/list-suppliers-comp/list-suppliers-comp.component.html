@@ -1,0 +1,40 @@
+<div *ngFor='let supplier of listSuppliers'>
+  {{supplier.nom}}<br>
+  {{supplier.description}}<br>
+  {{supplier.tel}}<br>
+  <div *ngIf='supplier.ferme; else elseBlock'>
+    <span >Ouvert</span>
+  </div>
+  <ng-template #elseBlock>
+    <span>Fermé</span>
+  </ng-template>
+  <table>
+    <tr>
+      <th>Lundi</th>
+      <th>Mardi</th>
+      <th>Mercredi</th>
+      <th>Jeudi</th>
+      <th>Vendredi</th>
+      <th>Samedi</th>
+      <th>Dimanche</th>
+    </tr>
+    <tr>
+      <td *ngFor='let day of supplier.horaire'>
+        <div *ngIf='day; else elseBlock'>
+          <span >Ouvert</span>
+        </div>
+        <ng-template #elseBlock>
+          <span>Fermé</span>
+        </ng-template>
+      </td>
+    </tr>
+  </table>
+  <div *ngIf='supplier.archive; else nonArchive'>
+    <span >Archivé</span>
+  </div>
+  <ng-template #nonArchive>
+    <span>Non archivé</span>
+  </ng-template><br>
+  <a [routerLink]="['/', 'supplier', supplier.id]">Modifier</a>
+  <hr>
+</div>
