@@ -86,7 +86,7 @@ export class CommandesService {
     )
   }
   updateCommand(command : Commande) :Observable<Commande> {
-    return this.http.put<CommandeDto>(`http://localhost:3000/commandes`,command).pipe(
+    return this.http.put<CommandeDto>(`http://localhost:3000/commandes`,command.id).pipe(
       map((commandDto : CommandeDto)=>{
         return Commande.fromDto(commandDto);
       })
