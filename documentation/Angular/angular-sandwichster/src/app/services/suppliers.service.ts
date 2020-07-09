@@ -32,4 +32,22 @@ constructor(private http: HttpClient) { }
     }));
   }
 
+  createSupplier(payload: Supplier): Observable<Supplier> {
+    return this.http
+      .post<Supplier>(`${this.urlAPI}fournisseurs`, payload.toDto())
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  updateSupplier(payload: Supplier): Observable<Supplier> {
+    return this.http
+      .put<Supplier>(`${this.urlAPI}fournisseurs/${payload.id}`, payload.toDto())
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  removeSupplier(payload: Supplier): Observable<Supplier> {
+    return this.http
+      .delete<any>(`${this.urlAPI}fournisseurs/${payload.id}`)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }

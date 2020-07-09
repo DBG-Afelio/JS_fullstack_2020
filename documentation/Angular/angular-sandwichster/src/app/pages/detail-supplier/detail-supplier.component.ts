@@ -13,6 +13,7 @@ export class DetailSupplierComponent implements OnInit {
 
   public idSupplier: number;
   public supplierDisplayed: Supplier;
+  public supplierUpdated: Supplier;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
@@ -46,6 +47,22 @@ export class DetailSupplierComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  
+  createEvent(supplier: Supplier){
+    this.suppliersService.createSupplier(supplier).subscribe(()=>
+    this.routeur.navigate(["/"]) 
+    );
+  }
+  updateEvent(supplier: Supplier){
+    this.suppliersService.updateSupplier(supplier).subscribe(()=>
+    this.routeur.navigate(["/"])
+  );
+  }
+  removeEvent(supplier: Supplier){
+    this.suppliersService.removeSupplier(supplier).subscribe(()=>
+      this.routeur.navigate(["/"]) // quand il  va récupérer la réponse, il retourne page d'accueil
+    );
   }
 
 }
