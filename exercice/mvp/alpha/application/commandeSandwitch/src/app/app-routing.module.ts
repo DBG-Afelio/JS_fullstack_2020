@@ -8,6 +8,7 @@ import { SupplierAdminPageComponent } from './pages/supplier-admin-page/supplier
 import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-form-page.component';
 import { UserFormPageComponent } from './pages/user-form-page/user-form-page.component';
 import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.component';
+import { AdminOnlyGuard } from './guards/admin-only.guard';
 
 
 const routes: Routes = [
@@ -15,19 +16,18 @@ const routes: Routes = [
   { path : "homepage", component: HomePageComponent },
   { path : "produit/:id", component : ProductDetailPageComponent },
 
-  { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent },
-  { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent },
-  { path : "admin/fournisseur/archiver/:id", component : SupplierAdminPageComponent },
-  { path : "admin/fournisseur/supprimer/:id", component : SupplierAdminPageComponent },
+  { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin/fournisseur/archiver/:id", component : SupplierAdminPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin/fournisseur/supprimer/:id", component : SupplierAdminPageComponent, canActivate:[AdminOnlyGuard] },
 
-  { path : "admin/utilisateur/ajouter", component : UserFormPageComponent },
-  { path : "admin/utilisateur/modifier/:id", component : UserFormPageComponent },
-  { path : "admin/utilisateur/supprimer/:id", component : UserFormPageComponent },
+  { path : "admin/utilisateur/ajouter", component : UserFormPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin/utilisateur/modifier/:id", component : UserFormPageComponent, canActivate:[AdminOnlyGuard] },
+  // { path : "admin/utilisateur/supprimer/:id", component : UserFormPageComponent },
 
-  
-  { path : "admin/fournisseur", component: SupplierAdminPageComponent },
-  { path : "admin/utilisateur", component : UserAdminPageComponent },
-  { path : "admin", component : AdminPageComponent },
+  { path : "admin/fournisseur", component: SupplierAdminPageComponent, canActivate:[AdminOnlyGuard], },
+  { path : "admin/utilisateur", component : UserAdminPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin", component : AdminPageComponent, canActivate:[AdminOnlyGuard] },
 
   { path : "", redirectTo: "/homepage" , pathMatch: "full"},
   { path : "**", redirectTo: "/homepage", pathMatch: "full" },
