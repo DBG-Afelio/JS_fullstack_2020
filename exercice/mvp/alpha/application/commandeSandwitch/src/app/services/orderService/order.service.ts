@@ -12,11 +12,13 @@ import { UserService } from '../userService/user.service';
 })
 export class OrderService {
   private currentUser: User = null;
-  private userOrder: BehaviorSubject<Order> = new BehaviorSubject(null);
+  private userOrder: Observable<Order> = new Observable();
   public orderUrl: string = 'http://localhost:3000/commandes';
 
   constructor(private http: HttpClient, private userService: UserService) { 
-userService
+    userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    });
    }
 
   public getList(): Observable<Order[]> {
