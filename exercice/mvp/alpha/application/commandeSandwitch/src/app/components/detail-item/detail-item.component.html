@@ -2,7 +2,7 @@
     <div>Nom : {{ product.name }}</div>
     <div>Description : {{ product.description }}</div>
     <div>Prix : {{ product.price }} €</div>
-    <div *ngFor ="let option of product.options"> 
+    <div *ngFor="let option of product.options"> 
         <div>option : {{ option.nom }} - Surcoût : {{ option.surcout }} €</div>
     </div>
 </div>

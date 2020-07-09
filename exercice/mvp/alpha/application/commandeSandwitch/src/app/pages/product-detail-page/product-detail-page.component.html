@@ -9,3 +9,23 @@
         [product] = "product"
     ></app-detail-item>
 </div>
+
+<div *ngIf="currentUser">
+    <div *ngIf="product.options.length !== 0">
+        <div *ngFor="let option of product.options">
+            <input #option 
+                type="checkbox" 
+                [checked]="false"
+                (change)="updateEndPrice($event.target.checked, option.surcout)"> 
+            option : {{ option.nom }} + {{ option.surcout }} €
+        </div>
+    </div>
+
+     
+    Prix recalculé : {{ updatedPrice }} €
+ 
+    <button
+        (click)="addOrder()">
+        AJOUTER
+    </button>  
+</div>

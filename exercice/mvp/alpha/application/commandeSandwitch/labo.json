@@ -3,21 +3,21 @@
     {
       "login": "admin",
       "password": "admin",
-      "nom": "saispas",
-      "prenom": "gene",
-      "credit": 0,
-      "formation": null,
+      "nom": "GENE",
+      "prenom": "Genevieve",
+      "credit": "0",
+      "formation": "-",
       "banni": false,
       "admin": true,
       "id": 1
     },
     {
-      "login": "steph_dub",
-      "password": "froufrou",
-      "nom": "dubois",
-      "prenom": "stephane",
-      "credit": 8,
-      "formation": "JS_FULLSTACK",
+      "login": "pcast",
+      "password": "pcast",
+      "nom": "CASTRONOVO",
+      "prenom": "Pierre",
+      "credit": "0",
+      "formation": "FullStack Web Dev",
       "banni": false,
       "admin": false,
       "id": 2
@@ -27,11 +27,22 @@
       "password": "miammiam",
       "nom": "duprieux",
       "prenom": "laurent",
-      "credit": 0,
+      "credit": "3",
       "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 3
+    },
+    {
+      "login": "assia",
+      "password": "assia",
+      "nom": "Rachdi",
+      "prenom": "Assia",
+      "credit": "3",
+      "formation": "Creations de Problemes",
+      "banni": false,
+      "admin": false,
+      "id": 4
     }
   ],
   "commandes": [
