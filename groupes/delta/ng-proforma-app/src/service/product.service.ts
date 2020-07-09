@@ -46,5 +46,14 @@ export class ProductService {
       })
     )
   }
+  getProductsList():Observable<Product[]> {
+    return this.http.get<ProductDto[]>(`http://localhost:3000/produits`).pipe(
+      map((productsDto:ProductDto[]) => {
+        return productsDto.map((productDto:ProductDto) => {
+          return Product.fromDto(productDto).setOptions(productDto.options.map(option => Option.fromDto(option)));
+        });
+      })
+    )
+  }
 
 }
