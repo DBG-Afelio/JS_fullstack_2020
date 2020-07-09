@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProvidersListService } from 'src/app/services/providers-list.service';
 import { Product } from 'src/app/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Provider } from 'src/app/models/provider';
 
 @Component({
   selector: 'app-modify-product',
@@ -9,18 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./modify-product.component.css']
 })
 export class ModifyProductComponent implements OnInit {
+
   product:Product;
 
   constructor(private providersListService:ProvidersListService,route:ActivatedRoute,private router:Router) {
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('productId');
+
       this.providersListService.getProductById(Number(routeId)).subscribe(productFound=>{
         this.product=productFound;
         
       })
     })
-
    }
 
   ngOnInit(): void {

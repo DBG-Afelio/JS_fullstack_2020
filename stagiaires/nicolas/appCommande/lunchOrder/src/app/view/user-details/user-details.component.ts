@@ -45,4 +45,15 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSaveUserClick(){
+
+
+
+  }
+  onDeleteUserClick(){
+
+    
+
+  }
+
 }
