@@ -1,5 +1,5 @@
-<p>user-admin-page works!</p>
 
+<a routerLink = "/admin/utilisateur/ajouter">Ajouter un nouvel utilisateur</a>
 <table>
     <tr>
         <th>ID</th>
@@ -14,7 +14,7 @@
         <td>{{ user.familyName }}</td>
         <td>{{ user.firstName }}</td>
         
-        <td><a routerLink = "/admin/utilisateur/modifier/{{ user.id }}">Mod</a></td>
-        <td><a routerLink = "/admin/utilisateur/suppimer/{{ user.id }}">Suppr.</a></td>
+        <td><button routerLink = "/admin/utilisateur/modifier/{{ user.id }}">Editer</button></td>
+        <td><button (click) = "deleteRequested(user)">Supprimer</button></td>
     </tr>
 </table>

@@ -1,24 +1,20 @@
-<p>user-form-page works!</p>
-<form>
-    Nom <input type="text" [value]="user ? user.familyName : '' ">
-    Prenom <input type="text" [value]="user ? user.firstName : '' ">
-    Formation <input type="text" [value]="user ? user.course : '' ">
-    Login <input type="text" [value]="user ? user.login : '' ">
-    Mot de Passe <input type="text" [value]="user ? user.pwd : '' ">
-    Credit <input type="number" [value]="user ? user.credit : 0 ">
-    Compte desactivé <input type="checkbox" checked="user ? "user.isBlocked" : "false" " >
-    Compte actif <input type="checkbox" checked="user ? "user.isBlocked" : "true" " >
+<a routerLink="/admin/utilisateur">Retour vers Liste USers</a>
 
-    <button routerLinkActive="/">
-        <!-- "admin/utilisateur" -->
+<div *ngIf="user">
+    Nom <input #famName type="text" [value]="user.familyName">
+    Prenom <input #firstName type="text" [value]="user.firstName">
+    Formation <input #course type="text" [value]="user.course">
+    Login <input #login type="text" [value]="user.login">
+    Mot de Passe <input #pwd type="text" [value]="user.pwd">
+    Credit <input #credit type="number" [value]="user.credit">
+    <!-- Compte desactivé <input type="checkbox" checked="user ? "user.isBlocked" : "false" " >
+    Compte actif <input type="checkbox" checked="user ? "user.isBlocked" : "true" " > -->
+
+    <button routerLink="/admin/utilisateur">
         Annuler
     </button>
-    <button routerLinkActive="/">
-        <!-- "admin/utilisateur" -->
+    <button
+        (click)="saveUserChange(famName.value,firstName.value,course.value,login.value,pwd.value,credit.value)">
         Sauvegarder
     </button>
-    <button routerLinkActive="/">
-        <!-- "admin/utilisateur" -->
-        Supprimer
-    </button>
-</form>
+</div>

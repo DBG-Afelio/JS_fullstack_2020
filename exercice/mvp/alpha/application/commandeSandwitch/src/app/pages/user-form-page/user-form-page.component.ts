@@ -3,6 +3,7 @@ import { User } from 'src/app/models/userModel/user';
 import { UserService } from 'src/app/services/userService/user.service';
 import { Order } from 'src/app/models/orderModel/order';
 import { Product } from 'src/app/models/productModel/Product';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form-page',
@@ -11,23 +12,54 @@ import { Product } from 'src/app/models/productModel/Product';
 })
 export class UserFormPageComponent implements OnInit {
 
-  @Input() user: User = null;
-  public currentUser: User = null;
+  public user: User = null;
+  public userId: number = 0;
   public userList: User[] = [];
-  public orderList: Order[] = [];
-  public productList: Product[] = [];
-  constructor(private userService: UserService) { 
+
+  constructor(
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+  ) { 
     this.userService.getList().subscribe((list) => {
       this.userList = list;
     });
-    this.userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user;
-    });
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.userId = Number(params.get('id'));
+      if (this.userId !== 0) {
+        this.userService.getUserById(this.userId).subscribe((user) => this.user = user);
+      } else {
+        this.user = new User('', '', '', '', 0, '', false, false, 0);
+      }
+      
+    })
+ 
   }
 
   ngOnInit(): void {
   }
 
-  
+  public saveUserChange(
+    familyName: string,
+    firstName: string,
+    course: string,
+    login: string,
+    pwd: string,
+    credit: number
+  ): void {
+    this.user.login = login;
+    this.user.pwd = pwd;
+    this.user.familyName = familyName;
+    this.user.firstName = firstName;
+    this.user.credit = credit;
+    this.user.course = course;
+    console.log(this.user);
+    if (this.user.id === 0) {
+      this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/admin/utilisateur']));
+    } else {
+      this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/admin/utilisateur']));
+    }
+    
+  }
 
 }

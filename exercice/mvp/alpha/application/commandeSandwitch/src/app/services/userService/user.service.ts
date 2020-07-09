@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { map} from 'rxjs/operators'
 import { IUserDto } from './../../models/userModel/iuser-dto';
 import { User } from 'src/app/models/userModel/user';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private currentUser: BehaviorSubject <User> = new BehaviorSubject(null);
-  public userUrl: string = 'http://localhost:3000/utilisateurs';
+  public userUrl: string = 'http://localhost:3000/utilisateurs/';
 
   constructor(private http: HttpClient) { 
     this.setCurrentUserToUnknown();
@@ -51,5 +53,18 @@ export class UserService {
         map((list) => list.find((user) => user.isAdmin))
       );
   }
+
+  public updateUser(payload: User): Observable<IUserDto>  {
+    return this.http.put<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`, payload.toDto())
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
   
+  public deleteUser(payload: User): Observable<IUserDto>  {
+    return this.http.delete<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`)
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
+  public addUser(payload: User): Observable<IUserDto>  {
+    return this.http.post<IUserDto>(`${this.userUrl}`, payload.toDto())
+      .pipe(catchError((error: any) => throwError(error.json())));
+  }
 }
