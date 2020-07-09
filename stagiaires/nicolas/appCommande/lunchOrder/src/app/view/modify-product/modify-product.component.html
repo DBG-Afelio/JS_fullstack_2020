@@ -12,17 +12,25 @@
     </label>
     <br>
     
-    <fieldset>
-        <div *ngFor="let option of product.options">
-            <label>
-                Nom de l'option : 
-                <input  formControlName="nom">
-            </label>
-            <label>
-                Surcout de l'option : 
-                <input formControlName="surcout">
-            </label>
+    <fieldset  formArrayName="options">
+        <legend>Listes des options</legend>
+        <div *ngFor="let option of options.controls; let i = index">
+            <div [formGroup]='option'>
+
+                <label>
+                    Nom de l'option : 
+                    <input  formControlName="nom">
+                </label>
+                <br>
+                <label>
+                    Surcout de l'option : 
+                    <input formControlName="surcout">
+                </label>
+                <button (click)='deleteOption(i)'>supprimer cette option</button>
+            </div>
+
         </div>
+        <button (click)='addOption()'>Ajouter une nouvelle option</button>
     </fieldset>
     
     <br>
@@ -38,4 +46,4 @@
 
 
 <button (click)="onSaveButtonClick()">Sauvegarder le Produit</button>
-<button routerLink='/productsList/{{product.providerId}}'>Annuler les modifications</button>
+<button routerLink='/productsList/{{product?.providerId}}'>Annuler les modifications</button>
