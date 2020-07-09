@@ -90,6 +90,23 @@
         true
       ],
       "tel": "04/3360262"
+    },
+    {
+      "id": 3,
+      "nom": "Chez andre",
+      "description": "Friterie",
+      "ferme": false,
+      "archive": false,
+      "horaire": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "tel": "0484/568977"
     }
   ],
   "produits": [

@@ -4,18 +4,21 @@
 <ul>
     <li *ngFor='let product of productList'>
         
-        <p>{{product?.name}}</p>
+        <span>{{product?.name}}</span>
+        <span class='price'>{{product?.price}} €</span>
+        <hr>
         <p>{{product?.description}}</p>
-        <p>{{product?.price}} €</p>
-        <p>Options : </p>
-        <ul>
-            <li *ngFor='let option of product.options'>
 
-                <p>{{option.nom}} : </p>
-                <p> + {{option.surcout}} €</p>
+        <h4>mat-select</h4>
 
-            </li>
-        </ul>
+            <mat-form-field appearance="fill">
+            <mat-label>Choisir un supplément</mat-label>
+            <mat-select>
+                <mat-option value='none' selected >Aucun</mat-option>
+                <mat-option *ngFor='let option of product.options' [value]="option">{{option.nom}} +{{option.surcout}} €</mat-option>
+
+            </mat-select>
+            </mat-form-field>
         
         <div>
             <button routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>

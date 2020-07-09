@@ -3,7 +3,7 @@ import { ProvidersListService } from 'src/app/services/providers-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Provider } from 'src/app/models/provider';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-modify-provider',
@@ -13,15 +13,25 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ModifyProviderComponent implements OnInit {
 
   provider:Provider;
-  timeTable:boolean[]=[];
   daysList:string[] = ['Lundi', 'Mardi', 'Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  editMode:string;
 
   providerForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
     isClosed: new FormControl(''),
     isArchived: new FormControl(''),
-    timeTable: new FormControl(''),
+    timeTable: new FormArray([
+      
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+
+    ]),
     phone: new FormControl(''),
     id: new FormControl('')
   });
@@ -29,16 +39,33 @@ export class ModifyProviderComponent implements OnInit {
 
   constructor(private providersListService:ProvidersListService,private route:ActivatedRoute,private router:Router) { 
     
+
+    route.url.subscribe(url => {
+      
+      this.editMode = url[1].path == 'new' ? 'create' : 'update';
+
+    });
+  
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
       
-      this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
+
+      if(routeId === 'new'){
+
+        this.provider = new Provider(0,'','',false,false,[false,false,false,false,false,false,false,],'');
+        this.providerForm.setValue(this.provider)
+
+      }else{
+
+        this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
         
-        this.provider=providerFound;
-        this.timeTable=providerFound.timeTable;
-        
-      })
+          this.provider=providerFound;
+          /*this.timeTable=providerFound.timeTable;*/
+          this.providerForm.setValue(this.provider)
+          
+        })
+      }
     })
   }
 
@@ -50,33 +77,46 @@ export class ModifyProviderComponent implements OnInit {
     this.provider.timeTable[indexDay]=statusDay;
 
   }
-  updateNameProvider(newName:string){
-    this.provider.name=newName;
-  }
-  updateDescriptionProvider(newDescription:string){
-    this.provider.description=newDescription;
-  }
-  updatePhoneProvider(newPhone:string){
-    this.provider.phone=newPhone;
-  }
-
   onCreateButtonClick(){
 
-    this.providersListService.updateProvider(this.provider).subscribe(()=>{
+    this.updateProviderWithForm();
+    this.providersListService.addProvider(this.provider).subscribe(()=>{
       this.router.navigate(['']);
      }  
    ); 
 
   }
   onSaveButtonClick(){
+    
+    this.updateProviderWithForm();
     this.providersListService.updateProvider(this.provider).subscribe(()=>{
        this.router.navigate(['']);
       }  
     );   
   }
-  msgConsole(){
+  updateProviderWithForm(){
 
-    console.log('toggle')
+    this.provider = Object.assign(this.provider, this.providerForm.value);
+
+  }
+  getTimeTableValue(index):boolean{
+
+    return this.providerForm.get('timeTable').value[index] 
+
+  }
+  toggleTimeTableValue(index){
+
+    const dayValue = this.getTimeTableValue(index);
+
+    if(dayValue){
+
+      this.providerForm.get('timeTable').value[index] = false;
+
+    }else{
+
+      this.providerForm.get('timeTable').value[index] = true;
+
+    }
 
   }
 }

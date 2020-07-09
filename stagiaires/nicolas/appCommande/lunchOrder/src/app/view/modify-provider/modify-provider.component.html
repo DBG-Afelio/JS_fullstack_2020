@@ -2,31 +2,31 @@
 
     <label>
         Nom du fournisseur :
-        <input type="text" value="{{provider?.name}}" (change)="updateNameProvider($event.target.value)">
+        <input formControlName="name">
     </label>
     <br>
 
     <label>
         Description du fournisseur :
-        <input type="text" value="{{provider?.description}}" (change)="updateDescriptionProvider($event.target.value)">
+        <input formControlName="description">
     </label>
     <br>
 
     <label>
         Téléphone du fournisseur :
-        <input type="text" value="{{provider?.phone}}" (change)="updatePhoneProvider($event.target.value)">
+        <input formControlName="phone">
     </label>
     <br>
 
-    <fieldset>
+    <fieldset formArrayName="timeTable">
         <legend>Jours d'ouverture</legend>
         
         <ul>
 
             <li *ngFor="let day of daysList; let i = index" >
 
-                {{day}} :
-                <mat-slide-toggle (change)='updateDay( i , $event.checked)' [checked]="timeTable[i]">{{timeTable[i]?'ouvert':'fermé'}}</mat-slide-toggle>
+                {{day}} : 
+                <mat-slide-toggle (change)='toggleTimeTableValue(i)' [checked]="getTimeTableValue(i)">{{getTimeTableValue(i)?'Ouvert':'Fermé'}}</mat-slide-toggle>
 
             </li>
 
@@ -34,8 +34,8 @@
     </fieldset>
 </form>
 
-<button (click)="onCreateButtonClick()">Créer ce commerce</button>
-<button (click)="onSaveButtonClick()">Sauvegarder Les Changements</button>
+<button *ngIf='editMode === "create"' (click)="onCreateButtonClick()">Créer ce commerce</button>
+<button *ngIf='editMode === "update"' (click)="onSaveButtonClick()">Sauvegarder Les Changements</button>
 <button routerLink=''>Annuler les Changements</button>
 
 

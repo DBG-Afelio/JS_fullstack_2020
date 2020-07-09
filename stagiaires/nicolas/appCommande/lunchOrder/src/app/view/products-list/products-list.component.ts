@@ -3,6 +3,7 @@ import { ProvidersListService } from 'src/app/services/providers-list.service';
 import { Product } from 'src/app/models/product';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Provider } from 'src/app/models/provider';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-products-list',
@@ -12,6 +13,7 @@ import { Provider } from 'src/app/models/provider';
 export class ProductsListComponent implements OnInit {
     provider:Provider;
     productList:Product[];
+    productOptions = new FormControl();
   constructor(private providersListService:ProvidersListService, route:ActivatedRoute) { 
 
     route.paramMap.subscribe( param => {

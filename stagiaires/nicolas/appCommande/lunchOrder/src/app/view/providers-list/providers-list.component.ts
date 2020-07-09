@@ -19,4 +19,16 @@ export class ProvidersListComponent implements OnInit {
 
   }
 
+  reloadList(){
+
+    this.providerListService.getProvidersList().subscribe(listFound => this.providersList = listFound)
+
+  }
+
+  onDeleteProviderClick(providerId:number){
+
+    this.providerListService.removeProvider(providerId).subscribe(_ => this.reloadList())
+
+  }
+
 }
