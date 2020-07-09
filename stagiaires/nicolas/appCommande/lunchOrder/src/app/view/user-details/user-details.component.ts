@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersListService } from 'src/app/services/users-list.service';
 import { User } from 'src/app/models/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-details',
@@ -10,10 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
 
-  user:User
-  editMode:string
+  user:User;
+  editMode:string;
 
-  constructor(private usersListService:UsersListService,  private route:ActivatedRoute) {
+  userForm = new FormGroup({
+    name: new FormControl(''),
+    surname: new FormControl(''),
+    formation: new FormControl(''),
+    login: new FormControl(''),
+    password: new FormControl(''),
+    credit: new FormControl(''),
+    isBanned: new FormControl(''),
+    isAdmin: new FormControl(''),
+    id: new FormControl('')
+  });
+
+  constructor(private usersListService:UsersListService,  private route:ActivatedRoute,private router: Router) {
     
     route.url.subscribe(url => {
       
@@ -29,16 +42,20 @@ export class UserDetailsComponent implements OnInit {
       if(routeId === 'new'){
 
         this.user = new User('','','','',0,'',false,false,0)
+        this.userForm.setValue(this.user)
 
       }else{
 
         this.usersListService.getUserById(Number(routeId)).subscribe(userFound=>{
           
           this.user=userFound;
-          
+          this.userForm.setValue(this.user)
+
         })
-      }
+      }      
+
     })
+
     
   }
 
@@ -47,17 +64,36 @@ export class UserDetailsComponent implements OnInit {
   onCreateUserClick(){
 
     this.usersListService.addUser(this.user).subscribe()
+    this.router.navigate(['/usersList']);
 
   }
   onSaveUserClick(){
 
+    const confirmUpdate = confirm("Enregistrer les modifications ?")
 
+    if(confirmUpdate){
+
+      this.usersListService.updateUser(this.user).subscribe()
+      this.router.navigate(['/usersList']);
+
+    }
 
   }
   onDeleteUserClick(){
 
+    const confirmDelete = confirm("supprimer l'utilisateur ?")
+
+    if(confirmDelete){
+
+      this.usersListService.removeUser(this.user.id).subscribe()
+      this.router.navigate(['/usersList']);
+
+    }
     
+  }
+  consoleLog(){
+
+    console.log(this.userForm)
 
   }
-
 }

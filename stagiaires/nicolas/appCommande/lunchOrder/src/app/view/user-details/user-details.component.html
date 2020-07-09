@@ -1,34 +1,34 @@
 <button routerLink='/usersList' >retour à la liste des utilisateurs</button>
 
-<form>
+<form [formGroup]="userForm">
 
     <label>
         Nom :
-        <input value='{{user?.name}}'>
+        <input (change)='consoleLog()' formControlName="name">
     
     </label>
     <br>
     <label>
         Prénom :
-        <input value='{{user?.surname}}'>
+        <input formControlName="surname">
     
     </label>
     <br>
     <label>
         Formation :
-        <input value='{{user?.formation}}'>
+        <input formControlName="formation">
     
     </label>
     <br>
     <label>
         Login :
-        <input value='{{user?.login}}'>
+        <input formControlName="login">
     
     </label>
     <br>
     <label>
         Mot de passe :
-        <input value='{{user?.password}}'>
+        <input formControlName="password">
     
     </label>
     
