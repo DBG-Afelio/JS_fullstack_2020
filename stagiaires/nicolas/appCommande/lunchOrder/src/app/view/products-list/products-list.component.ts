@@ -34,5 +34,13 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  reloadList(){
+
+    this.providersListService.getProductsList().subscribe(listFound => this.productList = listFound)
+
+  }
+  onDeleteProductClick(productid:number){
+    this.providersListService.removeProduct(productid).subscribe(_ => this.reloadList())
+  }
 
 }
