@@ -32,7 +32,10 @@ const routes: Routes = [
   {
     path: "commande/:id",
     component: CommandeComponent
-  }
+  },{
+  path: 'new',
+  component: MembreComponent 
+}
 ];
 
 @NgModule({

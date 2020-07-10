@@ -8,3 +8,11 @@
 h1{
     text-align: center;
 }
+.successMessage {
+    color:white ;
+    background-color: green;
+}
+.errorMessage{
+    color: white;
+    background-color: red;
+}
