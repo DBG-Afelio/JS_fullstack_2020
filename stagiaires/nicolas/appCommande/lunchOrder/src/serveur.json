@@ -100,7 +100,7 @@
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": "0.3",
+          "surcout": 0.3,
           "id": 1
         }
       ],
@@ -1146,6 +1146,7 @@
       "options": [],
       "fourn_id": 2,
       "id": 71
+<<<<<<< HEAD
     },
     {
       "nom": "jerome",
@@ -1176,6 +1177,8 @@
       "options": [],
       "fourn_id": 1,
       "id": 82
+=======
+>>>>>>> 737b6a3016de4455a0f644f3a12b539237c2c441
     }
   ]
 }
