@@ -10,7 +10,7 @@
     ></app-detail-item>
 </div>
 
-<div *ngIf="currentUser">
+<div *ngIf="currentUser && product">
     <div *ngIf="product.options.length !== 0">
         <div *ngFor="let option of product.options">
             <input #option 
@@ -22,7 +22,11 @@
     </div>
     Prix recalculé : {{ updatedPrice }} €
     <button
-        (click)="saveOrderLocally()">
+        (click)="saveInLocalStorage()">
         AJOUTER
     </button>  
+    <button *ngIf="savedOrder && savedOrder.productId===product.id"
+        routerLink="/paiement">
+        CONFIRMER
+    </button>
 </div>

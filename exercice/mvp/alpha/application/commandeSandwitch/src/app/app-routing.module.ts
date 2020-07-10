@@ -9,12 +9,14 @@ import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-f
 import { UserFormPageComponent } from './pages/user-form-page/user-form-page.component';
 import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.component';
 import { AdminOnlyGuard } from './guards/admin-only.guard';
+import { ValidatePageComponent } from './pages/validate-page/validate-page.component';
 
 
 const routes: Routes = [
   { path : "fournisseur/:id", component: ProductPageComponent },
   { path : "homepage", component: HomePageComponent },
-  { path : "produit/:id", component : ProductDetailPageComponent },
+  { path : "produit/:id", component: ProductDetailPageComponent },
+  { path : "paiement", component: ValidatePageComponent }, //canActivate with UserLoggedInOnly to add
 
   { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
   { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },

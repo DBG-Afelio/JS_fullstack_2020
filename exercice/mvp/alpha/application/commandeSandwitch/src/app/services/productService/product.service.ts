@@ -43,4 +43,23 @@ export class ProductService {
       )
     ;
   }
+
+  public getProductPrice(prodId: number): number{
+    let price: number = 0;
+    this.getList().subscribe((list) => {
+      price = list.find(prod => prod.getId() === prodId).getPrice();
+    });
+    return price;
+  }
+
+  public getProductOptionPrice(prodId: number, optionId: number): number {
+    let price: number = 0;
+    let prod: Product = null;
+    this.getList().subscribe((list) => {
+      prod = list.find(prod => prod.id === prodId);
+      price = prod.getOptions().find(opt => opt.id === optionId).surcout;
+    });
+    return price;
+  }
+
 }

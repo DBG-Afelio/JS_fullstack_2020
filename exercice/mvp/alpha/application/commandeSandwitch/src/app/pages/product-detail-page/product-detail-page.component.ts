@@ -6,8 +6,9 @@ import { ProductService } from 'src/app/services/productService/product.service'
 import { Product } from 'src/app/models/productModel/Product';
 import { User } from 'src/app/models/userModel/user';
 import { UserService } from 'src/app/services/userService/user.service';
-import { LocalStorageService } from 'src/app/services/localStorageService/local-storage.service';
 import { Order } from 'src/app/models/orderModel/order';
+import { OrderService } from 'src/app/services/orderService/order.service';
+import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -20,13 +21,16 @@ export class ProductDetailPageComponent implements OnInit {
   public product: Product;
   public currentUser: User = null;
   public updatedPrice: number = 0;
-  public optionsSelected: number[]=[];
+  public optionsSelected: number[] = [];
+  public savedOrder: Order = null;
+  public confirmedOrder: Order = null;
+  public fullOrder: FullOrder = null;
   constructor(
     public supplierService: SupplierService,
     public productService: ProductService, 
     public activatedRoute: ActivatedRoute,
     private userService: UserService,
-    private localStorage: LocalStorageService,
+    private orderService: OrderService,
   ) { 
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
@@ -39,8 +43,21 @@ export class ProductDetailPageComponent implements OnInit {
     this.supplierService.getList().subscribe((list) => {
       this.listSuppliers = list;
     });
-
-    this.userService.getCurrentUser().subscribe((user) => this.currentUser = user); 
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+      this.orderService.getLocalOrder().subscribe((localOrder) => {
+        this.savedOrder = localOrder;
+        console.log('ORDER LOCAL: ', localOrder);
+      });
+      this.orderService.getServerOrder().subscribe((serverOrder) => {
+        this.confirmedOrder = serverOrder;
+        console.log('ORDER SERVER: ', serverOrder);
+      });
+      this.orderService.getUserOrderAsFullOrder().subscribe((full) => {
+        this.fullOrder = full;
+        console.log('FULL ORDER: ', full);
+      });
+    });
   }
 
   ngOnInit(): void {
@@ -59,16 +76,36 @@ export class ProductDetailPageComponent implements OnInit {
     return this.updatedPrice;
   }
 
-  public saveOrderLocally(): void{
-    let newOrder = new Order(
+  public saveInLocalStorage(): void{
+    if (this.savedOrder) {
+      const replaceOrderMsg = 'Vous avez deja une commande sauvegardee. Voulez-vous la remplacer ';
+      if (window.confirm(replaceOrderMsg)) {
+        this.createNewOrder();
+      } else {
+        // on fait rien et on maintient la precedente sauvegarde
+      }
+    } else { //pas de precedente sauvegarde, on sauve direct
+      this.createNewOrder();
+    }
+  }
+
+  private createNewOrder(): void{
+    
+    const newOrder = new Order(
       this.currentUser.id,
       this.product.id,
       this.optionsSelected,
       false,
       0,
-      new Date (Date.now())
-    )
-    this.localStorage.storeOrder(newOrder);
-    console.log(`commande ${newOrder} saved in LocalStorage`);
+      new Date(Date.now())
+    );
+   // this.orderService.setUserOrderAsFullOrder(newOrder); fait dans le service en princ
+    this.orderService.storeOrderInLocalStorage(newOrder);
+
+    console.log(`produit id: ${newOrder.productId} saved in LocalStorage for user ${this.currentUser.firstName}`);
+  }
+
+  public goToPaiementRequested(order:Order): void{
+    
   }
 }

@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": "3",
+      "credit": 1.5,
       "formation": "Creations de Problemes",
       "banni": false,
       "admin": false,
