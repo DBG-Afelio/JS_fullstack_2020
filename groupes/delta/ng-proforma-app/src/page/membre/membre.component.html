@@ -9,3 +9,8 @@
         <li>FORMATIONS: {{membre.formation}}</li>
     </ul>
 </div>
+<div  [class.errorMessage]="!detecting" *ngIf="message">
+    {{message}}
+</div>
+
+

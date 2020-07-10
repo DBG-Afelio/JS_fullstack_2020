@@ -52,7 +52,7 @@ export class UsersService {
    creatUser(user: UserDto): Observable<User> {
      return this.http.post<UserDto>(`http://localhost:3000/utilisateurs`,user).pipe(
        map((userDto )=>{
-         return User.fromDto(userDto)
+         return User.fromDto(userDto);
        })
      )
    }
