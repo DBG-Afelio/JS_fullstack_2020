@@ -27,7 +27,7 @@ constructor(private http: HttpClient) { }
 
   getSuppliersById(id: number): Observable<Supplier> {
     return this.http.get<Supplier>(this.urlAPI + `fournisseurs/${id}`)
-    .pipe(map( (supplierDto: SupplierDto) => {
+    .pipe(map((supplierDto: SupplierDto) => {
       return Supplier.fromDto(supplierDto)
     }));
   }

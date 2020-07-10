@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   ComponentRef,
   ComponentFactoryResolver,
@@ -10,6 +10,7 @@ import {
 import{ ListItemsService } from '../../services/list-items.service';
 import { Item } from '../../interfaces/item';
 
+
 @Component({
   selector: 'app-display-item',
   templateUrl: './display-item.component.html',
@@ -18,11 +19,17 @@ import { Item } from '../../interfaces/item';
 export class DisplayItemComponent implements OnInit {
   public visible: boolean = false;
   public listProducts: Item[];
+  
   @Input() item: Item;
+  @Output() selectedProduct = new EventEmitter<Item>();
 
   constructor() {}
 
   ngOnInit() {
+  }
+  
+  onProductSelection(){
+    this.selectedProduct.emit(this.item);
   }
   onDisplayDetails(id){
     console.log(id);

@@ -24,11 +24,46 @@ constructor(private http: HttpClient,
   public userService: UserService,
   public listItemsService: ListItemsService
   ) { }
-/*
+
 getAllOrders(): Observable<Order[]> {
-  return this.http.get<Order[]>(this.urlAPI + 'commandes');  
+  return this.http.get<Order[]>(this.urlAPI + 'commandes')
+  .pipe(map((arrayOrdersDto: OrderDto []) => {
+    return arrayOrdersDto.map(OrderDto => Order.fromDto(OrderDto))
   }
-*/
+  ));
+  }
+
+getAllOrders_WithORWithoutDTO(){
+  return this.http.get<Order[]>(this.urlAPI + 'commandes');
+}
+
+createOrder(payload: Order): Observable<Order> {
+  return this.http
+  .post<Order>(`${this.urlAPI}commandes`, payload.toDto())
+  .pipe(catchError((error: any) => throwError(error)));
+}
+
+updateOrder(payload: Order): Observable<Order> {
+  return this.http.put<Order>(`${this.urlAPI}commandes/${payload.id}`, payload.toDto())
+  .pipe(catchError((error: any) => throwError(error)));
+
+}
+
+deleteOrder(payload: Order): Observable<Order> {
+  return this.http
+    .delete<any>(`${this.urlAPI}commandes/${payload.id}`)
+    .pipe(catchError((error: any) => throwError(error)));
+
+}
+
+getOrderById(id: number): Observable<Order> {
+  return this.http
+  .get<Order>(this.urlAPI + `commandes/${id}`)
+  .pipe(map((orderDto: OrderDto) => {
+    return Order.fromDto(orderDto)
+  }));
+}
+
   getUserInListOrders(): Observable<Order[]> { //Benoit: c'est moi qui ai ajouté ça, la méthode au-dessus ne prend pas compte de OrderDto
 
     return this.http.get<Order[]>(this.urlAPI + 'commandes')
