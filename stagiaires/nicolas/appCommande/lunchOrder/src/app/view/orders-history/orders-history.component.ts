@@ -23,7 +23,14 @@ export class OrdersHistoryComponent implements OnInit {
       console.log(this.ordersList)
       })
 
-    this.currentUser = this.usersListService.getCurrentUser()
+    this.usersListService.getCurrentUser().subscribe(currentUserFound => {
+
+      if(currentUserFound){
+
+        this.currentUser = currentUserFound
+
+      }
+    })
    
   }
   

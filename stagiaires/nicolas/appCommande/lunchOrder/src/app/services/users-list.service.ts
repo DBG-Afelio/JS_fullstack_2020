@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { UserDto } from '../models/user-dto';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +9,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersListService {
-  private currentUser:User=null;
+
+  //private currentUser:User=null;
+  private currentUserSubject:BehaviorSubject<User> = new BehaviorSubject(null);
 
 
   constructor(private http:HttpClient) { }
@@ -70,7 +72,8 @@ export class UsersListService {
       map(foundUser =>{
         if(foundUser){
             if(foundUser.checkPassword(password)){
-                this.currentUser=foundUser;
+                //this.currentUser=foundUser;
+                this.currentUserSubject.next(foundUser)
                 return true;
             }
           }
@@ -78,11 +81,16 @@ export class UsersListService {
         })
       )
   }
-  getCurrentUser():User{
+  /*getCurrentUser():User{
     return this.currentUser
+  }*/
+  getCurrentUser(): Observable<User>{
+
+    return this.currentUserSubject.asObservable()
+
   }
   logoutUser(){
-    this.currentUser=null;
+    this.currentUserSubject.next(null)
   }
 
 }

@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavBarComponent implements OnInit {
   user:User
   constructor(private usersListService:UsersListService, private router:Router) {
-    this.user=usersListService.getCurrentUser();
+    usersListService.getCurrentUser().subscribe(currentUserFound => this.user = currentUserFound);
    }
 
   ngOnInit(): void {
@@ -21,7 +21,6 @@ export class NavBarComponent implements OnInit {
     if(confirm("Voulez-vous vraiment vous déconnecter?")){
 
       this.usersListService.logoutUser();
-      this.ngOnInit();
       this.router.navigate([""])
 
     }

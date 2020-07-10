@@ -17,11 +17,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.userListService.getCurrentUser()){
+    this.userListService.getCurrentUser().subscribe(currentUserFound => {
 
-      this.router.navigate([""])
+      if(currentUserFound){
+
+        this.router.navigate([""])
+
+      }     
+
+    })
+
       
-    }
+    
     
   }
   onButtonConnexionClick(login:string, password:string){

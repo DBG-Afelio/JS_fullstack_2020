@@ -1,8 +1,8 @@
-<a routerLink="/dailyOrder">Commandes du jour</a>
-<a routerLink="/ordersHistory">Historique des commandes</a>
+<a *ngIf='user?.isAdmin' routerLink="/dailyOrder">Commandes du jour</a>
+<a *ngIf='user' routerLink="/ordersHistory">Historique des commandes</a>
 <a routerLink="">Liste des commerces</a>
-<a routerLink="/usersList">Liste des utilisateurs</a>
-<label>Status : {{user.isAdmin?"Admin":"User"}}</label>
-<button routerLink="/login">logIn</button>
-<button (click)="onButtonLogoutClick()">Logout</button>
+<a *ngIf='user?.isAdmin' routerLink="/usersList">Liste des utilisateurs</a>
+<label>Status : {{user?user.isAdmin?"Admin":"User":"Guest"}}</label>
+<button *ngIf='!user' routerLink="/login">logIn</button>
+<button *ngIf='user' (click)="onButtonLogoutClick()">Logout</button>
 
