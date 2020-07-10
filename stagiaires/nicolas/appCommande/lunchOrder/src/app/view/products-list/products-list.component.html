@@ -1,6 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <h1>{{provider?.name}}</h1>
+
 <button routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
+ 
 <ul>
     <li *ngFor='let product of productList'>
         
