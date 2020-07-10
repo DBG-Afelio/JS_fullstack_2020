@@ -1,2 +1,5 @@
 <h1>{{supplier.nom}}</h1>
-<app-display-item *ngFor="let item of listProducts" [item]="item"></app-display-item>
+<app-display-item *ngFor="let item of listProducts" [item]="item" (selectedProduct)="testEvent($event)"> 
+
+</app-display-item>
+

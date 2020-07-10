@@ -1,4 +1,4 @@
-import { OrderDto } from './orderDto'
+import { OrderDto } from './orderDto';
 
 export class Order {
 

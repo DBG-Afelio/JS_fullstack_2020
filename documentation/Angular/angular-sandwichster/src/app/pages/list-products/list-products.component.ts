@@ -13,9 +13,11 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ListProductsComponent implements OnInit {
 
+ private selectedProduct: Item;
+
   private listProducts: Item[];
   private listSuppliers: Supplier[];
-
+ 
   private isAuth: boolean = false;
   private isAdmin: boolean = false;
 
@@ -46,9 +48,6 @@ export class ListProductsComponent implements OnInit {
         this.isAdmin = true;
       }
     }
-  
-
-
 
   }
 
@@ -63,4 +62,10 @@ export class ListProductsComponent implements OnInit {
   getListProductsFiltered(idSupplier: number){
     return this.listProducts.filter(element => element.fourn_id == idSupplier)
   }
+  
+  testEvent2(item){
+    this.selectedProduct = item;
+    console.log(this.selectedProduct);
+  }
+
 }

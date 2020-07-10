@@ -61,7 +61,7 @@
       "id": 1,
       "nom": "Poivre & Sel",
       "description": "Sandwicherie Fine",
-      "ferme": true,
+      "ferme": false,
       "archive": false,
       "horaire": [
         false,
@@ -78,7 +78,7 @@
       "id": 2,
       "nom": "Da Peppe",
       "description": "Pizzas au feu de bois",
-      "ferme": true,
+      "ferme": false,
       "archive": false,
       "horaire": [
         true,

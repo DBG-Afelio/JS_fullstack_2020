@@ -15,7 +15,6 @@ import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-or
 import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
-import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
 import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
 
 //Components
@@ -38,7 +37,6 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
     ListUsersComponent,
     LoginComponent,
     ProfileUserComponent,
-    SummaryOrderComponent,
     ListItemsComponent,
     DisplayItemComponent,
     SidebarComponent,
