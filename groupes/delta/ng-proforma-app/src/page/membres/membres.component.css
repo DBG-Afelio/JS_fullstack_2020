@@ -7,7 +7,7 @@ table {
 }
   
 thead th:nth-child(1) {
-    width: 10%;
+    width: 5%;
 }
   
 thead th:nth-child(2) {
@@ -25,8 +25,36 @@ thead th:nth-child(4) {
 thead th:nth-child(5) {
     width: 10%;
 }
+
+thead th:nth-child(6) {
+    width: 10%;
+}
+
+thead th:nth-child(7) {
+    width: 10%;
+}
   
 th, td {
     padding: 20px;
     border: solid rosybrown 2px;
+}
+
+.is-sorted-up::after{
+    content: url("../../assets/img/arrow-up.svg");
+}
+.is-sorted-down::after{
+    content: url("../../assets/img/arrow-down.svg");
+}
+
+
+
+.fleche{
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 15px;
+    width: 15px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    z-index: 20;
 }

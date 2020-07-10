@@ -26,18 +26,21 @@ export class MembresComponent implements OnInit, OnChanges {
     }
   }
 
-  sortMembre(criteretri:string = this.sortby[0]){
-    this.sortby = this.sortby[0]===criteretri ? [criteretri,!this.sortby[1]] : [criteretri,false];
+  sortMembre(){
     const sortedtab = this.membres.slice();
     return sortedtab.sort((membre1, membre2) =>{
-      if (membre1[criteretri]<membre2[criteretri]){
+      if (membre1[this.sortby[0]]<membre2[this.sortby[0]]){
         return this.sortby[1] ? 1 : -1;
-      }else if(membre1[criteretri]>membre2[criteretri]){
+      }else if(membre1[this.sortby[0]]>membre2[this.sortby[0]]){
         return !this.sortby[1] ? 1 : -1;
       } else {
         return 0;
       }
     })
+  }
+
+  sortBy(element:HTMLElement):void{
+    this.sortby = this.sortby[0]===element.textContent.toLowerCase() ? [element.textContent.toLowerCase(),!this.sortby[1]] : [element.textContent.toLowerCase(),false];
   }
 
   // filterMembre(criterefiltre:string){
