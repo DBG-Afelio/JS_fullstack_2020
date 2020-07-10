@@ -21,13 +21,19 @@ export class CommandeComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(param => {
       const id: number = Number(param.get('id'));
-      this.commandesService.getCommandeByIdWithObject(id).subscribe(commande => {
-        if(this.userService.user_co && (this.userService.user_co?.admin || commande.user_id === this.userService.user_co?.id)) {
-          this.commande = commande;
-        } else {
-          this.route.navigate(['../']);
-        }
-      })
+      if(id > 0) {
+        this.commandesService.getCommandeByIdWithObject(id).subscribe(commande => {
+          if(this.userService.user_co && (this.userService.user_co?.admin || commande.user_id === this.userService.user_co?.id)) {
+            this.commande = commande;
+          } else {
+            this.route.navigate(['../']);
+          }
+        })
+      } else if (this.userService.user_co) {
+        this.commande = this.commandesService.pending_command;
+      } else {
+        this.route.navigate(['../']);
+      }
     })
   }
 

@@ -6,5 +6,6 @@
     <a routerLink='login' *ngIf="!user">Connexion</a>
     <a routerLink='users' *ngIf="user?.admin && user">Membres</a>
     <img src="./assets/img/logoProforma.png" class="img">
+    <span class="timer">{{timer}}</span>
 </div>
 <router-outlet></router-outlet>

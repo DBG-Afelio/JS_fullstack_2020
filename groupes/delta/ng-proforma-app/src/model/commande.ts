@@ -12,15 +12,15 @@ export class Commande {
     constructor(
         public user_id:number,
         public product_id:number,
-        public paye:boolean,
-        public id:number,
-        public option_ids: number[],
-        date: string
+        public paye:boolean = false,
+        public id:number = 0,
+        public option_ids: number[] = [],
+        date?: string
     ) {
         this.paye = paye;
         this.id = id;
         this.option_ids = option_ids;
-        this.date = new Date(date);
+        this.date = date ? new Date(date) : new Date();
         this.user_id = user_id;
         this.product_id = product_id;
     }

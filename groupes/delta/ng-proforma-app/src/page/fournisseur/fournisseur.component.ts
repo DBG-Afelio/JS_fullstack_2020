@@ -6,6 +6,9 @@ import { Product } from 'src/model/product';
 import { ProductService } from 'src/service/product.service';
 import { interval } from 'rxjs';
 import { TimerService } from 'src/service/timer.service';
+import { CommandesService } from 'src/service/commandes.service';
+import { Commande } from 'src/model/commande';
+import { UsersService } from 'src/service/users.service';
 
 @Component({
   selector: 'app-fournisseur',
@@ -23,7 +26,7 @@ export class FournisseurComponent implements OnInit {
 
 
 
-  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute, private productService: ProductService, private timerService: TimerService) {
+  constructor(private fournService: FournService, private activatedRoute: ActivatedRoute, private productService: ProductService, private timerService: TimerService, private commandsService:CommandesService, private usersService:UsersService) {
     this.activatedRoute.paramMap.subscribe(param => {
       this.fourn_id = Number(param.get('id'));
     })
@@ -59,6 +62,13 @@ export class FournisseurComponent implements OnInit {
       this.message = "Désolées les commandes ne sont pas disponibles le week-end" ; 
     }
 
+  }
+
+  sendOrder(product:Product) {
+    this.commandsService.pending_command = new Commande(
+      this.usersService.user_co.Id,
+      product.id
+    )
   }
  
 
