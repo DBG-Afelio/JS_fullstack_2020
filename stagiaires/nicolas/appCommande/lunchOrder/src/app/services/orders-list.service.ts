@@ -49,6 +49,10 @@ export class OrdersListService {
                   order.setProduct(productsList.find(product => product.id === order.productId))
                   order.setUser(usersList.find(user => user.id === order.userId))
 
+                  const orderProductOptions = productsList.find(product => product.id === order.productId).options;
+
+                  order.setOptions(orderProductOptions.filter(option => order.optionsId.includes(option.id)))
+                  
                 })
                 return ordersList
 

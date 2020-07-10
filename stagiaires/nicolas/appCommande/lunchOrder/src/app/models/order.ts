@@ -8,7 +8,7 @@ export class Order {
 
     user:User
     product:Product
-
+    options:OrderOption[]
 
     constructor(public userId:number,
                 public productId:number,
@@ -53,6 +53,11 @@ export class Order {
     setProduct(product:Product){
 
         this.product = product
+
+    }
+    setOptions(options:OrderOption[]){
+
+        this.options = options
 
     }
     getSelectedOptions():OrderOption[]{
