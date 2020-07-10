@@ -4,6 +4,9 @@ import { Product } from 'src/app/models/product';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Provider } from 'src/app/models/provider';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { OrderProductComponent } from '../order-product/order-product.component';
+import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-products-list',
@@ -14,7 +17,11 @@ export class ProductsListComponent implements OnInit {
     provider:Provider;
     productList:Product[];
     productOptions = new FormControl();
-  constructor(private providersListService:ProvidersListService, route:ActivatedRoute) { 
+    newOrder:Order;
+
+  constructor(private providersListService:ProvidersListService,
+              route:ActivatedRoute,
+              private orderDialog: MatDialog) { 
 
     route.paramMap.subscribe( param => {
 
@@ -33,6 +40,25 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.newOrder = new Order(1,0,[],false,0,new Date());
+
+  }
+
+  openOrderDialog(currentProduct:Product){
+
+    this.newOrder.id = currentProduct.id
+
+    const dialogRef = this.orderDialog.open(OrderProductComponent,{
+      data: {
+        product: currentProduct
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+
   }
 
 }

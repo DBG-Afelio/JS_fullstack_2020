@@ -25,7 +25,7 @@
         <div>
             <button routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
             <button>Supprimer ce produit</button>
-            <button>Commander!</button>
+            <button (click)='openOrderDialog(product)'>Commander!</button>
         </div>
 
     </li>

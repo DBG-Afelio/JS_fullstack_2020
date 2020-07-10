@@ -27,7 +27,12 @@ export class ProvidersListComponent implements OnInit {
 
   onDeleteProviderClick(providerId:number){
 
-    this.providerListService.removeProvider(providerId).subscribe(_ => this.reloadList())
+    let deleteConfirm = confirm('Êtes-vous sur de vouloir supprimer ce commerce')
+    if(deleteConfirm){
+
+      this.providerListService.removeProvider(providerId).subscribe(_ => this.reloadList())
+
+    }
 
   }
 
