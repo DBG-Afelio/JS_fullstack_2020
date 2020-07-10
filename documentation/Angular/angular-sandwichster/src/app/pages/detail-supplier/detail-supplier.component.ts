@@ -25,17 +25,19 @@ export class DetailSupplierComponent implements OnInit {
       this.idSupplier = Number(params.get('id'));
     
       if(this.idSupplier===0){
-        /*
-        this.supplierDisplayed = {
-          id: 0,
-          nom: "",
-          description: "",
-          ferme: true,
-          archive: false,
-          horaire: [],
-          tel: "",
-        }*/
+        
+      
+        this.supplierDisplayed = new Supplier(
+          0,
+          "",
+          "",
+          true,
+          false,
+          [true, true, true, true, true, true, true],
+          ""
+        )
       }
+
       else{
         this.suppliersService.getSuppliersById(this.idSupplier).subscribe((element) => {
           this.supplierDisplayed = element
@@ -48,20 +50,20 @@ export class DetailSupplierComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   createEvent(supplier: Supplier){
     this.suppliersService.createSupplier(supplier).subscribe(()=>
-    this.routeur.navigate(["/"]) 
+    this.routeur.navigate(["list-suppliers"]) 
     );
   }
   updateEvent(supplier: Supplier){
     this.suppliersService.updateSupplier(supplier).subscribe(()=>
-    this.routeur.navigate(["/"])
+    this.routeur.navigate(["list-suppliers"])
   );
   }
   removeEvent(supplier: Supplier){
     this.suppliersService.removeSupplier(supplier).subscribe(()=>
-      this.routeur.navigate(["/"]) // quand il  va récupérer la réponse, il retourne page d'accueil
+      this.routeur.navigate(["list-suppliers"])
     );
   }
 

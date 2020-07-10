@@ -6,5 +6,7 @@
 
     <a (click)='onProductSelection()'>Je le prends!</a>
 
+    <button (click)='modifyItem(item.id)'>Modifier</button>
 </div>
 
+<app-modify-item *ngIf="visible" [item]="item" #viewContainerRef></app-modify-item>

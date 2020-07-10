@@ -11,15 +11,12 @@ export class ListTotalOrdersComponent implements OnInit {
 
   public todayOrders: Order[]; 
 
-  constructor(
-    private orderService: OrdersService
-    ) {
-    this.orderService.getAllOrders().subscribe((receivedOrders) => {
+  constructor(private orderService: OrdersService) {
+    this.orderService.getUserInListOrders().subscribe((receivedOrders) => {
       this.todayOrders = receivedOrders;
       console.log(this.todayOrders);
    })
-  
-  };
+  }
 
   ngOnInit() {
     this.getOrders();

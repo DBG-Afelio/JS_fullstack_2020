@@ -7,7 +7,7 @@ export class Item{
         public prix: number,
         public options: [string, number, number],
         public fourn_id: number,
-        public id: boolean,
+        public id: number,
         ){}
 
     static fromDto(itemDto: ItemDto): Item{ // static => méthode de classe et non d'instance (Math.random())
