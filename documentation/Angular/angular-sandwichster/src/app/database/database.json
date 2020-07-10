@@ -61,7 +61,7 @@
       "id": 1,
       "nom": "Poivre & Sel",
       "description": "Sandwicherie Fine",
-      "ferme": false,
+      "ferme": true,
       "archive": false,
       "horaire": [
         false,
@@ -90,6 +90,23 @@
         true
       ],
       "tel": "04/3360262"
+    },
+    {
+      "id": 3,
+      "nom": "test",
+      "description": "poissons",
+      "ferme": true,
+      "archive": false,
+      "horaire": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "tel": "01234564789"
     }
   ],
   "produits": [

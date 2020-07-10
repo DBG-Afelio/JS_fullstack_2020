@@ -22,7 +22,7 @@ export class UserModel {
             userDto.prenom,
             userDto.credit,
             userDto.formation,
-            userDto.banni,
+            userDto.banni, 
             userDto.admin,
             userDto.id
         )
