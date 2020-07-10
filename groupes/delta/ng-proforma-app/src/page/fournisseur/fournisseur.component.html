@@ -1,16 +1,16 @@
 <h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
 <div>
-<nav>
-<ul class="ulList">
-    <li class="liList"  *ngFor="let product of fournisseur?.products ; index as i" [class.selected]="product ===selectedProduct "
-    (click)="select(product)">
-        
-    <span class="index">{{i+1}}  </span>
-    <span class="titles">:{{product?.nom}}  
-    ({{product.prix}}€).  </span>
+    <nav>
+        <ul class="ulList">
+            <li class="liList" *ngFor="let product of fournisseur?.products ; index as i"
+                [class.selected]="product ===selectedProduct " (click)="select(product)">
 
-</ul>
-</nav>
+                <span class="index">{{i+1}} </span>
+                <span class="titles">:{{product?.nom}}
+                    ({{product.prix}}€). </span>
+
+        </ul>
+    </nav>
 </div>
 <div *ngIf="selectedProduct" class="prductDetails">
     <table class="tableOfeDetails">
@@ -26,17 +26,19 @@
             <th>Prix de produit</th>
             <th>{{selectedProduct?.prix}}€</th>
         </tr>
+        <tr>
+            <th>Description</th>
+            <th>{{selectedProduct?.description}}</th>
+        </tr>
     </table>
-            Desciption: {{selectedProduct?.description}}
-           
-    
-     
-     
 
-    
+
+
+
+
+
     <app-options [options]="selectedProduct.options"></app-options>
 </div>
 <button *ngIf="stillInTime()" (click)="checkeOrder()">Vérifier</button>
-<p class="message">  {{message}} </p>
+<p class="message"> {{message}} </p>
 <p class="hour">{{hour.getHours()}}:{{hour.getMinutes()}}:{{hour.getSeconds()}}</p>
-
