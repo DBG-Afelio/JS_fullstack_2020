@@ -14,6 +14,7 @@ import { Option } from 'src/model/option';
   providedIn: 'root'
 })
 export class CommandesService {
+  pending_command:Commande;
 
   constructor(private http: HttpClient, private usersService:UsersService, private productService:ProductService) { }
 
@@ -85,15 +86,19 @@ export class CommandesService {
       })
     )
   }
-  updateCommand(command : Commande) :Observable<Commande> {
-    return this.http.put<CommandeDto>(`http://localhost:3000/commandes`,command.id).pipe(
+  updateCommand(command : CommandeDto) :Observable<Commande> {
+    return this.http.put<CommandeDto>(`http://localhost:3000/commandes/${command.id}`,command).pipe(
       map((commandDto : CommandeDto)=>{
         return Commande.fromDto(commandDto);
       })
     )
   }
   
-
+  submitPendingCommand():Commande {
+    let sendedCommand:Commande;
+    this.creatCommand(this.pending_command.toDto()).subscribe((commande:Commande) => sendedCommand = commande);
+    return sendedCommand;
+  }
 
 
 }
