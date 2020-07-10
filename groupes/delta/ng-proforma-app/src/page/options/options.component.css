@@ -1,3 +1,18 @@
 .ulList{
     list-style-type: none;
+    padding: 0;
+    
 }
+nav ul li {
+	font-size: 17px;
+    font-family: sans-serif;
+    color: black;
+	background-color: #fff5d7;
+	letter-spacing: 0.1em;
+	padding: 5px;
+    cursor: pointer;
+  
+}
+
+
+
