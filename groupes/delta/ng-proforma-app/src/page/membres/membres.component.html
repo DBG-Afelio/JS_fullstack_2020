@@ -1,11 +1,3 @@
-<p>TRIER PAR :</p>
-<select (change)="sortMembre($event.target.value)">
-  <option value="id">ID</option>
-  <option value="prenom">PRENOM</option>
-  <option value="nom">NOM</option>
-  <option value="formation">FORMATIONS</option>
-  <option value="credit"></option>
-</select>
 
 <p>FILTRER PAR :</p>
 <select>
@@ -16,15 +8,15 @@
 
 <table>
   <caption><h1>Récapitulatif des membres</h1></caption>
-  <thead (click)="sortMembre($event.target.textContent.toLowerCase())">
+  <thead (click)="sortBy($event.target)">
     <tr>
-      <th>ID</th>
-      <th>NOM</th>
-      <th>PRENOM</th>
-      <th>ADMIN</th>
-      <th>LOGIN</th>
-      <th>CREDIT</th>
-      <th>FORMATION</th>
+      <th [class.is-sorted-up]="th_id.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_id.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_id>ID</th>
+      <th [class.is-sorted-up]="th_nom.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_nom.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_nom>NOM</th>
+      <th [class.is-sorted-up]="th_prenom.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_prenom.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_prenom>PRENOM</th>
+      <th [class.is-sorted-up]="th_admin.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_admin.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_admin>ADMIN</th>
+      <th [class.is-sorted-up]="th_login.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_login.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_login>LOGIN</th>
+      <th [class.is-sorted-up]="th_credit.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_credit.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_credit>CREDIT</th>
+      <th [class.is-sorted-up]="th_formation.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_formation.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_formation>FORMATION</th>
     </tr>
   </thead>
   <tbody>

@@ -1,8 +1,9 @@
 .profil{
-    margin: auto;
+    margin: 10px auto;
     width: 300px;
     border: saddlebrown 10px double;
     background-clip: content-box;
+    top: auto;
 }
 
 h1{
