@@ -100,7 +100,7 @@
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": 0.3,
+          "surcout": "0.3",
           "id": 1
         }
       ],
@@ -1146,39 +1146,6 @@
       "options": [],
       "fourn_id": 2,
       "id": 71
-<<<<<<< HEAD
-    },
-    {
-      "nom": "jerome",
-      "description": "couche de gras sur un pain gras",
-      "prix": "500",
-      "options": [
-        {
-          "nom": "foie gras",
-          "surcout": "25",
-          "id": ""
-        }
-      ],
-      "fourn_id": 1,
-      "id": 80
-    },
-    {
-      "nom": "",
-      "description": "",
-      "prix": 0,
-      "options": [],
-      "fourn_id": 1,
-      "id": 81
-    },
-    {
-      "nom": "",
-      "description": "",
-      "prix": 0,
-      "options": [],
-      "fourn_id": 1,
-      "id": 82
-=======
->>>>>>> 737b6a3016de4455a0f644f3a12b539237c2c441
     }
   ]
 }

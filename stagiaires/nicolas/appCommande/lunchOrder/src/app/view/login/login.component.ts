@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+
   constructor(private userListService:UsersListService,private router:Router) { 
     
 
@@ -23,5 +24,15 @@ export class LoginComponent implements OnInit {
     }
     
   }
-
+  onButtonConnexionClick(login:string, password:string){
+    console.log(login)
+    this.userListService.setLoginUser(login, password).subscribe(isTrue=>{
+      if(isTrue){
+        this.router.navigate([""]);
+      }else{
+        alert("Mots de passe ou Login invalide");
+      }
+    });
+    
+  }
 }
