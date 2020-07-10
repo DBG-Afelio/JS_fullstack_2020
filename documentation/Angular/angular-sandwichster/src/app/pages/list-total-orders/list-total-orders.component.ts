@@ -9,10 +9,10 @@ import{ Order } from 'src/app/interfaces/order'
 })
 export class ListTotalOrdersComponent implements OnInit {
 
-  public todayOrders: Order[]; 
+  public todayOrders: Order[] = []; 
 
   constructor(private orderService: OrdersService) {
-    this.orderService.getUserInListOrders().subscribe((receivedOrders) => {
+    this.orderService.getUsersAndProductsNameInListOrders().subscribe((receivedOrders) => {
       this.todayOrders = receivedOrders;
       console.log(this.todayOrders);
    })
@@ -22,9 +22,11 @@ export class ListTotalOrdersComponent implements OnInit {
     this.getOrders();
   }
 
-getOrders(){
-  return this.todayOrders;
-}
+  getOrders(){
+    return this.todayOrders;
+  }
+
+
   
 
 }

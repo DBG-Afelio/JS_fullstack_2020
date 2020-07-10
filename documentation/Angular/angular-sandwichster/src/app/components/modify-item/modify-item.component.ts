@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ComponentRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/interfaces/item';
 import { DisplayItemComponent } from '../display-item/display-item.component'
 
@@ -10,6 +10,7 @@ import { DisplayItemComponent } from '../display-item/display-item.component'
 export class ModifyItemComponent implements OnInit {
   @Input() item: Item;
   @Output() update = new EventEmitter<Item>();
+  @Output() visible: boolean;
 
   public unique_key: number;
   public parentRef: DisplayItemComponent;
@@ -34,7 +35,7 @@ export class ModifyItemComponent implements OnInit {
   }    
   closeModifyPannel(){
     console.log(this.unique_key)
-    //this.parentRef.remove(this.unique_key)
+    this.visible = false;
   }  
 
 }

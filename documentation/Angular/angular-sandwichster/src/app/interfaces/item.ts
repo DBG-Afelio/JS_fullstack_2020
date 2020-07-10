@@ -5,7 +5,7 @@ export class Item{
         public nom: string,
         public description: string,
         public prix: number,
-        public options: [string, number, number],
+        public options: {id: number, nom: string, surcout: number}[],
         public fourn_id: number,
         public id: number,
         ){}
