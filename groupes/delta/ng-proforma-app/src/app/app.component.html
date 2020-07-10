@@ -5,5 +5,6 @@
     <a *ngIf="user" routerLink='commande/2'>Commande 2</a>
     <a routerLink='login' *ngIf="!user">Connexion</a>
     <a routerLink='users' *ngIf="user?.admin && user">Membres</a>
+    <img src="./assets/img/logoProforma.png" class="img">
 </div>
 <router-outlet></router-outlet>

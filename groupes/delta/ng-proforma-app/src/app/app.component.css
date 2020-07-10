@@ -1,6 +1,7 @@
 .header {
   overflow: hidden;
-  background-color: #2d545e;
+  background-color: #75d9f1;
+  /*background-color: #ff414e;*/
 }
 
 .header a {
@@ -13,11 +14,20 @@
 }
 
 .header a:hover {
-  background-color: #e1b382;
-  color: black;
+  /*background-color: #e9e8e8;*/
+  background-color:#FF5A09;
+  color:  #393939;
 }
 
 .header a.active {
   background-color: #4CAF50;
   color: white;
+}
+
+.img{
+  width: 40px;
+  height: 45px;
+  position: absolute;
+  right: 18px;
+  top: 10px;
 }

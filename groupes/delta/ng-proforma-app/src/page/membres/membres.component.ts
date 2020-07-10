@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MembresComponent implements OnInit, OnChanges {
 
-  membres: User[];
+  membres: User[]=[];
   admin: boolean;
   sortby: [string,boolean] = ["id",false];
 
@@ -26,9 +26,18 @@ export class MembresComponent implements OnInit, OnChanges {
     }
   }
 
-  sortMembre(criteretri:string){
+  sortMembre(criteretri:string = this.sortby[0]){
     this.sortby = this.sortby[0]===criteretri ? [criteretri,!this.sortby[1]] : [criteretri,false];
-    //this.membres.sort(() => this.sortby[1])
+    const sortedtab = this.membres.slice();
+    return sortedtab.sort((membre1, membre2) =>{
+      if (membre1[criteretri]<membre2[criteretri]){
+        return this.sortby[1] ? 1 : -1;
+      }else if(membre1[criteretri]>membre2[criteretri]){
+        return !this.sortby[1] ? 1 : -1;
+      } else {
+        return 0;
+      }
+    })
   }
 
   // filterMembre(criterefiltre:string){

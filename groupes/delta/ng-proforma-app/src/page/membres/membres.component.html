@@ -16,7 +16,7 @@
 
 <table>
   <caption><h1>Récapitulatif des membres</h1></caption>
-  <thead (click)="log($event.target.textContent.toLowerCase())">
+  <thead (click)="sortMembre($event.target.textContent.toLowerCase())">
     <tr>
       <th>ID</th>
       <th>NOM</th>
@@ -28,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let membre of membres">
+    <tr *ngFor="let membre of sortMembre()">
       <td>{{membre.id}}</td>
       <td>{{membre.nom}}</td>
       <td>{{membre.prenom}}</td>
