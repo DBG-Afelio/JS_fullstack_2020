@@ -16,7 +16,7 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
-import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
+import{ DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
 
 //Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'

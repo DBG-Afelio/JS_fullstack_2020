@@ -24,7 +24,7 @@ export class ListSuppliersComponent implements OnInit {
   ngOnInit() {
   }
 
-  getListSuppliers(){
+  getListSuppliers(){ 
     return this.listSuppliers;
   }
 

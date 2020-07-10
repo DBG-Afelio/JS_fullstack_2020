@@ -9,14 +9,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor(private listusersid: UserService) {
+  public arrayUsers: User[];
+
+  constructor(public listusers: UserService) {
+    this.listusers.getUsers().subscribe((data) => this.arrayUsers = data)
    }
 
-  listUsers: User[];
-
   ngOnInit() {
-
+    return this.arrayUsers;
   }
+
+  //  Methodes User a completer
 
   addUser() {
 
@@ -27,7 +30,6 @@ export class ListUsersComponent implements OnInit {
   }
 
   updateUser() {
-    
     
   }
 

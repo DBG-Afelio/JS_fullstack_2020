@@ -1,4 +1,14 @@
+  <button class="">Ajouter utilisateur</button>
+  <div *ngFor ="let user of arrayUsers" class="info-user">
+    <p>Prénom : {{ user.prenom.charAt(0).toUpperCase() + user.prenom.slice(1) }} </p>
+    <p>Nom : {{ user.nom.charAt(0).toUpperCase() + user.nom.slice(1) }}</p>
+    <p>Crédit en cours ? : {{ user.credit > 0 ? 'Oui' : 'Non' }}</p>
+    <p>Formation : {{ user.formation ? user.formation : 'Pas de formation' }}</p>
+    <p>Est-il banni ? : {{ user.banni ? 'Oui' : 'Non' }} </p>
+    <p>Est-il admin ? : {{ user.admin ? 'Oui' : 'Non' }} </p>
+    <button class="">Modifier utilisateur</button> &nbsp;
+    <button class="">Supprimer utilisateur</button>
+    <hr>
+  </div>
 
-<ul>
-  <li></li>
-</ul>
+0
