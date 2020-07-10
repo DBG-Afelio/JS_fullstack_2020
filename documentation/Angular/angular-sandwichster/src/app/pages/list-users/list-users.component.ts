@@ -9,12 +9,23 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor() { }
+  private listUsers: User[];
 
-  listUsers: User[];
+  constructor(
+    public userService: UserService
+  ) {
+    this.userService.getUsers().subscribe((listeRecue) => {
+      this.listUsers = listeRecue;
+
+    });
+   }
 
   ngOnInit() {
 
+  }
+
+  getListUsers(){
+    return this.listUsers;
   }
 
   addUser() {

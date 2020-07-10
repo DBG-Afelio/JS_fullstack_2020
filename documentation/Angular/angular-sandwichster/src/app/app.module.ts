@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //Pages
 import{ ListProductsComponent } from './pages/list-products/list-products.component'
-import{ ListProductsAdminComponent } from './pages/list-products-admin/list-products-admin.component'
 import{ ListSuppliersComponent } from './pages/list-suppliers/list-suppliers.component'
 import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-orders.component'
 import{ ListUsersComponent } from './pages/list-users/list-users.component'
@@ -24,15 +23,16 @@ import{ DisplayItemComponent } from './components/display-item/display-item.comp
 import{ DisplayOptionsItemComponent } from './components/display-options-item/display-options-item.component'
 import { ListSuppliersCompComponent } from './components/list-suppliers-comp/list-suppliers-comp.component'
 import { DetailSupplierCompComponent } from './components/detail-supplier-comp/detail-supplier-comp.component'
+import { ModifyItemComponent } from './components/modify-item/modify-item.component'
 
 // Sidebar 
-import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductsComponent,
-    ListProductsAdminComponent,
     ListSuppliersComponent,
     ListTotalOrdersComponent,
     ListUsersComponent,
@@ -45,14 +45,16 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
     DisplayOptionsItemComponent,
     ListSuppliersCompComponent,
     DetailSupplierComponent,
-    DetailSupplierCompComponent
+    DetailSupplierCompComponent,
+    ModifyItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     

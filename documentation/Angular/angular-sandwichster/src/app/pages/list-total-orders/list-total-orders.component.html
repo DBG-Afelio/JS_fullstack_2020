@@ -1,8 +1,11 @@
-<ul *ngFor="let order of todayOrders">
-  <li >{{ order.user_id }}</li>
-  <li >{{ order.product_id }}</li>
-  <li >{{ order.option_id }}</li>
-  <li >{{ order.paye }}</li>
-  <li >{{ order.id }}</li>
-  <li >{{ order.date }}</li>
-</ul>
+<div class="container">
+  <ul *ngFor="let order of todayOrders">
+    <li >{{ order.user.nom }}</li>
+    <li >{{ order.name_item }}</li>
+    <li >{{ order.option_id }}</li>
+    <li >{{ order.paye }}</li>
+    <li >{{ order.id }}</li>
+    <li >{{ order.date }}</li>
+  </ul>
+</div>
+

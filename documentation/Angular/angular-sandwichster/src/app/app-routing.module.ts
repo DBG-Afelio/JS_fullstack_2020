@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 //Pages
 import{ ListProductsComponent } from './pages/list-products/list-products.component'
-import{ ListProductsAdminComponent } from './pages/list-products-admin/list-products-admin.component'
+
 import{ ListSuppliersComponent } from './pages/list-suppliers/list-suppliers.component'
 import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-orders.component'
 import{ ListUsersComponent } from './pages/list-users/list-users.component'
@@ -44,10 +44,6 @@ const routes: Routes = [
   {
     path: 'supplier/:id',
     component: DetailSupplierComponent,
-  },
-  {
-    path: 'list-products-admin',
-    component: ListProductsAdminComponent,
   },
   { path : '**', redirectTo:'', pathMatch:'full'},
 

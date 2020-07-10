@@ -5,6 +5,6 @@
     <span>{{item.prix}}</span> euros<br>
 
     <span (click)='onDisplayDetails(item.id)'>Je le prends!</span>
-
+    <button (click)='modifyItem(item.id)'>Modifier</button>
 </div>
-
+<app-modify-item *ngIf="visible" [item]="item" #viewContainerRef></app-modify-item>
