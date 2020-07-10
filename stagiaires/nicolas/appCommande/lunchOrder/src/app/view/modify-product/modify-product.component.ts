@@ -36,27 +36,20 @@ export class ModifyProductComponent implements OnInit {
     route.url.subscribe(url => {
       
       this.editMode = url[1].path == 'new' ? 'create' : 'update';
-    }
-    );
+    
     
     route.paramMap.subscribe( param => {
 
-      const routeId = param.get('productId');
+      let routeId;
 
-      if(routeId === 'new'){
-
-        let providerId:number;
-        this.providersListService.getProductById(Number(routeId)).subscribe(productFound=>{
-
-          providerId=productFound.providerId;
-          this.product = new Product('','',0,[],providerId,0);
-          this.productForm.setValue(this.product);
-
-        })
-        
-
+      if(this.editMode === 'create'){
+          routeId= param.get('providerId');
+          
+          this.product = new Product('','',0,[],Number(routeId),0);
+          this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound =>this.product.setProvider(providerFound));
+          this.productForm.patchValue(this.product);
       }else{
-
+        routeId= param.get('productId');
         this.providersListService.getProductById(Number(routeId)).subscribe(productFound=>{
         this.product=productFound;
         this.product.options.forEach(option => ( this.productForm.get('options') as FormArray).push(this.formBuilder.group({nom:[''],surcout:[''],id:['']})) )
@@ -66,10 +59,19 @@ export class ModifyProductComponent implements OnInit {
         })
       }
    })
+  });
   }
 
   ngOnInit(): void {
     this.options=this.getOptions();
+  }
+  onCreateButtonClick(){
+    console.log("coucou");
+    this.updateProductWithForm();
+    this.providersListService.addProduct(this.product).subscribe(()=>{
+      this.router.navigate([`productsList/${this.product.providerId}`]);
+     })
+
   }
   onSaveButtonClick(){
     const confirmUpdate = confirm("Enregistrer les modifications ?")
@@ -112,9 +114,9 @@ export class ModifyProductComponent implements OnInit {
 
   }
   updateProductWithForm(){
-
+    
     this.product = Object.assign(this.product, this.productForm.value);
-
+    console.log(this.product);
   }
 
 }

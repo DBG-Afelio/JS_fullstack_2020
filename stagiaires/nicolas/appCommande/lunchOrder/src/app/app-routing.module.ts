@@ -34,6 +34,10 @@ const routes: Routes = [
     component: ModifyProductComponent
   },
   {
+    path:"modifyProduct/new/:providerId",
+    component: ModifyProductComponent
+  },
+  {
     path:"modifyProvider/:providerId",
     component: ModifyProviderComponent
   },

@@ -35,7 +35,7 @@ export class Product {
             "description": this.description,
             "prix": this.price,
             "options": this.options,
-            "fourn_id": this.provider.id,
+            "fourn_id": this.providerId,
             "id": this.id
 
         }

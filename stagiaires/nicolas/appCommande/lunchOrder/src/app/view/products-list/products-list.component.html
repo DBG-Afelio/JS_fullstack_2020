@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <h1>{{provider?.name}}</h1>
-<button>Ajouter un nouveau produit</button>
+<button routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
 <ul>
     <li *ngFor='let product of productList'>
         
@@ -9,7 +9,7 @@
         <hr>
         <p>{{product?.description}}</p>
 
-        <h4>mat-select</h4>
+        <h4>Suppléments</h4>
 
             <mat-form-field appearance="fill">
             <mat-label>Choisir un supplément</mat-label>
