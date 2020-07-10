@@ -8,13 +8,14 @@
   overflow-y:scroll;
   
   
+  
 }
 nav ul li {
 	font-size: 12px;
   font-family: sans-serif;
   color: black;
-	background-color: white;
-	border: 2px solid #2d545e;
+	background-color: #fff5d7;
+	border: 2px solid #393f4d;
 	letter-spacing: 0.1em;
 	width: 18em;
 	height: 3em;
@@ -27,16 +28,17 @@ nav ul li {
 }
 
 nav ul li span {
-  color: #2d545e;
+  color: black;
 	
 }
 
 nav ul li::before {
+ 
 	content: '';
 	position: absolute;
 	width: 6em;
-	height: inherit;
-	background-color: #e1b382;
+  height: inherit;
+	background-color: #ff5e6c;
 	border-radius: 70%;
 	top: 0;
 	left: -4em;
@@ -44,11 +46,12 @@ nav ul li::before {
 }
 
 nav ul li:hover::before {
+  
   transform: scale(7);
   
 }
 .ulList li.selected{
-  background-color:#e1b382 ; 
+  background-color:#ff5e6c ; 
 }
 
 
@@ -137,7 +140,8 @@ button:hover{
 
 
 .tableOfeDetails tr:hover{
-  background-color: #e1b382;
+  background-color: #9370DB;
+  color: #fff5d7;
 }
 tr:last-child { 
   height: 100px;

@@ -1,12 +1,12 @@
 .header {
   overflow: hidden;
-  background-color: #75d9f1;
+  background-color: #fff5d7;
   /*background-color: #ff414e;*/
 }
 
 .header a {
   float: left;
-  color: #f2f2f2;
+  color:  #393f4d;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -15,8 +15,8 @@
 
 .header a:hover {
   /*background-color: #e9e8e8;*/
-  background-color:#FF5A09;
-  color:  #393939;
+  background-color:#ff5e6c;
+  color:  #fff5d7;
 }
 
 .header a.active {
