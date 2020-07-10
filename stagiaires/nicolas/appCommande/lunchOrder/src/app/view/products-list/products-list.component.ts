@@ -7,6 +7,8 @@ import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderProductComponent } from '../order-product/order-product.component';
 import { Order } from 'src/app/models/order';
+import { UsersListService } from 'src/app/services/users-list.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-products-list',
@@ -18,8 +20,10 @@ export class ProductsListComponent implements OnInit {
     productList:Product[];
     productOptions = new FormControl();
     newOrder:Order;
+    currentUser:User;
 
   constructor(private providersListService:ProvidersListService,
+              private usersListService:UsersListService,
               route:ActivatedRoute,
               private orderDialog: MatDialog) { 
 
@@ -42,6 +46,7 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
 
     this.newOrder = new Order(1,0,[],false,0,new Date());
+    this.usersListService.getCurrentUser().subscribe(userFound => this.currentUser = userFound)
 
   }
 

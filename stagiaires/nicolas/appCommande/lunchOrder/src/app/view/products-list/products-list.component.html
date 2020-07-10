@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 <h1>{{provider?.name}}</h1>
 
-<button routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
+<button *ngIf='currentUser?.isAdmin' routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
  
 <ul>
     <li *ngFor='let product of productList'>
@@ -24,11 +24,12 @@
         
         <div>
             
-            <button routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
+            <button *ngIf='currentUser?.isAdmin' routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
 
-            <button (click)='openOrderDialog(product)'>Commander!</button>
+            <button [disabled]='!currentUser' (click)='openOrderDialog(product)'>Commander!</button>
+            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
 
-            <button (click)='onDeleteProductClick(product.id)'>Supprimer ce produit</button>
+            <button *ngIf='currentUser?.isAdmin' (click)='onDeleteProductClick(product.id)'>Supprimer ce produit</button>
 
 
         </div>

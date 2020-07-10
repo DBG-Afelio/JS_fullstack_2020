@@ -1,14 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <h1>Liste des commerces</h1>
-<button routerLink='modifyProvider/new'>Ajouter un nouveau commerce</button>
+<button *ngIf='currentUser?.isAdmin' routerLink='modifyProvider/new'>Ajouter un nouveau commerce</button>
 <ul>
     <li *ngFor='let provider of providersList'>
 
         <app-provider-display [provider]='provider'></app-provider-display>
         <div>
 
-            <button routerLink="/modifyProvider/{{provider.id}}">Modifier ce commerce</button>
-            <button (click)='onDeleteProviderClick(provider.id)'>Supprimer ce commerce</button>
+            <button *ngIf='currentUser?.isAdmin' routerLink="/modifyProvider/{{provider.id}}">Modifier ce commerce</button>
+            <button *ngIf='currentUser?.isAdmin' (click)='onDeleteProviderClick(provider.id)'>Supprimer ce commerce</button>
             <button routerLink="/productsList/{{provider.id}}">Voir les produits</button>
 
         </div>

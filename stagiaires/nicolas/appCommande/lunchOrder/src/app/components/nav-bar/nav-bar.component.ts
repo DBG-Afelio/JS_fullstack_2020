@@ -9,9 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  user:User
+  currentUser:User
   constructor(private usersListService:UsersListService, private router:Router) {
-    usersListService.getCurrentUser().subscribe(currentUserFound => this.user = currentUserFound);
+    usersListService.getCurrentUser().subscribe(currentUserFound => this.currentUser = currentUserFound);
    }
 
   ngOnInit(): void {

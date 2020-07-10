@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersListService } from 'src/app/services/providers-list.service';
 import { Provider } from 'src/app/models/provider';
+import { UsersListService } from 'src/app/services/users-list.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-providers-list',
@@ -10,12 +12,15 @@ import { Provider } from 'src/app/models/provider';
 export class ProvidersListComponent implements OnInit {
 
   providersList:Provider[]
+  currentUser:User
 
-  constructor(private providerListService:ProvidersListService) { }
+  constructor(private providerListService:ProvidersListService,
+              private usersListService:UsersListService) { }
 
   ngOnInit(): void {
 
     this.providerListService.getProvidersList().subscribe(listFound => this.providersList = listFound)
+    this.usersListService.getCurrentUser().subscribe(currentUserFound => this.currentUser = currentUserFound);
 
   }
 
