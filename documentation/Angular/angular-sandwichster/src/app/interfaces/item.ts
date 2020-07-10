@@ -1,6 +1,10 @@
 import { ItemDto } from './itemDto';
+import { Supplier } from './supplier';
 
 export class Item{
+
+    public supplier?: Supplier;
+
     constructor(    
         public nom: string,
         public description: string,

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, throwError, of, forkJoin } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import{ Item } from '../interfaces/item';
 import { ItemDto } from '../interfaces/itemDto'
+import { SuppliersService } from './suppliers.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,11 @@ export class ListItemsService {
 
   private urlAPI: string = "http://localhost:3000/";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    public supplierService: SuppliersService
+    
+    ) { }
 
   getListItems(): Observable<Item[]> {
 
@@ -24,6 +29,21 @@ export class ListItemsService {
     }
     ));
   }
+
+  getListItemsWithSupplier(): Observable<Item[]> {
+    return forkJoin(
+      this.getListItems(), 
+      this.supplierService.getListSuppliers(),
+    ).pipe(map (([items, suppliers]) => {
+      items.forEach( item => {
+        item.supplier = suppliers.find(supplier => supplier.id === item.fourn_id)
+      }  
+        )
+        return items;
+    }))
+  }
+
+
 
   getItemById(id: number): Observable<Item> {
     return this.http.get<Item>(this.urlAPI + `produits/${id}`)

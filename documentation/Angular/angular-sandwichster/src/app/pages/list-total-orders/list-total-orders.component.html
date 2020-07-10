@@ -1,9 +1,23 @@
 <div class="container">
-  <ul *ngFor="let order of todayOrders">
-    <li >{{ order.user.nom }}</li>
-    <li >{{ order.item.nom }}</li>
-    <li ><ul><li *ngFor='let option of order.getSelectedOptions()'>{{option.nom}} {{option.surcout}}</li></ul></li>
-    <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template>Pas payé</ng-template></li>
-    <li >{{ order.date }}</li>
-  </ul>
+  <div *ngFor="let order of todayOrders">
+    <ul>
+      <li >Qui? {{ order.user.prenom |  titlecase}} {{ order.user.nom |uppercase }}</li>
+      <li >Quoi? {{ order.item.nom }}</li>
+      <li>Où? {{order.item.supplier.nom}}</li>
+      <li>Prix de base: {{ order.item.prix }}</li>
+      <li >Option(s)
+        <ul>
+          <li *ngFor='let option of order.getSelectedOptions()'>
+            {{option.nom}}: {{option.surcout}} euros
+          </li>
+        </ul>
+      </li>
+      <li >Prix total: {{ order.item.prix }}</li>
+      <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
+      <li >{{ order.date | date: 'd/M/yyyy, h:mm a'  }}</li>
+    </ul>
+    <hr>
+  </div>
 </div>
+
+
