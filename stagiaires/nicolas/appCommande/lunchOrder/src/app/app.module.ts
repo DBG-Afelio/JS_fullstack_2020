@@ -8,7 +8,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import {MatSelectModule} from '@angular/material/select'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon'; 
 
 import { AppComponent } from './app.component';
 
@@ -55,6 +57,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatExpansionModule,
     MatSelectModule,
     MatDialogModule,
+    MatMenuModule,
+    MatIconModule,
 
   ],
   entryComponents: [

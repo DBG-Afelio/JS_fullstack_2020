@@ -4,11 +4,20 @@
 <ul>
     <li *ngFor='let provider of providersList'>
 
+        <button *ngIf='currentUser?.isAdmin'  class='providerMenu' mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            
+            <button mat-menu-item  routerLink="/modifyProvider/{{provider.id}}">Modifier ce commerce</button>
+            <button mat-menu-item  (click)='onDeleteProviderClick(provider.id)'>Supprimer ce commerce</button>
+
+        </mat-menu>
+
         <app-provider-display [provider]='provider'></app-provider-display>
         <div>
 
-            <button *ngIf='currentUser?.isAdmin' routerLink="/modifyProvider/{{provider.id}}">Modifier ce commerce</button>
-            <button *ngIf='currentUser?.isAdmin' (click)='onDeleteProviderClick(provider.id)'>Supprimer ce commerce</button>
+            
             <button routerLink="/productsList/{{provider.id}}">Voir les produits</button>
 
         </div>
