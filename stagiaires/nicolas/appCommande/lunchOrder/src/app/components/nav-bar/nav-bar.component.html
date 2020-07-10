@@ -2,4 +2,7 @@
 <a routerLink="/ordersHistory">Historique des commandes</a>
 <a routerLink="">Liste des commerces</a>
 <a routerLink="/usersList">Liste des utilisateurs</a>
-<button>logIn/logOut</button>
+<label>Status : {{user.isAdmin?"Admin":"User"}}</label>
+<button routerLink="/login">logIn</button>
+<button (click)="onButtonLogoutClick()">Logout</button>
+

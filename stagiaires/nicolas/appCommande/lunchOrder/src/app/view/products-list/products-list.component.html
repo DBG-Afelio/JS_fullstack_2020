@@ -23,9 +23,14 @@
             </mat-form-field>
         
         <div>
+            
             <button routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
-            <button>Supprimer ce produit</button>
+
             <button (click)='openOrderDialog(product)'>Commander!</button>
+
+            <button (click)='onDeleteProductClick(product.id)'>Supprimer ce produit</button>
+
+
         </div>
 
     </li>

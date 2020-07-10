@@ -60,5 +60,13 @@ export class ProductsListComponent implements OnInit {
     });
 
   }
+  reloadList(){
+
+    this.providersListService.getProductsList().subscribe(listFound => this.productList = listFound)
+
+  }
+  onDeleteProductClick(productid:number){
+    this.providersListService.removeProduct(productid).subscribe(_ => this.reloadList())
+  }
 
 }

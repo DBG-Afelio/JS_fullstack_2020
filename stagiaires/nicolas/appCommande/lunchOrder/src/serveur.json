@@ -100,7 +100,7 @@
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": 0.3,
+          "surcout": "0.3",
           "id": 1
         }
       ],

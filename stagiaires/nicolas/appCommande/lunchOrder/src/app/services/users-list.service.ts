@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersListService {
-  private currentUser:User;
+  private currentUser:User=null;
 
 
   constructor(private http:HttpClient) { }
@@ -81,6 +81,8 @@ export class UsersListService {
   getCurrentUser():User{
     return this.currentUser
   }
-
+  logoutUser(){
+    this.currentUser=null;
+  }
 
 }

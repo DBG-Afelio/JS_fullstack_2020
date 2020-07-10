@@ -1,1 +1,11 @@
-<p>login works!</p>
+<app-nav-bar></app-nav-bar>
+
+    <label>
+        Login : 
+        <input type="text" #login>
+    </label>
+    <label>
+        Mots de passe : 
+        <input type ="text" #password>
+    </label>
+    <button (click)="onButtonConnexionClick(login.value,password.value)">Connection</button>
