@@ -3,13 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 //Pages
 import{ ListProductsComponent } from './pages/list-products/list-products.component'
-import{ ListProductsAdminComponent } from './pages/list-products-admin/list-products-admin.component'
+
 import{ ListSuppliersComponent } from './pages/list-suppliers/list-suppliers.component'
 import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-orders.component'
 import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
-import{ SummaryOrderComponent } from './pages/summary-order/summary-order.component'
 import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
 
 const routes: Routes = [
@@ -20,10 +19,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-  },
-  {
-    path: 'summary',
-    component: SummaryOrderComponent,
   },
   {
     path: 'profile',
@@ -44,10 +39,6 @@ const routes: Routes = [
   {
     path: 'supplier/:id',
     component: DetailSupplierComponent,
-  },
-  {
-    path: 'list-products-admin',
-    component: ListProductsAdminComponent,
   },
   { path : '**', redirectTo:'', pathMatch:'full'},
 

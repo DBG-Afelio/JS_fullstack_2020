@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Item } from 'src/app/interfaces/item';
+
 
 @Component({
   selector: 'app-list-items',
@@ -7,11 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListItemsComponent implements OnInit {
 
+
+
+@Output() selectedProduct2 = new EventEmitter<Item>();
+
 @Input() listProducts;
 @Input() supplier;
 
   constructor() {}
 
   ngOnInit() {}
+
+  testEvent(item){
+    this.selectedProduct2.emit(item);
+  }
+
 
 }

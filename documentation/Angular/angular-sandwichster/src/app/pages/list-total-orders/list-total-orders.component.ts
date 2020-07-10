@@ -9,13 +9,14 @@ import{ Order } from 'src/app/interfaces/order'
 })
 export class ListTotalOrdersComponent implements OnInit {
 
-  public todayOrders: any; //attention ici j'avais mis Order[] mais ça ne marchait pas quand j'appelais dans le template alors j'ai mis any
+  public todayOrders: Order[]; 
 
   constructor(private orderService: OrdersService) {
-    this.orderService.getAllOrders().subscribe((receivedOrders) => {
+    this.orderService.getUserInListOrders().subscribe((receivedOrders) => {
       this.todayOrders = receivedOrders;
       console.log(this.todayOrders);
-   })}
+   })
+  }
 
   ngOnInit() {
     this.getOrders();

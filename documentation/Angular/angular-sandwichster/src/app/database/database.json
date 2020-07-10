@@ -78,7 +78,7 @@
       "id": 2,
       "nom": "Da Peppe",
       "description": "Pizzas au feu de bois",
-      "ferme": true,
+      "ferme": false,
       "archive": false,
       "horaire": [
         true,
