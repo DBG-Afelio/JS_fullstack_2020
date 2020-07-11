@@ -11,6 +11,7 @@ import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.
 import { AdminOnlyGuard } from './guards/adminOnlyGuard/admin-only.guard';
 import { ValidatePageComponent } from './pages/validate-page/validate-page.component';
 import { LoggedInOnlyGuard } from './guards/loggedInOnly/logged-in-only.guard';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path : "homepage", component: HomePageComponent },
   { path : "produit/:id", component: ProductDetailPageComponent },
   { path : "paiement", component: ValidatePageComponent, canActivate: [LoggedInOnlyGuard] }, 
+  { path : "historique", component: HistoryPageComponent, canActivate: [LoggedInOnlyGuard] },
 
   { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
   { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
