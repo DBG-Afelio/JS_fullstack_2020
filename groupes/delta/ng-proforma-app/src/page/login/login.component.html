@@ -1,3 +1,15 @@
-<input #login type="text" placeholder="Login">
+<!--<input #login type="text" placeholder="Login">
 <input #password type="password" placeholder="Password">
 <button (click)="auth(login.value,password.value)">Send</button>
+-->
+
+
+<div class="container">
+    <form class="signIn">       
+      <h2 class="signInTitle">Login</h2>
+      <input #login type="text" class="control" placeholder="Email" >
+      <input #password type="password" class="control"  placeholder="Mot De pass">      
+      
+      <button (click)="auth(login.value,password.value)" class="loginButton" type="submit">Login</button>   
+    </form>
+  </div>
