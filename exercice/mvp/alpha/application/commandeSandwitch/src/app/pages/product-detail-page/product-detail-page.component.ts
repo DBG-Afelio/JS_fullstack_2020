@@ -47,16 +47,17 @@ export class ProductDetailPageComponent implements OnInit {
       this.currentUser = user;
       this.orderService.getLocalOrder().subscribe((localOrder) => {
         this.savedOrder = localOrder;
-        console.log('ORDER LOCAL: ', localOrder);
       });
       this.orderService.getServerOrder().subscribe((serverOrder) => {
         this.confirmedOrder = serverOrder;
-        console.log('ORDER SERVER: ', serverOrder);
       });
       this.orderService.getUserOrderAsFullOrder().subscribe((full) => {
         this.fullOrder = full;
-        console.log('FULL ORDER: ', full);
+      //   console.log('---SAVED: ', this.savedOrder);
+      // console.log('---CONF: ', this.confirmedOrder);
+      // console.log('---FULL: ', this.fullOrder);
       });
+     
     });
   }
 
@@ -76,16 +77,27 @@ export class ProductDetailPageComponent implements OnInit {
     return this.updatedPrice;
   }
 
-  public saveInLocalStorage(): void{
-    if (this.savedOrder) {
-      const replaceOrderMsg = 'Vous avez deja une commande sauvegardee. Voulez-vous la remplacer ';
-      if (window.confirm(replaceOrderMsg)) {
-        this.createNewOrder();
-      } else {
-        // on fait rien et on maintient la precedente sauvegarde
-      }
-    } else { //pas de precedente sauvegarde, on sauve direct
+  public saveInLocalStorage(): void {
+    if (!this.savedOrder && !this.confirmedOrder) {
       this.createNewOrder();
+    }
+    if (this.savedOrder && !this.confirmedOrder) {
+      const msg1 = `Vous avez deja une commande temporairement SAUVEGARDEE: ${this.fullOrder.getProduct().getName()}. Voulez-vous la remplacer ?`;
+      if (window.confirm(msg1)) {
+        this.createNewOrder();
+      }
+    }
+    if (!this.savedOrder && this.confirmedOrder) {
+      const msg2 = `Vous avez deja une commande CONFIRMEE: ${this.fullOrder.getProduct().getName()}. Pour la remplacer ajouter votre nouveau choix et penser a CONFIRMER pour valider la modification`;
+      if (window.confirm(msg2)) {
+        this.createNewOrder();
+      }
+    }
+    if (this.savedOrder && this.confirmedOrder) {
+      const msg3 = `Vous avez une commande CONFIRMEE: ${this.fullOrder.getProduct().getName()} et une commande temporairment sauvegardee (produit id: ${this.savedOrder.productId}) pour AUJOURDH'hui. Voulez-vous remplacer votre panier temporaire ?`;
+      if (window.confirm(msg3)) {
+        this.createNewOrder();
+      }
     }
   }
 
@@ -97,7 +109,7 @@ export class ProductDetailPageComponent implements OnInit {
       this.optionsSelected,
       false,
       0,
-      new Date(Date.now())
+      new Date(),
     );
    // this.orderService.setUserOrderAsFullOrder(newOrder); fait dans le service en princ
     this.orderService.storeOrderInLocalStorage(newOrder);

@@ -45,6 +45,23 @@ export class ValidatePageComponent implements OnInit {
 
 
   public confirmOrder(isPayed:boolean): void{
-    console.log('commande confirmee, status PAYED = ', isPayed);
+    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$commande confirmee, status PAYED = ', isPayed);
+    
+    if (!this.confirmedOrder) { //pas de commande prealablement conf a ce jour
+      this.savedOrder.isPayed = isPayed;
+      this.orderService.addOrder(this.savedOrder).subscribe();
+      console.log('commande ajoutee dans JSON');
+    } else { // cas d'une modif de com deja confirmee prealablement
+      this.confirmedOrder.isPayed = isPayed;
+      const updateOrderId = this.confirmedOrder.id;
+      this.confirmedOrder = this.savedOrder;
+      this.confirmedOrder.id = updateOrderId;
+     // this.orderService.setServerOrder(this.confirmedOrder); >>deja fait dans le service
+      this.orderService.updateOrder(this.confirmedOrder).subscribe();
+      console.log('commande modifiee dans JSON');
+    }
+
+    this.orderService.removeTodayOrderFromLocalStorage();
+    console.log('commande retiree du Local storage');
   }
 }

@@ -10,6 +10,7 @@ export class FullOrder {
         private user: User,
         private order: Order,
         private product: Product,
+        private confirmed:boolean,
     ) { }
     
     public getUser(): User{
@@ -30,17 +31,20 @@ export class FullOrder {
     public setProduct(productIn:Product): void{
         this.product = productIn;
     }
+    public getConfirmedStatus(): boolean{
+        return this.confirmed;
+    }
+    public setConfirmedStatus(confirmed:boolean): void{
+        this.confirmed = confirmed;
+    }
     public getSelectedOptions(): Option[]{
         return this.order.optionIds.map(id => this.product.options.find(option => option.id === id));
     }
     public getTotalPrice(): number{
         let total: number = this.product.price;
-        console.log(total);
         this.getSelectedOptions().forEach(option => {
             total += option.surcout;
-            console.log(total);
         });
-        console.log(total);
         return total;
     }
 }
