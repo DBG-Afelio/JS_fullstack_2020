@@ -200,8 +200,10 @@ export class OrderService {
   }
   public deleteOrder(payload: Order): Observable<IOrderDto> {
     this.setServerOrder(null);
+    this.updateUserOrder();
     return this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`)
       .pipe(catchError((error: any) => Observable.throw(error.json())));
+      
   }
   public addOrder(payload: Order): Observable<IOrderDto> {
     this.setServerOrder(payload);

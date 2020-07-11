@@ -49,12 +49,13 @@ export class MainNavComponent implements OnInit {
 
   public deleteOrder(): void{
     if (this.fullOrder.getConfirmedStatus()) {
-      this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe(() => this.loadData());
+      this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe();
       console.log('commande supprimee du server suite a request from USER-NAV');
     } else {
       this.orderService.removeTodayLocalOrder();
       console.log('commande supprimee du LocalStorage suite a request from USER-NAV');
     }
+    this.fullOrder = null;
     this.loadData();
   }
   
