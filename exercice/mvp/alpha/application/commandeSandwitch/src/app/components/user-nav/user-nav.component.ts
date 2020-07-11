@@ -54,11 +54,7 @@ export class UserNavComponent implements OnInit {
     return message;
   }
 
-  public setPanierMessage(): string {
-    let msg: string = '';
-    if (this.currentUser)
-    return 
-  }
+
   public setOrderMessage(): string {
     let msg: string = '';
     if (this.fullOrder) {
