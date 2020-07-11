@@ -14,8 +14,8 @@ export class UserNavComponent implements OnInit {
   @Input() fullOrder: FullOrder = null;
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
-  @Input() orderList: Order[] = [];
-  @Input() productList: Product[] = [];
+  @Input() orderList: Order[] = []; //pas utile ici je crois
+  @Input() productList: Product[] = []; //ca non plus
   @Input() creditMax: number = null; 
   @Output() deleteRequest: EventEmitter<any> = new EventEmitter();
   constructor() { }

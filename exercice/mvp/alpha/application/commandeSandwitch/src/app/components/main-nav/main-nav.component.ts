@@ -31,11 +31,12 @@ export class MainNavComponent implements OnInit {
   }
 
   public loadData(): void{
-    this.userService.getList().subscribe((list) => {
-      this.userList = list;
-      this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
+    this.userService.getList().subscribe((list) => this.userList = list);
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
       this.orderService.getFullOrder().subscribe((fullOrder) => this.fullOrder = fullOrder);
     });
+    
   }
   public updateCurrentUser(user: User): void {
     this.userService.setCurrentUser(user);
@@ -48,7 +49,7 @@ export class MainNavComponent implements OnInit {
 
   public deleteOrder(): void{
     if (this.fullOrder.getConfirmedStatus()) {
-      this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe();
+      this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe(() => this.loadData());
       console.log('commande supprimee du server suite a request from USER-NAV');
     } else {
       this.orderService.removeTodayLocalOrder();

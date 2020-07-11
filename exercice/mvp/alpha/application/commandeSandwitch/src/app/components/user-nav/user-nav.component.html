@@ -1,6 +1,11 @@
 <p>user-nav works!</p>
 
 <nav class="volet-lateral" *ngIf="!currentUser.isAdmin">
+    <div>
+        <h1>
+            Bonjour {{ currentUser.firstName }} !
+        </h1>
+    </div>
     <div *ngIf="!currentUser.isBlocked">
         <div>
             <h3>Commande du Jour</h3>
