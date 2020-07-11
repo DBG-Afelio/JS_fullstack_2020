@@ -11,7 +11,7 @@
             <h3>Commande du Jour</h3>
             <div *ngIf="fullOrder">
                 <a 
-                [routerLink] = "['/product/', fullOrder.getProduct().id]"
+                routerLink = "/product/{{ fullOrder.getProduct().id }}"
                 [class.confirmed]="fullOrder.getConfirmedStatus()">
                     {{ setOrderMessage() }} 
                 </a>
