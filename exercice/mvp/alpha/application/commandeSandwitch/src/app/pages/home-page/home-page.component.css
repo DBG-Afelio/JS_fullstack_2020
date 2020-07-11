@@ -2,7 +2,13 @@
     display: grid;
     grid-template-columns: 49% 49%;
     column-gap: 2%;
-    border: 1px solid black;
-    
     justify-content: space-between;
+    justify-items: center;
+    margin-top: 70px;
+}
+
+.app-grid {
+    display: block;
+    width: 80%;
+    justify-self: center;
 }

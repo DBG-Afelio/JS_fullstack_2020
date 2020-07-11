@@ -26,6 +26,9 @@ import { SupplierFormComponent } from './components/supplier-form/supplier-form.
 import { UserFormPageComponent } from './pages/user-form-page/user-form-page.component';
 import { OrderFormPageComponent } from './pages/order-form-page/order-form-page.component';
 import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.component';
+import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
+import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.
     UserFormPageComponent,
     OrderFormPageComponent,
     UserAdminPageComponent,
+    ProductFormPageComponent,
+    ProductAdminPageComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,

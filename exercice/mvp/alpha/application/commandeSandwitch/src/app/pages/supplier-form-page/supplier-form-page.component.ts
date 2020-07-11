@@ -9,13 +9,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./supplier-form-page.component.css']
 })
 export class SupplierFormPageComponent implements OnInit {
-  private supplierId: number;  
+  public supplierId: number;  
   public supplier: Supplier; 
 
   constructor(
     private supplierService: SupplierService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
   ) { 
     this.activatedRoute.paramMap.subscribe((params) => {
       this.supplierId = Number(params.get('id'));
@@ -31,25 +30,14 @@ export class SupplierFormPageComponent implements OnInit {
 
   public createSupplier(supplier: Supplier) {
     this.supplierService.createSupplier(supplier).subscribe(() => {
-      this.navigateToAdmin(supplier);
+      this.supplierService.navigateToAdmin();
     });
   }
 
   public updateSupplier(supplier: Supplier) {
     this.supplierService.updateSupplier(supplier).subscribe(() => {
-      this.navigateToAdmin(supplier);
+      this.supplierService.navigateToAdmin();
     });
-  }
-
-  /*public removeSupplier(supplier: Supplier) {
-    this.supplierService.removeSupplier(supplier).subscribe(() => {
-      this.navigateToAdmin(supplier);
-    });
-  }*/
-  
-  public navigateToAdmin(supplier: Supplier) {
-    console.log('navigateToAdmin')
-    this.router.navigateByUrl(`/admin/fournisseur`);
   }
 
   ngOnInit(): void {

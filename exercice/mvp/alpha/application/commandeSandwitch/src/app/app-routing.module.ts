@@ -8,6 +8,8 @@ import { SupplierAdminPageComponent } from './pages/supplier-admin-page/supplier
 import { SupplierFormPageComponent } from './pages/supplier-form-page/supplier-form-page.component';
 import { UserFormPageComponent } from './pages/user-form-page/user-form-page.component';
 import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.component';
+import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
+import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 
 
 const routes: Routes = [
@@ -17,8 +19,12 @@ const routes: Routes = [
 
   { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent },
   { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent },
-  { path : "admin/fournisseur/archiver/:id", component : SupplierAdminPageComponent },
-  { path : "admin/fournisseur/supprimer/:id", component : SupplierAdminPageComponent },
+
+
+  { path : "admin/produit/ajouter/:supplierid", component : ProductFormPageComponent },
+  { path : "admin/fournisseur/:id/produit", component : ProductAdminPageComponent },
+  { path : "admin/produit/modifier/:id", component : ProductFormPageComponent },
+  { path : "admin/produit/:id", component : ProductFormPageComponent },
 
   { path : "admin/utilisateur/ajouter", component : UserFormPageComponent },
   { path : "admin/utilisateur/modifier/:id", component : UserFormPageComponent },

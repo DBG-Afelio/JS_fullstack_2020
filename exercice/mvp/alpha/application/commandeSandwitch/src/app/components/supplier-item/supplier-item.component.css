@@ -1,16 +1,19 @@
 
 .supplier {
-    border: 1px solid black;
-    padding: 15px;
+    padding: 35px 15px;
     background-color: whitesmoke;
     display: inline-block;
     text-align: center;
-    align-self: center;
-    justify-self: stretch;
+    width: 100%;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+    font: 18px/25px 'Oswald', sans-serif;
+    margin-bottom: 25px;
 }
 
-.supplier > div {
-    margin: 3px;
+.supplier-name {
+    font: 25px/35px  'Oswald', sans-serif;
+    margin: 5px 0;
+    text-transform: uppercase;
 }
 .closed, .open {
     text-transform: uppercase;
@@ -19,7 +22,6 @@
 
 .closed {
     color: red;
-    
 }
 
 .open {

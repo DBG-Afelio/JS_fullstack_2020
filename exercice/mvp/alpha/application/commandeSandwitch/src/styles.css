@@ -1,7 +1,108 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap');
 
 body, html {
     background-color: white;
     margin: 0;
     padding: 0;
+    font: 18px/25px 'Oswald', sans-serif;
+}
+
+button, ::placeholder, input[type='text'], textarea, .btn , .form-control {
+    font: 18px/25px 'Oswald', sans-serif;
+}
+
+input[type='text'], textarea {
+    padding: 10px;
+    min-height: 50px;
+}
+
+.admin-title {
+    height: 100px;
+}
+
+table {
+    width: 100%;
+    font: 20px/25px 'Oswald', sans-serif;
+}
+
+
+tr {
+    border-top: 1px solid silver;
+}
+
+.button-new {
+    border-top: 1px solid silver;
+    margin-top: 25px;
+    text-align: right;
+    font: 20px/25px 'Oswald', sans-serif;
+    color: black;
+}
+
+.button-new a {
+    padding : 10px ;
+    display: block;
+    text-decoration: none
+}
+
+td, th {
+    padding : 10px ;
+}
+
+tr:nth-child(2n) {
+    background-color: whitesmoke;
+}
+
+tr:nth-child(2n+1) {
+    background-color: white;
+}
+
+th.th {
+    width: auto;
+}
+
+th.th-id {
+    width: 10%;
+}
+
+th.th-button {
+    width: 10%;
+    text-align: center;
+}
+
+td.td-button {
+    text-align: center;
+}
+
+.form-element {
+    position: relative;
+}
+.form-element .alert-danger{
+    position: absolute;
+    top: 3px;
+    right: 15px;
+    line-height: 0px;
+}
+
+.admin-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-buttons button{
+    margin-left: 25px;
+}
+
+a, a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+
+tr:hover {
+    background-color:rgb(227, 243, 249);
+}
+td button:hover,
+td button:active,
+td button:focus {
+    background-color:rgb(29, 58, 68);
+    color: white;
 }

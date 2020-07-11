@@ -1,4 +1,5 @@
 import { ProductDto} from './ProductDto';
+import { Option } from '../optionModel/Option';
 
 export class Product {
     constructor(
@@ -64,5 +65,3 @@ export class Product {
         }
     }
 }
-
-export type Option = {id: number, nom: string, surcout: number}
