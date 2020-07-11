@@ -13,11 +13,13 @@
 
       <!-- standard user loggedIN -->
     <app-user-nav *ngIf="currentUser !== null && !currentUser.isAdmin"  
-  
+        [fullOrder]="fullOrder"
         [userList]="userList"
         [currentUser]="currentUser"
         [orderList]="orderList"
-        [productList]="productList">
+        [productList]="productList"
+        [creditMax]="creditMaxAllowed"
+        (deleteRequest)="deleteOrder()">
     </app-user-nav>
 
     <a *ngIf="currentUser"

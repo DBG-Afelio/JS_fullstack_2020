@@ -3,6 +3,7 @@ import { User } from 'src/app/models/userModel/user';
 import { Order } from 'src/app/models/orderModel/order';
 import { Product } from 'src/app/models/productModel/Product';
 import { Authentication } from 'src/app/models/userModel/authentication.enum';
+import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 
 @Component({
   selector: 'app-user-nav',
@@ -10,29 +11,29 @@ import { Authentication } from 'src/app/models/userModel/authentication.enum';
   styleUrls: ['./user-nav.component.css']
 })
 export class UserNavComponent implements OnInit {
-
+  @Input() fullOrder: FullOrder = null;
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
   @Input() orderList: Order[] = [];
   @Input() productList: Product[] = [];
-
-
-  public creditMax: number = 10; //a integrer dans le service
-
+  @Input() creditMax: number = null; 
+  @Output() deleteRequest: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
-
-  public getCurrentOrder(): Order | undefined {
-    //or from localstorage
-    return this.orderList.find((order) => order.userId === this.currentUser.id);
-  }
-
-  public isOrderConfirmed(): boolean {
-    return false; //from localstorage or db
+  public deleteOrderRequested(): void{
+    if (!this.fullOrder.getConfirmedStatus()) {
+      console.log('request to cancel LOCAL-Order from USER-NAV');
+      this.deleteRequest.emit();
+    } else {
+      const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
+      if (window.confirm(msg)) {
+        console.log('request to cancel SERVER-Order from USER-NAV');
+        this.deleteRequest.emit();
+      }
+    }
   }
 
   public setCreditMessage(): string {
@@ -59,6 +60,19 @@ export class UserNavComponent implements OnInit {
     return 
   }
   public setOrderMessage(): string {
-    return 'here comes info about current order';
+    let msg: string = '';
+    if (this.fullOrder) {
+      msg = this.fullOrder.getProduct().getName();
+      if (this.fullOrder.getSelectedOptions().length !== 0) {
+        msg += ' suppl.'
+        this.fullOrder.getSelectedOptions().forEach(option => {
+          msg += ` ${option.nom}`;
+        });
+        msg += ` - ${this.fullOrder.getTotalPrice()} €`;
+      }
+    } else {
+      msg = 'Pas de commande a ce jour'
+    }
+    return msg;
   }
 }
