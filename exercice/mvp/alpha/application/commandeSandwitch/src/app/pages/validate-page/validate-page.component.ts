@@ -29,10 +29,10 @@ export class ValidatePageComponent implements OnInit {
       this.currentUser = user;
       this.orderService.getLocalOrder().subscribe((localOrder) => this.savedOrder = localOrder);
       this.orderService.getServerOrder().subscribe((serverOrder) => this.confirmedOrder = serverOrder);
-      this.orderService.getUserOrderAsFullOrder().subscribe((full) => {
+      this.orderService.getFullOrder().subscribe((full) => {
         this.fullOrder = full;
         this.creditMax = this.orderService.getCreditMax();
-        this.isCreditEnough = this.fullOrder.getTotalPrice() + user.credit <= Number(this.creditMax);
+        this.fullOrder ? this.isCreditEnough = this.fullOrder.getTotalPrice() + user.credit <= Number(this.creditMax) : this.isCreditEnough = null;
         console.log(this.isCreditEnough, this.creditMax, user.credit, this.fullOrder.getTotalPrice());
       });
       
@@ -43,25 +43,23 @@ export class ValidatePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   public confirmOrder(isPayed:boolean): void{
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$commande confirmee, status PAYED = ', isPayed);
-    
-    if (!this.confirmedOrder) { //pas de commande prealablement conf a ce jour
+    console.log('$$$$$$$$$$$$$commande confirmee, status PAYED = ', isPayed);
+    if (this.savedOrder) {
       this.savedOrder.isPayed = isPayed;
       this.orderService.addOrder(this.savedOrder).subscribe();
       console.log('commande ajoutee dans JSON');
-    } else { // cas d'une modif de com deja confirmee prealablement
-      this.confirmedOrder.isPayed = isPayed;
-      const updateOrderId = this.confirmedOrder.id;
-      this.confirmedOrder = this.savedOrder;
-      this.confirmedOrder.id = updateOrderId;
-     // this.orderService.setServerOrder(this.confirmedOrder); >>deja fait dans le service
-      this.orderService.updateOrder(this.confirmedOrder).subscribe();
-      console.log('commande modifiee dans JSON');
     }
-
-    this.orderService.removeTodayOrderFromLocalStorage();
+    this.orderService.removeTodayLocalOrder();
     console.log('commande retiree du Local storage');
+    
+    if (!isPayed) {
+      console.log('credit AVANT maj => ', this.currentUser.credit);
+      this.currentUser.credit += this.fullOrder.getTotalPrice();
+      console.log('credit APRES maj => ', this.currentUser.credit);
+      this.userService.updateUser(this.currentUser).subscribe(() => {
+        this.userService.getCurrentUser().subscribe((user) => console.log(user));
+      });
+    }
   }
 }

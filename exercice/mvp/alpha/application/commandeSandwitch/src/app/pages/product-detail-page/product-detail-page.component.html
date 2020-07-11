@@ -11,11 +11,12 @@
 </div>
 
 <div *ngIf="currentUser && product">
-    <div *ngIf="product.options.length !== 0">
+    <div *ngIf="product.options.length > 0">
         <div *ngFor="let option of product.options">
-            <input #option 
+            <input  
                 type="checkbox" 
-                [checked]="false"
+                [checked]="false" 
+        
                 (change)="updateEndPrice($event.target.checked, option.surcout, option.id)"> 
             option : {{ option.nom }} + {{ option.surcout }} €
         </div>
@@ -23,10 +24,14 @@
     Prix recalculé : {{ updatedPrice }} €
     <button
         (click)="saveInLocalStorage()">
-        AJOUTER
+        AJOUTER >>
     </button>  
+    <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
+        (click)="remove()">
+        RETIRER
+    </button>
     <button *ngIf="savedOrder && savedOrder.productId===product.id"
         routerLink="/paiement">
-        CONFIRMER
+        >> PAIMENT
     </button>
 </div>

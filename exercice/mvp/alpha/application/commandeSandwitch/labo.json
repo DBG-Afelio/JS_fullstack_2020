@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 1.5,
+      "credit": 7,
       "formation": "Creations de Problemes",
       "banni": false,
       "admin": false,
@@ -68,13 +68,11 @@
     },
     {
       "user_id": 4,
-      "product_id": 28,
-      "option_ids": [
-        1
-      ],
+      "product_id": 31,
+      "option_ids": [],
       "paye": false,
       "id": 3,
-      "date": "Sat Jul 11 2020 13:01:04 GMT+0200 (heure d’été d’Europe centrale)"
+      "date": "Sat Jul 11 2020 22:01:20 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
