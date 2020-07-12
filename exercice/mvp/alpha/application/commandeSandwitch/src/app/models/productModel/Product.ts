@@ -42,7 +42,6 @@ export class Product {
         return this.supplierId;
     }
 
-
     public static fromDto(productDto: ProductDto): Product {
         return new Product(
             productDto.id, 

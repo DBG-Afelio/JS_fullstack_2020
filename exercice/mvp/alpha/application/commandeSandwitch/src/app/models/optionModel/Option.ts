@@ -1,23 +1,19 @@
 export class Option {
     constructor(
         public id: number,
-        public name: string,
-        public price: number,
-    ) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
+        public nom: string,
+        public surcout: number,
+    ) { }
 
     public getId():number {
         return this.id;
     }
 
-    public getName():string {
-        return this.name;
+    public getNom():string {
+        return this.nom;
     }
 
-    public getPrice():number {
-        return this.price;
+    public getSurcout():number {
+        return this.surcout;
     }
 }

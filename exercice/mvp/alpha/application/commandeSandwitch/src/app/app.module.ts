@@ -29,6 +29,7 @@ import { UserAdminPageComponent } from './pages/user-admin-page/user-admin-page.
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { OptionFormComponent } from './components/option-form/option-form.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     ProductFormPageComponent,
     ProductAdminPageComponent,
     ProductFormComponent,
+    OptionFormComponent,
   ],
   imports: [
     BrowserModule,

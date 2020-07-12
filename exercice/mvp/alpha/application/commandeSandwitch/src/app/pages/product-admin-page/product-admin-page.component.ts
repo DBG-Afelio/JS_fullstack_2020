@@ -3,7 +3,6 @@ import { Product } from 'src/app/models/productModel/Product';
 import { ProductService } from 'src/app/services/productService/product.service';
 import { SupplierService } from 'src/app/services/supplierService/supplier.service';
 import { ActivatedRoute } from '@angular/router';
-import { Supplier } from 'src/app/models/supplierModel/Supplier';
 
 @Component({
   selector: 'app-product-admin-page',
@@ -24,12 +23,11 @@ export class ProductAdminPageComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       this.supplierService.getSupplierWithProductsById(id).subscribe(supplier => {
-        this.supplierId = supplier.id; 
-        this.supplierName = supplier.name;
+        this.supplierId = supplier.getId(); 
+        this.supplierName = supplier.getName();
         this.listProducts = supplier.getListProducts();
       })
     });
-    this.reloadProductList();
   }
 
   public reloadProductList(): void{

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, throwError } from 'rxjs';
 import { Product } from '../../models/productModel/Product';
 import { ProductDto } from '../../models/productModel/ProductDto';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Supplier } from 'src/app/models/supplierModel/Supplier';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -24,7 +24,7 @@ export class ProductService {
       .pipe(
         map((arrayProductDto : ProductDto[]) => {
           return arrayProductDto.map(productDto => Product.fromDto(productDto));
-        })
+        }),
       )
     ;
   }

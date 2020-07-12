@@ -14,9 +14,7 @@ export class ProductFormComponent implements OnInit {
   @Output() update = new EventEmitter<Product>();
 
 
-  constructor(private productService: ProductService) {
-   }
-
+  constructor(private productService: ProductService) { }
 
   public createProduct() {
     this.create.emit(this.product);
@@ -25,6 +23,11 @@ export class ProductFormComponent implements OnInit {
   public saveChanges() {
     this.update.emit(this.product);
   }
+
+  public createOption() {
+    alert('ajouter une option');
+  }
+
 
   public navigateToAdmin() {
     this.productService.navigateToProductAdmin(this.product.getSupplierId());

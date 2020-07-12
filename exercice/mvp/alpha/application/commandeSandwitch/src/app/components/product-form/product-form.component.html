@@ -1,5 +1,5 @@
 <form >
-    <div class="form-element form-name">
+    <div class="form-element form-name  col-lg-6">
         <label  for="name">Nom</label>
         <input class="form-control" type="text" name="name"
             placeholder = "Nom (obligatoire)" required
@@ -10,7 +10,21 @@
         </div>
     </div>
 
-    <div class="form-element form-description">
+    <div class="form-element form-price  col-lg-6">
+        <label for="price">Prix</label>
+        <input type="text" name="price" 
+            placeholder = "Prix (obligatoire)"
+            required min
+            [(ngModel)]="product.price" class="form-control" 
+            data-pristine="true" 
+            >
+        <div *ngIf = "!(product.price > 0)"
+            class="product-form__error alert alert-danger">
+            <p>Le prix est requis</p>
+        </div>
+    </div>
+
+    <div class="form-element form-description  col-lg-12">
         <label for="name">Description</label>
         <textarea name="description" 
             class="form-control" data-pristine="true" 
@@ -26,22 +40,10 @@
     </div>
 
 
-    <div class="form-element form-price">
-        <label for="price">Prix</label>
-        <input type="text" name="price" 
-            placeholder = "Prix (obligatoire)"
-            required min
-            [(ngModel)]="product.price" class="form-control" 
-            data-pristine="true" 
-            >
-        <div *ngIf = "!(product.price > 0)"
-            class="product-form__error alert alert-danger">
-            <p>Le prix est requis</p>
-        </div>
-    </div>
     
-    <div class="product-form__actions"><!--(click) = "createOption()"-->
-        <button 
+    
+    <div class="form-space product-form__actions  col-lg-12">
+        <button (click) = "createOption()"
        
         id="create_button"
         type="button"
@@ -50,8 +52,16 @@
         </button>
 
     </div>
-    
-    <div class="admin-buttons"  >
+
+ 
+
+    <div class="form-element listOptions" >
+        <app-option-form *ngFor="let option of product.getOptions()"
+            [option] = "option"></app-option-form>
+    </div>
+
+
+    <div class="form-space admin-buttons col-lg-12">
         <div class="product-form__actions">
             <button *ngIf = "product.id === 0"
             (click) = "createProduct()"

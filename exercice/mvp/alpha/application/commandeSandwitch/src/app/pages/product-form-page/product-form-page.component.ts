@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/productService/product.service'
   styleUrls: ['./product-form-page.component.css']
 })
 export class ProductFormPageComponent implements OnInit {
-  public supplierId: number
+  public supplierId: number;
   public productId: number;  
   public product: Product; 
 
@@ -25,7 +25,7 @@ export class ProductFormPageComponent implements OnInit {
         });
       } else {
         this.supplierId =  Number(params.get('supplierid'));
-        
+        this.productId = 0;
         this.product = new Product( 0, '', '', 0, [], this.supplierId) ;
       }
     }); 
@@ -43,8 +43,6 @@ export class ProductFormPageComponent implements OnInit {
     });
   }
 
-  
   ngOnInit(): void {
   }
-
 }
