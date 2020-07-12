@@ -13,7 +13,8 @@ export class UserAdminPageComponent implements OnInit {
   public userList: User[] = [];
   constructor(
     private userService: UserService,
-    private router: Router) { 
+    private router: Router)
+  { 
     this.reloadUserList();
   }
 
