@@ -3,3 +3,9 @@
     flex-direction: column;
     position: sticky;
 }
+a.day-order{
+    color: orangered;
+}
+a.day-order.confirmed{
+    color: green;
+}

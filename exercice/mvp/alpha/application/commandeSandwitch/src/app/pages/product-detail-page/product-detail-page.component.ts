@@ -23,8 +23,6 @@ export class ProductDetailPageComponent implements OnInit {
   public currentUser: User = null;
   public updatedPrice: number = 0;
   public optionsSelected: number[] = [];
-  public savedOrder: Order = null;
-  public confirmedOrder: Order = null;
   public fullOrder: FullOrder = null;
   constructor(
     public supplierService: SupplierService,
@@ -41,28 +39,23 @@ export class ProductDetailPageComponent implements OnInit {
         this.updatedPrice = this.product.price;
       })
     });
-    
-    this.supplierService.getList().subscribe((list) => {
-      this.listSuppliers = list;
-    });
-    this.userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user;
-      this.orderService.getLocalOrder().subscribe((localOrder) => {
-        this.savedOrder = localOrder;
-      });
-      this.orderService.getServerOrder().subscribe((serverOrder) => {
-        this.confirmedOrder = serverOrder;
-      });
-      this.orderService.getFullOrder().subscribe((full) => {
-        this.fullOrder = full;
-      });
-     
-    });
+    this.loadData();
   }
 
   ngOnInit(): void {
   }
-
+  public loadData(): void{
+    this.supplierService.getList().subscribe((list) => this.listSuppliers = list);
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user
+    });
+    this.orderService.getFullOrder().subscribe((full) => {
+      this.fullOrder = full;
+      console.log('+++++++detail>>>>,', full);
+    });
+    console.log('----coucou from detail-page------');
+  }
+  
   public updateEndPrice(isOptionAdded: boolean, optionPrice: number, optionId:number): number{
     console.log('UPDATE PRICE', isOptionAdded, optionPrice);
     
@@ -76,60 +69,56 @@ export class ProductDetailPageComponent implements OnInit {
     }
     return this.updatedPrice;
   }
-  public updateOptionStatus(option: Option): boolean {
-    let status: boolean = false;
-    if (this.fullOrder && this.fullOrder.getProduct().id === this.product.id) {
-      status = this.fullOrder.getSelectedOptions().some(optionSelected => optionSelected.id === option.id);
-      console.log('option :', option.nom, status);
-      status ? this.updateEndPrice(status, option.surcout, option.id):status;
-    }
-    return status;
-  }
+  // public updateOptionStatus(option: Option): boolean {
+  //   let status: boolean = false;
+  //   if (this.fullOrder && this.fullOrder.getProduct().id === this.product.id) {
+  //     status = this.fullOrder.getSelectedOptions().some(optionSelected => optionSelected.id === option.id);
+  //     console.log('option :', option.nom, status);
+  //     status ? this.updateEndPrice(status, option.surcout, option.id):status;
+  //   }
+  //   return status;
+  // }
 
   public saveInLocalStorage(): void {
-    if (!this.confirmedOrder) {
-      if (!this.savedOrder) {
-        this.createNewOrder();
-      } else {
+    if (!this.fullOrder) { //pas encore de commande
+      this.orderService.addInLocalStorage(this.createNewOrder());
+    } else {
+      if (this.fullOrder.isConfirmed()) { //une commande confirmee existe
+        const msg2 = `Vous avez deja une commande CONFIRMEE pour aujourd'hui: ${this.fullOrder.getProduct().getName()}. Veuillez la supprimer (avant 10h30) avant de renouveler une commande`;
+        if (window.confirm(msg2)) {
+          this.router.navigateByUrl(`/produit/${this.fullOrder.getOrder().productId}`);
+        }
+      } else { //une commande en cours existe
         const msg1 = `Vous avez deja une commande temporairement SAUVEGARDEE: ${this.fullOrder.getProduct().getName()}. Voulez-vous la remplacer ?`;
         if (window.confirm(msg1)) {
-          this.createNewOrder(); 
+          this.orderService.addInLocalStorage(this.createNewOrder());
         }
-      }
-    } else {
-      const msg2 = `Vous avez deja une commande CONFIRMEE pour aujourd'hui: ${this.fullOrder.getProduct().getName()}. 
-      Veuillez la supprimer (avant 10h30) avant de renouveler une commande`;
-      if (window.confirm(msg2)) {
-        console.log(`/product/${this.fullOrder.getOrder().productId}`);
-        this.router.navigateByUrl(`/produit/${this.fullOrder.getOrder().productId}`); 
       }
     }
   }
 
-  private createNewOrder(): void{
-    const newOrder = new Order(
-      this.currentUser.id,
-      this.product.id,
-      this.optionsSelected,
-      false,
-      0,
-      new Date(),
-    );
-    this.orderService.storeOrderInLocalStorage(newOrder);
-    console.log(`produit id: ${newOrder.productId} saved in LocalStorage for user ${this.currentUser.firstName}`);
+  private createNewOrder(): FullOrder{
+    let newFullOrder: FullOrder = new FullOrder(
+      this.currentUser,
+      new Order(this.currentUser.id, this.product.id, this.optionsSelected, false, 0, new Date()),
+      this.product,
+      false
+    )
+    return newFullOrder;
   }
 
+  
   public remove(): void{
-    console.log('full order =====', this.fullOrder);
+    console.log('--------delete from DETAIL => com. confirmed? ', this.fullOrder.isConfirmed(), 'commande # :',this.fullOrder.getOrder().id);
     if (this.product.id === this.fullOrder.getOrder().productId) {
-      if (this.savedOrder) {
-        this.orderService.removeTodayLocalOrder();
+      if (!this.fullOrder.isConfirmed()) {
+        this.orderService.removeFromLocalStorage();
         console.log('commande supprimee du Local storage');
       } else {
         const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
         if (window.confirm(msg)) {
-          this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe()
-          console.log('commande annulee');
+          console.log('commande annulee', this.fullOrder.getOrder().id);
+          this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
         }
       }
     }

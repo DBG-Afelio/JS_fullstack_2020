@@ -27,14 +27,7 @@ export class ValidatePageComponent implements OnInit {
     
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
-      this.orderService.getLocalOrder().subscribe((localOrder) => this.savedOrder = localOrder);
-      this.orderService.getServerOrder().subscribe((serverOrder) => this.confirmedOrder = serverOrder);
-      this.orderService.getFullOrder().subscribe((full) => {
-        this.fullOrder = full;
-        this.creditMax = this.orderService.getCreditMax();
-        this.fullOrder ? this.isCreditEnough = this.fullOrder.getTotalPrice() + user.credit <= Number(this.creditMax) : this.isCreditEnough = null;
-        console.log(this.isCreditEnough, this.creditMax, user.credit, this.fullOrder.getTotalPrice());
-      });
+      this.loadOrderData();
       
       
     });
@@ -42,23 +35,34 @@ export class ValidatePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public loadOrderData(): void{
+    this.orderService.getLocalOrder().subscribe((localOrder) => this.savedOrder = localOrder);
+    this.orderService.getServerOrder().subscribe((serverOrder) => this.confirmedOrder = serverOrder);
+    this.orderService.getFullOrder().subscribe((full) => {
+      this.fullOrder = full;
+      this.creditMax = this.orderService.getCreditMax();
+      this.fullOrder ? this.isCreditEnough = this.fullOrder.getTotalPrice() + this.currentUser.credit <= Number(this.creditMax) : this.isCreditEnough = null;
+    });
+}
   public confirmOrder(isPayed:boolean): void{
-    console.log('$$$$$$$$$$$$$commande confirmee, status PAYED = ', isPayed);
-    if (this.savedOrder) {
-      this.savedOrder.isPayed = isPayed;
-      this.orderService.addOrder(this.savedOrder).subscribe();
-      console.log('commande ajoutee dans JSON');
-    }
-    this.orderService.removeTodayLocalOrder();
-    console.log('commande retiree du Local storage');
+    console.log('$$$ commande confirmee, status PAYED = ', isPayed);
+
+    this.fullOrder.setConfirmStatus(true);
+    this.fullOrder.getOrder().isPayed = isPayed;
+
+    console.log('full',this.fullOrder, 'saved', this.savedOrder,'conf', this.confirmedOrder);
+
+    this.orderService.addServerOrder(this.fullOrder.getOrder());
+    console.log('commande ajoutee dans JSON');
+    
+    this.loadOrderData();
     
     if (!isPayed) {
       console.log('credit AVANT maj => ', this.currentUser.credit);
       this.currentUser.credit += this.fullOrder.getTotalPrice();
       console.log('credit APRES maj => ', this.currentUser.credit);
       this.userService.updateUser(this.currentUser).subscribe(() => {
-        this.userService.getCurrentUser().subscribe((user) => console.log(user));
+        this.userService.getCurrentUser().subscribe((user) => console.log('user credit updated : ',user));
       });
     }
   }
