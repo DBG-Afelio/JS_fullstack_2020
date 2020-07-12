@@ -48,7 +48,6 @@ export class ProductService {
     ;
   }
 
-<<<<<<< HEAD
   public getProductPrice(prodId: number): number{
     let price: number = 0;
     this.getList().subscribe((list) => {
@@ -67,7 +66,6 @@ export class ProductService {
     return price;
   }
 
-=======
   createProduct(payload: Product): Observable<Product> {
     return this.http
       .post<Product>(this.url, payload.toDto())
@@ -92,5 +90,4 @@ export class ProductService {
     console.log('route' ,`/admin/fournisseur/${supplierId}/produit`)
     this.router.navigateByUrl(`/admin/fournisseur/${supplierId}/produit`);
   }
->>>>>>> feature/alpha/mvp/pc4
 }

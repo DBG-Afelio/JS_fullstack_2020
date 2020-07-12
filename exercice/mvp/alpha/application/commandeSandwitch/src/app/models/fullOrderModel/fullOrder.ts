@@ -1,7 +1,7 @@
 import { User } from '../userModel/user';
 import { Order } from '../orderModel/order';
 import { Product } from '../productModel/Product';
-import { Option } from '../productModel/ProductDto';
+import { Option } from '../optionModel/Option';
 
 export class FullOrder {
 
