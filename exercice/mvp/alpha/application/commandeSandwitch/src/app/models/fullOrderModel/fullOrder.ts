@@ -5,7 +5,6 @@ import { Option } from '../optionModel/Option';
 
 export class FullOrder {
 
-
     constructor(
         private user: User,
         private order: Order,

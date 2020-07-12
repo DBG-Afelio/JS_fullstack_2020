@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/userService/user.service';
 import { Order } from 'src/app/models/orderModel/order';
 import { OrderService } from 'src/app/services/orderService/order.service';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
-import { Option } from 'src/app/models/productModel/ProductDto';
+import { Option } from 'src/app/models/optionModel/Option';
 
 @Component({
   selector: 'app-product-detail-page',
