@@ -12,8 +12,7 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 })
 export class ValidatePageComponent implements OnInit {
 
-  public confirmedOrder: Order = null;
-  public savedOrder: Order = null;
+
   public fullOrder: FullOrder = null;
   public currentUser: User = null;
   public creditMax: number = null;
@@ -36,8 +35,7 @@ export class ValidatePageComponent implements OnInit {
   ngOnInit(): void {
   }
   public loadOrderData(): void{
-    this.orderService.getLocalOrder().subscribe((localOrder) => this.savedOrder = localOrder);
-    this.orderService.getServerOrder().subscribe((serverOrder) => this.confirmedOrder = serverOrder);
+  
     this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
       this.creditMax = this.orderService.getCreditMax();
@@ -46,13 +44,8 @@ export class ValidatePageComponent implements OnInit {
 }
   public confirmOrder(isPayed:boolean): void{
     console.log('$$$ commande confirmee, status PAYED = ', isPayed);
-
-    this.fullOrder.setConfirmStatus(true);
     this.fullOrder.getOrder().isPayed = isPayed;
-
-    console.log('full',this.fullOrder, 'saved', this.savedOrder,'conf', this.confirmedOrder);
-
-    this.orderService.addServerOrder(this.fullOrder.getOrder());
+    this.orderService.addOrderIntoServer(this.fullOrder);
     console.log('commande ajoutee dans JSON');
     
     this.loadOrderData();
