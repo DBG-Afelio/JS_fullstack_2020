@@ -47,7 +47,7 @@ export class ProductDetailPageComponent implements OnInit {
   public loadData(): void{
     this.supplierService.getList().subscribe((list) => this.listSuppliers = list);
     this.userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user
+      this.currentUser = user;
     });
     this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
