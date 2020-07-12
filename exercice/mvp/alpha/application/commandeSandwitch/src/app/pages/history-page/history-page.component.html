@@ -1,5 +1,27 @@
-<p>history-page works!</p>
-
 <h1>
-    Historique User
+    Mon historique de commandes 
 </h1>
+<table *ngIf="currentUser">
+    <tr>
+        <th class="th-date">DATE DE COMMANDE</th>
+        <th class="th-product">PRODUIT</th>
+        <th class="th-options">SUPPLEMENTS</th>
+        <th class="th-price">PRIX</th>
+        <th class="th-payed">PAIEMENT</th>
+        <th class="th-button"> - </th>
+    </tr>
+    <tr *ngFor = "let fullOrder of ordersHistory">
+        <td>{{ fullOrder.getOrder().date.toLocaleDateString() }}</td>
+        <td>{{ fullOrder.getProduct().name }}</td>
+        <td>{{ optionsToString(fullOrder.getSelectedOptions()) }}</td>
+        <td>{{ fullOrder.getTotalPrice() }} €</td>
+        <td>{{ fullOrder.getOrder().isPayed ? "cash" : "a credit" }}</td>
+        <td class="td-button">
+            <button 
+            (click)="goToProduct(fullOrder.getProduct().id,fullOrder.getSelectedOptions())">
+                Commander
+            </button>
+        </td>
+    </tr>
+</table>
+

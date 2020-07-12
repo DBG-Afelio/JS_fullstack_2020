@@ -92,6 +92,19 @@ export class OrderService {
           })
         }));
   }
+  
+  public getOrdersOfTheDay(): FullOrder[]{
+    let dayOrders: FullOrder[]=[];
+    this.getAllFullOrders().subscribe((all) => {
+      dayOrders = all.filter(fullOrder => {
+        const o = fullOrder.getOrder();
+        o.date.getDate() + o.date.getMonth() + o.date.getFullYear() === this.TODAY.getDate() + this.TODAY.getMonth() + this.TODAY.getFullYear();
+      })
+    });
+    return dayOrders;
+  }
+
+  
 
 /*----------------------SETTER GETTER FullOrder ----------------------------------*/
   private setFullOrder(fullOrder: FullOrder): void {

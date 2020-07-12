@@ -57,7 +57,7 @@ export class UserNavComponent implements OnInit {
     let msg: string = '';
     if (this.fullOrder) {
       msg = this.fullOrder.getProduct().getName();
-      if (this.fullOrder.getSelectedOptions().length !== 0) {
+      if (this.fullOrder.getSelectedOptions().length > 0) {
         msg += ' suppl.'
         this.fullOrder.getSelectedOptions().forEach(option => {
           msg += ` ${option.nom}`;
