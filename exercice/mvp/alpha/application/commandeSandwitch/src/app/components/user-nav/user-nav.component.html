@@ -1,23 +1,32 @@
 <p>user-nav works!</p>
 
 <nav class="volet-lateral" *ngIf="!currentUser.isAdmin">
+    <div>
+        <h1>
+            Bonjour {{ currentUser.firstName }} !
+        </h1>
+    </div>
     <div *ngIf="!currentUser.isBlocked">
         <div>
             <h3>Commande du Jour</h3>
-            <p>
-                    <!-- <a routerLink = `/product/${}`  ></a> -->
-                    Ma commande du jour : {{ setOrderMessage() }}
-
-            </p>  
-            <button type="submit">
-                Modifier
-            </button>
-            <button type="submit">
-                Confirmer
-            </button>
-            <button type="submit">
-                Supprimer
-            </button>   
+            <div *ngIf="fullOrder">
+                <a 
+                [routerLink] = "['/product/', fullOrder.getProduct().id]"
+                [class.confirmed]="fullOrder.getConfirmedStatus()">
+                    {{ setOrderMessage() }} 
+                </a>
+                <button *ngIf="!fullOrder.getConfirmedStatus()"
+                    routerLink = '/paiement'>
+                    Confirmer
+                </button>
+                <button
+                    (click)="deleteOrderRequested()">
+                    Supprimer
+                </button>
+            </div> 
+            <div *ngIf="!fullOrder">
+                {{ setOrderMessage() }} 
+            </div>  
         </div>
     </div>
     <div *ngIf="currentUser.isBlocked">

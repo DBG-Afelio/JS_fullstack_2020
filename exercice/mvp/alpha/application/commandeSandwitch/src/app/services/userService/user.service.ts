@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  
   private currentUser: BehaviorSubject <User> = new BehaviorSubject(null);
   public userUrl: string = 'http://localhost:3000/utilisateurs/';
 

@@ -5,7 +5,7 @@
       "password": "admin",
       "nom": "GENE",
       "prenom": "Genevieve",
-      "credit": "0",
+      "credit": 0,
       "formation": "-",
       "banni": false,
       "admin": true,
@@ -16,7 +16,7 @@
       "password": "pcast",
       "nom": "CASTRONOVO",
       "prenom": "Pierre",
-      "credit": "0",
+      "credit": 0,
       "formation": "FullStack Web Dev",
       "banni": false,
       "admin": false,
@@ -27,7 +27,7 @@
       "password": "miammiam",
       "nom": "duprieux",
       "prenom": "laurent",
-      "credit": "3",
+      "credit": 0,
       "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": "3",
+      "credit": 7,
       "formation": "Creations de Problemes",
       "banni": false,
       "admin": false,
@@ -65,6 +65,16 @@
       "paye": true,
       "id": 2,
       "date": "2020-02-21T13:38:10.681Z"
+    },
+    {
+      "user_id": 4,
+      "product_id": 30,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 3,
+      "date": "Sat Jul 11 2020 23:48:00 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [

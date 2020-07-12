@@ -1,1 +1,28 @@
 <p>validate-page works!</p>
+<div *ngIf="savedOrder && creditMax && currentUser && fullOrder">
+    <a routerLink="/produit/{{ savedOrder.productId }}">
+        Retour vers Ma commande en cours
+    </a>
+    <p>
+        Votre commande s'eleve a € {{ fullOrder.getTotalPrice() }}
+    </p>
+    <p>
+        Votre credit avant paiement s'eleve a € {{ currentUser.credit }}
+    </p>
+    <p *ngIf="!isCreditEnough">
+        Payer a credit ? Votre solde est insuffisant. Il ne vous reste que {{ creditMax - currentUser.credit }} € sur votre credit maximum autorisé ({{ creditMax}} €). 
+        Pour confirmer votre commande, passer par le paiment CASH
+    </p>
+
+
+    <button
+        (click)="confirmOrder(true)">
+        PAYER CASH
+    </button>
+    <button 
+        [disabled]="!isCreditEnough"
+        (click)="confirmOrder(false)">
+        PAYER A CREDIT
+    </button>
+
+</div>
