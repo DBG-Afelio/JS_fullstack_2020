@@ -3,6 +3,12 @@
     display: block;
     padding: 10px;
     margin-bottom: 25px;
-   
-    width: 200px;
+
+    padding: 35px 15px;
+    background-color: whitesmoke;
+    display: inline-block;
+    width: 100%;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+    font: 18px/25px'Oswald', sans-serif;
+    margin-bottom: 25px;
 }

@@ -39,7 +39,7 @@
             required
             [(ngModel)]="supplier.phone" class="form-control" 
             data-pristine="true" 
-            placeholder="Numéro de téléphone">
+            >
         <div *ngIf = "supplier.phone === ''"
             class="supplier-form__error alert alert-danger">
             <p>Le numéro de téléphone est requis</p>
@@ -105,27 +105,17 @@
           Ajouter
         </button>
 
-          <button  *ngIf = "supplier.id !== 0"
+    </div>
+    <div class="admin-buttons"  >
+        <button class="btn btn-danger"
+            (click) = "navigateToAdmin()">Annuler
+        </button>
+        <button  *ngIf = "supplier.id !== 0"
             (click) = "saveChanges()"
             id="update_button"
             type="button"
-            class="btn btn__ok"
-            >
-        
-            Enregistrer
+            class="btn btn-dark"
+            >Enregistrer
           </button>
-<!--
-        <button  *ngIf = "supplier.id !== 0"
-            (click) = "deleteSupplier()"
-            type="button"
-            class="btn btn__warning"
-            >
-        
-            Supprimer
-          </button> 
-
-        <button
-            (click) = "navigateToAdmin">
-        </button>--> 
       </div>
 </form>

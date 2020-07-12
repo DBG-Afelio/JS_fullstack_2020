@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { ProductService } from '../productService/product.service';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,11 @@ import { environment } from 'src/environments/environment';
 export class SupplierService {
   url: string = `${environment.baseUrl}/fournisseurs`;
 
-  constructor(private http: HttpClient, private productService: ProductService) { }
+  constructor(
+    private http: HttpClient, 
+    private productService: ProductService,
+    private router: Router
+    ) { }
 
   public getList(): Observable<Supplier[]> {
     return this.http.get<SupplierDto[]>(this.url)
@@ -63,5 +67,9 @@ export class SupplierService {
     return this.http
       .delete<any>(`${this.url}/${payload.id}`)
       .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
+
+  public navigateToAdmin() {
+    this.router.navigateByUrl(`/admin/fournisseur`);
   }
 }

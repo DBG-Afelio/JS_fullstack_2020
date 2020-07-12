@@ -1,4 +1,5 @@
 import { ProductDto} from './ProductDto';
+import { Option } from '../optionModel/Option';
 
 export class Product {
     constructor(
@@ -41,7 +42,6 @@ export class Product {
         return this.supplierId;
     }
 
-
     public static fromDto(productDto: ProductDto): Product {
         return new Product(
             productDto.id, 
@@ -64,5 +64,3 @@ export class Product {
         }
     }
 }
-
-export type Option = {id: number, nom: string, surcout: number}

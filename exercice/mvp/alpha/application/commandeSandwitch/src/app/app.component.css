@@ -5,8 +5,13 @@ body, html {
 }
 
 .logo{
-    position: sticky;
-    width: 300px;
+    width: 275px;
+    
+}
+
+.logo:active, .logo:focus, .logo:hover {
+    outline: none;
+    border: none;
 }
     
 main {
@@ -25,24 +30,37 @@ main {
     
 }
 
-main > * {
-    border: 1px solid red;
+main aside, main footer, main content {
     padding: 30px;
     box-sizing: border-box;
 }
 
-header {
+main header {
     grid-area: header;
     height: 40vh;
-    background: url('../assets/header/sandwich.jpg') right 75% bottom 75% no-repeat; 
+    background: url('../assets/header/sandwich.jpg') right 85% bottom 85% no-repeat; 
     background-size: cover;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+main header .inner-header {
+    width: 100%;
+    height: 40vh;
+    padding: 30px;
+    background: -moz-linear-gradient(-10deg,  whitesmoke 39.99%, rgba(255,255,255,0) 40%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-10deg,  whitesmoke 39.99%,rgba(255,255,255,0) 40%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(170deg,  whitesmoke 39.99%,rgba(255,255,255,0) 40%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 content {
     grid-area: content;
 }
+
 aside {
     grid-area: aside;
 }
+
 footer{
     grid-area: footer;
 }

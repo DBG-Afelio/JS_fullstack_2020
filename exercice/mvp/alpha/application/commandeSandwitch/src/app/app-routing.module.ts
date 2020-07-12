@@ -12,6 +12,8 @@ import { AdminOnlyGuard } from './guards/adminOnlyGuard/admin-only.guard';
 import { ValidatePageComponent } from './pages/validate-page/validate-page.component';
 import { LoggedInOnlyGuard } from './guards/loggedInOnly/logged-in-only.guard';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
+import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,12 @@ const routes: Routes = [
 
   { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
   { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
-  { path : "admin/fournisseur/archiver/:id", component : SupplierAdminPageComponent, canActivate:[AdminOnlyGuard] },
-  { path : "admin/fournisseur/supprimer/:id", component : SupplierAdminPageComponent, canActivate:[AdminOnlyGuard] },
+  { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent },
+
+  { path : "admin/produit/ajouter/:supplierid", component : ProductFormPageComponent },
+  { path : "admin/fournisseur/:id/produit", component : ProductAdminPageComponent },
+  { path : "admin/produit/modifier/:id", component : ProductFormPageComponent },
+  { path : "admin/produit/:id", component : ProductFormPageComponent },
 
   { path : "admin/utilisateur/ajouter", component : UserFormPageComponent, canActivate:[AdminOnlyGuard] },
   { path : "admin/utilisateur/modifier/:id", component : UserFormPageComponent, canActivate:[AdminOnlyGuard] },

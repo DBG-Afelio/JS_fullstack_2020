@@ -1,0 +1,12 @@
+<div class="admin-title"> 
+    <h1 *ngIf="productId === 0">Ajouter un produit</h1>
+    <h1 *ngIf="productId !== 0">Modifier un produit</h1>
+  </div>
+  
+  <div class="product-form" *ngIf="product">
+      <app-product-form 
+        [product] = "product"
+        (create) = "createProduct($event)"
+        (update) = "updateProduct($event)"
+      ></app-product-form>
+  </div>

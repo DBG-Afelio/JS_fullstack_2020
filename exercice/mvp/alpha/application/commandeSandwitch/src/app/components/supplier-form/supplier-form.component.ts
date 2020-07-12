@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Supplier } from 'src/app/models/supplierModel/Supplier';
+import { SupplierService } from 'src/app/services/supplierService/supplier.service';
 
 @Component({
   selector: 'app-supplier-form',
@@ -11,9 +12,8 @@ export class SupplierFormComponent implements OnInit {
   @Input() supplier: Supplier;
   @Output() create = new EventEmitter<Supplier>();
   @Output() update = new EventEmitter<Supplier>();
-  //@Output() remove = new EventEmitter<Supplier>();
   
-  constructor() { }
+  constructor(public supplierService: SupplierService) { }
 
   public createSupplier() {
     this.create.emit(this.supplier);
@@ -23,11 +23,9 @@ export class SupplierFormComponent implements OnInit {
       this.update.emit(this.supplier);
   }
 
-  /*public deleteSupplier() {
-      if (this.supplier.id !== 0 && window.confirm('Etes-vous sûr de vouloir supprimer ce fournisseur ?')) {
-          this.remove.emit(this.supplier);
-      }
-  }*/
+  public navigateToAdmin() {
+      this.supplierService.navigateToAdmin();
+  }
 
   ngOnInit(): void {
   }

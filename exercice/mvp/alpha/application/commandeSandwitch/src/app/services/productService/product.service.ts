@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, throwError } from 'rxjs';
 import { Product } from '../../models/productModel/Product';
 import { ProductDto } from '../../models/productModel/ProductDto';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Supplier } from 'src/app/models/supplierModel/Supplier';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +14,17 @@ import { Supplier } from 'src/app/models/supplierModel/Supplier';
 export class ProductService {
   url: string = 'http://localhost:3000/produits';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   public getList(): Observable<Product[]> {
     return this.http.get<ProductDto[]>(this.url)
       .pipe(
         map((arrayProductDto : ProductDto[]) => {
           return arrayProductDto.map(productDto => Product.fromDto(productDto));
-        })
+        }),
       )
     ;
   }
@@ -33,7 +38,6 @@ export class ProductService {
   }
 
   public getProductsFromSupplier(id: number): Observable<Product[]> {
-
     return this.http.get<ProductDto[]>(this.url +`?fourn_id=${id}`)
       .pipe(
         map((arrayProductDto : ProductDto[]) => {
@@ -44,6 +48,7 @@ export class ProductService {
     ;
   }
 
+<<<<<<< HEAD
   public getProductPrice(prodId: number): number{
     let price: number = 0;
     this.getList().subscribe((list) => {
@@ -62,4 +67,30 @@ export class ProductService {
     return price;
   }
 
+=======
+  createProduct(payload: Product): Observable<Product> {
+    return this.http
+      .post<Product>(this.url, payload.toDto())
+      .pipe(
+        catchError((error: any) => throwError(error.json())));
+  }
+
+  updateProduct(payload: Product): Observable<Product> {
+    return this.http
+      .put<Product>(`${this.url}/${payload.id}`, payload.toDto())
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
+
+  removeProduct(payload: Product): Observable<Product> {
+    return this.http
+      .delete<any>(`${this.url}/${payload.id}`)
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  }
+
+  public navigateToProductAdmin(supplierId: number) {
+
+    console.log('route' ,`/admin/fournisseur/${supplierId}/produit`)
+    this.router.navigateByUrl(`/admin/fournisseur/${supplierId}/produit`);
+  }
+>>>>>>> feature/alpha/mvp/pc4
 }
