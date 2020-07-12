@@ -17,7 +17,8 @@ export class MembreComponent implements OnInit {
   membre: User;
   login: string;
   message : string ;
-  detecting : boolean = true ;  
+  detecting : boolean = true ;
+   
   
 
   constructor(private usersService: UsersService, private route: ActivatedRoute,private router:Router, private location : Location ) { }
@@ -37,6 +38,7 @@ export class MembreComponent implements OnInit {
       this.location.go(`membre/${membre.id}`);
     
   })
+  
 }
   deleteMember(user :User){
     this.usersService.deleteUser(user).subscribe(()=>{
