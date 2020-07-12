@@ -1,10 +1,10 @@
 <p>validate-page works!</p>
-<div *ngIf="savedOrder && creditMax && currentUser && fullOrder">
-    <a routerLink="/produit/{{ savedOrder.productId }}">
+<div *ngIf="creditMax && currentUser && fullOrder">
+    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
         Retour vers Ma commande en cours
     </a>
     <p>
-        Votre commande s'eleve a € {{ fullOrder.getTotalPrice() }}
+        Votre commande s'eleve a € {{ fullOrder.getTotalPrice() }} 
     </p>
     <p>
         Votre credit avant paiement s'eleve a € {{ currentUser.credit }}

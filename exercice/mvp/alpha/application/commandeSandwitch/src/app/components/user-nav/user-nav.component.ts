@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/models/userModel/user';
-import { Order } from 'src/app/models/orderModel/order';
-import { Product } from 'src/app/models/productModel/Product';
-import { Authentication } from 'src/app/models/userModel/authentication.enum';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 
 @Component({
@@ -14,17 +11,17 @@ export class UserNavComponent implements OnInit {
   @Input() fullOrder: FullOrder = null;
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
-  @Input() orderList: Order[] = []; //pas utile ici je crois
-  @Input() productList: Product[] = []; //ca non plus
   @Input() creditMax: number = null; 
   @Output() deleteRequest: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    
   }
 
   public deleteOrderRequested(): void{
-    if (!this.fullOrder.getConfirmedStatus()) {
+    if (!this.fullOrder.isConfirmed()) {
       console.log('request to cancel LOCAL-Order from USER-NAV');
       this.deleteRequest.emit();
     } else {
@@ -54,12 +51,9 @@ export class UserNavComponent implements OnInit {
     return message;
   }
 
-  public setPanierMessage(): string {
-    let msg: string = '';
-    if (this.currentUser)
-    return 
-  }
+
   public setOrderMessage(): string {
+
     let msg: string = '';
     if (this.fullOrder) {
       msg = this.fullOrder.getProduct().getName();

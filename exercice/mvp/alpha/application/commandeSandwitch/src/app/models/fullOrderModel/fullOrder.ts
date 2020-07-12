@@ -30,10 +30,10 @@ export class FullOrder {
     public setProduct(productIn:Product): void{
         this.product = productIn;
     }
-    public getConfirmedStatus(): boolean{
+    public isConfirmed(): boolean{
         return this.confirmed;
     }
-    public setConfirmedStatus(confirmed:boolean): void{
+    public setConfirmStatus(confirmed:boolean): void{
         this.confirmed = confirmed;
     }
     public getSelectedOptions(): Option[]{

@@ -16,8 +16,6 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderService {
   public currentUser: User = null;
-  private userOrderLocal: BehaviorSubject<Order> = new BehaviorSubject(null);
-  private userOrderServer: BehaviorSubject<Order> = new BehaviorSubject(null);
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
@@ -29,44 +27,35 @@ export class OrderService {
     private userService: UserService,
     private productService: ProductService,
   ) { 
-    this.userService.getCurrentUser().subscribe((currentUser) => {
+      this.userService.getCurrentUser().subscribe((currentUser) => {
       this.currentUser = currentUser;
-      this.updateUserOrder();
-      console.log('CURRENT USER: ', currentUser);
+      this.updateFullOrder(currentUser);
     });
    }
 
-  public updateUserOrder(): void{
-
-    if (this.currentUser) {
-      const localFound: Order = this.findLocalOrder(this.currentUser);
-      if (localFound) { //commande trouvee en local
-        console.log('COMMANDE TROUVEE EN LOCAL');
-        this.setLocalOrder(localFound);
-        this.setServerOrder(null);
-        this.findTodayServerOrder(this.currentUser).subscribe((currOrder) => {
-          if (currOrder) { // 
-            console.error("CAS D'ERREUR: il ne peut y avoir une commande en local et sur server");
-          }
-        });
-      } else { //commande non trouvee en local
-        this.setLocalOrder(null);
-        this.findTodayServerOrder(this.currentUser).subscribe((currOrder) => {
-          if (currOrder) {
-            this.setServerOrder(currOrder);
-            console.log('TROUVEE SUR SERVER');
-          } else {
-            this.setServerOrder(null);
-            console.log('AUCUNE TROUVEE ');
+  private updateFullOrder(user: User): void{    
+    let found: FullOrder = null;
+    if (this.currentUser) { //utilsateur connected
+      const foundInLocalStorage: FullOrder = this.findInLocalStorage(user); //je cherche d'abord en local
+      if (foundInLocalStorage) { //trouved en local
+        // foundInLocalStorage.setConfirmStatus(false);
+        found = foundInLocalStorage;
+        console.log(found);
+      } else { //pas trouved en local
+        this.findTodayServerOrder(user).subscribe((order) => {
+          if (order) { //trouved sur Server
+            this.productService.getProductById(order.productId).subscribe((productFound) => {
+              found = new FullOrder(user, order, productFound, true);
+            });
+          } else { // pas trouved ni en local ni sur server
+            found = null;
           }
         });
       }
+    } else { //aucun utilisateur connected
+      found = null;
     }
-    else { //user disconnected <=> unknown visitor
-      this.setLocalOrder(null);
-      this.setServerOrder(null);
-      console.log('USER UNKNOWN - NONE ORDER COULD BE FOUND');
-    }
+    this.setFullOrder(found);
   }
   
   public getList(): Observable<Order[]> {
@@ -89,7 +78,7 @@ export class OrderService {
           return order.userId === user.id && ORDER_DATE_str === this.TODAY_str;
         })));
   }
-  public getServerOrdersAsFullOrderArray(): Observable<FullOrder[]> {
+  public getAllFullOrders(): Observable<FullOrder[]> {
     return forkJoin(
       this.getList(),
       this.userService.getList(),
@@ -104,87 +93,89 @@ export class OrderService {
         }));
   }
 
-/*--------------------------------------------------------*/
-  public updateFullOrder(): void {
-
-    this.getLocalOrder().subscribe((fromLocalStor) => {
-      this.getServerOrder().subscribe((fromServer) => {
-
-        if (!fromLocalStor && !fromServer) {
-          console.log('ni fromLocalStor ni fromServer');
-          this.userFullOrder.next(null);
-        } else {
-          let orderConfirmed: boolean = true;
-          let order: Order = fromServer;
-          if (!fromServer) {
-            orderConfirmed = false;
-            order = fromLocalStor;
-          }
-          this.productService.getProductById(order.productId).subscribe((prod) => {
-            this.userFullOrder.next(new FullOrder(this.currentUser, order, prod, orderConfirmed));
-          });
-        }
-      });
-    });
+/*----------------------SETTER GETTER FullOrder ----------------------------------*/
+  private setFullOrder(fullOrder: FullOrder): void {
+    console.log('setFullOrder method======================////');
+    if (fullOrder) {
+      this.userFullOrder.next(fullOrder);
+      console.log('full yes');
+    } else {
+      this.userFullOrder.next(null); 
+      console.log('no full');
+    }
   }
 
   public getFullOrder(): Observable<FullOrder>{
     return this.userFullOrder.asObservable();
   }
-/*----------------getter-setter userOrderServer-----------*/
-  public setServerOrder(order:Order): void {
-    this.userOrderServer.next(order);
-    this.updateFullOrder();
-  }
-  public getServerOrder(): Observable<Order> {
-    return this.userOrderServer.asObservable();
-  }
-/*-------------------------------------------------------*/
 
 /*------local storage related & userOrderLocal variable----*/
-  public storeOrderInLocalStorage(order: Order): void {
-    
-    let key: string = order.userId.toString() + '_' + this.TODAY_str;
-    localStorage.setItem(key, JSON.stringify(order));
-    this.setLocalOrder(order);
+  public addInLocalStorage(fullOrder: FullOrder): void {
+    let key: string = fullOrder.getUser().id.toString() + '_' + this.TODAY_str;
+    localStorage.setItem(key, JSON.stringify(fullOrder));
+    this.updateFullOrder(this.currentUser);
   }
-  public findLocalOrder(user:User): Order{
-    let foundOrder: Order = null;
+  public findInLocalStorage(user:User): FullOrder{
+    let foundOrder: FullOrder = null;
     if (user && localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
         if (key.startsWith(user.id.toString())) {
           if (key === user.id.toString() + '_' + this.TODAY_str) { //cle qui correspond a la commande du jour
             foundOrder = JSON.parse(localStorage.getItem(key));
-            console.log('userOrderLocal trouved: ', key, foundOrder);
+            
           } else { // cle qui correspond a une commande anterieure pour ce currentUser/ n'a pas lieu de rester stocker en local
             localStorage.removeItem(key);
-            console.log('ancienne commande supprimee: ', key);
+           
           }
         }
       }
     } else {
-      console.log('OrderLocal introuvable ou Pas de User connected');
+      console.log('User deconnected ou pas de commande locale');
     }
       return foundOrder;
   }
  
-  public removeTodayLocalOrder(): void {
+  public removeFromLocalStorage(): void {
     const removeItemKey: string = this.currentUser.id.toLocaleString() + '_' + this.TODAY_str;
     localStorage.removeItem(removeItemKey);
-    this.setLocalOrder(null);
+    this.updateFullOrder(this.currentUser);
   }
-  public emptyLocalStorage(): void{
-    localStorage.clear();
-    this.setLocalOrder(null);
+  // public emptyLocalStorage(): void{
+  //   localStorage.clear();
+  // }
+
+
+  /*-----------------------JSON Server/commandes-----------------------------*/
+  // public updateServerOrder(payload: Order): Observable<IOrderDto> { //dans notre appli en l'etat, ne sera pas utilised
+  //   this.setServerOrder(payload);
+  //   return this.http.put<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`, payload.toDto())
+  //     .pipe(catchError((error: any) => Observable.throw(error.json())));
+  // }
+
+  public deleteOrderFromServer(payload: Order): void {
+    console.log('********DELETE REQUEST SERVER **********');
+    this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`).subscribe({
+      error: error => console.error('Erreur DELETE order', error)
+    });
+    this.updateFullOrder(this.currentUser);
   }
-  public setLocalOrder(order: Order): void{
-    this.userOrderLocal.next(order);
-    this.updateFullOrder();
+
+  public addOrderIntoServer(fullPayload: FullOrder): void {
+    this.http.post<IOrderDto>(`${this.orderUrl}`, fullPayload.getOrder().toDto()).subscribe({
+      next: returnedOrder => {
+        this.removeFromLocalStorage();
+        console.log('commande retiree du Local storage');
+        // fullPayload.setConfirmStatus(true);
+        // fullPayload.setOrder(Order.fromDto(returnedOrder));
+        this.updateFullOrder(this.currentUser);
+      },
+      error: error => console.error('Erreur POST new order', error)
+    });
   }
-  public getLocalOrder(): Observable<Order>{
-    return this.userOrderLocal.asObservable(); 
-  }
+  /*--------------------------------------------------------------------------*/
+
+
   /*-------------------------------*/
   public getCreditMax(): number{
     return this.creditMaxAllowed;
@@ -192,21 +183,4 @@ export class OrderService {
   public setCreditMax(newCreditMax: number): void{
     this.creditMaxAllowed = newCreditMax;
   }
-  /*-----------------------JSON Server/commandes-----------------------------*/
-  public updateOrder(payload: Order): Observable<IOrderDto> { //dans notre appli en l'etat, ne sera pas utilised
-    this.setServerOrder(payload);
-    return this.http.put<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`, payload.toDto())
-      .pipe(catchError((error: any) => Observable.throw(error.json())));
-  }
-  public deleteOrder(payload: Order): Observable<IOrderDto> {
-    this.setServerOrder(null);
-    return this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`)
-      .pipe(catchError((error: any) => Observable.throw(error.json())));
-  }
-  public addOrder(payload: Order): Observable<IOrderDto> {
-    this.setServerOrder(payload);
-    return this.http.post<IOrderDto>(`${this.orderUrl}`, payload.toDto())
-      .pipe(catchError((error: any) => throwError(error.json())));
-  }
-  /*--------------------------------------------------------------------------*/
 }

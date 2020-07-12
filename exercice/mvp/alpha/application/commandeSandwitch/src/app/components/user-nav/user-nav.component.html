@@ -10,12 +10,12 @@
         <div>
             <h3>Commande du Jour</h3>
             <div *ngIf="fullOrder">
-                <a 
-                [routerLink] = "['/product/', fullOrder.getProduct().id]"
-                [class.confirmed]="fullOrder.getConfirmedStatus()">
+                <a class="day-order"
+                routerLink = "/produit/{{ fullOrder.getProduct().id }}"
+                [class.confirmed]="fullOrder.isConfirmed()">
                     {{ setOrderMessage() }} 
                 </a>
-                <button *ngIf="!fullOrder.getConfirmedStatus()"
+                <button *ngIf="!fullOrder.isConfirmed()"
                     routerLink = '/paiement'>
                     Confirmer
                 </button>

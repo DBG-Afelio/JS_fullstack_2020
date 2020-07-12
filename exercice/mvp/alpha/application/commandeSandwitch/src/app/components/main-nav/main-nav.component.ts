@@ -16,28 +16,29 @@ export class MainNavComponent implements OnInit {
   public currentUser: User = null;
   public fullOrder: FullOrder = null;
   public userList: User[] = [];
-  public orderList: Order[] = [];
-  public productList: Product[] = [];
+  // public orderList: Order[] = [];
+  // public productList: Product[] = [];
   public creditMaxAllowed: number = null;
   constructor(
     private userService: UserService,
     private orderService: OrderService,
   ) { 
     this.loadData();
-    this.creditMaxAllowed = this.orderService.getCreditMax();
   }
 
   ngOnInit(): void {
+    this.creditMaxAllowed = this.orderService.getCreditMax();
   }
 
   public loadData(): void{
     this.userService.getList().subscribe((list) => this.userList = list);
-    this.userService.getCurrentUser().subscribe((user) => {
-      this.currentUser = user;
-      this.orderService.getFullOrder().subscribe((fullOrder) => this.fullOrder = fullOrder);
+    this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
+    this.orderService.getFullOrder().subscribe((full) => {
+      this.fullOrder = full;
+      console.log('---MAIN-NAV CHANGED FullORDER ===>>> ', full?.getOrder().id, full?.isConfirmed());
     });
-    
   }
+  
   public updateCurrentUser(user: User): void {
     this.userService.setCurrentUser(user);
     if (user) {
@@ -48,14 +49,15 @@ export class MainNavComponent implements OnInit {
   }
 
   public deleteOrder(): void{
-    if (this.fullOrder.getConfirmedStatus()) {
-      this.orderService.deleteOrder(this.fullOrder.getOrder()).subscribe(() => this.loadData());
+    console.log('--------delete from MAIN => com. confirmed? ', this.fullOrder.isConfirmed(), 'commande # :',this.fullOrder.getOrder().id);
+    if (this.fullOrder.isConfirmed()) {
+      this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
       console.log('commande supprimee du server suite a request from USER-NAV');
     } else {
-      this.orderService.removeTodayLocalOrder();
+      this.orderService.removeFromLocalStorage();
       console.log('commande supprimee du LocalStorage suite a request from USER-NAV');
     }
-    this.loadData();
+   // this.loadData();
   }
   
 }
