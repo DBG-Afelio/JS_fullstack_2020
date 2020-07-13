@@ -1,0 +1,7 @@
+<div>
+    {{ today | date:'medium' }}
+</div>
+<div *ngIf="deadline !== null && fullOrder !== undefined"
+    [class.outOfTime]="!wasOnTime">
+    {{ displayMessage() }}
+</div>

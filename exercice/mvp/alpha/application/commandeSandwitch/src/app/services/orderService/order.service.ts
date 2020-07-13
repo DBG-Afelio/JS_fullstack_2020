@@ -10,6 +10,7 @@ import { ProductService } from '../productService/product.service';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 import { Product } from 'src/app/models/productModel/Product';
 import { environment } from 'src/environments/environment';
+import { Deadline } from 'src/app/models/deadlineModel/deadline';
 
 @Injectable({
   providedIn: 'root'
@@ -19,20 +20,39 @@ export class OrderService {
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
-  public orderDeadline: Date;
-  public TODAY = new Date();
-  public TODAY_str: string = this.TODAY.getDate().toString() + this.TODAY.getMonth().toString() + this.TODAY.getFullYear().toString();
+  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(21, 30, 0)); // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
+  private onTime: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  public today = new Date();
+  public today_str: string = this.today.getDate().toString() + this.today.getMonth().toString() + this.today.getFullYear().toString();
 
   constructor(
     private http: HttpClient,
     private userService: UserService,
     private productService: ProductService,
   ) { 
-      this.userService.getCurrentUser().subscribe((currentUser) => {
-      this.currentUser = currentUser;
-      this.updateFullOrder();
+    this.userService.getCurrentUser().subscribe((currentUser) => {
+    this.currentUser = currentUser;
+      this.updateFullOrder(); 
     });
+    //this.getDeadline().subscribe((deadline) => {
+   
    }
+ 
+  // private updateTimeStatus(deadline: Deadline):void {
+  //   this.today = new Date();
+  //   const onTimeCompare = this.today.getHours() <= deadline.getHours() && this.today.getMinutes() <= deadline.getMinutes() && this.today.getSeconds() <= deadline.getSeconds();
+  //   this.isOnTime().subscribe((wasSetOnTime) => {
+  //     if (wasSetOnTime) {
+  //       if (!onTimeCompare) {
+  //         this.setOrderOutOfTime();
+  //       }
+  //     } else {
+  //       if (onTimeCompare) {
+  //         this.setOrderOnTime();
+  //       }
+  //     }
+  //   });
+  // }
 
   private updateFullOrder(): void{    
     console.log(this.currentUser);
@@ -85,7 +105,7 @@ export class OrderService {
       .pipe(
         map((orders) => orders.find(order => {
           const ORDER_DATE_str: string = order.date.getDate().toString() + order.date.getMonth().toString() + order.date.getFullYear().toString();
-          return order.userId === this.currentUser.id && ORDER_DATE_str === this.TODAY_str;
+          return order.userId === this.currentUser.id && ORDER_DATE_str === this.today_str;
 
         })));
   }
@@ -109,14 +129,8 @@ export class OrderService {
 
 /*----------------------SETTER GETTER FullOrder ----------------------------------*/
   private setFullOrder(fullOrder: FullOrder): void {
-    console.log('setFullOrder method======================////', fullOrder);
-    if (fullOrder) {
-      this.userFullOrder.next(fullOrder);
-      console.log('full yes');
-    } else {
-      this.userFullOrder.next(null); 
-      console.log('no full');
-    }
+    fullOrder ? this.userFullOrder.next(fullOrder) : this.userFullOrder.next(null); 
+
   }
 
   public getFullOrder(): Observable<FullOrder>{
@@ -126,7 +140,7 @@ export class OrderService {
 /*------local storage related & userOrderLocal variable----*/
   public addInLocalStorage(order: Order): void {
     console.log(order); //order correct a ce niveau (userid)
-    let key: string = order.userId.toString() + '_' + this.TODAY_str;
+    let key: string = order.userId.toString() + '_' + this.today_str;
     localStorage.setItem(key, JSON.stringify(order));
     this.updateFullOrder();
   }
@@ -136,7 +150,7 @@ export class OrderService {
       for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
         if (key.startsWith(this.currentUser.id.toString())) {
-          if (key === this.currentUser.id.toString() + '_' + this.TODAY_str) { //cle qui correspond a la commande du jour
+          if (key === this.currentUser.id.toString() + '_' + this.today_str) { //cle qui correspond a la commande du jour
             foundOrder = JSON.parse(localStorage.getItem(key));
             
           } else { // cle qui correspond a une commande anterieure pour ce currentUser/ n'a pas lieu de rester stocker en local
@@ -152,7 +166,7 @@ export class OrderService {
   }
  
   public removeFromLocalStorage(): void {
-    const removeItemKey: string = this.currentUser.id.toLocaleString() + '_' + this.TODAY_str;
+    const removeItemKey: string = this.currentUser.id.toLocaleString() + '_' + this.today_str;
     localStorage.removeItem(removeItemKey);
     this.updateFullOrder();
   }
@@ -192,8 +206,26 @@ export class OrderService {
       error: error => console.error('Erreur POST new order', error)
     });
   }
-  /*--------------------------------------------------------------------------*/
 
+  /*------RELATED TO ORDER TIMING-----------------------------------------------*/
+  public getDeadline(): Observable<Deadline>{
+    return this.deadline.asObservable();
+  }
+  public setDeadline(newDeadLine:Deadline): void{ //only Admin can change this subject
+    this.deadline.next(newDeadLine);
+  }
+  public isOnTime(): Observable<boolean>{
+    return this.onTime.asObservable();
+  }
+  public setOrderOutOfTime():void {
+    this.onTime.next(false);
+  }
+  public setOrderOnTime(): void{
+    this.onTime.next(true);
+  }
+
+ 
+ 
 
   /*-------------------------------*/
   public getCreditMax(): number{

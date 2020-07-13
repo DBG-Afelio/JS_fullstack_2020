@@ -10,14 +10,17 @@
             <div *ngIf="fullOrder">
                 <a class="day-order"
                 routerLink = "/produit/{{ fullOrder.getProduct().id }}"
-                [class.confirmed]="fullOrder.isConfirmed()">
+                [class.confirmed]="fullOrder.isConfirmed()"
+                [class.outOfTime]="!isOnTime">
                     {{ setOrderMessage() }} 
                 </a>
                 <button *ngIf="!fullOrder.isConfirmed()"
+                    [disabled]="!isOnTime"
                     routerLink = '/paiement'>
                     Confirmer
                 </button>
-                <button
+                <button 
+                    [disabled]="!isOnTime"
                     (click)="deleteOrderRequested()">
                     Supprimer
                 </button>

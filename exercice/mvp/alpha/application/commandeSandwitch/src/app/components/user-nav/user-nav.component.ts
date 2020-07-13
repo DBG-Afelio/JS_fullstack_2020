@@ -8,6 +8,8 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
   styleUrls: ['./user-nav.component.css']
 })
 export class UserNavComponent implements OnInit {
+ 
+  @Input() isOnTime:boolean = null;
   @Input() fullOrder: FullOrder = null;
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
@@ -21,16 +23,19 @@ export class UserNavComponent implements OnInit {
   }
 
   public deleteOrderRequested(): void{
-    if (!this.fullOrder.isConfirmed()) {
-      console.log('request to cancel LOCAL-Order from USER-NAV');
-      this.deleteRequest.emit();
-    } else {
-      const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
-      if (window.confirm(msg)) {
-        console.log('request to cancel SERVER-Order from USER-NAV');
+    if (this.isOnTime && this.isOnTime !== null) {
+      if (!this.fullOrder.isConfirmed()) {
+        console.log('request to cancel LOCAL-Order from USER-NAV');
         this.deleteRequest.emit();
+      } else {
+        const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
+        if (window.confirm(msg)) {
+          console.log('request to cancel SERVER-Order from USER-NAV');
+          this.deleteRequest.emit();
+        }
       }
     }
+    
   }
 
   public setCreditMessage(): string {

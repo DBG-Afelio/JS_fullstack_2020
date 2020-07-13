@@ -158,23 +158,20 @@
       "date": "Mon Jul 13 2020 10:12:20 GMT+0200 (Central European Summer Time)"
     },
     {
+      "user_id": 2,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 15,
+      "date": "Mon Jul 13 2020 12:01:55 GMT+0200 (Central European Summer Time)"
+    },
+    {
       "user_id": 4,
       "product_id": 1,
       "option_ids": [],
       "paye": true,
-      "id": 14,
-      "date": "Mon Jul 13 2020 11:22:26 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 2,
-      "product_id": 8,
-      "option_ids": [
-        1,
-        2
-      ],
-      "paye": false,
-      "id": 15,
-      "date": "Mon Jul 13 2020 11:24:15 GMT+0200 (Central European Summer Time)"
+      "id": 16,
+      "date": "Mon Jul 13 2020 21:22:42 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
