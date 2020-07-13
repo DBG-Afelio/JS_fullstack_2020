@@ -27,7 +27,7 @@ export class ProductsListComponent implements OnInit {
               private ordersListService:OrdersListService,
               route:ActivatedRoute,
               private orderDialog: MatDialog) { 
-
+              
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
@@ -81,9 +81,19 @@ export class ProductsListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("Dialog result:", result);
 
-      if(result){
+      if(result === 'order'){
 
         this.ordersListService.addOrder(newOrder).subscribe(_ => console.log('order ok'))
+
+      }else if(result === 'update'){
+
+        this.ordersListService.getUserOrders(newOrder.userId).subscribe(userOrdersFound => {
+
+          const dailyOrders = userOrdersFound.filter(order => order.date.getDay() === new Date().getDay());
+          newOrder.id = dailyOrders[0].id
+          this.ordersListService.updateOrder(newOrder).subscribe(_ => console.log('updatedOrder',_))
+
+        });
 
       }
 

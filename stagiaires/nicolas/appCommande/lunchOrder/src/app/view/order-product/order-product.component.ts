@@ -24,7 +24,24 @@ export class OrderProductComponent implements OnInit {
   }
   onButtonClick(button:string){
 
-    this.dialogRef.close(button);
+    this.orderListService.getUserOrders(this.order.userId).subscribe(userOrdersFound => {
+
+      const dailyOrders = userOrdersFound.filter(order => order.date.getDay() === new Date().getDay())
+
+      if(dailyOrders.length > 0){
+
+        let modifyOrderConfirm = confirm("Vous avez déja passé commande aujourd'hui, souhaitez vous la remplacer par votre commande actuelle ?")
+
+        if(modifyOrderConfirm){
+
+
+          this.dialogRef.close('update');
+          
+        }
+
+      }
+
+    })
 
   }
   

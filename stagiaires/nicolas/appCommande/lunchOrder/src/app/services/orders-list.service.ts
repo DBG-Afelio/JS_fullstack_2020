@@ -16,7 +16,9 @@ export class OrdersListService {
   minOrderHour:number = 6;
   maxOrderHour:number = 24;
 
-  constructor(private http:HttpClient, private providersListService:ProvidersListService, private usersListService:UsersListService ) { }
+  constructor(private http:HttpClient,
+              private providersListService:ProvidersListService,
+              private usersListService:UsersListService ) {}
 
   //getOrders
 
@@ -63,6 +65,18 @@ export class OrdersListService {
               })
             )
   }
+  
+
+  getUserOrders(userId:number):Observable<Order[]>{
+
+    return this.http.get<OrderDto[]>(`http://localhost:3000/commandes?user_id=${userId}`)
+    .pipe(
+      map((arrayOrderDto:OrderDto[]) => {
+        return arrayOrderDto.map((orderDto:OrderDto) => Order.fromDto(orderDto)) 
+      })
+    )
+  }
+
 
 //modifyOrders
 
