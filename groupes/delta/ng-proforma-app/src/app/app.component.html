@@ -6,6 +6,7 @@
     <a *ngIf="!user" routerLink='login' >Connexion</a>
     <a *ngIf="user?.admin && user" routerLink='users' >Membres</a>
     <a *ngIf="user" routerLink='user/{{user.login}}' >Profil</a>
+    <a *ngIf="user?.admin && user" routerLink='newuser'>Nouveau</a>
     <img src="./assets/img/logoProforma.png" class="img">
     <span class="timer">{{timer}}</span>
 </div>

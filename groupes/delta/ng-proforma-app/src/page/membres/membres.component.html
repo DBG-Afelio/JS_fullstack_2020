@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let membre of sortMembre()">
+    <tr *ngFor="let membre of sortMembre()" routerLink='/user/{{membre.login}}'>
       <td>{{membre.id}}</td>
       <td>{{membre.nom}}</td>
       <td>{{membre.prenom}}</td>
@@ -31,3 +31,4 @@
     </tr>
   </tbody>
 </table>
+<button routerLink='/newuser'>Ajouter un utilisateur</button>

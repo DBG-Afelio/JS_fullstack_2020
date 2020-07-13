@@ -39,6 +39,10 @@ th, td {
     border: solid rosybrown 2px;
 }
 
+tbody tr:hover{
+    background-color: #ff5e6c;
+}
+
 .is-sorted-up::after{
     content: url("../../assets/img/arrow-up.svg");
 }
