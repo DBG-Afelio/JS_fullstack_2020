@@ -19,6 +19,7 @@ export class OrderService {
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
+  public orderDeadline: Date;
   public TODAY = new Date();
   public TODAY_str: string = this.TODAY.getDate().toString() + this.TODAY.getMonth().toString() + this.TODAY.getFullYear().toString();
 

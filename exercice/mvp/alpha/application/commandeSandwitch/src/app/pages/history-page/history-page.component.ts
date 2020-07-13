@@ -24,7 +24,7 @@ export class HistoryPageComponent implements OnInit {
       this.currentUser = user;
       if (user) {
         this.orderService.getAllFullOrders().subscribe((fullHistory) => {
-          this.ordersHistory = fullHistory.filter(fullOrder => fullOrder.getUser().id === user.id);
+          this.ordersHistory = fullHistory.filter(fullOrder => fullOrder.getOrder().userId === user.id);
         });
       }
     });

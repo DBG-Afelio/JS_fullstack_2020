@@ -1,7 +1,7 @@
 <h1>
     Mon historique de commandes 
 </h1>
-<table *ngIf="currentUser">
+<table *ngIf="currentUser && ordersHistory">
     <tr>
         <th class="th-date">DATE DE COMMANDE</th>
         <th class="th-product">PRODUIT</th>
@@ -10,15 +10,15 @@
         <th class="th-payed">PAIEMENT</th>
         <th class="th-button"> - </th>
     </tr>
-    <tr *ngFor = "let fullOrder of ordersHistory">
-        <td>{{ fullOrder.getOrder().date.toLocaleDateString() }}</td>
-        <td>{{ fullOrder.getProduct().name }}</td>
-        <td>{{ optionsToString(fullOrder.getSelectedOptions()) }}</td>
-        <td>{{ fullOrder.getTotalPrice() }} €</td>
-        <td>{{ fullOrder.getOrder().isPayed ? "cash" : "a credit" }}</td>
+    <tr *ngFor = "let userHistOrder of ordersHistory">
+        <td>{{ userHistOrder.getOrder().date.toLocaleDateString() }}</td>
+        <td>{{ userHistOrder.getProduct().name }}</td>
+        <td>{{ optionsToString(userHistOrder.getSelectedOptions()) }}</td>
+        <td>{{ userHistOrder.getTotalPrice() }} €</td>
+        <td>{{ userHistOrder.getOrder().isPayed ? "cash" : "a credit" }}</td>
         <td class="td-button">
             <button 
-            (click)="goToProduct(fullOrder.getProduct().id,fullOrder.getSelectedOptions())">
+            (click)="goToProduct(userHistOrder.getProduct().id,userHistOrder.getSelectedOptions())">
                 Commander
             </button>
         </td>
