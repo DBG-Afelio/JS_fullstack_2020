@@ -9,6 +9,7 @@ import { TimerService } from 'src/service/timer.service';
 import { CommandesService } from 'src/service/commandes.service';
 import { Commande } from 'src/model/commande';
 import { UsersService } from 'src/service/users.service';
+import { Option } from 'src/model/option';
 
 @Component({
   selector: 'app-fournisseur',
@@ -16,10 +17,12 @@ import { UsersService } from 'src/service/users.service';
   styleUrls: ['./fournisseur.component.css']
 })
 export class FournisseurComponent implements OnInit {
-  DEADLINE = {HOURS:10, MINUTES: 0};
+  DEADLINE = {HOURS:12, MINUTES: 0};
   fourn_id: number;
   fournisseur: Fourn;
   selectedProduct: Product;
+  selectedOptions: Option[] = [];
+  pending_command: Commande;
   hour: Date;
   message: string;
  
@@ -48,27 +51,38 @@ export class FournisseurComponent implements OnInit {
 
   select(product: Product) {
     this.selectedProduct = product;
-
+    this.selectedOptions = [];
   }
 
-  checkeOrder() {
+  checkeOrder(product:Product) {
     
     console.log(this.hour.getMinutes());
     if ( this.fournisseur.openToday()) {
-      this.message = 'You can order any thing you like ';
+      //this.message = 'You can order any thing you like ';
+      this.sendOrder(product)
     }
     
-    else if (this.fournisseur.openToday()===false) {
+    else if (!this.fournisseur.openToday()) {
       this.message = "Désolées les commandes ne sont pas disponibles le week-end" ; 
     }
 
   }
 
   sendOrder(product:Product) {
-    this.commandsService.pending_command = new Commande(
-      this.usersService.user_co.Id,
-      product.id
-    )
+    if(this.usersService.user_co){
+      this.commandsService.pending_command = new Commande(
+        this.usersService.user_co.Id,
+        product.id
+      ).setProduct(product).setUser(this.usersService.user_co).setOptions(this.selectedOptions);
+      this.pending_command = this.commandsService.pending_command;
+    }
+  }
+
+  optionsChange(options:Option[]):void {
+    this.selectedOptions = options;
+    if(this.commandsService.pending_command) {
+      this.commandsService.pending_command.setOptions(options);
+    }
   }
  
 

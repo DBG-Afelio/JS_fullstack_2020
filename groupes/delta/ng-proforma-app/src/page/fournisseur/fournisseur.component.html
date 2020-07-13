@@ -37,8 +37,8 @@
 
 
 
-    <app-options [options]="selectedProduct.options"></app-options>
+    <app-options [options]="selectedProduct.options" [selected_options]="selectedOptions" (options_change)="optionsChange($event)"></app-options>
 </div>
-<button *ngIf="stillInTime()" (click)="checkeOrder()">Vérifier</button>
+<button *ngIf="hour && stillInTime() && selectedProduct && !pending_command || pending_command?.product !== selectedProduct" (click)="checkeOrder(selectedProduct)">Choisir</button>
 <p class="message"> {{message}} </p>
-<p class="hour">{{hour.getHours()}}:{{hour.getMinutes()}}:{{hour.getSeconds()}}</p>
+<p class="hour">{{hour?.getHours()}}:{{hour?.getMinutes()}}:{{hour?.getSeconds()}}</p>

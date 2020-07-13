@@ -40,7 +40,7 @@ export class Commande {
         return {
             user_id: this.user_id,
             product_id: this.product_id,
-            option_ids: this.option_ids,
+            option_ids: this.options ? this.options.map(option => option.id) : this.option_ids,
             paye: this.paye,
             id: this.id,
             date: this.date.toJSON()

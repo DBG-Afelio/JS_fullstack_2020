@@ -4,8 +4,7 @@
   <li class="ulList" *ngFor="let option of options ; index as i">
     {{i+1}} :Nom :{{option.nom}}. <br>
     Surcout :{{option.surcout}}€.<br>
-    <input *ngIf="selected_options" type="checkbox" [checked]="selected_options.includes(option)">
-    
+    <input *ngIf="selected_options" type="checkbox" readonly [checked]="selected_options.includes(option)" (click)="selectOption(option)">
   </li>
 </ul>
 </nav>
