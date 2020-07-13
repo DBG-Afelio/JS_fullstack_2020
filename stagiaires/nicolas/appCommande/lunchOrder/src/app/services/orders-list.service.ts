@@ -55,6 +55,7 @@ export class OrdersListService {
                   const orderProductOptions = productsList.find(product => product.id === order.productId).options;
 
                   order.setOptions(orderProductOptions.filter(option => order.optionsId.includes(option.id)))
+                  order.setTotalPrice()
                   
                 })
                 return ordersList

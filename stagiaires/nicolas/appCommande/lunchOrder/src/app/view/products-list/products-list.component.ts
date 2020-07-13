@@ -9,6 +9,7 @@ import { OrderProductComponent } from '../order-product/order-product.component'
 import { Order } from 'src/app/models/order';
 import { UsersListService } from 'src/app/services/users-list.service';
 import { User } from 'src/app/models/user';
+import { OrdersListService } from 'src/app/services/orders-list.service';
 
 @Component({
   selector: 'app-products-list',
@@ -23,6 +24,7 @@ export class ProductsListComponent implements OnInit {
 
   constructor(private providersListService:ProvidersListService,
               private usersListService:UsersListService,
+              private ordersListService:OrdersListService,
               route:ActivatedRoute,
               private orderDialog: MatDialog) { 
 
@@ -77,7 +79,14 @@ export class ProductsListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log("Dialog result:", result);
+
+      if(result){
+
+        this.ordersListService.addOrder(newOrder).subscribe(_ => console.log('order ok'))
+
+      }
+
     });
 
   }

@@ -40,6 +40,12 @@ export class ProductDisplayComponent implements OnInit {
   onOrderButtonClick(){
 
     this.newOrder.optionsId = this.options;
+    
+    this.newOrder.setUser(this.currentUser);
+    this.newOrder.setProduct(this.product);
+    this.newOrder.setOptions(this.newOrder.getSelectedOptions());
+    this.newOrder.setTotalPrice();
+
     this.productOrdered.emit(this.newOrder)
 
   }

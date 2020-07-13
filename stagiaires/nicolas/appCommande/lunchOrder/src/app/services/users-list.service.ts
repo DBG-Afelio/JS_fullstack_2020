@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { UserDto } from '../models/user-dto';
 import { map } from 'rxjs/operators';
+import { Order } from '../models/order';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class UsersListService {
 
   //private currentUser:User=null;
   private currentUserSubject:BehaviorSubject<User> = new BehaviorSubject(null);
+  private currentUserOrder:BehaviorSubject<Order> = new BehaviorSubject(null);
+
+  //currentUserOrder:Order;
+  maxCreditForUsers:number = 10;
 
 
   constructor(private http:HttpClient) { }
@@ -81,14 +86,18 @@ export class UsersListService {
         })
       )
   }
-  /*getCurrentUser():User{
-    return this.currentUser
-  }*/
+
   getCurrentUser(): Observable<User>{
 
     return this.currentUserSubject.asObservable()
 
   }
+  getCurrentUserOrder(): Observable<Order>{
+
+    return this.currentUserOrder.asObservable()
+
+  }
+
   logoutUser(){
     this.currentUserSubject.next(null)
   }

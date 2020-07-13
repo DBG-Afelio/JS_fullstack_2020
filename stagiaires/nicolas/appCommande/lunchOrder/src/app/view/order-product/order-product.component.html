@@ -4,16 +4,23 @@
 <span>Suppléments :</span>
 <ul>
 
-    <li >
+    <li *ngFor='let option of order.options'>
+
+        {{option.nom}} +{{option.surcout}} €
 
     </li>
 
 </ul>
-
+<div>
+    Total
+    <hr>
+    {{order.totalPrice}} €
+</div>
 <mat-dialog-actions>
 
-    <button>Commander</button>
-    <button mat-dialog-close>Annuler</button>       
+    <button (click)="onButtonClick('order')">Commander</button>
+    <button (click)="onButtonClick('credit')">Faire Crédit</button>
+    <button mat-dialog-close >Annuler</button>       
 
 </mat-dialog-actions>
 

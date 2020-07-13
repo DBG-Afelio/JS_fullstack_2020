@@ -6,9 +6,10 @@ import { OrderOption } from './order-option';
 
 export class Order {
 
-    user:User
-    product:Product
-    options:OrderOption[]
+    user:User;
+    product:Product;
+    options:OrderOption[];
+    totalPrice:number;
 
     constructor(public userId:number,
                 public productId:number,
@@ -63,6 +64,19 @@ export class Order {
     getSelectedOptions():OrderOption[]{
 
         return this.product.options.filter(option => this.optionsId.includes(option.id))
+
+    }
+    getTotalPriceOptions(){
+
+        let totalPrice:number = 0;
+        this.options.forEach(option => totalPrice += option.surcout);
+
+        return totalPrice
+
+    }
+    setTotalPrice(){
+
+        this.totalPrice = this.product.price + this.getTotalPriceOptions();
 
     }
 
