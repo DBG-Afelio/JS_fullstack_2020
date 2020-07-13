@@ -34,10 +34,13 @@ export class OrderProductComponent implements OnInit {
 
         if(modifyOrderConfirm){
 
-
           this.dialogRef.close('update');
           
         }
+
+      }else{
+
+        this.dialogRef.close('order');
 
       }
 

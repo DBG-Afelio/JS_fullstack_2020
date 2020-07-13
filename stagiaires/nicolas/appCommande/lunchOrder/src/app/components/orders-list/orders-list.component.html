@@ -15,7 +15,7 @@
         <td>
           {{order.user.name | uppercase}} {{order.user.surname | titlecase}}
         </td>
-        <td>{{order.product.name}}</td>
+        <td (click)="onOrderNameClick(order)">{{order.product.name}}</td>
         <td>{{order.date | date:'d/M/y'}}</td>
         <td>{{order.totalPrice}} €</td>
         <td>{{order.isPaid?'ok':'En attente'}}</td>

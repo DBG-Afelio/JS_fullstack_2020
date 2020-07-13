@@ -14,6 +14,8 @@ export class OrdersListComponent implements OnInit {
   @Input() currentUser:User;
 
   @Output() cancelOrder:EventEmitter<Order> = new EventEmitter();
+  @Output() orderNameClick:EventEmitter<Order> = new EventEmitter();
+
 
   constructor() { }
 
@@ -25,6 +27,11 @@ export class OrdersListComponent implements OnInit {
   onCancelOrderButtonClick(orderToCancel:Order){
 
     this.cancelOrder.emit(orderToCancel);
+
+  }
+  onOrderNameClick(orderClicked:Order){
+
+
 
   }
 
