@@ -42,4 +42,11 @@ export class Order {
         }
         return [];
     }
+    getTotalPrice(){
+        let optionPrice=this.getSelectedOptions().reduce((total, currentOption) => 
+        total + currentOption.surcout, 
+        0
+        );
+        return this.item.prix + optionPrice;
+    }
 }

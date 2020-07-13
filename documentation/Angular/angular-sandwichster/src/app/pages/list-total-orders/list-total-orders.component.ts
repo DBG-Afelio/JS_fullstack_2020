@@ -25,7 +25,9 @@ export class ListTotalOrdersComponent implements OnInit {
   getOrders(){
     return this.todayOrders;
   }
-
+  getTotalPriceForOneDay(){
+    return this.todayOrders.reduce((total, oneOrder) => total + oneOrder.getTotalPrice(),0)
+  }
 
   
 

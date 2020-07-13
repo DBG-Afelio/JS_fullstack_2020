@@ -15,6 +15,8 @@ import{ ListUsersComponent } from './pages/list-users/list-users.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import{ DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
+import{ AddNewProductComponent } from './pages/add-new-product/add-new-product.component'
+
 
 //Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'
@@ -44,7 +46,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     ListSuppliersCompComponent,
     DetailSupplierComponent,
     DetailSupplierCompComponent,
-    ModifyItemComponent
+    ModifyItemComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+.divSupplier{
+    border: 1px black solid;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.divSupplier label{
+    font-weight: bold;
+}
+
+.divOption{
+    border: 1px black solid;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.divOption p{
+    font-weight: bold;
+}
+
+.divValidation{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
