@@ -3,7 +3,7 @@ import { User } from 'src/app/models/userModel/user';
 import { UserService } from 'src/app/services/userService/user.service';
 import { OrderService } from 'src/app/services/orderService/order.service';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
-import { Deadline } from 'src/app/models/deadlineModel/deadline';
+
 
 @Component({
   selector: 'app-main-nav',
