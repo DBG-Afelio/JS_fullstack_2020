@@ -41,11 +41,11 @@ export class UserNavComponent implements OnInit {
         break;
       }
       case 10: {
-        message = `Vous avez epuise la totalite de votre credit authorise ! Veuillez vous acquitter du montant du aupres de l'administrateur`;
+        message = `Vous avez epuise la totalite de votre credit authorise ! Pensez a vous acquitter du montant du aupres de l'administrateur`;
         break;
       }
       default: {
-        message = `Vous avez consommé € ${this.currentUser.credit} sur votre credit autorise. Veuillez vous acquitter du montant du aupres de l'administrateur`;
+        message = `Vous avez consommé € ${this.currentUser.credit} sur votre credit autorise. Pensez a vous acquitter du montant du aupres de l'administrateur`;
       }
     }
     return message;

@@ -26,6 +26,7 @@
         (click)="saveInLocalStorage()">
         AJOUTER >>
     </button>  
+  
     <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
         (click)="remove()">
         RETIRER

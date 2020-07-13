@@ -36,16 +36,18 @@ export class OrderService {
   private updateFullOrder(user: User): void{    
     let found: FullOrder = null;
     if (this.currentUser) { //utilsateur connected
-      const foundInLocalStorage: FullOrder = this.findInLocalStorage(user); //je cherche d'abord en local
-      if (foundInLocalStorage) { //trouved en local
-        // foundInLocalStorage.setConfirmStatus(false);
-        found = foundInLocalStorage;
-        console.log(found);
+      const orderLS: Order = this.findInLocalStorage(user); //je cherche d'abord en local
+      if (orderLS) { //trouved en local
+        this.productService.getProductById(orderLS.productId).subscribe((productFound) => {
+          found = new FullOrder(user, orderLS, productFound, false);
+          console.log('local', found);
+        });
       } else { //pas trouved en local
-        this.findTodayServerOrder(user).subscribe((order) => {
-          if (order) { //trouved sur Server
-            this.productService.getProductById(order.productId).subscribe((productFound) => {
-              found = new FullOrder(user, order, productFound, true);
+        this.findTodayServerOrder(user).subscribe((orderDB) => {
+          if (orderDB) { //trouved sur Server
+            this.productService.getProductById(orderDB.productId).subscribe((productFound) => {
+              found = new FullOrder(user, orderDB, productFound, true);
+              console.log('server', found);
             });
           } else { // pas trouved ni en local ni sur server
             found = null;
@@ -55,6 +57,7 @@ export class OrderService {
     } else { //aucun utilisateur connected
       found = null;
     }
+    console.log(found);
     this.setFullOrder(found);
   }
   
@@ -98,7 +101,7 @@ export class OrderService {
 
 /*----------------------SETTER GETTER FullOrder ----------------------------------*/
   private setFullOrder(fullOrder: FullOrder): void {
-    console.log('setFullOrder method======================////');
+    console.log('setFullOrder method======================////', fullOrder);
     if (fullOrder) {
       this.userFullOrder.next(fullOrder);
       console.log('full yes');
@@ -113,13 +116,13 @@ export class OrderService {
   }
 
 /*------local storage related & userOrderLocal variable----*/
-  public addInLocalStorage(fullOrder: FullOrder): void {
-    let key: string = fullOrder.getUser().id.toString() + '_' + this.TODAY_str;
-    localStorage.setItem(key, JSON.stringify(fullOrder));
+  public addInLocalStorage(order: Order): void {
+    let key: string = order.userId.toString() + '_' + this.TODAY_str;
+    localStorage.setItem(key, JSON.stringify(order));
     this.updateFullOrder(this.currentUser);
   }
-  public findInLocalStorage(user:User): FullOrder{
-    let foundOrder: FullOrder = null;
+  public findInLocalStorage(user:User): Order{
+    let foundOrder: Order = null;
     if (user && localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
@@ -165,6 +168,7 @@ export class OrderService {
   }
 
   public addOrderIntoServer(fullPayload: FullOrder): void {
+    fullPayload.getOrder().date = new Date();
     this.http.post<IOrderDto>(`${this.orderUrl}`, fullPayload.getOrder().toDto()).subscribe({
       next: returnedOrder => {
         this.removeFromLocalStorage();

@@ -35,17 +35,14 @@ export class MainNavComponent implements OnInit {
     this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
     this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
-      console.log('---MAIN-NAV CHANGED FullORDER ===>>> ', full?.getOrder().id, full?.isConfirmed());
+      console.log('---MAIN-NAV CHANGED FullORDER ===>>> ',
+      full ? `${full.getOrder().id} - ${full.isConfirmed()}` : null);
     });
   }
   
   public updateCurrentUser(user: User): void {
     this.userService.setCurrentUser(user);
-    if (user) {
-      console.log('user changed to : ', user.firstName)
-    } else {
-      console.log('user changed to : ', user);
-    }
+    console.log('user changed to : ', user ? user.firstName : user);
   }
 
   public deleteOrder(): void{

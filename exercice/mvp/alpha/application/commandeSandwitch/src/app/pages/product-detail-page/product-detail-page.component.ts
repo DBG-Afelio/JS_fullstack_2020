@@ -95,16 +95,19 @@ export class ProductDetailPageComponent implements OnInit {
         }
       }
     }
+   // this.loadData();
   }
 
-  private createNewOrder(): FullOrder{
-    let newFullOrder: FullOrder = new FullOrder(
-      this.currentUser,
-      new Order(this.currentUser.id, this.product.id, this.optionsSelected, false, 0, new Date()),
-      this.product,
-      false
-    )
-    return newFullOrder;
+  private createNewOrder(): Order{
+    
+    return new Order(
+      this.currentUser.id,
+      this.product.id,
+      this.optionsSelected,
+      false, //isPayed
+      0,  //id = 0 pour les new
+      new Date()
+    );
   }
 
   
