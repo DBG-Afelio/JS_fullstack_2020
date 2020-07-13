@@ -1,4 +1,39 @@
 
       <nav class="sidebar">
+            <h1> {{ selectedProduct?.nom }} </h1>
+            <p> {{ selectedProduct?.description }}</p>
+            <p> {{ selectedProduct?.prix }} euros </p>
+            
+            <form *ngFor="let e of selectedProduct?.options; let indexOfElem = index" (change)="optionSelection(e, indexOfElem)">
+                  <div> 
+                  <input 
+                  type="checkbox"
+                  name="option"
+                  value="{{ e.id }}">
+                  <label> {{ e.nom }} : {{ e.surcout }} € </label>  
+                  </div>
+            </form>
+            
+            <!-- ATTENTION LORS DE LA SELECTION D'UNE OPTION LE PRIX DOIT ÊTRE AFFICHÉ EN CSQ -->
+
+            <p> Fournisseur : {{ selectedProductSupplier?.nom }} </p>
+            
+
+            <input type="radio" value="true"
+            [(ngModel)]="isPaid"
+            (change)="isPaidSelection($event.target.value)"/> 
+            <label for="paymentStatus">Payé </label>
+            <input type="radio" value="false"
+            [(ngModel)]="isPaid"
+            (change)="isPaidSelection($event.target.value)"/> 
+            <label for="paymentStatus">Non-payé </label>
+
+            <div class="total">
+                  <p> Total : {{ selectedProductPrice }} </p>
+  
+            </div>
+
+
+            <button (click)="orderGoEvent()"> Envoyer la commande </button>
 
       </nav>

@@ -54,6 +54,84 @@
       "paye": true,
       "id": 2,
       "date": "2020-02-21T13:38:10.681Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 5,
+      "option_ids": [],
+      "paye": true,
+      "id": 3,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 8,
+      "option_ids": [],
+      "paye": true,
+      "id": 4,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 3,
+      "option_ids": [],
+      "paye": true,
+      "id": 5,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 16,
+      "option_ids": [],
+      "paye": true,
+      "id": 6,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 5,
+      "option_ids": [],
+      "paye": true,
+      "id": 7,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 8,
+      "date": ""
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": "true",
+      "id": 9,
+      "date": "Mon Jul 13 2020 13:41:13 GMT+0200 (heure d’été d’Europe centrale)"
+    },
+    {
+      "user_id": 1,
+      "product_id": 4,
+      "option_ids": [],
+      "id": 10,
+      "date": "Mon Jul 13 2020 13:41:34 GMT+0200 (heure d’été d’Europe centrale)"
+    },
+    {
+      "user_id": 1,
+      "product_id": 2,
+      "option_ids": [],
+      "id": 11,
+      "date": "Mon Jul 13 2020 13:43:57 GMT+0200 (heure d’été d’Europe centrale)"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": "true",
+      "id": 12,
+      "date": "2020-07-13T11:45:53.952Z"
     }
   ],
   "fournisseurs": [
@@ -61,7 +139,7 @@
       "id": 1,
       "nom": "Poivre & Sel",
       "description": "Sandwicherie Fine",
-      "ferme": true,
+      "ferme": false,
       "archive": false,
       "horaire": [
         false,
