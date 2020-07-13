@@ -2,5 +2,67 @@ form{
     display: inline-grid;
 }
 .error_empty{
-    color: red;
+    background-color: #fce4e4;
+    border: 1px solid #fcc2c3;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+   
+    color: #cc0033;
+    
+    font-weight: bold;
+    line-height: 24px;
+    position: relative;
+    
+    padding: 7px 11px 4px;
+    
+    
+}
+
+.container{
+    margin-top: 100px;
+    margin-left: 570px;
+}
+.userFormula{
+    width: 300px;
+    height: 450px;
+    padding: 30px 30px ;
+    margin: 0 auto;
+    background: rgb(92, 178, 248);
+    border: 2px solid rgba(115, 32, 170, 0.1);
+    border-radius: 20px;  
+}
+.inputClass{
+    font-size: 16px;
+    padding: 10px;
+    margin: 3px;
+    background:white ;
+    -webkit-background:white ;
+    border: 2px solid rgba(8, 212, 8, 0.1);
+    border-radius: 10px;
+}
+.errorNom{
+    position: absolute;
+    top: 235px;
+    left  : 950px;
+}
+.errorPrenom{
+    position: absolute;
+    top: 325px;
+    left  :950px;
+}
+.errorLogin{
+    position: absolute;
+    top: 420px;
+    left  :950px;
+}
+.errorPassowrd{
+    position: absolute;
+    top: 510px;
+    left  :950px;
+}
+.errorFormation{
+    position: absolute;
+    top: 560px;
+    left  :950px; 
 }

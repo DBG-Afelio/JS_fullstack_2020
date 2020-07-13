@@ -16,10 +16,10 @@ export class NewuserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
     this.checkoutForm = this.formBuilder.group({
       nom: new FormControl(this.user.nom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
-      prenom: '',
-      login: '',
-      password: '',
-      formation: ''
+      prenom: new FormControl(this.user.prenom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
+      login: new FormControl(this.user.login ,[Validators.minLength(4),Validators.required ,Validators.maxLength(15)]), 
+      password: new FormControl(this.user.password , [Validators.minLength(8), Validators.required , Validators.maxLength(15)]),
+      formation: new FormControl(this.user.formation , [Validators.required])
     });
   }
 
