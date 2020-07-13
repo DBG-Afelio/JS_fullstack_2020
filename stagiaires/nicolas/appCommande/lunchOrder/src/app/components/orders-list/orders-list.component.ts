@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from 'src/app/models/order';
 import { User } from 'src/app/models/user';
+import { OrdersListService } from 'src/app/services/orders-list.service';
 
 @Component({
   selector: 'app-orders-list',
@@ -17,7 +18,7 @@ export class OrdersListComponent implements OnInit {
   @Output() orderNameClick:EventEmitter<Order> = new EventEmitter();
 
 
-  constructor() { }
+  constructor(private ordersListService:OrdersListService) { }
 
   ngOnInit(): void {
 
@@ -32,6 +33,24 @@ export class OrdersListComponent implements OnInit {
   onOrderNameClick(orderClicked:Order){
 
 
+
+  }
+  onPayOrderButtonCLick(orderToPay:Order){
+
+    let payOrderConfirm = confirm(`confirmer le payement de ${orderToPay.totalPrice} € de la part de ${orderToPay.user.surname} ${orderToPay.user.name} ?`);
+
+    if(payOrderConfirm){
+
+      orderToPay.isPaid = true;
+      this.ordersListService.updateOrder(orderToPay).subscribe()
+
+
+    }
+
+  }
+  isNotOutdated(date:Date){
+
+    return date.getDay() === new Date().getDay() && date.getHours() < this.ordersListService.maxOrderHour
 
   }
 

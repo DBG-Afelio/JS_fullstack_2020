@@ -12,17 +12,12 @@
          </mat-menu>
           
         <hr>
-        <span>Détails :</span>
+        <h3>Détails :</h3>
         <p>{{product?.description}}</p>
-        <span>Prix : {{product?.price}} €</span>
-        <h4>Suppléments</h4>
+        <label>Prix : <output>{{product?.price}}</output> €</label>
 
 
-            <span>
-
-              Suppléments
-
-            </span>
+        <h3>Suppléments</h3>
 
             <ul>
               <li *ngFor='let option of product.options'>
@@ -33,11 +28,14 @@
                 </mat-checkbox>
               </li>
             </ul>
-        
-        <div>
+
+        <hr>
+        <div class='orderButtonContainer'>
             
             <button [disabled]='isOrderAvailable()' (click)='onOrderButtonClick()'>Commander!</button>
             <br>
             <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
+            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
+
 
         </div>

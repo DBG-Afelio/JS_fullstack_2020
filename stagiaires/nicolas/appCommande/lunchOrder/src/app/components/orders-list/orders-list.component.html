@@ -18,8 +18,10 @@
         <td (click)="onOrderNameClick(order)">{{order.product.name}}</td>
         <td>{{order.date | date:'d/M/y'}}</td>
         <td>{{order.totalPrice}} €</td>
-        <td>{{order.isPaid?'ok':'En attente'}}</td>
-        <td><button (click)='onCancelOrderButtonClick(order)'>annuler la commande</button></td>
+        <td>{{order.isPaid?'ok':'En attente'}}
+          <button (click)='onPayOrderButtonCLick(order)' *ngIf='!order.isPaid'>payer</button>
+        </td>
+        <td *ngIf="isNotOutdated(order.date)"><button (click)='onCancelOrderButtonClick(order)'>annuler la commande</button></td>
       </tr>
       
     </tbody>

@@ -68,12 +68,12 @@
     },
     {
       "user_id": 1,
-      "product_id": 4,
+      "product_id": 74,
       "option_ids": [
-        2,
-        1
+        1,
+        0
       ],
-      "paye": false,
+      "paye": true,
       "id": 3,
       "date": "Mon Jul 13 2020"
     }

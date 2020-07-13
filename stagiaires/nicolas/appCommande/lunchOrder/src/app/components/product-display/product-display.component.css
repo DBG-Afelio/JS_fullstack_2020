@@ -8,3 +8,19 @@
     cursor: pointer;
 
 }
+.orderButtonContainer{
+
+float: right;
+
+}
+.orderButtonContainer > button{
+
+    float: right;
+
+}
+
+.orderButtonContainer > span{
+
+    display: inline-block;
+
+}
