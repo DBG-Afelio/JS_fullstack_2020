@@ -1,9 +1,23 @@
 .volet-lateral{
     display:flex;
     flex-direction: column;
-    border: solid;
+    padding: 20px;
     position: relative;
     
-    margin-top: 70px;
+    margin-top: 142px;
     background-color: whitesmoke;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+}
+
+.onglet {
+    display: block;
+    background-color:white;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: right;
+}
+
+.onglet:hover {
+    background-color: rgb(227, 243, 249);;
+
 }

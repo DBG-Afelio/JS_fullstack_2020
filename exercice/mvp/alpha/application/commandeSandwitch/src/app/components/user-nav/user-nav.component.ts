@@ -37,15 +37,15 @@ export class UserNavComponent implements OnInit {
     let message: string = '';
     switch (this.currentUser.credit) {
       case 0: {
-        message = `Il vous reste la totalite de votre credit autorise d'un montant de € ${this.creditMax}`;
+        message = `Il vous reste la totalité de votre crédit autorisé d'un montant de € ${this.creditMax}`;
         break;
       }
       case 10: {
-        message = `Vous avez epuise la totalite de votre credit authorise ! Pensez a vous acquitter du montant du aupres de l'administrateur`;
+        message = `Vous avez épuisé la totalité de votre crédit authorisé ! Pensez à vous acquitter du montant dû auprès de l'administrateur`;
         break;
       }
       default: {
-        message = `Vous avez consommé € ${this.currentUser.credit} sur votre credit autorise. Pensez a vous acquitter du montant du aupres de l'administrateur`;
+        message = `Vous avez consommé € ${this.currentUser.credit} sur votre crédit autorisé. Pensez à vous acquitter du montant dû aupres de l'administrateur`;
       }
     }
     return message;
@@ -65,7 +65,7 @@ export class UserNavComponent implements OnInit {
         msg += ` - ${this.fullOrder.getTotalPrice()} €`;
       }
     } else {
-      msg = 'Pas de commande a ce jour'
+      msg = 'Pas de commande à ce jour'
     }
     return msg;
   }

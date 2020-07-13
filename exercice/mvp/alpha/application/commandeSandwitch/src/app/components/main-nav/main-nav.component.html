@@ -20,10 +20,10 @@
         (deleteRequest)="deleteOrder()">
     </app-user-nav>
 
-    <a *ngIf="currentUser"
+    <a *ngIf="currentUser" class="onglet"
       routerLink="/"
       (click)="updateCurrentUser(null)">
-      Se deconnecter
+      Se déconnecter
     </a>
 </nav>
 
