@@ -16,7 +16,7 @@
       "password": "pcast",
       "nom": "CASTRONOVO",
       "prenom": "Pierre",
-      "credit": 0,
+      "credit": 9.8,
       "formation": "FullStack Web Dev",
       "banni": false,
       "admin": false,
@@ -156,6 +156,25 @@
       "paye": true,
       "id": 13,
       "date": "Mon Jul 13 2020 10:12:20 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 4,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 14,
+      "date": "Mon Jul 13 2020 11:22:26 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 2,
+      "product_id": 8,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": false,
+      "id": 15,
+      "date": "Mon Jul 13 2020 11:24:15 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
