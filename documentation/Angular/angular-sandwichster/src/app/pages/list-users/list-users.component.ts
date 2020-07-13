@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User }  from 'src/app/interfaces/user';
+import { UserModel }  from 'src/app/interfaces/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  public arrayUsers: User[];
+  public arrayUsers: UserModel[];
+  public currentUserIndex: number;
 
   constructor(public listusers: UserService) {
     this.listusers.getUsers().subscribe((data) => this.arrayUsers = data)
@@ -22,15 +23,15 @@ export class ListUsersComponent implements OnInit {
   //  Methodes User a completer
 
   addUser() {
-
+    // return this.listusers
   }
 
   removeUser() {
-    
+
   }
 
   updateUser() {
-    
+    // return this.listusers.updateUser()
   }
 
 }

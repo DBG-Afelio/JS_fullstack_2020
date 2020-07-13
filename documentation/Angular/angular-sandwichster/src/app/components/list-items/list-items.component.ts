@@ -9,8 +9,6 @@ import { Item } from 'src/app/interfaces/item';
 })
 export class ListItemsComponent implements OnInit {
 
-
-
 @Output() selectedProduct2 = new EventEmitter<Item>();
 
 @Input() listProducts;

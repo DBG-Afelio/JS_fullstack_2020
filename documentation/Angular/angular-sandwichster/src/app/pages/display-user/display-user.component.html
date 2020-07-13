@@ -1,0 +1,38 @@
+
+<div *ngIf ="currentUser" class="container d-flex justify-content-center">
+    <form   action="">
+        <div class="field-user-edit">
+            <label for="prenom">Prénom &nbsp;</label>
+            <input [(ngModel)] ="currentUser.prenom" name="prenom"  type="text" placeholder="Prenom">
+        </div>
+        <div class="field-user-edit">
+            <label for="nom">Nom &nbsp;</label>
+            <input [(ngModel)] ="currentUser.nom" name="nom" type="text" placeholder="Nom">
+        </div>
+        <div class="field-user-edit">
+            <label for="credit">Crédit en cours : &nbsp;</label>
+            <input [(ngModel)] ="currentUser.credit" type="number" name="credit">
+        </div>
+        <div class="field-user-edit">
+            <div class="field-user-edit">
+                <label for="formation">Formation &nbsp;</label> 
+                <input [(ngModel)] ="currentUser.formation" name ="formation" type="text" placeholder="Entrer formation">
+            </div>
+        </div>
+        <div class="field-user-edit">
+            <label for="">Est-il banni ? &nbsp;</label>
+            <select (change) ="isBanned($event.target.value)" name="banned" >
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+        </div>
+        <div class="field-user-edit">
+            <label for="">Est-il admin ? &nbsp;</label>
+            <select (change) ="isAdmin($event.target.value)" name="admin" id="">
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+        </div>
+        <button (click) ="updateEvent(currentUser)" type="submit">Modifier</button>
+    </form>
+ </div>

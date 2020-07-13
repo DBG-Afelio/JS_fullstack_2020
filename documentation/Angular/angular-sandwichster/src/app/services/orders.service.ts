@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import{ Order } from '../interfaces/order';
-import { OrderDto } from '../interfaces/orderDto'
+import { OrderDto } from '../interfaces/orderDto';
 import { UserService } from './user.service';
 import { UserModel } from '../interfaces/user.model';
 

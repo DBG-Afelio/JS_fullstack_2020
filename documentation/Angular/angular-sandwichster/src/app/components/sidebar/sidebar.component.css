@@ -7,6 +7,9 @@
     right: 0;
     border: 1px solid black;
     background: skyblue;
-    transform: translateX(320px);
 }
+
+/* .sidebar.visible {
+    transform: translateX(0);
+} */
 
