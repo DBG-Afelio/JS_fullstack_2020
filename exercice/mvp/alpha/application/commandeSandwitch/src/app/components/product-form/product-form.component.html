@@ -57,7 +57,8 @@
 
     <div class="form-element listOptions" >
         <app-option-form *ngFor="let option of product.getOptions()"
-            [option] = "option"></app-option-form>
+            [option] = "option"
+            (delete) = "deleteOptionEvent($event)"></app-option-form>
     </div>
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/productModel/Product';
 import { ProductService } from 'src/app/services/productService/product.service';
+import { Option } from 'src/app/models/optionModel/Option';
 
 @Component({
   selector: 'app-product-form',
@@ -12,7 +13,7 @@ export class ProductFormComponent implements OnInit {
   @Input() product: Product;
   @Output() create = new EventEmitter<Product>();
   @Output() update = new EventEmitter<Product>();
-
+  @Output() deleteOption = new EventEmitter<Product>();
 
   constructor(private productService: ProductService) { }
 
@@ -25,9 +26,24 @@ export class ProductFormComponent implements OnInit {
   }
 
   public createOption() {
-    alert('ajouter une option');
+    this.product.options.push(this.createNewOption());
   }
 
+  public createNewOption() {
+    let options = this.product.options;
+    let index = 1;
+    options.forEach(option => { 
+      if (option.id === index) {
+        index++;
+      }
+    });
+    return new Option(index, '', 0);
+  }
+
+  public deleteOptionEvent(option: Option) {
+    let tabOptions = this.product.getOptions().filter(opt => opt.id !== option.id);
+    this.product.options = tabOptions;
+  }
 
   public navigateToAdmin() {
     this.productService.navigateToProductAdmin(this.product.getSupplierId());

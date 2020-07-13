@@ -48,7 +48,7 @@ export class Product {
             productDto.nom, 
             productDto.description, 
             productDto.prix,
-            productDto.options,
+            productDto.options.map(option => Option.fromDto(option)),
             productDto.fourn_id,
         );
     }
@@ -59,7 +59,7 @@ export class Product {
             nom: this.name,
             description: this.description, 
             prix: this.price,
-            options: this.options,
+            options: this.options.map(option => option.toDto()),
             fourn_id: this.supplierId,
         }
     }

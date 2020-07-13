@@ -1,3 +1,5 @@
+import { OptionDto } from './OptionDto';
+
 export class Option {
     constructor(
         public id: number,
@@ -15,5 +17,21 @@ export class Option {
 
     public getSurcout():number {
         return this.surcout;
+    }
+    
+    public static fromDto(optionDto: OptionDto): Option {
+        return new Option(
+            optionDto.id, 
+            optionDto.nom, 
+            optionDto.surcout, 
+        );
+    }
+
+    public toDto(): OptionDto {
+        return {
+            id: this.id,
+            nom: this.nom,
+            surcout: this.surcout,
+        }
     }
 }
