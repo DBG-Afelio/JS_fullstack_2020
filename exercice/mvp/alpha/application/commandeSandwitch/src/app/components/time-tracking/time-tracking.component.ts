@@ -25,7 +25,6 @@ export class TimeTrackingComponent implements OnInit {
       this.today = new Date();
       if (this.isOnTimeNow() !== this.wasOnTime) {
         console.log('ontimeNOW ? =', this.isOnTimeNow(), "wasOntime ? =", this.wasOnTime);
-
         this.isOnTimeNow() ? this.orderService.setOrderOnTime() : this.orderService.setOrderOutOfTime();
       }
     }, 1);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, forkJoin, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { IOrderDto } from './../../models/orderModel/iorder-dto';
 import { Order } from 'src/app/models/orderModel/order';
 import { User } from 'src/app/models/userModel/user';
@@ -20,7 +20,7 @@ export class OrderService {
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
-  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(21, 30, 0)); // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
+  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(22, 14, 0)); // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
   private onTime: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public today = new Date();
   public today_str: string = this.today.getDate().toString() + this.today.getMonth().toString() + this.today.getFullYear().toString();
