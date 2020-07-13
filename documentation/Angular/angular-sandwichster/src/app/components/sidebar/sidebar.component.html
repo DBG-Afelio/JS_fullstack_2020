@@ -1,4 +1,8 @@
-
-      <nav class="sidebar">
-
-      </nav>
+<nav [class.visible] ="">
+        <ul *ngFor ="let order of sidebarOrders">
+            <li >{{ order.user.nom }}</li>
+            <li >{{ order.item.nom }}</li>
+            <li ><ul><li *ngFor='let option of order.getSelectedOptions()'>{{option.nom}} {{option.surcout}}</li></ul></li>
+            <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li> 
+        </ul>
+</nav>

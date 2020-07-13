@@ -4,6 +4,7 @@ import { SuppliersService } from '../../services//suppliers.service';
 import { Item } from '../../interfaces/item';
 import { Supplier } from '../../interfaces/supplier';
 import { LoginService } from 'src/app/services/login.service';
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 
 
 @Component({
