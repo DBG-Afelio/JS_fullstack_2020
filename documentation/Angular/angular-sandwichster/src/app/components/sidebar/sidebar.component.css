@@ -7,11 +7,11 @@
     right: 0;
     border: 1px solid black;
     background: skyblue;
-    transform: translateX(0);
+    transform: translateX(320px);
     transition: all .150s ease;
 }
 
-/* .sidebar.visible {
+.sidebar.visible {
     transform: translateX(0);
-} */
+}
 
