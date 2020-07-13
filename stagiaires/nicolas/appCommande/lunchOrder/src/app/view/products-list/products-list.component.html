@@ -4,7 +4,7 @@
 <button *ngIf='currentUser?.isAdmin' routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
  
 <ul>
-    <li *ngFor='let product of productList'>
+    <li class='productItem' *ngFor='let product of productList'>
         
         <h2>{{product?.name}}</h2>
         
@@ -25,14 +25,18 @@
         <span>Prix : {{product?.price}} €</span>
         <h4>Suppléments</h4>
 
-            <mat-form-field appearance="fill">
-            <mat-label>Choisir un supplément</mat-label>
-            <mat-select>
-                <mat-option value='none' selected >Aucun</mat-option>
-                <mat-option *ngFor='let option of product.options' [value]="option">{{option.nom}} +{{option.surcout}} €</mat-option>
 
-            </mat-select>
-            </mat-form-field>
+            <mat-checkbox >
+              Suppléments
+            </mat-checkbox>
+
+            <ul>
+              <li *ngFor='let option of product.options'>
+                <mat-checkbox>
+                    {{option.nom}} +{{option.surcout}} €
+                </mat-checkbox>
+              </li>
+            </ul>
         
         <div>
             

@@ -65,7 +65,7 @@ export class UserDetailsComponent implements OnInit {
 
   onCreateUserClick(){
 
-    this.updateUser();
+    this.updateUserWithForm();
 
     console.log(this.userForm.value)
     this.usersListService.addUser(this.user).subscribe();
@@ -78,6 +78,7 @@ export class UserDetailsComponent implements OnInit {
 
     if(confirmUpdate){
 
+      this.updateUserWithForm();
       this.usersListService.updateUser(this.user).subscribe()
       this.router.navigate(['/usersList']);
 
@@ -96,9 +97,9 @@ export class UserDetailsComponent implements OnInit {
     }
     
   }
-  updateUser(){
+  updateUserWithForm(){
 
-    this.user = this.userForm.value;
+    this.user = Object.assign(this.user, this.userForm.value);
 
   }
 }

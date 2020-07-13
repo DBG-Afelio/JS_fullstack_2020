@@ -10,7 +10,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';  
 
 import { AppComponent } from './app.component';
 
@@ -59,6 +60,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatCheckboxModule,
 
   ],
   entryComponents: [

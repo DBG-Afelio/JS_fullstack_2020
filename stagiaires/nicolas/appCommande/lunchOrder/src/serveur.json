@@ -32,6 +32,17 @@
       "banni": false,
       "admin": false,
       "id": 3
+    },
+    {
+      "login": "user",
+      "password": "user",
+      "nom": "LastName",
+      "prenom": "FirstName",
+      "credit": 0,
+      "formation": "JS-Fullstack",
+      "banni": false,
+      "admin": false,
+      "id": 4
     }
   ],
   "commandes": [
