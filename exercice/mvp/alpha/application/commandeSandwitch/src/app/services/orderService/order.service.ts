@@ -34,25 +34,7 @@ export class OrderService {
     this.currentUser = currentUser;
       this.updateFullOrder(); 
     });
-    //this.getDeadline().subscribe((deadline) => {
-   
    }
- 
-  // private updateTimeStatus(deadline: Deadline):void {
-  //   this.today = new Date();
-  //   const onTimeCompare = this.today.getHours() <= deadline.getHours() && this.today.getMinutes() <= deadline.getMinutes() && this.today.getSeconds() <= deadline.getSeconds();
-  //   this.isOnTime().subscribe((wasSetOnTime) => {
-  //     if (wasSetOnTime) {
-  //       if (!onTimeCompare) {
-  //         this.setOrderOutOfTime();
-  //       }
-  //     } else {
-  //       if (onTimeCompare) {
-  //         this.setOrderOnTime();
-  //       }
-  //     }
-  //   });
-  // }
 
   private updateFullOrder(): void{    
     console.log(this.currentUser);
@@ -123,9 +105,6 @@ export class OrderService {
           })
         }));
   }
-
-
-  
 
 /*----------------------SETTER GETTER FullOrder ----------------------------------*/
   private setFullOrder(fullOrder: FullOrder): void {
@@ -223,9 +202,6 @@ export class OrderService {
   public setOrderOnTime(): void{
     this.onTime.next(true);
   }
-
- 
- 
 
   /*-------------------------------*/
   public getCreditMax(): number{
