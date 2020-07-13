@@ -21,10 +21,10 @@ export class ModifyProductComponent implements OnInit {
 
     name: new FormControl(''),
     description: new FormControl(''),
-    price: new FormControl(''),
+    price: new FormControl(0),
     options: this.formBuilder.array([]),
-    providerId: new FormControl(''),
-    id: new FormControl(''),
+    providerId: new FormControl(0),
+    id: new FormControl(0),
     provider: new FormControl('')
 
   });
@@ -52,7 +52,7 @@ export class ModifyProductComponent implements OnInit {
         routeId= param.get('productId');
         this.providersListService.getProductById(Number(routeId)).subscribe(productFound=>{
         this.product=productFound;
-        this.product.options.forEach(option => ( this.productForm.get('options') as FormArray).push(this.formBuilder.group({nom:[''],surcout:[''],id:['']})) )
+        this.product.options.forEach(option => ( this.productForm.get('options') as FormArray).push(this.formBuilder.group({nom:[''],surcout:[0],id:[0]})) )
         this.productForm.setValue(this.product);
         
         
@@ -104,7 +104,7 @@ export class ModifyProductComponent implements OnInit {
     
     this.getOptions().push(
       
-      this.formBuilder.group({nom:[''],surcout:[''],id:['']})
+      this.formBuilder.group({nom:[''],surcout:[0],id:[this.getOptions().length]})
 
     );
   }
@@ -116,6 +116,7 @@ export class ModifyProductComponent implements OnInit {
   updateProductWithForm(){
     
     this.product = Object.assign(this.product, this.productForm.value);
+    this.product.price = Number(this.productForm.get('price').value);
     console.log(this.product);
   }
 

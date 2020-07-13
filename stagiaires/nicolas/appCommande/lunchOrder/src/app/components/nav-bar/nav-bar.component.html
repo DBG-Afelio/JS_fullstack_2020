@@ -2,7 +2,17 @@
 <a *ngIf='currentUser' routerLink="/ordersHistory">Historique des commandes</a>
 <a routerLink="">Liste des commerces</a>
 <a *ngIf='currentUser?.isAdmin' routerLink="/usersList">Liste des utilisateurs</a>
-<label>Status : {{currentUser?currentUser.isAdmin?"Admin":"User":"Guest"}}</label>
-<button *ngIf='!currentUser' routerLink="/login">logIn</button>
-<button *ngIf='currentUser' (click)="onButtonLogoutClick()">Logout</button>
+
+<span>Status : {{currentUser?currentUser.isAdmin?"Admin":"User":"Guest"}} </span>
+
+
+<div>
+
+    <span>{{currentUser?.surname}} {{currentUser?.name | uppercase}} </span>
+
+    <button *ngIf='!currentUser' routerLink="/login">logIn</button>
+    <button *ngIf='currentUser' (click)="onButtonLogoutClick()">Logout</button>
+
+</div>
+
 

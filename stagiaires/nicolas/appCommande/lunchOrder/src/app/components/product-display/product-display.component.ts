@@ -60,6 +60,7 @@ export class ProductDisplayComponent implements OnInit {
       this.options.push(option.id)
 
     }
+    console.log(this.options)
   }
   isOrderAvailable(){
 

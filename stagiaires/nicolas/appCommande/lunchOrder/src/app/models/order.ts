@@ -75,7 +75,7 @@ export class Order {
 
     }
     setTotalPrice(){
-
+        this.totalPrice = 0;
         this.totalPrice = this.product.price + this.getTotalPriceOptions();
 
     }
