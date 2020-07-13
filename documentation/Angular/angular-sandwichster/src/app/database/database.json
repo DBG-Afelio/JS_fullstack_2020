@@ -6,7 +6,7 @@
       "nom": "saispas",
       "prenom": "gene",
       "credit": 0,
-      "formation": null,
+      "formation": "azerty",
       "banni": false,
       "admin": true,
       "id": 1

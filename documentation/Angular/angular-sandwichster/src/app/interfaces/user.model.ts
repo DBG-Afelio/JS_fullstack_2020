@@ -1,6 +1,9 @@
 import { UserDto } from 'src/app/interfaces/userDto';
 
 export class UserModel {
+    static id(id: any) {
+      throw new Error("Method not implemented.");
+    }
 
     constructor (
                 public login: string,

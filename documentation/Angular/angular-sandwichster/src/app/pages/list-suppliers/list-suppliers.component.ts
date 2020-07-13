@@ -16,7 +16,6 @@ export class ListSuppliersComponent implements OnInit {
   ) {
     this.suppliersService.getListSuppliers().subscribe((listeRecue) => {
       this.listSuppliers = listeRecue;
-
     });
 
    }

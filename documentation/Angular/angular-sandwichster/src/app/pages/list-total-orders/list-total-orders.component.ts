@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
-import{ Order } from 'src/app/interfaces/order'
+import{ Order } from 'src/app/interfaces/order';
 
 @Component({
   selector: 'app-list-total-orders',
@@ -9,7 +9,7 @@ import{ Order } from 'src/app/interfaces/order'
 })
 export class ListTotalOrdersComponent implements OnInit {
 
-  public todayOrders: Order[] = []; 
+  public todayOrders: Order[] = [];
 
   constructor(private orderService: OrdersService) {
     this.orderService.getUsersAndProductsNameInListOrders().subscribe((receivedOrders) => {
@@ -20,14 +20,12 @@ export class ListTotalOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.getOrders();
+    this.todayOrders;
   }
 
   getOrders(){
     return this.todayOrders;
   }
-
-
-  
 
 }
 

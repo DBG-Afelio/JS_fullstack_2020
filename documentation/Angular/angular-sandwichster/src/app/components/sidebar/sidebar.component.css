@@ -8,5 +8,10 @@
     border: 1px solid black;
     background: skyblue;
     transform: translateX(320px);
+    transition: all .150s ease;
 }
+
+/* .sidebar.visible {
+    transform: translateX(0);
+} */
 
