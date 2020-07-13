@@ -65,8 +65,6 @@ export class OrderService {
       console.log('1-user deconnected <=> pas de recherche d\'order', found);
       this.setFullOrder(found);
     }
-   // console.log('2-affiche-toi nom de Zeus ',found);
-   // this.setFullOrder(found);
   }
   
   public getList(): Observable<Order[]> {
@@ -86,10 +84,6 @@ export class OrderService {
       .pipe(
         map((orders) => orders.find(order => {
           const ORDER_DATE_str: string = order.date.getDate().toString() + order.date.getMonth().toString() + order.date.getFullYear().toString();
-          console.log('order date :', ORDER_DATE_str);
-          console.log('today date :', this.TODAY_str);
-          console.log('order user id :', order.userId);
-          console.log('comparaison :', order.userId === this.currentUser.id && ORDER_DATE_str === this.TODAY_str)
           return order.userId === this.currentUser.id && ORDER_DATE_str === this.TODAY_str;
 
         })));
