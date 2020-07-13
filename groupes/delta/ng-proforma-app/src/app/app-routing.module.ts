@@ -23,11 +23,11 @@ const routes: Routes = [
     component: FournisseursComponent
   },
   {
-    path: "users",
+    path: "membres",
     component: MembresComponent
   },
   {
-    path: "user/:login",
+    path: "membre/:login",
     component: MembreComponent
   },
   {

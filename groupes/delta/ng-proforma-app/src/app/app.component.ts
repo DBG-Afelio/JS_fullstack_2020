@@ -25,4 +25,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.usersService.user.subscribe(user => this.user = user);
   }
+
+  disconnect() {
+    this.usersService.user_co = undefined;
+    this.usersService.user.next(undefined);
+  }
 }

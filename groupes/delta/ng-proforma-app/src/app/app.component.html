@@ -4,10 +4,11 @@
     <!-- <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
     <a *ngIf="user" routerLink='commande/2'>Commande 2</a> -->
     <a *ngIf="!user" routerLink='login' >Connexion</a>
-    <a *ngIf="user?.admin && user" routerLink='users' >Membres</a>
-    <a *ngIf="user && pending_command" routerLink='commande/0' >Commande</a>
-    <a *ngIf="user" routerLink='user/{{user.login}}' >Profil</a>
-    <a *ngIf="user?.admin && user" routerLink='newuser'>Nouveau</a>
+    <a *ngIf="user?.admin && user" routerLink='membres' >Membres</a>
+    <a *ngIf="user && pending_command" routerLink='commande/new' >Commande</a>
+    <a *ngIf="user" routerLink='membre/{{user.login}}' >Profil</a>
+    <a *ngIf="user" (click)='disconnect()'>Deconnexion</a>
+    <a *ngIf="user?.admin && user" routerLink='membre/new'>Nouveau</a>
     <img src="./assets/img/logoProforma.png" class="img">
     <span class="timer">{{timer}}</span>
 </div>
