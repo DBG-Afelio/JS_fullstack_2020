@@ -5,46 +5,8 @@
  
 <ul>
     <li class='productItem' *ngFor='let product of productList'>
+
+        <app-product-display (productOrdered)='orderProduct($event)' (productDeleted)='deleteProduct(product)'  [currentTime]='currentTime'  [currentUser]='currentUser' [product]='product'></app-product-display>
         
-        <h2>{{product?.name}}</h2>
-        
-        <button *ngIf='currentUser?.isAdmin'  class='productMenu' mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            
-            <button mat-menu-item  routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
-
-            <button mat-menu-item (click)='onDeleteProductClick(product.id)'>Supprimer ce produit</button>
-
-         </mat-menu>
-          
-        <hr>
-        <span>Détails :</span>
-        <p>{{product?.description}}</p>
-        <span>Prix : {{product?.price}} €</span>
-        <h4>Suppléments</h4>
-
-
-            <mat-checkbox >
-              Suppléments
-            </mat-checkbox>
-
-            <ul>
-              <li *ngFor='let option of product.options'>
-                <mat-checkbox>
-                    {{option.nom}} +{{option.surcout}} €
-                </mat-checkbox>
-              </li>
-            </ul>
-        
-        <div>
-            
-            <button [disabled]='!currentUser' (click)='openOrderDialog(product)'>Commander!</button>
-            <br>
-            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
-
-        </div>
-
     </li>
 </ul>

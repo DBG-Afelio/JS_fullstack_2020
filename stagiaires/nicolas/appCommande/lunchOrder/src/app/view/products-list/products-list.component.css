@@ -14,13 +14,4 @@ ul{
     background-color: whitesmoke;
     box-shadow: 10px 10px rgba(0,0,0,0.5);
 }
-.productMenu{
 
-    position: absolute;
-    top: 19px;
-    right: 17px;
-    background: none;
-    border:none;
-    cursor: pointer;
-
-}

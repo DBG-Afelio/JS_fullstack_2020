@@ -28,6 +28,7 @@ import { OrdersHistoryComponent } from './view/orders-history/orders-history.com
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
 import { ProviderDisplayComponent } from './components/provider-display/provider-display.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProductDisplayComponent } from './components/product-display/product-display.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     OrdersHistoryComponent,
     OrdersListComponent,
     ProviderDisplayComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProductDisplayComponent
     
   ],
   imports: [

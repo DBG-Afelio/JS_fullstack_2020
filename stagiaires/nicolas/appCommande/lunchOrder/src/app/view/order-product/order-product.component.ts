@@ -10,13 +10,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class OrderProductComponent implements OnInit {
 
-  product
+  order
 
   constructor(@Inject(MAT_DIALOG_DATA) private data,private orderListService:OrdersListService) { }
 
   ngOnInit(): void {
 
-    this.product = this.data.product
+    this.order = this.data.order
 
   }
   

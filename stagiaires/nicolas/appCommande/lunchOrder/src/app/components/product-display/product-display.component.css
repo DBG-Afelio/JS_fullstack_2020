@@ -1,0 +1,10 @@
+.productMenu{
+
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    background: none;
+    border:none;
+    cursor: pointer;
+
+}

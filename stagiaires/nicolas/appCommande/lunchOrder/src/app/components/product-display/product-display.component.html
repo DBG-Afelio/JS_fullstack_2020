@@ -1,0 +1,43 @@
+<h2>{{product?.name}}</h2>
+        
+        <button *ngIf='currentUser?.isAdmin'  class='productMenu' mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            
+            <button mat-menu-item  routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
+
+            <button mat-menu-item (click)='onDeleteProductClick()'>Supprimer ce produit</button>
+
+         </mat-menu>
+          
+        <hr>
+        <span>Détails :</span>
+        <p>{{product?.description}}</p>
+        <span>Prix : {{product?.price}} €</span>
+        <h4>Suppléments</h4>
+
+
+            <span>
+
+              Suppléments
+
+            </span>
+
+            <ul>
+              <li *ngFor='let option of product.options'>
+                <mat-checkbox (change)='addRemoveOption(option)'>
+
+                    {{option.nom}} +{{option.surcout}} €
+
+                </mat-checkbox>
+              </li>
+            </ul>
+        
+        <div>
+            
+            <button [disabled]='isOrderAvailable()' (click)='onOrderButtonClick()'>Commander!</button>
+            <br>
+            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
+
+        </div>

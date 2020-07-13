@@ -18,9 +18,8 @@ import { User } from 'src/app/models/user';
 export class ProductsListComponent implements OnInit {
     provider:Provider;
     productList:Product[];
-    productOptions = new FormControl();
-    newOrder:Order;
     currentUser:User;
+    currentTime:Date;
 
   constructor(private providersListService:ProvidersListService,
               private usersListService:UsersListService,
@@ -45,18 +44,35 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.newOrder = new Order(1,0,[],false,0,new Date());
+    
     this.usersListService.getCurrentUser().subscribe(userFound => this.currentUser = userFound)
+
+    this.currentTime = new Date();
 
   }
 
-  openOrderDialog(currentProduct:Product){
+  reloadList(){
 
-    this.newOrder.id = currentProduct.id
+    this.providersListService.getProductsByProviderId(Number(this.provider.id)).subscribe(productsFound => {
+      this.productList=productsFound;
+    });
+
+  }
+  deleteProduct(deletedProduct:Product){
+
+    this.providersListService.removeProduct(deletedProduct.id).subscribe(_ => this.reloadList())
+
+  }
+  orderProduct(newOrder:Order){
+
+    this.openOrderDialog(newOrder)
+
+  }
+  openOrderDialog(newOrder:Order){
 
     const dialogRef = this.orderDialog.open(OrderProductComponent,{
       data: {
-        product: currentProduct
+        order: newOrder
       }
     });
 
@@ -64,14 +80,6 @@ export class ProductsListComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
 
-  }
-  reloadList(){
-
-    this.providersListService.getProductsList().subscribe(listFound => this.productList = listFound)
-
-  }
-  onDeleteProductClick(productid:number){
-    this.providersListService.removeProduct(productid).subscribe(_ => this.reloadList())
   }
 
 }

@@ -13,6 +13,9 @@ import { UsersListService } from './users-list.service';
 })
 export class OrdersListService {
 
+  minOrderHour:number = 6;
+  maxOrderHour:number = 24;
+
   constructor(private http:HttpClient, private providersListService:ProvidersListService, private usersListService:UsersListService ) { }
 
   //getOrders
