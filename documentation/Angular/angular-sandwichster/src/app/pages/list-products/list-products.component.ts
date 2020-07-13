@@ -56,7 +56,6 @@ public selectedProductSupplier: Supplier;
         this.isAdmin = true;
       }
     }
-
   }
 
   getListProducts(){

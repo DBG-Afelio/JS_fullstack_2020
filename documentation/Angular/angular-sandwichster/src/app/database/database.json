@@ -132,6 +132,13 @@
       "paye": "true",
       "id": 12,
       "date": "2020-07-13T11:45:53.952Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "id": 13,
+      "date": "2020-07-13T14:15:14.224Z"
     }
   ],
   "fournisseurs": [

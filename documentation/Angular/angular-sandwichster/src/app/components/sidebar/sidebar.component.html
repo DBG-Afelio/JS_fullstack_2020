@@ -4,14 +4,14 @@
             <p> {{ selectedProduct?.description }}</p>
             <p> {{ selectedProduct?.prix }} euros </p>
             
-            <form *ngFor="let e of selectedProduct?.options; let indexOfElem = index" (change)="optionSelection(e, indexOfElem)">
-                  <div> 
+            <form *ngFor="let option of selectedProduct?.options; let index = index" (change)="optionSelection(option, index)">
+                  
                   <input 
                   type="checkbox"
                   name="option"
-                  value="{{ e.id }}">
-                  <label> {{ e.nom }} : {{ e.surcout }} € </label>  
-                  </div>
+                  value="{{ option.id }}">
+                  <label> {{ option.nom }} : {{ option.surcout }} € </label>  
+                  
             </form>
             
             <!-- ATTENTION LORS DE LA SELECTION D'UNE OPTION LE PRIX DOIT ÊTRE AFFICHÉ EN CSQ -->

@@ -19,8 +19,6 @@ export class SidebarComponent implements OnInit {
 @Input() selectedProductSupplier: Supplier;
 @Output() newOrderOutput = new EventEmitter<Order>();
 
-  
-
 public selectedOptions: number[] = [];
 public selectedOptionsPrices: number[] = [];
 public selectedOptionsSum: number = 0;
@@ -39,23 +37,21 @@ public isPaid: boolean;
 
   }
 
-  optionSelection(e, i){
+  optionSelection(option, i){
 
-    if(this.selectedOptions.includes(e.id)){
-            this.selectedOptions.splice(i,1);
-            this.selectedOptionsPrices.splice(i,1);
-
-            this.selectedProductPrice = this.selectedProductPrice - e.surcout;
+    if(this.selectedOptions.includes(option.id)){
+      this.selectedOptions = this.selectedOptions.filter(optionID => option.id != optionID)
+      console.log(option.id);
     }
     else{
-      this.selectedOptions.push(e.id);
-      this.selectedOptionsPrices.push(e.surcout);
+      this.selectedOptions.push(option.id);
+        console.log(option.id);
 
-      this.selectedProductPrice = this.selectedProductPrice + e.surcout;
     }
+    console.log('INDEX OPTION DERNIER CLIC : ' + i )
     console.log(this.selectedOptions);
-    console.log(this.selectedOptionsPrices)
-    console.log(this.selectedOptionsSum)
+    //console.log(this.selectedOptionsPrices)
+    //console.log(this.selectedOptionsSum)
 }
 
 isPaidSelection(value){
