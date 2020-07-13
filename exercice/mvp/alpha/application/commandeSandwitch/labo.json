@@ -105,7 +105,7 @@
     {
       "id": 3,
       "nom": "Pierre",
-      "description": "sgfhsgfsdfhsfg",
+      "description": "Pierre",
       "ferme": true,
       "archive": false,
       "horaire": [
@@ -113,32 +113,33 @@
         true,
         true,
         true,
-        false,
-        false,
+        true,
+        true,
         false
       ],
-      "tel": "sfghsfgh"
+      "tel": "Pierre"
     },
     {
       "id": 4,
-      "nom": "Assia2",
-      "description": "fghjfghj",
+      "nom": "Assia",
+      "description": "fgsdfgs",
       "ferme": true,
       "archive": false,
       "horaire": [
-        false,
-        false,
-        false,
         true,
         true,
+        true,
+        false,
+        false,
         false,
         false
       ],
-      "tel": "fghj"
+      "tel": "sdfgsdg"
     }
   ],
   "produits": [
     {
+      "id": 1,
       "nom": "Dagobert",
       "description": "Jambon à l’os, gouda, mayonnaise, crudités.",
       "prix": 4.5,
@@ -149,22 +150,7 @@
           "id": 1
         }
       ],
-      "fourn_id": 1,
-      "id": 1
-    },
-    {
-      "nom": "Grand Large",
-      "description": "Salade de thon «maison», crudités.",
-      "prix": 5,
-      "options": [
-        {
-          "nom": "Pain gris",
-          "surcout": 0.3,
-          "id": 1
-        }
-      ],
-      "fourn_id": 1,
-      "id": 2
+      "fourn_id": 1
     },
     {
       "nom": "Américain maison",
@@ -181,13 +167,14 @@
       "id": 3
     },
     {
+      "id": 4,
       "nom": "Louisiane",
       "description": "Poulet mariné, carottes, tomates, ananas confits, noix de cajou, sauce cajun, sauce crème.",
       "prix": 5.5,
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": 0.3,
+          "surcout": "0.3",
           "id": 1
         },
         {
@@ -196,27 +183,27 @@
           "id": 2
         }
       ],
-      "fourn_id": 1,
-      "id": 4
+      "fourn_id": 1
     },
     {
+      "id": 5,
       "nom": "Bombay",
       "description": "Poulet mariné, raisins frais et secs, carottes, noix de cajou, coriandre, sauce curry et crème.",
-      "prix": 5.5,
+      "prix": "5.6",
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": 0.3,
+          "surcout": "0.4",
           "id": 1
         },
         {
-          "nom": "En salade",
-          "surcout": 4,
-          "id": 2
+          "id": 2,
+          "name": "",
+          "surcout": "5",
+          "nom": "Pierre"
         }
       ],
-      "fourn_id": 1,
-      "id": 5
+      "fourn_id": 1
     },
     {
       "nom": "Pain de viande",
@@ -238,25 +225,6 @@
       "id": 6
     },
     {
-      "nom": "Pain de viande Bis",
-      "description": "Pain de viande “maison“, gouda, tom. séchées, sauce tartare, sauce crème, roquette.",
-      "prix": 5.5,
-      "options": [
-        {
-          "nom": "Pain gris",
-          "surcout": 0.3,
-          "id": 1
-        },
-        {
-          "nom": "En salade",
-          "surcout": 4,
-          "id": 2
-        }
-      ],
-      "fourn_id": 1,
-      "id": 7
-    },
-    {
       "nom": "Poulet qui croque",
       "description": "Poulet croquant, sauce tartare, sauce crème, crudités.",
       "prix": 5.5,
@@ -276,6 +244,7 @@
       "id": 8
     },
     {
+      "id": 9,
       "nom": "Fresh",
       "description": "Chavroux, melon, rondins de chèvre, poulet mariné, menthe, ciboulette, sauce crème.",
       "prix": 5.7,
@@ -286,13 +255,13 @@
           "id": 1
         },
         {
-          "nom": "En salade",
-          "surcout": 4.3,
-          "id": 2
+          "id": 3,
+          "name": "",
+          "surcout": "3",
+          "nom": "Pierre"
         }
       ],
-      "fourn_id": 1,
-      "id": 9
+      "fourn_id": 1
     },
     {
       "nom": "César",
@@ -312,25 +281,6 @@
       ],
       "fourn_id": 1,
       "id": 10
-    },
-    {
-      "nom": "Larzac",
-      "description": "From. de chèvre entouré de lard fumé, rondins de chèvre, champig., raisins frais et secs, noix, miel, sauce crème",
-      "prix": 5.7,
-      "options": [
-        {
-          "nom": "Pain gris",
-          "surcout": 0.3,
-          "id": 1
-        },
-        {
-          "nom": "En salade",
-          "surcout": 4.3,
-          "id": 2
-        }
-      ],
-      "fourn_id": 1,
-      "id": 11
     },
     {
       "nom": "Croque monsieur",
@@ -943,9 +893,10 @@
       "id": 51
     },
     {
+      "id": 52,
       "nom": "Merguez",
       "description": "Tomate, mozzarella, merguez, poivrons, oignons",
-      "prix": 8,
+      "prix": "9",
       "options": [
         {
           "nom": "En platine",
@@ -953,8 +904,7 @@
           "id": 1
         }
       ],
-      "fourn_id": 2,
-      "id": 52
+      "fourn_id": 2
     },
     {
       "nom": "Parmesan",
@@ -1191,6 +1141,78 @@
       "options": [],
       "fourn_id": 2,
       "id": 71
+    },
+    {
+      "id": 72,
+      "nom": "dghjdghj",
+      "description": "ghjdghj",
+      "prix": "5",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 73,
+      "nom": "1Pierre",
+      "description": "fqdfg",
+      "prix": "7",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 74,
+      "nom": "pierre1",
+      "description": "1",
+      "prix": "1",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 75,
+      "nom": "ABC",
+      "description": "ABC",
+      "prix": "12",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 76,
+      "nom": "1",
+      "description": "1",
+      "prix": "1",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 77,
+      "nom": "1",
+      "description": "1",
+      "prix": "01",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 78,
+      "nom": "1",
+      "description": "1",
+      "prix": "01",
+      "options": [],
+      "fourn_id": 0
+    },
+    {
+      "id": 79,
+      "nom": "azerty",
+      "description": "aze",
+      "prix": "3",
+      "options": [],
+      "fourn_id": 1
+    },
+    {
+      "id": 80,
+      "nom": "",
+      "description": "",
+      "prix": 0,
+      "options": [],
+      "fourn_id": 1
     }
   ]
 }
