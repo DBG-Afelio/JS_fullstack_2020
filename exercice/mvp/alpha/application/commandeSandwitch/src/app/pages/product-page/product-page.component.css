@@ -1,5 +1,5 @@
 .products {
     display: grid;
-    grid-template-columns: repeat(4, 24.4%);
-    column-gap: 0.8%
+    grid-template-columns: repeat(4, 24.1%);
+    column-gap: 1.2%
 }

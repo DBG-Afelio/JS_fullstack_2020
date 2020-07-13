@@ -7,6 +7,13 @@
     margin-top: 70px;
 }
 
+@media screen and (max-width: 1000px) {
+    .listSuppliers {
+        grid-template-columns: 100%;
+    column-gap: 0;
+    }
+}
+
 .app-grid {
     display: block;
     width: 80%;

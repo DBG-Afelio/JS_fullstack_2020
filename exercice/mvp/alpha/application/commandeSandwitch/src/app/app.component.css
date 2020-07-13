@@ -1,7 +1,8 @@
 body, html {
-    background-color: white;
+    background-color: black;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 .logo{
@@ -16,51 +17,121 @@ body, html {
     
 main {
     width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto 400px;
-    grid-template-rows: auto;
+   
+    background: url('../assets/header/sandwich.jpg') black right top -120px repeat-x; 
+    background-size: auto 850px;
+}
 
-    grid-template-areas: 
-    "header  header"
-    "content  aside"
-    "footer  footer";
-
-    
+@media screen and (min-width: 1600px) {
+   main {
+    background: url('../assets/header/sandwich.jpg') black right top -120px repeat-x; 
+    background-size: 100% ;
+   } 
 }
 
 main aside, main footer, main content {
-    padding: 30px;
+
     box-sizing: border-box;
 }
 
 main header {
     grid-area: header;
-    height: 40vh;
-    background: url('../assets/header/sandwich.jpg') right 85% bottom 85% no-repeat; 
-    background-size: cover;
-    padding: 0;
+    height: 400px;
+
+    padding: 30px;
     box-sizing: border-box;
 }
 
-main header .inner-header {
+
+main .inner-main  {
+    width: 100vw;
+     margin: 0 auto;
+     display: grid;
+     
+    grid-template-columns:  320px auto;
+     grid-template-rows: auto;
+     min-height: 100vh;
+
+    grid-template-areas: 
+    "aside header"
+    "aside content"
+    "aside footer";
+
+    
+}
+
+
+.main-logo {
+    position: absolute;
+    top: 0;
+    left: 0; 
     width: 100%;
-    height: 40vh;
+    height: 350px;
+    background: -moz-linear-gradient(-10deg,  rgba(245, 245, 245, .9) 300px, rgba(255,255,255,0) 300px); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-10deg, rgba(245, 245, 245, .9) 300px,rgba(255,255,255,0) 300px); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(170deg,  rgba(245, 245, 245, .9) 300px,rgba(255,255,255,0) 300px); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
     padding: 30px;
-    background: -moz-linear-gradient(-10deg,  whitesmoke 39.99%, rgba(255,255,255,0) 40%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-10deg,  whitesmoke 39.99%,rgba(255,255,255,0) 40%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(170deg,  whitesmoke 39.99%,rgba(255,255,255,0) 40%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 content {
     grid-area: content;
+   
+    width: 100%;
+    margin-bottom: 60px;
 }
 
-aside {
+main aside {
     grid-area: aside;
+    width: 100%;
+    overflow:hidden;
 }
+
+main .inner-aside {
+    background-color: rgba(0,0,0,0.5);
+    width: 320px;
+    height:100%;
+    padding: 1px 30px;
+    grid-template-columns:  320px auto;
+}
+
+main .inner-main.aside-closed {
+    grid-template-columns:  30px auto;
+}
+
+
+
+main .inner-main.aside-closed  .inner-aside {
+    background-color: rgba(0,0,0,0)
+}
+
 
 footer{
     grid-area: footer;
+}
+
+.inner-content {
+    width: 80%;
+    padding: 30px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.9);
+}
+.aside-button {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    font-size: 35px;
+    background-color: transparent;
+    color: white;
+    padding: 0 0 15px 15px;
+    border: none;
+}
+
+.aside-button.out:after {
+    content :">>"
+}
+
+.aside-button:after {
+    content :"<<"
 }

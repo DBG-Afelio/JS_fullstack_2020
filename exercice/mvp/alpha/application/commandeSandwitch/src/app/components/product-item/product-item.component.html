@@ -1,5 +1,6 @@
-<div class="product">
-    <div>{{ product.name }}</div>
-    <div>{{ product.price }} €</div>
-    <a routerLink = "/produit/{{ product.id }}"> >> </a> 
+<div class="product" routerLink = "/produit/{{ product.id }}">
+
+    <div class="product-name">{{ product.name }}</div>
+    <div class="product-price">{{ product.price }} €</div>
+
 </div>

@@ -16,6 +16,7 @@ import { Subject } from 'rxjs';
 export class AppComponent {
   title = 'commandeSandwitch';
 
+  public aside: boolean = true;
   public orderList: Order[] = [];
   public productList: Product[] = [];
   public userList: User[] = [];
@@ -38,5 +39,8 @@ export class AppComponent {
     });
     
   }
-  
+
+  public changeAside() {
+    this.aside = !this.aside;
+  }
 }
