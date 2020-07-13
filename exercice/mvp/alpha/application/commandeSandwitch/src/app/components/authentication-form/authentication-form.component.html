@@ -1,12 +1,20 @@
 <form> 
-
-    <p>Identifiant</p>
-    <input #login type="text">
-    <p>Mot de passe</p>
-    <input #pwd type="password">
-    <button class="authent-btn"
-        (click)="changeConnexionRequest(login.value, pwd.value)">
-        Se connecter
-    </button>
-
+    <div class="row">
+        <div class="form-element">
+            <label for="login">Identifiant</label>
+            <input #login type="text" name="login">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element">
+            <label for="pwd">Mot de passe</label>
+            <input #pwd type="password" name="pwd">
+        </div>
+    </div>
+    <div class="row">
+        <button class="authent-btn btn btn-ok"
+            (click)="changeConnexionRequest(login.value, pwd.value)">
+            Se connecter
+        </button>
+    </div>
 </form>

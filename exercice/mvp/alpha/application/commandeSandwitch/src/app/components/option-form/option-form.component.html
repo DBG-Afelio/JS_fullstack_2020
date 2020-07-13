@@ -13,7 +13,7 @@
     <label for="option-surcout">Surcoût</label>
     <input type="text" name="option-surcout" 
         placeholder = "Surcoût (obligatoire)"
-        required 
+        required min="0.05" step="0.05"
         [(ngModel)]="option.surcout" class="form-control" 
         data-pristine="true" 
         >
@@ -27,6 +27,6 @@
     <button 
         (click) = "deleteOption()"
         type="button"
-        class="btn btn__ok"
+        class="btn btn-danger"
         >Supprimer</button>
 </div>

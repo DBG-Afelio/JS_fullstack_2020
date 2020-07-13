@@ -12,7 +12,10 @@ button, ::placeholder, input[type='text'], textarea, .btn , .form-control {
     font: 18px/25px 'Oswald', sans-serif;
 }
 
-input[type='text'], textarea {
+input[type='text'], 
+input[type='number'],
+input[type='password'],
+textarea {
     padding: 10px;
     min-height: 50px;
 }
@@ -31,15 +34,19 @@ tr {
     border-top: 1px solid silver;
 }
 
-.button-new {
+.button-new, .button-back {
     border-top: 1px solid silver;
     margin-top: 25px;
     text-align: right;
     font: 20px/25px 'Oswald', sans-serif;
     color: black;
 }
+.button-back {
+    border-bottom: 1px solid silver;
+    margin-bottom: 15px;
+}
 
-.button-new a {
+.button-new a,  .button-back a{
     padding : 10px ;
     display: block;
     text-decoration: none
@@ -113,4 +120,30 @@ td button:focus {
 
 .form-space {
     margin-top : 60px;
+}
+
+.form {
+    background-color: whitesmoke;
+    padding-bottom: 20px;
+}
+.form > div {
+
+    padding: 5px 15px; 
+    margin: 10px 5px 5px 5px;
+} 
+
+label {
+    margin : 3px 12px;
+} 
+
+input[type='checkbox'] {
+    margin-left: 20px;
+}
+
+input.ng-valid[required], input.ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+input.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
 }

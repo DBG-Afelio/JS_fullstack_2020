@@ -5,3 +5,8 @@ form {
     align-items: center;
     width: 100%;
 }
+
+form label {
+    display: block; 
+    width: 100%;
+}

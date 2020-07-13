@@ -1,20 +1,104 @@
-<a routerLink="/admin/utilisateur">Retour vers Liste USers</a>
+<div class="admin-title" *ngIf="user"> 
+    <h1 *ngIf="user.id === 0">Ajouter un utilisateur</h1>
+    <h1 *ngIf="user.id !== 0">Modifier un utilisateur</h1>
+</div>
 
-<div *ngIf="user">
-    Nom <input #famName type="text" [value]="user.familyName">
-    Prenom <input #firstName type="text" [value]="user.firstName">
-    Formation <input #course type="text" [value]="user.course">
-    Login <input #login type="text" [value]="user.login">
-    Mot de Passe <input #pwd type="text" [value]="user.pwd">
-    Credit <input #credit type="number" [value]="user.credit">
+<div class="button-back">
+    <a routerLink="/admin/utilisateur">Retour vers la liste des utilisateurs</a>
+</div>
+
+<div *ngIf="user" class="form"  #UserForm="ngForm" ngForm>
+    <div class="row">
+        <div class="form-element form-family-name col-lg-6">
+            <label  for="family-name">Nom</label>
+            <input #famName type="text" [(ngModel)]="user.familyName"  class="form-control"  name="family-name"
+                
+                placeholder = "Nom (obligatoire)" required
+                 data-pristine="true" 
+                >
+            <div *ngIf = "famName.value === ''"
+                class="user-form__error alert alert-danger">
+                <p>Le nom est requis</p>
+            </div>
+        </div>
+
+        <div class="form-element form-first-name col-lg-6">
+            <label  for="firstName">Prénom</label>
+            <input #firstName type="text" [(ngModel)]="user.firstName"  class="form-control"  name="first-name"
+                placeholder = "Prénom (obligatoire)" required
+                >
+            <div *ngIf = "user.firstName === ''"
+                class="user-form__error alert alert-danger">
+                <p>Le prénom est requis</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element form-formation col-lg-6">
+            <label  for="formation">Formation</label>
+            <input  #course type="text" [(ngModel)]="user.course"  class="form-control"  name="formation"
+                placeholder = "Formation (obligatoire)" required
+                >
+            <div *ngIf = "user.course === ''"
+                class="user-form__error alert alert-danger">
+                <p>La formation est requise</p>
+            </div>
+        </div>
+
+        <div class="form-element form-credit col-lg-6">
+            <label  for="credit">Crédit</label>
+            <input  #credit type="number" [(ngModel)]="user.credit"  class="form-control"  name="credit"
+                placeholder = "Crédit (obligatoire)" required min = "0"
+                >
+            <div *ngIf = "user.credit === 0"
+                class="user-form__error alert alert-danger">
+                <p>Le crédit est requis</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element form-login col-lg-6">
+            <label  for="login">Login</label>
+            <input  #login type="text" [(ngModel)]="user.login"  class="form-control"  name="login"
+                placeholder = "Login (obligatoire)" required
+                >
+            <div *ngIf = "user.login === ''"
+                class="user-form__error alert alert-danger">
+                <p>Le login est requis</p>
+            </div>
+        </div>
+
+        <div class="form-element form-password col-lg-6">
+            <label  for="password">Mot de passe</label>
+            <input  #pwd type="password" [(ngModel)]="user.pwd"  class="form-control"  name="password"
+                placeholder = "Mot de passe (obligatoire)" required
+                >
+            <div *ngIf = "user.pwd === ''"
+                class="user-form__error alert alert-danger">
+                <p>Le mot de passe est requis</p>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Compte desactivé <input type="checkbox" checked="user ? "user.isBlocked" : "false" " >
     Compte actif <input type="checkbox" checked="user ? "user.isBlocked" : "true" " > -->
 
-    <button routerLink="/admin/utilisateur">
-        Annuler
-    </button>
-    <button
-        (click)="saveUserChange(famName.value,firstName.value,course.value,login.value,pwd.value,credit.valueAsNumber)">
-        Sauvegarder
-    </button>
+    <div class="row">
+        <div class="form-space admin-buttons col-lg-12">
+        
+            <div class="user-form__actions">
+                <button routerLink="/admin/utilisateur"
+                class="btn btn-danger">
+                    Annuler
+                </button>
+
+                <button
+                class="btn btn-ok"
+                    (click)="saveUserChange(famName.value,firstName.value,course.value,login.value,pwd.value,credit.valueAsNumber)">
+                    Sauvegarder
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

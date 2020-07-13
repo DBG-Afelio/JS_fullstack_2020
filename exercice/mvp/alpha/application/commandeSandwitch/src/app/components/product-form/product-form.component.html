@@ -1,4 +1,5 @@
-<form >
+<form class="form">
+    <div class="row">
     <div class="form-element form-name  col-lg-6">
         <label  for="name">Nom</label>
         <input class="form-control" type="text" name="name"
@@ -14,16 +15,26 @@
         <label for="price">Prix</label>
         <input type="text" name="price" 
             placeholder = "Prix (obligatoire)"
-            required min
-            [(ngModel)]="product.price" class="form-control" 
+            required min="0.05" step="0.05"
+            [(ngModel)]="product.price" class="form-control" #price ="ngModel"
             data-pristine="true" 
             >
-        <div *ngIf = "!(product.price > 0)"
-            class="product-form__error alert alert-danger">
+        <!--<div *ngIf = "!(product.price >= 0.5 && product.price % 0.5 === 0)"
+            class="alert alert-danger">
             <p>Le prix est requis</p>
+        </div>-->
+
+        <div *ngIf="price.invalid" class="product-form__error alert alert-danger">
+            <div *ngIf="price.errors.required">
+                Le prix est requis
+            </div>
+            <div *ngIf="price.errors.min">
+                Le prix doit être supérieur à 0
+            </div>
         </div>
     </div>
-
+</div>
+<div class="row">
     <div class="form-element form-description  col-lg-12">
         <label for="name">Description</label>
         <textarea name="description" 
@@ -40,7 +51,9 @@
     </div>
 
 
-    
+  
+</div>
+<div class="row">  
     
     <div class="form-space product-form__actions  col-lg-12">
         <button (click) = "createOption()"
@@ -54,6 +67,8 @@
     </div>
 
  
+</div>
+<div class="row">
 
     <div class="form-element listOptions" >
         <app-option-form *ngFor="let option of product.getOptions()"
@@ -62,6 +77,8 @@
     </div>
 
 
+</div>
+<div class="row">
     <div class="form-space admin-buttons col-lg-12">
         <div class="product-form__actions">
             <button *ngIf = "product.id === 0"
@@ -84,5 +101,7 @@
             class="btn btn-dark"
             >Enregistrer
           </button>
-      </div>
+    </div>
+
+</div>
 </form>
