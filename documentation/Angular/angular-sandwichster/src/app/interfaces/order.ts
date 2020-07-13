@@ -8,7 +8,7 @@ export class Order {
 
     public user?: UserModel;
     public item?: Item;
-    public supplier?: Supplier;
+    public totalPrice?: number;
 
     constructor(
         public user_id: number,
