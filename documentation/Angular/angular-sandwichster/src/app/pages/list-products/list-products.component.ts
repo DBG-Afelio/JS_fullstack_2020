@@ -4,6 +4,8 @@ import { SuppliersService } from '../../services//suppliers.service';
 import { Item } from '../../interfaces/item';
 import { Supplier } from '../../interfaces/supplier';
 import { LoginService } from 'src/app/services/login.service';
+import { Order } from 'src/app/interfaces/order';
+import { OrdersService } from 'src/app/services/orders.service';
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 
 
@@ -14,7 +16,11 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 })
 export class ListProductsComponent implements OnInit {
 
- private selectedProduct: Item;
+public selectedProduct: Item;
+public selectedProductPrice: number;
+public selectedProductSupplier: Supplier;
+
+  public sidebarDisplay: boolean = false;
 
   private listProducts: Item[];
   private listSuppliers: Supplier[];
@@ -25,7 +31,8 @@ export class ListProductsComponent implements OnInit {
   constructor(
     public listItemsService: ListItemsService,
     public suppliersService: SuppliersService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public orderService: OrdersService
     ) { 
       this.listItemsService.getListItems().subscribe((listeRecue) => {
         this.listProducts = listeRecue;
@@ -40,6 +47,7 @@ export class ListProductsComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
+
   }
 
   getCurrentUser(){
@@ -49,7 +57,6 @@ export class ListProductsComponent implements OnInit {
         this.isAdmin = true;
       }
     }
-
   }
 
   getListProducts(){
@@ -65,8 +72,19 @@ export class ListProductsComponent implements OnInit {
   }
   
   testEvent2(item){
+   
     this.selectedProduct = item;
-    console.log(this.selectedProduct);
+    this.selectedProductPrice = this.selectedProduct.prix;
+    this.suppliersService.getSuppliersById(this.selectedProduct.fourn_id).subscribe((element) => {console.log(
+      this.selectedProductSupplier = element)})
+    if(this.sidebarDisplay === false){
+      this.sidebarDisplay = true;
+    }
+  }
+
+  createOrderEvent(order: Order){
+    this.orderService.createOrder(order).subscribe();
+
   }
 
 }
