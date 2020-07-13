@@ -12,6 +12,7 @@ import { MembresComponent } from 'src/page/membres/membres.component';
 import { MembreComponent } from 'src/page/membre/membre.component';
 import { OptionsComponent } from 'src/page/options/options.component';
 import { CommandeComponent } from 'src/page/commande/commande.component';
+import { NewuserComponent } from 'src/page/newuser/newuser.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,9 @@ import { CommandeComponent } from 'src/page/commande/commande.component';
     FournisseurComponent,
     FournisseursComponent,
     MembresComponent,
-    MembreComponent,
     OptionsComponent,
-    CommandeComponent
+    CommandeComponent,
+    NewuserComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { CommandeComponent } from 'src/page/commande/commande.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
