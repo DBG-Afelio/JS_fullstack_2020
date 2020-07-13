@@ -46,7 +46,7 @@ const routes: Routes = [
   {
     path: 'add-product',
     component: AddNewProductComponent,
-  }
+  },
   {
     path: 'user/:id',
     component: DisplayUserComponent,
