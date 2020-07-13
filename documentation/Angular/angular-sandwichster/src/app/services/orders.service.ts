@@ -12,6 +12,7 @@ import { UserModel } from '../interfaces/user.model';
 import { ListItemsService } from '../services/list-items.service'
 import { Item } from '../interfaces/item';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,8 @@ export class OrdersService {
 
 constructor(private http: HttpClient,
   public userService: UserService,
-  public listItemsService: ListItemsService
+  public listItemsService: ListItemsService,
+
   ) { }
 
 getAllOrders(): Observable<Order[]> {
@@ -101,19 +103,23 @@ getOrderById(id: number): Observable<Order> {
       )}) 
     );
 */
+    
     return forkJoin(
       this.getAllOrders(), 
       this.userService.getUsers(),
-      this.listItemsService.getListItems()
+      this.listItemsService.getListItemsWithSupplier(),
+
     ).pipe(map (([orders, users, items]) => {
       orders.forEach( order => {
         order.user = users.find(user => user.id === order.id)
         order.item = items.find(item => item.id === order.product_id)
       }  
         )
+        console.log(orders);
         return orders;
     }))
 }
+
 /*
   getProductNameInListOrders(): Observable<Order[]> {
 
