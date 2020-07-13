@@ -1,3 +1,6 @@
 form{
     display: inline-grid;
 }
+.error_empty{
+    color: red;
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { User } from 'src/model/user';
+import { UserDto } from 'src/model/userDTO';
 
 @Component({
   selector: 'app-newuser',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newuser.component.css']
 })
 export class NewuserComponent implements OnInit {
+  @Input() user : User;
+  @Output() create : EventEmitter<UserDto> = new EventEmitter<UserDto>();
 
   constructor() { }
 
@@ -15,5 +19,9 @@ export class NewuserComponent implements OnInit {
   checkInputEmpty($value:string):boolean {
     return !$value.length as boolean;
   }
-
+  createUser(){
+    if(this.checkInputEmpty){
+      this.create.emit(this.user.toDto());
+    }
+  }
 }
