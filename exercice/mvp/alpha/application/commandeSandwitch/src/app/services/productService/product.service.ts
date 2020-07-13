@@ -57,8 +57,11 @@ export class ProductService {
 
   updateProduct(payload: Product): Observable<Product> {
     return this.http
-      .put<Product>(`${this.url}/${payload.id}`, payload.toDto())
-      .pipe(catchError((error: any) => Observable.throw(error.json())));
+      .put<ProductDto>(`${this.url}/${payload.id}`, payload.toDto())
+      .pipe(
+        map((productDto : ProductDto) => {
+          return Product.fromDto(productDto);
+        }),catchError((error: any) => Observable.throw(error.json())));
   }
 
   removeProduct(payload: Product): Observable<Product> {

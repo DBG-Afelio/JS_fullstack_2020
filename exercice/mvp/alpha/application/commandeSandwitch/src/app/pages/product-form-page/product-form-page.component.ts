@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/productModel/Product';
 import { ProductService } from 'src/app/services/productService/product.service';
 
@@ -31,15 +31,21 @@ export class ProductFormPageComponent implements OnInit {
     }); 
   }
 
-  public createProduct(product: Product) {
+  public createProduct(product: Product): void {
     this.productService.createProduct(product).subscribe(() => {
       this.productService.navigateToProductAdmin(product.getSupplierId());
     });
   }
 
-  public updateProduct(product: Product) {
+  public updateProduct(product: Product): void {
     this.productService.updateProduct(product).subscribe(() => {
       this.productService.navigateToProductAdmin(product.getSupplierId());
+    });
+  }
+
+  public deleteOption(product: Product): void {
+    this.productService.updateProduct(product).subscribe((product) => {
+      this.product = product;
     });
   }
 

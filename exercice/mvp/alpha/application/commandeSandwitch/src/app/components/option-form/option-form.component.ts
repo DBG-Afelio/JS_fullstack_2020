@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Option } from 'src/app/models/optionModel/Option';
 
 @Component({
@@ -8,11 +8,12 @@ import { Option } from 'src/app/models/optionModel/Option';
 })
 export class OptionFormComponent implements OnInit {
 
-  @Input() option: Option;
+  @Input() option: any;
+  @Output() delete: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
   public deleteOption() {
-    alert('Supprimer cette option');
+    this.delete.emit(this.option);
   }
   
   ngOnInit(): void {
