@@ -1,18 +1,20 @@
-<form>
-  <span>NOM:</span><input #nom type="text" maxlength="50" minlength="2">
-  <div *ngIf="checkInputEmpty(nom.value)" class="error_empty">Le nom ne peut pas être vide</div>
-  <span>PRENOM:</span><input #prenom type="text" maxlength="50" minlength="2">
+<form [formGroup]="checkoutForm" (ngSubmit)="submitForm(checkoutForm.value)">
+  <span>NOM:</span><input id="nom" name="nom" type="text" maxlength="50" minlength="2" formControlName="nom" required>
+  <div *ngIf="nom.errors?.required" class="error_empty">Le nom ne peut pas être vide</div>
+  <div *ngIf="nom.errors?.minlength" class="error_empty">3 caractères minimum</div>
+  <div *ngIf="nom.errors?.maxlength" class="error_empty">18 caractères maximum</div>
+  <span>PRENOM:</span><input #prenom type="text" maxlength="50" minlength="2" formControlName="prenom">
   <div *ngIf="checkInputEmpty(prenom.value)" class="error_empty">Le Prenom ne peut pas être vide</div>
-  <span>LOGIN:</span><input #login type="text" maxlength="50" minlength="2">
+  <span>LOGIN:</span><input #login type="text" maxlength="50" minlength="2" formControlName="login">
   <div *ngIf="checkInputEmpty(login.value)" class="error_empty">Login ne peut pas être vide </div>
-  <span>PASSWORD:</span><input #password type="text" maxlength="50" minlength="2">
+  <span>PASSWORD:</span><input #password type="text" maxlength="50" minlength="2" formControlName="password">
   <div *ngIf="checkInputEmpty(password.value)" class="error_empty">Password ne peut pas être vide</div>
   <div>
     <label for="pet-select">FORMATION:</label>
-    <select name="formation" id="formation">
+    <select name="formation" id="formation" formControlName="formation">
       <option value="INTRO_PROG">INTRO_PROG</option>
       <option value="JS_FULLSTACK">JS_FULLSTACK</option>
     </select>
   </div>
-  <button>CREER</button>
+  <button type="submit">CREER</button>
 </form>

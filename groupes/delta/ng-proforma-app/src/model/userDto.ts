@@ -3,9 +3,9 @@ export interface UserDto {
     password: string;
     nom: string;
     prenom: string;
-    credit: number;
+    credit?: number;
     formation: string;
-    banni: boolean;
-    admin: boolean;
-    id: number;
+    banni?: boolean;
+    admin?: boolean;
+    id?: number;
 }

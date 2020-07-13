@@ -30,10 +30,10 @@ export class User {
             userDTO.nom,
             userDTO.prenom,
             userDTO.formation,
-            userDTO.credit,
-            userDTO.banni,
-            userDTO.admin,
-            userDTO.id
+            userDTO?.credit,
+            userDTO?.banni,
+            userDTO?.admin,
+            userDTO?.id
         )
     }
 
