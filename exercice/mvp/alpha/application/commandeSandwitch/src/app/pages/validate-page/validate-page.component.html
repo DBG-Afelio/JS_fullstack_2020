@@ -13,14 +13,13 @@
         Payer a credit ? Votre solde est insuffisant. Il ne vous reste que {{ creditMax - currentUser.credit }} € sur votre credit maximum autorisé ({{ creditMax}} €). 
         Pour confirmer votre commande, passer par le paiment CASH
     </p>
-
-
     <button
-        (click)="confirmOrder(true)">
+        (click)="confirmOrder(true)"
+        [disabled]="!isOnTime">
         PAYER CASH
     </button>
     <button 
-        [disabled]="!isCreditEnough"
+        [disabled]="!isOnTime || !isCreditEnough"
         (click)="confirmOrder(false)">
         PAYER A CREDIT
     </button>

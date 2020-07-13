@@ -1,18 +1,21 @@
 
 <nav class="volet-lateral">
-      <!--  user unknown -->
-    <app-authentication-form *ngIf="currentUser === null"
-        [userList]="userList"
-        (UserChange)="updateCurrentUser($event)">
-    </app-authentication-form>
-
+    <!--  user unknown -->
+  <app-authentication-form *ngIf="currentUser === null"
+      [userList]="userList"
+      (UserChange)="updateCurrentUser($event)">
+  </app-authentication-form>
+  <div *ngIf="currentUser">
+    <app-date-time></app-date-time>
+  
       <!-- admin loggedIN -->
     <app-admin-nav 
         *ngIf="currentUser !== null && currentUser.isAdmin">
     </app-admin-nav>
 
       <!-- standard user loggedIN -->
-    <app-user-nav *ngIf="currentUser !== null && !currentUser.isAdmin"  
+    <app-user-nav *ngIf="currentUser !== null && !currentUser.isAdmin" 
+        [isOnTime]="isOnTime"
         [fullOrder]="fullOrder"
         [userList]="userList"
         [currentUser]="currentUser"
@@ -25,6 +28,7 @@
       (click)="updateCurrentUser(null)">
       Se deconnecter
     </a>
+  </div>
 </nav>
 
 

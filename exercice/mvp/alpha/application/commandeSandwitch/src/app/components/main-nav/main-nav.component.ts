@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/userModel/user';
 import { UserService } from 'src/app/services/userService/user.service';
-import { Order } from 'src/app/models/orderModel/order';
-import { Product } from 'src/app/models/productModel/Product';
 import { OrderService } from 'src/app/services/orderService/order.service';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
+import { Deadline } from 'src/app/models/deadlineModel/deadline';
 
 @Component({
   selector: 'app-main-nav',
@@ -12,12 +11,10 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent implements OnInit {
-
+  public isOnTime: boolean = null;
   public currentUser: User = null;
   public fullOrder: FullOrder = null;
   public userList: User[] = [];
-  // public orderList: Order[] = [];
-  // public productList: Product[] = [];
   public creditMaxAllowed: number = null;
   constructor(
     private userService: UserService,
@@ -33,28 +30,21 @@ export class MainNavComponent implements OnInit {
   public loadData(): void{
     this.userService.getList().subscribe((list) => this.userList = list);
     this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
-    this.orderService.getFullOrder().subscribe((full) => {
-      this.fullOrder = full;
-      console.log('---MAIN-NAV CHANGED FullORDER ===>>> ',
-      full ? `${full.getOrder().id} - ${full.isConfirmed()}` : null);
-    });
+    this.orderService.getFullOrder().subscribe((full) => this.fullOrder = full);
+    this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
   }
   
   public updateCurrentUser(user: User): void {
     this.userService.setCurrentUser(user);
-    console.log('user changed to : ', user ? user.firstName : user);
   }
 
   public deleteOrder(): void{
-    console.log('--------delete from MAIN => com. confirmed? ', this.fullOrder.isConfirmed(), 'commande # :',this.fullOrder.getOrder().id);
-    if (this.fullOrder.isConfirmed()) {
-      this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
-      console.log('commande supprimee du server suite a request from USER-NAV');
+   
+    if (this.orderService.isOnTime()) {
+      this.fullOrder.isConfirmed() ? this.orderService.deleteOrderFromServer(this.fullOrder.getOrder()) : this.orderService.removeFromLocalStorage();
     } else {
-      this.orderService.removeFromLocalStorage();
-      console.log('commande supprimee du LocalStorage suite a request from USER-NAV');
+      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }
-   // this.loadData();
   }
-  
+
 }

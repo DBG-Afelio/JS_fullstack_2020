@@ -6,6 +6,14 @@
 a.day-order{
     color: orangered;
 }
+a.outOfTime{
+    color: grey;
+    text-decoration: line-through;
+    font-style: italic;
+}
 a.day-order.confirmed{
     color: green;
+}
+:disabled{
+    background-color: grey;
 }

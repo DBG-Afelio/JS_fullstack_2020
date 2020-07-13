@@ -10,6 +10,7 @@ import { Order } from 'src/app/models/orderModel/order';
 import { OrderService } from 'src/app/services/orderService/order.service';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 import { Option } from 'src/app/models/optionModel/Option';
+import { Deadline } from 'src/app/models/deadlineModel/deadline';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -17,7 +18,7 @@ import { Option } from 'src/app/models/optionModel/Option';
   styleUrls: ['./product-detail-page.component.css']
 })
 export class ProductDetailPageComponent implements OnInit {
-
+  public isOnTime: boolean = null;
   public listSuppliers: Supplier[];
   public product: Product;
   public currentUser: User = null;
@@ -32,6 +33,7 @@ export class ProductDetailPageComponent implements OnInit {
     private orderService: OrderService,
     private router:Router,
   ) { 
+    this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       this.productService.getProductById(id).subscribe(product => {
@@ -49,15 +51,10 @@ export class ProductDetailPageComponent implements OnInit {
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
     });
-    this.orderService.getFullOrder().subscribe((full) => {
-      this.fullOrder = full;
-      console.log('+++++++ FULL from detail >>>>,', full);
-    });
+    this.orderService.getFullOrder().subscribe((full) => this.fullOrder = full);
   }
   
-  public updateEndPrice(isOptionAdded: boolean, optionPrice: number, optionId:number): number{
-    console.log('UPDATE PRICE', isOptionAdded, optionPrice);
-    
+  public updateEndPrice(isOptionAdded: boolean, optionPrice: number, optionId:number): number{   
     if (isOptionAdded) {
       this.updatedPrice += optionPrice;
       this.optionsSelected.push(optionId);
@@ -68,33 +65,28 @@ export class ProductDetailPageComponent implements OnInit {
     }
     return this.updatedPrice;
   }
-  // public updateOptionStatus(option: Option): boolean {
-  //   let status: boolean = false;
-  //   if (this.fullOrder && this.fullOrder.getProduct().id === this.product.id) {
-  //     status = this.fullOrder.getSelectedOptions().some(optionSelected => optionSelected.id === option.id);
-  //     console.log('option :', option.nom, status);
-  //     status ? this.updateEndPrice(status, option.surcout, option.id):status;
-  //   }
-  //   return status;
-  // }
 
   public saveInLocalStorage(): void {
-    if (!this.fullOrder) { //pas encore de commande
-      this.orderService.addInLocalStorage(this.createNewOrder());
-    } else {
-      if (this.fullOrder.isConfirmed()) { //une commande confirmee existe
-        const msg2 = `Vous avez deja une commande CONFIRMEE pour aujourd'hui: ${this.fullOrder.getProduct().getName()}. Veuillez la supprimer (avant 10h30) avant de renouveler une commande`;
-        if (window.confirm(msg2)) {
-          this.router.navigateByUrl(`/produit/${this.fullOrder.getOrder().productId}`);
-        }
-      } else { //une commande en cours existe
-        const msg1 = `Vous avez deja une commande temporairement SAUVEGARDEE: ${this.fullOrder.getProduct().getName()}. Voulez-vous la remplacer ?`;
-        if (window.confirm(msg1)) {
-          this.orderService.addInLocalStorage(this.createNewOrder());
+    if (this.isOnTime) {
+      if (!this.fullOrder) { //pas encore de commande
+        this.orderService.addInLocalStorage(this.createNewOrder());
+      } else {
+        if (this.fullOrder.isConfirmed()) { //une commande confirmee existe
+          const msg2 = `Vous avez deja une commande CONFIRMEE pour aujourd'hui: ${this.fullOrder.getProduct().getName()}. Veuillez la supprimer (avant 10h30) avant de renouveler une commande`;
+          if (window.confirm(msg2)) {
+            this.router.navigateByUrl(`/produit/${this.fullOrder.getOrder().productId}`);
+          }
+        } else { //une commande en cours existe
+          const msg1 = `Vous avez deja une commande temporairement SAUVEGARDEE: ${this.fullOrder.getProduct().getName()}. Voulez-vous la remplacer ?`;
+          if (window.confirm(msg1)) {
+            this.orderService.addInLocalStorage(this.createNewOrder());
+          }
         }
       }
+    } else {
+      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }
-   // this.loadData();
+    
   }
 
   private createNewOrder(): Order{
@@ -111,20 +103,21 @@ export class ProductDetailPageComponent implements OnInit {
 
   
   public remove(): void{
-    console.log('--------delete from DETAIL => com. confirmed? ', this.fullOrder.isConfirmed(), 'commande # :',this.fullOrder.getOrder().id);
-    if (this.product.id === this.fullOrder.getOrder().productId) {
-      if (!this.fullOrder.isConfirmed()) {
-        this.orderService.removeFromLocalStorage();
-        console.log('commande supprimee du Local storage');
-      } else {
-        const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
-        if (window.confirm(msg)) {
-          console.log('commande annulee', this.fullOrder.getOrder().id);
-          this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
+    if (this.isOnTime) {
+      if (this.product.id === this.fullOrder.getOrder().productId) {
+        if (!this.fullOrder.isConfirmed()) {
+          this.orderService.removeFromLocalStorage();
+        } else {
+          const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
+          if (window.confirm(msg)) {
+            this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
+          }
         }
       }
+    } else {
+      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }
+    
   }
-
 
 }
