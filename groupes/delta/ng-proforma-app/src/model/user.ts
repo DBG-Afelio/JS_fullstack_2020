@@ -17,7 +17,7 @@ export class User {
         this.nom = nom;
         this.prenom = prenom;
         this.formation = formation;
-        this.credit = credit !== undefined ? credit : 10;
+        this.credit = credit !== undefined ? credit : 0;
         this.banni = banni ? banni : false;
         this.admin = admin ? admin : false;
         this.id = id ? id : 0;

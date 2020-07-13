@@ -1,6 +1,7 @@
 <form>
-  <span>NOM:</span><input type="text" maxlength="50" minlength="2">
-  <span>PRENOM:</span><input type="text" maxlength="50" minlength="2">
+  <span>NOM:</span><input #nom type="text" maxlength="50" minlength="2">
+  <div *ngIf="checkInputEmpty(nom.value)" class="error_empty"></div>
+  <span>PRENOM:</span><input #prenom type="text" maxlength="50" minlength="2">
   <span>LOGIN:</span><input type="text" maxlength="50" minlength="2">
   <span>PASSWORD:</span><input type="text" maxlength="50" minlength="2">
   <div>

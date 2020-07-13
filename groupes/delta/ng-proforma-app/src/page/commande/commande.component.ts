@@ -16,6 +16,7 @@ export class CommandeComponent implements OnInit {
 
   constructor(private commandesService:CommandesService, private userService:UsersService, private activeRoute:ActivatedRoute, private route:Router) {
     this.userService.user.subscribe((user:User) => this.user = user);
+    if(this.userService.user_co) { this.user = this.userService.user_co; }
   }
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class CommandeComponent implements OnInit {
           }
         })
       } else if (this.userService.user_co) {
-        this.commande = this.commandesService.pending_command;
+        this.commande = this.commandesService.PendingCommand;
       } else {
         this.route.navigate(['../']);
       }

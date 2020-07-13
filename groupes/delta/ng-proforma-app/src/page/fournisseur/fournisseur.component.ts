@@ -70,18 +70,18 @@ export class FournisseurComponent implements OnInit {
 
   sendOrder(product:Product) {
     if(this.usersService.user_co){
-      this.commandsService.pending_command = new Commande(
+      this.commandsService.PendingCommand = new Commande(
         this.usersService.user_co.Id,
         product.id
       ).setProduct(product).setUser(this.usersService.user_co).setOptions(this.selectedOptions);
-      this.pending_command = this.commandsService.pending_command;
+      this.pending_command = this.commandsService.PendingCommand;
     }
   }
 
   optionsChange(options:Option[]):void {
     this.selectedOptions = options;
-    if(this.commandsService.pending_command) {
-      this.commandsService.pending_command.setOptions(options);
+    if(this.commandsService.PendingCommand) {
+      this.commandsService.PendingCommand.setOptions(options);
     }
   }
  

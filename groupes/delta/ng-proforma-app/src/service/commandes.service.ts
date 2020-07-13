@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map, mergeMap } from "rxjs/operators";
 import { Commande } from 'src/model/commande';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,8 @@ import { Option } from 'src/model/option';
   providedIn: 'root'
 })
 export class CommandesService {
-  pending_command:Commande;
+  private pending_command:Commande;
+  public pendingCommand$:Subject<Commande> = new Subject<Commande>();
 
   constructor(private http: HttpClient, private usersService:UsersService, private productService:ProductService) { }
 
@@ -25,6 +26,18 @@ export class CommandesService {
       })
     )
   }
+
+  
+  public get PendingCommand() : Commande {
+    return this.pending_command;
+  }
+  
+  
+  public set PendingCommand(command : Commande) {
+    this.pendingCommand$.next(command);
+    this.pending_command = command;
+  }
+  
 
   getCommandeByIdWithObject(id:number):Observable<Commande> {
     return this.getCommandeById(id).pipe(

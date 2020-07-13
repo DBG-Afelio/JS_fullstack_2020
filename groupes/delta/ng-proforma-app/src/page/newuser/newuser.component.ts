@@ -12,4 +12,8 @@ export class NewuserComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkInputEmpty($value:string):boolean {
+    return !$value.length as boolean;
+  }
+
 }
