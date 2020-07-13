@@ -1,6 +1,20 @@
 Nom: <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="item.nom" name="nom"><br>
 Description: <input type="text" placeholder="Tomate, salade, mozzarella" [(ngModel)]="item.description" name="description"><br>
 Prix: <input type="text" placeholder="3.5" [(ngModel)]="item.prix" name="prix"><br>
+<div *ngFor="let option of item.options">
+    <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="option.nom" name="nom1"><br>
+    <input type="number" placeholder="Sandwich Pipo" [(ngModel)]="option.surcout" name="nom1"><br>
+</div>
 
+<div>
+    <hr>
+    Ajouter une option<br>
+    <input type="text" placeholder="Sandwich Pipo"  name="nom1" #optionName><br>
+    <input type="number" placeholder="3" name="nom1"#optionPrice><br>
+    <button (click)="addOption(optionName, optionPrice)">Créer nouvelle option</button>
+</div>
 <button (click)="showTheItem()">Mettre à jour</button>
+<!--
+    <button (click)="deleteProduct()">Supprimer</button>
+-->
 <button (click)="closeModifyPannel()">Fermer</button>

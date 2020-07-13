@@ -43,4 +43,10 @@ export class AddNewProductComponent implements OnInit {
     );
   }
 
+  addOption(optionName, optionPrice){
+    this.product.addOption(optionName.value, optionPrice.value);
+    optionName.value = "";
+    optionPrice.value = "";
+  }
+
 }

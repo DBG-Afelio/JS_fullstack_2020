@@ -1,6 +1,9 @@
 <div>
 
-    <h4>{{item.nom}}</h4>
+    <h4>
+        <span *ngIf="item.fourn_id === 1">Sandwich </span>
+        <span *ngIf="item.fourn_id === 2">Pizza </span>{{item.nom}}
+    </h4>
     <p>{{item.description}}</p>
     <span>{{item.prix}}</span> euros<br>
 
@@ -10,7 +13,7 @@
     <button (click)='modifyItem(item.id)'>Modifier</button>
 </div>
 
-<app-modify-item *ngIf="visible" [item]="item" #viewContainerRef></app-modify-item>
+<app-modify-item *ngIf="visible" [item]="item" #viewContainerRef (visible)="closeModifyPannel()" (update)="updateItem($event)"></app-modify-item>
 
             
 <!-- <app-sidebar></app-sidebar> -->
