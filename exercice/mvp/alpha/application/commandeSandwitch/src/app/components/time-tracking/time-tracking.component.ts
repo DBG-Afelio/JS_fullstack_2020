@@ -4,11 +4,11 @@ import { Deadline } from 'src/app/models/deadlineModel/deadline';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 
 @Component({
-  selector: 'app-date-time',
-  templateUrl: './date-time.component.html',
-  styleUrls: ['./date-time.component.css']
+  selector: 'app-time-tracking',
+  templateUrl: './time-tracking.component.html',
+  styleUrls: ['./time-tracking.component.css']
 })
-export class DateTimeComponent implements OnInit {
+export class TimeTrackingComponent implements OnInit {
   public deadline: Deadline = null;
   public today: Date = new Date();
   public wasOnTime: boolean = null;

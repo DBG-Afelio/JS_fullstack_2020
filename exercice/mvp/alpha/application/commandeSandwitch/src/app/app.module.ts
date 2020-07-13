@@ -30,7 +30,7 @@ import { ProductFormPageComponent } from './pages/product-form-page/product-form
 import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { OptionFormComponent } from './components/option-form/option-form.component';
-import { DateTimeComponent } from './components/date-time/date-time.component';
+import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ import { DateTimeComponent } from './components/date-time/date-time.component';
     ProductAdminPageComponent,
     ProductFormComponent,
     OptionFormComponent,
-    DateTimeComponent,
+    TimeTrackingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DateTimeComponent } from './date-time.component';
+import { TimeTrackingComponent } from './time-tracking.component';
 
-describe('DateTimeComponent', () => {
-  let component: DateTimeComponent;
-  let fixture: ComponentFixture<DateTimeComponent>;
+describe('TimeTrackingComponent', () => {
+  let component: TimeTrackingComponent;
+  let fixture: ComponentFixture<TimeTrackingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateTimeComponent ]
+      declarations: [ TimeTrackingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DateTimeComponent);
+    fixture = TestBed.createComponent(TimeTrackingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
