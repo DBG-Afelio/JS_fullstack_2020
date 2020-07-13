@@ -1,3 +1,3 @@
 <app-nav-bar></app-nav-bar>
 
-<app-orders-list [ordersList]='ordersList' [currentUser]='currentUser'></app-orders-list>
+<app-orders-list (cancelOrder)='onCancelOrder($event)' [ordersList]='ordersList' [currentUser]='currentUser'></app-orders-list>

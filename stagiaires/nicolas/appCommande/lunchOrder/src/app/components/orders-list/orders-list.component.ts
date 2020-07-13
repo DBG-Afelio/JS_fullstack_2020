@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from 'src/app/models/order';
 import { User } from 'src/app/models/user';
 
@@ -9,14 +9,22 @@ import { User } from 'src/app/models/user';
 })
 export class OrdersListComponent implements OnInit {
 
-  @Input() ordersList:Order[]
+  @Input() ordersList:Order[];
 
-  @Input() currentUser:User
+  @Input() currentUser:User;
+
+  @Output() cancelOrder:EventEmitter<Order> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
 
+
+  }
+
+  onCancelOrderButtonClick(orderToCancel:Order){
+
+    this.cancelOrder.emit(orderToCancel);
 
   }
 

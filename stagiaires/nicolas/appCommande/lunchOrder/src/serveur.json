@@ -65,49 +65,6 @@
       "paye": true,
       "id": 2,
       "date": "2020-02-21T13:38:10.681Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 2,
-      "option_ids": [],
-      "paye": false,
-      "id": 3,
-      "date": "Mon Jul 13 2020"
-    },
-    {
-      "user_id": 1,
-      "product_id": 4,
-      "option_ids": [
-        2,
-        1
-      ],
-      "paye": false,
-      "id": 4,
-      "date": "Mon Jul 13 2020"
-    },
-    {
-      "user_id": 1,
-      "product_id": 25,
-      "option_ids": [],
-      "paye": false,
-      "id": 5,
-      "date": "Mon Jul 13 2020"
-    },
-    {
-      "user_id": 1,
-      "product_id": 25,
-      "option_ids": [],
-      "paye": false,
-      "id": 6,
-      "date": "Mon Jul 13 2020"
-    },
-    {
-      "user_id": 1,
-      "product_id": 25,
-      "option_ids": [],
-      "paye": false,
-      "id": 7,
-      "date": "Mon Jul 13 2020"
     }
   ],
   "fournisseurs": [

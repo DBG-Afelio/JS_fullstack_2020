@@ -90,7 +90,7 @@ export class ProductsListComponent implements OnInit {
         this.ordersListService.getUserOrders(newOrder.userId).subscribe(userOrdersFound => {
 
           const dailyOrders = userOrdersFound.filter(order => order.date.getDay() === new Date().getDay());
-          newOrder.id = dailyOrders[0].id
+          newOrder.id = dailyOrders[dailyOrders.length-1].id
           this.ordersListService.updateOrder(newOrder).subscribe(_ => console.log('updatedOrder',_))
 
         });

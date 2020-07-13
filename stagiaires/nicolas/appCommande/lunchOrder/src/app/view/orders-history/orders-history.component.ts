@@ -33,5 +33,37 @@ export class OrdersHistoryComponent implements OnInit {
     })
    
   }
+
+  reloadComponent(){
+
+    this.orderListService.getMergedOrdersList().subscribe(ordersListFound => {
+
+      this.ordersList = ordersListFound
+      })
+
+    this.usersListService.getCurrentUser().subscribe(currentUserFound => {
+
+      if(currentUserFound){
+
+        this.currentUser = currentUserFound
+
+      }
+    })
+   
+
+  }
+
+  onCancelOrder(orderToCancel:Order){
+
+    let cancelConfirm = confirm('Annuler la commande ?');
+
+    if(cancelConfirm){
+
+      this.orderListService.removeOrder(orderToCancel.id).subscribe()
+      this.reloadComponent()
+
+    }
+
+  }
   
 }
