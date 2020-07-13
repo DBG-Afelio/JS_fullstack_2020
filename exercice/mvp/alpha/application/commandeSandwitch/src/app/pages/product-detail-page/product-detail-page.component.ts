@@ -51,9 +51,8 @@ export class ProductDetailPageComponent implements OnInit {
     });
     this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
-      console.log('+++++++detail>>>>,', full);
+      console.log('+++++++ FULL from detail >>>>,', full);
     });
-    console.log('----coucou from detail-page------');
   }
   
   public updateEndPrice(isOptionAdded: boolean, optionPrice: number, optionId:number): number{

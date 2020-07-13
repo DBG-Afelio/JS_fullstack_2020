@@ -29,36 +29,44 @@ export class OrderService {
   ) { 
       this.userService.getCurrentUser().subscribe((currentUser) => {
       this.currentUser = currentUser;
-      this.updateFullOrder(currentUser);
+      this.updateFullOrder();
     });
    }
 
-  private updateFullOrder(user: User): void{    
+  private updateFullOrder(): void{    
+    console.log(this.currentUser);
     let found: FullOrder = null;
     if (this.currentUser) { //utilsateur connected
-      const orderLS: Order = this.findInLocalStorage(user); //je cherche d'abord en local
+      const orderLS: Order = this.findInLocalStorage(); //je cherche d'abord en local
       if (orderLS) { //trouved en local
         this.productService.getProductById(orderLS.productId).subscribe((productFound) => {
-          found = new FullOrder(user, orderLS, productFound, false);
-          console.log('local', found);
+          const orderLSTyped = new Order(orderLS.userId, orderLS.productId, orderLS.optionIds, orderLS.isPayed, orderLS.id, orderLS.date);
+          found = new FullOrder(this.currentUser, orderLSTyped, productFound, false);
+          console.log('1-local', found);
+          this.setFullOrder(found);
         });
       } else { //pas trouved en local
-        this.findTodayServerOrder(user).subscribe((orderDB) => {
+        this.findTodayServerOrder().subscribe((orderDB) => {
           if (orderDB) { //trouved sur Server
             this.productService.getProductById(orderDB.productId).subscribe((productFound) => {
-              found = new FullOrder(user, orderDB, productFound, true);
-              console.log('server', found);
+              found = new FullOrder(this.currentUser, orderDB, productFound, true);
+              console.log('1-server', found);
+              this.setFullOrder(found);
             });
           } else { // pas trouved ni en local ni sur server
             found = null;
+            console.log('1-nulle part', found);
+            this.setFullOrder(found);
           }
         });
       }
     } else { //aucun utilisateur connected
       found = null;
+      console.log('1-user deconnected <=> pas de recherche d\'order', found);
+      this.setFullOrder(found);
     }
-    console.log(found);
-    this.setFullOrder(found);
+   // console.log('2-affiche-toi nom de Zeus ',found);
+   // this.setFullOrder(found);
   }
   
   public getList(): Observable<Order[]> {
@@ -73,12 +81,17 @@ export class OrderService {
       .pipe(
         map((orderDto) => Order.fromDto(orderDto)));
   }
-  public findTodayServerOrder(user: User): Observable<Order> {
+  public findTodayServerOrder(): Observable<Order> {
     return this.getList()
       .pipe(
         map((orders) => orders.find(order => {
           const ORDER_DATE_str: string = order.date.getDate().toString() + order.date.getMonth().toString() + order.date.getFullYear().toString();
-          return order.userId === user.id && ORDER_DATE_str === this.TODAY_str;
+          console.log('order date :', ORDER_DATE_str);
+          console.log('today date :', this.TODAY_str);
+          console.log('order user id :', order.userId);
+          console.log('comparaison :', order.userId === this.currentUser.id && ORDER_DATE_str === this.TODAY_str)
+          return order.userId === this.currentUser.id && ORDER_DATE_str === this.TODAY_str;
+
         })));
   }
   public getAllFullOrders(): Observable<FullOrder[]> {
@@ -117,17 +130,18 @@ export class OrderService {
 
 /*------local storage related & userOrderLocal variable----*/
   public addInLocalStorage(order: Order): void {
+    console.log(order); //order correct a ce niveau (userid)
     let key: string = order.userId.toString() + '_' + this.TODAY_str;
     localStorage.setItem(key, JSON.stringify(order));
-    this.updateFullOrder(this.currentUser);
+    this.updateFullOrder();
   }
-  public findInLocalStorage(user:User): Order{
+  public findInLocalStorage(): Order{
     let foundOrder: Order = null;
-    if (user && localStorage.length > 0) {
+    if (this.currentUser && localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
-        if (key.startsWith(user.id.toString())) {
-          if (key === user.id.toString() + '_' + this.TODAY_str) { //cle qui correspond a la commande du jour
+        if (key.startsWith(this.currentUser.id.toString())) {
+          if (key === this.currentUser.id.toString() + '_' + this.TODAY_str) { //cle qui correspond a la commande du jour
             foundOrder = JSON.parse(localStorage.getItem(key));
             
           } else { // cle qui correspond a une commande anterieure pour ce currentUser/ n'a pas lieu de rester stocker en local
@@ -137,7 +151,7 @@ export class OrderService {
         }
       }
     } else {
-      console.log('User deconnected ou pas de commande locale');
+      // console.log('User deconnected ou pas de commande locale');
     }
       return foundOrder;
   }
@@ -145,7 +159,7 @@ export class OrderService {
   public removeFromLocalStorage(): void {
     const removeItemKey: string = this.currentUser.id.toLocaleString() + '_' + this.TODAY_str;
     localStorage.removeItem(removeItemKey);
-    this.updateFullOrder(this.currentUser);
+    this.updateFullOrder();
   }
   // public emptyLocalStorage(): void{
   //   localStorage.clear();
@@ -162,20 +176,23 @@ export class OrderService {
   public deleteOrderFromServer(payload: Order): void {
     console.log('********DELETE REQUEST SERVER **********');
     this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`).subscribe({
+      next: returnedOrder => {
+        console.log('commande retiree du Local storage');
+        returnedOrder ? this.updateFullOrder() : console.log('retour requete DELETE ?');
+      },
       error: error => console.error('Erreur DELETE order', error)
     });
-    this.updateFullOrder(this.currentUser);
   }
 
   public addOrderIntoServer(fullPayload: FullOrder): void {
     fullPayload.getOrder().date = new Date();
+    console.log('full avant ajout server (checker id user):', fullPayload);
     this.http.post<IOrderDto>(`${this.orderUrl}`, fullPayload.getOrder().toDto()).subscribe({
       next: returnedOrder => {
         this.removeFromLocalStorage();
         console.log('commande retiree du Local storage');
         // fullPayload.setConfirmStatus(true);
-        // fullPayload.setOrder(Order.fromDto(returnedOrder));
-        this.updateFullOrder(this.currentUser);
+        returnedOrder ? this.updateFullOrder() : console.log('retour requete POST ?');
       },
       error: error => console.error('Erreur POST new order', error)
     });

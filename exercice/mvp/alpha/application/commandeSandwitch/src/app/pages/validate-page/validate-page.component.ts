@@ -23,12 +23,9 @@ export class ValidatePageComponent implements OnInit {
     private orderService: OrderService,
     private userService:UserService,
   ) {
-    
     this.userService.getCurrentUser().subscribe((user) => {
       this.currentUser = user;
       this.loadOrderData();
-      
-      
     });
   }
 
@@ -48,7 +45,7 @@ export class ValidatePageComponent implements OnInit {
     this.orderService.addOrderIntoServer(this.fullOrder);
     console.log('commande ajoutee dans JSON');
     
-    this.loadOrderData();
+   // this.loadOrderData();
     
     if (!isPayed) {
       console.log('credit AVANT maj => ', this.currentUser.credit);
