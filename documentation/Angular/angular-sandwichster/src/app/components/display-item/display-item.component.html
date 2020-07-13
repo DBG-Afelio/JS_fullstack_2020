@@ -4,9 +4,13 @@
     <p>{{item.description}}</p>
     <span>{{item.prix}}</span> euros<br>
 
-    <a (click)='onProductSelection()'>Je le prends!</a>
+    <!-- Ajouter la classe visible a la sidebar -->
+    <a (click)='showSidebar()' (click)='onProductSelection()'>Je le prends!</a>
 
     <button (click)='modifyItem(item.id)'>Modifier</button>
 </div>
 
 <app-modify-item *ngIf="visible" [item]="item" #viewContainerRef></app-modify-item>
+
+            
+<!-- <app-sidebar></app-sidebar> -->

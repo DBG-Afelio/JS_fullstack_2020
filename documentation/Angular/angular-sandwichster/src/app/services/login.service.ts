@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/interfaces/user';
+import { UserModel } from 'src/app/interfaces/user.model';
 import { map } from 'rxjs/operators';
 import { Observable, throwError, of } from 'rxjs'
 
@@ -16,7 +16,7 @@ export class LoginService {
 
   data = [];
 
-  currentUser: User;
+  currentUser: UserModel;
 
 constructor(private http: HttpClient) { } // je suppose que HttpClient est l'équivalent de Observable mais dans le cas de json-server
 
@@ -28,12 +28,12 @@ constructor(private http: HttpClient) { } // je suppose que HttpClient est l'éq
     return this.isAuth = false;
   }
 
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.urlAPI + 'utilisateurs');  
+  getUsers(): Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(this.urlAPI + 'utilisateurs');  
   }
 
   getUserByLogin(login:string){ //
-    return this.http.get<User[]>(this.urlAPI + 'utilisateurs?login=' + login) //particularité de jsonserver de filter un service
+    return this.http.get<UserModel[]>(this.urlAPI + 'utilisateurs?login=' + login) //particularité de jsonserver de filter un service
     .pipe(map(users => {
       if(users.length > 0){
         return users[0];

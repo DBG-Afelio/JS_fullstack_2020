@@ -43,6 +43,7 @@ public isPaid: boolean;
       this.selectedOptions = this.selectedOptions.filter(optionID => option.id != optionID)
       console.log(option.id);
     }
+    
     else{
       this.selectedOptions.push(option.id);
         console.log(option.id);

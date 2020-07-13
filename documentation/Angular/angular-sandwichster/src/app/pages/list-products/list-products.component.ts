@@ -6,6 +6,7 @@ import { Supplier } from '../../interfaces/supplier';
 import { LoginService } from 'src/app/services/login.service';
 import { Order } from 'src/app/interfaces/order';
 import { OrdersService } from 'src/app/services/orders.service';
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 
 
 @Component({

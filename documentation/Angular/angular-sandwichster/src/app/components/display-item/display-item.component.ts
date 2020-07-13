@@ -9,6 +9,8 @@ import {
 
 import{ ListItemsService } from '../../services/list-items.service';
 import { Item } from '../../interfaces/item';
+import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
+import { ConditionalExpr } from '@angular/compiler';
 
 
 @Component({
@@ -23,7 +25,11 @@ export class DisplayItemComponent implements OnInit {
   @Input() item: Item;
   @Output() selectedProduct = new EventEmitter<Item>();
 
-  constructor() {}
+  @Input() sidebar: SidebarComponent;
+
+  constructor() {
+   
+  }
 
   ngOnInit() {
   }
@@ -41,4 +47,10 @@ export class DisplayItemComponent implements OnInit {
   closeModifyPannel(){
     this.visible = false;
   }
+
+  showSidebar() {
+    console.log(this.sidebar);
+    // this.sidebar.divSidebar.classList.add('visible');
+  }
+
 }

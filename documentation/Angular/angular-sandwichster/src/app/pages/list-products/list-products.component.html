@@ -3,4 +3,3 @@
 <app-list-items *ngFor="let supplier of getListSuppliers()" [listProducts]='getListProductsFiltered(supplier.id)' [supplier]='supplier' (selectedProduct2)="testEvent2($event)">
 
 </app-list-items>
-
