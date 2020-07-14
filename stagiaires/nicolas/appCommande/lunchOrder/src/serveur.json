@@ -23,8 +23,8 @@
       "id": 2
     },
     {
-      "login": "lolo",
-      "password": "miammiam",
+      "login": "user",
+      "password": "user",
       "nom": "duprieux",
       "prenom": "laurent",
       "credit": 0,
@@ -32,17 +32,6 @@
       "banni": false,
       "admin": false,
       "id": 3
-    },
-    {
-      "login": "user",
-      "password": "user",
-      "nom": "LastName",
-      "prenom": "FirstName",
-      "credit": 0,
-      "formation": "JS-Fullstack",
-      "banni": false,
-      "admin": false,
-      "id": 4
     }
   ],
   "commandes": [
@@ -54,7 +43,7 @@
       ],
       "paye": true,
       "id": 1,
-      "date": "2020-07-08T20:34:19.892Z"
+      "date": "2020-03-03T20:34:19.892Z"
     },
     {
       "user_id": 2,
@@ -67,24 +56,13 @@
       "date": "2020-02-21T13:38:10.681Z"
     },
     {
-      "user_id": 1,
-      "product_id": 74,
-      "option_ids": [
-        1,
-        0
-      ],
-      "paye": true,
-      "id": 3,
-      "date": "Mon Jul 13 2020"
-    },
-    {
-      "user_id": 1,
+      "user_id": 3,
       "product_id": 1,
       "option_ids": [
         1
       ],
       "paye": false,
-      "id": 4,
+      "id": 3,
       "date": "Tue Jul 14 2020"
     }
   ],
@@ -126,7 +104,7 @@
   ],
   "produits": [
     {
-      "nom": "Dagoberts",
+      "nom": "Dagobert",
       "description": "Jambon à l’os, gouda, mayonnaise, crudités.",
       "prix": 4.5,
       "options": [
@@ -603,6 +581,25 @@
       ],
       "fourn_id": 1,
       "id": 26
+    },
+    {
+      "nom": "Manzo tonato",
+      "description": "Salade de thon “maison“, roastbeef, aubergines grillées, tomates fraîches, parmesan, vinaigre balsamique (wraps dans salade)",
+      "prix": 5.7,
+      "options": [
+        {
+          "nom": "Pain gris",
+          "surcout": 0.3,
+          "id": 1
+        },
+        {
+          "nom": "En salade",
+          "surcout": 4.3,
+          "id": 2
+        }
+      ],
+      "fourn_id": 1,
+      "id": 27
     },
     {
       "nom": "Margherita",
