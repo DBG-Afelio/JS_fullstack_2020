@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/productService/product.service'
 import { SupplierService } from 'src/app/services/supplierService/supplier.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-product-admin-page',
   templateUrl: './product-admin-page.component.html',
@@ -14,6 +15,10 @@ export class ProductAdminPageComponent implements OnInit {
   public supplierId: number;
   public supplierName: string;
   public listProducts: Product[];
+
+  public page: number;
+  public pageSize: number;
+  public collectionSize: number;
 
   constructor(
     public productService: ProductService,
@@ -26,8 +31,11 @@ export class ProductAdminPageComponent implements OnInit {
         this.supplierId = supplier.getId(); 
         this.supplierName = supplier.getName();
         this.listProducts = supplier.getListProducts();
+        this.collectionSize = supplier.getListProducts().length;
       })
     });
+    this.page = 1;
+    this.pageSize = 10;
   }
 
   public reloadProductList(): void{

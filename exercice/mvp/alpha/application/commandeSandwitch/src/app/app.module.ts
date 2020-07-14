@@ -33,6 +33,7 @@ import { OptionFormComponent } from './components/option-form/option-form.compon
 import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/admin-order-today-page.component';
 import { MinDirective } from './directives/min-directive.directive';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -71,8 +72,10 @@ import { TimeTrackingComponent } from './components/time-tracking/time-tracking.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+
 })
 export class AppModule { }
