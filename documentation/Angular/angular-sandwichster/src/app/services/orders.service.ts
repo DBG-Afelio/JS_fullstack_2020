@@ -27,6 +27,12 @@ constructor(private http: HttpClient,
 
   ) { }
 
+getTime(){
+  var today = new Date();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  return time;
+}
+
 getAllOrders(): Observable<Order[]> {
   return this.http.get<OrderDto[]>(this.urlAPI + 'commandes')
   .pipe(map((arrayOrdersDto: OrderDto []) => {

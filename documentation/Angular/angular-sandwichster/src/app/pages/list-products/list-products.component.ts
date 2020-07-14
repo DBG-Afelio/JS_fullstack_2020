@@ -18,6 +18,8 @@ export class ListProductsComponent implements OnInit {
 
 public selectedProduct: Item;
 public selectedProductPrice: number;
+public selectedProductOptionsPrices: number[];
+public selectedProductOptions: number[];
 public selectedProductSupplier: Supplier;
 
   public sidebarDisplay: boolean = false;
@@ -71,15 +73,18 @@ public selectedProductSupplier: Supplier;
     return this.listProducts.filter(element => element.fourn_id == idSupplier)
   }
   
-  testEvent2(item){
+  onProductSelection(item){
    
     this.selectedProduct = item;
+    this.selectedProductOptionsPrices = [];
     this.selectedProductPrice = this.selectedProduct.prix;
+    this.selectedProductOptions = [];
     this.suppliersService.getSuppliersById(this.selectedProduct.fourn_id).subscribe((element) => {console.log(
       this.selectedProductSupplier = element)})
     if(this.sidebarDisplay === false){
       this.sidebarDisplay = true;
     }
+
   }
 
   createOrderEvent(order: Order){
