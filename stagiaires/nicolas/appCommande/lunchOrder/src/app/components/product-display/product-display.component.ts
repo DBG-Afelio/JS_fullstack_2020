@@ -23,6 +23,7 @@ export class ProductDisplayComponent implements OnInit {
 
   options:number[]=[];
   openRemainingTime:number;
+  isOrderAvailable:boolean;
 
 
   constructor(private ordersListService:OrdersListService) { }
@@ -31,7 +32,7 @@ export class ProductDisplayComponent implements OnInit {
 
     this.newOrder = new Order(this.currentUser?this.currentUser.id:0,this.product.id,[],false,0,new Date());
     this.openRemainingTime = this.getTimeLeftBeforeOpen();
-    console.log(this.getTimeLeftBeforeOpen())
+    this.isOrderAvailable = this.setOrderAvailable()
 
   }
 
@@ -65,7 +66,7 @@ export class ProductDisplayComponent implements OnInit {
     }
     console.log(this.options)
   }
-  isOrderAvailable(){
+  setOrderAvailable(){
 
     const currentHour = this.currentTime.getHours() + this.currentTime.getMinutes()/60
 
@@ -92,6 +93,7 @@ export class ProductDisplayComponent implements OnInit {
     let currentDateInSec = dateHour + dateMinutes + date.getSeconds();
 
     let openingHour = this.ordersListService.minOrderHour*3600;
+
 
 
     return Math.abs(currentDateInSec - openingHour)
