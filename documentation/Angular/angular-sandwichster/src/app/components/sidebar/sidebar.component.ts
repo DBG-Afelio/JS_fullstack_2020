@@ -30,6 +30,7 @@ public selectedOptionsSum: number = 0;
 public isPaid: boolean;
 
 public user: UserModel;
+public userSimulation: UserModel;
 
   constructor(
     public supplierService: SuppliersService,
@@ -49,6 +50,7 @@ public user: UserModel;
 
   ngOnInit() {
     this.getTotal();
+
 
 
   }
@@ -89,6 +91,8 @@ isPaidSelection(value){
 
   orderGoEvent(){
     
+    //console.log(this.user.credit);
+
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
     if(this.timeLimitResponse === false){
       alert('Trop tard enfoiré !');
