@@ -2,6 +2,7 @@ import { User } from '../userModel/user';
 import { Order } from '../orderModel/order';
 import { Product } from '../productModel/Product';
 import { Option } from '../optionModel/Option';
+import { Supplier } from '../supplierModel/Supplier';
 
 export class FullOrder {
 
@@ -9,6 +10,7 @@ export class FullOrder {
         private user: User,
         private order: Order,
         private product: Product,
+        private supplier: Supplier,
         private confirmed:boolean,
     ) { }
     
@@ -30,6 +32,12 @@ export class FullOrder {
     public setProduct(productIn:Product): void{
         this.product = productIn;
     }
+    public getSupplier(): Supplier{
+        return this.supplier;
+    }
+    public setSupplier(supplierIn: Supplier): void{
+        this.supplier = supplierIn;
+    }
     public isConfirmed(): boolean{
         return this.confirmed;
     }
@@ -39,6 +47,15 @@ export class FullOrder {
     public getSelectedOptions(): Option[]{
         return this.order.optionIds.map(id => this.product.options.find(option => option.id === id));
     }
+
+    public getOrderProductWithOptions(): string{
+        let orderDescription: string = this.product.getName();
+        if (this.getSelectedOptions().length > 0) {
+            this.getSelectedOptions().forEach(option => orderDescription += ` +${option.nom}`);
+        }
+        return orderDescription;
+    }
+    
     public getTotalPrice(): number{
         let total: number = this.product.price;
         this.getSelectedOptions().forEach(option => {

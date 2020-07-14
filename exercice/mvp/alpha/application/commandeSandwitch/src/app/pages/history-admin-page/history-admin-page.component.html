@@ -13,16 +13,41 @@
         <th class="th-payed">STATUS</th>
     </tr>
     <tr *ngFor = "let userFullOrder of allOrders">
-        <td>
+        <!-- nom prenom -->
+        <td 
+            [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
             {{ userFullOrder.getUser().familyName | uppercase }} 
             {{ userFullOrder.getUser().firstName }}
         </td>
-        <td>{{ userFullOrder.getUser().course }}</td>
-        <td>{{ userFullOrder.getProduct().name }}</td>
-        <td>fournisseur.nom</td> 
-        <td>{{ userFullOrder.getTotalPrice() }} €</td>
-        <td>{{ userFullOrder.getOrder().date.toLocaleDateString() }}</td>
-        <td>{{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}</td>
+        <!-- formation -->
+        <td>
+            {{ userFullOrder.getUser().course }}
+        </td>
+        <!-- produit -->
+        <td
+            [routerLink]="['/produit/', userFullOrder.getProduct().id]">
+            {{ userFullOrder.getOrderProductWithOptions() }}
+        </td>
+        <!-- fournisseurs -->
+        <!-- [routerLink]="['','admin','fournisseur', userFullOrder.getSupplier().id, 'produit']" --> 
+        <!-- routerLink = "/admin/fournisseur/{{ userFullOrder.getSupplier().id }}/produit" OK-->
+        <td
+            [routerLink]="['/admin/fournisseur/', userFullOrder.getSupplier().id, 'produit']">  
+            {{ userFullOrder.getSupplier().name }} 
+        </td> 
+        <!-- prix -->
+        <td>
+            {{ userFullOrder.getTotalPrice() }} €
+        </td>
+        <!-- date et heure -->
+        <td>
+            {{ userFullOrder.getOrder().date | date:'d/M/yy - H:mm'}}
+        </td>
+        <!-- paye / non paye -->
+        <td>
+            {{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}
+
+        </td>
     </tr>
 </table>
 

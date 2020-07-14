@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, forkJoin, throwError } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map, mergeMap } from 'rxjs/operators'
 import { IOrderDto } from './../../models/orderModel/iorder-dto';
 import { Order } from 'src/app/models/orderModel/order';
 import { User } from 'src/app/models/userModel/user';
@@ -11,6 +11,8 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 import { Product } from 'src/app/models/productModel/Product';
 import { environment } from 'src/environments/environment';
 import { Deadline } from 'src/app/models/deadlineModel/deadline';
+import { SupplierService } from '../supplierService/supplier.service';
+import { Supplier } from 'src/app/models/supplierModel/Supplier';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +32,10 @@ export class OrderService {
     private http: HttpClient,
     private userService: UserService,
     private productService: ProductService,
+    private supplierService: SupplierService,
   ) { 
     this.userService.getCurrentUser().subscribe((currentUser) => {
       this.currentUser = currentUser;
-      
       this.updateFullOrder(); 
     });
   }
@@ -44,17 +46,21 @@ export class OrderService {
     if (this.currentUser) { //utilsateur connected
       const orderLS: Order = this.findInLocalStorage(); //je cherche d'abord en local
       if (orderLS) { //trouved en local
-        this.productService.getProductById(orderLS.productId).subscribe((productFound) => {
-          const orderLSTyped = new Order(orderLS.userId, orderLS.productId, orderLS.optionIds, orderLS.isPayed, orderLS.id, orderLS.date);
-          found = new FullOrder(this.currentUser, orderLSTyped, productFound, false);
-          console.log('1-local', found);
-          this.setFullOrder(found);
-        });
+        this.supplierService.getProductAndSupplier(orderLS.productId).subscribe(
+          ([productFound, supplierFound]) => {
+            const orderLSTyped = new Order(orderLS.userId, orderLS.productId, orderLS.optionIds, orderLS.isPayed, orderLS.id, orderLS.date);
+            found = new FullOrder(this.currentUser, orderLSTyped, productFound, supplierFound, false);
+            console.log('1-local', found);
+            this.setFullOrder(found);
+          });
+        
       } else { //pas trouved en local
         this.findTodayServerOrder().subscribe((orderDB) => {
           if (orderDB) { //trouved sur Server
-            this.productService.getProductById(orderDB.productId).subscribe((productFound) => {
-              found = new FullOrder(this.currentUser, orderDB, productFound, true);
+            this.supplierService.getProductAndSupplier(orderDB.productId).subscribe(
+              ([productFound, supplierFound]) => {
+            
+              found = new FullOrder(this.currentUser, orderDB, productFound, supplierFound, true);
               console.log('1-server', found);
               this.setFullOrder(found);
             });
@@ -99,13 +105,15 @@ export class OrderService {
     return forkJoin(
       this.getList(),
       this.userService.getList(),
-      this.productService.getList())
+      this.productService.getList(),
+      this.supplierService.getList())
       .pipe(
-        map(([orders, users, products]) => {
+        map(([orders, users, products, suppliers]) => {
           return orders.map(order => {
             const user = users.find(user => user.id === order.userId);
             const prod = products.find(produit => produit.id === order.productId);
-            return new FullOrder(user, order, prod, true);
+            const supplier = suppliers.find((supplier) => supplier.id === prod.getSupplierId());
+            return new FullOrder(user, order, prod, supplier, true);
           })
         }));
   }
