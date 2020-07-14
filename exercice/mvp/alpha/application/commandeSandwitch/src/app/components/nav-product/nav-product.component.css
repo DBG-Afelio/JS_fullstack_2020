@@ -1,13 +1,23 @@
 nav.nav-product {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: no-wrap;
     justify-content: space-around;
     margin: 15px 0
 }
 
 a {
-   border:1px solid black;
-    width: 200px;
+    width: 24%;
+    max-width: 200px;
     padding: 10px;
     display: inline-block;
+    background-color: white;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+    text-align: center;
+}
+
+a:hover
+a:active,
+a:focus {
+    transform: scale(1.02);
+    cursor: pointer;
 }

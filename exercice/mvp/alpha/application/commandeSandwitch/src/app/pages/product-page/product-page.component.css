@@ -3,3 +3,21 @@
     grid-template-columns: repeat(4, 24.1%);
     column-gap: 1.2%
 }
+
+@media screen and (max-width:1200px) {
+    .products {
+        grid-template-columns: repeat(3, 33%);
+    }
+}
+
+@media screen and (max-width:900px) {
+    .products {
+        grid-template-columns: repeat(2, 49%);
+    }
+}
+
+@media screen and (max-width:750px) {
+    .products {
+        grid-template-columns: 100%;
+    }
+}

@@ -11,15 +11,23 @@
 
 <div class="form-element form-option-surcout col-lg-4">
     <label for="option-surcout">Surcoût</label>
-    <input type="text" name="option-surcout" 
+    <input type="number" name="option-surcout" 
         placeholder = "Surcoût (obligatoire)"
         required min="0.05" step="0.05"
-        [(ngModel)]="option.surcout" class="form-control" 
+        [(ngModel)]="option.surcout" class="form-control"   #surcout ="ngModel"
         data-pristine="true" 
         >
-    <div *ngIf = "!(option.surcout > 0)"
+    <!--<div *ngIf = "!(option.surcout > 0)"
         class="product-form__error alert alert-danger">
         <p>Le surcoût est requis</p>
+    </div>-->
+    <div *ngIf="surcout.invalid" class="option-form__error alert alert-danger">
+        <div *ngIf="surcout.errors.required">
+            Le prix est requis
+        </div>
+        <div *ngIf="surcout.errors.min">
+            Surcoût min: 0.05
+        </div>
     </div>
 </div>
 <div class="form-element col-lg-2">

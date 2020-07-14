@@ -10,7 +10,7 @@
     ></app-detail-item>
 </div>
 
-<div *ngIf="currentUser && product ">
+<div *ngIf="currentUser && product">
     <div *ngIf="product.options.length > 0">
         <div *ngFor="let option of product.options">
             <input  
@@ -35,4 +35,9 @@
         routerLink="/paiement">
         >> PAIMENT
     </button>
+</div>
+
+
+<div *ngIf="!(currentUser && product)">
+    Pour commander ce sandwich, identifiez-vous !
 </div>

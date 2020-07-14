@@ -30,6 +30,9 @@ import { ProductFormPageComponent } from './pages/product-form-page/product-form
 import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { OptionFormComponent } from './components/option-form/option-form.component';
+import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/admin-order-today-page.component';
+import { AdminHistoryPageComponent } from './pages/admin-history-page/admin-history-page.component';
+import { MinDirective } from './directives/min-directive.directive';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { OptionFormComponent } from './components/option-form/option-form.compon
     ProductAdminPageComponent,
     ProductFormComponent,
     OptionFormComponent,
+    AdminOrderTodayPageComponent,
+    AdminHistoryPageComponent,
+    MinDirective,
   ],
   imports: [
     BrowserModule,

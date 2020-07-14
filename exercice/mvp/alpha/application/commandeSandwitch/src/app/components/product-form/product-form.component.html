@@ -1,107 +1,94 @@
-<form class="form">
+<form class="form" #productForm>
     <div class="row">
-    <div class="form-element form-name  col-lg-6">
-        <label  for="name">Nom</label>
-        <input class="form-control" type="text" name="name"
-            placeholder = "Nom (obligatoire)" required
-            [(ngModel)]="product.name" name="name">
-        <div *ngIf = "product.name === ''"
-            class="product-form__error alert alert-danger">
-            <p>Le nom est requis</p>
-        </div>
-    </div>
-
-    <div class="form-element form-price  col-lg-6">
-        <label for="price">Prix</label>
-        <input type="text" name="price" 
-            placeholder = "Prix (obligatoire)"
-            required min="0.05" step="0.05"
-            [(ngModel)]="product.price" class="form-control" #price ="ngModel"
-            data-pristine="true" 
-            >
-        <!--<div *ngIf = "!(product.price >= 0.5 && product.price % 0.5 === 0)"
-            class="alert alert-danger">
-            <p>Le prix est requis</p>
-        </div>-->
-
-        <div *ngIf="price.invalid" class="product-form__error alert alert-danger">
-            <div *ngIf="price.errors.required">
-                Le prix est requis
+        <div class="form-element form-name col-lg-6">
+            <label  for="name">Nom</label>
+            <input class="form-control" type="text" name="name"
+                placeholder = "Nom (obligatoire)" required
+                [(ngModel)]="product.name" name="name">
+            <div *ngIf = "product.name === ''"
+                class="product-form__error alert alert-danger">
+                <p>Le nom est requis</p>
             </div>
-            <div *ngIf="price.errors.min">
-                Le prix doit être supérieur à 0
+        </div>
+
+        <div class="form-element form-price col-lg-6">
+            <label for="price">Prix</label>
+            <input type="number" name="price" 
+                placeholder = "Prix (obligatoire)"
+                required [min]="0.05"
+                [(ngModel)]="product.price" class="form-control" #price ="ngModel"
+                data-pristine="true" 
+                >
+        
+            <div *ngIf="price.invalid" class="product-form__error alert alert-danger">
+                <div *ngIf="price.errors.required">
+                    Le prix est requis
+                </div>
+                <div *ngIf="price.errors.min">
+                    Prix min: 0.05
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="form-element form-description  col-lg-12">
-        <label for="name">Description</label>
-        <textarea name="description" 
-            class="form-control" data-pristine="true" 
-            placeholder = "Description (obligatoire)"
-            required minlength="3" maxlength="100"
-            [(ngModel)]="product.description" 
-            name="description"
-        ></textarea>
-        <div *ngIf = "product.description === ''"
-            class="product-form__error alert alert-danger">
-            <p>La description est requise</p>
+
+    <div class="row">
+        <div class="form-element form-description  col-lg-12">
+            <label for="name">Description</label>
+            <textarea name="description" 
+                class="form-control" data-pristine="true" 
+                placeholder = "Description (obligatoire)"
+                required minlength="3" maxlength="100"
+                [(ngModel)]="product.description" 
+                name="description"
+            ></textarea>
+            <div *ngIf = "product.description === ''"
+                class="product-form__error alert alert-danger">
+                <p>La description est requise</p>
+            </div>
         </div>
     </div>
 
-
-  
-</div>
-<div class="row">  
-    
-    <div class="form-space product-form__actions  col-lg-12">
-        <button (click) = "createOption()"
-       
-        id="create_button"
-        type="button"
-        class="btn btn__ok"
-        >Ajouter une option
-        </button>
-
-    </div>
-
- 
-</div>
-<div class="row">
-
-    <div class="form-element listOptions" >
-        <app-option-form *ngFor="let option of product.getOptions()"
-            [option] = "option"
-            (delete) = "deleteOptionEvent($event)"></app-option-form>
-    </div>
-
-
-</div>
-<div class="row">
-    <div class="form-space admin-buttons col-lg-12">
-        <div class="product-form__actions">
-            <button *ngIf = "product.id === 0"
-            (click) = "createProduct()"
-            id="create_button"
-            type="button"
-            class="btn btn__ok"
-            >Ajouter
+    <div class="row">  
+        <div class="form-space product-form__actions col-lg-12">
+            <button (click) = "createOption()"
+                id="create_button"
+                type="button"
+                class="btn btn__ok">Ajouter une option
             </button>
-
         </div>
-    
-        <button class="btn btn-danger"
-            (click) = "navigateToAdmin()">Annuler
-        </button>
-        <button  *ngIf = "product.id !== 0"
-            (click) = "saveChanges()"
-            id="update_button"
-            type="button"
-            class="btn btn-dark"
-            >Enregistrer
-          </button>
     </div>
 
-</div>
+    <div class="row">
+        <div class="form-element listOptions">
+            <app-option-form *ngFor="let option of product.getOptions()"
+                [option] = "option"
+                (delete) = "deleteOptionEvent($event)"
+            ></app-option-form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-space admin-buttons col-lg-12">
+            <div class="product-form__actions">
+                <button *ngIf = "product.id === 0"
+                    (click) = "createProduct()"
+                    id="create_button"
+                    type="button"
+                    class="btn btn__ok">Ajouter
+                </button>
+            </div>
+        
+            <button class="btn btn-danger"
+                (click) = "navigateToAdmin()">Annuler
+            </button>
+            
+            <button  *ngIf = "product.id !== 0"
+                [disabled] = "productForm.invalid"
+                (click) = "saveChanges()"
+                id="update_button"
+                type="button"
+                class="btn btn-dark">Enregistrer
+            </button>
+        </div>
+    </div>
 </form>

@@ -9,7 +9,7 @@
     display: inline-block;
     width: 100%;
     box-shadow: 3px 2px 2px rgba(0,0,0,.3);
-    font: 18px/25px'Oswald', sans-serif;
+    font: 18px/25px 'Oswald', sans-serif;
     font-size: 20px;
     position: relative;
 }
@@ -17,11 +17,12 @@
 .product:hover,.product:focus,.product:active { 
     transform: scale(1.05);
     cursor: pointer;
+    background-color: white;
 }
-/*
+
 .product .product-name {
-    
-}*/
+    font: 22px/25px'Oswald', sans-serif;
+}
 
 .product .product-price {
     position: absolute;

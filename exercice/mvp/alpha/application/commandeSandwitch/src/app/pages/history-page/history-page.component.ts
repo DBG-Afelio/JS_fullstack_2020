@@ -47,7 +47,4 @@ export class HistoryPageComponent implements OnInit {
     }
     return optionsStr;
   }
-
-
-
 }
