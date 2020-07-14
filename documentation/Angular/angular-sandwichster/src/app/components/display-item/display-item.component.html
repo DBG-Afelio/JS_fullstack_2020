@@ -8,7 +8,8 @@
     <span>{{item.prix}}</span> euros<br>
 
     <!-- Ajouter la classe visible a la sidebar -->
-    <a (click)='showSidebar()' (click)='onProductSelection()'>Je le prends!</a>
+    <!-- (click)='showSidebar()' -->
+    <a (click)='onProductSelection()'>Je le prends!</a>
 
     <button (click)='modifyItem(item.id)'>Modifier</button>
 </div>

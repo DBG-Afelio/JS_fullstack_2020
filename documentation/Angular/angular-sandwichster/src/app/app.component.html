@@ -2,15 +2,16 @@
 <nav>
   <ul>
     <li><a routerLink="">Liste produits (utilisateur/admin/invité)</a> </li>
-    <li><a routerLink="login">Login (utilisateur/admin)</a> </li>
-    <li>
+    <li *ngIf="!currentUser"><a routerLink="login">Login (utilisateur/admin)</a> </li>
+    <li *ngIf="currentUser?.admin">
       <a routerLink="add-product">Ajouter nouveau produit (admin)</a>
     </li>
-    <li><a routerLink="summary">Résumé de ma commande (utilisateur)</a> </li>
-    <li><a routerLink="profile">Mon profil (utilisateur/admin)</a> </li>
-    <li><a routerLink="for-today">Liste commandes (admin)</a> </li>
-    <li><a routerLink="list-users">Liste utilisateurs (admin)</a> </li>
-    <li><a routerLink="list-suppliers">Liste fournisseurs (admin)</a> </li>
+    <li *ngIf="currentUser"><a routerLink="summary">Résumé de ma commande (utilisateur)</a> </li>
+    <li *ngIf="currentUser"><a routerLink="profile">Mon profil (utilisateur/admin)</a> </li>
+    <li *ngIf="currentUser?.admin"><a routerLink="for-today">Liste commandes (admin)</a> </li>
+    <li *ngIf="currentUser?.admin"><a routerLink="list-users">Liste utilisateurs (admin)</a> </li>
+    <li *ngIf="currentUser?.admin"><a routerLink="list-suppliers">Liste fournisseurs (admin)</a> </li>
   </ul>
+  <button (click) ="disconnect()" class="btn btn-primary">Deconnexion</button>
 </nav>
 <router-outlet></router-outlet>

@@ -3,6 +3,8 @@ import{ ListItemsService } from '../../services/list-items.service';
 import { Item } from '../../interfaces/item';
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
 import { ConditionalExpr } from '@angular/compiler';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-item',
@@ -13,20 +15,26 @@ import { ConditionalExpr } from '@angular/compiler';
 export class DisplayItemComponent implements OnInit {
   public visible: boolean = false;
   public listProducts: Item[];
+  // public currentUser = this.login.getCurrentUserAsObservable().subscribe((data) => data);
   
   @Input() item: Item;
   @Output() selectedProductEvent = new EventEmitter<Item>();
   @Output() emitChangesProduct = new EventEmitter<Item>();
   @Input() sidebar: SidebarComponent;
 
-  constructor() {
-   
-  }
+  constructor(private login: LoginService, private route: Router) {}
 
   ngOnInit() {
   }
   
   onProductSelection(){
+
+   this.login.getCurrentUserAsObservable().subscribe((data) => console.log(data));
+
+    // if(this.currentUser === undefined) {
+    //   this.route.navigate[('/login')];
+    // }
+
     this.selectedProductEvent.emit(this.item);
   }
   onDisplayDetails(id){

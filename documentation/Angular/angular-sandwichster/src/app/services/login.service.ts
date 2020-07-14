@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from 'src/app/interfaces/user.model';
 import { map } from 'rxjs/operators';
-import { Observable, throwError, of } from 'rxjs'
+import { Observable, throwError, of, BehaviorSubject } from 'rxjs'
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,6 +12,7 @@ import { Observable, throwError, of } from 'rxjs'
 export class LoginService {
 
   private urlAPI: string = "http://localhost:3000/";
+  private currentUser$: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>(null);
 
   isAuth = false;
 
@@ -18,13 +20,17 @@ export class LoginService {
 
   currentUser: UserModel;
 
-constructor(private http: HttpClient) { } // je suppose que HttpClient est l'équivalent de Observable mais dans le cas de json-server
+constructor(private http: HttpClient, private route: Router) { } // je suppose que HttpClient est l'équivalent de Observable mais dans le cas de json-server
 
   signIn(){
+    console.log(this.currentUser$);
     return this.isAuth = true;
   }
 
   signOut(){
+    console.log(this.currentUser$);
+    this.route.navigate[('/')]; 
+    this.currentUser$ = new BehaviorSubject<UserModel>(null);
     return this.isAuth = false;
   }
 
@@ -50,6 +56,7 @@ userAuth(login: string, password: string){
     if(foundUser){
       if(foundUser.password === password){
         this.currentUser = foundUser;
+        this.currentUser$.next(this.currentUser); 
         return true;
       }
     }
@@ -58,6 +65,9 @@ userAuth(login: string, password: string){
 }
 
 getCurrentUser(){
+  if (!this.currentUser$) {
+    this.route.navigate(['/']);
+  }
   return this.currentUser;
 }
 
@@ -69,5 +79,9 @@ getCurrentUser(){
   checkDBForUser() {
     
   }
+
+getCurrentUserAsObservable(): Observable<UserModel> {
+    return this.currentUser$.asObservable();
+}
 
 }

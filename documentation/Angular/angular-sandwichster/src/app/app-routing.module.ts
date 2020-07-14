@@ -13,6 +13,7 @@ import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier
 import{ AddNewProductComponent } from './pages/add-new-product/add-new-product.component'
 import { DisplayUserComponent } from './pages/display-user/display-user.component'
 import { HistoryOrdersUserComponent } from './pages/history-orders-user/history-orders-user.component'
+import { NewUserComponent } from './pages/new-user/new-user.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'history/user/:id',
     component: HistoryOrdersUserComponent,
+  },
+  {
+    path: 'new-user',
+    component: NewUserComponent,
   },
   { path : '**', redirectTo:'', pathMatch:'full'},
 

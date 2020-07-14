@@ -14,7 +14,7 @@
       </li>
       <li >Prix total: {{ order.item.prix }}</li>
       <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
-      <li >{{ order.date | date: 'd/M/yyyy, h:mm a'  }}</li>
+      <li >{{ order.date | date: 'd/M/yyyy, h:mm a' }}</li>
     </ul>
     <hr>
   </div>

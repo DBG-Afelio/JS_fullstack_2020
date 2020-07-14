@@ -79,8 +79,8 @@ public selectedProductSupplier: Supplier;
     this.selectedProductOptionsPrices = [];
     this.selectedProductPrice = this.selectedProduct.prix;
     this.selectedProductOptions = [];
-    this.suppliersService.getSuppliersById(this.selectedProduct.fourn_id).subscribe((element) => {console.log(
-      this.selectedProductSupplier = element)})
+    this.suppliersService.getSuppliersById(this.selectedProduct.fourn_id).subscribe((element) => {
+      this.selectedProductSupplier = element})
     if(this.sidebarDisplay === false){
       this.sidebarDisplay = true;
     }

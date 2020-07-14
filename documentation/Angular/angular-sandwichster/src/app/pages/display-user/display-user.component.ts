@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from 'src/app/interfaces/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { ListUsersComponent } from 'src/app/pages/list-users/list-users.component';
+// import { ListUsersComponent } from 'src/app/pages/list-users/list-users.component';
 @Component({
   selector: 'app-display-user',
   templateUrl: './display-user.component.html',
