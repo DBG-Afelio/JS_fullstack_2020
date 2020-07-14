@@ -22,7 +22,7 @@ export class OrdersListComponent implements OnInit {
   constructor(private ordersListService:OrdersListService) { }
 
   ngOnInit(): void {
-
+    
 
   }
 
@@ -51,9 +51,12 @@ export class OrdersListComponent implements OnInit {
   }
   isNotOutdated(date:Date){
 
-    return date.getDay() === new Date().getDay() && date.getHours() < this.ordersListService.maxOrderHour
+    return this.getFormatedDate(date) === this.getFormatedDate(new Date()) && date.getHours() < this.ordersListService.maxOrderHour
 
   }
-  
+  getFormatedDate(date:Date):number{
+    return Date.parse(date.toLocaleString().split(',')[0])
+
+  }
 
 }

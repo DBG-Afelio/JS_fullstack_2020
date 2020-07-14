@@ -76,6 +76,24 @@
       "paye": true,
       "id": 3,
       "date": "Mon Jul 13 2020"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 4,
+      "date": "Tue Jul 14 2020"
+    },
+    {
+      "user_id": 4,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 5,
+      "date": "Tue Jul 14 2020"
     }
   ],
   "fournisseurs": [

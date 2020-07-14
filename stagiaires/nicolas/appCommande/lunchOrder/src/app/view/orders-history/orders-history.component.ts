@@ -17,17 +17,24 @@ export class OrdersHistoryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.orderListService.getMergedOrdersList().subscribe(ordersListFound => {
-
-      this.ordersList = ordersListFound
-      console.log(this.ordersList)
-      })
-
     this.usersListService.getCurrentUser().subscribe(currentUserFound => {
 
       if(currentUserFound){
 
-        this.currentUser = currentUserFound
+        this.currentUser = currentUserFound;
+
+          this.orderListService.getMergedOrdersList().subscribe(ordersListFound =>{
+            if(this.currentUser.isAdmin){
+
+            this.ordersList = ordersListFound
+
+            }else {
+
+              this.ordersList = ordersListFound.filter(order => order.userId === this.currentUser.id)
+
+            }
+
+          })
 
       }
     })

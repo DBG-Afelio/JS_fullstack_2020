@@ -19,7 +19,7 @@
 <mat-dialog-actions>
 
     <button (click)="onButtonClick('order')">Commander</button>
-    <button (click)="onButtonClick('credit')">Faire Crédit</button>
+    <button (click)="onButtonClick('credit')" *ngIf="currentUser.credit+order.totalPrice<10">Faire Crédit</button>
     <button mat-dialog-close >Annuler</button>       
 
 </mat-dialog-actions>
