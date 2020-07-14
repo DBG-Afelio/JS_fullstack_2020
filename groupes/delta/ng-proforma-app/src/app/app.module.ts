@@ -12,12 +12,12 @@ import { LoginComponent } from 'src/page/login/login.component';
 import { FournisseurComponent } from 'src/page/fournisseur/fournisseur.component';
 import { FournisseursComponent } from 'src/page/fournisseurs/fournisseurs.component';
 import { MembresComponent } from 'src/page/membres/membres.component';
-import { MembreComponent } from 'src/page/membre/membre.component';
 import { OptionsComponent } from 'src/page/options/options.component';
 import { CommandeComponent } from 'src/page/commande/commande.component';
 import { NewuserComponent } from 'src/page/newuser/newuser.component';
 import { CommandesComponent } from 'src/page/commandes/commandes.component';
 import {MatButtonModule} from '@angular/material/button'
+import{MembreComponent} from 'src/page/membre/membre.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button'
     OptionsComponent,
     CommandeComponent,
     NewuserComponent,
-    CommandesComponent
+    CommandesComponent,
+    MembreComponent
   ],
   imports: [
     BrowserModule,

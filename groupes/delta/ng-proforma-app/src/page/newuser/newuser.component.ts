@@ -1,8 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from "@angular/forms";
 import { User } from 'src/model/user';
 import { UserDto } from 'src/model/userDTO';
-
+import { UsersService } from 'src/service/users.service';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-newuser',
   templateUrl: './newuser.component.html',
@@ -10,16 +13,18 @@ import { UserDto } from 'src/model/userDTO';
 })
 export class NewuserComponent implements OnInit {
   @Input() user : User = new User('','','','','');
+   
   @Output() create : EventEmitter<UserDto> = new EventEmitter<UserDto>();
   checkoutForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder , private userService :UsersService) {
     this.checkoutForm = this.formBuilder.group({
       nom: new FormControl(this.user.nom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
       prenom: new FormControl(this.user.prenom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
-      login: new FormControl(this.user.login ,[Validators.minLength(4),Validators.required ,Validators.maxLength(15)]), 
+      login: new FormControl(this.user.login ,[Validators.minLength(4),Validators.required ,Validators.maxLength(15)],this.validateLogin.bind(this)), 
       password: new FormControl(this.user.password , [Validators.minLength(8), Validators.required , Validators.maxLength(15)]),
       formation: new FormControl(this.user.formation , [Validators.required])
+
     });
   }
 
@@ -41,12 +46,35 @@ export class NewuserComponent implements OnInit {
   }
   createUser(){
     // if(){
-    //   this.create.emit(this.user.toDto());
+       //this.create.emit(this.user.toDto());
+       //console.log("Name of user is :",this.checkoutForm.get('nom') );
     // }
+    
   }
 
   submitForm(data:UserDto) {
-    this.checkoutForm.reset();
-    console.log(data);
+    if (!this.checkoutForm.errors){
+      this.create.emit(User.fromDto(data).toDto());
+        //console.log("Name of user is :",data.nom,data.prenom,data.login,data.password,data.formation );
+        //console.log((User.fromDto(data).toDto()));
+        
+    }
+    //this.checkoutForm.reset();
+    
+    
+    
   }
-}
+  validateLogin(contorl : AbstractControl) : Promise<ValidationErrors|null>| Observable<ValidationErrors|null>{
+    return this.userService.getUserByLogin(contorl.value).pipe(
+      map(existingUser=>
+         existingUser ?{ notUniqueLogin:true}:null
+      ),
+        
+        catchError(()=> of (null))
+    );
+  }
+  
+
+  }
+  
+

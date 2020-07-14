@@ -11,5 +11,9 @@
 </div>
 <div  [class.errorMessage]="!detecting" *ngIf="message">
     {{message}}
+    
 </div>
+<app-newuser (create)="creatNewMember($event)"></app-newuser>
+
+
 
