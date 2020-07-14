@@ -14,7 +14,6 @@ import { LoggedInOnlyGuard } from './guards/loggedInOnly/logged-in-only.guard';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { ProductAdminPageComponent } from './pages/product-admin-page/product-admin-page.component';
 import { ProductFormPageComponent } from './pages/product-form-page/product-form-page.component';
-import { AdminHistoryPageComponent } from './pages/admin-history-page/admin-history-page.component';
 import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/admin-order-today-page.component';
 
 
@@ -25,7 +24,7 @@ const routes: Routes = [
   { path : "paiement", component: ValidatePageComponent, canActivate: [LoggedInOnlyGuard] }, 
   { path : "historique", component: HistoryPageComponent, canActivate: [LoggedInOnlyGuard] },
 
-  { path : "admin/historique", component: AdminHistoryPageComponent, canActivate: [AdminOnlyGuard] },
+//  { path : "admin/historique", component: AdminHistoryPageComponent, canActivate: [AdminOnlyGuard] },
   { path : "admin/commande-du-jour", component: AdminOrderTodayPageComponent, canActivate: [AdminOnlyGuard] },
   { path : "admin/fournisseur/ajouter", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },
   { path : "admin/fournisseur/modifier/:id", component : SupplierFormPageComponent, canActivate:[AdminOnlyGuard] },

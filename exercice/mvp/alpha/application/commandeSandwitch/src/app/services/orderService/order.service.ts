@@ -34,7 +34,7 @@ export class OrderService {
     this.currentUser = currentUser;
       this.updateFullOrder(); 
     });
-   }
+  }
 
   private updateFullOrder(): void{    
     console.log(this.currentUser);
@@ -82,6 +82,7 @@ export class OrderService {
       .pipe(
         map((orderDto) => Order.fromDto(orderDto)));
   }
+
   public findTodayServerOrder(): Observable<Order> {
     return this.getList()
       .pipe(
@@ -91,6 +92,7 @@ export class OrderService {
 
         })));
   }
+  
   public getAllFullOrders(): Observable<FullOrder[]> {
     return forkJoin(
       this.getList(),
