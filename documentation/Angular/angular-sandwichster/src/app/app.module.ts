@@ -37,6 +37,7 @@ import { HistoryOrdersUserComponent } from './pages/history-orders-user/history-
 // Sidebar 
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 import { DisplayUserComponent } from './pages/display-user/display-user.component';
+import { NewUserComponent } from './pages/new-user/new-user.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { DisplayUserComponent } from './pages/display-user/display-user.componen
     DetailsUserComponent,
     HistoryOrdersUserComponent,
     DisplayUserComponent,
+    NewUserComponent,
     ModifyItemComponent
   ],
   imports: [

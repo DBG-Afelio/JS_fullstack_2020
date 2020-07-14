@@ -1,12 +1,16 @@
 .sidebar {
-    width: 300px;
+    width: 350px;
     height: 100%;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     top: 0;
     bottom: 0;
     right: 0;
     border: 1px solid black;
     background: skyblue;
+    transition: all linear .150s;
 }
 
 /* .sidebar.visible {
