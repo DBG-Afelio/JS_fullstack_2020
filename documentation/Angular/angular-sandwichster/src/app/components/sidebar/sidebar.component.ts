@@ -4,7 +4,8 @@ import { SuppliersService } from 'src/app/services/suppliers.service';
 import { Supplier } from 'src/app/interfaces/supplier';
 import { Order } from 'src/app/interfaces/order';
 import { OrdersService } from 'src/app/services/orders.service';
-
+import { UserModel } from 'src/app/interfaces/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -16,43 +17,51 @@ export class SidebarComponent implements OnInit {
 
 @Input() selectedProduct: Item;
 @Input() selectedProductPrice: number;
+@Input() selectedProductOptionsPrices: number[];
+@Input() selectedProductOptions: number[];
 @Input() selectedProductSupplier: Supplier;
 @Output() newOrderOutput = new EventEmitter<Order>();
 
-public selectedOptions: number[] = [];
-public selectedOptionsPrices: number[] = [];
+
 public selectedOptionsSum: number = 0;
 public isPaid: boolean;
 
+public user: UserModel;
+
   constructor(
     public supplierService: SuppliersService,
-    public orderService: OrdersService
+    public orderService: OrdersService,
+    public userService: UserService
 
-  ) { }
+  ) {   }
 
   ngOnInit() {
-    console.log("");
-    this.selectedOptions = [];
-    this.selectedOptionsPrices = [];
-
+    console.log('test du basic price : ' + this.selectedProductPrice)
   }
+
+
+
+
+  //this.selectedProductOptionsPrices = this.selectedProductOptionsPrices.filter(optionSurcout => option.surcout != optionSurcout);
 
   optionSelection(option, i){
 
-    if(this.selectedOptions.includes(option.id)){
-      this.selectedOptions = this.selectedOptions.filter(optionID => option.id != optionID)
-      console.log(option.id);
+    if(this.selectedProductOptions.includes(option.id)){
+      this.selectedProductOptions = this.selectedProductOptions.filter(optionID => option.id != optionID);
+      this.selectedProductPrice = this.selectedProductPrice - option.surcout;
     }
     
     else{
-      this.selectedOptions.push(option.id);
-        console.log(option.id);
-
+      this.selectedProductOptions.push(option.id);
+      this.selectedProductOptionsPrices.push(option.surcout);
+      this.selectedProductPrice = this.selectedProductPrice + option.surcout;
     }
-    console.log('INDEX OPTION DERNIER CLIC : ' + i )
-    console.log(this.selectedOptions);
+
+    this.selectedProductPrice = Math.round(this.selectedProductPrice * 10) / 10;
+    //console.log('INDEX OPTION DERNIER CLIC : ' + i )
     //console.log(this.selectedOptionsPrices)
     //console.log(this.selectedOptionsSum)
+    console.log(this.isPaid);
 }
 
 isPaidSelection(value){
@@ -61,23 +70,28 @@ isPaidSelection(value){
 
   orderGoEvent(){
     
-    let newOrderDate = new Date();
+    if(this.isPaid !== undefined){
 
-    let newOrder = new Order(
-      1, // à connecter avec le user service
-      this.selectedProduct.id,
-      this.selectedOptions, 
-      this.isPaid, // PAS OUBLIER AJOUTER VERIFICATION CHECKED
-      0, // doit rester 0 jusqu'à arriver dans le service order où un id unique est généré  ?
-      newOrderDate.toISOString() // transformer la nouvelle date en string (new Date().toString)
-    )
+      let newOrderDate = new Date();
 
-    this.newOrderOutput.emit(newOrder); // ne sert à rien pour l'instant
+      let newOrder = new Order(
+        1, // à connecter avec le user service
+        this.selectedProduct.id,
+        this.selectedProductOptions, 
+        this.isPaid, 
+        0, // doit rester 0 jusqu'à arriver dans le service order où un id unique est généré  ?
+        newOrderDate.toISOString() 
+      )
+  
+      this.newOrderOutput.emit(newOrder); 
 
-    this.orderService.createOrder(newOrder);
+      console.log('Time : ' + this.orderService.getTime());  
 
-    console.log(newOrderDate);
 
+    }
+    else{
+      alert('Veuillez précisez si vous avez payé ou non');
+    }
 
   }
 

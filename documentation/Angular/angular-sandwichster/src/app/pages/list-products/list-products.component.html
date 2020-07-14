@@ -1,5 +1,11 @@
-<app-sidebar [selectedProduct]="selectedProduct" [selectedProductPrice]="selectedProductPrice" [selectedProductSupplier]="selectedProductSupplier" *ngIf="sidebarDisplay" (newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
+<app-sidebar [selectedProduct]="selectedProduct" 
+[selectedProductOptionsPrices]="selectedProductOptionsPrices" 
+[selectedProductPrice]="selectedProductPrice"
+[selectedProductOptions]="selectedProductOptions" 
+[selectedProductSupplier]="selectedProductSupplier" 
+*ngIf="sidebarDisplay" 
+(newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
 
-<app-list-items *ngFor="let supplier of getListSuppliers()" [listProducts]='getListProductsFiltered(supplier.id)' [supplier]='supplier' (selectedProduct2)="testEvent2($event)">
+<app-list-items *ngFor="let supplier of getListSuppliers()" [listProducts]='getListProductsFiltered(supplier.id)' [supplier]='supplier' (selectedProductEvent)="onProductSelection($event)">
 
 </app-list-items>
