@@ -31,7 +31,6 @@ import { ProductAdminPageComponent } from './pages/product-admin-page/product-ad
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { OptionFormComponent } from './components/option-form/option-form.component';
 import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/admin-order-today-page.component';
-import { AdminHistoryPageComponent } from './pages/admin-history-page/admin-history-page.component';
 import { MinDirective } from './directives/min-directive.directive';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
 
@@ -64,7 +63,6 @@ import { TimeTrackingComponent } from './components/time-tracking/time-tracking.
     ProductFormComponent,
     OptionFormComponent,
     AdminOrderTodayPageComponent,
-    AdminHistoryPageComponent,
     MinDirective,
     TimeTrackingComponent,
   ],
