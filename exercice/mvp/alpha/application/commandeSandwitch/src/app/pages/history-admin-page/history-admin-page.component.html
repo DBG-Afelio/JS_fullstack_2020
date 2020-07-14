@@ -37,9 +37,7 @@
         </td> 
         <!-- prix -->
         <td>
-            {{ userFullOrder.getTotalPrice() }} €
-        </td>
-        <!-- date et heure -->
+            {{ userFullOrder.getTotalPrice() | currency : 'EUR':true }}
         <td>
             {{ userFullOrder.getOrder().date | date:'d/M/yy - H:mm'}}
         </td>

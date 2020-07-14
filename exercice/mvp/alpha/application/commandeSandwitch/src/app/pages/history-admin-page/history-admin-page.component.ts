@@ -3,7 +3,7 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 import { OrderService } from 'src/app/services/orderService/order.service';
 import { SupplierService } from 'src/app/services/supplierService/supplier.service';
 import { Supplier } from 'src/app/models/supplierModel/Supplier';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
 @Component({
   selector: 'app-history-admin-page',
   templateUrl: './history-admin-page.component.html',

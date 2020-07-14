@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +35,10 @@ import { MinDirective } from './directives/min-directive.directive';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
 import { HistoryAdminPageComponent } from './pages/history-admin-page/history-admin-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
+registerLocaleData(localeFr)
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +79,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'fr-FR'
+  }],
   bootstrap: [AppComponent], 
 
 })

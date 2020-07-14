@@ -21,7 +21,7 @@
             option : {{ option.nom }} + {{ option.surcout }} €
         </div>
     </div>
-    Prix : {{ updatedPrice }} €
+    Prix : {{ updatedPrice | currency : 'EUR':true }} 
     <button
         (click)="saveInLocalStorage()"
         [disabled]="!isOnTime">
