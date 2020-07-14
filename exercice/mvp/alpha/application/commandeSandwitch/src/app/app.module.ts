@@ -31,6 +31,7 @@ import { ProductAdminPageComponent } from './pages/product-admin-page/product-ad
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { OptionFormComponent } from './components/option-form/option-form.component';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
+import { HistoryAdminPageComponent } from './pages/history-admin-page/history-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TimeTrackingComponent } from './components/time-tracking/time-tracking.
     ProductFormComponent,
     OptionFormComponent,
     TimeTrackingComponent,
+    HistoryAdminPageComponent,
   ],
   imports: [
     BrowserModule,

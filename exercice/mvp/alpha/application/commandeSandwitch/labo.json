@@ -82,7 +82,7 @@
       "option_ids": [
         2
       ],
-      "paye": true,
+      "paye": false,
       "id": 4,
       "date": "2020-07-12T20:34:19.892Z"
     },
@@ -112,7 +112,7 @@
       "option_ids": [
         1
       ],
-      "paye": true,
+      "paye": false,
       "id": 8,
       "date": "2020-07-12T13:38:10.681Z"
     },
@@ -147,7 +147,7 @@
       "date": "2020-07-12T13:38:10.681Z"
     },
     {
-      "user_id": 0,
+      "user_id": 2,
       "product_id": 8,
       "option_ids": [
         1,
@@ -164,6 +164,16 @@
       "paye": true,
       "id": 15,
       "date": "Mon Jul 13 2020 12:01:55 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 4,
+      "product_id": 54,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 16,
+      "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [

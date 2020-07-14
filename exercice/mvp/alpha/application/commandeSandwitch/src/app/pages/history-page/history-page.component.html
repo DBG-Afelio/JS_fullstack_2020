@@ -7,7 +7,7 @@
         <th class="th-product">PRODUIT</th>
         <th class="th-options">SUPPLEMENTS</th>
         <th class="th-price">PRIX</th>
-        <th class="th-payed">PAIEMENT</th>
+        <th class="th-payed">METHODE PAIEMENT</th>
         <th class="th-button"> - </th>
     </tr>
     <tr *ngFor = "let userHistOrder of ordersHistory">
@@ -15,10 +15,15 @@
         <td>{{ userHistOrder.getProduct().name }}</td>
         <td>{{ optionsToString(userHistOrder.getSelectedOptions()) }}</td>
         <td>{{ userHistOrder.getTotalPrice() }} €</td>
-        <td>{{ userHistOrder.getOrder().isPayed ? "cash" : "a credit" }}</td>
+        <td
+            [class.not-payed]="!userHistOrder.getOrder().isPayed">
+            {{ userHistOrder.getOrder().isPayed ? "cash" : "a credit" }}
+        </td>
         <td class="td-button">
             <button 
-            (click)="goToProduct(userHistOrder.getProduct().id,userHistOrder.getSelectedOptions())">
+            (click)="goToProduct(
+                userHistOrder.getProduct().id, userHistOrder.getOrder().optionIds
+                )">
                 Commander
             </button>
         </td>

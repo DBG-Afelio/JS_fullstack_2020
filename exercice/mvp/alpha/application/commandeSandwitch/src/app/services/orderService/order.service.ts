@@ -16,11 +16,12 @@ import { Deadline } from 'src/app/models/deadlineModel/deadline';
   providedIn: 'root'
 })
 export class OrderService {
+  //ASSIA = new User("assia", "assia", "rachdi", "assia", 0, 'JSFull', false, false, 4);
   public currentUser: User = null;
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
-  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(22, 14, 0)); // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
+  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(12, 14, 0));// 12:14 = 51600 sec // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
   private onTime: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public today = new Date();
   public today_str: string = this.today.getDate().toString() + this.today.getMonth().toString() + this.today.getFullYear().toString();
@@ -31,7 +32,8 @@ export class OrderService {
     private productService: ProductService,
   ) { 
     this.userService.getCurrentUser().subscribe((currentUser) => {
-    this.currentUser = currentUser;
+      this.currentUser = currentUser;
+      
       this.updateFullOrder(); 
     });
    }
