@@ -43,6 +43,9 @@ export class FournisseurComponent implements OnInit {
         this.fournisseur = fourn ;
         this.selectedProduct=fourn.products[0];
       });
+    if(this.commandsService.PendingCommand) {
+      this.pending_command = this.commandsService.PendingCommand;
+    }
       
     
 

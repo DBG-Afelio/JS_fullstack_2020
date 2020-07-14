@@ -1,0 +1,7 @@
+<div *ngIf="commandes">
+  <div *ngFor="let command of getCommands()">
+    <p>
+      <a routerLink='../commande/{{command.id}}'>{{command.product.nom}}</a>
+    </p>
+  </div>
+</div>

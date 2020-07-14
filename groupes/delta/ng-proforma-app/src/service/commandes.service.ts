@@ -96,6 +96,25 @@ export class CommandesService {
     return this.http.post<CommandeDto>(`http://localhost:3000/commandes`,command).pipe(
       map((commandDto:CommandeDto)=>{
         return Commande.fromDto(commandDto);
+      }),
+      mergeMap((commande:Commande) => {
+        return this.usersService.getUserById(commande.user_id).pipe(
+          map((user:User) => {
+            return commande.setUser(user);
+          })
+        )
+      }),
+      mergeMap((commande:Commande) => {
+        return this.productService.getProductById(commande.product_id).pipe(
+          map((product:Product) => {
+            return commande.setProduct(product);
+          })
+        )
+      }),
+      map((commande:Commande) => {
+        return commande.setOptions(
+          commande.product.options.filter((option:Option) => commande.option_ids.includes(option.id))
+        )
       })
     )
   }

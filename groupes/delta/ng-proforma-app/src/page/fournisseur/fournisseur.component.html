@@ -37,7 +37,12 @@
 
 
 
-    <app-options [options]="selectedProduct.options" [selected_options]="selectedOptions" (options_change)="optionsChange($event)"></app-options>
+    <app-options 
+        [options]="selectedProduct.options"
+        [selected_options]="selectedOptions"
+        (options_change)="optionsChange($event)"
+        [read_only]="pending_command && pending_command.product !== selectedProduct"
+    ></app-options>
 </div>
 <button *ngIf="hour && stillInTime() && selectedProduct && !pending_command || pending_command?.product !== selectedProduct" (click)="checkeOrder(selectedProduct)">Choisir</button>
 <p class="message"> {{message}} </p>

@@ -4,6 +4,7 @@ import { UsersService } from 'src/service/users.service';
 import { User } from 'src/model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Commande } from 'src/model/commande';
+import { Option } from 'src/model/option';
 
 @Component({
   selector: 'app-commande',
@@ -30,12 +31,24 @@ export class CommandeComponent implements OnInit {
             this.route.navigate(['../']);
           }
         })
-      } else if (this.userService.user_co) {
+      } else if (this.userService.user_co && this.commandesService.PendingCommand) {
         this.commande = this.commandesService.PendingCommand;
       } else {
         this.route.navigate(['../']);
       }
     })
+  }
+
+  optionsChange(options:Option[]): void {
+    if(!this.commande.id as boolean){
+      this.commande.setOptions(options);
+      this.commandesService.PendingCommand.setOptions(options);
+    }
+  }
+
+  confirmCommand() {
+    this.commandesService.creatCommand(this.commande.toDto()).subscribe(command => this.commande = command);
+    this.commandesService.PendingCommand = undefined;
   }
 
 }

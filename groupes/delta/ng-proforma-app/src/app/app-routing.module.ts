@@ -7,6 +7,7 @@ import { MembresComponent } from 'src/page/membres/membres.component';
 import { MembreComponent } from 'src/page/membre/membre.component';
 import { CommandeComponent } from 'src/page/commande/commande.component';
 import { NewuserComponent } from 'src/page/newuser/newuser.component';
+import { CommandesComponent } from 'src/page/commandes/commandes.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "commande/:id",
     component: CommandeComponent
+  },
+  {
+    path: "commandes",
+    component: CommandesComponent
   },
   {
     path: 'newuser',
