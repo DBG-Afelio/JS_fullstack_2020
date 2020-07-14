@@ -25,6 +25,7 @@ export class HistoryAdminPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //pas utilised
   public getSupplier(productId: number): Supplier{
     let mySupplier: Supplier = null;
     this.supplierList.map(eachSupplier => {
@@ -37,9 +38,5 @@ export class HistoryAdminPageComponent implements OnInit {
     return mySupplier;
   }
 
-  public displaySupplier(prodId:number):Supplier{
-    // faire d'abord methode dans service pour recuperer un supplier depuis un product Id
-    let supplier: Supplier = null;
-    return supplier;
-  }
+
 }
