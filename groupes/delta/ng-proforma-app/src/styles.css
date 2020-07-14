@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;900&display=swap');
 body {
     font-family: 'Exo 2', sans-serif;
-}
-body{
     background-color:    #fff5d7;
+    margin: 0;
+    padding: 0;
 }
