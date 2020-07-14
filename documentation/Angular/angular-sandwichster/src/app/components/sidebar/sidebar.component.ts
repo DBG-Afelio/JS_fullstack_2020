@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { Item } from 'src/app/interfaces/item';
 import { SuppliersService } from 'src/app/services/suppliers.service';
 import { Supplier } from 'src/app/interfaces/supplier';
@@ -13,11 +13,10 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnChanges {
 
 @Input() selectedProduct: Item;
 @Input() selectedProductPrice: number;
-@Input() selectedProductOptionsPrices: number[];
 @Input() selectedProductOptions: number[];
 @Input() selectedProductSupplier: Supplier;
 @Output() newOrderOutput = new EventEmitter<Order>();
@@ -34,34 +33,47 @@ public user: UserModel;
     public userService: UserService
 
   ) {   }
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes.selectedProduct){
+      this.getTotal();
+      console.log(changes, this.selectedProductPrice);
+    }
+    console.log('OnChange : ' , changes)
+  }
 
   ngOnInit() {
+    this.getTotal();
     console.log('test du basic price : ' + this.selectedProductPrice)
   }
 
 
-
-
   //this.selectedProductOptionsPrices = this.selectedProductOptionsPrices.filter(optionSurcout => option.surcout != optionSurcout);
+
+getTotal(){
+  this.selectedOptionsSum = this.selectedProductPrice;
+  this.selectedProductOptions.forEach(optionID => 
+    this.selectedOptionsSum += this.selectedProduct
+    .options
+    .find(option => option.id = optionID)
+    .surcout)
+    this.selectedOptionsSum = Math.round(this.selectedOptionsSum * 10) / 10;
+}
 
   optionSelection(option, i){
 
+    
     if(this.selectedProductOptions.includes(option.id)){
       this.selectedProductOptions = this.selectedProductOptions.filter(optionID => option.id != optionID);
-      this.selectedProductPrice = this.selectedProductPrice - option.surcout;
+
     }
     
     else{
       this.selectedProductOptions.push(option.id);
-      this.selectedProductOptionsPrices.push(option.surcout);
-      this.selectedProductPrice = this.selectedProductPrice + option.surcout;
     }
 
-    this.selectedProductPrice = Math.round(this.selectedProductPrice * 10) / 10;
-    //console.log('INDEX OPTION DERNIER CLIC : ' + i )
-    //console.log(this.selectedOptionsPrices)
-    //console.log(this.selectedOptionsSum)
-    console.log(this.isPaid);
+    this.getTotal();
+
+    console.log('prix du produit avec options : ' + this.selectedProductPrice)
 }
 
 isPaidSelection(value){

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OrdersService } from './services/orders.service';
 import { Order } from './interfaces/order';
+import { LoginService } from './services/login.service';
 
 
 
@@ -13,7 +14,7 @@ export class AppComponent {
 
   arrayOrders: Order[] = [];
 
-  constructor(private orderservice: OrdersService) {
+  constructor(private orderservice: OrdersService, private loginService: LoginService) {
     this.orderservice.getUsersAndProductsNameInListOrders().subscribe((data) => this.arrayOrders = data);
   }
   

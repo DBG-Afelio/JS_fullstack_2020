@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngFor="let order of todayOrders">
     <ul>
-      <li >Qui? {{ order.user.prenom |  titlecase}} {{ order.user.nom |uppercase }}</li>
+      <li >Qui? {{ order.user?.prenom |  titlecase}} {{ order.user?.nom | uppercase }}</li>
       <li >Quoi? {{ order.item.nom }}</li>
       <li>Où? {{order.item.supplier.nom}}</li>
       <li>Prix de base: {{ order.item.prix }}</li>
