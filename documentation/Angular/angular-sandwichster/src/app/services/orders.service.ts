@@ -18,6 +18,7 @@ import { Item } from '../interfaces/item';
 })
 export class OrdersService {
 
+private timeLimit: string = '18:00:00';
 
   private urlAPI: string = "http://localhost:3000/";
 
@@ -27,10 +28,11 @@ constructor(private http: HttpClient,
 
   ) { }
 
-getTime(){
-  var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  return time;
+getTimeLimitResponse(){
+  let today = new Date();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let response = time < this.timeLimit;
+  return response;
 }
 
 getAllOrders(): Observable<Order[]> {
