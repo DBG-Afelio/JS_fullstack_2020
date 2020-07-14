@@ -34,9 +34,10 @@ export class MembreComponent implements OnInit {
 
   }
   creatNewMember(user:UserDto){
+  
     this.usersService.creatUser(user).subscribe((membre)=>{
       this.router.navigate(["/"]);
-      console.log(membre);
+      
     })
   }
 

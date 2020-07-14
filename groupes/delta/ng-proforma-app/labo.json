@@ -32,6 +32,17 @@
       "banni": false,
       "admin": false,
       "id": 3
+    },
+    {
+      "login": "haroon1991",
+      "password": "haroon1991",
+      "nom": "haroon1991",
+      "prenom": "haroon1991",
+      "credit": 0,
+      "formation": "INTRO_PROG",
+      "banni": false,
+      "admin": false,
+      "id": 4
     }
   ],
   "commandes": [
