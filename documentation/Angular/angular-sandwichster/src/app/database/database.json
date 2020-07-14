@@ -4,7 +4,7 @@
       "login": "admin",
       "password": "admin",
       "nom": "saispas",
-      "prenom": "gene",
+      "prenom": "hahahaha",
       "credit": 0,
       "formation": "azerty",
       "banni": false,
@@ -57,88 +57,36 @@
     },
     {
       "user_id": 1,
-      "product_id": 5,
-      "option_ids": [],
-      "paye": true,
+      "product_id": 7,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": "true",
       "id": 3,
-      "date": ""
+      "date": "2020-07-13T15:21:10.393Z"
     },
     {
       "user_id": 1,
       "product_id": 8,
-      "option_ids": [],
-      "paye": true,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": "true",
       "id": 4,
-      "date": ""
+      "date": "2020-07-13T15:21:37.313Z"
     },
     {
       "user_id": 1,
-      "product_id": 3,
-      "option_ids": [],
-      "paye": true,
+      "product_id": 8,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": "true",
       "id": 5,
-      "date": ""
-    },
-    {
-      "user_id": 1,
-      "product_id": 16,
-      "option_ids": [],
-      "paye": true,
-      "id": 6,
-      "date": ""
-    },
-    {
-      "user_id": 1,
-      "product_id": 5,
-      "option_ids": [],
-      "paye": true,
-      "id": 7,
-      "date": ""
-    },
-    {
-      "user_id": 1,
-      "product_id": 1,
-      "option_ids": [],
-      "paye": true,
-      "id": 8,
-      "date": ""
-    },
-    {
-      "user_id": 1,
-      "product_id": 1,
-      "option_ids": [],
-      "paye": "true",
-      "id": 9,
-      "date": "Mon Jul 13 2020 13:41:13 GMT+0200 (heure d’été d’Europe centrale)"
-    },
-    {
-      "user_id": 1,
-      "product_id": 4,
-      "option_ids": [],
-      "id": 10,
-      "date": "Mon Jul 13 2020 13:41:34 GMT+0200 (heure d’été d’Europe centrale)"
-    },
-    {
-      "user_id": 1,
-      "product_id": 2,
-      "option_ids": [],
-      "id": 11,
-      "date": "Mon Jul 13 2020 13:43:57 GMT+0200 (heure d’été d’Europe centrale)"
-    },
-    {
-      "user_id": 1,
-      "product_id": 1,
-      "option_ids": [],
-      "paye": "true",
-      "id": 12,
-      "date": "2020-07-13T11:45:53.952Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 1,
-      "option_ids": [],
-      "id": 13,
-      "date": "2020-07-13T14:15:14.224Z"
+      "date": "2020-07-13T15:21:43.180Z"
     }
   ],
   "fournisseurs": [
@@ -146,7 +94,7 @@
       "id": 1,
       "nom": "Poivre & Sel",
       "description": "Sandwicherie Fine",
-      "ferme": false,
+      "ferme": true,
       "archive": false,
       "horaire": [
         false,
