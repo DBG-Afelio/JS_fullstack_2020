@@ -21,7 +21,8 @@ export class ProductFormComponent implements OnInit {
     this.create.emit(this.product);
   }
 
-  public saveChanges() {
+  public saveChanges(form) {
+    console.log('form: ' ,form);
     this.update.emit(this.product);
   }
 
