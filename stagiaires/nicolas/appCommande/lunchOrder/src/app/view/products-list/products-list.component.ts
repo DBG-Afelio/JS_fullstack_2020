@@ -69,7 +69,6 @@ export class ProductsListComponent implements OnInit {
 
     this.usersListService.setCurrentUserOrder(newOrder)
     this.openOrderDialog(newOrder)
-    this.usersListService.getCurrentUserOrder().subscribe(_ => console.log(_))
 
   }
   openOrderDialog(newOrder:Order){

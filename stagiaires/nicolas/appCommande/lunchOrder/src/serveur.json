@@ -132,7 +132,7 @@
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": "0.3",
+          "surcout": 0.3,
           "id": 1
         }
       ],
@@ -1159,73 +1159,6 @@
       "options": [],
       "fourn_id": 2,
       "id": 71
-    },
-    {
-      "nom": "Le sandwish",
-      "description": "Du pain,... c'est déjà bien...",
-      "prix": "200",
-      "options": [
-        {
-          "nom": "bannanes",
-          "surcout": "0.5",
-          "id": ""
-        },
-        {
-          "nom": "fromage",
-          "surcout": "12",
-          "id": ""
-        },
-        {
-          "nom": "oigons",
-          "surcout": "20",
-          "id": ""
-        },
-        {
-          "nom": "graisse",
-          "surcout": "0.3",
-          "id": ""
-        }
-      ],
-      "fourn_id": 1,
-      "id": 72
-    },
-    {
-      "nom": "grehgre",
-      "description": "erhreh",
-      "prix": 20,
-      "options": [
-        {
-          "nom": "reherh",
-          "surcout": 50,
-          "id": 0
-        },
-        {
-          "nom": "rrhrhr",
-          "surcout": 3,
-          "id": 0
-        }
-      ],
-      "fourn_id": 1,
-      "id": 73
-    },
-    {
-      "nom": ",fh,f,",
-      "description": "fh,hf",
-      "prix": 10,
-      "options": [
-        {
-          "nom": "fh,hf",
-          "surcout": 8,
-          "id": 0
-        },
-        {
-          "nom": "tkkutk",
-          "surcout": 9,
-          "id": 1
-        }
-      ],
-      "fourn_id": 1,
-      "id": 74
     }
   ]
 }

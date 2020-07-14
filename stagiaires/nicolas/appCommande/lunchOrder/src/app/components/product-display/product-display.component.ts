@@ -49,7 +49,7 @@ export class ProductDisplayComponent implements OnInit {
     this.newOrder.setProduct(this.product);
     this.newOrder.setOptions(this.newOrder.getSelectedOptions());
     this.newOrder.setTotalPrice();
-
+    
     this.productOrdered.emit(this.newOrder)
 
   }
@@ -64,7 +64,7 @@ export class ProductDisplayComponent implements OnInit {
       this.options.push(option.id)
 
     }
-    console.log(this.options)
+
   }
   setOrderAvailable(){
 
