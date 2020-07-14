@@ -13,16 +13,32 @@
         <th class="th-payed">STATUS</th>
     </tr>
     <tr *ngFor = "let userFullOrder of allOrders">
-        <td>
+        <td
+            [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
             {{ userFullOrder.getUser().familyName | uppercase }} 
             {{ userFullOrder.getUser().firstName }}
         </td>
-        <td>{{ userFullOrder.getUser().course }}</td>
-        <td>{{ userFullOrder.getProduct().name }}</td>
-        <td>fournisseur.nom</td> 
-        <td>{{ userFullOrder.getTotalPrice() }} €</td>
-        <td>{{ userFullOrder.getOrder().date.toLocaleDateString() }}</td>
-        <td>{{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}</td>
+        <td
+            [routerLink]="['admin/fournisseur/modifier/']">
+            {{ userFullOrder.getUser().course }}
+        </td>
+        <td
+            [routerLink]="['/admin/produit/', userFullOrder.getProduct().id]">
+            {{ userFullOrder.getProduct().name }}
+        </td>
+        <td>
+            TBD
+        </td> 
+        <td>
+            {{ userFullOrder.getTotalPrice() }} €
+        </td>
+        <td>
+            {{ userFullOrder.getOrder().date.toLocaleDateString() }}
+        </td>
+        <td>
+            {{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}
+
+        </td>
     </tr>
 </table>
 

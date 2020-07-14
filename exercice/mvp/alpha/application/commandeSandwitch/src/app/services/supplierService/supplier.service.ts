@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Supplier } from '../../models/supplierModel/Supplier';
 import { Observable, forkJoin, throwError } from 'rxjs';
 import { SupplierDto } from '../../models/supplierModel/SupplierDto';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { ProductService } from '../productService/product.service';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/productModel/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +51,15 @@ export class SupplierService {
     ;
   }
 
-
+  public getProductAndSupplier(productId: number): Observable<[Product,Supplier]>{
+    return this.productService.getProductById(productId)
+      .pipe(
+        mergeMap((product) => {
+          return this.getSupplierById(product.getSupplierId())
+            .pipe(
+              map((supplier): [Product, Supplier] => ([product, supplier])))
+        }));
+  }
 
   createSupplier(payload: Supplier): Observable<Supplier> {
     return this.http

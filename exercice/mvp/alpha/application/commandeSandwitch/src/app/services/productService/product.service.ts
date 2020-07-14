@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, throwError } from 'rxjs';
 import { Product } from '../../models/productModel/Product';
 import { ProductDto } from '../../models/productModel/ProductDto';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, mergeMap } from 'rxjs/operators';
 import { Supplier } from 'src/app/models/supplierModel/Supplier';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { SupplierService } from '../supplierService/supplier.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ProductService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+  
   ) { }
 
   public getList(): Observable<Product[]> {
@@ -93,4 +95,6 @@ export class ProductService {
     console.log('route' ,`/admin/fournisseur/${supplierId}/produit`)
     this.router.navigateByUrl(`/admin/fournisseur/${supplierId}/produit`);
   }
+
+
 }
