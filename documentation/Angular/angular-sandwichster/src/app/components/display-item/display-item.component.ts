@@ -23,7 +23,7 @@ export class DisplayItemComponent implements OnInit {
   public listProducts: Item[];
   
   @Input() item: Item;
-  @Output() selectedProduct = new EventEmitter<Item>();
+  @Output() selectedProductEvent = new EventEmitter<Item>();
 
   @Input() sidebar: SidebarComponent;
 
@@ -35,7 +35,7 @@ export class DisplayItemComponent implements OnInit {
   }
   
   onProductSelection(){
-    this.selectedProduct.emit(this.item);
+    this.selectedProductEvent.emit(this.item);
   }
   onDisplayDetails(id){
     console.log(id);

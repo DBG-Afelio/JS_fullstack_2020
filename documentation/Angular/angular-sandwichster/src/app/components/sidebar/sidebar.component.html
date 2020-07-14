@@ -19,11 +19,11 @@
             <p> Fournisseur : {{ selectedProductSupplier?.nom }} </p>
             
 
-            <input type="radio" value="true"
+            <input type="radio" value="true" name="paiedOrNotPaid"
             [(ngModel)]="isPaid"
             (change)="isPaidSelection($event.target.value)"/> 
             <label for="paymentStatus">Payé </label>
-            <input type="radio" value="false"
+            <input type="radio" value="false" name="paiedOrNotPaid"
             [(ngModel)]="isPaid"
             (change)="isPaidSelection($event.target.value)"/> 
             <label for="paymentStatus">Non-payé </label>

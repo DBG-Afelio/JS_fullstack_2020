@@ -20,7 +20,7 @@ export class ListTotalOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.getOrders();
-    this.todayOrders;
+
   }
 
   getOrders(){
