@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Order } from 'src/app/models/order';
 import { UsersListService } from 'src/app/services/users-list.service';
 import { User } from 'src/app/models/user';
+import { ProvidersListService } from 'src/app/services/providers-list.service';
+import { Provider } from 'src/app/models/provider';
 
 @Component({
   selector: 'app-order-product',
@@ -14,16 +16,23 @@ export class OrderProductComponent implements OnInit {
 
   order:Order;
   currentUser: User;
+  provider:Provider;
 
 
   constructor(public dialogRef: MatDialogRef<OrderProductComponent>, @Inject(MAT_DIALOG_DATA)
               public data,
               private orderListService:OrdersListService,
-              private userListService: UsersListService) { }
+              private userListService: UsersListService,
+              private providerListService: ProvidersListService) { }
 
   ngOnInit(): void {
 
     this.order = this.data.order;
+    this.providerListService.getProviderById(this.order.product.providerId).subscribe( providerFound => {
+
+      this.provider = providerFound;
+
+    })
     this.userListService.getCurrentUser().subscribe(userFound => this.currentUser=userFound)
 
   }

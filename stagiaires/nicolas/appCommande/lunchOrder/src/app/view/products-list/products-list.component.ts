@@ -103,8 +103,9 @@ export class ProductsListComponent implements OnInit {
 
   }
   getFormatedDate(date:Date):number{
+    console.log(new Date(date.getFullYear(),date.getMonth(),date.getDay()));
 
-    return Date.parse(new Date(date.getFullYear(),date.getDay(),date.getMonth()).toString())
+    return Date.parse(new Date(date.getFullYear(),date.getMonth(),date.getDay()).toString())
 
   }
 
