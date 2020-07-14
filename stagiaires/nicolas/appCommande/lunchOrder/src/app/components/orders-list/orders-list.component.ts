@@ -18,6 +18,7 @@ export class OrdersListComponent implements OnInit {
   @Output() orderNameClick:EventEmitter<Order> = new EventEmitter();
 
 
+
   constructor(private ordersListService:OrdersListService) { }
 
   ngOnInit(): void {
@@ -53,5 +54,6 @@ export class OrdersListComponent implements OnInit {
     return date.getDay() === new Date().getDay() && date.getHours() < this.ordersListService.maxOrderHour
 
   }
+  
 
 }

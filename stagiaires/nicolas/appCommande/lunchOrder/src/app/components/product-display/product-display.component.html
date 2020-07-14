@@ -35,7 +35,6 @@
             <button [disabled]='isOrderAvailable()' (click)='onOrderButtonClick()'>Commander!</button>
             <br>
             <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
-            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
-
+            <countdown [config]="{leftTime:openRemainingTime}"></countdown>
 
         </div>

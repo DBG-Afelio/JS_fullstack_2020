@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {MatCheckboxModule} from '@angular/material/checkbox';  
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { CountdownModule } from 'ngx-countdown';
 
 import { AppComponent } from './app.component';
 
@@ -63,6 +64,7 @@ import { ProductDisplayComponent } from './components/product-display/product-di
     MatMenuModule,
     MatIconModule,
     MatCheckboxModule,
+    CountdownModule,
 
   ],
   entryComponents: [

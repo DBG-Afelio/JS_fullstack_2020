@@ -22,6 +22,7 @@ export class ProductDisplayComponent implements OnInit {
   newOrder:Order;
 
   options:number[]=[];
+  openRemainingTime:number;
 
 
   constructor(private ordersListService:OrdersListService) { }
@@ -29,6 +30,8 @@ export class ProductDisplayComponent implements OnInit {
   ngOnInit(): void {
 
     this.newOrder = new Order(this.currentUser?this.currentUser.id:0,this.product.id,[],false,0,new Date());
+    this.openRemainingTime = this.getTimeLeftBeforeOpen();
+    console.log(this.getTimeLeftBeforeOpen())
 
   }
 
@@ -79,6 +82,21 @@ export class ProductDisplayComponent implements OnInit {
       return true
 
     }
+  }
+  getTimeLeftBeforeOpen(){
+   
+    let date = new Date();
+    let dateHour = date.getHours()*3600;
+    let dateMinutes = date.getMinutes()*60;
+
+    let currentDateInSec = dateHour + dateMinutes + date.getSeconds();
+
+    let openingHour = this.ordersListService.minOrderHour*3600;
+
+
+    return Math.abs(currentDateInSec - openingHour)
+
+
   }
 
 }
