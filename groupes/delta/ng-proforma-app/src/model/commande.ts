@@ -61,4 +61,8 @@ export class Commande {
         this.options = options;
         return this;
     }
+
+    getTotal():number {
+        return this.product.prix + this.options.reduce((a, b) => a + b.surcout, 0);
+    }
 }

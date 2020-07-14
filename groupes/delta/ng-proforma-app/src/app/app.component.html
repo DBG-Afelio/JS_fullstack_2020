@@ -1,15 +1,55 @@
-<div class="header">
+
+<!-- <div class="header">
     <a routerLink='fournisseurs'>Fournisseurs</a>
     <a *ngIf="user">{{user.login}}</a>
-    <!-- <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
-    <a *ngIf="user" routerLink='commande/2'>Commande 2</a> -->
+    <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
+    <a *ngIf="user" routerLink='commande/2'>Commande 2</a>
     <a *ngIf="!user" routerLink='login' >Connexion</a>
     <a *ngIf="user?.admin && user" routerLink='membres' >Membres</a>
     <a *ngIf="user && pending_command" routerLink='commande/new' >Commande</a>
+    <a *ngIf="user" routerLink='commandes'>Commandes</a>
     <a *ngIf="user" routerLink='membre/{{user.login}}' >Profil</a>
     <a *ngIf="user" (click)='disconnect()'>Deconnexion</a>
     <a *ngIf="user?.admin && user" routerLink='membre/new'>Nouveau</a>
     <img src="./assets/img/logoProforma.png" class="img">
+</div> -->
+<nav>
+    <div id="logo"><img src="./assets/img/logoProforma.png"></div>
+    <a routerLink='fournisseurs'>
+        <span class="flat flaticon-users"></span>
+        <span class="label">Fournisseurs</span>
+    </a>
+    <a *ngIf="user" [ngClass]="'active'">
+        <span class="flat flaticon-id-card-4"></span>
+        <span class="label">{{user.login}}</span>
+    </a>
+    <a *ngIf="!user" routerLink='login'>
+        <span class="flat flaticon-login"></span>
+        <span class="label">Connexion</span>
+    </a>
+    <a *ngIf="user?.admin && user" routerLink='membres'>
+        <span class="flat flaticon-users-1"></span>
+        <span class="label">Membres</span>
+    </a>
+    <a *ngIf="user && pending_command" routerLink='commande/new'>
+        <span class="flat flaticon-list"></span>
+        <span class="label">Commande</span> 
+    </a>
+    <a *ngIf="user" routerLink='membre/{{user.login}}'>
+        <span class="flat flaticon-resume"></span>
+        <span class="label">Profil</span> 
+    </a>
+    <a *ngIf="user?.admin && user" routerLink='/newuser'>
+        <span class="flat flaticon-plus"></span>
+        <span class="label">Nouveau</span> 
+    </a>
+    <a *ngIf="user" (click)='disconnect()'>
+        <span class="flat flaticon-power"></span>
+        <span class="label">Deconnexion</span>
+    </a>
     <span class="timer">{{timer}}</span>
+</nav>
+<div class="section">
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+

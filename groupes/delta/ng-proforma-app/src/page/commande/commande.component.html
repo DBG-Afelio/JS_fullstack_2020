@@ -1,4 +1,7 @@
 <div class="commande-container" *ngIf="commande">
-  <h3>Commande {{commande.product.nom}}</h3>
-  <app-options [options]="commande.product.options" [selected_options]="commande.options"></app-options>
+  <h3>Commande {{commande.product.nom}} de {{commande.user.prenom}} {{commande.user.nom}}</h3>
+  <app-options [options]="commande.product.options" [selected_options]="commande.options" (options_change)="optionsChange($event)" [read_only]="commande.id !== 0"></app-options>
+  <span>Prix : {{commande.getTotal()}}€</span>
+  <button *ngIf="!commande.id as boolean" (click)="confirmCommand()">Confirmer</button>
+  <p>Commande créer le {{commande.date.getDate()}}/{{commande.date.getMonth()}}/{{commande.date.getFullYear()}} à {{commande.date.getHours()}}:{{commande.date.getMinutes()}}</p>
 </div>
