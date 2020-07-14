@@ -8,8 +8,9 @@
 
 <div>
 
-    <span>{{currentUser?.surname}} {{currentUser?.name | uppercase}} </span>
+    <span *ngIf='currentUser'>{{currentUser.surname}} {{currentUser.name | uppercase}} </span>
 
+    <span *ngIf='currentUser'>/ Crédit : {{currentUser?.credit}} €</span>
     <button *ngIf='!currentUser' routerLink="/login">logIn</button>
     <button *ngIf='currentUser' (click)="onButtonLogoutClick()">Logout</button>
 

@@ -1,7 +1,7 @@
 <table>
     <thead>
       <tr>
-        <th>Utilisateur</th>
+        <th *ngIf='currentUser.isAdmin'>Utilisateur</th>
         <th>Produit</th>
         <th>Date</th>
         <th>Prix</th>
@@ -12,7 +12,7 @@
     <tbody>
       <tr *ngFor='let order of ordersList'>
 
-        <td>
+        <td *ngIf='currentUser.isAdmin'>
           {{order.user.name | uppercase}} {{order.user.surname | titlecase}}
         </td>
         <td class='productName' (click)="onOrderNameClick(order)">{{order.product.name}}</td>
