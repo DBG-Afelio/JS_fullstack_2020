@@ -10,6 +10,7 @@ import { ListUsersComponent } from './pages/list-users/list-users.component'
 import { LoginComponent } from './pages/login/login.component'
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component'
 import { DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
+import{ AddNewProductComponent } from './pages/add-new-product/add-new-product.component'
 import { DisplayUserComponent } from './pages/display-user/display-user.component'
 import { HistoryOrdersUserComponent } from './pages/history-orders-user/history-orders-user.component'
 
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'supplier/:id',
     component: DetailSupplierComponent,
+  },
+  {
+    path: 'add-product',
+    component: AddNewProductComponent,
   },
   {
     path: 'user/:id',

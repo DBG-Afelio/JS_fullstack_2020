@@ -14,7 +14,7 @@ export class ListTotalOrdersComponent implements OnInit {
   constructor(private orderService: OrdersService) {
     this.orderService.getUsersAndProductsNameInListOrders().subscribe((receivedOrders) => {
       this.todayOrders = receivedOrders;
-      console.log(this.todayOrders);
+
    })
   }
 
@@ -25,6 +25,9 @@ export class ListTotalOrdersComponent implements OnInit {
 
   getOrders(){
     return this.todayOrders;
+  }
+  getTotalPriceForOneDay(){
+    return this.todayOrders.reduce((total, oneOrder) => total + oneOrder.getTotalPrice(),0)
   }
 
 }

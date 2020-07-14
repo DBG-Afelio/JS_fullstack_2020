@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Ajout d'un nouveau produit</h1>
+  <form>
+    <label for="name">Nom: </label><input type="text" placeholder="Ex: Sandwich au fromage" [(ngModel)]="product.nom"
+      name="name"><br>
+
+    <textarea [(ngModel)]="product.description" placeholder="Ex: Avec beaucoup de fromage et de crudités."
+      name="description" rows="4" cols="50">
+    </textarea><br>
+
+    <label for="price">Prix: </label><input type="number" placeholder="3.5" [(ngModel)]="product.prix" name="price"><br>
+    <div class="divSupplier">
+      <label for="suppliers">Fournisseurs:</label>
+      <p>
+        La liste ne montre que les fournisseurs enregistrés. Pour ajouter un nouveau fournisseur, <a
+          [routerLink]="['/', 'supplier', 0]">cliquez ici</a>
+      </p>
+      <select name="suppliers" [(ngModel)]="product.fourn_id">
+        <option *ngFor="let suppliers of listSuppliers" [value]="suppliers.id">{{suppliers.nom}}</option>
+      </select><br>
+    </div>
+
+    <div class="divOption">
+      <p>
+        Ajouter une option (pain gris, supplément fromage...)
+      </p>
+      <label for="name">Nom option: </label>
+      <input type="text" placeholder="Ex: pain gris" name="name" #optionName><br>
+      <label for="price">Prix option: </label>
+      <input type="number" placeholder="3.5" name="price" #optionPrice>
+    </div>
+
+    <div class="divValidation">
+      <button class="validationButton" (click)="createProduct(product)">Ajouter produit</button>
+      <a routerLink="">Retour liste produits</a>
+    </div>
+  </form>
+
+
+  <!-- Interface Item
+          public nom: string,
+          public description: string,
+          public prix: number,
+          public options: {id: number, nom: string, surcout: number}[],
+          public fourn_id: number,
+          public id: number,
+  -->
+</div>

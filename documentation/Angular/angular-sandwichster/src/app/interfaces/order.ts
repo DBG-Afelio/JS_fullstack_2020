@@ -1,8 +1,7 @@
 import { OrderDto } from './orderDto'
 import { UserModel } from './user.model';
-import { Supplier } from './supplier';
 import { Item } from './item';
-import { find } from 'rxjs/operators';
+
 
 export class Order {
 
@@ -41,5 +40,12 @@ export class Order {
            return this.option_ids.map(id => this.item.options.find(option => option.id === id))
         }
         return [];
+    }
+    getTotalPrice(){
+        let optionPrice=this.getSelectedOptions().reduce((total, currentOption) => 
+        total + currentOption.surcout, 
+        0
+        );
+        return this.item.prix + optionPrice;
     }
 }

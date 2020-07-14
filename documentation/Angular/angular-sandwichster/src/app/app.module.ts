@@ -16,6 +16,8 @@ import{ ListSuppliersComponent } from './pages/list-suppliers/list-suppliers.com
 import{ ListTotalOrdersComponent } from './pages/list-total-orders/list-total-orders.component'
 import{ LoginComponent } from './pages/login/login.component'
 import{ DetailSupplierComponent } from './pages/detail-supplier/detail-supplier.component'
+import{ AddNewProductComponent } from './pages/add-new-product/add-new-product.component'
+
 
 // Components
 import{ ListItemsComponent } from './components/list-items/list-items.component'
@@ -53,6 +55,8 @@ import { DisplayUserComponent } from './pages/display-user/display-user.componen
     ListSuppliersCompComponent,
     DetailSupplierComponent,
     DetailSupplierCompComponent,
+    ModifyItemComponent,
+    AddNewProductComponent,
     DetailsUserComponent,
     HistoryOrdersUserComponent,
     DisplayUserComponent,

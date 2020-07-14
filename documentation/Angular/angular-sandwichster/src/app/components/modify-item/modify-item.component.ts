@@ -10,7 +10,7 @@ import { DisplayItemComponent } from '../display-item/display-item.component'
 export class ModifyItemComponent implements OnInit {
   @Input() item: Item;
   @Output() update = new EventEmitter<Item>();
-  @Output() visible: boolean;
+  @Output() visible = new EventEmitter<boolean>();
 
   public unique_key: number;
   public parentRef: DisplayItemComponent;
@@ -34,8 +34,12 @@ export class ModifyItemComponent implements OnInit {
     }
   }    
   closeModifyPannel(){
-    console.log(this.unique_key)
-    this.visible = false;
+    this.visible.emit(false);
   }  
+  addOption(optionName, optionPrice){
+    this.item.addOption(optionName.value, optionPrice.value);
+    optionName.value = "";
+    optionPrice.value = "";
+  }
 
 }

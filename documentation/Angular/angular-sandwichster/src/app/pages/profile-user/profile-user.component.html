@@ -1,6 +1,21 @@
-<div class="container">
-  <p>
-    profile-user works!
-  </p>
-  
+<div class="container" *ngIf="userDisplayed">
+  <h2>Mon profil</h2>
+  {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
+  A rembourser: {{ userDisplayed.credit}} euros
+  <h2>Mes commandes</h2>
+  <div *ngIf="!ordersDisplayed">
+    Pas de commande déjà réalisée.
+  </div>
+  <div *ngIf="ordersDisplayed">
+    <div *ngFor="let order of ordersDisplayed" >
+      <span *ngIf="order.item.fourn_id === 1">Sandwich </span>
+      <span *ngIf="order.item.fourn_id === 2">Pizza </span>
+      {{order.item.nom}} de chez {{order.item.supplier.nom}} à {{order.item.prix}} euros<br>
+      <div *ngIf="order.item.options">
+        <span *ngFor="let option of order.item.options">{{option.nom}}: {{option.surcout}} euros</span>
+      </div>
+      <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
+      <button>Commander à nouveau</button> => le bouton ne fonctionne pas
+    </div>
+  </div>
 </div>

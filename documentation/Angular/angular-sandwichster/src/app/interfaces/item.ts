@@ -30,4 +30,8 @@ export class Item{
         }
         return dto;
     }
+
+    addOption(name, price){
+        this.options.push({id: this.options.length+1, nom: name, surcout: price})
+    }
 }
