@@ -3,28 +3,31 @@
 <form [formGroup]="checkoutForm" (ngSubmit)="submitForm(checkoutForm.value)" class="userFormula">
   
   <span>NOM:</span>
-  <input id="nom" name="nom" type="text" formControlName="nom" required class="inputClass" >
+  <input id="nom" name="nom" type="text" formControlName="nom" required class="inputClass inputNom" >
   <div *ngIf="nom.errors?.required" class="error_empty errorNom">Le nom ne peut pas être vide</div>
   <div *ngIf="nom.errors?.minlength" class="error_empty errorNom">3 caractères minimum</div>
   <div *ngIf="nom.errors?.maxlength" class="error_empty errorNom">18 caractères maximum</div>
 
   <span>PRENOM:</span>
-  <input id="prenom" name="prenom"type="text"  formControlName="prenom" class="inputClass ">
+  <input id="prenom" name="prenom"type="text"  formControlName="prenom" class="inputClass inputPrenom ">
   <div *ngIf="prenom.errors?.required" class="error_empty errorPrenom">Le prenom ne peut pas être vide</div>
   <div *ngIf="prenom.errors?.minlength" class="error_empty errorPrenom">3 caractères minimum</div>
   <div *ngIf="prenom.errors?.maxlength" class="error_empty errorPrenom">18 caractères maximum</div>
 
   <span>LOGIN:</span>
-  <input id="login"name="login" type="text"  formControlName="login" class="inputClass ">
+  <input id="login"name="login" type="text"  formControlName="login" class="inputClass inputLogin ">
   <div *ngIf="login.errors?.required" class="error_empty errorLogin">Login ne peut pas être vide </div>
   <div *ngIf="login.errors?.minlength" class="error_empty errorLogin">4 caractères minimum</div>
   <div *ngIf="login.errors?.maxlength" class="error_empty errorLogin">15 caractères maximum</div>
+  <div *ngIf="login.errors?.notUniqueLogin" class="error_empty errorLogin">Utilisateur existe déjà, veuillez en essayer une autre </div>
+  
 
   <span>PASSWORD:</span>
-  <input id="password" type="password" formControlName="password" class="inputClass ">
+  <input id="password" type="password" formControlName="password" class="inputClass inputPassword">
   <div *ngIf="password.errors?.required" class="error_empty errorPassowrd">Password ne peut pas être vide</div>
   <div *ngIf="password.errors?.minlength" class="error_empty errorPassowrd">8 caractères minimum</div>
   <div *ngIf="password.errors?.maxlength" class="error_empty errorPassowrd">15 caractères minimum</div>
+  
   
   <div>
     <label for="pet-select">FORMATION:</label>
@@ -34,6 +37,6 @@
     </select>
   </div>
   <div *ngIf="formation.errors?.required" class="error_empty errorFormation">Formation est obligatoire </div>
-  <button type="submit">CREER</button>
+  <button  type="submit">CREER</button>
 </form>
 </div>

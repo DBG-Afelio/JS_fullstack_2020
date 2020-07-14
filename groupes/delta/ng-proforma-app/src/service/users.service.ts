@@ -12,6 +12,7 @@ export class UsersService {
 
   public user: Subject<User> = new Subject<User>();
   public user_co: User;
+  
 
 
   constructor(private http: HttpClient) { }
@@ -25,10 +26,16 @@ export class UsersService {
   }
 
   getUserByLogin(login:string): Observable<User> {
-    return this.http.get<UserDto>(`http://localhost:3000/utilisateurs?login=${login}`).pipe(
+    
+    return this.http.get<UserDto[]>(`http://localhost:3000/utilisateurs?login=${login}`).pipe(
       map(userDto => {
         console.log(userDto);
-        return User.fromDto(userDto[0]);
+        if(userDto.length!=0){
+          return User.fromDto(userDto[0]);
+      }
+      else {
+        return null;
+      }
       })
     )
   }
