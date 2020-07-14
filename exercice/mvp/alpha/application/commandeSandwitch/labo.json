@@ -5,7 +5,7 @@
       "password": "admin",
       "nom": "GENE",
       "prenom": "Genevieve",
-      "credit": 0,
+      "credit": "0",
       "formation": "-",
       "banni": false,
       "admin": true,
@@ -16,7 +16,7 @@
       "password": "pcast",
       "nom": "CASTRONOVO",
       "prenom": "Pierre",
-      "credit": 9.8,
+      "credit": "0",
       "formation": "FullStack Web Dev",
       "banni": false,
       "admin": false,
@@ -27,7 +27,7 @@
       "password": "miammiam",
       "nom": "duprieux",
       "prenom": "laurent",
-      "credit": 0,
+      "credit": "3",
       "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
@@ -38,11 +38,22 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 7,
+      "credit": "3",
       "formation": "Creations de Problemes",
       "banni": false,
       "admin": false,
       "id": 4
+    },
+    {
+      "login": "Pierre",
+      "password": "Pierre",
+      "nom": "Pierre",
+      "prenom": "Castt",
+      "credit": 4,
+      "formation": "gfh",
+      "banni": false,
+      "admin": false,
+      "id": 6
     }
   ],
   "commandes": [
@@ -54,7 +65,7 @@
       ],
       "paye": true,
       "id": 1,
-      "date": "2020-07-12T20:34:19.892Z"
+      "date": "2020-03-03T20:34:19.892Z"
     },
     {
       "user_id": 2,
@@ -64,117 +75,25 @@
       ],
       "paye": true,
       "id": 2,
-      "date": "2020-07-12T13:38:10.681Z"
+      "date": "2020-02-21T13:38:10.681Z"
     },
     {
-      "user_id": 4,
-      "product_id": 30,
-      "option_ids": [
-        1
-      ],
+      "user_id": 2,
+      "product_id": 33,
+      "option_ids": [],
       "paye": true,
       "id": 3,
-      "date": "Sun Jul 12 2020 13:48:00 GMT+0200 (Central European Summer Time)"
+      "date": "Tue Jul 14 2020 07:37:31 GMT+0200 (heure d’été d’Europe centrale)"
     },
     {
-      "user_id": 4,
-      "product_id": 5,
+      "user_id": 2,
+      "product_id": 1,
       "option_ids": [
-        2
+        1
       ],
       "paye": true,
       "id": 4,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 5,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 5,
-      "option_ids": [
-        2
-      ],
-      "paye": true,
-      "id": 7,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 2,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 8,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 30,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 9,
-      "date": "Sun Jul 12 2020 13:48:00 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 5,
-      "option_ids": [
-        2
-      ],
-      "paye": true,
-      "id": 11,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 12,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 0,
-      "product_id": 8,
-      "option_ids": [
-        1,
-        2
-      ],
-      "paye": true,
-      "id": 13,
-      "date": "Mon Jul 13 2020 10:12:20 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 1,
-      "option_ids": [],
-      "paye": true,
-      "id": 14,
-      "date": "Mon Jul 13 2020 11:22:26 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 2,
-      "product_id": 8,
-      "option_ids": [
-        1,
-        2
-      ],
-      "paye": false,
-      "id": 15,
-      "date": "Mon Jul 13 2020 11:24:15 GMT+0200 (Central European Summer Time)"
+      "date": "Tue Jul 14 2020 07:43:20 GMT+0200 (heure d’été d’Europe centrale)"
     }
   ],
   "fournisseurs": [
@@ -239,9 +158,6 @@
         true,
         true,
         true,
-        true,
-        false,
-        false,
         false,
         false,
         false,
@@ -264,20 +180,6 @@
         }
       ],
       "fourn_id": 1
-    },
-    {
-      "nom": "Grand Large",
-      "description": "Salade de thon «maison», crudités.",
-      "prix": 5,
-      "options": [
-        {
-          "nom": "Pain gris",
-          "surcout": 0.3,
-          "id": 1
-        }
-      ],
-      "fourn_id": 1,
-      "id": 2
     },
     {
       "nom": "Américain maison",
@@ -1335,10 +1237,16 @@
     },
     {
       "id": 80,
-      "nom": "",
-      "description": "",
-      "prix": 0,
-      "options": [],
+      "nom": "fgsh",
+      "description": "sfgh",
+      "prix": "-4",
+      "options": [
+        {
+          "id": 1,
+          "nom": "dghj",
+          "surcout": "-4"
+        }
+      ],
       "fourn_id": 1
     }
   ]

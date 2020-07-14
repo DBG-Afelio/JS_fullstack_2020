@@ -1,0 +1,21 @@
+.admin-links {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    column-gap: 2%;
+}
+
+.admin-link {
+    padding: 35px 15px;
+    background-color: whitesmoke;
+    display: block;
+    text-align: center;
+    width: 100%;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+    font: 25px/35px 'Oswald', sans-serif;
+    margin-bottom: 25px;
+}
+
+.admin-link:hover, .admin-link:active, .admin-link:focus {
+    transform: scale(1.02);
+    cursor: pointer;
+}
