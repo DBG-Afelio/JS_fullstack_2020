@@ -24,8 +24,8 @@ public selectedProductSupplier: Supplier;
 
   public sidebarDisplay: boolean = false;
 
-  private listProducts: Item[];
-  private listSuppliers: Supplier[];
+  private listProducts: Item[] = [];
+  private listSuppliers: Supplier[] = [];
  
   private isAuth: boolean = false;
   private isAdmin: boolean = false;

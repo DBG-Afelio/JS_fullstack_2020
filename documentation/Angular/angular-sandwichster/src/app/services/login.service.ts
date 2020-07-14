@@ -29,8 +29,8 @@ constructor(private http: HttpClient, private route: Router) { } // je suppose q
 
   signOut(){
     console.log(this.currentUser$);
-    this.route.navigate[('/')]; 
-    this.currentUser$ = new BehaviorSubject<UserModel>(null);
+    this.route.navigate(['/']); 
+    this.currentUser$.next(null);
     return this.isAuth = false;
   }
 

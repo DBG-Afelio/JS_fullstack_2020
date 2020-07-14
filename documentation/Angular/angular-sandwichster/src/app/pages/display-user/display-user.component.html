@@ -1,4 +1,6 @@
 
+<h1 class="text-center">Modifier nouvel utilisateur </h1>
+
 <div *ngIf ="currentUser" class="container d-flex justify-content-center">
     <form   action="">
         <div class="field-user-edit">
@@ -33,6 +35,18 @@
                 <option value="non">Non</option>
             </select>
         </div>
-        <button (click) ="updateEvent(currentUser)" type="submit">Modifier</button>
+        <div class="field-user-edit">
+            <div class="field-user-edit">
+                <label for="password">Mot de passe &nbsp;</label> 
+                <input (change) ="stockpass1($event)" name ="password" type="password" placeholder="Entrer mot de passe">
+            </div>
+        </div>
+        <div class="field-user-edit">
+            <div class="field-user-edit">
+                <label for="confirmPassword">Confirmation &nbsp;</label> 
+                <input (change) ="stockpass2($event)" name ="password" type="password" placeholder="Confirmer mot de passe">
+            </div>
+        </div>
+        <button (click) ="checkSamePassword()" (click) ="updateEvent(currentUser)" type="submit">Modifier</button>
     </form>
  </div>

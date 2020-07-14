@@ -16,7 +16,8 @@ import { Item } from '../interfaces/item';
 })
 export class OrdersService {
 
-private timeLimit: string = '18:00:00';
+private timeLimit: string = '23:00:00';
+private creditLimit: number= 10;
 
   private urlAPI: string = "http://localhost:3000/";
 

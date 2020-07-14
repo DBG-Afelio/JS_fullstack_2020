@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit, OnChanges {
 
 @Input() selectedProduct: Item;
 @Input() selectedProductPrice: number;
-@Input() selectedProductOptions: number[];
+@Input() selectedProductOptions = [];
 @Input() selectedProductSupplier: Supplier;
 @Output() newOrderOutput = new EventEmitter<Order>();
 
@@ -30,6 +30,7 @@ public selectedOptionsSum: number = 0;
 public isPaid: boolean;
 
 public user: UserModel;
+public userSimulation: UserModel;
 
   constructor(
     public supplierService: SuppliersService,
@@ -49,11 +50,8 @@ public user: UserModel;
 
   ngOnInit() {
     this.getTotal();
-
-
+    this.loginService.getCurrentUserAsObservable().subscribe((user) => this.user = user);
   }
-
-
   //this.selectedProductOptionsPrices = this.selectedProductOptionsPrices.filter(optionSurcout => option.surcout != optionSurcout);
 
 getTotal(){
@@ -89,6 +87,8 @@ isPaidSelection(value){
 
   orderGoEvent(){
     
+    //console.log(this.user.credit);
+
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
     if(this.timeLimitResponse === false){
       alert('Trop tard enfoiré !');
@@ -115,10 +115,9 @@ isPaidSelection(value){
           alert('Veuillez précisez si vous avez payé ou non');
         }
       }
-
-  
     }
-      }
+
+}
 
 
 
