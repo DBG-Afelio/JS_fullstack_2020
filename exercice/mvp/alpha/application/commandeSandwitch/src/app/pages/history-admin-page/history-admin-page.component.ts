@@ -12,31 +12,17 @@ import { Supplier } from 'src/app/models/supplierModel/Supplier';
 export class HistoryAdminPageComponent implements OnInit {
 
   public allOrders: FullOrder[] = [];
-  public supplierList: Supplier[] = [];
+  public mySupplier: Supplier = null;
   
   constructor(
     private orderService: OrderService,
     private supplierService: SupplierService
   ) {
     this.orderService.getAllFullOrders().subscribe((fullHistory) => this.allOrders = fullHistory);
-    this.supplierService.getList().subscribe((supplierList) => this.supplierList = supplierList);
   }
 
   ngOnInit(): void {
   }
 
-  //pas utilised
-  public getSupplier(productId: number): Supplier{
-    let mySupplier: Supplier = null;
-    this.supplierList.map(eachSupplier => {
-      this.supplierService.getSupplierWithProductsById(eachSupplier.getId())
-        .subscribe((thatSupplierWithProd) => {
-          thatSupplierWithProd.getListProducts().find(product => product.getId() === productId) ? mySupplier = thatSupplierWithProd : mySupplier;
-        });
-    });
-    console.log('mySupplier : ',mySupplier);
-    return mySupplier;
-  }
-
-
+  
 }

@@ -47,6 +47,15 @@ export class FullOrder {
     public getSelectedOptions(): Option[]{
         return this.order.optionIds.map(id => this.product.options.find(option => option.id === id));
     }
+
+    public getOrderProductWithOptions(): string{
+        let orderDescription: string = this.product.getName();
+        if (this.getSelectedOptions().length > 0) {
+            this.getSelectedOptions().forEach(option => orderDescription += ` +${option.nom}`);
+        }
+        return orderDescription;
+    }
+    
     public getTotalPrice(): number{
         let total: number = this.product.price;
         this.getSelectedOptions().forEach(option => {
