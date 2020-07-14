@@ -25,7 +25,7 @@ export class AddNewProductComponent implements OnInit {
       "",
       "",
       0,
-      [{id: 0, nom: "", surcout: 0}],
+      [],
       4,
       0
     ),

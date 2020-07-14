@@ -20,6 +20,16 @@
       </select><br>
     </div>
 
+    <div class="divOption" *ngFor="let option of product.options">
+      <p>
+        Modifier une option (pain gris, supplément fromage...)
+      </p>
+      <label for="name">Nom option: </label>
+      <input type="text" placeholder="Ex: pain gris" name="name" [(ngModel)]="option.nom"><br>
+      <label for="price">Prix option: </label>
+      <input type="number" placeholder="3.5" name="price" [(ngModel)]="option.surcout">
+    </div>
+
     <div class="divOption">
       <p>
         Ajouter une option (pain gris, supplément fromage...)
@@ -28,6 +38,7 @@
       <input type="text" placeholder="Ex: pain gris" name="name" #optionName><br>
       <label for="price">Prix option: </label>
       <input type="number" placeholder="3.5" name="price" #optionPrice>
+      <button (click)="addOption(optionName, optionPrice)">Ajouter option</button>
     </div>
 
     <div class="divValidation">
@@ -36,13 +47,4 @@
     </div>
   </form>
 
-
-  <!-- Interface Item
-          public nom: string,
-          public description: string,
-          public prix: number,
-          public options: {id: number, nom: string, surcout: number}[],
-          public fourn_id: number,
-          public id: number,
-  -->
 </div>
