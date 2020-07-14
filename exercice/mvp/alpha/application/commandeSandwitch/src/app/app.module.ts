@@ -33,6 +33,7 @@ import { OptionFormComponent } from './components/option-form/option-form.compon
 import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/admin-order-today-page.component';
 import { AdminHistoryPageComponent } from './pages/admin-history-page/admin-history-page.component';
 import { MinDirective } from './directives/min-directive.directive';
+import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { MinDirective } from './directives/min-directive.directive';
     AdminOrderTodayPageComponent,
     AdminHistoryPageComponent,
     MinDirective,
+    TimeTrackingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,9 @@
-button:disabled{
-    background-color: rgb(102, 67, 67);
-    pointer-events: none;
-}
+
 button{
     background-color: initial;
     pointer-events: initial;
+}
+:disabled{
+    background-color:grey;
+    pointer-events: none;
 }

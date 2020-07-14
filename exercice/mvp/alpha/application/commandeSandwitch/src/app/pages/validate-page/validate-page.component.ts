@@ -4,6 +4,7 @@ import { Order } from 'src/app/models/orderModel/order';
 import { UserService } from 'src/app/services/userService/user.service';
 import { User } from 'src/app/models/userModel/user';
 import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
+import { Deadline } from 'src/app/models/deadlineModel/deadline';
 
 @Component({
   selector: 'app-validate-page',
@@ -12,13 +13,11 @@ import { FullOrder } from 'src/app/models/fullOrderModel/fullOrder';
 })
 export class ValidatePageComponent implements OnInit {
 
-
   public fullOrder: FullOrder = null;
   public currentUser: User = null;
   public creditMax: number = null;
-
   public isCreditEnough: boolean = false;
-
+  public isOnTime: boolean = null;
   constructor(
     private orderService: OrderService,
     private userService:UserService,
@@ -27,33 +26,30 @@ export class ValidatePageComponent implements OnInit {
       this.currentUser = user;
       this.loadOrderData();
     });
+    this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
   }
 
   ngOnInit(): void {
   }
-  public loadOrderData(): void{
-  
+  public loadOrderData(): void {
     this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
       this.creditMax = this.orderService.getCreditMax();
       this.fullOrder ? this.isCreditEnough = this.fullOrder.getTotalPrice() + this.currentUser.credit <= Number(this.creditMax) : this.isCreditEnough = null;
     });
 }
-  public confirmOrder(isPayed:boolean): void{
-    console.log('$$$ commande confirmee, status PAYED = ', isPayed);
-    this.fullOrder.getOrder().isPayed = isPayed;
-    this.orderService.addOrderIntoServer(this.fullOrder);
-    console.log('commande ajoutee dans JSON');
-    
-   // this.loadOrderData();
-    
-    if (!isPayed) {
-      console.log('credit AVANT maj => ', this.currentUser.credit);
-      this.currentUser.credit += this.fullOrder.getTotalPrice();
-      console.log('credit APRES maj => ', this.currentUser.credit);
-      this.userService.updateUser(this.currentUser).subscribe(() => {
-        this.userService.getCurrentUser().subscribe((user) => console.log('user credit updated : ',user));
-      });
+  public confirmOrder(isPayed: boolean): void{
+    if (this.isOnTime) {
+      this.fullOrder.getOrder().isPayed = isPayed;
+      this.orderService.addOrderIntoServer(this.fullOrder);
+
+      if (!isPayed) {
+        this.currentUser.credit += this.fullOrder.getTotalPrice();
+        this.userService.updateUser(this.currentUser).subscribe();
+      }
+    } else {
+      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }
   }
+
 }
