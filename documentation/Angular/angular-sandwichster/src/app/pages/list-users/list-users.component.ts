@@ -10,10 +10,13 @@ import { DisplayUserComponent } from '../display-user/display-user.component';
 })
 export class ListUsersComponent implements OnInit {
 
-  public arrayUsers: UserModel[];
-  public currentUserIndex: number;
+  arrayUsers: UserModel[] = [];
+  currentUserId: number;
+  currentUserIndex: number;
+  currentUser: UserModel;
+  userSearched: UserModel;
 
-  constructor(public listusers: UserService, private displayuser: DisplayUserComponent) {
+  constructor(public listusers: UserService) {
     this.listusers.getUsers().subscribe((data) => this.arrayUsers = data)
    }
 
@@ -23,16 +26,26 @@ export class ListUsersComponent implements OnInit {
 
   //  Methodes User a completer
 
-  addUser() {
-    // return this.listusers
+  addUser(user: UserModel) {
+    return this.listusers.createUser(user).subscribe();
   }
 
-  removeUser() {
+  getUser(value: UserModel) {
+    this.currentUser = value;
+    return this.currentUser;
+  }
 
+
+  removeUser(user: UserModel) {
+      user = this.currentUser;
+      let confirmDelete = confirm("Etes-vous sur de vouloir supprimer l'utilisateur ?");
+      if(confirmDelete) {
+        this.arrayUsers.splice(this.arrayUsers.indexOf(this.currentUser), 1);
+        this.listusers.removeUser(user).subscribe();
+      }
   }
 
   updateUser() {
-    // return this.listusers.updateUser()
   }
 
 }

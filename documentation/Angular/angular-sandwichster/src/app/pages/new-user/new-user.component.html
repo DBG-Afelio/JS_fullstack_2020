@@ -1,3 +1,55 @@
-<p>
-  new-user works!
-</p>
+
+<h1 class="text-center">Ajouter nouvel utilisateur </h1>
+<div class="container d-flex justify-content-center">
+  <form   action="">
+    <div class="field-user-edit">
+      <label for="login">Login &nbsp;</label>
+      <input [(ngModel)] ="newUser.login" name="login"  type="text" placeholder="login">
+    </div>
+      <div class="field-user-edit">
+          <label for="prenom">Prénom &nbsp;</label>
+          <input [(ngModel)] ="newUser.prenom" name="prenom"  type="text" placeholder="Prenom">
+      </div>
+      <div class="field-user-edit">
+          <label for="nom">Nom &nbsp;</label>
+          <input [(ngModel)] ="newUser.nom" name="nom" type="text" placeholder="Nom">
+      </div>
+      <div class="field-user-edit">
+          <label for="credit">Crédit en cours : &nbsp;</label>
+          <input [(ngModel)] ="newUser.credit" type="number" name="credit">
+      </div>
+      <div class="field-user-edit">
+          <div class="field-user-edit">
+              <label for="formation">Formation &nbsp;</label> 
+              <input [(ngModel)] ="newUser.formation" name ="formation" type="text" placeholder="Entrer formation">
+          </div>
+      </div>
+      <div class="field-user-edit">
+          <label for="">Est-il banni ? &nbsp;</label>
+          <select (change) ="isNewUserBanned($event.target.value)" [(ngModel)] ="newUser.banni" name="banned">
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+          </select>
+      </div>
+      <div class="field-user-edit">
+          <label for="">Est-il admin ? &nbsp;</label>
+          <select (change) ="isNewUserAdmin($event.target.value)" [(ngModel)] ="newUser.admin" name="admin">
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+          </select>
+      </div>
+      <div class="field-user-edit">
+          <div class="field-user-edit">
+              <label for="password">Mot de passe &nbsp;</label> 
+              <input (change) ="stockpass1($event)" name ="password" type="password" placeholder="Entrer mot de passe">
+          </div>
+      </div>
+      <div class="field-user-edit">
+          <div class="field-user-edit">
+              <label for="confirmPassword">Confirmation mot de passe &nbsp;</label> 
+              <input (change) ="stockpass2($event)" name ="password" type="password" placeholder="Confirmer mot de passe">
+          </div>
+      </div>
+      <button (click) ="showNewUser()" (click) ="createUser(newUser)" type="submit">Ajouter</button>
+  </form>
+</div>

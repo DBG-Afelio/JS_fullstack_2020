@@ -15,6 +15,10 @@ export class DisplayUserComponent implements OnInit {
   public currentUser: UserModel;
   public userUpdated: UserModel;
 
+  private pass1: string = "";
+  private pass2: string = "";
+  private finalPass: string = "";
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private userservice: UserService,
@@ -56,38 +60,56 @@ export class DisplayUserComponent implements OnInit {
     this.router.navigate(["list-users"]) 
     );
   }
-  updateEvent(user: UserModel){
-    this.userservice.updateUser(user).subscribe(()=>
-    this.router.navigate(["list-users"])
-  );
+  
+  stockpass1(event: any) {
+    return this.pass1 = event.target.value;
   }
+
+  stockpass2(event: any) {
+    return this.pass2 = event.target.value;
+  }
+
+  checkSamePassword() {
+
+    if(this.pass1 === this.pass2) {
+      this.finalPass = this.pass1;
+    }
+    return this.pass1 === this.pass2;
+  }
+
+  isBanned(value: string): any {
+    return value === 'oui' ? this.currentUser.banni = true : this.currentUser.banni = false;
+  }
+
+  isAdmin(value: string): any {
+    return value === 'oui' ? this.currentUser.admin = true : this.currentUser.admin = false;
+  }
+
   removeEvent(user: UserModel){
     this.userservice.removeUser(user).subscribe(()=>
       this.router.navigate(["list-users"])
     );
   }
 
-  isBanned(value: string) {
 
-    if (value === 'oui') {
-      this.currentUser.banni = true;
-    } else {
-      this.currentUser.banni = false;
-    }
+  updateEvent(user: UserModel){
 
+      if (this.checkSamePassword()) {
+          let modifyUser = confirm("Acceptez vous les changements ?");
+          if (modifyUser) {
+              user.password = this.finalPass;
+              this.userservice.updateUser(user).subscribe(() =>
+              this.router.navigate(["list-users"])
+            );
+        } 
+      } else {
+        alert('Veuillez saisir les memes mots de passes');
+      }
   }
 
-  isAdmin(value: string) {
-
-    if (value === 'oui') {
-      this.currentUser.admin = true;
-    } else {
-      this.currentUser.admin = false;
-    }
-
-  }
 
   ngOnInit() {
+    // this.userservice.updateUser(this.currentUser).subscribe();
   }
 
 }

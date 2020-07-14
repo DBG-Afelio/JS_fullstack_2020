@@ -35,6 +35,6 @@
             </div>
 
 
-            <button (click)="orderGoEvent()"> Envoyer la commande </button>
+            <button (click)="orderGoEvent()" [disabled]="!timeLimitResponse"> Envoyer la commande </button>
 
       </nav>

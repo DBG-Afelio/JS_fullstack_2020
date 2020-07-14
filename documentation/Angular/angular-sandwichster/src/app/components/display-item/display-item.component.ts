@@ -5,6 +5,7 @@ import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component'
 import { ConditionalExpr } from '@angular/compiler';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/interfaces/user.model';
 
 @Component({
   selector: 'app-display-item',
@@ -22,18 +23,21 @@ export class DisplayItemComponent implements OnInit {
   @Output() emitChangesProduct = new EventEmitter<Item>();
   @Input() sidebar: SidebarComponent;
 
+  currentUser: UserModel;
+
   constructor(private login: LoginService, private route: Router) {}
 
   ngOnInit() {
+    this.login.getCurrentUserAsObservable().subscribe((user) => this.currentUser = user);
   }
   
   onProductSelection(){
 
-   this.login.getCurrentUserAsObservable().subscribe((data) => console.log(data));
-
-    // if(this.currentUser === undefined) {
-    //   this.route.navigate[('/login')];
-    // }
+    console.log(this.currentUser);
+    
+    if(!this.currentUser) {
+      this.route.navigate(['/login']);
+    }
 
     this.selectedProductEvent.emit(this.item);
   }
