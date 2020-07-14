@@ -30,6 +30,7 @@ public selectedOptionsSum: number = 0;
 public isPaid: boolean;
 
 public user: UserModel;
+public userSimulation: UserModel;
 
   constructor(
     public supplierService: SuppliersService,
@@ -51,8 +52,6 @@ public user: UserModel;
     this.getTotal();
     this.loginService.getCurrentUserAsObservable().subscribe((user) => this.user = user);
   }
-
-
   //this.selectedProductOptionsPrices = this.selectedProductOptionsPrices.filter(optionSurcout => option.surcout != optionSurcout);
 
 getTotal(){
@@ -88,7 +87,7 @@ isPaidSelection(value){
 
   orderGoEvent(){
     
-    console.log(this.user.credit);
+    //console.log(this.user.credit);
 
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
     if(this.timeLimitResponse === false){
