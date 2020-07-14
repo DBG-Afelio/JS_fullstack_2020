@@ -4,8 +4,6 @@ import { Order } from './interfaces/order';
 import { LoginService } from './services/login.service';
 import { UserModel } from './interfaces/user.model';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

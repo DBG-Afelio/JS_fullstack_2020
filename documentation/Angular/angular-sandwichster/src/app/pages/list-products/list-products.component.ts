@@ -85,6 +85,9 @@ public selectedProductSupplier: Supplier;
       this.sidebarDisplay = true;
     }
 
+
+    console.log('prix de base du produit : ' + this.selectedProductPrice)
+
   }
 
   createOrderEvent(order: Order){

@@ -2,8 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import{ Order } from 'src/app/interfaces/order';
 import { LoginService } from 'src/app/services/login.service';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 
+=======
+>>>>>>> origin/bravo-sanwichster
 
 @Component({
   selector: 'app-list-total-orders',
