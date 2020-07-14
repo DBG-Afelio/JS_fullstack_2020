@@ -1,51 +1,45 @@
 
-<h1>
-    Historique des commandes 
-</h1>
-<table *ngIf="allOrders">
-    <tr>
-        <th class="th-user">NOM Prenom</th>
-        <th class="th-course">FORMATION</th>
-        <th class="th-order">PRODUIT</th>
-        <th class="th-supplier">FOURNISSEUR</th>
-        <th class="th-price">PRIX</th>
-        <th class="th-date">DATE</th>
-        <th class="th-payed">STATUS</th>
-    </tr>
-    <tr *ngFor = "let userFullOrder of allOrders">
-        <!-- nom prenom -->
-        <td 
-            [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
-            {{ userFullOrder.getUser().familyName | uppercase }} 
-            {{ userFullOrder.getUser().firstName }}
-        </td>
-        <!-- formation -->
-        <td>
-            {{ userFullOrder.getUser().course }}
-        </td>
-        <!-- produit -->
-        <td
-            [routerLink]="['/produit/', userFullOrder.getProduct().id]">
-            {{ userFullOrder.getOrderProductWithOptions() }}
-        </td>
-        <!-- fournisseurs -->
-        <!-- [routerLink]="['','admin','fournisseur', userFullOrder.getSupplier().id, 'produit']" --> 
-        <!-- routerLink = "/admin/fournisseur/{{ userFullOrder.getSupplier().id }}/produit" OK-->
-        <td
-            [routerLink]="['/admin/fournisseur/', userFullOrder.getSupplier().id, 'produit']">  
-            {{ userFullOrder.getSupplier().name }} 
-        </td> 
-        <!-- prix -->
-        <td>
-            {{ userFullOrder.getTotalPrice() | currency : 'EUR':true }}
-        <td>
-            {{ userFullOrder.getOrder().date | date:'d/M/yy - H:mm'}}
-        </td>
-        <!-- paye / non paye -->
-        <td>
-            {{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}
+<div>
+    <div class="admin-title">
+        <h1>Historique des commandes</h1>
+    </div>
+    
+    <table *ngIf="allOrders">
+        <tr>
+            <th class="th-user">NOM Prenom</th>
+            <th class="th-course">FORMATION</th>
+            <th class="th-order">PRODUIT</th>
+            <th class="th-supplier">FOURNISSEUR</th>
+            <th class="th-price">PRIX</th>
+            <th class="th-date">DATE - HEURE</th>
+            <th class="th-payed">STATUS</th>
+        </tr>
+        <tr *ngFor = "let userFullOrder of sortBy('supplier') | slice : (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <td 
+                [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
+                {{ userFullOrder.getUser().familyName | uppercase }} 
+                {{ userFullOrder.getUser().firstName }}
+            </td>
+            <td> {{ userFullOrder.getUser().course }} </td>
+            <td
+                [routerLink]="['/produit/', userFullOrder.getProduct().id]">
+                {{ userFullOrder.getOrderProductWithOptions() }}
+            </td>
+            <td
+                [routerLink]="['/admin/fournisseur/', userFullOrder.getSupplier().id, 'produit']">  
+                {{ userFullOrder.getSupplier().name }} 
+            </td> 
+            <td> {{ userFullOrder.getTotalPrice() | currency : 'EUR':'symbol-narrow' }} </td>
+            <td> {{ userFullOrder.getOrder().date | date:'d/M/yy - H:mm'}} </td>
+            <td> {{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }} </td>
+        </tr>
+    </table>
+    
+    <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="collectionSize">
+    </ngb-pagination>
+</div>
 
-        </td>
-    </tr>
-</table>
 
