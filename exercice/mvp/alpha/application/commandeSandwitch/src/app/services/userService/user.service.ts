@@ -11,8 +11,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  
-  private currentUser: BehaviorSubject <User> = new BehaviorSubject(null);
+ // ASSIA = new User("assia", "assia", "rachdi", "assia", 0, 'JSFull', false, false, 4);
+  private currentUser: BehaviorSubject <User> = new BehaviorSubject(null); //remettre a (null)
   public userUrl: string = 'http://localhost:3000/utilisateurs/';
 
   constructor(private http: HttpClient) { 

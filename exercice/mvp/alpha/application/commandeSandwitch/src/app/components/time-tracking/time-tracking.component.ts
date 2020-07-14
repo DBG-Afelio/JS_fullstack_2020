@@ -24,7 +24,6 @@ export class TimeTrackingComponent implements OnInit {
     setInterval(() => {
       this.today = new Date();
       if (this.isOnTimeNow() !== this.wasOnTime) {
-        console.log('ontimeNOW ? =', this.isOnTimeNow(), "wasOntime ? =", this.wasOnTime);
         this.isOnTimeNow() ? this.orderService.setOrderOnTime() : this.orderService.setOrderOutOfTime();
       }
     }, 1);
@@ -33,9 +32,20 @@ export class TimeTrackingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public isOnTimeNow():boolean {
-    return (this.today.getHours()*360) + (this.today.getMinutes()*60) + this.today.getSeconds() <= (this.deadline.getHours()*360) + (this.deadline.getMinutes()*60) + this.deadline.getSeconds();
+  public isOnTimeNow(): boolean {
+    const deadlineH_s: number = this.deadline.getHours() * 3600; //in seconds
+    const deadlineM_s: number = this.deadline.getMinutes() * 60; //in seconds
+    const deadlineS_s: number = this.deadline.getSeconds(); //already in seconds
+    const deadline_sec: number = deadlineH_s + deadlineM_s + deadlineS_s;
+
+    const nowH_s: number = this.today.getHours() * 3600; //in seconds
+    const nowM_s: number = this.today.getMinutes() * 60; //in seconds
+    const nowS_s: number = this.today.getSeconds(); //already in seconds
+    const now_sec: number = nowH_s + nowM_s + nowS_s;
+
+    return now_sec <= deadline_sec;
   }
+
   public displayMessage(): string {
     if (this.fullOrder !== undefined) {
       let limit: string = `${this.deadline.getHours()}h${this.deadline.getMinutes()}`;

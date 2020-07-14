@@ -1,0 +1,28 @@
+
+<h1>
+    Historique des commandes 
+</h1>
+<table *ngIf="allOrders">
+    <tr>
+        <th class="th-user">NOM Prenom</th>
+        <th class="th-course">FORMATION</th>
+        <th class="th-order">PRODUIT</th>
+        <th class="th-supplier">FOURNISSEUR</th>
+        <th class="th-price">PRIX</th>
+        <th class="th-date">DATE</th>
+        <th class="th-payed">STATUS</th>
+    </tr>
+    <tr *ngFor = "let userFullOrder of allOrders">
+        <td>
+            {{ userFullOrder.getUser().familyName | uppercase }} 
+            {{ userFullOrder.getUser().firstName }}
+        </td>
+        <td>{{ userFullOrder.getUser().course }}</td>
+        <td>{{ userFullOrder.getProduct().name }}</td>
+        <td>fournisseur.nom</td> 
+        <td>{{ userFullOrder.getTotalPrice() }} €</td>
+        <td>{{ userFullOrder.getOrder().date.toLocaleDateString() }}</td>
+        <td>{{ userFullOrder.getOrder().isPayed ? "payé" : "non payé" }}</td>
+    </tr>
+</table>
+
