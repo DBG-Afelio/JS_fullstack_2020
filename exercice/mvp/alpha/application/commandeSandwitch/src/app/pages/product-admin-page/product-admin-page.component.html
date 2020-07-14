@@ -5,6 +5,7 @@
     <div class="button-new">
         <a routerLink = "/admin/produit/ajouter/{{ supplierId }}">Ajouter un produit</a>
     </div>
+    
     <table>
         <tr>
             <th class="th-id">ID</th>
@@ -12,7 +13,8 @@
             <th class="th-button">MODIFIER</th>
             <th class="th-button">SUPPRIMER</th>
         </tr>
-        <tr *ngFor = "let product of listProducts">
+
+        <tr *ngFor = "let product of sortBy('name') | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
         
@@ -25,4 +27,9 @@
             </td>
         </tr>
     </table>
-</div>
+
+    <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="collectionSize"></ngb-pagination>
+    </div>

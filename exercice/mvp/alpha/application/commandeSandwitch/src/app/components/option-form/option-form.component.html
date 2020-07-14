@@ -17,10 +17,6 @@
         [(ngModel)]="option.surcout" class="form-control"   #surcout ="ngModel"
         data-pristine="true" 
         >
-    <!--<div *ngIf = "!(option.surcout > 0)"
-        class="product-form__error alert alert-danger">
-        <p>Le surcoût est requis</p>
-    </div>-->
     <div *ngIf="surcout.invalid" class="option-form__error alert alert-danger">
         <div *ngIf="surcout.errors.required">
             Le prix est requis
@@ -30,11 +26,12 @@
         </div>
     </div>
 </div>
+
 <div class="form-element col-lg-2">
-    
     <button 
         (click) = "deleteOption()"
         type="button"
         class="btn btn-danger"
-        >Supprimer</button>
+        >Supprimer
+    </button>
 </div>

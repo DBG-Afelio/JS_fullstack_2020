@@ -1,4 +1,4 @@
-<form class="form" #productForm>
+<form class="form" #productForm="ngForm" (ngSubmit)="saveChanges(productForm)">
     <div class="row">
         <div class="form-element form-name col-lg-6">
             <label  for="name">Nom</label>
@@ -82,11 +82,10 @@
                 (click) = "navigateToAdmin()">Annuler
             </button>
             
-            <button  *ngIf = "product.id !== 0"
+            <button *ngIf = "product.id !== 0"
                 [disabled] = "productForm.invalid"
-                (click) = "saveChanges()"
                 id="update_button"
-                type="button"
+                type="submit"
                 class="btn btn-dark">Enregistrer
             </button>
         </div>

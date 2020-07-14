@@ -34,6 +34,7 @@ import { AdminOrderTodayPageComponent } from './pages/admin-order-today-page/adm
 import { MinDirective } from './directives/min-directive.directive';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
 import { HistoryAdminPageComponent } from './pages/history-admin-page/history-admin-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -73,8 +74,10 @@ import { HistoryAdminPageComponent } from './pages/history-admin-page/history-ad
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+
 })
 export class AppModule { }
