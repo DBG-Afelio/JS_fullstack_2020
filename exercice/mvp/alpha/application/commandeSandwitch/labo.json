@@ -1208,28 +1208,6 @@
       "prix": "01",
       "options": [],
       "fourn_id": 0
-    },
-    {
-      "id": 79,
-      "nom": "azerty",
-      "description": "aze",
-      "prix": "3",
-      "options": [],
-      "fourn_id": 1
-    },
-    {
-      "id": 80,
-      "nom": "fgsh",
-      "description": "sfgh",
-      "prix": "-4",
-      "options": [
-        {
-          "id": 1,
-          "nom": "dghj",
-          "surcout": "-4"
-        }
-      ],
-      "fourn_id": 1
     }
   ]
 }

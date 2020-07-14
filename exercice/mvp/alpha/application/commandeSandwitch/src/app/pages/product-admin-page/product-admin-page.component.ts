@@ -50,6 +50,10 @@ export class ProductAdminPageComponent implements OnInit {
       this.reloadProductList();
     }
   }
+
+  public sortBy(prop: string) {
+    return this.listProducts.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+  }
   
   ngOnInit(): void {
   }
