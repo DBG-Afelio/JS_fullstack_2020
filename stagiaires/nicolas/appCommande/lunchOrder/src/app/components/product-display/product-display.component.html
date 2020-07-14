@@ -32,7 +32,7 @@
         <hr>
         <div class='orderButtonContainer'>
             
-            <button [disabled]='isOrderAvailable' (click)='onOrderButtonClick()'>Selectionner!</button>
+            <button [disabled]='isOrderAvailable' (click)='onSelectButtonClick()'>Selectionner!</button>
             <br>
             <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
             <countdown [config]="{leftTime:openRemainingTime}"></countdown>

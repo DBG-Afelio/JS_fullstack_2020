@@ -41,7 +41,7 @@ export class ProductDisplayComponent implements OnInit {
     this.productDeleted.emit(this.product)
 
   }
-  onOrderButtonClick(){
+  onSelectButtonClick(){
 
     this.newOrder.optionsId = this.options;
     

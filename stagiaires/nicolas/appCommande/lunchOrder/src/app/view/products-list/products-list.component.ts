@@ -67,7 +67,9 @@ export class ProductsListComponent implements OnInit {
   }
   orderProduct(newOrder:Order){
 
+    this.usersListService.setCurrentUserOrder(newOrder)
     this.openOrderDialog(newOrder)
+    this.usersListService.getCurrentUserOrder().subscribe(_ => console.log(_))
 
   }
   openOrderDialog(newOrder:Order){
@@ -90,6 +92,7 @@ export class ProductsListComponent implements OnInit {
         this.ordersListService.getUserOrders(newOrder.userId).subscribe(userOrdersFound => {
 
           const dailyOrders = userOrdersFound.filter(order => this.getFormatedDate(order.date) === this.getFormatedDate(new Date()));
+
           newOrder.id = dailyOrders[dailyOrders.length-1].id
           this.ordersListService.updateOrder(newOrder).subscribe(_ => console.log('updatedOrder',_))
 
@@ -101,7 +104,8 @@ export class ProductsListComponent implements OnInit {
 
   }
   getFormatedDate(date:Date):number{
-    return Date.parse(date.toLocaleString().split(',')[0])
+
+    return Date.parse(new Date(date.getFullYear(),date.getDay(),date.getMonth()).toString())
 
   }
 

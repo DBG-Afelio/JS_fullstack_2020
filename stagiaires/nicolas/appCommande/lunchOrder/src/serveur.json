@@ -83,16 +83,8 @@
       "option_ids": [
         1
       ],
-      "paye": true,
-      "id": 4,
-      "date": "Tue Jul 14 2020"
-    },
-    {
-      "user_id": 4,
-      "product_id": 1,
-      "option_ids": [],
       "paye": false,
-      "id": 5,
+      "id": 4,
       "date": "Tue Jul 14 2020"
     }
   ],

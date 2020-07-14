@@ -97,6 +97,11 @@ export class UsersListService {
     return this.currentUserOrder.asObservable()
 
   }
+  setCurrentUserOrder(newOrder:Order) {
+
+    this.currentUserOrder.next(newOrder);
+
+  }
 
   logoutUser(){
     this.currentUserSubject.next(null)

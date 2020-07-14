@@ -53,8 +53,10 @@ export class OrderProductComponent implements OnInit {
 
   }
   getFormatedDate(date:Date):number{
-    return Date.parse(date.toLocaleString().split(',')[0])
+
+    return Date.parse(new Date(date.getFullYear(),date.getDay(),date.getMonth()).toString())
 
   }
+  
 
 }
