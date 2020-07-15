@@ -38,7 +38,6 @@ export class MembreComponent implements OnInit {
 
   }
   creatNewMember(user:UserDto){
-  
     this.usersService.creatUser(user).subscribe((membre)=>{
       console.log(membre);
       
@@ -64,6 +63,7 @@ export class MembreComponent implements OnInit {
       }
     ); 
   }
+  
   recentMessageUpdate(message : string): void {
     this.message = message ; 
     setTimeout(()=>{

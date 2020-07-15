@@ -5,8 +5,8 @@
       "password": "admin",
       "nom": "saispas",
       "prenom": "gene",
-      "credit": 0,
       "formation": null,
+      "credit": 0,
       "banni": false,
       "admin": true,
       "id": 1

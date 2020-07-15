@@ -15,6 +15,8 @@
 </div>
 
 <app-newuser *ngIf="!membre" (create)="creatNewMember($event)"></app-newuser>
+<button *ngIf="membre.admin ===true" (click)="deleteMember(membre)">supprimer</button>
+<button *ngIf="membre.admin ===true" (click)="updateMember(membre)" > Mettre à jour</button>
 
 
 
