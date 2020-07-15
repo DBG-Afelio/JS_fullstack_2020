@@ -6,7 +6,7 @@
     <li *ngIf="currentUser?.admin">
       <a routerLink="add-product">Ajouter nouveau produit (admin)</a>
     </li>
-    <li *ngIf="currentUser"><a routerLink="summary">Résumé de ma commande (utilisateur)</a> </li>
+    <!-- <li *ngIf="currentUser"><a routerLink="summary">Résumé de ma commande (utilisateur)</a> </li> -->
     <li *ngIf="currentUser"><a routerLink="profile">Mon profil (utilisateur/admin)</a> </li>
     <li *ngIf="currentUser?.admin"><a routerLink="for-today">Liste commandes (admin)</a> </li>
     <li *ngIf="currentUser?.admin"><a routerLink="list-users">Liste utilisateurs (admin)</a> </li>

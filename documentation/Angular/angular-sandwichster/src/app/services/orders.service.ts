@@ -32,13 +32,13 @@ getCreditLimit(){
 }
 
 getTimeLimitResponse(){
-  this.timeLimit = '12:00:00';
+  this.timeLimit = '23:00:00';
   let today = new Date();
   let currentHours = today.getHours();
   let time = ("0" + currentHours).slice(-2) + ":" + today.getMinutes() + ":" + today.getSeconds();
   let response = time < this.timeLimit;
-  console.log("Timelimit, today : ", time);
-  console.log("Timelimit, response : ", response);
+  // console.log("Timelimit, today : ", time);
+  // console.log("Timelimit, response : ", response);
   return response;
  
 }
@@ -131,7 +131,7 @@ getOrderById(id: number): Observable<Order> {
         order.item = items.find(item => item.id === order.product_id)
       }  
         )
-        console.log(orders);
+        // console.log(orders);
         return orders;
     }))
 }

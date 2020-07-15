@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # Database 
-/database/database.json
+/database-for-not-push

@@ -16,7 +16,7 @@
       "password": "froufrou",
       "nom": "dubois",
       "prenom": "stephane",
-      "credit": 3.2,
+      "credit": -1.8999999999999995,
       "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
@@ -580,6 +580,26 @@
       "paye": true,
       "id": 67,
       "date": "2020-07-15T09:57:14.205Z"
+    },
+    {
+      "user_id": 4869,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 68,
+      "date": "2020-07-15T10:08:22.138Z"
+    },
+    {
+      "user_id": 4869,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 69,
+      "date": "2020-07-15T10:12:50.453Z"
     }
   ],
   "fournisseurs": [
