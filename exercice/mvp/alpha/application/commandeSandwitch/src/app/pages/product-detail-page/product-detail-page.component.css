@@ -1,3 +1,52 @@
 :disabled{
     background-color: gray;
 }
+
+.wrap-detail {
+    display: flex;
+    flex-direction: row;
+    align-items:  flex-end;
+}
+
+.outer-detail {
+    width: 66%;
+    text-align: right;
+    padding: 30px;
+    min-height: 400px;
+    /*background-color: rgba(255,255,255,1)*/
+    border-right: 2px solid black;
+}
+
+.wrap-buttons {
+    width: 33%;
+    text-align: right;
+    padding: 30px;
+}
+
+span {
+    font-size: 30px;
+    line-height: 45px;
+    display: block;
+}
+
+.detail-form-options {
+    text-align: left;
+}
+
+.detail-form-options li {
+    list-style-type: none;
+    margin-left: 60px;
+}
+hr {
+    margin-top: 20px;
+}
+.final-price {
+
+    font-size: 35px;
+    line-height: 45px;
+    text-align: right;
+}
+
+p {
+    text-align: left;
+}

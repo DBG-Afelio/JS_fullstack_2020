@@ -1,4 +1,24 @@
-.detail {
+.detail-name {
+    font-size: 40px;
+    line-height:60px
+}
 
-    padding: 15px;
+.detail-price {
+    margin-top: 25px;
+    text-align: left;
+    font-size: 25px;
+    line-height:35px;
+}
+
+.detail-options {
+    text-align: left;
+}
+
+.detail-options li {
+    list-style-type: square;
+    margin-left: 60px;
+}
+
+p {
+    text-align: left;;
 }
