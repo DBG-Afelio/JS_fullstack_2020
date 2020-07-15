@@ -2,6 +2,7 @@
   "utilisateurs": [
     {
       "login": "admin",
+<<<<<<< HEAD
       "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
@@ -10,28 +11,42 @@
       "banni": false,
       "admin": false,
       "id": 486
-    },
-    {
-      "login": "Benoit",
-      "password": "proforma2020",
-      "nom": "Mayeur",
-      "prenom": "Benoit",
-      "credit": 0,
+=======
+      "password": "admin",
+      "nom": "saispas",
+      "prenom": "gene",
+      "credit": 4.5,
       "formation": null,
       "banni": false,
+      "admin": true,
+      "id": 1
+>>>>>>> origin/bravo-sandwichster/pierre
+    },
+    {
+      "login": "steph_dub",
+      "password": "froufrou",
+      "nom": "dubois",
+      "prenom": "stephane",
+      "credit": 8,
+      "formation": "JS_FULLSTACK",
+      "banni": false,
       "admin": false,
+<<<<<<< HEAD
       "id": 4869
+=======
+      "id": 2
+>>>>>>> origin/bravo-sandwichster/pierre
     },
     {
-      "login": "Pierre",
-      "password": "",
-      "nom": "P",
-      "prenom": "Pierre",
-      "credit": 0,
-      "formation": null,
+      "login": "lolo",
+      "password": "miammiam",
+      "nom": "duprieux",
+      "prenom": "laurent",
+      "credit": 8.2,
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
-      "id": 5686564
+      "id": 3
     }
   ],
   "commandes": [
@@ -294,8 +309,8 @@
       "product_id": 6,
       "option_ids": [],
       "paye": "true",
-      "id": 22,
-      "date": "2020-07-14T11:29:28.344Z"
+      "id": 32,
+      "date": "2020-07-13T21:57:24.951Z"
     },
     {
       "user_id": 1,
@@ -330,12 +345,10 @@
     {
       "user_id": 1,
       "product_id": 1,
-      "option_ids": [
-        1
-      ],
-      "paye": "true",
+      "option_ids": [],
+      "paye": "false",
       "id": 36,
-      "date": "2020-07-14T13:38:02.806Z"
+      "date": "2020-07-14T19:48:14.989Z"
     },
     {
       "user_id": 1,
@@ -346,6 +359,222 @@
       "paye": "true",
       "id": 37,
       "date": "2020-07-14T20:06:01.144Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": "false",
+      "id": 38,
+      "date": "2020-07-14T20:37:40.009Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 71,
+      "option_ids": [],
+      "paye": true,
+      "id": 39,
+      "date": "2020-07-14T21:53:44.065Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 40,
+      "date": "2020-07-14T22:11:35.904Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 41,
+      "date": "2020-07-14T22:13:11.534Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 42,
+      "date": "2020-07-14T22:31:46.282Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 43,
+      "date": "2020-07-14T22:35:38.033Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 44,
+      "date": "2020-07-14T22:35:45.686Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 45,
+      "date": "2020-07-14T22:36:16.277Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 46,
+      "date": "2020-07-14T22:37:44.444Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 3,
+      "option_ids": [],
+      "paye": true,
+      "id": 47,
+      "date": "2020-07-14T22:38:36.514Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 6,
+      "option_ids": [],
+      "paye": true,
+      "id": 48,
+      "date": "2020-07-14T22:41:52.133Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 49,
+      "date": "2020-07-14T22:44:11.050Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 9,
+      "option_ids": [],
+      "paye": true,
+      "id": 50,
+      "date": "2020-07-14T23:07:38.990Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 51,
+      "date": "2020-07-15T07:32:08.096Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 52,
+      "date": "2020-07-15T08:11:00.970Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 53,
+      "date": "2020-07-15T08:12:12.217Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 54,
+      "date": "2020-07-15T08:17:21.729Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 55,
+      "date": "2020-07-15T08:44:43.895Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 56,
+      "date": "2020-07-15T08:46:35.693Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 8,
+      "option_ids": [],
+      "paye": true,
+      "id": 57,
+      "date": "2020-07-15T08:49:27.299Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 2,
+      "option_ids": [],
+      "paye": true,
+      "id": 58,
+      "date": "2020-07-15T08:52:57.805Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 59,
+      "date": "2020-07-15T08:57:54.278Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 60,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 12,
+      "option_ids": [],
+      "paye": false,
+      "id": 62,
+      "date": "2020-07-15T09:05:36.773Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 2,
+      "option_ids": [],
+      "paye": false,
+      "id": 63,
+      "date": "2020-07-15T09:09:43.841Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 64,
+      "date": "2020-07-15T09:20:17.868Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 65,
+      "date": "2020-07-15T09:26:48.225Z"
     }
   ],
   "fournisseurs": [

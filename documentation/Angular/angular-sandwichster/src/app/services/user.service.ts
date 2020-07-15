@@ -41,6 +41,7 @@ export class UserService {
   }
 
   updateUser(user: UserModel): Observable<UserModel> {
+    console.log(user);
     return this.http
       .put<UserModel>(`http://localhost:3000/utilisateurs/${user.id}`, user.toDto())
       .pipe(catchError((error: any) => Observable.throw(error.json())));
