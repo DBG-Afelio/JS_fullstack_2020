@@ -33,10 +33,16 @@ public isPaid: boolean;
 public isOrderSent: boolean = false;
 public sentPrice: number;
 public residualDebtProjection: number;
+public allOrders: Order[];
 
 public user: UserModel;
 public userCreditUpdate: number = this.loginService.currentUser.credit;
 public order: Order;
+
+
+public currentDate: string = this.orderService.dayOfToday;
+
+public currentDateRegEx: RegExp = new RegExp(this.currentDate);
 
   constructor(
     public supplierService: SuppliersService,
@@ -56,11 +62,24 @@ public order: Order;
   }
 
   ngOnInit() {
+    console.log(this.currentDate);
     this.getTotal();
     this.user = this.loginService.getCurrentUser();
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
+    this.orderService.getAllOrders().subscribe(allOrders => {
+      this.allOrders = allOrders
+      this.allOrders.filter(orders => orders.user_id === this.loginService.getCurrentUser().id).forEach(orderOfUser => {
+        if(this.currentDateRegEx.test(orderOfUser.date)){
+          console.log("orderSent > TRUE : l'user ne peut plus commander");
+          this.isOrderSent = true;
+        }
+      });
+    });
 
-    console.log('Commande actuelle avant la condition : ' + this.order);
+
+
+    console.log('La date du jour, telle que définie dans order.service est : ', this.orderService.getDateFunc());
+    console.log("xxx", this.allOrders);
 
     // ESSAI MEMORISATION COMMANDE AVEC BOOLEEN
     if(this.orderService.hasUserAlreadyOrdered === undefined || this.orderService.hasUserAlreadyOrdered === false){

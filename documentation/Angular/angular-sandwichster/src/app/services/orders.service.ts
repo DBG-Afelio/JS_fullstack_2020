@@ -18,6 +18,7 @@ export class OrdersService {
 
 private timeLimit: string;
 private creditLimit: number= 10;
+public dayOfToday: string;
 
 public hasUserAlreadyOrdered: boolean; // ESSAI MEMO COM AVEC BOOL
 public todayUserOrder: Order;
@@ -29,14 +30,25 @@ constructor(private http: HttpClient,
   public userService: UserService,
   public listItemsService: ListItemsService,
 
-  ) { }
+  ) {
+
+    this.dayOfToday = this.getDateFunc();
+
+   }
+
+getDateFunc(){
+  let today = new Date();
+  let getCorrectFuckingMonth = Number(today.getMonth()) + 1;
+  var orderServiceDate = today.getFullYear() + '-' + 0 + getCorrectFuckingMonth +  '-' + today.getDate();
+  return orderServiceDate;;
+}
 
 getCreditLimit(){
   return this.creditLimit;
 }
 
 getTimeLimitResponse(){
-  this.timeLimit = '23:00:00';
+  this.timeLimit = '22:00:00';
   let today = new Date();
   let currentHours = today.getHours();
   let time = ("0" + currentHours).slice(-2) + ":" + today.getMinutes() + ":" + today.getSeconds();
