@@ -5,10 +5,10 @@
       "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
-      "credit": -5.1,
+      "credit": -12,
       "formation": "proforma 2020",
       "banni": false,
-      "admin": true,
+      "admin": false,
       "id": 486
     },
     {
@@ -16,7 +16,7 @@
       "password": "froufrou",
       "nom": "dubois",
       "prenom": "stephane",
-      "credit": 3.2,
+      "credit": -1.8999999999999995,
       "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
@@ -580,6 +580,64 @@
       "paye": true,
       "id": 67,
       "date": "2020-07-15T09:57:14.205Z"
+    },
+    {
+      "user_id": 4869,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 68,
+      "date": "2020-07-15T10:08:22.138Z"
+    },
+    {
+      "user_id": 4869,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 69,
+      "date": "2020-07-15T10:12:50.453Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 70,
+      "date": "2020-07-15T12:08:29.010Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 71,
+      "date": "2020-07-15T12:10:51.061Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 72,
+      "date": "2020-07-15T12:14:32.365Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 6,
+      "option_ids": [],
+      "paye": true,
+      "id": 73,
+      "date": "2020-07-15T12:16:47.649Z"
     }
   ],
   "fournisseurs": [

@@ -5,7 +5,7 @@
       "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
-      "credit": -5.1,
+      "credit": -5.8999999999999995,
       "formation": "proforma 2020",
       "banni": false,
       "admin": false,
@@ -600,6 +600,36 @@
       "paye": true,
       "id": 69,
       "date": "2020-07-15T10:12:50.453Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 70,
+      "date": "2020-07-15T12:08:29.010Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 71,
+      "date": "2020-07-15T12:10:51.061Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 72,
+      "date": "2020-07-15T12:14:32.365Z"
     }
   ],
   "fournisseurs": [
