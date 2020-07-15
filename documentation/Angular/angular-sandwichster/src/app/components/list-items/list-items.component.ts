@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Item } from 'src/app/interfaces/item';
+import { Router } from '@angular/router';
 
+import { Item } from 'src/app/interfaces/item';
+import { ListItemsService } from '../../services/list-items.service'
 
 @Component({
   selector: 'app-list-items',
@@ -14,12 +16,21 @@ export class ListItemsComponent implements OnInit {
 @Input() listProducts;
 @Input() supplier;
 
-  constructor() {}
+  constructor(
+    private listItemsService: ListItemsService,
+    private routeur: Router
+  ) {}
 
   ngOnInit() {}
 
   onProductSelection(item){
     this.selectedProductEvent.emit(item);
+  }
+
+  changeProducts(product){
+    this.listItemsService.updateItem(product).subscribe(()=>
+    this.routeur.navigate([""]) 
+    );
   }
 
 
