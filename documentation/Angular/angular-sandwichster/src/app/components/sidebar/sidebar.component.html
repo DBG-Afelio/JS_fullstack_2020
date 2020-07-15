@@ -19,13 +19,9 @@
             <p> Fournisseur : {{ selectedProductSupplier?.nom }} </p>
             
             <div>
-                  <input type="radio" value="true" name="paiedOrNotPaid"
-                  [(ngModel)]="isPaid"
-                  (change)="isPaidSelection($event.target.value)"/> 
+                  <input type="radio" value="true" name="paiedOrNotPaid" (click)="paidTrue()">
                   <label for="paymentStatus">Payé </label>
-                  <input type="radio" value="false" name="paiedOrNotPaid"
-                  [(ngModel)]="isPaid"
-                  (change)="isPaidSelection($event.target.value)"/> 
+                  <input type="radio" value="false" name="paiedOrNotPaid" (click)="paidFalse()"/> 
                   <label for="paymentStatus">Non-payé </label>
             </div>
             
@@ -35,6 +31,8 @@
             </div>
 
 
-            <button (click)="orderGoEvent()" [disabled]="!timeLimitResponse"> Envoyer la commande </button>
+            <button (click)="orderGoEvent()" *ngIf="!isOrderSent" [disabled]="!timeLimitResponse"> Envoyer la commande </button>
+            <button (click)="orderModifyEvent()" *ngIf="isOrderSent"> Modifier la commande en cours </button>
+            <button (click)="orderDeleteEvent()" *ngIf="isOrderSent"> Supprimer la commande en cours </button>
 
       </nav>

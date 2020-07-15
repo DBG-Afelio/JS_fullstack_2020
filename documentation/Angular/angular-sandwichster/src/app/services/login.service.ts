@@ -42,7 +42,7 @@ constructor(private http: HttpClient, private route: Router) { } // je suppose q
     return this.http.get<UserModel[]>(this.urlAPI + 'utilisateurs?login=' + login) //particularité de jsonserver de filter un service
     .pipe(map(users => {
       if(users.length > 0){
-        return users[0];
+        return UserModel.fromDto(users[0]);
       }
       else{
         return null;
