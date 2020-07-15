@@ -29,9 +29,11 @@ export class MembresComponent implements OnInit, OnChanges {
   sortMembre(){
     const sortedtab = this.membres.slice();
     return sortedtab.sort((membre1, membre2) =>{
-      if (membre1[this.sortby[0]]<membre2[this.sortby[0]]){
+      let m1 = typeof membre1[this.sortby[0]] === "string" ? membre1[this.sortby[0]].toLowerCase() : membre1[this.sortby[0]];
+      let m2 = typeof membre2[this.sortby[0]] === "string" ? membre2[this.sortby[0]].toLowerCase() : membre2[this.sortby[0]];
+      if (m1<m2){
         return this.sortby[1] ? 1 : -1;
-      }else if(membre1[this.sortby[0]]>membre2[this.sortby[0]]){
+      }else if(m1>m2){
         return !this.sortby[1] ? 1 : -1;
       } else {
         return 0;

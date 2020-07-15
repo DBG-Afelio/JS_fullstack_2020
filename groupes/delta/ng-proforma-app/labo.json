@@ -45,12 +45,12 @@
       "id": 4
     },
     {
-      "login": "rrrrrrr",
+      "login": "robert_petit",
       "password": "rrrrrrrrrrrrrrr",
-      "nom": "rrrrrr",
-      "prenom": "rrrrrr",
-      "credit": 0,
+      "nom": "Petitjean",
+      "prenom": "Robert",
       "formation": "JS_FULLSTACK",
+      "credit": 0,
       "banni": false,
       "admin": false,
       "id": 5
@@ -317,6 +317,36 @@
       "paye": false,
       "id": 22,
       "date": "2020-07-15T11:34:03.582Z"
+    },
+    {
+      "user_id": 10,
+      "product_id": 8,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 23,
+      "date": "2020-07-15T12:37:18.040Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 10,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 24,
+      "date": "2020-07-15T13:49:53.317Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 14,
+      "option_ids": [
+        2
+      ],
+      "paye": false,
+      "id": 25,
+      "date": "2020-07-15T13:54:26.056Z"
     }
   ],
   "fournisseurs": [
