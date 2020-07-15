@@ -1,0 +1,7 @@
+.price-and-cta {
+    display: flex;
+}
+
+.price-and-cta span {
+    padding: 0 0.5em;
+}

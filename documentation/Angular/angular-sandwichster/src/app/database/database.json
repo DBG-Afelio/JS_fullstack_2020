@@ -2,14 +2,14 @@
   "utilisateurs": [
     {
       "login": "admin",
-      "password": "admin",
-      "nom": "saispas",
-      "prenom": "gene",
-      "credit": 4.5,
-      "formation": null,
+      "password": "",
+      "nom": "XYZ",
+      "prenom": "L'Administrateur",
+      "credit": 0,
+      "formation": "proforma 2020",
       "banni": false,
-      "admin": true,
-      "id": 1
+      "admin": false,
+      "id": 486
     },
     {
       "login": "steph_dub",
@@ -20,7 +20,7 @@
       "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
-      "id": 2
+      "id": 4869
     },
     {
       "login": "lolo",

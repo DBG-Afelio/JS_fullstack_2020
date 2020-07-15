@@ -10,7 +10,7 @@
     <p>Est-il admin ? : {{ user?.admin ? 'Oui' : 'Non' }} </p>
     <button [routerLink]="['/', 'history', user.id]" class="">Historique commandes utilisateur</button> &nbsp;
     <button [routerLink]="['/', 'user', user.id]" class="">Modifier utilisateur</button> &nbsp;
-    <button [routerLink]="['/', 'list-users']" (click) ="getUser(user)" (click) ="removeUser(user)" >Supprimer utilisateur</button>
+    <button *ngIf= "currentUser" [routerLink]="['/', 'list-users']" (click) ="getUser(user)" (click) ="removeUser(user)" >Supprimer utilisateur</button>
     <hr>
   </div>
 </div>

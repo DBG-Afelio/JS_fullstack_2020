@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/interfaces/user.model';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   authStatus: boolean;
   loginError: boolean;
+  currentUser: UserModel;
 
   constructor(private loginService: LoginService, private router: Router) { }
 

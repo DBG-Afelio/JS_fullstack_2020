@@ -2,16 +2,17 @@
 
     <h4>
         <span *ngIf="item.fourn_id === 1">Sandwich </span>
-        <span *ngIf="item.fourn_id === 2">Pizza </span>{{item.nom}}
+        <span *ngIf="item.fourn_id === 2">Pizza </span>{{item?.nom}}
     </h4>
-    <p>{{item.description}}</p>
-    <span>{{item.prix}}</span> euros<br>
-
-    <!-- Ajouter la classe visible a la sidebar -->
-    <!-- (click)='showSidebar()' -->
-    <a (click) ='onProductSelection()'>Je le prends!</a>
-
-    <button (click)='modifyItem(item.id)'>Modifier</button>
+   
+    <p>{{item?.description}}</p>
+    <div class="price-and-cta">
+        <span> <b>{{item?.prix}} euros</b></span>
+        <!-- Ajouter la classe visible a la sidebar -->
+        <!-- (click)='showSidebar()' -->
+        <button class="btn btn-primary" (click) ='onProductSelection()'>Je le prends!</button>
+    <div>
+    <button  *ngIf ="currentUser" (click)='modifyItem(item.id)'>Modifier</button>
 </div>
 
 <app-modify-item *ngIf="visible" [item]="item" #viewContainerRef (visible)="closeModifyPannel()" (update)="updateItem($event)"></app-modify-item>
