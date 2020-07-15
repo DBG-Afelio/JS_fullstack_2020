@@ -4,7 +4,7 @@ import { UserModel } from '../../interfaces/user.model';
 import { UserService } from '../../services/user.service';
 import { Order } from 'src/app/interfaces/order';
 import { OrdersService } from '../../services/orders.service'
-
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-profile-user',
@@ -16,24 +16,36 @@ export class ProfileUserComponent implements OnInit {
   public userDisplayed: UserModel;
   public ordersDisplayed: Order[];
 
+  private isAuth: boolean = false;
+  private isAdmin: boolean = false;
+
   constructor(
     public userService: UserService,
     public orderService: OrdersService,
+    public loginService: LoginService,
   ) {
     
-    this.userService.getUserByID(4869).subscribe((userReceived) => {
-      this.userDisplayed = userReceived;
-    });
+    this.userDisplayed = this.loginService.getCurrentUser();
+    console.log(this.loginService.getCurrentUser());
 
     this.orderService.getUsersAndProductsNameInListOrders().subscribe((listOrders) => {
-      this.ordersDisplayed = listOrders.filter(element => element.user_id === 2); // à modifier quand on aura un user qui pourra se logger
-      // l'id user remplacera le "2"
+      this.ordersDisplayed = listOrders.filter(element => element.user_id === this.userDisplayed.id);
       console.log(this.ordersDisplayed);
     });
 
    }
 
   ngOnInit() {
+
+  }
+
+  getCurrentUser(){
+    if(this.loginService.currentUser){
+      this.isAuth = true;
+      if(this.loginService.currentUser.admin){
+        this.isAdmin = true;
+      }
+    }
   }
 
 }
