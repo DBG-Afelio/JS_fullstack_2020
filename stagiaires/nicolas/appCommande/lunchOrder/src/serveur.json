@@ -64,6 +64,16 @@
       "paye": false,
       "id": 3,
       "date": "Tue Jul 14 2020"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 4,
+      "date": "Wed Jul 15 2020"
     }
   ],
   "fournisseurs": [

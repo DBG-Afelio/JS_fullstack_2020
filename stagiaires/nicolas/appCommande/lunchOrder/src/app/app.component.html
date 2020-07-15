@@ -11,7 +11,7 @@
 
       </div>
       <mat-accordion>
-        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel expanded="true">
           <mat-expansion-panel-header>
 
             <mat-panel-title>
@@ -19,14 +19,16 @@
             </mat-panel-title>
 
           </mat-expansion-panel-header>
-
-          <a  routerLink="/dailyOrder">Commandes du jour</a>
+         
+          <mat-panel-title *ngIf='currentUser?.isAdmin' routerLink="/dailyOrder">
+            <span [matBadgeHidden]="numberOfDailyOrder===0" [matBadge]="numberOfDailyOrder" matBadgeOverlap="false">Commandes du jour</span>
+          </mat-panel-title>
           <br>
-          <a  routerLink="/ordersHistory">Historique des commandes</a>
+          <mat-panel-title *ngIf='currentUser' routerLink="/ordersHistory">Historique des commandes</mat-panel-title>
           <br>
-          <a  routerLink="">Liste des commerces</a>
+          <mat-panel-title routerLink="">Liste des commerces</mat-panel-title>
           <br>
-          <a  routerLink="/usersList">Liste des utilisateurs</a>
+          <mat-panel-title *ngIf='currentUser?.isAdmin' routerLink="/usersList">Liste des utilisateurs</mat-panel-title>
 
         </mat-expansion-panel>
       </mat-accordion>

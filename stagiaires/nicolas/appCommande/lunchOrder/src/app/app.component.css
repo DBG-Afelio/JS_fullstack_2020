@@ -9,3 +9,17 @@
     left:0;
 
 }
+.mat-expansion-panel-body{
+
+    display:flex;
+    flex-direction: column;
+
+}
+.mat-expansion-panel-header-title{
+
+    cursor: pointer;
+    padding: 10px;
+    padding-left: 10px;
+    padding-left: 0;
+
+}

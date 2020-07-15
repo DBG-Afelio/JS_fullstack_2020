@@ -13,7 +13,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { CountdownModule } from 'ngx-countdown';
-import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBadgeModule} from '@angular/material/badge'; 
 
 import { AppComponent } from './app.component';
 
@@ -67,6 +68,7 @@ import { ProductDisplayComponent } from './components/product-display/product-di
     MatCheckboxModule,
     CountdownModule,
     MatSidenavModule,
+    MatBadgeModule,
 
   ],
   entryComponents: [
