@@ -19,7 +19,7 @@ nav{
   transition: width 0.3s ease;
 }
 
-nav:hover, nav.pinned{
+nav.pinned{
   width: 11rem;
 }
 
@@ -60,6 +60,21 @@ nav a.label{
 }
 
 .section{
-  padding: 2rem 5rem 2rem 9rem;
+  display: grid;
+  grid-column: 1/4;
+  padding: 2rem 2rem 2rem 5rem;
   min-height: 100vh;
+  transition: .4s;
+}
+
+.section-active{
+  grid-column: 3;
+}
+
+.main-container{
+  display: grid;
+  grid-template-columns: 4rem 7rem 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . .";
+  transition: .4s;
 }

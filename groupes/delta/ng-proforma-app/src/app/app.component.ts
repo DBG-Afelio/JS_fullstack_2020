@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   user: User;
   timer: string;
   pending_command: Commande;
+  extend_menu:boolean = true;
 
   constructor(private usersService:UsersService, private timerService:TimerService, private commandsService:CommandesService) {
     this.usersService.user.subscribe(user => this.user = user);
@@ -24,6 +25,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.user.subscribe(user => this.user = user);
+  }
+
+  switchMenu() {
+    this.extend_menu = !this.extend_menu;
   }
 
   disconnect() {
