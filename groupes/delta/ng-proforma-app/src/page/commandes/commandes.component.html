@@ -1,3 +1,4 @@
+<span (click)="switchDay()" *ngIf="isAdmin()" class="flaticon-switch"></span>
 <div *ngIf="commandes">
-  <app-tableau [tableau]="" [tableauOfHeader]="['id','produit','options','prix','payer']" ></app-tableau>
+  <app-tableau [tableau]="getTabCommands()" [tableauOfHeader]="['produit','options','prix','payer','date']" ></app-tableau>
 </div>

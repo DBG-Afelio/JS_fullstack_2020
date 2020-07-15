@@ -303,6 +303,37 @@
       "paye": false,
       "id": 25,
       "date": "2020-07-15T13:54:26.056Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 15,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 26,
+      "date": "2020-07-15T19:20:50.673Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 23,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 27,
+      "date": "2020-07-15T19:53:13.821Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 6,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": false,
+      "id": 28,
+      "date": "2020-07-15T19:54:10.912Z"
     }
   ],
   "fournisseurs": [
