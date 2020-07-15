@@ -35,7 +35,7 @@ export class ProductAdminPageComponent implements OnInit {
       })
     });
     this.page = 1;
-    this.pageSize = 10;
+    this.pageSize = 75;
   }
 
   public reloadProductList(): void{
@@ -57,4 +57,4 @@ export class ProductAdminPageComponent implements OnInit {
   
   ngOnInit(): void {
   }
-}
+} 

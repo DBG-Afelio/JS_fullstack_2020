@@ -11,18 +11,29 @@ export class SupplierAdminPageComponent implements OnInit {
 
   public listSuppliers: Supplier[];
 
+  public page: number;
+  public pageSize: number;
+  public collectionSize: number;
+
   constructor(public supplierService: SupplierService) { 
     this.reloadSupplierList();
   }
 
   public reloadSupplierList(): void{
-    this.supplierService.getList().subscribe((suppliers) => this.listSuppliers = suppliers);
+    this.supplierService.getList().subscribe((suppliers) => {
+      this.listSuppliers = suppliers;
+      this.collectionSize = this.listSuppliers.length;
+    });
+
+    this.page = 1;
+    this.pageSize = 10;
   }
   
   public archieveSupplier(supplier: Supplier) {
     supplier.archieved = (supplier.archieved) ? false : true;
     this.supplierService.updateSupplier(supplier).subscribe(() => {
       this.supplierService.navigateToAdmin();
+      
     });
     this.reloadSupplierList();
   }
@@ -34,6 +45,10 @@ export class SupplierAdminPageComponent implements OnInit {
       });
       this.reloadSupplierList();
     }
+  }
+
+  public sortBy(prop: string) {
+    return this.listSuppliers.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   }
 
   ngOnInit(): void {

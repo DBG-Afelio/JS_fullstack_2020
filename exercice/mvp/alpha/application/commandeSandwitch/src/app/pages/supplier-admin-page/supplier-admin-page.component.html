@@ -14,7 +14,8 @@
         <th>ARCHIVER</th>
         <th>SUPPRIMER</th>
     </tr>
-    <tr *ngFor = "let supplier of listSuppliers" [class.archieved] = "supplier.archieved">
+    <tr *ngFor = "let supplier of sortBy('name') | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" 
+        [class.archieved] = "supplier.archieved">
         <td class="td-id">{{ supplier.id }}</td>
         <td>{{ supplier.name }}</td>
         <td class="td-button"><a routerLink = "/admin/fournisseur/{{ supplier.id }}/produit">Gérer les produits</a></td>
@@ -23,3 +24,10 @@
         <td class="td-button"><button (click) = "removeSupplier(supplier)">Suppr.</button></td>
     </tr>
 </table>
+
+<ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+</ngb-pagination>
+  
