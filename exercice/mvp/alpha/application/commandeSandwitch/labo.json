@@ -38,8 +38,8 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": "3",
-      "formation": "Creations de Problemes",
+      "credit": 3,
+      "formation": "Le planté de baton",
       "banni": false,
       "admin": false,
       "id": 4
@@ -54,6 +54,17 @@
       "banni": false,
       "admin": false,
       "id": 6
+    },
+    {
+      "login": "julius",
+      "password": "julius",
+      "nom": "Cesar",
+      "prenom": "Jules",
+      "credit": 1.5,
+      "formation": "Agent de la paix avant tout",
+      "banni": false,
+      "admin": false,
+      "id": 7
     }
   ],
   "commandes": [
@@ -83,7 +94,6 @@
       "option_ids": [],
       "paye": true,
       "id": 3,
-
       "date": "Sun Jul 12 2020 13:48:00 GMT+0200 (Central European Summer Time)"
     },
     {
@@ -149,7 +159,6 @@
     {
       "user_id": 4,
       "product_id": 54,
-
       "option_ids": [
         1
       ],
@@ -177,26 +186,6 @@
       "date": "Mon Jul 13 2020 12:01:55 GMT+0200 (Central European Summer Time)"
     },
     {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 16,
-      "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 18,
-      "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
-    },
-    {
       "user_id": 1,
       "product_id": 54,
       "option_ids": [
@@ -215,6 +204,24 @@
       "paye": false,
       "id": 34,
       "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 4,
+      "product_id": 30,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 35,
+      "date": "Tue Jul 14 2020 22:45:25 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 1,
+      "product_id": 33,
+      "option_ids": [],
+      "paye": true,
+      "id": 37,
+      "date": "Wed Jul 15 2020 00:46:35 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
@@ -342,15 +349,9 @@
       "prix": "5.6",
       "options": [
         {
-          "nom": "Pain gris",
-          "surcout": "0.4",
-          "id": 1
-        },
-        {
-          "id": 2,
-          "name": "",
-          "surcout": "5",
-          "nom": "Pierre"
+          "id": 1,
+          "nom": "champignons",
+          "surcout": 3.5
         }
       ],
       "fourn_id": 1
@@ -1347,6 +1348,14 @@
       "prix": "01",
       "options": [],
       "fourn_id": 0
+    },
+    {
+      "id": 79,
+      "nom": "",
+      "description": "",
+      "prix": 0,
+      "options": [],
+      "fourn_id": 2
     }
   ]
 }

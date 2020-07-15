@@ -15,13 +15,12 @@
         <div *ngFor="let option of product.options">
             <input  
                 type="checkbox" 
-                [checked]="false" 
-        
-                (change)="updateEndPrice($event.target.checked, option.surcout, option.id)"> 
-            option : {{ option.nom }} + {{ option.surcout }} €
+                [checked]="fullOrder?.getProduct().id === product.id && selected.includes(option.id)" 
+                (change)="optionChangeRequest(option, $event.target.checked)"> 
+                option : {{ option.nom }} + {{ option.surcout | currency: 'EUR':'symbol-narrow' }}
         </div>
     </div>
-    Prix : {{ updatedPrice | currency : 'EUR':true }} 
+        Total : {{ updatedPrice | currency : 'EUR':'symbol-narrow' }} 
     <button
         (click)="saveInLocalStorage()"
         [disabled]="!isOnTime">

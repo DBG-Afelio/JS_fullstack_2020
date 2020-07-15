@@ -4,10 +4,10 @@
         Retour vers Ma commande en cours
     </a>
     <p>
-        Votre commande s'eleve a {{ fullOrder.getTotalPrice() | currency : 'EUR':true }} 
+        Votre commande s'eleve a {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
     </p>
     <p>
-        Votre credit avant paiement s'eleve a € {{ currentUser.credit }}
+        Votre credit avant paiement s'eleve a {{ currentUser.credit | currency: 'EUR':'symbol-narrow'}}
     </p>
     <p *ngIf="!isCreditEnough">
         Payer a credit ? Votre solde est insuffisant. Il ne vous reste que {{ creditMax - currentUser.credit | currency : 'EUR':true}} sur votre credit maximum autorisé ({{ creditMax}} €). 
