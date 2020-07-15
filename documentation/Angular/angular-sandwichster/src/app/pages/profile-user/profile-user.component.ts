@@ -48,4 +48,12 @@ export class ProfileUserComponent implements OnInit {
     }
   }
 
+  orderAgain(order){
+    console.log(order);
+    order.id = 0;
+    alert("Vous avez recommandé un " + order.item.nom)
+    this.orderService.createOrder(order).subscribe();
+
+  }
+
 }
