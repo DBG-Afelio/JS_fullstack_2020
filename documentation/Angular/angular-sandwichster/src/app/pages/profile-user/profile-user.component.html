@@ -13,8 +13,8 @@
       <span *ngIf="order.item.fourn_id === 1">Sandwich </span>
       <span *ngIf="order.item.fourn_id === 2">Pizza </span>
       {{order.item.nom}} de chez {{order.item.supplier.nom}} à {{order.item.prix}} euros<br>
-      <div *ngIf="order.item.options">
-        <span *ngFor="let option of order.item.options">{{option.nom}}: {{option.surcout}} euros</span>
+      <div>
+        <span *ngFor="let option of order.getSelectedOptions()">{{option.nom}}: {{option.surcout}} euros</span>
       </div>
       <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
       <button (click)="orderAgain(order)">Commander à nouveau</button> => le bouton ne fonctionne pas
