@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { MatCommonModule } from "@angular/material/core";
-import { MatCardModule, MatCard } from "@angular/material/card";
+//import { MatCommonModule } from "@angular/material/core";
+//import { MatCardModule, MatCard } from "@angular/material/card";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,7 @@ import { OptionsComponent } from 'src/page/options/options.component';
 import { CommandeComponent } from 'src/page/commande/commande.component';
 import { NewuserComponent } from 'src/page/newuser/newuser.component';
 import { CommandesComponent } from 'src/page/commandes/commandes.component';
-import {MatButtonModule} from '@angular/material/button'
+//import {MatButtonModule} from '@angular/material/button'
 import{MembreComponent} from 'src/page/membre/membre.component';
 
 @NgModule({
@@ -39,10 +39,10 @@ import{MembreComponent} from 'src/page/membre/membre.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    MatCommonModule,
+    //MatCommonModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule
+    //MatCardModule,
+    //MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
