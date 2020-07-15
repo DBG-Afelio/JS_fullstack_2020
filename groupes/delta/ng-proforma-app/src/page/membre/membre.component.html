@@ -18,10 +18,7 @@
     {{message}}
     
 </div>
-
 <app-newuser *ngIf="!membre" (create)="creatNewMember($event)"></app-newuser>
-
-
-
+<button *ngIf="membre" (click)="deleteMember(membre)" class="btn"><i class="fa fa-trash"></i> Supprimer</button>
 
 

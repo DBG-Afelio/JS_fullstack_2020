@@ -11,24 +11,26 @@
       "admin": true,
       "id": 1
     },
+    
     {
       "login": "steph_dub",
       "password": "froufrou",
-      "nom": "Dubois",
-      "prenom": "Stephane",
-      "formation": "JS_FULLSTACK",
+      "nom": "dubois",
+      "prenom": "stephane",
       "credit": 8,
+      "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
       "id": 2
     },
+  
     {
       "login": "lolo",
       "password": "miammiam",
-      "nom": "Duprieux",
-      "prenom": "Laurent",
-      "formation": "INTRO_PROG",
+      "nom": "duprieux",
+      "prenom": "laurent",
       "credit": 0,
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 3
@@ -89,26 +91,37 @@
       "id": 8
     },
     {
-      "login": "qzfzqfzqf",
-      "password": "qzfzqfzqfzfq",
-      "nom": "qzfzqfzqf",
-      "prenom": "qzfzqfqzf",
+      "login": "haroon199157",
+      "password": "haroon199157",
+      "nom": "haroon199157",
+      "prenom": "haroon199157",
       "credit": 0,
-      "formation": "JS_FULLSTACK",
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 9
     },
     {
-      "login": "Oshimia",
-      "password": "Oshimia1",
-      "nom": "Mia",
-      "prenom": "Oshi",
-      "formation": "JS_FULLSTACK",
+      "login": "haroon99",
+      "password": "haroon99",
+      "nom": "haroon99",
+      "prenom": "haroon99",
       "credit": 0,
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 10
+    },
+    {
+      "login": "admin",
+      "password": "admin",
+      "nom": "admin",
+      "prenom": "admin",
+      "credit": 0,
+      "formation": "full-stack",
+      "banni": false,
+      "admin": false,
+      "id": 11
     }
   ],
   "commandes": [
@@ -297,26 +310,6 @@
       "paye": false,
       "id": 20,
       "date": "2020-07-15T09:01:02.305Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 6,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 21,
-      "date": "2020-07-15T09:56:12.841Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 4,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 22,
-      "date": "2020-07-15T11:34:03.582Z"
     }
   ],
   "fournisseurs": [

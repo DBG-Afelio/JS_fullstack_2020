@@ -22,3 +22,12 @@ h1{
     top: 100px;
     left: 100px;
 }
+.btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
