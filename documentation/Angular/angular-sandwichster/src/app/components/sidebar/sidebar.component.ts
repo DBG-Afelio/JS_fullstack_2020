@@ -11,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 
 
-
+// PIERRE - THOMAS
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',

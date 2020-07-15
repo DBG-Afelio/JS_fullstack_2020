@@ -15,6 +15,8 @@ import { DisplayUserComponent } from './pages/display-user/display-user.componen
 import { HistoryOrdersUserComponent } from './pages/history-orders-user/history-orders-user.component'
 import { NewUserComponent } from './pages/new-user/new-user.component';
 
+// BENOIT
+
 const routes: Routes = [
   {
     path: '',

@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
+// PIERRE
+
 export class LoginService {
 
   private urlAPI: string = "http://localhost:3000/";

@@ -7,6 +7,8 @@ import { DisplayItemComponent } from '../display-item/display-item.component'
   templateUrl: './modify-item.component.html',
   styleUrls: ['./modify-item.component.css']
 })
+
+// BENOIT
 export class ModifyItemComponent implements OnInit {
   @Input() item: Item;
   @Output() update = new EventEmitter<Item>();

@@ -2,7 +2,7 @@
   "utilisateurs": [
     {
       "login": "admin",
-      "password": "",
+      "password": "admin",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
       "credit": 0,
@@ -614,6 +614,37 @@
       "paye": true,
       "id": 73,
       "date": "2020-07-15T12:36:35.460Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 74,
+      "date": "2020-07-15T09:47:33.792Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 75,
+      "date": "2020-07-15T09:47:33.792Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 5,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": false,
+      "id": 76,
+      "date": "2020-07-15T13:21:31.516Z"
     }
   ],
   "fournisseurs": [

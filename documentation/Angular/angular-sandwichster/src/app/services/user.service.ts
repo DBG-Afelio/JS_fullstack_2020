@@ -11,6 +11,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
+// THOMAS
+
 export class UserService {
 
   constructor(private http: HttpClient) {}
