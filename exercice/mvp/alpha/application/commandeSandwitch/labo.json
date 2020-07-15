@@ -227,11 +227,12 @@
       "user_id": 4,
       "product_id": 13,
       "option_ids": [
+        1,
         2
       ],
       "paye": true,
       "id": 38,
-      "date": "Wed Jul 15 2020 12:18:16 GMT+0200 (Central European Summer Time)"
+      "date": "Wed Jul 15 2020 12:28:10 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
@@ -356,7 +357,7 @@
       "id": 5,
       "nom": "Bombay",
       "description": "Poulet mariné, raisins frais et secs, carottes, noix de cajou, coriandre, sauce curry et crème.",
-      "prix": "5.6",
+      "prix": 5.6,
       "options": [
         {
           "id": 1,
