@@ -584,12 +584,36 @@
     {
       "user_id": 486,
       "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 70,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 71,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 12,
+      "option_ids": [],
+      "paye": false,
+      "id": 72,
+      "date": "2020-07-15T09:05:36.773Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
       "option_ids": [
         1
       ],
       "paye": true,
-      "id": 68,
-      "date": "2020-07-15T12:32:01.133Z"
+      "id": 73,
+      "date": "2020-07-15T12:36:35.460Z"
     }
   ],
   "fournisseurs": [
