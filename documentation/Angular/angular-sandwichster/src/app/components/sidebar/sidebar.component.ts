@@ -60,6 +60,22 @@ public order: Order;
     this.user = this.loginService.getCurrentUser();
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
 
+    console.log('Commande actuelle avant la condition : ' + this.order);
+
+    // ESSAI MEMORISATION COMMANDE AVEC BOOLEEN
+    if(this.orderService.hasUserAlreadyOrdered === undefined || this.orderService.hasUserAlreadyOrdered === false){
+      this.isOrderSent = false;
+    }
+    else{
+      this.isOrderSent = true;
+      this.order = this.orderService.todayUserOrder;
+      this.sentPrice = this.orderService.receivedPrice;
+      console.log('Commande actuelle après la condition : ' + this.order.id);
+      
+    }
+
+    
+
     // QUESTION // console.log('test user avec userService, doit renvoyer user', this.userService.getUserByID(1)); // QUESTION POURQUOI CECI NE FONCTIONNE PAS ???
 
 
@@ -91,7 +107,7 @@ getTotal(){
 
     this.getTotal();
 
-    console.log('prix du produit avec options : ' + this.selectedProductPrice)
+    
 }
 
 
@@ -153,8 +169,14 @@ paidFalse(){ // C'EST SALE, BERK
             )
         
             this.isOrderSent = true;
+            this.orderService.userHasAlreadyOrdered(this.isOrderSent); // ESSAI MEMO COM AVEC BOOL
             this.order = newOrder;
-            this.orderService.createOrder(this.order).subscribe(order => this.order = order);
+            this.orderService.createOrder(this.order).subscribe(order => {
+              this.order = order
+              this.orderService.todayUserOrder = this.order
+              this.orderService.receivedPrice = this.sentPrice;
+              });
+            ;
             this.sentPrice = this.selectedOptionsSum;
           }
           else{
@@ -164,11 +186,14 @@ paidFalse(){ // C'EST SALE, BERK
     }
 
   orderDeleteEvent(){
-
+    console.log(this.sentPrice);
     this.orderService.deleteOrder(this.order).subscribe();
-    this.user.credit = this.user.credit - this.sentPrice;
+    if(!this.isPaid || this.isPaid === undefined){
+      this.user.credit = this.user.credit - this.sentPrice;
+    }
     this.userService.updateUser(this.user).subscribe();
     this.isOrderSent = false;
+    this.orderService.userHasAlreadyOrdered(this.isOrderSent); // ESSAI MEMO COM AVEC BOOL
   
 }
 
