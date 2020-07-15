@@ -34,7 +34,7 @@ export class DisplayItemComponent implements OnInit {
   onProductSelection(){
 
     // console.log(this.currentUser);
-    
+    console.log(this.item);
     if(!this.currentUser) {
       this.route.navigate(['/login']);
     }

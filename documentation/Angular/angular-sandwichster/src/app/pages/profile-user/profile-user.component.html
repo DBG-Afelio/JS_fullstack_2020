@@ -1,3 +1,11 @@
+<app-sidebar [selectedProduct]="selectedProduct" 
+
+[selectedProductPrice]="selectedProductPrice"
+[selectedProductOptions]="selectedProductOptions" 
+[selectedProductSupplier]="selectedProductSupplier" 
+*ngIf="sidebarDisplay" 
+(newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
+
 <div class="container" *ngIf="userDisplayed">
   <h2>Mon profil</h2>
   {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
