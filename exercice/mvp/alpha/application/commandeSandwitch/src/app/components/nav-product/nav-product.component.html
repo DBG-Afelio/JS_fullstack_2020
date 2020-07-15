@@ -1,4 +1,6 @@
 <nav class="nav-product">
-    <a routerLink = "/fournisseur/{{ supplier.id }}" *ngFor= "let supplier of listSuppliers"
-    >{{ supplier.name }}</a> 
+    <div class="inner-nav">
+        <a routerLink = "/fournisseur/{{ supplier.id }}" *ngFor="let supplier of listSuppliers"
+        >{{ supplier.name }}</a> 
+    </div>
 </nav>
