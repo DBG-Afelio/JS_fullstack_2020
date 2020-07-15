@@ -2,7 +2,6 @@
   "utilisateurs": [
     {
       "login": "admin",
-<<<<<<< HEAD
       "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
@@ -11,16 +10,6 @@
       "banni": false,
       "admin": false,
       "id": 486
-=======
-      "password": "admin",
-      "nom": "saispas",
-      "prenom": "gene",
-      "credit": 4.5,
-      "formation": null,
-      "banni": false,
-      "admin": true,
-      "id": 1
->>>>>>> origin/bravo-sandwichster/pierre
     },
     {
       "login": "steph_dub",
