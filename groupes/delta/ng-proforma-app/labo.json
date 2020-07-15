@@ -34,15 +34,16 @@
       "id": 3
     },
     {
-      "login": "qzfzqf",
-      "password": "qzfqzf",
-      "nom": "fqzfzqf",
-      "prenom": "qzfzqfqzf",
+      "login": "haroon1991",
+      "password": "haroon1991",
+      "nom": "haroon1991",
+      "prenom": "haroon1991",
       "credit": 0,
-      "formation": "JS_FULLSTACK",
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 4
+<<<<<<< HEAD
     },
     {
       "login": "rrrrrrr",
@@ -65,6 +66,8 @@
       "banni": false,
       "admin": false,
       "id": 6
+=======
+>>>>>>> 1dd8d3e8eb7faf6e9ef2bc799040bafe64a3383f
     }
   ],
   "commandes": [

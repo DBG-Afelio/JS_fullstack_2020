@@ -55,8 +55,7 @@ export class NewuserComponent implements OnInit {
   submitForm(data:UserDto) {
     if (!this.checkoutForm.errors){
       this.create.emit(User.fromDto(data).toDto());
-        //console.log("Name of user is :",data.nom,data.prenom,data.login,data.password,data.formation );
-        //console.log((User.fromDto(data).toDto()));
+        
         
     }
     //this.checkoutForm.reset();

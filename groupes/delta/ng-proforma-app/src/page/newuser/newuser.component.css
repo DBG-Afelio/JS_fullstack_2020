@@ -42,28 +42,29 @@ form{
 }
 .errorNom{
     position: absolute;
-    top: 295px;
-    left: 1005px;
+    top: 270px;
+    left: 1140px;
 }
+
 .errorPrenom{
     position: absolute;
-    top: 420px;
-    left: 1005px;
+    top: 392px;
+    left: 1140px;
 }
 .errorLogin{
     position: absolute;
-    top: 535px;
-    left  :1005px;
+    top: 510px;
+    left: 1140px;
 }
 .errorPassowrd{
     position: absolute;
-    top: 665px;
-    left  :1005px;
+    top: 620px;
+    left  :1140px;
 }
 .errorFormation{
     position: absolute;
-    top: 725px;
-    left  :1005px; 
+    top: 700px;
+    left  :1140px; 
 }
 button{
     position: absolute;
