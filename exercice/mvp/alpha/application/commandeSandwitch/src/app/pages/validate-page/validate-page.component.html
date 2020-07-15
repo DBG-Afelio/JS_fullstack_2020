@@ -1,11 +1,15 @@
 
- <div>
-    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">Revenir sur ma commande en cours </a>
+<div class="wrap-detail"  *ngIf="creditMax && currentUser && fullOrder">
 
-    <!-- Vue avant d'avoir actée le paiement -->
-    <div *ngIf="creditMax && currentUser && fullOrder && !fullOrder.isConfirmed()">
+    <p class="back-link">
+        <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
+            Retourner vers Produit 
+        </a>
+    </p>
 
-        <div class="msg-paiement">
+    <!------------------------------------------------------------ Vue avant d'avoir actée le paiement -->
+    <div class="before-paiement" *ngIf="!fullOrder.isConfirmed()">
+        <div class="outer-detail">
             <p>
                 Votre commande s'élève à {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
             </p>
@@ -14,8 +18,8 @@
                 Pour confirmer votre commande, merci de payer content.
             </p>
         </div>
-        
-        <div class="button-paiement">
+       
+        <div class="wrap-buttons">
             <button
                 (click)="confirmOrder(true)"
                 [disabled]="!isOnTime">
@@ -29,20 +33,18 @@
         </div>
     </div>
 
-    <!-- Vue une fois le paiement actée -->
-    <div *ngIf="creditMax && currentUser && fullOrder && fullOrder.isConfirmed()">
+    <!------------------------------------------------------------------- Vue une fois le paiement actée --->
+    <div class="after-paiement outer-detail" *ngIf="fullOrder.isConfirmed()">
+
+        <p>Paiement acceptée ! Votre commande est en cours de préparation et vous sera livrée avant Midi !</p>
         
-
-        <!-- payé cash -->
-        <div *ngIf="fullOrder.getOrder().isPayed">
-
-        </div>
-
         <!-- payé a credit -->
-        <div *ngIf="!fullOrder.getOrder().isPayed">
+        <p *ngIf="!fullOrder.getOrder().isPayed">
+            Votre solde de credit s'élève désormais à - {{ currentUser.credit | currency: 'EUR':'symbol-narrow'}}. Pour le rembourser, veuillez prendre contact avec l'administrateur.
+        </p>
 
-        </div>
+        <p>Merci pour votre achat et à bientot !</p>
     </div>
 
- </div>
+</div>
 
