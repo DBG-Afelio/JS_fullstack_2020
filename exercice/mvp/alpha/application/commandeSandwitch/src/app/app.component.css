@@ -96,7 +96,7 @@ main .inner-aside {
 }
 
 main .inner-main.aside-closed {
-    grid-template-columns:  30px auto;
+    grid-template-columns:  0 auto;
 }
 
 

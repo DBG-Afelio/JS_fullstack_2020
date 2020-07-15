@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/productModel/Product';
+import { User } from 'src/app/models/userModel/user';
 
 @Component({
   selector: 'app-detail-item',
@@ -9,6 +10,7 @@ import { Product } from 'src/app/models/productModel/Product';
 export class DetailItemComponent implements OnInit {
 
   @Input() product: Product;
+  @Input() currentUser: User;
 
   constructor() { }
 
