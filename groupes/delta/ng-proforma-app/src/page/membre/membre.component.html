@@ -1,5 +1,6 @@
 
-<div class="profil" *ngIf="membre">
+<span class="flaticon-edit-1" (click)="switchEdit()" *ngIf="isAdmin()"></span>
+<div class="profil" *ngIf="membre && !edit">
     <h1>{{membre.prenom}} {{membre.nom}}</h1>
     <ul>
         <li>ID: {{membre.id}}</li>
@@ -8,6 +9,10 @@
         <li>CREDIT: {{membre.credit}}</li>
         <li>FORMATIONS: {{membre.formation}}</li>
     </ul>
+</div>
+<div class="membre_profil" *ngIf="membre && edit">
+    <h2>Profil de {{membre.prenom}} {{membre.nom}}</h2>
+    <app-newuser (save)="updateMember($event)" [user]="membre"></app-newuser>
 </div>
 <div  [class.errorMessage]="!detecting" *ngIf="message">
     {{message}}

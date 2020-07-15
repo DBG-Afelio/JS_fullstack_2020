@@ -13,7 +13,7 @@ import{Location} from '@angular/common'
   styleUrls: ['./membre.component.css']
 })
 export class MembreComponent implements OnInit {
-
+  edit: boolean = false;
   membre: User;
   login: string;
   message : string ;
@@ -40,10 +40,20 @@ export class MembreComponent implements OnInit {
   creatNewMember(user:UserDto){
     this.usersService.creatUser(user).subscribe((membre)=>{
       console.log(membre);
-      
+      this.recentMessageUpdate('L\'utilisateur a été crée avec succès')
       //this.router.navigate(["/"]);
       
     })
+  }
+
+  isAdmin():boolean {
+    return this.usersService.user_co?.admin as boolean;
+  }
+
+  switchEdit() {
+    if(this.usersService.user_co?.admin) {
+      this.edit = !this.edit;
+    }
   }
 
   deleteMember(user :User){

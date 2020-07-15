@@ -1,20 +1,20 @@
 <div class="container">
-  <form [formGroup]="checkoutForm" (ngSubmit)="submitForm(checkoutForm.value)" class="userFormula">
+  <form [formGroup]="checkoutForm" (ngSubmit)="submitForm(checkoutForm.value, user.Id !== 0)" class="userFormula">
 
     <span>NOM:</span>
-    <input id="nom" name="nom" type="text" formControlName="nom" required class="inputClass inputNom">
+    <input id="nom" name="nom" type="text" formControlName="nom" [value]="user.nom" required class="inputClass inputNom">
     <div *ngIf="nom.errors?.required" class="error_empty errorNom">Le nom ne peut pas être vide</div>
     <div *ngIf="nom.errors?.minlength" class="error_empty errorNom">3 caractères minimum</div>
     <div *ngIf="nom.errors?.maxlength" class="error_empty errorNom">18 caractères maximum</div>
 
     <span>PRENOM:</span>
-    <input id="prenom" name="prenom" type="text" formControlName="prenom" class="inputClass inputPrenom ">
+    <input id="prenom" name="prenom" type="text" formControlName="prenom" [value]="user.prenom"  class="inputClass inputPrenom ">
     <div *ngIf="prenom.errors?.required" class="error_empty errorPrenom">Le prenom ne peut pas être vide</div>
     <div *ngIf="prenom.errors?.minlength" class="error_empty errorPrenom">3 caractères minimum</div>
     <div *ngIf="prenom.errors?.maxlength" class="error_empty errorPrenom">18 caractères maximum</div>
 
     <span>LOGIN:</span>
-    <input id="login" name="login" type="text" formControlName="login" class="inputClass inputLogin ">
+    <input id="login" name="login" type="text" formControlName="login" [value]="user.login" class="inputClass inputLogin ">
     <div *ngIf="login.errors?.required" class="error_empty errorLogin">Login ne peut pas être vide </div>
     <div *ngIf="login.errors?.minlength" class="error_empty errorLogin">4 caractères minimum</div>
     <div *ngIf="login.errors?.maxlength" class="error_empty errorLogin">15 caractères maximum</div>
@@ -23,20 +23,14 @@
 
 
     <span>PASSWORD:</span>
-    <input id="password" type="password" formControlName="password" class="inputClass inputPassword">
+    <input id="password" type="password" formControlName="password" [value]="user.password" class="inputClass inputPassword">
     <div *ngIf="password.errors?.required" class="error_empty errorPassowrd">Password ne peut pas être vide</div>
     <div *ngIf="password.errors?.minlength" class="error_empty errorPassowrd">8 caractères minimum</div>
     <div *ngIf="password.errors?.maxlength" class="error_empty errorPassowrd">15 caractères minimum</div>
 
-
-    <div>
-      <label for="pet-select">FORMATION:</label>
-      <select id="formation" name="formation" id="formation" formControlName="formation">
-        <option value="INTRO_PROG">INTRO_PROG</option>
-        <option value="JS_FULLSTACK">JS_FULLSTACK</option>
-      </select>
-    </div>
+    <span>FORMATION:</span>
+    <input id="formation" type="text" name="formation" id="formation" formControlName="formation" [value]="user.formation" class="inputClass">
     <div *ngIf="formation.errors?.required" class="error_empty errorFormation">Formation est obligatoire </div>
-    <button type="submit">CREER</button>
+    <button type="submit">{{!user.Id ? 'CRÉER' : 'SAUVEGARDER'}}</button>
   </form>
 </div>

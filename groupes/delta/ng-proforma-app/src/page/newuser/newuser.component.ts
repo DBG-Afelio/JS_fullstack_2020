@@ -15,6 +15,7 @@ export class NewuserComponent implements OnInit {
   @Input() user : User = new User('','','','','');
    
   @Output() create : EventEmitter<UserDto> = new EventEmitter<UserDto>();
+  @Output() save: EventEmitter<UserDto> = new EventEmitter<UserDto>();
   checkoutForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder , private userService :UsersService) {
@@ -24,7 +25,6 @@ export class NewuserComponent implements OnInit {
       login: new FormControl(this.user.login ,[Validators.minLength(4),Validators.required ,Validators.maxLength(15)],this.validateLogin.bind(this)), 
       password: new FormControl(this.user.password , [Validators.minLength(8), Validators.required , Validators.maxLength(15)]),
       formation: new FormControl(this.user.formation , [Validators.required])
-
     });
   }
 
@@ -39,6 +39,13 @@ export class NewuserComponent implements OnInit {
   get formation() { return this.checkoutForm.get('formation'); }
 
   ngOnInit() {
+    this.checkoutForm = this.formBuilder.group({
+      nom: new FormControl(this.user.nom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
+      prenom: new FormControl(this.user.prenom, [Validators.minLength(3),Validators.required,Validators.maxLength(18)]),
+      login: new FormControl(this.user.login ,[Validators.minLength(4),Validators.required ,Validators.maxLength(15)],this.validateLogin.bind(this)), 
+      password: new FormControl(this.user.password , [Validators.minLength(6), Validators.required , Validators.maxLength(20)]),
+      formation: new FormControl(this.user.formation , [Validators.required])
+    });
   }
 
   checkInputEmpty($value:string):boolean {
@@ -51,10 +58,14 @@ export class NewuserComponent implements OnInit {
     // }
   }
 
-  submitForm(data:UserDto) {
+  submitForm(data:UserDto, update:boolean) {
     if (!this.checkoutForm.errors){
-      this.create.emit(User.fromDto(data).toDto());
-      this.checkoutForm.reset();
+      if(!update){
+        this.create.emit(User.fromDto(data).toDto());
+        this.checkoutForm.reset();
+      } else {
+        this.save.emit(this.user.updateFromDto(data));
+      }
     }
     
     
@@ -63,7 +74,7 @@ export class NewuserComponent implements OnInit {
   validateLogin(contorl : AbstractControl) : Promise<ValidationErrors|null>| Observable<ValidationErrors|null>{
     return this.userService.getUserByLogin(contorl.value).pipe(
       map(existingUser=>
-         existingUser ?{ notUniqueLogin:true}:null
+         existingUser && existingUser.Id !== this.user.Id ?{ notUniqueLogin:true}:null
       ),
         
         catchError(()=> of (null))

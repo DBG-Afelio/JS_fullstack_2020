@@ -51,6 +51,14 @@ export class User {
         }
     }
 
+    updateFromDto(userDto):User {
+        this.nom = userDto.nom;
+        this.login = userDto.login;
+        this.password = userDto.password;
+        this.prenom = userDto.prenom;
+        this.formation = userDto.formation;
+        return this;
+    }
     
     public get Id() : number {
         return this.id;
