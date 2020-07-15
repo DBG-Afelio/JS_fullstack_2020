@@ -14,10 +14,10 @@
     {
       "login": "steph_dub",
       "password": "froufrou",
-      "nom": "dubois",
-      "prenom": "stephane",
-      "credit": 8,
+      "nom": "Dubois",
+      "prenom": "Stephane",
       "formation": "JS_FULLSTACK",
+      "credit": 8,
       "banni": false,
       "admin": false,
       "id": 2
@@ -25,24 +25,24 @@
     {
       "login": "lolo",
       "password": "miammiam",
-      "nom": "duprieux",
-      "prenom": "laurent",
-      "credit": 0,
+      "nom": "Duprieux",
+      "prenom": "Laurent",
       "formation": "INTRO_PROG",
+      "credit": 0,
       "banni": false,
       "admin": false,
       "id": 3
     },
     {
-      "login": "qzfzqf",
-      "password": "qzfqzf",
-      "nom": "fqzfzqf",
-      "prenom": "qzfzqfqzf",
-      "credit": 0,
+      "login": "robert_petit",
+      "password": "rrrrrrrrrrrrrrr",
+      "nom": "Petitjean",
+      "prenom": "Robert",
       "formation": "JS_FULLSTACK",
+      "credit": 0,
       "banni": false,
       "admin": false,
-      "id": 4
+      "id": 5
     },
     {
       "login": "jerome",
@@ -56,37 +56,15 @@
       "id": 8
     },
     {
-      "login": "haroon199157",
-      "password": "haroon199157",
-      "nom": "haroon199157",
-      "prenom": "haroon199157",
+      "login": "Oshimia",
+      "password": "Oshimia1",
+      "nom": "Mia",
+      "prenom": "Oshi",
+      "formation": "JS_FULLSTACK",
       "credit": 0,
-      "formation": "INTRO_PROG",
-      "banni": false,
-      "admin": false,
-      "id": 9
-    },
-    {
-      "login": "haroon99",
-      "password": "haroon99",
-      "nom": "haroon99",
-      "prenom": "haroon99",
-      "credit": 0,
-      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 10
-    },
-    {
-      "login": "admin",
-      "password": "admin",
-      "nom": "admin",
-      "prenom": "admin",
-      "credit": 0,
-      "formation": "full-stack",
-      "banni": false,
-      "admin": false,
-      "id": 11
     }
   ],
   "commandes": [
@@ -275,6 +253,56 @@
       "paye": false,
       "id": 20,
       "date": "2020-07-15T09:01:02.305Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 6,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 21,
+      "date": "2020-07-15T09:56:12.841Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 4,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 22,
+      "date": "2020-07-15T11:34:03.582Z"
+    },
+    {
+      "user_id": 10,
+      "product_id": 8,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 23,
+      "date": "2020-07-15T12:37:18.040Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 10,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 24,
+      "date": "2020-07-15T13:49:53.317Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 14,
+      "option_ids": [
+        2
+      ],
+      "paye": false,
+      "id": 25,
+      "date": "2020-07-15T13:54:26.056Z"
     }
   ],
   "fournisseurs": [

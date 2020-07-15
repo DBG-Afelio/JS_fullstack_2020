@@ -13,37 +13,37 @@
     <img src="./assets/img/logoProforma.png" class="img">
 </div> -->
 <div class="main-container">
-  <nav [class.pinned]="extend_menu">
+  <nav [class.pinned]="extend_menu" (click)="checkRoute()">
     <div id="logo"><img src="./assets/img/logoProforma.png" (click)="switchMenu()"></div>
-    <a routerLink='fournisseurs'>
+    <a routerLink='fournisseurs' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'fournisseur'">
       <span class="flat flaticon-users"></span>
       <span class="label">Fournisseurs</span>
     </a>
-    <a *ngIf="user" [ngClass]="'active'">
+    <a *ngIf="user">
       <span class="flat flaticon-id-card-4"></span>
       <span class="label">{{user.login}}</span>
     </a>
-    <a *ngIf="!user" routerLink='login'>
+    <a *ngIf="!user" routerLink='login' routerLinkActive="active" >
       <span class="flat flaticon-login"></span>
       <span class="label">Connexion</span>
     </a>
-    <a *ngIf="user?.admin && user" routerLink='membres'>
+    <a *ngIf="user?.admin && user" routerLink='membres' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'membre' || router.url.split('/')[1] === 'membres'">
       <span class="flat flaticon-users-1"></span>
       <span class="label">Membres</span>
     </a>
-    <a *ngIf="user && pending_command" routerLink='commande/new'>
+    <a *ngIf="user && pending_command" routerLink='commande/new' routerLinkActive="active">
       <span class="flat flaticon-list"></span>
       <span class="label">Commande</span>
     </a>
-    <a *ngIf="user" routerLink='membre/{{user.login}}'>
+    <a *ngIf="user" routerLink='membre/{{user.login}}' routerLinkActive="active">
       <span class="flat flaticon-resume"></span>
       <span class="label">Profil</span>
     </a>
-    <a *ngIf="user" routerLink='commandes'>
+    <a *ngIf="user" routerLink='commandes' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'commande'">
       <span class="flat flaticon-folder-14"></span>
       <span class="label">Commandes</span>
     </a>
-    <a *ngIf="user?.admin && user" routerLink='/membre'>
+    <a *ngIf="user?.admin && user" routerLink='/membre' [class.active]="router.url.split('/')[1] === 'membre' && router.url.split('/').length === 2">
       <span class="flat flaticon-plus"></span>
       <span class="label">Nouveau</span>
     </a>

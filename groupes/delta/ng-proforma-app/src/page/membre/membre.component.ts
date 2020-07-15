@@ -22,6 +22,9 @@ export class MembreComponent implements OnInit {
   
 
   constructor(private usersService: UsersService, private route: ActivatedRoute,private router:Router, private location : Location ) { }
+  userCo():boolean {
+    return this.usersService.user_co !== undefined;
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -58,7 +61,7 @@ export class MembreComponent implements OnInit {
 
   deleteMember(user :User){
     this.usersService.deleteUser(user).subscribe(()=>{
-      this.router.navigate(["/"]);
+      this.router.navigate(["/membres"]);
     })
   }
   updateMember(user: UserDto){
