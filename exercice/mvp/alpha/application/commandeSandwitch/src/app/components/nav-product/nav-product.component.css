@@ -1,18 +1,35 @@
 nav.nav-product {
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid red;
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+}
+
+div.inner-nav {
+    position: absolute;
+    top: 15px; 
+    left: 15px;
+    height: 50px;
+    width: 60vw;
+    border: 1px solid blue;
     display: flex;
     flex-wrap: no-wrap;
     justify-content: space-around;
-    margin: 15px 0
 }
 
 a {
-    width: 24%;
-    max-width: 200px;
+    /*width: 24%;
+    max-width: 200px;*/
+    width: 15vw;
     padding: 10px;
     display: inline-block;
     background-color: white;
     box-shadow: 3px 2px 2px rgba(0,0,0,.3);
     text-align: center;
+    margin: 0 5px;
 }
 
 a:hover
