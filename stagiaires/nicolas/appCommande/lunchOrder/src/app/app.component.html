@@ -1,10 +1,37 @@
-<mat-drawer-container class="container" [hasBackdrop]='true' autosize>
+<mat-drawer-container class="container" [hasBackdrop]='false'>
     <mat-drawer #drawer class="sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
+      <div>
+
+        <p>Détails utilisateur</p>
+
+      </div>
+      <div>
+
+        <p>Ma commande</p>
+
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+
+            <mat-panel-title>
+              Pages
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <a  routerLink="/dailyOrder">Commandes du jour</a>
+          <br>
+          <a  routerLink="/ordersHistory">Historique des commandes</a>
+          <br>
+          <a  routerLink="">Liste des commerces</a>
+          <br>
+          <a  routerLink="/usersList">Liste des utilisateurs</a>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+
     </mat-drawer>
   
     <div class="sidenavContent">
