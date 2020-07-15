@@ -87,17 +87,6 @@
       "banni": false,
       "admin": false,
       "id": 8
-    },
-    {
-      "login": "qzfzqfzqf",
-      "password": "qzfzqfzqfzfq",
-      "nom": "qzfzqfzqf",
-      "prenom": "qzfzqfqzf",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 9
     }
   ],
   "commandes": [
