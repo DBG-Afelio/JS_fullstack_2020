@@ -23,7 +23,7 @@ export class OrderService {
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
-  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(13, 30, 0));// 12:14 = 51600 sec // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
+  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(20, 30, 0));// 12:14 = 51600 sec // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
   private onTime: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public today = new Date();
   public today_str: string = this.today.getDate().toString() + this.today.getMonth().toString() + this.today.getFullYear().toString();
@@ -174,6 +174,13 @@ export class OrderService {
   // }
 
   public deleteOrderFromServer(payload: Order): void {
+    if (payload.isPayed) {
+      this.getFullOrder().subscribe((fullOrder) => {
+        this.currentUser.credit -= fullOrder.getTotalPrice();
+        this.userService.setCurrentUser(this.currentUser);
+        this.userService.updateUser(this.currentUser);
+      });
+    }
     console.log('********DELETE REQUEST SERVER **********');
     this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`).subscribe({
       next: returnedOrder => {
