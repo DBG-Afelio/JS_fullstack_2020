@@ -1,7 +1,7 @@
 .profil{
     margin: 10px auto;
     width: 300px;
-    border: saddlebrown 10px double;
+    border: rgb(92, 178, 248) 10px double;
     background-clip: content-box;
     top: auto;
 }
