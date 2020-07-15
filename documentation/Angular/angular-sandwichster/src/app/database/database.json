@@ -5,7 +5,7 @@
       "password": "admin",
       "nom": "saispas",
       "prenom": "gene",
-      "credit": 4.5,
+      "credit": 9,
       "formation": null,
       "banni": false,
       "admin": true,
@@ -560,6 +560,14 @@
       "paye": true,
       "id": 65,
       "date": "2020-07-15T09:26:48.225Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 66,
+      "date": "2020-07-15T09:36:51.178Z"
     }
   ],
   "fournisseurs": [
