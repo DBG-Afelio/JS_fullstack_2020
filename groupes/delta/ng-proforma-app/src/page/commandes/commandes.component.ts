@@ -22,6 +22,18 @@ export class CommandesComponent implements OnInit {
     return this.commandes.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear())
   }
 
+  getTotalOfThisDay():number {
+    return this.getCommandsOfThisDay().reduce((commande1,commande2) => commande1 + commande2.getTotal(), 0)
+  }
+
+  getTotalUnpaidOfThisDay():number {
+    return this.getCommandsOfThisDay().filter(command => !command.paye).reduce((commande1,commande2) => commande1 + commande2.getTotal(), 0)
+  }
+
+  getTotalPaidOfThisDay():number {
+    return this.getTotalOfThisDay() - this.getTotalUnpaidOfThisDay();
+  }
+
   getCommands():Commande[] {
     if(this.usersService.user_co?.admin) {
       return this.thisDay ? this.getCommandsOfThisDay() : this.commandes;
@@ -45,15 +57,24 @@ export class CommandesComponent implements OnInit {
 
 }
 class TabCommand {
- constructor(public produit:string,public options:string,public prix:number,public payer:string,public date:string) {
-   this.produit = produit;
-   this.options = options;
-   this.prix = prix;
-   this.payer = payer;
-   this.date = date;
+ constructor(
+    public id:number,
+    public produit:string,
+    public options:string,
+    public prix:number,
+    public payer:string,
+    public date:string
+  ) {
+    this.id = id;
+    this.produit = produit;
+    this.options = options;
+    this.prix = prix;
+    this.payer = payer;
+    this.date = date;
  }
  static fromCommand(command:Commande):TabCommand {
   return new TabCommand(
+    command.id,
     command.product.nom,
     command.options.map(option => option.nom).toLocaleString(),
     command.getTotal(),

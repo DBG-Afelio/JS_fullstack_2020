@@ -60,8 +60,8 @@
       "password": "Oshimia1",
       "nom": "Mia",
       "prenom": "Oshi",
-      "formation": "JS_FULLSTACK",
       "credit": 0,
+      "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
       "id": 10
@@ -270,7 +270,7 @@
       "option_ids": [
         1
       ],
-      "paye": false,
+      "paye": true,
       "id": 22,
       "date": "2020-07-15T11:34:03.582Z"
     },
@@ -280,7 +280,7 @@
       "option_ids": [
         1
       ],
-      "paye": false,
+      "paye": true,
       "id": 23,
       "date": "2020-07-15T12:37:18.040Z"
     },
@@ -290,7 +290,7 @@
       "option_ids": [
         1
       ],
-      "paye": false,
+      "paye": true,
       "id": 24,
       "date": "2020-07-15T13:49:53.317Z"
     },

@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TableauComponent implements OnInit {
   @Input() tableau: any[];
   @Input() tableauOfHeader: string[];
+  @Input() link: string;
   sortby: [string,boolean] = ["id",false];
 
   constructor() { }

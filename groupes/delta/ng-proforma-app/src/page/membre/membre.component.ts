@@ -14,8 +14,9 @@ import{Location} from '@angular/common'
 })
 export class MembreComponent implements OnInit {
   edit: boolean = false;
+  credit_edit: boolean = false;
   membre: User;
-  login: string;
+  login: number;
   message : string ;
   detecting : boolean = true ;
    
@@ -28,10 +29,10 @@ export class MembreComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const route_login = params.get('login');
+      const route_login = Number(params.get('login'));
       this.login = route_login;
-      if(route_login && this.usersService.user_co && this.usersService.user_co?.admin || this.usersService.user_co?.login === route_login) {
-        this.usersService.getUserByLogin(this.login).subscribe((membre)=>{
+      if(route_login && this.usersService.user_co && this.usersService.user_co?.admin || this.usersService.user_co?.Id === route_login) {
+        this.usersService.getUserById(this.login).subscribe((membre)=>{
           this.membre = membre;
         });
       } else if(!this.usersService.user_co?.admin) {
@@ -59,11 +60,24 @@ export class MembreComponent implements OnInit {
     }
   }
 
+  switchCreditEdit() {
+    if(this.usersService.user_co?.admin) {
+      this.credit_edit = !this.credit_edit;
+    }
+  }
+
   deleteMember(user :User){
     this.usersService.deleteUser(user).subscribe(()=>{
       this.router.navigate(["/membres"]);
     })
   }
+
+  updateCredit(credit:string):void {
+    this.credit_edit = false;
+    this.membre.credit = Number(credit);
+    this.updateMember(this.membre.toDto());
+  }
+
   updateMember(user: UserDto){
     this.usersService.updateUser(user).subscribe(
       membre=>{

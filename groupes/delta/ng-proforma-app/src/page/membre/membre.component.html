@@ -1,6 +1,8 @@
 <div *ngIf="userCo()">
   <div class="container-white" *ngIf="membre">
     <span class="flaticon-edit-1" (click)="switchEdit()" *ngIf="isAdmin()"></span>
+    <span class="flaticon-database-1" (click)="switchCreditEdit()" *ngIf="isAdmin()"></span>
+    <input [value]="membre.credit" type="number" (blur)="updateCredit($event.target.value)" min="0" *ngIf="credit_edit">
 
     <div class="profil" *ngIf="membre && !edit">
       <h1>{{membre.prenom}} {{membre.nom}}</h1>
