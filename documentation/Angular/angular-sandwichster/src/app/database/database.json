@@ -2,13 +2,13 @@
   "utilisateurs": [
     {
       "login": "admin",
-      "password": "admin",
+      "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
       "credit": 0,
-      "formation": null,
+      "formation": "proforma 2020",
       "banni": false,
-      "admin": true,
+      "admin": false,
       "id": 486
     },
     {
@@ -20,7 +20,7 @@
       "formation": null,
       "banni": false,
       "admin": false,
-      "id": 486
+      "id": 4869
     },
     {
       "login": "Pierre",
