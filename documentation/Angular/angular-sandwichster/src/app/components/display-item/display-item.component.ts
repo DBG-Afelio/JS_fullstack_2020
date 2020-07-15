@@ -57,6 +57,7 @@ export class DisplayItemComponent implements OnInit {
   }
 
   updateItem(item){
+    console.log('Reçu au niveau display-item');
     this.emitChangesProduct.emit(item);
   }
 
