@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="container" [hasBackdrop]='true' autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  
+    <div class="sidenavContent">
+
+      <app-nav-bar (toggleSideNav)="drawer.toggle()"></app-nav-bar>
+
+      <router-outlet></router-outlet>
+    </div>
+    
+</mat-drawer-container>

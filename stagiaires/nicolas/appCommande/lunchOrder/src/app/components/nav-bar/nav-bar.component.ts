@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersListService } from 'src/app/services/users-list.service';
 import { User } from 'src/app/models/user';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
   currentUser:User
+@Output() toggleSideNav:EventEmitter<boolean> = new EventEmitter();
+
   constructor(private usersListService:UsersListService, private router:Router) {
     usersListService.getCurrentUser().subscribe(currentUserFound => this.currentUser = currentUserFound);
    }
@@ -24,6 +26,11 @@ export class NavBarComponent implements OnInit {
       this.router.navigate([""])
 
     }
+
+  }
+  onToggleDrawerClick(){
+
+    this.toggleSideNav.emit(true)
 
   }
 

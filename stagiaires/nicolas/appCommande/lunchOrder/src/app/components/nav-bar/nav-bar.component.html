@@ -1,3 +1,8 @@
+<button type="button" mat-button (click)="onToggleDrawerClick()">
+  <span class="material-icons">
+    menu
+    </span>
+  </button>
 <a *ngIf='currentUser?.isAdmin' routerLink="/dailyOrder">Commandes du jour</a>
 <a *ngIf='currentUser' routerLink="/ordersHistory">Historique des commandes</a>
 <a routerLink="">Liste des commerces</a>
