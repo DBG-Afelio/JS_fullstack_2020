@@ -33,6 +33,7 @@
     
 
     <div class="wrap-buttons">
+<<<<<<< HEAD
 
         <div class="msg-detail" *ngIf="currentUser && product"> 
             <div *ngIf="!(currentUser && product)">
@@ -78,4 +79,31 @@
             </button>
         </div>
     </div>   
+=======
+        <div class="buttons-detail" *ngIf="currentUser && product">
+            
+    <button
+        (click)="saveInLocalStorage()"
+        [disabled]="!isOnTime">
+        AJOUTER >>
+    </button>  
+  
+    <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
+        (click)="remove()"
+        [disabled]="!isOnTime">
+        RETIRER
+    </button>
+    <button *ngIf="fullOrder && !fullOrder.isConfirmed() && fullOrder.getProduct().id===product.id"
+        routerLink="/paiement"
+        [disabled]="!isOnTime">
+        >> PAIEMENT
+    </button>
+            
+        </div>
+        <div *ngIf="!(currentUser && product)">
+            Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
+        </div>
+    </div>
+    
+>>>>>>> feature/alpha/mvp/pc8
 </div>

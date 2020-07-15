@@ -6,8 +6,9 @@
       (UserChange)="updateCurrentUser($event)">
   </app-authentication-form>
   <div *ngIf="currentUser">
-    <app-time-tracking></app-time-tracking>
-  
+    <div class="time-track">
+      <app-time-tracking></app-time-tracking>
+    </div>
       <!-- admin loggedIN -->
     <app-admin-nav 
         *ngIf="currentUser !== null && currentUser.isAdmin">

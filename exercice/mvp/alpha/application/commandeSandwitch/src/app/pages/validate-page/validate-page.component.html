@@ -1,27 +1,32 @@
-<p>validate-page works!</p>
-<div *ngIf="creditMax && currentUser && fullOrder">
-    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
-        Retour vers Ma commande en cours
-    </a>
-    <p>
-        Votre commande s'eleve a {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
-    </p>
-    <p>
-        Votre credit avant paiement s'eleve a {{ currentUser.credit | currency: 'EUR':'symbol-narrow'}}
-    </p>
-    <p *ngIf="!isCreditEnough">
-        Payer a credit ? Votre solde est insuffisant. Il ne vous reste que {{ creditMax - currentUser.credit | currency : 'EUR':true}} sur votre credit maximum autorisé ({{ creditMax}} €). 
-        Pour confirmer votre commande, passer par le paiment CASH
-    </p>
-    <button
-        (click)="confirmOrder(true)"
-        [disabled]="!isOnTime">
-        PAYER CASH
-    </button>
-    <button 
-        [disabled]="!isOnTime || !isCreditEnough"
-        (click)="confirmOrder(false)">
-        PAYER A CREDIT
-    </button>
-
+   
+<div class="wrap-detail"  *ngIf="creditMax && currentUser && fullOrder">
+    <div class="outer-detail">
+        <p class="back-link">
+            <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
+                << Retour vers Ma commande en cours
+            </a>
+        </p>
+        <p>
+           <span> Votre commande s'élève à <br>{{ fullOrder.getTotalPrice() | currency : 'EUR':true }} </span>
+        </p>
+        <p>
+            Votre crédit avant paiement s'élève à <br><span>€ {{ currentUser.credit }}</span>
+        </p>
+        <p *ngIf="!isCreditEnough">
+            <span>Payer à crédit ? </span><br/>Votre solde est insuffisant. <br/>Il ne vous reste que {{ creditMax - currentUser.credit | currency : 'EUR':true}} sur votre crédit maximum autorisé ({{ creditMax}} €). 
+            <br/><br/>Pour confirmer votre commande, passer par le paiement CASH.
+        </p>
+    </div>
+    <div class="wrap-buttons">
+        <button
+            (click)="confirmOrder(true)"
+            [disabled]="!isOnTime">
+            PAYER CASH
+        </button>
+        <button 
+            [disabled]="!isOnTime || !isCreditEnough"
+            (click)="confirmOrder(false)">
+            PAYER A CREDIT
+        </button>
+    </div>
 </div>
