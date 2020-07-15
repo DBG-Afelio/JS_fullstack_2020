@@ -13,13 +13,21 @@ export class LoginComponent implements OnInit, OnChanges {
   login: string;
   password: string;
   user: User;
+  error: boolean = false;
+
   constructor(private usersService:UsersService, private route: Router) {
     this.usersService.user.subscribe(user => this.user = user)
   }
 
   auth(login:string, password:string): void {
-    console.log(login, password);
-    this.usersService.authentification(login, password);
+    this.error = false;
+    this.usersService.authentification(login, password).subscribe((user:User) => {
+      if (user) {
+        this.route.navigate(["/"]);
+      } else {
+        this.error = true;
+      }
+    });
   }
 
   ngOnInit() {

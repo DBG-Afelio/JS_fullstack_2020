@@ -4,6 +4,7 @@ import { User } from 'src/model/user';
 import { TimerService } from 'src/service/timer.service';
 import { Commande } from 'src/model/commande';
 import { CommandesService } from 'src/service/commandes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   pending_command: Commande;
   extend_menu:boolean = true;
 
-  constructor(private usersService:UsersService, private timerService:TimerService, private commandsService:CommandesService) {
+  constructor(private usersService:UsersService, private timerService:TimerService, private commandsService:CommandesService, private router: Router) {
     this.usersService.user.subscribe(user => this.user = user);
     this.timerService.rest_time.subscribe(time => this.timer = time);
     this.commandsService.pendingCommand$.subscribe(command => this.pending_command = command);
@@ -34,5 +35,6 @@ export class AppComponent implements OnInit {
   disconnect() {
     this.usersService.user_co = undefined;
     this.usersService.user.next(undefined);
+    this.router.navigate(["/"]);
   }
 }
