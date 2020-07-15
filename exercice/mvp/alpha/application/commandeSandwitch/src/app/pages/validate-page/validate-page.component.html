@@ -14,7 +14,7 @@
                 Votre commande s'élève à {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
             </p>
             <p *ngIf="!isCreditEnough">
-                Il ne vous reste que {{ creditMax - currentUser.credit | currency: 'EUR':'symbol-narrow' }} sur votre Portefeuille "CREDIT AUTORISE" ({{ creditMax | currency: 'EUR':'symbol-narrow'}}). 
+                Il ne vous reste que {{ creditMax - currentUser.credit | currency: 'EUR':'symbol-narrow' }} sur votre Portefeuille de "CREDIT AUTORISE" ({{ creditMax | currency: 'EUR':'symbol-narrow'}}). 
                 Pour confirmer votre commande, merci de payer content.
             </p>
         </div>

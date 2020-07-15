@@ -41,11 +41,12 @@
     
     <div>
         <h3>
-            <a href="" class="onglet" aria-label="Pensez à vous acquitter du montant dû aupres de l'administrateur ">
-                Crédit utilisé <span class="arrow">€ 4</span>
+            <!-- possible de faire un ternaire sur un attr.aria-label ? -->
+            <a class="onglet" [attr.aria-label]="ariaLabelCredit">
+                Crédit utilisé <span class="arrow">{{ currentUser.credit | currency: 'EUR':'symbol-narrow' }}</span>
             </a>
           
-        </h3> <!--<p>{{ setCreditMessage() }} </p>-->
+        </h3> <!--<p>{{ setCreditMessage() }} ca peut degager (@AssiaRachdi 15-07)</p>--> 
     </div>
     
     <div>
@@ -60,7 +61,7 @@
     <div>
         <h3>
             <a aria-label="Contacter l'administrateur" class="onglet" 
-                href="" 
+               
                 >Besoin d'aide ?  
                 <span class="arrow"> >> </span>
             </a>

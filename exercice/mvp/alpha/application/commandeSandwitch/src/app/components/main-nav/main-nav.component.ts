@@ -41,7 +41,7 @@ export class MainNavComponent implements OnInit {
   public deleteOrder(): void{
    
     if (this.orderService.isOnTime()) {
-      this.fullOrder.isConfirmed() ? this.orderService.deleteOrderFromServer(this.fullOrder.getOrder()) : this.orderService.removeFromLocalStorage();
+      this.fullOrder.isConfirmed() ? this.orderService.deleteOrderFromServer(this.fullOrder) : this.orderService.removeFromLocalStorage();
     } else {
       window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }

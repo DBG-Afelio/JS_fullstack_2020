@@ -40,14 +40,12 @@ export class ValidatePageComponent implements OnInit {
 }
   public confirmOrder(isPayed: boolean): void{
     if (this.isOnTime) {
-      if (!isPayed) {
-        this.currentUser.credit += this.fullOrder.getTotalPrice();
-        this.userService.updateUser(this.currentUser).subscribe(()=> this.fullOrder.setUset(this.currentUser));
-      }
-      this.fullOrder.getOrder().isPayed = isPayed;
-      this.orderService.addOrderIntoServer(this.fullOrder);
-
-      
+      let updatedFullOrder:FullOrder = this.fullOrder;
+      let updatedOrder: Order = updatedFullOrder.getOrder();
+      updatedOrder.isPayed = isPayed;
+      updatedFullOrder.setOrder(updatedOrder);
+      this.orderService.setFullOrder(updatedFullOrder);
+      this.orderService.addOrderIntoServer(updatedFullOrder);
     } else {
       window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }
