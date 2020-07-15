@@ -166,7 +166,9 @@ paidFalse(){ // C'EST SALE, BERK
   orderDeleteEvent(){
 
     this.orderService.deleteOrder(this.order).subscribe();
-    this.user.credit = this.user.credit - this.sentPrice;
+    if(!this.isPaid){
+      this.user.credit = this.user.credit - this.sentPrice;
+    }
     this.userService.updateUser(this.user).subscribe();
     this.isOrderSent = false;
   
