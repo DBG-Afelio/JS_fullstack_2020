@@ -87,6 +87,28 @@
       "banni": false,
       "admin": false,
       "id": 8
+    },
+    {
+      "login": "haroon199157",
+      "password": "haroon199157",
+      "nom": "haroon199157",
+      "prenom": "haroon199157",
+      "credit": 0,
+      "formation": "INTRO_PROG",
+      "banni": false,
+      "admin": false,
+      "id": 9
+    },
+    {
+      "login": "haroon99",
+      "password": "haroon99",
+      "nom": "haroon99",
+      "prenom": "haroon99",
+      "credit": 0,
+      "formation": "INTRO_PROG",
+      "banni": false,
+      "admin": false,
+      "id": 10
     }
   ],
   "commandes": [
