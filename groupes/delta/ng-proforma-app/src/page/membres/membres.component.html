@@ -6,29 +6,6 @@
   <option>CREDITS</option>
 </select>
 
-<table>
-  <caption><h1>Récapitulatif des membres</h1></caption>
-  <thead (click)="sortBy($event.target)">
-    <tr>
-      <th [class.is-sorted-up]="th_id.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_id.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_id>ID</th>
-      <th [class.is-sorted-up]="th_nom.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_nom.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_nom>NOM</th>
-      <th [class.is-sorted-up]="th_prenom.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_prenom.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_prenom>PRENOM</th>
-      <th [class.is-sorted-up]="th_admin.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_admin.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_admin>ADMIN</th>
-      <th [class.is-sorted-up]="th_login.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_login.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_login>LOGIN</th>
-      <th [class.is-sorted-up]="th_credit.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_credit.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_credit>CREDIT</th>
-      <th [class.is-sorted-up]="th_formation.textContent.toLowerCase() === sortby[0] && !sortby[1]" [class.is-sorted-down]="th_formation.textContent.toLowerCase() === sortby[0] && sortby[1]" #th_formation>FORMATION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let membre of sortMembre()" routerLink='../membre/{{membre.login}}'>
-      <td>{{membre.id}}</td>
-      <td>{{membre.nom}}</td>
-      <td>{{membre.prenom}}</td>
-      <td><input type="checkbox" [checked]="membre.admin"></td>
-      <td>{{membre.login}}</td>
-      <td>{{membre.credit}}</td>
-      <td>{{membre.formation}}</td>
-    </tr>
-  </tbody>
-</table>
+
+<app-tableau [tableau]="membres" [tableauOfHeader]="['id','nom','prenom','login','credit','formation']"></app-tableau>
 <button routerLink='/membre'>Ajouter un utilisateur</button>

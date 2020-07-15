@@ -18,6 +18,7 @@ import { NewuserComponent } from 'src/page/newuser/newuser.component';
 import { CommandesComponent } from 'src/page/commandes/commandes.component';
 import {MatButtonModule} from '@angular/material/button';
 import{MembreComponent} from 'src/page/membre/membre.component';
+import { TableauComponent } from 'src/component/tableau/tableau.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import{MembreComponent} from 'src/page/membre/membre.component';
     CommandeComponent,
     NewuserComponent,
     CommandesComponent,
-    MembreComponent
+    MembreComponent,
+    TableauComponent
   ],
   imports: [
     BrowserModule,

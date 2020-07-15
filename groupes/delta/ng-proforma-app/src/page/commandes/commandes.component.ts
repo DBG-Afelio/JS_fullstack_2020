@@ -23,7 +23,7 @@ export class CommandesComponent implements OnInit {
   }
 
   getCommands():Commande[] {
-    if(this.usersService.user_co.admin) {
+    if(this.usersService.user_co?.admin) {
       return this.thisDay ? this.getCommandsOfThisDay() : this.commandes;
     } else {
       return this.commandes.filter(command => command.user_id === this.usersService.user_co.Id);

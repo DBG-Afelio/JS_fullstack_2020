@@ -1,0 +1,20 @@
+<table class="container-white">
+  <caption><h1>Récapitulatif des membres</h1></caption>
+  <thead>
+    <tr>
+      <th *ngFor="let titre of tableauOfHeader"
+      [class.is-sorted-up]="titre === sortby[0] && !sortby[1]"
+      [class.is-sorted-down]="titre === sortby[0] && sortby[1]"
+      (click)="sortBy(titre)">
+        {{titre.toUpperCase()}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let membre of sortMembre()" routerLink='../membre/{{membre.login}}'>
+      <td *ngFor="let titre of tableauOfHeader">
+        {{membre[titre]}}
+      </td>
+    </tr>
+  </tbody>
+</table>
