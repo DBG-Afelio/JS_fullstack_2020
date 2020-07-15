@@ -11,7 +11,6 @@
       "admin": true,
       "id": 1
     },
-    
     {
       "login": "steph_dub",
       "password": "froufrou",
@@ -23,7 +22,6 @@
       "admin": false,
       "id": 2
     },
-  
     {
       "login": "lolo",
       "password": "miammiam",
@@ -45,39 +43,6 @@
       "banni": false,
       "admin": false,
       "id": 4
-    },
-    {
-      "login": "rrrrrrr",
-      "password": "rrrrrrrrrrrrrrr",
-      "nom": "rrrrrr",
-      "prenom": "rrrrrr",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 5
-    },
-    {
-      "login": "test",
-      "password": "testtest",
-      "nom": "Test",
-      "prenom": "test",
-      "credit": 0,
-      "formation": "INTRO_PROG",
-      "banni": false,
-      "admin": false,
-      "id": 6
-    },
-    {
-      "login": "testtest",
-      "password": "testtest",
-      "nom": "Test",
-      "prenom": "Test",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 7
     },
     {
       "login": "jerome",

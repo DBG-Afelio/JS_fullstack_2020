@@ -12,7 +12,7 @@
     
     <button (click)="auth(login.value,password.value)" class="loginButton" type="submit">Valider</button>   
   </form>
-  <div *ngIf="error">
+  <div class="messageError" *ngIf="error">
     <p>Une erreur est survenu durant la connexion</p>
   </div>
 </div>

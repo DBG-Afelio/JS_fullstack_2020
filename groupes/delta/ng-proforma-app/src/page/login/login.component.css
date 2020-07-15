@@ -54,3 +54,18 @@ button:hover{
     border: 2px solid rgba(8, 212, 8, 0.1);
     border-radius: 10px;
 }
+.messageError{
+    background-color: #fce4e4;
+    border: 1px solid #fcc2c3;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    color: #cc0033;
+    font-weight: bold;
+    line-height: 24px;
+    position: relative;
+    padding: 7px 11px 4px;
+    width: 20%;
+    height: 20%;
+    
+}
