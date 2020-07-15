@@ -29,7 +29,7 @@ export class ProductDetailPageComponent implements OnInit {
   public isEqualToUserOrder: boolean = false;
   public selected: number[] = [];
 
-
+//-------------WARNING : CODE ARCHI SALE ---- SORRY
 
   constructor(
     public supplierService: SupplierService,
