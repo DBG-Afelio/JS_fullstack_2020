@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let membre of sortMembre()" routerLink='../membre/{{membre.login}}'>
+    <tr *ngFor="let membre of sortMembre()" [routerLink]="['/','membre','lolo']">
       <td *ngFor="let titre of tableauOfHeader">
         {{membre[titre]}}
       </td>
