@@ -49,16 +49,13 @@ export class NewuserComponent implements OnInit {
        //this.create.emit(this.user.toDto());
        //console.log("Name of user is :",this.checkoutForm.get('nom') );
     // }
-    
   }
 
   submitForm(data:UserDto) {
     if (!this.checkoutForm.errors){
       this.create.emit(User.fromDto(data).toDto());
-        
-        
+      this.checkoutForm.reset();
     }
-    //this.checkoutForm.reset();
     
     
     

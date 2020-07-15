@@ -20,8 +20,7 @@ form{
 }
 
 .container{
-    margin-top: 100px;
-    margin-left: 570px;
+    display: contents;
 }
 .userFormula{
     width: 300px;
@@ -40,36 +39,8 @@ form{
     border: 2px solid rgba(8, 212, 8, 0.1);
     border-radius: 10px;
 }
-.errorNom{
-    position: absolute;
-    top: 270px;
-    left: 1140px;
-}
 
-.errorPrenom{
-    position: absolute;
-    top: 392px;
-    left: 1140px;
-}
-.errorLogin{
-    position: absolute;
-    top: 510px;
-    left: 1140px;
-}
-.errorPassowrd{
-    position: absolute;
-    top: 620px;
-    left  :1140px;
-}
-.errorFormation{
-    position: absolute;
-    top: 700px;
-    left  :1140px; 
-}
 button{
-    position: absolute;
-    top: 800px;
-    left: 780px;
     color: #2d545e ;
     text-transform: uppercase;
     background: #fff5d7;

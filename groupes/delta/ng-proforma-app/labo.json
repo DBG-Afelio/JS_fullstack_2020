@@ -34,16 +34,15 @@
       "id": 3
     },
     {
-      "login": "haroon1991",
-      "password": "haroon1991",
-      "nom": "haroon1991",
-      "prenom": "haroon1991",
+      "login": "qzfzqf",
+      "password": "qzfqzf",
+      "nom": "fqzfzqf",
+      "prenom": "qzfzqfqzf",
       "credit": 0,
-      "formation": "INTRO_PROG",
+      "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
       "id": 4
-<<<<<<< HEAD
     },
     {
       "login": "rrrrrrr",
@@ -66,8 +65,39 @@
       "banni": false,
       "admin": false,
       "id": 6
-=======
->>>>>>> 1dd8d3e8eb7faf6e9ef2bc799040bafe64a3383f
+    },
+    {
+      "login": "testtest",
+      "password": "testtest",
+      "nom": "Test",
+      "prenom": "Test",
+      "credit": 0,
+      "formation": "JS_FULLSTACK",
+      "banni": false,
+      "admin": false,
+      "id": 7
+    },
+    {
+      "login": "jerome",
+      "password": "JeromeSe",
+      "nom": "Jerome",
+      "prenom": "Jerom",
+      "credit": 0,
+      "formation": "JS_FULLSTACK",
+      "banni": false,
+      "admin": false,
+      "id": 8
+    },
+    {
+      "login": "qzfzqfzqf",
+      "password": "qzfzqfzqfzfq",
+      "nom": "qzfzqfzqf",
+      "prenom": "qzfzqfqzf",
+      "credit": 0,
+      "formation": "JS_FULLSTACK",
+      "banni": false,
+      "admin": false,
+      "id": 9
     }
   ],
   "commandes": [
@@ -248,6 +278,14 @@
       "paye": false,
       "id": 19,
       "date": "2020-07-15T08:10:54.466Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 8,
+      "option_ids": [],
+      "paye": false,
+      "id": 20,
+      "date": "2020-07-15T09:01:02.305Z"
     }
   ],
   "fournisseurs": [
