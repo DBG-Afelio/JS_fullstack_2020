@@ -1,16 +1,13 @@
 <mat-drawer-container class="container" [hasBackdrop]='false'>
     <mat-drawer #drawer class="sidenav" mode="side">
-      <div>
 
-        <p>Détails utilisateur</p>
 
-      </div>
-      <div>
+          <mat-panel-title>
+            Détails utilisateur
+          </mat-panel-title>
 
-        <p>Ma commande</p>
-
-      </div>
       <mat-accordion>
+
         <mat-expansion-panel expanded="true">
           <mat-expansion-panel-header>
 
@@ -31,6 +28,19 @@
           <mat-panel-title *ngIf='currentUser?.isAdmin' routerLink="/usersList">Liste des utilisateurs</mat-panel-title>
 
         </mat-expansion-panel>
+
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+  
+            <mat-panel-title>
+              Ma commande
+            </mat-panel-title>
+  
+          </mat-expansion-panel-header>
+          
+        </mat-expansion-panel>
+
       </mat-accordion>
       
 
