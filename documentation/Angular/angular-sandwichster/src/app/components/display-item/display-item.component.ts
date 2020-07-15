@@ -33,7 +33,7 @@ export class DisplayItemComponent implements OnInit {
   
   onProductSelection(){
 
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     
     if(!this.currentUser) {
       this.route.navigate(['/login']);
@@ -57,6 +57,7 @@ export class DisplayItemComponent implements OnInit {
   }
 
   updateItem(item){
+    console.log('Reçu au niveau display-item');
     this.emitChangesProduct.emit(item);
   }
 

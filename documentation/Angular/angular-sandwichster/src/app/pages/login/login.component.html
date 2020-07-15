@@ -1,12 +1,13 @@
-<div class="container">
-    <h2> Authentification </h2>
+<h2 class="text-center"> Authentification </h2>
 
-    <p> <input #loginInput placeholder="Login" type="string">  </p>
-    <p> <input #passwordInput placeholder="Mot de passe" type="password"> </p>
-    
-    <button (click)="userCheck(loginInput.value, passwordInput.value)"> Connexion </button>
-    <div *ngIf="loginError"> <p> Il y a une erreur au niveau du login ou du mot de passe </p></div>
-    
-    <button> Déconnexion </button>
+<div class="container">
+    <div class="text-center mt-4">
+        <p> <input #loginInput placeholder="Login" type="string">  </p>
+        <p> <input #passwordInput placeholder="Mot de passe" type="password"> </p>
+        <div class="login-buttons">
+            <button class="btn btn-primary" (click)="userCheck(loginInput.value, passwordInput.value)"> Connexion </button>
+        </div>
+    </div>
+    <div class="text-center mt-4" *ngIf="loginError"> <b> Il y a une erreur au niveau du login ou du mot de passe </b></div>
 </div>
 
