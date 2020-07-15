@@ -19,6 +19,10 @@ export class OrdersService {
 private timeLimit: string;
 private creditLimit: number= 10;
 
+public hasUserAlreadyOrdered: boolean; // ESSAI MEMO COM AVEC BOOL
+public todayUserOrder: Order;
+public receivedPrice: number;
+
   private urlAPI: string = "http://localhost:3000/";
 
 constructor(private http: HttpClient,
@@ -155,5 +159,9 @@ getOrderById(id: number): Observable<Order> {
       )}) 
     );
 }*/
+
+userHasAlreadyOrdered(boolResponse){
+this.hasUserAlreadyOrdered = boolResponse;
+}
 
 }

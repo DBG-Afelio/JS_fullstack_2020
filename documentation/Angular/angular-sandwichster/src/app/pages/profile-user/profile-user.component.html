@@ -1,7 +1,9 @@
 <div class="container" *ngIf="userDisplayed">
   <h2>Mon profil</h2>
   {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
-  A rembourser: {{ userDisplayed.credit}} euros
+  A rembourser: {{ userDisplayed.credit}} euros<br>
+  Formation: <span>{{userDisplayed.formation}}</span>
+  <span *ngIf="userDisplayed.banni">Actuellement vous ne pouvez pas commander quelque chose. Contactez un administrateur</span>
   <h2>Mes commandes</h2>
   <div *ngIf="!ordersDisplayed">
     Pas de commande déjà réalisée.
@@ -15,7 +17,7 @@
         <span *ngFor="let option of order.item.options">{{option.nom}}: {{option.surcout}} euros</span>
       </div>
       <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
-      <button>Commander à nouveau</button> => le bouton ne fonctionne pas
+      <button (click)="orderAgain(order)">Commander à nouveau</button> => le bouton ne fonctionne pas
     </div>
   </div>
 </div>
