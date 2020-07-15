@@ -28,7 +28,7 @@ export class ProductDetailPageComponent implements OnInit {
   public fullOrder: FullOrder = null;
   public isEqualToUserOrder: boolean = false;
   public selected: number[] = [];
-
+  public deadline: Deadline = null;
 //-------------WARNING : CODE ARCHI SALE ---- SORRY
 
   constructor(
@@ -46,6 +46,7 @@ export class ProductDetailPageComponent implements OnInit {
   }
 
   public loadData(): void {
+    this.orderService.getDeadline().subscribe((deadline) => this.deadline = deadline);
     this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));

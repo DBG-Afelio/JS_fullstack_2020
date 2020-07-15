@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 3,
+      "credit": 8,
       "formation": "Le planté de baton",
       "banni": false,
       "admin": false,
@@ -49,7 +49,7 @@
       "password": "Pierre",
       "nom": "Pierre",
       "prenom": "Castt",
-      "credit": 4,
+      "credit": 0,
       "formation": "gfh",
       "banni": false,
       "admin": false,
@@ -225,14 +225,14 @@
     },
     {
       "user_id": 4,
-      "product_id": 13,
+      "product_id": 8,
       "option_ids": [
         1,
         2
       ],
       "paye": true,
       "id": 38,
-      "date": "Wed Jul 15 2020 12:28:10 GMT+0200 (Central European Summer Time)"
+      "date": "Wed Jul 15 2020 15:19:53 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
