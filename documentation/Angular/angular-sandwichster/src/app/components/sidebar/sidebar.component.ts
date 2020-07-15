@@ -32,6 +32,7 @@ public selectedOptionsSum: number = 0;
 public isPaid: boolean;
 public isOrderSent: boolean = false;
 public sentPrice: number;
+public residualDebtProjection: number;
 
 public user: UserModel;
 public userCreditUpdate: number = this.loginService.currentUser.credit;
@@ -119,7 +120,8 @@ paidFalse(){ // C'EST SALE, BERK
           this.userService.updateUser(this.user).subscribe();
         }
         else{
-          alert("La limite de votre crédit est atteinte : veuillez payez vos dettes !"); // devrait pouvoir afficher le montant à payer
+          this.residualDebtProjection = this.user.credit + this.selectedOptionsSum - this.orderService.getCreditLimit();
+          alert("La limite de votre crédit est atteinte : veuillez payez vos dettes ! Vous avez " + this.user.credit + "€ à régler en tout. Pour pouvoir commander ce sandwich, vous devez au moins payer directement " + this.residualDebtProjection + "€."); // devrait pouvoir afficher le montant à payer
         }
       } 
   
