@@ -61,7 +61,7 @@ export class MembreComponent implements OnInit {
 
   deleteMember(user :User){
     this.usersService.deleteUser(user).subscribe(()=>{
-      this.router.navigate(["/"]);
+      this.router.navigate(["/membres"]);
     })
   }
   updateMember(user: UserDto){

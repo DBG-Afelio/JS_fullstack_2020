@@ -16,13 +16,8 @@
   </div>
   <div [class.errorMessage]="!detecting" *ngIf="message">
     {{message}}
-
   </div>
-
-  <app-newuser *ngIf="!membre" (create)="creatNewMember($event)"></app-newuser>
-
-
-
-
-
 </div>
+<app-newuser *ngIf="!membre" (create)="creatNewMember($event)"></app-newuser>
+<button *ngIf="membre && isAdmin()" (click)="deleteMember(membre)" class="btn"><i class="fa fa-trash"></i> Supprimer</button>
+

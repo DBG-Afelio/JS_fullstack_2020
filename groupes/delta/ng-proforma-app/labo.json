@@ -34,17 +34,6 @@
       "id": 3
     },
     {
-      "login": "qzfzqf",
-      "password": "qzfqzf",
-      "nom": "fqzfzqf",
-      "prenom": "qzfzqfqzf",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 4
-    },
-    {
       "login": "robert_petit",
       "password": "rrrrrrrrrrrrrrr",
       "nom": "Petitjean",
@@ -56,28 +45,6 @@
       "id": 5
     },
     {
-      "login": "test",
-      "password": "testtest",
-      "nom": "Test",
-      "prenom": "test",
-      "credit": 0,
-      "formation": "INTRO_PROG",
-      "banni": false,
-      "admin": false,
-      "id": 6
-    },
-    {
-      "login": "testtest",
-      "password": "testtest",
-      "nom": "Test",
-      "prenom": "Test",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 7
-    },
-    {
       "login": "jerome",
       "password": "JeromeSe",
       "nom": "Jerome",
@@ -87,17 +54,6 @@
       "banni": false,
       "admin": false,
       "id": 8
-    },
-    {
-      "login": "qzfzqfzqf",
-      "password": "qzfzqfzqfzfq",
-      "nom": "qzfzqfzqf",
-      "prenom": "qzfzqfqzf",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 9
     },
     {
       "login": "Oshimia",
