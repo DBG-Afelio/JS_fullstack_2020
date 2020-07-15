@@ -5,7 +5,7 @@
       "password": "",
       "nom": "XYZ",
       "prenom": "L'Administrateur",
-      "credit": -5.1,
+      "credit": 0,
       "formation": "proforma 2020",
       "banni": false,
       "admin": true,
@@ -580,6 +580,16 @@
       "paye": true,
       "id": 67,
       "date": "2020-07-15T09:57:14.205Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 68,
+      "date": "2020-07-15T12:32:01.133Z"
     }
   ],
   "fournisseurs": [
