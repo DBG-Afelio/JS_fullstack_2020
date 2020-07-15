@@ -31,8 +31,8 @@
             </div>
 
 
-            <button (click)="orderGoEvent()" *ngIf="!isOrderSent" [disabled]="!timeLimitResponse"> Envoyer la commande </button>
-            <button (click)="orderModifyEvent()" *ngIf="isOrderSent"> Modifier la commande en cours </button>
-            <button (click)="orderDeleteEvent()" *ngIf="isOrderSent"> Supprimer la commande en cours </button>
+            <button  class="btn btn-primary" (click)="orderGoEvent()" *ngIf="!isOrderSent" [disabled]="!timeLimitResponse"> Envoyer la commande </button>
+            <button  class="btn btn-primary" (click)="orderModifyEvent()" *ngIf="isOrderSent"> Modifier la commande en cours </button>
+            <button  class="btn btn-primary" (click)="orderDeleteEvent()" *ngIf="isOrderSent"> Supprimer la commande en cours </button>
 
       </nav>
