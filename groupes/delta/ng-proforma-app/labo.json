@@ -54,6 +54,17 @@
       "banni": false,
       "admin": false,
       "id": 5
+    },
+    {
+      "login": "test",
+      "password": "testtest",
+      "nom": "Test",
+      "prenom": "test",
+      "credit": 0,
+      "formation": "INTRO_PROG",
+      "banni": false,
+      "admin": false,
+      "id": 6
     }
   ],
   "commandes": [
@@ -214,6 +225,26 @@
       "paye": false,
       "id": 17,
       "date": "2020-07-14T14:47:13.791Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 5,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 18,
+      "date": "2020-07-14T14:59:22.663Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 21,
+      "option_ids": [
+        2
+      ],
+      "paye": false,
+      "id": 19,
+      "date": "2020-07-15T08:10:54.466Z"
     }
   ],
   "fournisseurs": [

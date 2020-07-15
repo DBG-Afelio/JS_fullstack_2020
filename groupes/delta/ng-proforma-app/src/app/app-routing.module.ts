@@ -32,6 +32,10 @@ const routes: Routes = [
     component: MembreComponent
   },
   {
+    path: "membre",
+    component: MembreComponent
+  },
+  {
     path: "commande/:id",
     component: CommandeComponent
   },

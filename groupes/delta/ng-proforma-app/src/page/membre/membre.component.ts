@@ -25,11 +25,15 @@ export class MembreComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.login = params.get('login')
-      this.usersService.getUserByLogin(this.login).subscribe((membre)=>{
-        this.membre = membre;
-        
-      });
+      const route_login = params.get('login');
+      this.login = route_login;
+      if(route_login && this.usersService.user_co && this.usersService.user_co?.admin || this.usersService.user_co?.login === route_login) {
+        this.usersService.getUserByLogin(this.login).subscribe((membre)=>{
+          this.membre = membre;
+        });
+      } else if(!this.usersService.user_co?.admin) {
+        this.router.navigate(['../'])
+      }
     })
 
   }
