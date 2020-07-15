@@ -24,3 +24,9 @@ float: right;
     display: inline-block;
 
 }
+.loginRequiredMsg{
+
+    text-align: right;
+    color: tomato;
+
+}

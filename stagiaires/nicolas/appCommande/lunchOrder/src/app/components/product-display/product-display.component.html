@@ -34,10 +34,7 @@
             
             <button [disabled]='isOrderAvailable' (click)='onSelectButtonClick()'>Selectionner!</button>
             <br>
-            <span *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
+            <span class='loginRequiredMsg' *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
             <br>
-            <span>Ouverture des commandes : </span><countdown [config]="{leftTime:openRemainingTime}"></countdown>
-            <br>
-            <span>Fermeture des commandes : </span><countdown [config]="{leftTime:closeRemainingTime}"></countdown>
 
         </div>

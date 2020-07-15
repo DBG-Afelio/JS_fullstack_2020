@@ -19,6 +19,7 @@ import { OrdersListService } from 'src/app/services/orders-list.service';
 export class ProductsListComponent implements OnInit {
     provider:Provider;
     productList:Product[];
+    filteredProductList:Product[];
     currentUser:User;
     currentTime:Date;
 
@@ -34,6 +35,7 @@ export class ProductsListComponent implements OnInit {
 
       this.providersListService.getProductsByProviderId(Number(routeId)).subscribe(productsFound => {
         this.productList=productsFound;
+        this.filteredProductList = productsFound;
       });
 
       this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound => {
@@ -108,5 +110,22 @@ export class ProductsListComponent implements OnInit {
     return Date.parse(new Date(date.getFullYear(),date.getMonth(),date.getDay()).toString())
 
   }
+  filterProductList(filterWord:string){
 
+    if(filterWord ===''){
+
+      this.filteredProductList = this.productList
+
+    }else{
+
+      this.filteredProductList = this.productList.filter(product => {
+
+        return Object.entries(product).some(element => element.toString().includes(filterWord))
+
+      })
+
+    }
+    console.log(this.filteredProductList)
+
+  }
 }

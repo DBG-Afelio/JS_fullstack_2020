@@ -17,6 +17,12 @@ export class OrdersHistoryComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.loadComponent()
+   
+  }
+
+  loadComponent(){
+
     this.usersListService.getCurrentUser().subscribe(currentUserFound => {
 
       if(currentUserFound){
@@ -38,25 +44,6 @@ export class OrdersHistoryComponent implements OnInit {
 
       }
     })
-   
-  }
-
-  reloadComponent(){
-
-    this.orderListService.getMergedOrdersList().subscribe(ordersListFound => {
-
-      this.ordersList = ordersListFound
-      })
-
-    this.usersListService.getCurrentUser().subscribe(currentUserFound => {
-
-      if(currentUserFound){
-
-        this.currentUser = currentUserFound
-
-      }
-    })
-   
 
   }
 
@@ -67,7 +54,7 @@ export class OrdersHistoryComponent implements OnInit {
     if(cancelConfirm){
 
       this.orderListService.removeOrder(orderToCancel.id).subscribe()
-      this.reloadComponent()
+      this.loadComponent()
 
     }
 

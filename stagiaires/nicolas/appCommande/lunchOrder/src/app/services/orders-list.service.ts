@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Order } from '../models/order';
 import { HttpClient } from '@angular/common/http';
 import { OrderDto } from '../models/order-dto';
-import { Observable, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, forkJoin, BehaviorSubject } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { ProvidersListService } from './providers-list.service';
 import { UsersListService } from './users-list.service';
 
@@ -12,6 +12,9 @@ import { UsersListService } from './users-list.service';
   providedIn: 'root'
 })
 export class OrdersListService {
+
+  private newOrderEvent:BehaviorSubject<boolean> = new BehaviorSubject(false);
+
 
   minOrderHour:number = 6;
   maxOrderHour:number = 24;
@@ -77,18 +80,33 @@ export class OrdersListService {
     )
   }
 
+  getNewOrderEvent():Observable<boolean>{
+
+    return this.newOrderEvent.asObservable()
+
+  }
 
 //modifyOrders
 
   addOrder(newOrder:Order){
 
+
     return this.http.post<Order>('http://localhost:3000/commandes',newOrder.toDto())
+          .pipe(
+
+              tap(_ => this.newOrderEvent.next(true))
+
+          )
 
   }
   removeOrder(orderId:number){
 
     return this.http.delete<OrderDto>(`http://localhost:3000/commandes/${orderId}`)
+          .pipe(
 
+              tap(_ => this.newOrderEvent.next(true))
+
+          )
   }
   updateOrder(updatedOrder:Order){
 
@@ -96,3 +114,6 @@ export class OrdersListService {
 
   }
 }
+
+
+

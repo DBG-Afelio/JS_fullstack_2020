@@ -1,11 +1,21 @@
-<h1>{{provider?.name}}</h1>
 
-<button *ngIf='currentUser?.isAdmin' routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
- 
-<ul>
-    <li class='productItem' *ngFor='let product of productList'>
+ <div class ='productListPanel'>
 
-        <app-product-display (productOrdered)='orderProduct($event)' (productDeleted)='deleteProduct(product)'  [currentTime]='currentTime'  [currentUser]='currentUser' [product]='product'></app-product-display>
+    <button class='addProductButton' *ngIf='currentUser?.isAdmin' routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>
+
+     <div class='panelHeader'>
         
-    </li>
-</ul>
+        <h1 class='providerName'>{{provider?.name}}</h1>
+        <input (input)='filterProductList($event.target.value)' class='filterBar'><span class="material-icons searchIcon">search</span>
+
+     </div>
+
+    <ul>
+        <li class='productItem' *ngFor='let product of filteredProductList'>
+    
+            <app-product-display (productOrdered)='orderProduct($event)' (productDeleted)='deleteProduct(product)'  [currentTime]='currentTime'  [currentUser]='currentUser' [product]='product'></app-product-display>
+            
+        </li>
+    </ul>
+
+ </div>

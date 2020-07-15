@@ -3,6 +3,7 @@ import { UsersListService } from './services/users-list.service';
 import { User } from './models/user';
 import { OrdersListService } from './services/orders-list.service';
 import { Order } from './models/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent {
   numberOfDailyOrder:number;
 
   constructor(private usersListService:UsersListService,
-              private ordersListService:OrdersListService,){
+              private ordersListService:OrdersListService,
+              private router:Router){
 
     usersListService.getCurrentUser().subscribe( userFound => {
 
@@ -26,11 +28,34 @@ export class AppComponent {
       
 
     })
-    ordersListService.getOrdersList().subscribe( ordersListFound => {
+   
+    ordersListService.getNewOrderEvent().subscribe(_ => {
+      
+      ordersListService.getOrdersList().subscribe( ordersListFound => {
 
-      this.numberOfDailyOrder = ordersListFound.filter(order => order.date.getDate() === new Date().getDate()).length
+        this.numberOfDailyOrder = ordersListFound.filter(order => order.date.getDate() === new Date().getDate()).length;
+
+      })
+      usersListService.getCurrentUserOrder().subscribe( userOrderFound => {
+
+        this.currentUserOrder = userOrderFound
+        
+  
+      })
 
     })
+    
+  }
+
+  onButtonLogoutClick(){
+
+    if(confirm("Voulez-vous vraiment vous déconnecter?")){
+
+      this.usersListService.logoutUser();
+      this.router.navigate([""])
+
+    }
+
   }
 
 }

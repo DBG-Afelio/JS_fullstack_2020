@@ -6,6 +6,11 @@
 
 <span>Status : {{currentUser?currentUser.isAdmin?"Admin":"User":"Guest"}} </span>
 
+<span *ngIf='!isOrderAvailable()'>Ouverture des commandes : <countdown [config]="{leftTime:openRemainingTime}"></countdown></span>
+            
+<br>
+            
+<span *ngIf='isOrderAvailable()'>Fermeture des commandes : <countdown [config]="{leftTime:closeRemainingTime}"></countdown></span>
 
 <div>
 

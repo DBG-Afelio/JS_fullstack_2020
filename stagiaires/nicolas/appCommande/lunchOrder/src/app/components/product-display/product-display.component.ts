@@ -23,9 +23,6 @@ export class ProductDisplayComponent implements OnInit {
 
   options:number[]=[];
 
-  openRemainingTime:number;
-  closeRemainingTime:number;
-
   isOrderAvailable:boolean;
 
 
@@ -34,8 +31,6 @@ export class ProductDisplayComponent implements OnInit {
   ngOnInit(): void {
 
     this.newOrder = new Order(this.currentUser?this.currentUser.id:0,this.product.id,[],false,0,new Date());
-    this.openRemainingTime = this.getTimeLeftBeforeOpen();
-    this.closeRemainingTime = this.getTimeLeftBeforeClose();
 
     this.isOrderAvailable = this.setOrderAvailable()
 
@@ -89,49 +84,6 @@ export class ProductDisplayComponent implements OnInit {
 
     }
   }
-  getTimeLeftBeforeOpen(){
-
-    let date = new Date();
-    let dateHour = date.getHours()*3600;
-    let dateMinutes = date.getMinutes()*60;
-
-    let currentDateInSec = dateHour + dateMinutes + date.getSeconds();
-
-    let openingHour = this.ordersListService.minOrderHour*3600;
-
-    let timeLeft = Math.abs(currentDateInSec - openingHour);
-
-    if(dateHour > openingHour){
-
-      timeLeft = 86400 - timeLeft
-
-    } 
-
-    return timeLeft
-
-
-  }
-  getTimeLeftBeforeClose(){
-
-    let date = new Date();
-    let dateHour = date.getHours()*3600;
-    let dateMinutes = date.getMinutes()*60;
-
-    let currentDateInSec = dateHour + dateMinutes + date.getSeconds();
-
-    let closingHour = this.ordersListService.maxOrderHour*3600;
-
-    let timeLeft = Math.abs(currentDateInSec - closingHour);
-    
-    if(dateHour > closingHour){
-
-      timeLeft = Math.abs(86400 - timeLeft)
-
-    } 
-
-    return timeLeft
-
-
-  }
+  
 
 }

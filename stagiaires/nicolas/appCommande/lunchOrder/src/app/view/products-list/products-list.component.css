@@ -1,7 +1,32 @@
+@font-face {
+    font-family: veganStyle;
+    src: url(../../../assets/fonts/VeganStyle.ttf) format("opentype");
+  }
+
 ul{
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 25%);
+    margin: 2%;
+    padding: 0px;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    grid-template-rows: auto;
+    box-sizing: border-box;
+}
+.productListPanel{
+
+    background-image: url('../../../assets/black-array.jpg');
+    background-size: contain;
+    width: 90vw;
+    height: 65vh;
+    overflow: hidden;
+    margin: 2% auto;
+    border: solid 1vw #553111;
+    border-radius: 20px;
+    padding-bottom: 5%;
+    box-shadow: 5px 10px 15px 15px rgba(0,0,0,0.5);
 
 }
 .productItem{
@@ -14,4 +39,54 @@ ul{
     background-color: whitesmoke;
     box-shadow: 10px 10px rgba(0,0,0,0.5);
 }
+.panelHeader{
 
+    display: flex;
+    justify-content: center;
+    margin:30px;
+    align-items: center;
+
+}
+.providerName{
+
+    color:white;
+    text-align: center;
+    font-family: veganStyle;
+    font-size: 5vh;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    margin-right: 50px;
+    line-height: normal;
+    text-decoration: underline;
+    flex-grow: 1;
+}
+.filterBar{
+
+    height: 2vh;
+    padding: 5px;
+    width: 20%;
+    border-radius:20px;
+
+}
+.searchIcon{
+
+    color:white;
+    font-size: 3vh;
+
+}
+.addProductButton{
+
+    background-color:white;
+
+}
+
+@media screen and (max-width: 1000px) {
+    ul {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+@media screen and (max-width: 500px) {
+    ul {
+        grid-template-columns: repeat(1, 100%);
+    }
+}

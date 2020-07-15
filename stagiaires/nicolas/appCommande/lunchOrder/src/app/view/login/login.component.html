@@ -1,11 +1,23 @@
-    <label>
-        Login : 
-        <input type="text" #login>
-    </label>
-    <br>
-    <label>
-        Mots de passe : 
-        <input type ="text" #password>
-    </label>
-    <br>
-    <button (click)="onButtonConnexionClick(login.value,password.value)">Connexion</button>
+    <div class='form'>
+        <div class='formBody'>
+
+            <label>
+                Login : 
+                <input type="text" #login>
+            </label>
+            <br>
+            <label>
+                Mots de passe : 
+                <input type ="text" #password>
+            </label>
+
+        </div>
+        <hr>
+        <div class='formFooter'>
+
+            <button (click)="onButtonConnexionClick(login.value,password.value)">Connexion</button>
+
+        </div>
+
+    </div>
+    

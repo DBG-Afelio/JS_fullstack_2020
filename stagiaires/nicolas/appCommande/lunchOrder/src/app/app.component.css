@@ -23,3 +23,21 @@
     padding-left: 0;
 
 }
+.userDetails{
+
+    padding:25px;
+    background-color: gainsboro;
+
+}
+.logButton{
+
+    margin: auto;
+    display: block;
+    margin-top: 25px;
+
+}
+.orderStateTag{
+
+    align-items: center;
+
+}

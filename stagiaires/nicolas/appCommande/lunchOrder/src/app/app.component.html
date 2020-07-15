@@ -1,14 +1,21 @@
 <mat-drawer-container class="container" [hasBackdrop]='false'>
     <mat-drawer #drawer class="sidenav" mode="side">
 
+      <div class='userDetails'>
+        
+        <mat-panel-title>
+              
+          <h2>Détails utilisateur</h2>  
 
-          <mat-panel-title>
-            Détails utilisateur
-          </mat-panel-title>
+        </mat-panel-title>
+        <p *ngIf='!currentUser'>Vous n'êtes pas identifié,<br>identifiez-vous pour consulter vos infos</p>
+        <span>{{currentUser?.surname}} {{currentUser?.name | uppercase}} </span>
+
+      </div>
 
       <mat-accordion>
 
-        <mat-expansion-panel expanded="true">
+        <mat-expansion-panel *ngIf="currentUser" expanded="true">
           <mat-expansion-panel-header>
 
             <mat-panel-title>
@@ -29,20 +36,46 @@
 
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel *ngIf="currentUser">
 
           <mat-expansion-panel-header>
   
             <mat-panel-title>
               Ma commande
             </mat-panel-title>
-  
+            <mat-panel-description class='orderStateTag' *ngIf='!currentUserOrder?.isPaid'>
+              {{currentUserOrder? 'En cours':'Aucune'}}
+            </mat-panel-description>
+
           </mat-expansion-panel-header>
+
+          <p *ngIf='!currentUserOrder'>Vous n'avez pas de commande en cours,<br>séléctionnez un produit pour le voir apparaître ici</p>
+
+          <div *ngIf='currentUserOrder' class="myOrder">
+
+            <h2>{{currentUserOrder?.product.name}} - {{currentUserOrder?.product.price}} €</h2>
+
+
+            <h3>Suppléments</h3>
+            <ul>
+
+              <li *ngFor='let option of currentUserOrder?.options'>
+
+                {{option.nom}} +{{option.surcout}} €
+
+              </li>
+
+            </ul>
+            <hr>
+            Total : {{currentUserOrder?.totalPrice}} €
+          </div>
           
         </mat-expansion-panel>
 
       </mat-accordion>
       
+      <button class='logButton' (click)="drawer.toggle()" routerLink="/login" *ngIf="!currentUser">Se connecter</button>
+      <button class='logButton' (click)="onButtonLogoutClick()" *ngIf="currentUser">Se deconnecter</button>
 
     </mat-drawer>
   
