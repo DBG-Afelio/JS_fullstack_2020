@@ -17,7 +17,7 @@
         <span *ngFor="let option of order.item.options">{{option.nom}}: {{option.surcout}} euros</span>
       </div>
       <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
-      <button>Commander à nouveau</button> => le bouton ne fonctionne pas
+      <button (click)="orderAgain(order)">Commander à nouveau</button> => le bouton ne fonctionne pas
     </div>
   </div>
 </div>

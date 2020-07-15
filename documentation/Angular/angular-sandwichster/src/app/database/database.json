@@ -8,7 +8,7 @@
       "credit": 0,
       "formation": "proforma 2020",
       "banni": false,
-      "admin": false,
+      "admin": true,
       "id": 486
     },
     {
@@ -568,6 +568,54 @@
       "paye": false,
       "id": 66,
       "date": "2020-07-15T09:36:51.178Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 67,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 12,
+      "option_ids": [],
+      "paye": false,
+      "id": 68,
+      "date": "2020-07-15T09:05:36.773Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 2,
+      "option_ids": [],
+      "paye": false,
+      "id": 69,
+      "date": "2020-07-15T09:09:43.841Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 70,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": false,
+      "id": 71,
+      "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 3,
+      "product_id": 12,
+      "option_ids": [],
+      "paye": false,
+      "id": 72,
+      "date": "2020-07-15T09:05:36.773Z"
     }
   ],
   "fournisseurs": [
