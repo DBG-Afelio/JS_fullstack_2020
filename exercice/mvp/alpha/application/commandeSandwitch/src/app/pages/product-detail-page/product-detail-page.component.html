@@ -1,7 +1,7 @@
 
 <app-nav-product
-    [listSuppliers] = "listSuppliers"
-></app-nav-product>
+    [listSuppliers] = "listSuppliers">
+</app-nav-product>
 
 <div class="wrap-detail">
     <div class="outer-detail">
@@ -17,55 +17,65 @@
                 <li *ngFor="let option of product.options">
                     <input  
                         type="checkbox" 
-                        [checked]="false" 
-                        (change)="updateEndPrice($event.target.checked, option.surcout, option.id)"> 
-                    {{ option.nom }} + {{ option.surcout }} €
+                        [disabled]="fullOrder?.getProduct().id === product.id && fullOrder?.isConfirmed()"
+                        [checked]="fullOrder?.getProduct().id === product.id && selected.includes(option.id)" 
+                        (change)="optionChangeRequest(option, $event.target.checked)"> 
+                            option : {{ option.nom }} + {{ option.surcout | currency: 'EUR':'symbol-narrow' }}
                 </li>
             </ul><hr/>
+            
             <div class="final-price">
-            Total : {{ updatedPrice }} €
+                Total : {{ updatedPrice | currency : 'EUR':'symbol-narrow' }}
             </div>
         </div>
     </div>
+
+    
+
     <div class="wrap-buttons">
-        <div class="buttons-detail" *ngIf="currentUser && product">
+
+        <div class="msg-detail" *ngIf="currentUser && product"> 
+            <div *ngIf="!(currentUser && product)">
+                Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
+            </div>
+
+            <div *ngIf="currentUser && isOnTime && fullOrder && !fullOrder?.isConfirmed()">
+                Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> temporairement sauvegardée &nbsp;! Procéder au paiement avant <span>{{deadline?.getHours()}}h{{deadline?.getMinutes()}}</span> pour confirmer &nbsp;!
+            </div> 
+        
+            <div *ngIf="currentUser && isOnTime && fullOrder?.isConfirmed()">
+                Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> confirmée ! Supprimez-la avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour ajouter un nouveau produit&nbsp;!
+            </div> 
+
+            <div *ngIf="currentUser && !isOnTime">
+                <div *ngIf="!fullOrder">
+                    <span>Oups !</span> Le delai est depassé ! Revenez demain avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour commander votre repas&nbsp;!
+                </div>
+                <div *ngIf="fullOrder && fullOrder?.isConfirmed()">
+                    <span>Yeeeaaah !</span> Votre commande {{ fullOrder?.getOrderProductWithOptions() }} est en préparation et vous sera livrée pour Midi &nbsp;! Au plaisir de vous servir !
+                </div>
+                <div *ngIf="fullOrder && !fullOrder?.isConfirmed()">
+                    <span>Sorry !</span> Nous n'avons pas recu de confirmation (avant {{deadline.getHours()}}h{{deadline.getMinutes()}}) pour la commande {{ fullOrder?.getOrderProductWithOptions() }}&nbsp;!
+                </div>
+            </div> 
+        </div>
+
+        <div class="buttons-detail" *ngIf="currentUser && product">      
             <button
                 (click)="saveInLocalStorage()"
-                [disabled]="!isOnTime">
-                AJOUTER >>
+                [disabled]="!isOnTime || fullOrder?.isConfirmed()">
+                    AJOUTER
             </button>  
-        
             <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
                 (click)="remove()"
                 [disabled]="!isOnTime">
-                RETIRER
+                    RETIRER
             </button>
             <button *ngIf="fullOrder && !fullOrder.isConfirmed() && fullOrder.getProduct().id===product.id"
                 routerLink="/paiement"
                 [disabled]="!isOnTime">
-                >> PAIEMENT
+                    PAIEMENT
             </button>
-            
         </div>
-        <div *ngIf="!(currentUser && product)">
-            Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
-        </div>
-    </div>
-    Prix : {{ updatedPrice | currency : 'EUR':true }} 
-    <button
-        (click)="saveInLocalStorage()"
-        [disabled]="!isOnTime">
-        AJOUTER >>
-    </button>  
-  
-    <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
-        (click)="remove()"
-        [disabled]="!isOnTime">
-        RETIRER
-    </button>
-    <button *ngIf="fullOrder && !fullOrder.isConfirmed() && fullOrder.getProduct().id===product.id"
-        routerLink="/paiement"
-        [disabled]="!isOnTime">
-        >> PAIMENT
-    </button>
+    </div>   
 </div>
