@@ -275,6 +275,16 @@
       "paye": false,
       "id": 20,
       "date": "2020-07-15T09:01:02.305Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 6,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 21,
+      "date": "2020-07-15T09:56:12.841Z"
     }
   ],
   "fournisseurs": [

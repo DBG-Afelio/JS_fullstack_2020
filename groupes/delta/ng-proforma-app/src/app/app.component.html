@@ -39,6 +39,10 @@
       <span class="flat flaticon-resume"></span>
       <span class="label">Profil</span>
     </a>
+    <a *ngIf="user" routerLink='commandes'>
+        <span class="flat flaticon-folder-14"></span>
+        <span class="label">Commandes</span>
+      </a>
     <a *ngIf="user?.admin && user" routerLink='/membre'>
       <span class="flat flaticon-plus"></span>
       <span class="label">Nouveau</span>
