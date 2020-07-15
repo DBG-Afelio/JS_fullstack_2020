@@ -1,27 +1,48 @@
-<p>validate-page works!</p>
-<div *ngIf="creditMax && currentUser && fullOrder">
-    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
-        Retour vers Ma commande en cours
-    </a>
-    <p>
-        Votre commande s'eleve a {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
-    </p>
-    <p>
-        Votre credit avant paiement s'eleve a {{ currentUser.credit | currency: 'EUR':'symbol-narrow'}}
-    </p>
-    <p *ngIf="!isCreditEnough">
-        Payer a credit ? Votre solde est insuffisant. Il ne vous reste que {{ creditMax - currentUser.credit | currency : 'EUR':true}} sur votre credit maximum autorisé ({{ creditMax}} €). 
-        Pour confirmer votre commande, passer par le paiment CASH
-    </p>
-    <button
-        (click)="confirmOrder(true)"
-        [disabled]="!isOnTime">
-        PAYER CASH
-    </button>
-    <button 
-        [disabled]="!isOnTime || !isCreditEnough"
-        (click)="confirmOrder(false)">
-        PAYER A CREDIT
-    </button>
 
-</div>
+ <div>
+    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">Revenir sur ma commande en cours </a>
+
+    <!-- Vue avant d'avoir actée le paiement -->
+    <div *ngIf="creditMax && currentUser && fullOrder && !fullOrder.isConfirmed()">
+
+        <div class="msg-paiement">
+            <p>
+                Votre commande s'élève à {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
+            </p>
+            <p *ngIf="!isCreditEnough">
+                Il ne vous reste que {{ creditMax - currentUser.credit | currency: 'EUR':'symbol-narrow' }} sur votre Portefeuille "CREDIT AUTORISE" ({{ creditMax | currency: 'EUR':'symbol-narrow'}}). 
+                Pour confirmer votre commande, merci de payer content.
+            </p>
+        </div>
+        
+        <div class="button-paiement">
+            <button
+                (click)="confirmOrder(true)"
+                [disabled]="!isOnTime">
+                PAYER CASH
+            </button>
+            <button 
+                [disabled]="!isOnTime || !isCreditEnough"
+                (click)="confirmOrder(false)">
+                PAYER A CREDIT
+            </button>
+        </div>
+    </div>
+
+    <!-- Vue une fois le paiement actée -->
+    <div *ngIf="creditMax && currentUser && fullOrder && fullOrder.isConfirmed()">
+        
+
+        <!-- payé cash -->
+        <div *ngIf="fullOrder.getOrder().isPayed">
+
+        </div>
+
+        <!-- payé a credit -->
+        <div *ngIf="!fullOrder.getOrder().isPayed">
+
+        </div>
+    </div>
+
+ </div>
+
