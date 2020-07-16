@@ -57,12 +57,13 @@ export class ListTotalOrdersComponent implements OnInit {
     return orders;
   }
 
-  getOrders(){
+  getOrders() {
+    
     return this.todayOrders;
   }
   
   getTotalPriceForOneDay(list){
-    return list.reduce((total, oneOrder) => total + oneOrder.getTotalPrice(),0)
+    return list.reduce((total, oneOrder) => Number((total + oneOrder.getTotalPrice()).toFixed(2)),0);
   }
 
   displaySwitch(){
