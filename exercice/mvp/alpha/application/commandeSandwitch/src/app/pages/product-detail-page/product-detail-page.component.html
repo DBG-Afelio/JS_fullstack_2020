@@ -48,7 +48,7 @@
                     Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> confirmée ! Supprimez-la avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour ajouter un nouveau produit&nbsp;!
                 </div> 
                 <div *ngIf="productSupplier && (productSupplier.closure || !productSupplier.isOpenedToday())">
-                    {{ productSupplier.name }} est actuellement fermé &nbsp;!
+                    <span>{{ productSupplier.name }}</span> est actuellement fermé &nbsp;!
                 </div>
             </div>
             
@@ -65,7 +65,7 @@
             </div> 
 
             <div *ngIf="currentUser.isBlocked">
-                Votre compte a été bloqué et ne vous permet plus de commander sur le site. Veuillez prendre contact aupres de l'administrateur pour regulariser la situation.
+                Votre compte a été bloqué et ne vous permet plus de commander sur le site. Veuillez prendre contact aupres de <a routerLink="">l'administrateur</a> pour regulariser la situation.
             </div>
         </div>
 
