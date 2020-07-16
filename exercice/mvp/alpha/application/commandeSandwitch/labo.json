@@ -71,7 +71,7 @@
       "password": "denis",
       "nom": "Boegarts",
       "prenom": "Denis",
-      "credit": 0,
+      "credit": 8,
       "formation": "Formateur FullStack WebDev",
       "banni": false,
       "admin": false,
@@ -104,7 +104,7 @@
       "password": "jerome",
       "nom": "Grandjean",
       "prenom": "Jerome",
-      "credit": 0,
+      "credit": 9.5,
       "formation": "FullStack WebDev",
       "banni": false,
       "admin": false,
@@ -115,7 +115,7 @@
       "password": "oshi",
       "nom": "Grandjean",
       "prenom": "Oshi",
-      "credit": 0,
+      "credit": 10,
       "formation": "FullStack WebDev",
       "banni": false,
       "admin": false,
@@ -309,6 +309,34 @@
       "paye": true,
       "id": 39,
       "date": "Wed Jul 16 2020 11:20:56 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 7,
+      "product_id": 41,
+      "option_ids": [],
+      "paye": false,
+      "id": 40,
+      "date": "Thu Jul 16 2020 23:03:58 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 10,
+      "product_id": 13,
+      "option_ids": [
+        2
+      ],
+      "paye": false,
+      "id": 41,
+      "date": "Thu Jul 16 2020 23:04:44 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 11,
+      "product_id": 11,
+      "option_ids": [
+        2
+      ],
+      "paye": false,
+      "id": 42,
+      "date": "Thu Jul 16 2020 23:05:18 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
