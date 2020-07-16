@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import{MatPaginator, PageEvent} from '@angular/material/paginator'
 
 @Component({
   selector: 'app-tableau',
@@ -7,14 +8,33 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableauComponent implements OnInit {
   @Input() tableau: any[];
+  lowValue = 0 ;
+  highValue= 10;
+  pageSize = 10 ;
+  pageSizeOptions =[5,10];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @Input() tableauOfHeader: string[];
   @Input() link: string;
+  //@ViewChild(MatPaginator) paginator :  MatPaginator ;
   sortby: [string,boolean] = ["id",false];
 
   constructor() { }
 
   ngOnInit() {
+   
   }
+  //ngAfterViewInit() {
+    //this.paginator.page.subscribe(
+       //(event) => console.log(event)
+//);
+    //}
+    getPaginator(event:PageEvent){
+      this.lowValue = event.pageIndex * event.pageSize;
+      this.highValue = this.lowValue + event.pageSize;
+      
+      console.log(this.highValue,this.lowValue);
+    return event ;
+    }
 
   sortMembre(){
     const sortedtab = this.tableau.slice();
