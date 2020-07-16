@@ -1,6 +1,6 @@
 .fourn {
-    background-color: gray;
-    color: white;
+    background-color:  rgba(255, 255, 255, 0.65);
+    color: black;
     width: 700px;
     border: 1px solid darkgray;
     position: relative;
@@ -21,7 +21,7 @@
 }
 .view-fourn {
     background-color: lightgreen;
-    color: white;
+    color: rgb(0, 0, 0);
     width: 120px;
     border: 2px solid black;
     position: absolute;
