@@ -1,3 +1,4 @@
 <p>{{provider.name}}</p>
 <p>{{provider.description}}</p>
 <p>{{provider.phone}}</p>
+<p [class]="provider.isClosed?'close':'open'">{{provider.isClosed?'Fermé':'Ouvert'}}</p>

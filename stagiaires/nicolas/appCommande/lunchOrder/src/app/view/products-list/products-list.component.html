@@ -1,4 +1,7 @@
 
+<button routerLink='' class='backButton'><span class="material-icons arrowBack">
+    arrow_back
+    </span> Liste des addresses</button>
  <div class ='productListPanel'>
 
     <button class='addProductButton' *ngIf='currentUser?.isAdmin' routerLink='/modifyProduct/new/{{provider?.id}}'>Ajouter un nouveau produit</button>

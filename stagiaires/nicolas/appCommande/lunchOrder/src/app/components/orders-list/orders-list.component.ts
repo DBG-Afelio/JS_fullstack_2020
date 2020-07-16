@@ -1,8 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Order } from 'src/app/models/order';
 import { User } from 'src/app/models/user';
 import { OrdersListService } from 'src/app/services/orders-list.service';
 import { MatDialog } from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { OrderProductComponent } from 'src/app/view/order-product/order-product.component';
 import { UsersListService } from 'src/app/services/users-list.service';
 
@@ -13,6 +16,12 @@ import { UsersListService } from 'src/app/services/users-list.service';
   styleUrls: ['./orders-list.component.css']
 })
 export class OrdersListComponent implements OnInit {
+
+  displayedColumns: string[] = ['user', 'date', 'product', 'price', 'isPaid','cancelOrder'];
+  dataSource: MatTableDataSource<Order>;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   @Input() ordersList:Order[];
 
@@ -29,19 +38,60 @@ export class OrdersListComponent implements OnInit {
 
   ngOnInit(): void {
     
+   this.loadComponent()
+    
+  }
 
+  loadComponent(){
+
+     // Assign the data to the data source for the table to render
+
+     this.ordersListService.getMergedOrdersList().subscribe(listFound => {
+
+      this.dataSource = new MatTableDataSource(listFound);
+
+      this.dataSource.sortingDataAccessor = (item, property) => {
+        switch(property) {
+          case 'user': return item.user.name;
+          case 'price': return item.totalPrice;
+          case 'product': return item.product.name;
+
+          default: return item[property];
+        }
+      };
+
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+
+    })
+    
+
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   onCancelOrderButtonClick(orderToCancel:Order){
 
     this.cancelOrder.emit(orderToCancel);
+    this.loadComponent()
 
   }
   onOrderNameClick(orderClicked:Order){
 
     const newOrder = new Order(this.currentUser.id,orderClicked.productId,orderClicked.optionsId,false,0,new Date())
     newOrder.setUser(this.currentUser);
-    newOrder
+    newOrder.setProduct(orderClicked.product);
+    newOrder.setOptions(orderClicked.options);
+    newOrder.setTotalPrice();
+
+
     this.usersListService.setCurrentUserOrder(newOrder);
     console.log(orderClicked);
     this.openOrderDialog(orderClicked);

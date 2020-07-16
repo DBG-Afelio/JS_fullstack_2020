@@ -1,4 +1,4 @@
-<button type="button" mat-button (click)="onToggleDrawerClick()">
+<button class='toggleDrawerButton' type="button" mat-button (click)="onToggleDrawerClick()">
   <span class="material-icons">
     menu
   </span>
@@ -15,8 +15,6 @@
 <div>
 
     <span *ngIf='currentUser'>{{currentUser.surname}} {{currentUser.name | uppercase}} </span>
-
-    <span *ngIf='currentUser'>/ Crédit : {{currentUser?.credit}} €</span>
     <button *ngIf='!currentUser' routerLink="/login">logIn</button>
     <button *ngIf='currentUser' (click)="onButtonLogoutClick()">Logout</button>
 

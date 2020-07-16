@@ -1,3 +1,32 @@
+:host{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+:host *{
+
+    font-size: 2vh;
+
+}
+.productHeader{
+
+    flex-grow: 2;
+
+}
+.productBody{
+
+    flex-grow: 1;
+    overflow: auto;
+
+}
+.productFooter{
+
+    flex-grow: 2;
+
+
+}
 .productMenu{
 
     position: absolute;
@@ -6,6 +35,12 @@
     background: none;
     border:none;
     cursor: pointer;
+    
+
+}
+.productMenu *{
+
+    font-size: 4vh;
 
 }
 .orderButtonContainer{
@@ -28,5 +63,15 @@ float: right;
 
     text-align: right;
     color: tomato;
+
+}
+h2,h3{
+
+    margin:0;
+
+}
+ul{
+
+    list-style: none;
 
 }

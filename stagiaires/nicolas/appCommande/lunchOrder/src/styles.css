@@ -3,7 +3,9 @@ body{
 
     margin: 0px;
     background-color: bisque;
-
+    background-image: url(https://img.freepik.com/free-photo/wooden-planks-with-blurred-restaurant-background_1253-56.jpg?size=626&ext=jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -13,4 +15,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
     background-color: #56ff40;
+}
+button{
+
+    background-color: white;
+    padding:5px;
+    border-radius: 5px;
+
+
+}
+button:hover{
+
+    background-color: gainsboro;
+    cursor: pointer;
+
 }

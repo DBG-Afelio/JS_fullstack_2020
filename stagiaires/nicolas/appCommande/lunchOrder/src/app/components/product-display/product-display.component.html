@@ -1,40 +1,52 @@
-<h2>{{product?.name}}</h2>
+<div class='productHeader'>
+
+    <h2>{{product?.name}}</h2>
         
-        <button *ngIf='currentUser?.isAdmin'  class='productMenu' mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            
-            <button mat-menu-item  routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
+    <button *ngIf='currentUser?.isAdmin'  class='productMenu' mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        
+        <button mat-menu-item  routerLink="/modifyProduct/{{product.id}}">Modifier ce produit</button>
 
-            <button mat-menu-item (click)='onDeleteProductClick()'>Supprimer ce produit</button>
+        <button mat-menu-item (click)='onDeleteProductClick()'>Supprimer ce produit</button>
 
-         </mat-menu>
-          
-        <hr>
-        <h3>Détails :</h3>
+    </mat-menu>
+
+    <hr>
+</div>
+
+<div class='productBody'>
+
+    <h3>Détails :</h3>
         <p>{{product?.description}}</p>
         <label>Prix : <output>{{product?.price}}</output> €</label>
 
 
-        <h3>Suppléments</h3>
+    <h3>Suppléments</h3>
 
-            <ul>
-              <li *ngFor='let option of product.options'>
+        <ul>
+            <li *ngFor='let option of product.options'>
                 <mat-checkbox (change)='addRemoveOption(option)'>
 
                     {{option.nom}} +{{option.surcout}} €
 
                 </mat-checkbox>
-              </li>
-            </ul>
+            </li>
+        </ul>
 
-        <hr>
-        <div class='orderButtonContainer'>
+</div>   
+<div class='productFooter'>
+    <hr>
+    <div class='orderButtonContainer'>
             
-            <button [disabled]='isOrderAvailable' (click)='onSelectButtonClick()'>Selectionner!</button>
-            <br>
-            <span class='loginRequiredMsg' *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
-            <br>
+        <button [disabled]='isOrderAvailable' (click)='onSelectButtonClick()'>Selectionner!</button>
+        <br>
+        <span class='loginRequiredMsg' *ngIf='!currentUser'>Vous devez être connecté pour passer commande</span>
+        <br>
 
-        </div>
+    </div>
+    
+</div>   
+        
+        

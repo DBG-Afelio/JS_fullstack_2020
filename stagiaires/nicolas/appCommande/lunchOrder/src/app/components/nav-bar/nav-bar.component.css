@@ -2,9 +2,24 @@
 
     display: flex;
     justify-content: space-between;
-    background-color: whitesmoke;
+    background-color: rgba(85, 49, 17,0.4);
     padding: 10px;
     position: sticky;
     top: 0;
     z-index: 1;
+    color:white;
+    align-items: center;
+}
+.toggleDrawerButton{
+
+    background: none;
+    border: none;
+    color:white;
+
+}
+
+.toggleDrawerButton:hover{
+
+    cursor: pointer;
+
 }

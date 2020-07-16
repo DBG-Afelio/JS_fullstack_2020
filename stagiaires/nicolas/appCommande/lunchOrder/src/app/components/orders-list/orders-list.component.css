@@ -1,23 +1,17 @@
+:host{
+
+    display: block;
+    padding: 15px;
+    margin: 5%;
+    background: rgba(85, 49, 17,0.6);;
+    border-radius: 25px;
+
+}
+
 table{
 
     width: 100%;
     border-spacing: 1px 10px;
-
-}
-tr{
-
-    text-align: center;
-    background-color: rgba(0,0,0,0.3);
-
-}
-thead>tr{
-
-    background-color: rgba(0,0,0,0.5);
-
-}
-th,td{
-
-    padding:10px;
 
 }
 .productName:hover{

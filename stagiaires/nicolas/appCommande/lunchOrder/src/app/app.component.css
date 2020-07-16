@@ -7,6 +7,11 @@
 
     position: fixed;
     left:0;
+    height: 100%;
+
+    background-color: rgba(85, 49, 17,0.4);
+    padding: 10px;
+    box-sizing: border-box;
 
 }
 .mat-expansion-panel-body{
@@ -26,7 +31,8 @@
 .userDetails{
 
     padding:25px;
-    background-color: gainsboro;
+    background-color: white;
+    margin-bottom: 20px;
 
 }
 .logButton{
@@ -39,5 +45,16 @@
 .orderStateTag{
 
     align-items: center;
+
+}
+.sidenavContent{
+
+    height: 100%;
+
+}
+.mat-drawer-inner-container{
+
+    direction: ltr;
+    overflow: hidden;
 
 }

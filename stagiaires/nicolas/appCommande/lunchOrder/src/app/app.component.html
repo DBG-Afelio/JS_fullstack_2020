@@ -8,8 +8,16 @@
           <h2>Détails utilisateur</h2>  
 
         </mat-panel-title>
+        
         <p *ngIf='!currentUser'>Vous n'êtes pas identifié,<br>identifiez-vous pour consulter vos infos</p>
-        <span>{{currentUser?.surname}} {{currentUser?.name | uppercase}} </span>
+        <div *ngIf='currentUser'>
+
+          <span>{{currentUser?.surname}} {{currentUser?.name | uppercase}} </span>
+          <br>
+          <span>Crédit : {{currentUser?.credit}} € </span>
+
+        </div>
+        
 
       </div>
 

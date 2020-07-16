@@ -1,3 +1,10 @@
+ul{
+
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+}
 li{
     position:relative;
     list-style: none;
@@ -6,8 +13,9 @@ li{
     border-radius: 10px;
     background-color: whitesmoke;
     box-shadow: 10px 10px rgba(0,0,0,0.5);
-    max-width: 50vw;
+    width: 75%;
 }
+
 .providerMenu{
 
     position: absolute;
@@ -16,5 +24,20 @@ li{
     background: none;
     border:none;
     cursor: pointer;
+
+}
+h1{
+
+    text-align: right;
+    padding: 2%;
+    color: white;
+    background: rgba(85, 49, 17,0.4);
+    font-size: 5vh;
+
+}
+.addProviderButton{
+
+    margin-left: auto;
+    display: block;
 
 }

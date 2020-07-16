@@ -2,6 +2,7 @@
 <h2 >{{order.product.name}} - <span>({{provider?.name}})</span> - <span>{{order.product.price}}</span> €</h2>
 <p>{{order.product.description}}</p>
 <span>Suppléments :</span>
+<span *ngIf='order.options.length === 0'>Aucun</span>
 <ul>
 
     <li *ngFor='let option of order.options'>

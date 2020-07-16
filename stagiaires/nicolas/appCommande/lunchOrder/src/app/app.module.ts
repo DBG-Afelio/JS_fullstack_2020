@@ -15,6 +15,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CountdownModule } from 'ngx-countdown';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatBadgeModule} from '@angular/material/badge'; 
+import {MatTableModule} from '@angular/material/table'; 
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort'; 
 
 import { AppComponent } from './app.component';
 
@@ -69,6 +72,9 @@ import { ProductDisplayComponent } from './components/product-display/product-di
     CountdownModule,
     MatSidenavModule,
     MatBadgeModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
 
   ],
   entryComponents: [

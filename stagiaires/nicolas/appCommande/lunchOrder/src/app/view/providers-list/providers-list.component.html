@@ -1,5 +1,5 @@
-<h1>Liste des commerces</h1>
-<button *ngIf='currentUser?.isAdmin' routerLink='modifyProvider/new'>Ajouter un nouveau commerce</button>
+<h1>Choisir une adresse</h1>
+<button class='addProviderButton' *ngIf='currentUser?.isAdmin' routerLink='modifyProvider/new'>Ajouter un nouveau commerce</button>
 <ul>
     <li *ngFor='let provider of providersList'>
 
