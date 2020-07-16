@@ -19,6 +19,8 @@
       <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
       <li >{{ order.date | date: 'd/M/yyyy, h:mm a' }}</li>
     </ul>
+    <button class="btn btn-danger">Supprimer Commande</button>
+    <!-- (click) ="deleteOrder()" -->
     <hr>
   </div>
   <div class="text-center">
