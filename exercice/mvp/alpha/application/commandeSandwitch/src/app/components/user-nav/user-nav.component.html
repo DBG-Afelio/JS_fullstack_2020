@@ -42,7 +42,7 @@
     <div>
         <h3>
             <!-- possible de faire un ternaire sur un attr.aria-label ? -->
-            <a class="onglet" [attr.aria-label]="currentUser.credit === 0 ? 'credit nulle' : 'rembourser'">
+            <a class="onglet" [attr.aria-label]="currentUser.credit === 0 ? 'Vous etes à jour et beneficiez de 10€ de credit autorisé' : 'Penser à rembourser votre credit aupres de l\'administrateur'">
                 Crédit utilisé <span class="arrow">{{ currentUser.credit | currency: 'EUR':'symbol-narrow' }}</span>
             </a>
           

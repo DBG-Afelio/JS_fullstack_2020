@@ -10,14 +10,14 @@
         <th class="th-payed">METHODE PAIEMENT</th>
         <th class="th-button"> - </th>
     </tr>
-    <tr *ngFor = "let userHistOrder of ordersHistory">
+    <tr *ngFor="let userHistOrder of ordersHistory">
         <td>{{ userHistOrder.getOrder().date.toLocaleDateString() }}</td>
         <td>{{ userHistOrder.getProduct().name }}</td>
         <td>{{ optionsToString(userHistOrder.getSelectedOptions()) }}</td>
         <td>{{ userHistOrder.getTotalPrice() }} €</td>
         <td
             [class.not-payed]="!userHistOrder.getOrder().isPayed">
-            {{ userHistOrder.getOrder().isPayed ? "cash" : "a credit" }}
+            {{ userHistOrder.getOrder().isPayed ? "comptant" : "à credit" }}
         </td>
         <td class="td-button">
             <button 

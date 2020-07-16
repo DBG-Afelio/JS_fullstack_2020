@@ -22,6 +22,8 @@ export class HistoryAdminPageComponent implements OnInit {
     this.orderService.getAllFullOrders().subscribe((fullHistory) => {
       this.allOrders = fullHistory;
       this.collectionSize = fullHistory.length;
+      console.log('>>>>>>>>>>>> allhistory =', fullHistory);
+ 
     });
     this.page = 1;
     this.pageSize = 10;
