@@ -660,6 +660,16 @@
       "paye": false,
       "id": 78,
       "date": "2020-07-15T09:02:25.895Z"
+    },
+    {
+      "user_id": 486,
+      "product_id": 4,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 79,
+      "date": "2020-07-16T14:22:43.684Z"
     }
   ],
   "fournisseurs": [

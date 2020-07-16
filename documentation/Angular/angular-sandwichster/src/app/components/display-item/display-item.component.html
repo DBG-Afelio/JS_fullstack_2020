@@ -1,22 +1,26 @@
 <hr>
 <div>
-
-    <h4>
-        <span *ngIf="item.fourn_id === 1">Sandwich </span>
-        <span *ngIf="item.fourn_id === 2">Pizza </span>{{item?.nom}}
-    </h4>
-   
-    <p>{{item?.description}}</p>
-    <div class="price-and-cta">
-        <span> <b>{{item?.prix}} euros</b></span>
-        <!-- Ajouter la classe visible a la sidebar -->
-        <!-- (click)='showSidebar()' -->
-        <button class="btn btn-primary" (click) ='onProductSelection()'>Je le prends!</button>
     <div>
-    <button class="btn btn-info" *ngIf ="currentUser?.admin" (click)='modifyItem(item.id)'>Modifier</button>
+
+        <h4>
+            <span *ngIf="item.fourn_id === 1">Sandwich </span>
+            <span *ngIf="item.fourn_id === 2">Pizza </span>{{item?.nom}}
+        </h4>
+       
+        <p>{{item?.description}}</p>
+        <div class="price-and-cta">
+            <span> <b>{{item?.prix}} euros</b></span>
+            <!-- Ajouter la classe visible a la sidebar -->
+            <!-- (click)='showSidebar()' -->
+            <button class="btn btn-primary" (click) ='onProductSelection()'>Je le prends!</button>
+        <div>
+        <button class="btn btn-info buttonModify" *ngIf ="currentUser?.admin" (click)='modifyItem(item.id)'>Modifier</button>
+    </div>
+    </div>
+    
+    <app-modify-item *ngIf="visible" [item]="item" #viewContainerRef (visible)="closeModifyPannel()" (update)="updateItem($event)" (delete)="deleteItem($event)"></app-modify-item>
+    
+          
 </div>
-
-<app-modify-item *ngIf="visible" [item]="item" #viewContainerRef (visible)="closeModifyPannel()" (update)="updateItem($event)"></app-modify-item>
-
-            
+      
 <!-- <app-sidebar></app-sidebar> -->

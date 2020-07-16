@@ -50,7 +50,11 @@
                   <input (change) ="stockpass2($event)" name ="password" type="password" placeholder="Confirmer mot de passe">
               </div>
           </div>
-          <button (click) ="showNewUser()" (click) ="createUser(newUser)" type="submit">Ajouter</button>
+          <div class="divButton">
+            <button class="btn btn-success" (click) ="showNewUser()" (click) ="createUser(newUser)" type="submit">Ajouter</button>
+            <button class="btn btn-danger"><a routerLink="/list-users">Liste utilisateurs</a></button>
+          </div>
+
       </form>
     </div>
     

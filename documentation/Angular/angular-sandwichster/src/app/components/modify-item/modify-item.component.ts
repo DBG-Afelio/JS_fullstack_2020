@@ -13,6 +13,7 @@ export class ModifyItemComponent implements OnInit {
   @Input() item: Item;
   @Output() update = new EventEmitter<Item>();
   @Output() visible = new EventEmitter<boolean>();
+  @Output() delete = new EventEmitter<Item>();
 
   public unique_key: number;
   public parentRef: DisplayItemComponent;
@@ -42,6 +43,14 @@ export class ModifyItemComponent implements OnInit {
     this.item.addOption(optionName.value, optionPrice.value);
     optionName.value = "";
     optionPrice.value = "";
+  }
+
+  deleteProduct(){
+    if(window.confirm("Etes-vous sûr(e) de vouloir supprimer ce produit?")){
+      console.log("Produit supprimé");
+      this.delete.emit(this.item);
+    }
+
   }
 
 }

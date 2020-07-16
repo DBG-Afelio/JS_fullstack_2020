@@ -19,9 +19,12 @@ export class DisplayItemComponent implements OnInit {
   // public currentUser = this.login.getCurrentUserAsObservable().subscribe((data) => data);
   
   @Input() item: Item;
+  @Input() sidebar: SidebarComponent;
+  
   @Output() selectedProductEvent = new EventEmitter<Item>();
   @Output() emitChangesProduct = new EventEmitter<Item>();
-  @Input() sidebar: SidebarComponent;
+  @Output() emitDelete = new EventEmitter<Item>();
+ 
 
   currentUser: UserModel;
 
@@ -59,6 +62,10 @@ export class DisplayItemComponent implements OnInit {
   updateItem(item){
     console.log('Reçu au niveau display-item');
     this.emitChangesProduct.emit(item);
+  }
+
+  deleteItem(item){
+    this.emitDelete.emit(item);
   }
 
 

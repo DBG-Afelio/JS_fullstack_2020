@@ -1,5 +1,5 @@
 <!-- THOMAS -->
-<h1 class="text-center">Modifier nouvel utilisateur </h1>
+<h1 class="text-center">Modifier Utilisateur </h1>
 
 <div *ngIf ="currentUser" class="container d-flex justify-content-center">
     <form   action="">
@@ -47,6 +47,9 @@
                 <input [value] ="currentUser.password" (change) ="stockpass2($event)" name ="password" type="text" placeholder="Confirmer mot de passe">
             </div>
         </div>
-        <button (click) ="checkSamePassword()" (click) ="updateEvent(currentUser)" type="submit">Modifier</button>
+        <div class="divButton">
+            <button class="btn btn-success" (click) ="checkSamePassword()" (click) ="updateEvent(currentUser)" type="submit">Modifier</button>
+        </div>
+
     </form>
  </div>

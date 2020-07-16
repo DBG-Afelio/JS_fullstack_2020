@@ -1,25 +1,28 @@
 
 <div class="container">
-      <h1 class ="text-center">Historique commandes de {{ currentUser?.prenom }} </h1>
+  <div class="mainDivListOrders">
+    <h1 class ="text-center">Historique commandes de {{ currentUser?.prenom }} </h1>
       
-      <div *ngFor="let order of allIndividualUserOrders">
-        <ul>
-          <li>Titre : {{ order?.item.nom }}</li>
-          <li> Vendeur : {{order?.item.supplier.nom}}</li>
-          <li>Prix de base: {{ order?.item.prix }} €</li>
-          <li >Option(s)
-            <ul>
-              <li *ngFor='let option of order.getSelectedOptions()'>
-                {{option?.nom}}: {{option?.surcout}} €
-              </li>
-            </ul>
-          </li>
-          <li >Prix total: {{ order?.getTotalPrice()}} €</li>
-          <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
-          <li > <span>Commandé le : </span>{{ order?.date | date: 'medium' }}</li>
-        </ul>
-        <hr>
-      </div>
+    <div *ngFor="let order of allIndividualUserOrders">
+      <ul>
+        <li>Titre : {{ order?.item.nom }}</li>
+        <li> Vendeur : {{order?.item.supplier.nom}}</li>
+        <li>Prix de base: {{ order?.item.prix }} €</li>
+        <li >Option(s)
+          <ul>
+            <li *ngFor='let option of order.getSelectedOptions()'>
+              {{option?.nom}}: {{option?.surcout}} €
+            </li>
+          </ul>
+        </li>
+        <li >Prix total: {{ order?.getTotalPrice()}} €</li>
+        <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
+        <li > <span>Commandé le : </span>{{ order?.date | date: 'medium' }}</li>
+      </ul>
+      <hr>
+    </div>
+  </div>
+
 </div>
 
 <!-- .reduce((acc, val) => acc + val, 0) -->

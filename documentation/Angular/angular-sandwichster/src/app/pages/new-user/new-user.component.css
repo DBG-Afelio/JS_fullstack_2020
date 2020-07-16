@@ -1,3 +1,19 @@
+h1{
+    margin-bottom: 2rem;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
 .mainDivNewUser{
     margin-top: 2rem;
+}
+
+.divButton{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }

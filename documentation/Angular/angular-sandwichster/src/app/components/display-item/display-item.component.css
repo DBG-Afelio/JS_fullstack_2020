@@ -1,7 +1,15 @@
+h4{
+    font-weight: bold;
+}
+
 .price-and-cta {
     display: flex;
 }
 
 .price-and-cta span {
     padding: 0 0.5em;
+}
+
+.buttonModify{
+    margin-left: 1rem;
 }

@@ -1,22 +1,33 @@
 <!-- BENOIT -->
+<div class="mainDiv">
+    <div class="divDataWithoutOptions">
+        <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="item.nom" name="nom"><br>
+        <textarea type="text" placeholder="Tomate, salade, mozzarella" [(ngModel)]="item.description" name="description"></textarea><br>
+        <input type="text" placeholder="3.5" [(ngModel)]="item.prix" name="prix">€<br>
+        <div class="divCurrentOptions">
+            <hr>
+            <span class="titleOption">Option(s) actuelle(s)</span>
+            <div *ngFor="let option of item.options">
+                <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="option.nom" name="nom1"><br>
+                <input type="number" placeholder="Sandwich Pipo" [(ngModel)]="option.surcout" name="nom1"><br>
+            </div>
+        </div>
+    </div>
 
-Nom: <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="item.nom" name="nom"><br>
-Description: <input type="text" placeholder="Tomate, salade, mozzarella" [(ngModel)]="item.description" name="description"><br>
-Prix: <input type="text" placeholder="3.5" [(ngModel)]="item.prix" name="prix"><br>
-<div *ngFor="let option of item.options">
-    <input type="text" placeholder="Sandwich Pipo" [(ngModel)]="option.nom" name="nom1"><br>
-    <input type="number" placeholder="Sandwich Pipo" [(ngModel)]="option.surcout" name="nom1"><br>
-</div>
-
-<div>
+    <div class="divAddOption">
+        <hr>
+        <span class="titleOption">Ajouter une option</span><br>
+        <input type="text" placeholder="Sandwich Pipo"  name="nom1" #optionName><br>
+        <input type="number" placeholder="3" name="nom1"#optionPrice><br>
+        <button class="btn btn-primary" (click)="addOption(optionName, optionPrice)">Créer nouvelle option</button>
+    </div>
     <hr>
-    Ajouter une option<br>
-    <input type="text" placeholder="Sandwich Pipo"  name="nom1" #optionName><br>
-    <input type="number" placeholder="3" name="nom1"#optionPrice><br>
-    <button (click)="addOption(optionName, optionPrice)">Créer nouvelle option</button>
+    <div class="divButtons">
+        <button class="btn btn-success" (click)="updateItemEvent()">Mettre à jour</button>
+
+        <button class="btn btn-danger" (click)="deleteProduct()">Supprimer</button>
+
+        <button class="btn btn-warning" (click)="closeModifyPannel()">Fermer la fenêtre</button>
+    </div>
+
 </div>
-<button (click)="updateItemEvent()">Mettre à jour</button>
-<!--
-    <button (click)="deleteProduct()">Supprimer</button>
--->
-<button (click)="closeModifyPannel()">Fermer</button>

@@ -1,0 +1,38 @@
+.divDataWithoutOptions input, textarea{
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.mainDiv{
+    margin-top: 1rem;
+}
+
+.titleOption{
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.divCurrentOptions input{
+    padding: 0.5rem;
+}
+
+.divAddOption{
+    margin: 1rem 0;
+}
+
+.divAddOption input{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+.divButtons{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.divCurrentOptions input{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

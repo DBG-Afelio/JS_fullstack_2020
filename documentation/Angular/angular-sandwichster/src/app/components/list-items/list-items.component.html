@@ -4,5 +4,5 @@
     </div>
 
     <app-display-item *ngFor="let item of listProducts" [item]="item" (selectedProductEvent)="onProductSelection($event)" 
-    (emitChangesProduct)="changeProducts($event)"> </app-display-item>
+    (emitChangesProduct)="changeProducts($event)" (emitDelete)="deleteItem($event)"> </app-display-item>
 </div>

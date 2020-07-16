@@ -12,6 +12,7 @@ import { ListItemsService } from '../../services/list-items.service'
 export class ListItemsComponent implements OnInit {
 
 @Output() selectedProductEvent = new EventEmitter<Item>();
+@Output() deleteItemEvent = new EventEmitter<Item>();
 
 @Input() listProducts;
 @Input() supplier;
@@ -29,6 +30,12 @@ export class ListItemsComponent implements OnInit {
 
   changeProducts(product){
     this.listItemsService.updateItem(product).subscribe(()=>
+    this.routeur.navigate([""]) 
+    );
+  }
+
+  deleteItem(product){
+    this.listItemsService.removeItem(product).subscribe(()=>
     this.routeur.navigate([""]) 
     );
   }
