@@ -30,7 +30,10 @@ export class MainNavComponent implements OnInit {
   public loadData(): void{
     this.userService.getList().subscribe((list) => this.userList = list);
     this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
-    this.orderService.getFullOrder().subscribe((full) => this.fullOrder = full);
+    this.orderService.getFullOrder().subscribe((full) => {
+      this.fullOrder = full;
+      console.log('fullOrder MAIN-NAV :', full);
+    });
     this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
   }
   
@@ -41,7 +44,7 @@ export class MainNavComponent implements OnInit {
   public deleteOrder(): void{
    
     if (this.orderService.isOnTime()) {
-      this.fullOrder.isConfirmed() ? this.orderService.deleteOrderFromServer(this.fullOrder.getOrder()) : this.orderService.removeFromLocalStorage();
+      this.fullOrder.isConfirmed() ? this.orderService.deleteOrderFromServer(this.fullOrder) : this.orderService.removeFromLocalStorage();
     } else {
       window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
     }

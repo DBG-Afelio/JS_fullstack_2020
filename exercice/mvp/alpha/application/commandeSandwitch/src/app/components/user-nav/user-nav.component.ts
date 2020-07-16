@@ -13,10 +13,19 @@ export class UserNavComponent implements OnInit {
   @Input() fullOrder: FullOrder = null;
   @Input() userList: User[] = [];
   @Input() currentUser: User = null;
+  public ariaLabelCredit: string = '';
   @Input() creditMax: number = null; 
   @Output() deleteRequest: EventEmitter<any> = new EventEmitter();
   constructor() {
+    if (this.currentUser && this.creditMax) {
+      if (this.currentUser.credit > 0) {
+        this.ariaLabelCredit = 'Pensez à vous acquitter du montant dû aupres de l\'administrateur.';
+      } else {
+        this.ariaLabelCredit = `Vous êtes à jour sur vos remboursements. Votre credit autorisé est de ${this.creditMax}.`;
+      }
+    }
   }
+    
 
   ngOnInit(): void {
     

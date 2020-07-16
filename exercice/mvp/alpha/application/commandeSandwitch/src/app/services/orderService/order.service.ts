@@ -23,7 +23,7 @@ export class OrderService {
   private userFullOrder: BehaviorSubject<FullOrder> = new BehaviorSubject(null);
   public orderUrl: string = 'http://localhost:3000/commandes';
   private creditMaxAllowed: number = 10;
-  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(13, 30, 0));// 12:14 = 51600 sec // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
+  private deadline: BehaviorSubject<Deadline> = new BehaviorSubject(new Deadline(21, 30, 0));// 12:14 = 51600 sec // <<--- ici pour modifier la deadline pour les tests ( remettre 10, 30, 0 ) une fois terminee.
   private onTime: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public today = new Date();
   public today_str: string = this.today.getDate().toString() + this.today.getMonth().toString() + this.today.getFullYear().toString();
@@ -76,6 +76,7 @@ export class OrderService {
       console.log('1-user deconnected <=> pas de recherche d\'order', found);
       this.setFullOrder(found);
     }
+    console.log('found', found);
   }
   
   public getList(): Observable<Order[]> {
@@ -119,7 +120,7 @@ export class OrderService {
   }
 
 /*----------------------SETTER GETTER FullOrder ----------------------------------*/
-  private setFullOrder(fullOrder: FullOrder): void {
+  public setFullOrder(fullOrder: FullOrder): void {
     fullOrder ? this.userFullOrder.next(fullOrder) : this.userFullOrder.next(null); 
 
   }
@@ -172,13 +173,28 @@ export class OrderService {
   //   return this.http.put<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`, payload.toDto())
   //     .pipe(catchError((error: any) => Observable.throw(error.json())));
   // }
+  public updateCredit() {
+    
+  }
+  public deleteOrderFromServer(payload: FullOrder): void {
+// marche pas avec ce block gestion credit
+    if (!payload.getOrder().isPayed) {
+      console.log('credit aavant: ', this.currentUser.credit);
+      Math.round((this.currentUser.credit -= payload.getTotalPrice())*100)/100; //pour avoir 2 digits float
+      console.log('credit apres: ', this.currentUser.credit);
+        this.userService.setCurrentUser(this.currentUser);
+      this.userService.updateUser(this.currentUser).subscribe((userDto) => console.log("user after update in Server :", User.fromDto(userDto)));
+    }
 
-  public deleteOrderFromServer(payload: Order): void {
     console.log('********DELETE REQUEST SERVER **********');
-    this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`).subscribe({
+    this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.getOrder().id}`).subscribe({
       next: returnedOrder => {
         console.log('commande retiree du Local storage');
-        returnedOrder ? this.updateFullOrder() : console.log('retour requete DELETE ?');
+        if (returnedOrder) {
+          // this.getFullOrder().subscribe((o) => console.log('after delete before update :',o));
+          this.updateFullOrder();
+        }
+        //returnedOrder ? this.updateFullOrder() : console.log('retour requete DELETE ?');
       },
       error: error => console.error('Erreur DELETE order', error)
     });
@@ -186,12 +202,17 @@ export class OrderService {
 
   public addOrderIntoServer(fullPayload: FullOrder): void {
     fullPayload.getOrder().date = new Date();
-    console.log('full avant ajout server (checker id user):', fullPayload);
+    if (!fullPayload.getOrder().isPayed) {
+      fullPayload.getUser().credit += fullPayload.getTotalPrice(); 
+      this.userService.updateUser(fullPayload.getUser()).subscribe(() => {
+        this.userService.setCurrentUser(fullPayload.getUser());
+        this.setFullOrder(fullPayload);
+      });
+    }
     this.http.post<IOrderDto>(`${this.orderUrl}`, fullPayload.getOrder().toDto()).subscribe({
       next: returnedOrder => {
         this.removeFromLocalStorage();
         console.log('commande retiree du Local storage');
-        // fullPayload.setConfirmStatus(true);
         returnedOrder ? this.updateFullOrder() : console.log('retour requete POST ?');
       },
       error: error => console.error('Erreur POST new order', error)

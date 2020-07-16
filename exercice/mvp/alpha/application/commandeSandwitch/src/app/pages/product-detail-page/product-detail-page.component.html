@@ -34,20 +34,25 @@
 
     <div class="wrap-buttons">
 
+        <div *ngIf="!(currentUser && product)">
+            Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
+        </div>
+
         <div class="msg-detail" *ngIf="currentUser && product"> 
-            <div *ngIf="!(currentUser && product)">
-                Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
+            <div *ngIf="isOnTime && !currentUser.isBlocked">
+                <div *ngIf="fullOrder && !fullOrder?.isConfirmed()">
+                    Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> temporairement sauvegardée &nbsp;! Procéder au paiement avant <span>{{deadline?.getHours()}}h{{deadline?.getMinutes()}}</span> pour confirmer &nbsp;!
+                </div> 
+
+                <div *ngIf="fullOrder?.isConfirmed()">
+                    Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> confirmée ! Supprimez-la avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour ajouter un nouveau produit&nbsp;!
+                </div> 
+                <div *ngIf="productSupplier && (productSupplier.closure || !productSupplier.isOpenedToday())">
+                    <span>{{ productSupplier.name }}</span> est actuellement fermé &nbsp;!
+                </div>
             </div>
-
-            <div *ngIf="currentUser && isOnTime && fullOrder && !fullOrder?.isConfirmed()">
-                Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> temporairement sauvegardée &nbsp;! Procéder au paiement avant <span>{{deadline?.getHours()}}h{{deadline?.getMinutes()}}</span> pour confirmer &nbsp;!
-            </div> 
-        
-            <div *ngIf="currentUser && isOnTime && fullOrder?.isConfirmed()">
-                Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> confirmée ! Supprimez-la avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour ajouter un nouveau produit&nbsp;!
-            </div> 
-
-            <div *ngIf="currentUser && !isOnTime">
+            
+            <div *ngIf="!isOnTime && !currentUser.isBlocked">
                 <div *ngIf="!fullOrder">
                     <span>Oups !</span> Le delai est depassé ! Revenez demain avant <span>{{deadline.getHours()}}h{{deadline.getMinutes()}}</span>  pour commander votre repas&nbsp;!
                 </div>
@@ -58,9 +63,13 @@
                     <span>Sorry !</span> Nous n'avons pas recu de confirmation (avant {{deadline.getHours()}}h{{deadline.getMinutes()}}) pour la commande {{ fullOrder?.getOrderProductWithOptions() }}&nbsp;!
                 </div>
             </div> 
+
+            <div *ngIf="currentUser.isBlocked">
+                Votre compte a été bloqué et ne vous permet plus de commander sur le site. Veuillez prendre contact aupres de <a routerLink="">l'administrateur</a> pour regulariser la situation.
+            </div>
         </div>
 
-        <div class="buttons-detail" *ngIf="currentUser && product">      
+        <div class="buttons-detail" *ngIf="currentUser && !currentUser.isBlocked && product && productSupplier && !productSupplier.closure && productSupplier.isOpenedToday()">      
             <button
                 (click)="saveInLocalStorage()"
                 [disabled]="!isOnTime || fullOrder?.isConfirmed()">

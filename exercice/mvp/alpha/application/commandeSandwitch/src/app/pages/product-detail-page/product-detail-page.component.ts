@@ -29,6 +29,7 @@ export class ProductDetailPageComponent implements OnInit {
   public isEqualToUserOrder: boolean = false;
   public selected: number[] = [];
   public deadline: Deadline = null;
+  public productSupplier: Supplier = null;
 //-------------WARNING : CODE ARCHI SALE ---- SORRY
 
   constructor(
@@ -50,12 +51,13 @@ export class ProductDetailPageComponent implements OnInit {
     this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
-
+      this.orderService.getFullOrder().subscribe((full) => {
+        this.fullOrder = full;
       this.productService.getProductById(id).subscribe(product => {
         this.product = product;
+        this.supplierService.getProductAndSupplier(product.id).subscribe(([prod, supplier]) => this.productSupplier = supplier);
         // this.product ? this.updateFinalPrice() : this.product;
-        this.orderService.getFullOrder().subscribe((full) => {
-          this.fullOrder = full;
+        
           if (!this.fullOrder || this.fullOrder.getProduct().id !== product.id) { 
             this.selectedOptionsHere = this.selected = [];
             this.updatedPrice = product.price;
@@ -103,26 +105,11 @@ export class ProductDetailPageComponent implements OnInit {
 
   public saveInLocalStorage(): void {
     if (this.isOnTime) {
-      if (!this.fullOrder) { //pas encore de commande
-        this.orderService.addInLocalStorage(this.createNewOrder());
-      } else {
-        if (this.fullOrder.isConfirmed()) { //une commande confirmee existe
-          const msg2 = `Vous avez deja une commande CONFIRMEE pour aujourd'hui: ${this.fullOrder.getOrderProductWithOptions()}. Veuillez la supprimer (avant 10h30) avant de renouveler une commande`;
-          if (window.confirm(msg2)) {
-            this.router.navigateByUrl(`/produit/${this.fullOrder.getOrder().productId}`);
-          }
-        } else { 
-          this.orderService.addInLocalStorage(this.createNewOrder());
-        }
-      }
-    } else {
-      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
+      this.orderService.addInLocalStorage(this.createNewOrder());
     }
-    
   }
 
   private createNewOrder(): Order{
-    
     return new Order(
       this.currentUser.id,
       this.product.id,
@@ -141,19 +128,15 @@ export class ProductDetailPageComponent implements OnInit {
   
   public remove(): void{
     if (this.isOnTime) {
-      if (this.product.id === this.fullOrder.getOrder().productId) {
-        if (!this.fullOrder.isConfirmed()) {
-          this.orderService.removeFromLocalStorage();
-        } else {
-          const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
-          if (window.confirm(msg)) {
-            this.orderService.deleteOrderFromServer(this.fullOrder.getOrder());
-          }
+      if (!this.fullOrder.isConfirmed()) {
+        this.orderService.removeFromLocalStorage();
+      } else {
+        const msg = `Etes-vous certain de vouloir annuler votre commande ?`;
+        if (window.confirm(msg)) {
+          this.orderService.deleteOrderFromServer(this.fullOrder);
         }
       }
-    } else {
-      window.alert('Le temps limite est depasse. Nous sommes desoles de ne pouvoir prendre en compte votre demande.');
-    }
+    } 
   }
 
 }

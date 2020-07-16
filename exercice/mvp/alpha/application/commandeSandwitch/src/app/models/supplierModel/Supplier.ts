@@ -83,4 +83,9 @@ export class Supplier {
     public setListProducts(listProducts: Product[]): void {
         this.listProducts = listProducts;
     }
+
+    public isOpenedToday(): boolean{
+        const todayDay = new Date().getDay();
+        return this.openings[todayDay];
+    }
 }
