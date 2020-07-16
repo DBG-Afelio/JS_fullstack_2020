@@ -48,11 +48,16 @@
         <div class="form-element form-credit col-lg-6">
             <label  for="credit">Crédit</label>
             <input  #credit type="number" [(ngModel)]="user.credit"  class="form-control"  name="credit"
-                placeholder = "Crédit (obligatoire)" required min = "0"
+                placeholder = "Crédit (obligatoire)" required [min] = "0" 
                 >
-            <div *ngIf = "user.credit === 0"
-                class="user-form__error alert alert-danger">
-                <p>Le crédit est requis</p>
+           
+            <div *ngIf="credit.invalid" class="user-form__error alert alert-danger">
+                <div *ngIf="credit.errors.required">
+                    Le crédit est requis
+                </div>
+                <div *ngIf="credit.errors.min">
+                    Crédit min: 0
+                </div>
             </div>
         </div>
     </div>
