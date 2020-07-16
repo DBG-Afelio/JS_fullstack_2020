@@ -69,11 +69,12 @@
             </div>
         </div>
 
-        <div class="buttons-detail" *ngIf="currentUser && !currentUser.isBlocked && product && productSupplier && !productSupplier.closure && productSupplier.isOpenedToday()">      
+        <div class="buttons-detail" *ngIf="!currentUser?.isBlocked && product && !productSupplier?.closure && productSupplier?.isOpenedToday()">      
             <button
                 (click)="saveInLocalStorage()"
-                [disabled]="!isOnTime || fullOrder?.isConfirmed()">
-                    AJOUTER
+                [disabled]="!isOnTime || fullOrder?.isConfirmed() || isAlreadyAdded">
+                <!-- {{ isAlreadyAdded }} -->
+                    {{isAlreadyAdded ? 'AJOUTÉ' : 'AJOUTER'}}
             </button>  
             <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
                 (click)="remove()"

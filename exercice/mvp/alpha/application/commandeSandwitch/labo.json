@@ -3,21 +3,21 @@
     {
       "login": "admin",
       "password": "admin",
-      "nom": "GENE",
-      "prenom": "Genevieve",
-      "credit": "0",
-      "formation": "-",
+      "nom": "saispas",
+      "prenom": "gene",
+      "credit": 0,
+      "formation": null,
       "banni": false,
       "admin": true,
       "id": 1
     },
     {
-      "login": "pcast",
-      "password": "pcast",
-      "nom": "CASTRONOVO",
-      "prenom": "Pierre",
-      "credit": "04.5",
-      "formation": "FullStack Web Dev",
+      "login": "steph_dub",
+      "password": "froufrou",
+      "nom": "dubois",
+      "prenom": "stephane",
+      "credit": 8,
+      "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
       "id": 2
@@ -27,7 +27,7 @@
       "password": "miammiam",
       "nom": "duprieux",
       "prenom": "laurent",
-      "credit": "3",
+      "credit": 0,
       "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
@@ -38,77 +38,11 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 1,
-      "formation": "Le planté de baton",
+      "credit": 8.2,
+      "formation": "FullStack WebDev",
       "banni": false,
       "admin": false,
       "id": 4
-    },
-    {
-      "login": "Pierre",
-      "password": "Pierre",
-      "nom": "Pierre",
-      "prenom": "Castt",
-      "credit": 0,
-      "formation": "gfh",
-      "banni": false,
-      "admin": false,
-      "id": 6
-    },
-    {
-      "login": "julius",
-      "password": "julius",
-      "nom": "Cesar",
-      "prenom": "Jules",
-      "credit": 1.5,
-      "formation": "Agent de la paix avant tout",
-      "banni": false,
-      "admin": false,
-      "id": 7
-    },
-    {
-      "login": "oshi",
-      "password": "oshi",
-      "nom": "GRANDJEAN",
-      "prenom": "Oshi",
-      "credit": 0,
-      "formation": "FullStack WebDev",
-      "banni": false,
-      "admin": false,
-      "id": 8
-    },
-    {
-      "login": "geof",
-      "password": "geof",
-      "nom": "WINSTW",
-      "prenom": "Geoffroy",
-      "credit": 0,
-      "formation": "FullStack WebDev",
-      "banni": false,
-      "admin": false,
-      "id": 9
-    },
-    {
-      "login": "denis",
-      "password": "denis",
-      "nom": "BOEGARTS",
-      "prenom": "Denis",
-      "credit": 0,
-      "formation": "FullStack WebDev",
-      "banni": false,
-      "admin": false,
-      "id": 10
-    },
-    {
-      "login": "flo",
-      "password": "flo",
-      "nom": "Van",
-      "prenom": "Florent",
-      "credit": 3,
-      "formation": "FullStack WebDev",
-      "banni": false,
-      "admin": false,
-      "id": 11
     }
   ],
   "commandes": [
@@ -133,150 +67,14 @@
       "date": "2020-02-21T13:38:10.681Z"
     },
     {
-      "user_id": 2,
-      "product_id": 33,
-      "option_ids": [],
-      "paye": true,
+      "user_id": 4,
+      "product_id": 10,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
       "id": 3,
-      "date": "Sun Jul 12 2020 13:48:00 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 5,
-      "option_ids": [
-        2
-      ],
-      "paye": false,
-      "id": 4,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 5,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 5,
-      "option_ids": [
-        2
-      ],
-      "paye": true,
-      "id": 7,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 2,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 8,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 30,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 9,
-      "date": "Sun Jul 12 2020 13:48:00 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 5,
-      "option_ids": [
-        2
-      ],
-      "paye": true,
-      "id": 11,
-      "date": "2020-07-12T20:34:19.892Z"
-    },
-    {
-      "user_id": 4,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 12,
-      "date": "2020-07-12T13:38:10.681Z"
-    },
-    {
-      "user_id": 2,
-      "product_id": 8,
-      "option_ids": [
-        1,
-        2
-      ],
-      "paye": true,
-      "id": 13,
-      "date": "Mon Jul 13 2020 10:12:20 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 2,
-      "product_id": 1,
-      "option_ids": [],
-      "paye": true,
-      "id": 15,
-      "date": "Mon Jul 13 2020 12:01:55 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 1,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 19,
-      "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 2,
-      "product_id": 54,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 34,
-      "date": "Tue Jul 14 2020 11:06:09 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 30,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 35,
-      "date": "Tue Jul 14 2020 22:45:25 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 1,
-      "product_id": 33,
-      "option_ids": [],
-      "paye": true,
-      "id": 37,
-      "date": "Wed Jul 15 2020 00:46:35 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 8,
-      "option_ids": [
-        1,
-        2
-      ],
-      "paye": true,
-      "id": 38,
-      "date": "Wed Jul 15 2020 15:19:53 GMT+0200 (Central European Summer Time)"
+      "date": "Thu Jul 16 2020 19:36:18 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
@@ -295,7 +93,7 @@
         true,
         false
       ],
-      "tel": "04/2236552"
+      "tel": "04/2236550"
     },
     {
       "id": 2,
@@ -313,56 +111,36 @@
         true
       ],
       "tel": "04/3360262"
-    },
-    {
-      "id": 3,
-      "nom": "Pierre",
-      "description": "Pierre",
-      "ferme": true,
-      "archive": false,
-      "horaire": [
-        false,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false
-      ],
-      "tel": "Pierre"
-    },
-    {
-      "id": 4,
-      "nom": "Assia",
-      "description": "fgsdfgs",
-      "ferme": true,
-      "archive": false,
-      "horaire": [
-        true,
-        true,
-        true,
-        false,
-        false,
-        false,
-        false
-      ],
-      "tel": "sdfgsdg"
     }
   ],
   "produits": [
     {
-      "id": 1,
       "nom": "Dagobert",
-      "description": "Jambon à l’os, gouda, mayonnaise, crudités ",
+      "description": "Jambon à l’os, gouda, mayonnaise, crudités.",
+      "prix": 4.5,
+      "options": [
+        {
+          "nom": "Pain gris",
+          "surcout": 0.3,
+          "id": 1
+        }
+      ],
+      "fourn_id": 1,
+      "id": 1
+    },
+    {
+      "nom": "Grand Large",
+      "description": "Salade de thon «maison», crudités.",
       "prix": 5,
       "options": [
         {
-          "id": 1,
           "nom": "Pain gris",
-          "surcout": 0.3
+          "surcout": 0.3,
+          "id": 1
         }
       ],
-      "fourn_id": 1
+      "fourn_id": 1,
+      "id": 2
     },
     {
       "nom": "Américain maison",
@@ -379,14 +157,13 @@
       "id": 3
     },
     {
-      "id": 4,
       "nom": "Louisiane",
       "description": "Poulet mariné, carottes, tomates, ananas confits, noix de cajou, sauce cajun, sauce crème.",
       "prix": 5.5,
       "options": [
         {
           "nom": "Pain gris",
-          "surcout": "0.3",
+          "surcout": 0.3,
           "id": 1
         },
         {
@@ -395,21 +172,27 @@
           "id": 2
         }
       ],
-      "fourn_id": 1
+      "fourn_id": 1,
+      "id": 4
     },
     {
-      "id": 5,
       "nom": "Bombay",
       "description": "Poulet mariné, raisins frais et secs, carottes, noix de cajou, coriandre, sauce curry et crème.",
-      "prix": 5.6,
+      "prix": 5.5,
       "options": [
         {
-          "id": 1,
-          "nom": "champignons",
-          "surcout": 3.5
+          "nom": "Pain gris",
+          "surcout": 0.3,
+          "id": 1
+        },
+        {
+          "nom": "En salade",
+          "surcout": 4,
+          "id": 2
         }
       ],
-      "fourn_id": 1
+      "fourn_id": 1,
+      "id": 5
     },
     {
       "nom": "Pain de viande",
@@ -431,6 +214,25 @@
       "id": 6
     },
     {
+      "nom": "Pain de viande Bis",
+      "description": "Pain de viande “maison“, gouda, tom. séchées, sauce tartare, sauce crème, roquette.",
+      "prix": 5.5,
+      "options": [
+        {
+          "nom": "Pain gris",
+          "surcout": 0.3,
+          "id": 1
+        },
+        {
+          "nom": "En salade",
+          "surcout": 4,
+          "id": 2
+        }
+      ],
+      "fourn_id": 1,
+      "id": 7
+    },
+    {
       "nom": "Poulet qui croque",
       "description": "Poulet croquant, sauce tartare, sauce crème, crudités.",
       "prix": 5.5,
@@ -450,7 +252,6 @@
       "id": 8
     },
     {
-      "id": 9,
       "nom": "Fresh",
       "description": "Chavroux, melon, rondins de chèvre, poulet mariné, menthe, ciboulette, sauce crème.",
       "prix": 5.7,
@@ -461,13 +262,13 @@
           "id": 1
         },
         {
-          "id": 3,
-          "name": "",
-          "surcout": "3",
-          "nom": "Pierre"
+          "nom": "En salade",
+          "surcout": 4.3,
+          "id": 2
         }
       ],
-      "fourn_id": 1
+      "fourn_id": 1,
+      "id": 9
     },
     {
       "nom": "César",
@@ -487,6 +288,25 @@
       ],
       "fourn_id": 1,
       "id": 10
+    },
+    {
+      "nom": "Larzac",
+      "description": "From. de chèvre entouré de lard fumé, rondins de chèvre, champig., raisins frais et secs, noix, miel, sauce crème",
+      "prix": 5.7,
+      "options": [
+        {
+          "nom": "Pain gris",
+          "surcout": 0.3,
+          "id": 1
+        },
+        {
+          "nom": "En salade",
+          "surcout": 4.3,
+          "id": 2
+        }
+      ],
+      "fourn_id": 1,
+      "id": 11
     },
     {
       "nom": "Croque monsieur",
@@ -1099,10 +919,9 @@
       "id": 51
     },
     {
-      "id": 52,
       "nom": "Merguez",
       "description": "Tomate, mozzarella, merguez, poivrons, oignons",
-      "prix": "9",
+      "prix": 8,
       "options": [
         {
           "nom": "En platine",
@@ -1110,7 +929,8 @@
           "id": 1
         }
       ],
-      "fourn_id": 2
+      "fourn_id": 2,
+      "id": 52
     },
     {
       "nom": "Parmesan",
@@ -1347,70 +1167,6 @@
       "options": [],
       "fourn_id": 2,
       "id": 71
-    },
-    {
-      "id": 72,
-      "nom": "dghjdghj",
-      "description": "ghjdghj",
-      "prix": "5",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 73,
-      "nom": "1Pierre",
-      "description": "fqdfg",
-      "prix": "7",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 74,
-      "nom": "pierre1",
-      "description": "1",
-      "prix": "1",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 75,
-      "nom": "ABC",
-      "description": "ABC",
-      "prix": "12",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 76,
-      "nom": "1",
-      "description": "1",
-      "prix": "1",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 77,
-      "nom": "1",
-      "description": "1",
-      "prix": "01",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 78,
-      "nom": "1",
-      "description": "1",
-      "prix": "01",
-      "options": [],
-      "fourn_id": 0
-    },
-    {
-      "id": 79,
-      "nom": "",
-      "description": "",
-      "prix": 0,
-      "options": [],
-      "fourn_id": 2
     }
   ]
 }

@@ -30,6 +30,7 @@ export class ProductDetailPageComponent implements OnInit {
   public selected: number[] = [];
   public deadline: Deadline = null;
   public productSupplier: Supplier = null;
+  public isAlreadyAdded: boolean = false;
 //-------------WARNING : CODE ARCHI SALE ---- SORRY
 
   constructor(
@@ -56,16 +57,14 @@ export class ProductDetailPageComponent implements OnInit {
       this.productService.getProductById(id).subscribe(product => {
         this.product = product;
         this.supplierService.getProductAndSupplier(product.id).subscribe(([prod, supplier]) => this.productSupplier = supplier);
-        // this.product ? this.updateFinalPrice() : this.product;
-        
           if (!this.fullOrder || this.fullOrder.getProduct().id !== product.id) { 
             this.selectedOptionsHere = this.selected = [];
             this.updatedPrice = product.price;
-          //  this.updateFinalPrice();
           } else {
             this.selectedOptionsHere = this.fullOrder.getSelectedOptions();
             this.selected = this.selectedOptionsHere.map((option) => option.id);
             this.updateFinalPrice();
+            this.isAlreadyAdded = true;
           }
         });
       });
@@ -89,7 +88,23 @@ export class ProductDetailPageComponent implements OnInit {
       this.selectedOptionsHere.splice(index, 1);
     }
     this.updateFinalPrice();
+
+    if (this.fullOrder) {
+      if (this.product.id === this.fullOrder.getProduct().id && this.AreOptionsIdentical(this.fullOrder.getSelectedOptions(), this.selectedOptionsHere)) {
+        this.isAlreadyAdded = true;
+      } else {
+        this.isAlreadyAdded = false;
+      }
+    }
   }
+
+  public AreOptionsIdentical(optionArr1: Option[], optionArr2: Option[]): boolean {
+    let isEqual: boolean = false;
+    if (this.fullOrder && optionArr1.length === optionArr2.length) {
+      isEqual = optionArr1.every(option1 => optionArr2.find(option2 => option1.id === option2.id)) && optionArr2.every(option2 => optionArr1.find(option1 => option1.id === option2.id));
+    }
+    return isEqual;
+}
 
   public setOptionState(optionDisplayed: Option): boolean {
     let isChecked: boolean = false;
@@ -128,6 +143,7 @@ export class ProductDetailPageComponent implements OnInit {
   
   public remove(): void{
     if (this.isOnTime) {
+      this.isAlreadyAdded = false;
       if (!this.fullOrder.isConfirmed()) {
         this.orderService.removeFromLocalStorage();
       } else {
