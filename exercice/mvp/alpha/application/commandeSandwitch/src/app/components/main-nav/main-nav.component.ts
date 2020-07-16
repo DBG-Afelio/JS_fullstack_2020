@@ -36,13 +36,12 @@ export class MainNavComponent implements OnInit, OnDestroy {
   public loadData(): void{
     this.userService.isChangeInUserList().subscribe(() => {
       this.userService.getList().subscribe((list) => this.userList = list);
-      this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
-      this.fullOrderSubscription = this.orderService.getFullOrder().subscribe((full) => {
+    });
+    this.fullOrderSubscription = this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
       console.log('fullOrder MAIN-NAV :', full);
     });
-    })
-
+    this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
     this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
   }
 
