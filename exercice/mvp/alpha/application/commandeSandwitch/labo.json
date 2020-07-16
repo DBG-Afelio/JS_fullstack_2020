@@ -3,30 +3,30 @@
     {
       "login": "admin",
       "password": "admin",
-      "nom": "saispas",
-      "prenom": "gene",
+      "nom": "aka Gene",
+      "prenom": "Genevieve",
       "credit": 0,
-      "formation": null,
+      "formation": "Collaboratrice ProForma",
       "banni": false,
       "admin": true,
       "id": 1
     },
     {
-      "login": "steph_dub",
-      "password": "froufrou",
-      "nom": "dubois",
-      "prenom": "stephane",
+      "login": "false",
+      "password": "true",
+      "nom": "Dubois",
+      "prenom": "Stephane",
       "credit": 8,
       "formation": "JS_FULLSTACK",
-      "banni": false,
+      "banni": true,
       "admin": false,
       "id": 2
     },
     {
-      "login": "lolo",
-      "password": "miammiam",
-      "nom": "duprieux",
-      "prenom": "laurent",
+      "login": "true",
+      "password": "false",
+      "nom": "Duprieux",
+      "prenom": "Laurent",
       "credit": 0,
       "formation": "INTRO_PROG",
       "banni": false,
@@ -43,6 +43,39 @@
       "banni": false,
       "admin": false,
       "id": 4
+    },
+    {
+      "login": "pcast",
+      "password": "pcast",
+      "nom": "Castronovo",
+      "prenom": "Pierre",
+      "credit": 0,
+      "formation": "FullStackWebDev",
+      "banni": false,
+      "admin": false,
+      "id": 5
+    },
+    {
+      "login": "geof",
+      "password": "geof",
+      "nom": "Winstw",
+      "prenom": "Geoffroy",
+      "credit": 0,
+      "formation": "Formateur FullStack WebDev",
+      "banni": false,
+      "admin": false,
+      "id": 6
+    },
+    {
+      "login": "denis",
+      "password": "denis",
+      "nom": "Boegarts",
+      "prenom": "Denis",
+      "credit": 0,
+      "formation": "Formateur FullStack WebDev",
+      "banni": false,
+      "admin": false,
+      "id": 7
     }
   ],
   "commandes": [

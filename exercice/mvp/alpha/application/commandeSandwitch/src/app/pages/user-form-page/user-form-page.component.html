@@ -79,6 +79,17 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="form-element form-isBlocked col-lg-6">
+            <label  for="blocked">Bloquer</label>
+            <input  #isBlocked type="checkbox" [(ngModel)]="user.isBlocked"  class="form-control"  name="login">
+        </div>
+
+        <div class="form-element form-isAdmin col-lg-6">
+            <label  for="admin">Administrateur ?</label>
+            <input  #isAdmin type="checkbox" [(ngModel)]="user.isAdmin"  class="form-control"  name="password">
+        </div>
+    </div>
 
 
     <!-- Compte desactivé <input type="checkbox" checked="user ? "user.isBlocked" : "false" " >
@@ -95,7 +106,7 @@
 
                 <button
                 class="btn btn-ok"
-                    (click)="saveUserChange(famName.value,firstName.value,course.value,login.value,pwd.value,credit.valueAsNumber)">
+                    (click)="saveUserChange(famName.value,firstName.value,course.value,login.value,pwd.value,credit.valueAsNumber,isBlocked.checked,isAdmin.checked)">
                     Sauvegarder
                 </button>
             </div>

@@ -5,7 +5,7 @@
 <div class="button-new">
     <a routerLink = "/admin/fournisseur/ajouter">Ajouter un fournisseur</a>
 </div>
-<table>
+<table *ngIf="listSuppliers">
     <tr>
         <th>ID</th>
         <th>NOM</th>

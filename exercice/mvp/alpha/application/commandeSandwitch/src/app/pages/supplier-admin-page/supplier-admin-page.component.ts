@@ -48,7 +48,7 @@ export class SupplierAdminPageComponent implements OnInit {
   }
 
   public sortBy(prop: string) {
-    return this.listSuppliers.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+    return this.listSuppliers?.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   }
 
   ngOnInit(): void {

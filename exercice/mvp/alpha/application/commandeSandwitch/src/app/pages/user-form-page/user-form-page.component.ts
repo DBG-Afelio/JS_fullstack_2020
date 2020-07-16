@@ -45,7 +45,9 @@ export class UserFormPageComponent implements OnInit {
     course: string,
     login: string,
     pwd: string,
-    credit: number
+    credit: number,
+    isBlocked: boolean,
+    isAdmin: boolean,
   ): void {
     this.user.login = login;
     this.user.pwd = pwd;
@@ -53,7 +55,9 @@ export class UserFormPageComponent implements OnInit {
     this.user.firstName = firstName;
     this.user.credit = credit;
     this.user.course = course;
-    console.log(this.user);
+    this.user.isBlocked = isBlocked;
+    this.user.isAdmin = isAdmin;
+
     if (this.user.id === 0) {
       this.userService.addUser(this.user);
     } else {
