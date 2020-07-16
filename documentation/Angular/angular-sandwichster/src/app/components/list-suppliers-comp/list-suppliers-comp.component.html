@@ -1,11 +1,11 @@
 
 
   <div class="divNewSupplier">
-    <a [routerLink]="['/', 'supplier', 0]">Ajouter nouveau fournisseur</a>
+    <button class="btn btn-success"><a [routerLink]="['/', 'supplier', 0]">Ajouter nouveau fournisseur</a></button>
   </div>
   
   <div *ngFor='let supplier of listSuppliers'>
-    {{supplier.nom}}<br>
+    <span class="nameSupplier">{{supplier.nom}}</span><br>
     {{supplier.description}}<br>
     {{supplier.tel}}<br>
     <div *ngIf='supplier.ferme; else elseBlock'>
@@ -36,12 +36,14 @@
       </tr>
     </table>
     <div *ngIf='supplier.archive; else nonArchive'>
-      <span >Archivé</span>
+      <span >Fournisseur archivé</span>
     </div>
     <ng-template #nonArchive>
-      <span>Non archivé</span>
+      <span>Fournisseur non archivé</span>
     </ng-template><br>
-    <a [routerLink]="['/', 'supplier', supplier.id]">Modifier</a>
+    <button class="btn btn-info">
+      <a [routerLink]="['/', 'supplier', supplier.id]">Modifier</a>
+    </button>
     <hr>
   </div>
   

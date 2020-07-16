@@ -3969,6 +3969,9 @@ header{
   background-color: rgb(255, 191, 0);
   display: flex;
   padding: 2rem;
+  -webkit-box-shadow: 0px 10px 13px -9px rgba(102,100,102,1);
+  -moz-box-shadow: 0px 10px 13px -9px rgba(102,100,102,1);
+  box-shadow: 0px 10px 13px -9px rgba(102,100,102,1);
 }
 
 .imgLogo{

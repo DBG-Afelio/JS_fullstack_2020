@@ -1,43 +1,69 @@
-<h1>Snack/Restaurant</h1>
-Nom: <input type="text" placeholder="ex. Da Pepe" class="pizza-form__input" [(ngModel)]="supplierDisplayed.nom"
-    name="A"><br>
-Description: <input type="text" placeholder="Sandwicherie" [(ngModel)]="supplierDisplayed.description" name="B"><br>
-Téléphone: <input type="text" placeholder="065621449" [(ngModel)]="supplierDisplayed.tel" name="C"><br>
-
-Est-ce fermé?
-<select #test (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.ferme">
-    <option [ngValue]="true" [selected]="supplierDisplayed.ferme">Oui</option>
-    <option [ngValue]="false" [selected]="!supplierDisplayed.ferme">Non</option>
-</select><br>
-
-Est-ce qu'il est archivé?<br>
-Les produits d'un endroit archivé ne seront plus visibles dans la liste de produits.<br>
-<select (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.archive">
-    <option [ngValue]="true" [selected]="supplierDisplayed.archive">Oui</option>
-    <option [ngValue]="false" [selected]="!supplierDisplayed.archive">Non</option>
-</select><br>
-
-Jours de fermeture: {{supplierDisplayed | json}}
-<table>
-    <tr>
-      <th>Lundi</th>
-      <th>Mardi</th>
-      <th>Mercredi</th>
-      <th>Jeudi</th>
-      <th>Vendredi</th>
-      <th>Samedi</th>
-      <th>Dimanche</th>
-    </tr>
-    <tr>
-        <td *ngFor="let horaire of supplierDisplayed.horaire, index as i ">
-            <select  (change) = 'functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.horaire[i]">
-                <option [ngValue]="true" [selected]="supplierDisplayed.horaire[i]">Oui</option>
-                <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[i]">Non</option>
+<div class="mainDivAddSupplier">
+    <h1>Snack/Restaurant</h1>
+    <div>
+        <div class="divDataSupplier">
+            Nom<span class="redStar">*</span>: <input type="text" placeholder="ex. Da Pepe"
+                class="pizza-form__input" [(ngModel)]="supplierDisplayed.nom" name="A">
+        </div>
+        <div class="divDataSupplier">
+            Description: <input type="text" placeholder="Sandwicherie" [(ngModel)]="supplierDisplayed.description"
+                name="B">
+        </div>
+        <div class="divDataSupplier">
+            Téléphone<span class="redStar">*</span>: <input type="text" placeholder="065621449"
+                [(ngModel)]="supplierDisplayed.tel" name="C">
+        </div>
+        <div>
+            Est-ce fermé?
+            <select #test (change)='functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.ferme">
+                <option [ngValue]="true" [selected]="supplierDisplayed.ferme">Oui</option>
+                <option [ngValue]="false" [selected]="!supplierDisplayed.ferme">Non</option>
             </select>
-        </td>
-    </tr>
-  </table>
+        </div>
+        <div>
+            Est-ce qu'il est archivé?<br>
+            <div class="divArchived">Les produits d'un endroit archivé ne seront plus visibles dans la liste des
+                produits.</div><br>
+            <select (change)='functionVerifie(test)' class="custom-select" [(ngModel)]="supplierDisplayed.archive">
+                <option [ngValue]="true" [selected]="supplierDisplayed.archive">Oui</option>
+                <option [ngValue]="false" [selected]="!supplierDisplayed.archive">Non</option>
+            </select><br>
+        </div>
+        <div>
+            <span class="spanSchedule">Jours de fermeture:</span>
+            <table>
+                <tr>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                    <th>Samedi</th>
+                    <th>Dimanche</th>
+                </tr>
+                <tr>
+                    <td *ngFor="let horaire of supplierDisplayed.horaire, index as i ">
+                        <select (change)='functionVerifie(test)' class="custom-select"
+                            [(ngModel)]="supplierDisplayed.horaire[i]">
+                            <option [ngValue]="true" [selected]="supplierDisplayed.horaire[i]">Oui</option>
+                            <option [ngValue]="false" [selected]="!supplierDisplayed.horaire[i]">Non</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="divAllButtons">
+            <button class="btn btn-success" *ngIf="supplierDisplayed.id !== 0" (click)="updateSupplierEvent()">Modifier
+                fournisseur</button>
+            <button class="btn btn-danger" *ngIf="supplierDisplayed.id !== 0" (click)="eraseSupplierEvent()">Effacer le
+                fournisseur</button>
+            <button class="btn btn-success" *ngIf="supplierDisplayed.id === 0" (click)="createSupplierEvent()">Créer un
+                nouveau fournisseur</button>
+        </div>
+        <div class="divRedStar">
+            <span class="redStar">*</span>: données obligatoires
+        </div>
 
-<button *ngIf="supplierDisplayed.id !== 0" (click)="updateSupplierEvent()">Modifier fournisseur</button>
-<button *ngIf="supplierDisplayed.id !== 0" (click)="eraseSupplierEvent()">Effacer le fournisseur</button>
-<button *ngIf="supplierDisplayed.id === 0" (click)="createSupplierEvent()">Créer un nouveau fournisseur</button>
+    </div>
+
+</div>

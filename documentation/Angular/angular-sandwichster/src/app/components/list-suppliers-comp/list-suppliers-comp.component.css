@@ -1,4 +1,43 @@
+a{
+   color: white;
+}
+
+table{
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+}
+
+th, td{
+   padding: 0.5rem;
+}
+
+th{
+   border-bottom: solid black 1px;
+}
+
+button{
+   margin-top: 1rem;
+}
+
+th:not(:last-child){
+   border-right: solid black 1px;
+}
+
+td:not(:last-child){
+   border-right: solid black 1px;
+}
+
 .divNewSupplier{
    display: flex;
    justify-content: center;
 }
+
+.divNewSupplier{
+   margin: 2rem 0;
+}
+
+.nameSupplier{
+   font-weight: bold;
+   font-size: 1.5rem;
+}
+
