@@ -29,10 +29,12 @@ export class ListTotalOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.getOrders();
-
   }
 
-  getOrders(){
+  // deleteOrder(order: Order)
+
+  getOrders() {
+    
     return this.todayOrders;
   }
   
