@@ -15,7 +15,10 @@
         <th>MODIFIER</th>
         <th>SUPPRIMER</th>
     </tr>
-    <tr *ngFor = "let user of userList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <tr *ngFor = "let user of userList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"
+        [class.banished] = "user.isBlocked"
+        [class.administrator] = "user.isAdmin"
+    >
         <td>{{ user.id }}</td>
         <td>{{ user.familyName }}</td>
         <td>{{ user.firstName }}</td>
