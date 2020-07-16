@@ -14,7 +14,8 @@
             <th class="th-date">DATE - HEURE</th>
             <th class="th-payed">STATUS</th>
         </tr>
-        <tr *ngFor="let userFullOrder of allOrders | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <tr *ngFor="let userFullOrder of allOrders | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"
+            [class.notPayed] = "!userFullOrder.getOrder().isPayed" >
             <td 
                 [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
                 {{ userFullOrder.getUser().familyName | uppercase }} 

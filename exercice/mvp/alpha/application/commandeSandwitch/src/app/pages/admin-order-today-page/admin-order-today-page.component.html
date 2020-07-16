@@ -20,7 +20,9 @@
                 <th class="th-price">PRIX</th>
                 <th class="th-payed">STATUS</th>
             </tr>
-            <tr *ngFor="let order of todayOrders">
+            <tr *ngFor="let order of todayOrders"
+                [class.notPayed] = "!order.getOrder().isPayed"
+            >
                 <td>
                     {{ order.getUser().familyName | uppercase }} 
                     {{ order.getUser().firstName }}
