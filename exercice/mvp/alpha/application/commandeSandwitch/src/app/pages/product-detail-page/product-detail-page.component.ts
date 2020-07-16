@@ -96,7 +96,6 @@ export class ProductDetailPageComponent implements OnInit {
         this.isAlreadyAdded = false;
       }
     }
-    
   }
 
   public AreOptionsIdentical(optionArr1: Option[], optionArr2: Option[]): boolean {
