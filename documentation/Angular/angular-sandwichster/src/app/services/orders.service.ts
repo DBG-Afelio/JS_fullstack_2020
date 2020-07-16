@@ -51,11 +51,7 @@ getCreditLimit(){
 }
 
 getTimeLimitResponse(){
-<<<<<<< HEAD
-  this.timeLimit = '23:50:00';
-=======
   this.timeLimit = '22:00:00';
->>>>>>> origin/bravo-sandwichster/pierre
   let today = new Date();
   let currentHours = today.getHours();
   let time = ("0" + currentHours).slice(-2) + ":" + today.getMinutes() + ":" + today.getSeconds();
