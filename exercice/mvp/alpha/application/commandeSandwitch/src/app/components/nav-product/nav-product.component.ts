@@ -18,7 +18,7 @@ export class NavProductComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.setSize(window.innerWidth);
-    console.log('size', this.size, window.innerWidth);
+    
   }
 
   constructor() { 
@@ -28,7 +28,7 @@ export class NavProductComponent implements OnInit {
     if (this.index > this.min) {
       this.index--;
       this.left = 15 - (this.index * 215);
-      this.writePosition(); 
+
     }
   }
 
@@ -38,7 +38,7 @@ export class NavProductComponent implements OnInit {
     if (this.index + this.size < this.max) {
       this.index++;
       this.left =  15 - (this.index * 215);
-      this.writePosition(); 
+
     } 
       
   }
@@ -55,13 +55,8 @@ export class NavProductComponent implements OnInit {
     }
   }
 
-  public writePosition() {
-    console.log('indexes', this.index, this.index + this.size, this.max , '-', this.size);
-    console.log(this.left);
-  }
-
   ngOnInit(): void {
     this.setSize(window.innerWidth);
-    this.writePosition(); 
+
   }
 }
