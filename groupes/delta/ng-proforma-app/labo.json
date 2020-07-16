@@ -5,8 +5,8 @@
       "password": "admin",
       "nom": "saispas",
       "prenom": "gene",
-      "credit": 0,
       "formation": null,
+      "credit": 0,
       "banni": false,
       "admin": true,
       "id": 1
@@ -14,10 +14,10 @@
     {
       "login": "steph_dub",
       "password": "froufrou",
-      "nom": "Dubois",
-      "prenom": "Stephane",
-      "formation": "JS_FULLSTACK",
+      "nom": "dubois",
+      "prenom": "stephane",
       "credit": 8,
+      "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
       "id": 2
@@ -25,46 +25,24 @@
     {
       "login": "lolo",
       "password": "miammiam",
-      "nom": "Duprieux",
-      "prenom": "Laurent",
-      "formation": "INTRO_PROG",
+      "nom": "duprieux",
+      "prenom": "laurent",
       "credit": 0,
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 3
     },
     {
-      "login": "robert_petit",
-      "password": "rrrrrrrrrrrrrrr",
-      "nom": "Petitjean",
-      "prenom": "Robert",
-      "formation": "JS_FULLSTACK",
+      "login": "haroon1991",
+      "password": "haroon1991",
+      "nom": "haroon1991",
+      "prenom": "haroon1991",
       "credit": 0,
+      "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
-      "id": 5
-    },
-    {
-      "login": "jerome",
-      "password": "JeromeSe",
-      "nom": "Jerome",
-      "prenom": "Jerom",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 8
-    },
-    {
-      "login": "Oshimia",
-      "password": "Oshimia1",
-      "nom": "Mia",
-      "prenom": "Oshi",
-      "credit": 0,
-      "formation": "JS_FULLSTACK",
-      "banni": false,
-      "admin": false,
-      "id": 10
+      "id": 4
     }
   ],
   "commandes": [
@@ -227,113 +205,15 @@
       "date": "2020-07-14T14:47:13.791Z"
     },
     {
-      "user_id": 3,
-      "product_id": 5,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 18,
-      "date": "2020-07-14T14:59:22.663Z"
-    },
-    {
-      "user_id": 3,
-      "product_id": 21,
-      "option_ids": [
-        2
-      ],
-      "paye": false,
-      "id": 19,
-      "date": "2020-07-15T08:10:54.466Z"
-    },
-    {
-      "user_id": 3,
-      "product_id": 8,
-      "option_ids": [],
-      "paye": false,
-      "id": 20,
-      "date": "2020-07-15T09:01:02.305Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 6,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 21,
-      "date": "2020-07-15T09:56:12.841Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 4,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 22,
-      "date": "2020-07-15T11:34:03.582Z"
-    },
-    {
-      "user_id": 10,
-      "product_id": 8,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 23,
-      "date": "2020-07-15T12:37:18.040Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 10,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 24,
-      "date": "2020-07-15T13:49:53.317Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 14,
-      "option_ids": [
-        2
-      ],
-      "paye": false,
-      "id": 25,
-      "date": "2020-07-15T13:54:26.056Z"
-    },
-    {
       "user_id": 1,
       "product_id": 15,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 26,
-      "date": "2020-07-15T19:20:50.673Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 23,
-      "option_ids": [
-        1
-      ],
-      "paye": false,
-      "id": 27,
-      "date": "2020-07-15T19:53:13.821Z"
-    },
-    {
-      "user_id": 1,
-      "product_id": 6,
       "option_ids": [
         1,
         2
       ],
       "paye": false,
-      "id": 28,
-      "date": "2020-07-15T19:54:10.912Z"
+      "id": 18,
+      "date": "2020-07-15T11:29:34.792Z"
     }
   ],
   "fournisseurs": [

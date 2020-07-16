@@ -7,11 +7,16 @@
     width: 200px;
     height: 250px;
     padding: 30px 30px ;
-    margin: 0 auto;
-    background: rgb(92, 178, 248);
-    border: 2px solid rgba(115, 32, 170, 0.1);
-    border-radius: 20px;  
-    
+    margin-left:auto;
+    margin-right:auto;
+    background: #F8F0F0;
+    border: 1px solid grey;
+    box-shadow:0 0 20px rgba(0,0,0,0.25);
+    border-radius: 20px;
+}
+
+.signInTitle{
+    text-align:center;
 }
 
 	
@@ -48,7 +53,7 @@ button:hover{
 .control {
 	font-size: 16px;
     padding: 10px;
-    margin: 5px;
+    margin: auto;
     background:white ;
     -webkit-background:white ;
     border: 2px solid rgba(8, 212, 8, 0.1);
