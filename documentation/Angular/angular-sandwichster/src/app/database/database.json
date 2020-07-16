@@ -43,6 +43,17 @@
       "banni": false,
       "admin": false,
       "id": 9999999
+    },
+    {
+      "login": "JohnDoe99",
+      "password": "",
+      "nom": "Doe",
+      "prenom": "John",
+      "credit": 999,
+      "formation": "neverland",
+      "banni": false,
+      "admin": false,
+      "id": 45646847
     }
   ],
   "commandes": [

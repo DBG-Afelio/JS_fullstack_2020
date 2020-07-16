@@ -1,6 +1,6 @@
 
 <div class="container">
-      <h1 class ="text-center">Historique commandes de {{ currentUserName }} </h1>
+      <h1 class ="text-center">Historique commandes de {{ currentUser?.prenom }} </h1>
       
       <div *ngFor="let order of allIndividualUserOrders">
         <ul>

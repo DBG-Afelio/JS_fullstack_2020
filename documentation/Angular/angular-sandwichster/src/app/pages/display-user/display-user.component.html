@@ -22,15 +22,15 @@
             </div>
         </div>
         <div class="field-user-edit">
-            <label for="">Est-il banni ? &nbsp;</label>
-            <select (change) ="isBanned($event.target.value)" name="banned" >
+            <label for="banned">Est-il banni ? &nbsp;</label>
+            <select (input) ="isBanned($event.target.value)" name="banned">
                 <option value="oui">Oui</option>
                 <option value="non">Non</option>
             </select>
         </div>
         <div class="field-user-edit">
-            <label for="">Est-il admin ? &nbsp;</label>
-            <select (change) ="isAdmin($event.target.value)" name="admin" id="">
+            <label for="admin">Est-il admin ? &nbsp;</label>
+            <select #valueOfadmin (input) ="isAdmin($event.target.value)" name="admin">
                 <option value="oui">Oui</option>
                 <option value="non">Non</option>
             </select>
@@ -38,13 +38,13 @@
         <div class="field-user-edit">
             <div class="field-user-edit">
                 <label for="password">Mot de passe &nbsp;</label> 
-                <input (change) ="stockpass1($event)" name ="password" type="password" placeholder="Entrer mot de passe">
+                <input [value] ="currentUser.password" (change) ="stockpass1($event)" name ="password" type="text" placeholder="Entrer mot de passe">
             </div>
         </div>
         <div class="field-user-edit">
             <div class="field-user-edit">
                 <label for="confirmPassword">Confirmation &nbsp;</label> 
-                <input (change) ="stockpass2($event)" name ="password" type="password" placeholder="Confirmer mot de passe">
+                <input [value] ="currentUser.password" (change) ="stockpass2($event)" name ="password" type="text" placeholder="Confirmer mot de passe">
             </div>
         </div>
         <button (click) ="checkSamePassword()" (click) ="updateEvent(currentUser)" type="submit">Modifier</button>

@@ -3,9 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/interfaces/order';
 import { UserService } from 'src/app/services/user.service';
 import { OrdersService } from 'src/app/services/orders.service';
-import { ListTotalOrdersComponent } from '../list-total-orders/list-total-orders.component';
-
-
+import { UserModel } from 'src/app/interfaces/user.model';
 
 @Component({
   selector: 'app-history-orders-user',
@@ -15,11 +13,11 @@ import { ListTotalOrdersComponent } from '../list-total-orders/list-total-orders
 export class HistoryOrdersUserComponent implements OnInit {
 
  idUser: number;
- currentUserName: string = "";
  allIndividualUserOrders: Order[];
+ currentUser: UserModel;
 
  getFilteredOrders (id: number, array: Order[]) {
-  return array.filter((user) => user.user_id  === id);
+  return array.filter((order) => order.user_id  === id);
 }
 
   constructor (
@@ -30,23 +28,22 @@ export class HistoryOrdersUserComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe((data) => {
        this.idUser = Number(data.get('id'));
+       this.user.getUserByID(this.idUser).subscribe((user) => this.currentUser = user);
     })
 
-    this.user.getUserByID(this.idUser).subscribe((user) => this.currentUserName = user.prenom);
+    //  this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, this.allIndividualUserOrders);
 
   }
 
 
   ngOnInit() {  
 
-    this.orderservice.getUsersAndProductsNameInListOrders().subscribe((orders) => {
-      this.allIndividualUserOrders = orders;
+    this.orderservice.getUsersAndProductsNameInListOrders().subscribe((listOrders) => {
+      this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, listOrders);
+      console.log(this.allIndividualUserOrders);
     });
 
-    // this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, this.allIndividualUserOrders);
-
     console.log(this.allIndividualUserOrders);
-
     console.log(this.idUser);
   }
 
