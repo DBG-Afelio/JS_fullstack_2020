@@ -35,7 +35,7 @@ export class ProductAdminPageComponent implements OnInit {
       })
     });
     this.page = 1;
-    this.pageSize = 75;
+    this.pageSize = 10;
   }
 
   public reloadProductList(): void{
