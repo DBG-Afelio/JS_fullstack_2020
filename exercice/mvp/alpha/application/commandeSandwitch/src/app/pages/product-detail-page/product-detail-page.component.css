@@ -67,6 +67,11 @@ p {
     cursor: pointer;
 }
 
+.wrap-buttons button:disabled{
+    background-color: lightgray;
+    transform: none;
+    cursor: unset;
+}
 
 @media screen and (max-width: 1000px) {
     .wrap-detail {
