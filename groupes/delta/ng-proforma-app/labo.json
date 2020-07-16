@@ -370,6 +370,40 @@
         true
       ],
       "tel": "04/3360262"
+    },
+    {
+      "nom": "Burger King",
+      "description": "Burger, frite",
+      "ferme": false,
+      "archive": false,
+      "horaire": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "tel": "0407677676",
+      "id": 3
+    },
+    {
+      "nom": "Test",
+      "description": "test",
+      "ferme": false,
+      "archive": false,
+      "horaire": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "tel": "04687876786",
+      "id": 4
     }
   ],
   "produits": [

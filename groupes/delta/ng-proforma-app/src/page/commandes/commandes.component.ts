@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommandesService } from 'src/service/commandes.service';
 import { Commande } from 'src/model/commande';
 import { UsersService } from 'src/service/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-commandes',
@@ -11,15 +12,19 @@ import { UsersService } from 'src/service/users.service';
 export class CommandesComponent implements OnInit {
   commandes: Commande[];
   thisDay: boolean = true;
-  constructor(private commandsService:CommandesService, private usersService:UsersService) { }
+  constructor(private commandsService:CommandesService, private usersService:UsersService, private router:Router) { }
 
   ngOnInit() {
-    this.commandsService.getCommandesListWithObject().subscribe(commands => this.commandes = commands)
+    this.commandsService.getCommandesListWithObject().subscribe(commands => this.commandes = commands);
+    if(!this.usersService.user_co) {
+      this.router.navigate(['/']);
+    }
   }
 
   getCommandsOfThisDay():Commande[] {
     const today = new Date();
-    return this.commandes.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear())
+    const commands = this.commandes?.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear());
+    return commands && !commands.length ? commands : [];
   }
 
   getTotalOfThisDay():number {

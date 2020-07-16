@@ -6,3 +6,33 @@
     <button class="view-fourn" routerLink="../fournisseur/{{fourn.id}}">Voir le fournisseur</button>
   </div>
 </div>
+<button *ngIf="isAdmin()" (click)="switchAddFourn()"><span class="flaticon-app"></span>Ajouter un fournisseur</button>
+
+<form [formGroup]="checkoutForm" *ngIf="add_fourn && isAdmin()" (ngSubmit)="submitForm(checkoutForm.value)" class="userFormula">
+  <span >Nom</span>
+  <input type="text" name="nom" formControlName="nom" class="inputClass">
+
+  <span >Description</span>
+  <input type="text" name="description" formControlName="description" class="inputClass">
+
+  <span >Ferme</span>
+  <input type="checkbox" name="ferme" formControlName="ferme" class="inputClass">
+
+  <span >Archive</span>
+  <input type="checkbox" name="archive" formControlName="archive" class="inputClass">
+
+  <span >Horaire</span>
+  <select name="horaire" id="horaire" formControlName="horaire" multiple>
+    <option value="0">Lundi</option>
+    <option value="1">Mardi</option>
+    <option value="2">Mercredi</option>
+    <option value="3">Jeudi</option>
+    <option value="4">Vendredi</option>
+    <option value="5">Samedi</option>
+    <option value="6">Dimanche</option>
+  </select>
+
+  <span >Telephone</span>
+  <input type="text" name="tel" formControlName="tel" class="inputClass">
+  <button type="submit">Envoyer</button>
+</form>
