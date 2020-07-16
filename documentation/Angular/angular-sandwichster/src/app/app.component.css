@@ -4002,7 +4002,7 @@ header{
 }
 
 .mainNavBar ul li a:hover{
-  color: rgb(102, 128, 255);
+  color: rgb(89, 179, 0);
   text-decoration: none;
 }
 
@@ -4011,7 +4011,20 @@ header{
   min-height: 80vh;
 }
 
+.menuHamburger{
+  display: flex;
+  flex-direction: column;
+}
+
+.blackLine{
+  background-color: black;
+  width: 10vw;
+  height: 3px;
+}
+
+
 footer{
   height: 10rem;
   background-color: black;
 }
+
