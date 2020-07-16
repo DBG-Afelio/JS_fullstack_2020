@@ -14,6 +14,9 @@ import { Item } from '../interfaces/item';
 @Injectable({
   providedIn: 'root'
 })
+
+// PIERRE
+
 export class OrdersService {
 
 private timeLimit: string;
@@ -53,10 +56,7 @@ getTimeLimitResponse(){
   let currentHours = today.getHours();
   let time = ("0" + currentHours).slice(-2) + ":" + today.getMinutes() + ":" + today.getSeconds();
   let response = time < this.timeLimit;
-  // console.log("Timelimit, today : ", time);
-  // console.log("Timelimit, response : ", response);
   return response;
- 
 }
 
 getAllOrders(): Observable<Order[]> {
@@ -97,45 +97,9 @@ getOrderById(id: number): Observable<Order> {
     return Order.fromDto(orderDto)
   }));
 }
-/*
-  getUserInListOrders(): Observable<Order[]> { //Benoit: c'est moi qui ai ajouté ça, la méthode au-dessus ne prend pas compte de OrderDto
 
-    return this.http.get<Order[]>(this.urlAPI + 'commandes')
-      .pipe(
-        map((arrayOrdersDto: OrderDto []) => {
-          return arrayOrdersDto.map(orderDto => Order.fromDto(orderDto))
-        }), 
-        mergeMap( (newArrayOrders: Order []) => { 
-          return this.userService.getUsers().pipe(
-            map((arrayUsers: UserModel[]) => {
-              newArrayOrders.forEach( order => {
-                order.user = arrayUsers.find(user => user.id === order.id)}
-              )
-              return newArrayOrders;
-            })
-        )}) 
-      );
-  }
-*/
   getUsersAndProductsNameInListOrders(): Observable<Order[]> { 
-/*
-  return this.http.get<Order[]>(this.urlAPI + 'commandes')
-    .pipe(
-      map((arrayOrdersDto: OrderDto []) => {
-        return arrayOrdersDto.map(orderDto => Order.fromDto(orderDto))
-      }), 
-      mergeMap( (newArrayOrders: Order []) => { 
-        return this.userService.getUsers().pipe(
-          map((arrayUsers: UserModel[]) => {
-            newArrayOrders.forEach( order => {
-              order.user = arrayUsers.find(user => user.id === order.id)}
-            )
-            return newArrayOrders;
-          })
-      )}) 
-    );
-*/
-    
+
     return forkJoin(
       this.getAllOrders(), 
       this.userService.getUsers(),
@@ -147,33 +111,12 @@ getOrderById(id: number): Observable<Order> {
         order.item = items.find(item => item.id === order.product_id)
       }  
         )
-        // console.log(orders);
         return orders;
     }))
 }
 
-/*
-  getProductNameInListOrders(): Observable<Order[]> {
-
-  return this.http.get<Order[]>(this.urlAPI + 'commandes')
-    .pipe(
-      map((arrayOrdersDto: OrderDto []) => {
-        return arrayOrdersDto.map(orderDto => Order.fromDto(orderDto))
-      }), 
-      mergeMap( (newArrayOrders: Order []) => { 
-        return this.listItemsService.getListItems().pipe(
-          map((arrayItems: Item[]) => {
-            newArrayOrders.forEach( order => {
-              order.item = arrayItems.find(item => item.id === order.product_id)}
-            )
-            return newArrayOrders;
-          })
-      )}) 
-    );
-}*/
-
 userHasAlreadyOrdered(boolResponse){
-this.hasUserAlreadyOrdered = boolResponse;
+  this.hasUserAlreadyOrdered = boolResponse;
 }
 
 }

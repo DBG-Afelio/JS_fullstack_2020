@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { ListItemsService } from 'src/app/services/list-items.service';
 
 
-
+// PIERRE - THOMAS
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',

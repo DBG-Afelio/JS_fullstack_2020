@@ -1,9 +1,12 @@
+
+<!-- BENOIT -->
+<h1 class="text-center">Liste des commandes </h1>
 <div class="container">
   <div *ngFor="let order of todayOrders">
     <ul>
-      <li >Qui? {{ order.user?.prenom | titlecase}} {{ order.user?.nom | uppercase }}</li>
-      <li >Quoi? {{ order.item.nom }}</li>
-      <li>Où? {{order.item.supplier.nom}}</li>
+      <li >Qui ? {{ order.user?.prenom | titlecase}} {{ order.user?.nom | uppercase }}</li>
+      <li >Quoi ? {{ order.item.nom }}</li>
+      <li>Où ? {{order.item.supplier.nom}}</li>
       <li>Prix de base: {{ order.item.prix }}</li>
       <li >Option(s)
         <ul>
@@ -17,6 +20,9 @@
       <li >{{ order.date | date: 'd/M/yyyy, h:mm a' }}</li>
     </ul>
     <hr>
+  </div>
+  <div class="text-center">
+      <span>Total de la commande d'aujourd'hui : <span> <b> {{ getTotalPriceForOneDay() }} € </b> </span></span>
   </div>
 </div>
 
