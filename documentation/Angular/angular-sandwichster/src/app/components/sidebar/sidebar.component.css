@@ -1,4 +1,5 @@
 .sidebar {
+    padding: 1rem;
     width: 350px;
     height: 100%;
     position: fixed;
@@ -8,12 +9,49 @@
     top: 0;
     bottom: 0;
     right: 0;
-    border: 1px solid black;
-    background: skyblue;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: rgb(102, 128, 255);
     transition: all linear .150s;
+    -webkit-box-shadow: -5px 0px 13px 0px rgba(143,143,143,1);
+    -moz-box-shadow: -5px 0px 13px 0px rgba(143,143,143,1);
+    box-shadow: -5px 0px 13px 0px rgba(143,143,143,1);
 }
 
 /* .sidebar.visible {
     transform: translateX(0);
 } */
 
+.divCloseSidebar{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+
+}
+
+.h1SelectedProduct{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sidebarX{
+    cursor: pointer;
+    font-size: 1.5rem;
+
+}
+
+.sidebarX:hover{
+    color: red;
+    text-shadow: 2px 2px 8px #FF0000;
+}
+
+.divTotal{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.totalPrice{
+    font-weight: bold;
+}

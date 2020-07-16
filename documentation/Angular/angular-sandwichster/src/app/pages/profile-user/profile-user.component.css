@@ -1,0 +1,16 @@
+.divProfile{
+    margin-top: 2rem;
+}
+
+.divOrders{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.divOneOrder{
+    margin: 1.5rem;
+}
+
+.productName{
+    font-weight: bold;
+}

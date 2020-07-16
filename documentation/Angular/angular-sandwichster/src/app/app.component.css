@@ -3959,3 +3959,59 @@ table {
     }
   }
   /*# sourceMappingURL=bootstrap-grid.css.map */
+
+
+/***************************************************************************************************
+***************************************************** CSS
+******************************/
+
+header{
+  background-color: rgb(255, 191, 0);
+  display: flex;
+  padding: 2rem;
+}
+
+.imgLogo{
+  border-radius: 10px;
+  width: 5rem;
+  height: auto;
+  border: solid white 5px;
+}
+
+.mainNavBar{
+  padding-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mainNavBar ul{
+  min-width: 50%;
+}
+
+.mainNavBar ul li{
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.mainNavBar ul li a{
+  color: black;
+  cursor: pointer;
+}
+
+.mainNavBar ul li a:hover{
+  color: rgb(102, 128, 255);
+  text-decoration: none;
+}
+
+
+.divRouterOutlet{
+  min-height: 80vh;
+}
+
+footer{
+  height: 10rem;
+  background-color: black;
+}
