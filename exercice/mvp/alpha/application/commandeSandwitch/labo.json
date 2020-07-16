@@ -32,6 +32,17 @@
       "banni": false,
       "admin": false,
       "id": 3
+    },
+    {
+      "login": "assia",
+      "password": "assia",
+      "nom": "Rachdi",
+      "prenom": "Assia",
+      "credit": 8.2,
+      "formation": "FullStack WebDev",
+      "banni": false,
+      "admin": false,
+      "id": 4
     }
   ],
   "commandes": [
@@ -54,6 +65,16 @@
       "paye": true,
       "id": 2,
       "date": "2020-02-21T13:38:10.681Z"
+    },
+    {
+      "user_id": 4,
+      "product_id": 10,
+      "option_ids": [
+        1
+      ],
+      "paye": false,
+      "id": 3,
+      "date": "Thu Jul 16 2020 19:36:18 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
