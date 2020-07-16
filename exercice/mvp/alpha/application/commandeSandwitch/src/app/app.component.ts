@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'commandeSandwitch';
+  title = 'L\'ASSIA\-CAST';
 
   public aside: boolean = true;
   public orderList: Order[] = [];
