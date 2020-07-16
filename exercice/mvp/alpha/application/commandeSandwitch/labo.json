@@ -386,8 +386,8 @@
     },
     {
       "id": 4,
-      "nom": "La Crepe Bretonne",
-      "description": "Crepes sales et sucrees natures ou garnies",
+      "nom": "La Crêpe Bretonne",
+      "description": "Crêpes salées et sucrées",
       "ferme": true,
       "archive": false,
       "horaire": [
