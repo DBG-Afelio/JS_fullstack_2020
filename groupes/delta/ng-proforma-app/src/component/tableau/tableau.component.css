@@ -81,3 +81,16 @@ button:hover{
     background-color: #ff5e6c;
     transition: all 0.3s ease 0s;
 }
+.mat-paginator{
+    color: black;
+   
+}
+::ng-deep .mat-option{
+    padding: 0!important;
+  
+  }
+::ng-deep .mat-option-text {
+    margin: 1% 18%;
+    text-align: right;
+    color: black;
+}

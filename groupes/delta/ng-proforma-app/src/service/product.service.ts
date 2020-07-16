@@ -7,6 +7,7 @@ import { ProductDto } from 'src/model/productDto';
 import { Product } from 'src/model/product';
 import { Fourn } from 'src/model/fourn';
 import { Option } from 'src/model/option';
+import { FournDto } from 'src/model/fournDto';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,11 @@ export class ProductService {
         return productsDto.map((productDto:ProductDto) => {
           return Product.fromDto(productDto).setOptions(productDto.options.map(option => Option.fromDto(option)));
         });
+      }),
+      mergeMap((products:Product[]) => {
+        return this.http.get<FournDto[]>(`http://localhost:3000/fournisseurs`).pipe(
+          map(fournsDto => products.map(product => product.setFournisseur(Fourn.fromDto(fournsDto.find(fournDto => fournDto.id === product.fourn_id)))))
+        )
       })
     )
   }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommandesService } from 'src/service/commandes.service';
 import { Commande } from 'src/model/commande';
 import { UsersService } from 'src/service/users.service';
+import { Router } from '@angular/router';
+import { FournService } from 'src/service/fourn.service';
 
 @Component({
   selector: 'app-commandes',
@@ -11,15 +13,19 @@ import { UsersService } from 'src/service/users.service';
 export class CommandesComponent implements OnInit {
   commandes: Commande[];
   thisDay: boolean = true;
-  constructor(private commandsService:CommandesService, private usersService:UsersService) { }
+  constructor(private commandsService:CommandesService, private usersService:UsersService, private router:Router) { }
 
   ngOnInit() {
-    this.commandsService.getCommandesListWithObject().subscribe(commands => this.commandes = commands)
+    this.commandsService.getCommandesListWithObject().subscribe(commands => this.commandes = commands);
+    if(!this.usersService.user_co) {
+      this.router.navigate(['/']);
+    }
   }
 
   getCommandsOfThisDay():Commande[] {
     const today = new Date();
-    return this.commandes.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear())
+    const commands = this.commandes?.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear());
+    return commands && commands.length > 0 ? commands : [];
   }
 
   getTotalOfThisDay():number {
@@ -60,6 +66,7 @@ class TabCommand {
  constructor(
     public id:number,
     public produit:string,
+    public fournisseur:string,
     public options:string,
     public prix:number,
     public payer:string,
@@ -67,6 +74,7 @@ class TabCommand {
   ) {
     this.id = id;
     this.produit = produit;
+    this.fournisseur = fournisseur;
     this.options = options;
     this.prix = prix;
     this.payer = payer;
@@ -76,6 +84,7 @@ class TabCommand {
   return new TabCommand(
     command.id,
     command.product.nom,
+    command.product.fournisseur.nom,
     command.options.map(option => option.nom).toLocaleString(),
     command.getTotal(),
     command.paye ? 'Oui' : 'Non',
