@@ -1,7 +1,7 @@
-<div *ngIf="userCo()">
+<!-- <div *ngIf="userCo()">
   <div class="container-white" *ngIf="membre">
-    <span class="flaticon-edit-1" (click)="switchEdit()" *ngIf="isAdmin()"></span>
-    <span class="flaticon-database-1" (click)="switchCreditEdit()" *ngIf="isAdmin()"></span>
+    <span class="flaticon-edit-1" (click)="switchEdit()" *ngIf="isAdmin()">Editer</span>
+    <span class="flaticon-database-1" (click)="switchCreditEdit()" *ngIf="isAdmin()">Credit</span>
     <input [value]="membre.credit" type="number" (blur)="updateCredit($event.target.value)" min="0" *ngIf="credit_edit">
 
     <div class="profil" *ngIf="membre && !edit">
@@ -24,5 +24,28 @@
     <button *ngIf="membre && isAdmin()" (click)="deleteMember(membre)" class="btn"><i class="fa fa-trash"></i>
         Supprimer</button>
   </div>
+</div> -->
+
+<div *ngIf="userCo()">
+    <div *ngIf="membre">
+        <div id="card" *ngIf="membre && !edit">
+            <h1 class="name">{{membre.prenom}} {{membre.nom}}</h1>
+            <div class="mbre">
+                <span>ID: {{membre.id}}</span>
+                <span>LOGIN: {{membre.login}}</span>
+                <span>CREDIT: {{membre.credit}}</span>
+                <span>FORMATIONS: {{membre.formation}}</span>
+            </div>
+            <button (click)="switchEdit()" *ngIf="isAdmin()"><i class="flaticon-edit-1"></i>EDITER</button>
+            <button (click)="switchCreditEdit()" *ngIf="isAdmin()"><i class="flaticon-database-1"></i>CREDIT</button>
+            <input [value]="membre.credit" type="number" (blur)="updateCredit($event.target.value)" min="0" *ngIf="credit_edit">
+            <button (click)="deleteMember(membre)" *ngIf="membre && isAdmin()"><i class="fa fa-trash"></i>SUPPRIMER</button>
+        </div>
+        <div class="membre_profil" *ngIf="membre && edit">
+            <h2>Profil de {{membre.prenom}} {{membre.nom}}</h2>
+            <app-newuser (save)="updateMember($event)" [user]="membre"></app-newuser>
+        </div>
+        <div [class.errorMessage]="!detecting" *ngIf="message">{{message}}</div>
+    </div>
 </div>
 <app-newuser *ngIf="!membre" (create)="creatNewMember($event)"></app-newuser>
