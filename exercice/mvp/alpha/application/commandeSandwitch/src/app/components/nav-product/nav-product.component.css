@@ -73,3 +73,8 @@ a:focus {
     transform: scale(1.05) ;
     background-color:rgb(227, 243, 249);
 }
+
+.closed {
+    text-decoration: line-through;
+    color: silver;
+}
