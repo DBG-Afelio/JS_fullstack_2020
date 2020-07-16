@@ -178,20 +178,20 @@ export class OrderService {
   }
   public deleteOrderFromServer(payload: FullOrder): void {
 // marche pas avec ce block gestion credit
-    // if (!payload.getOrder().isPayed) {
-    //   console.log('credit aavant: ', this.currentUser.credit);
-    //   Math.round((this.currentUser.credit -= payload.getTotalPrice())*100)/100; //pour avoir 2 digits float
-    //   console.log('credit apres: ', this.currentUser.credit);
-    //     this.userService.setCurrentUser(this.currentUser);
-    //   this.userService.updateUser(this.currentUser).subscribe((userDto) => console.log("user after update in Server :", User.fromDto(userDto)));
-    // }
+    if (!payload.getOrder().isPayed) {
+      console.log('credit aavant: ', this.currentUser.credit);
+      Math.round((this.currentUser.credit -= payload.getTotalPrice())*100)/100; //pour avoir 2 digits float
+      console.log('credit apres: ', this.currentUser.credit);
+        this.userService.setCurrentUser(this.currentUser);
+      this.userService.updateUser(this.currentUser).subscribe((userDto) => console.log("user after update in Server :", User.fromDto(userDto)));
+    }
 
     console.log('********DELETE REQUEST SERVER **********');
     this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.getOrder().id}`).subscribe({
       next: returnedOrder => {
         console.log('commande retiree du Local storage');
         if (returnedOrder) {
-          this.getFullOrder().subscribe((o) => console.log('after delete before update :',o));
+          // this.getFullOrder().subscribe((o) => console.log('after delete before update :',o));
           this.updateFullOrder();
         }
         //returnedOrder ? this.updateFullOrder() : console.log('retour requete DELETE ?');
