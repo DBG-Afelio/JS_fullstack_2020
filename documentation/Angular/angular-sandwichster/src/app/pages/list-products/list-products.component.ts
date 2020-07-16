@@ -95,4 +95,8 @@ public selectedProductSupplier: Supplier;
 
   }
 
+  closeSidebar(){
+    this.sidebarDisplay = false;
+  }
+
 }

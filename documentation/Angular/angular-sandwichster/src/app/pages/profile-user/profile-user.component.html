@@ -1,23 +1,38 @@
+<app-sidebar [selectedProduct]="selectedProduct" 
+
+[selectedProductPrice]="selectedProductPrice"
+[selectedProductOptions]="selectedProductOptions" 
+[selectedProductSupplier]="selectedProductSupplier" 
+*ngIf="sidebarDisplay" 
+(newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
+
 <div class="container" *ngIf="userDisplayed">
-  <h2>Mon profil</h2>
-  {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
-  A rembourser: {{ userDisplayed.credit}} euros<br>
-  Formation: <span>{{userDisplayed.formation}}</span>
-  <span *ngIf="userDisplayed.banni">Actuellement vous ne pouvez pas commander quelque chose. Contactez un administrateur</span>
-  <h2>Mes commandes</h2>
-  <div *ngIf="!ordersDisplayed">
-    Pas de commande déjà réalisée.
+  <div class="divProfile">
+    <h2>Mon profil</h2>
+    {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
+    A rembourser: {{ userDisplayed.credit}} euros<br>
+    Formation: <span>{{userDisplayed.formation}}</span>
+    <span *ngIf="userDisplayed.banni">Actuellement vous ne pouvez pas commander quelque chose. Contactez un administrateur</span>
   </div>
-  <div *ngIf="ordersDisplayed">
-    <div *ngFor="let order of ordersDisplayed" >
-      <span *ngIf="order.item.fourn_id === 1">Sandwich </span>
-      <span *ngIf="order.item.fourn_id === 2">Pizza </span>
-      {{order.item.nom}} de chez {{order.item.supplier.nom}} à {{order.item.prix}} euros<br>
-      <div>
-        <span *ngFor="let option of order.getSelectedOptions()">{{option.nom}}: {{option.surcout}} euros</span>
+
+  <div class="divOrders">
+    <h2>Mes commandes</h2>
+    <div *ngIf="!ordersDisplayed">
+      Pas de commande déjà réalisée.
+    </div>
+    <div *ngIf="ordersDisplayed" >
+      <div *ngFor="let order of ordersDisplayed" class="divOneOrder" >
+        <span class="productName" *ngIf="order.item.fourn_id === 1">Sandwich </span>
+        <span class="productName" *ngIf="order.item.fourn_id === 2">Pizza </span>
+        <span class="productName">{{order.item.nom}}</span><br> de chez {{order.item.supplier.nom}} à {{order.item.prix}} euros<br>
+        <div>
+          <span *ngFor="let option of order.getSelectedOptions()">{{option.nom}}: {{option.surcout}} euros</span>
+        </div>
+        <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
+        <button class="btn btn-primary" (click)="orderAgain(order)">Commander à nouveau</button>
+        <hr>
       </div>
-      <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
-      <button (click)="orderAgain(order)">Commander à nouveau</button> => le bouton ne fonctionne pas
     </div>
   </div>
+
 </div>

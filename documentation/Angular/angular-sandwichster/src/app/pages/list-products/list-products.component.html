@@ -4,8 +4,12 @@
 [selectedProductOptions]="selectedProductOptions" 
 [selectedProductSupplier]="selectedProductSupplier" 
 *ngIf="sidebarDisplay" 
-(newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
+(newOrderOutput)="createOrderEvent($event)" (visibleSidebar)="closeSidebar()"> </app-sidebar>
 
-<app-list-items *ngFor="let supplier of getListSuppliers()" [listProducts]='getListProductsFiltered(supplier.id)' [supplier]='supplier' (selectedProductEvent)="onProductSelection($event)">
+<div class="container">
+    <div class="mainDiv">
+        <app-list-items *ngFor="let supplier of getListSuppliers()" [listProducts]='getListProductsFiltered(supplier.id)' [supplier]='supplier' (selectedProductEvent)="onProductSelection($event)">
 
-</app-list-items>
+        </app-list-items>   
+    </div>
+</div>
