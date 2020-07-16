@@ -59,6 +59,7 @@ public selectedProductSupplier: Supplier;
         this.isAdmin = true;
       }
     }
+    console.log(this.loginService.getCurrentUser());
   }
 
   getListProducts(){
@@ -86,7 +87,6 @@ public selectedProductSupplier: Supplier;
     }
 
 
-    console.log('prix de base du produit : ' + this.selectedProductPrice)
 
   }
 

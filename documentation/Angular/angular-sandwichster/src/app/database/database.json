@@ -3,8 +3,8 @@
     {
       "login": "admin",
       "password": "admin",
-      "nom": "XYZ",
-      "prenom": "L'Administrateur",
+      "nom": "saispas",
+      "prenom": "gene",
       "credit": 0,
       "formation": null,
       "banni": false,
@@ -16,7 +16,7 @@
       "password": "froufrou",
       "nom": "dubois",
       "prenom": "stephane",
-      "credit": 8,
+      "credit": null,
       "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
@@ -70,6 +70,7 @@
       "product_id": 2,
       "option_ids": [],
       "paye": true,
+<<<<<<< HEAD
       "id": 2,
       "date": "2020-07-15T19:56:34.540Z"
     },
@@ -94,6 +95,148 @@
       "paye": true,
       "id": 4,
       "date": "2020-07-16T08:02:56.043Z"
+=======
+      "id": 71,
+      "date": "2020-07-15T13:18:55.522Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 4,
+      "option_ids": [],
+      "paye": true,
+      "id": 72,
+      "date": "2020-07-15T13:25:38.337Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 73,
+      "date": "2020-07-15T13:26:06.089Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 74,
+      "date": "2020-07-15T13:26:15.686Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 75,
+      "date": "2020-07-15T13:27:03.523Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 76,
+      "date": "2020-07-15T13:35:47.367Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 77,
+      "date": "2020-07-15T13:37:49.431Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 2,
+      "option_ids": [],
+      "paye": true,
+      "id": 78,
+      "date": "2020-07-15T13:39:16.165Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 79,
+      "date": "2020-07-15T13:39:59.165Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 2,
+      "option_ids": [],
+      "paye": true,
+      "id": 80,
+      "date": "2020-07-15T13:40:13.784Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 3,
+      "option_ids": [],
+      "paye": true,
+      "id": 81,
+      "date": "2020-07-15T13:48:18.484Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 5,
+      "option_ids": [],
+      "paye": true,
+      "id": 82,
+      "date": "2020-07-15T13:49:08.904Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 83,
+      "date": "2020-07-15T13:50:11.850Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 84,
+      "date": "2020-07-15T13:53:44.141Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 85,
+      "date": "2020-07-15T14:04:15.792Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 86,
+      "date": "2020-07-15T14:11:23.208Z"
+    },
+    {
+      "user_id": 1,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 87,
+      "date": "2020-07-15T14:28:46.364Z"
+    },
+    {
+      "user_id": 2,
+      "product_id": 1,
+      "option_ids": [],
+      "paye": true,
+      "id": 94,
+      "date": "2020-07-16T09:44:20.893Z"
+>>>>>>> origin/bravo-sandwichster/pierre
     }
   ],
   "fournisseurs": [

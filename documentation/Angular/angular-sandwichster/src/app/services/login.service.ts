@@ -4,6 +4,7 @@ import { UserModel } from 'src/app/interfaces/user.model';
 import { map } from 'rxjs/operators';
 import { Observable, throwError, of, BehaviorSubject } from 'rxjs'
 import { Router } from '@angular/router';
+import { OrdersService } from './orders.service';
 
 
 @Injectable({
@@ -23,7 +24,11 @@ export class LoginService {
 
   currentUser: UserModel;
 
-constructor(private http: HttpClient, private route: Router) { } // je suppose que HttpClient est l'équivalent de Observable mais dans le cas de json-server
+constructor(
+  private http: HttpClient, 
+  private route: Router,
+  private orderService: OrdersService
+  ) { } // je suppose que HttpClient est l'équivalent de Observable mais dans le cas de json-server
 
   signIn(){
     console.log(this.currentUser$);
@@ -55,6 +60,7 @@ constructor(private http: HttpClient, private route: Router) { } // je suppose q
   }
 
 userAuth(login: string, password: string){
+  this.orderService.userHasAlreadyOrdered(false);
   return this.getUserByLogin(login).pipe(map(foundUser => {
     if(foundUser){
       if(foundUser.password === password){
