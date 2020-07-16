@@ -39,7 +39,7 @@ getCreditLimit(){
 }
 
 getTimeLimitResponse(){
-  this.timeLimit = '23:00:00';
+  this.timeLimit = '23:50:00';
   let today = new Date();
   let currentHours = today.getHours();
   let time = ("0" + currentHours).slice(-2) + ":" + today.getMinutes() + ":" + today.getSeconds();

@@ -55,7 +55,7 @@ const routes: Routes = [
     component: DisplayUserComponent,
   },
   {
-    path: 'history/user/:id',
+    path: 'history/:id',
     component: HistoryOrdersUserComponent,
   },
   {
