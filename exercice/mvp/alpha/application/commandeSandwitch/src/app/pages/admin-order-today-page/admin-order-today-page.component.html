@@ -2,17 +2,17 @@
     <div class="admin-title">
         <h1>Commandes du Jour</h1>
     </div>
-    <div *ngIf="todayOrders.length === 0">
+    <div *ngIf="todayOrders?.length === 0">
         Aucune commande n'a été effectuée
     </div>
-    <div *ngIf="todayOrders.length > 0 && total && credit">
+    <div *ngIf="todayOrders?.length > 0">
         <div>
             TOTAL : {{ total | currency : 'EUR':'symbol-narrow' }}
         </div>
         <div *ngIf="credit > 0">
             CREDIT : {{ credit | currency : 'EUR':'symbol-narrow' }}
         </div>
-        <table>
+        <table *ngIf="todayOrders">
             <tr>
                 <th class="th-user">NOM Prenom</th>
                 <th class="th-order">PRODUIT</th>
@@ -31,13 +31,14 @@
                 <td>{{ order.getOrder().isPayed ? 'payé' : 'non payé' }}</td>
             </tr>
         </table>
-    
-        <ngb-pagination
-        [(page)]="page"
-        [pageSize]="pageSize"
-        [collectionSize]="collectionSize">
-        </ngb-pagination>
+
     </div>
+
+    <ngb-pagination *ngIf="page && pageSize && collectionSize"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+    </ngb-pagination>
     
 
 </div>
