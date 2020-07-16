@@ -1,5 +1,7 @@
+
+<div class="container">
 <h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
-<div>
+
     <nav>
         <ul class="ulList">
             <li class="liList" *ngFor="let product of fournisseur?.products ; index as i"
@@ -11,7 +13,7 @@
 
         </ul>
     </nav>
-</div>
+
 <div *ngIf="selectedProduct" class="prductDetails">
     <table class="tableOfeDetails">
         <tr>
@@ -31,12 +33,6 @@
             <th>{{selectedProduct?.description}}</th>
         </tr>
     </table>
-
-
-
-
-
-
     <app-options 
         [options]="selectedProduct.options"
         [selected_options]="selectedOptions"
@@ -44,6 +40,9 @@
         [read_only]="pending_command && pending_command.product !== selectedProduct"
     ></app-options>
 </div>
+
 <button *ngIf="hour && stillInTime() && selectedProduct && !pending_command || pending_command?.product !== selectedProduct" (click)="checkeOrder(selectedProduct)">Choisir</button>
+
 <p class="message"> {{message}} </p>
 <p class="hour">{{hour?.getHours()}}:{{hour?.getMinutes()}}:{{hour?.getSeconds()}}</p>
+</div>

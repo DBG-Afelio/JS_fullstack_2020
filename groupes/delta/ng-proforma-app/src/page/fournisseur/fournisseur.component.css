@@ -1,13 +1,23 @@
 
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  
+}
  nav ul {
 	list-style-type: none;
   padding: 0;
   height:650px;
-  width:18%;
+  width:100%;
   overflow:hidden; 
   overflow-y:scroll;
-  
-  
+}
+
+nav{
+  width: 60%;
+  grid-column: 1 /2;
+  grid-row: 1;
   
 }
 nav ul li {
@@ -56,15 +66,9 @@ nav ul li:hover::before {
 
 
 .prductDetails{
-  
-  
-  width: 700px;
-  height: 400px;
-  position: absolute;
-  left: 400px;
-  top: 150px;
-  padding: 25px;
-
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  padding-top: 15%;
 }
 
 .message{
@@ -78,13 +82,11 @@ nav ul li:hover::before {
   right: 200px;
 }
 .hour{
-  
-  position: absolute;
-  top:450px ;
-  right: 150px;
+  grid-column: 4 / 5;
+  grid-row: 1 / 3; 
   color: #2d545e;
   border:3px solid #2d545e ;
-  
+  background-color: rgba(255, 255, 255, 0.65);
   width:100px ;
   height: 75px;
   display: flex;
@@ -107,6 +109,8 @@ nav ul li:hover::before {
   border-collapse: collapse;
   width: 700px;
   height: 200px;
+  background-color: rgba(255, 255, 255, 0.65);
+  
   
 }
 .tableOfeDetails td ,.tableOfeDetails th {
@@ -127,14 +131,16 @@ nav ul li:hover::before {
 tr:last-child { 
   height: 100px;
  }
+ 
  button{
-  position: absolute;
-  top: 500px;
-  left: 750px;
+  width: 15%;
+  grid-column: 2 / 4;
+  grid-row: 2 / 3; 
   color: #2d545e ;
   text-transform: uppercase;
   background: #fff5d7;
   padding: 20px;
+  
   border: 4px solid #2d545e;
   border-radius: 6px;
   display: inline-block;
