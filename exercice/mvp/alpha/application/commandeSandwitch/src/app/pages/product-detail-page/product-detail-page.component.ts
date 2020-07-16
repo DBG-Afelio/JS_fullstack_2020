@@ -29,6 +29,7 @@ export class ProductDetailPageComponent implements OnInit {
   public isEqualToUserOrder: boolean = false;
   public selected: number[] = [];
   public deadline: Deadline = null;
+  public productSupplier: Supplier = null;
 //-------------WARNING : CODE ARCHI SALE ---- SORRY
 
   constructor(
@@ -54,6 +55,7 @@ export class ProductDetailPageComponent implements OnInit {
         this.fullOrder = full;
       this.productService.getProductById(id).subscribe(product => {
         this.product = product;
+        this.supplierService.getProductAndSupplier(product.id).subscribe(([prod, supplier]) => this.productSupplier = supplier);
         // this.product ? this.updateFinalPrice() : this.product;
         
           if (!this.fullOrder || this.fullOrder.getProduct().id !== product.id) { 
