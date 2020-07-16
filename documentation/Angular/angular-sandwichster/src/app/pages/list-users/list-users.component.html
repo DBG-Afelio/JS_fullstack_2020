@@ -1,5 +1,6 @@
+<!-- THOMAS -->
 <div class="container">
- <button [routerLink]="['/', 'new-user']">Ajouter utilisateur</button>
+ <button *ngIf="currentUser?.admin" [routerLink]="['/', 'new-user']">Ajouter utilisateur</button>
  <hr>
   <div *ngFor ="let user of arrayUsers" class="info-user">
     <p>Prénom : <b>{{ user?.prenom.charAt(0).toUpperCase() + user?.prenom.slice(1) }}</b> </p>

@@ -10,6 +10,9 @@ import { OrdersService } from './orders.service';
 @Injectable({
   providedIn: 'root'
 })
+
+// PIERRE
+
 export class LoginService {
 
   private urlAPI: string = "http://localhost:3000/";

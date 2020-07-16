@@ -71,18 +71,36 @@ export class DisplayUserComponent implements OnInit {
 
   checkSamePassword() {
 
+    // VERIFICATION DE SI L'UTILISATEUR A DEJA UN MOT DE PASSE
+    // if(this.currentUser.password.length === 0 &&) {
+
+    // }
+
     if(this.pass1 === this.pass2) {
       this.finalPass = this.pass1;
     }
     return this.pass1 === this.pass2;
   }
 
-  isBanned(value: string): any {
-    return value === 'oui' ? this.currentUser.banni = true : this.currentUser.banni = false;
+  isBanned(value: string): void {
+
+     if(value === 'oui') {
+      this.currentUser.banni = true;
+     } else {
+      this.currentUser.banni = false;
+     }
+
   }
 
-  isAdmin(value: string): any {
-    return value === 'oui' ? this.currentUser.admin = true : this.currentUser.admin = false;
+  isAdmin(value: string): void {
+
+     if(value  === 'oui') {
+      this.currentUser.banni = true;
+     } else {
+      this.currentUser.banni = false;
+     }
+
+     console.log(this.currentUser);
   }
 
   removeEvent(user: UserModel){

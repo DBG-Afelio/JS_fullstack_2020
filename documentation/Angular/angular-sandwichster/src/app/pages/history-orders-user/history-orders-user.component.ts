@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/interfaces/order';
-import { UserModel } from 'src/app/interfaces/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { ListTotalOrdersComponent } from 'src/app/pages/list-total-orders/list-total-orders.component';
-
+import { OrdersService } from 'src/app/services/orders.service';
+import { UserModel } from 'src/app/interfaces/user.model';
 
 @Component({
   selector: 'app-history-orders-user',
@@ -13,50 +12,41 @@ import { ListTotalOrdersComponent } from 'src/app/pages/list-total-orders/list-t
 })
 export class HistoryOrdersUserComponent implements OnInit {
 
-  public idUser: number;
-  public currentUser: Order;
-  public totalOrders: ListTotalOrdersComponent; 
-  public allUserOrders: Order[] = [];
+ idUser: number;
+ allIndividualUserOrders: Order[];
+ currentUser: UserModel;
+
+ getFilteredOrders (id: number, array: Order[]) {
+  return array.filter((order) => order.user_id  === id);
+}
 
   constructor (
     private activatedRoute: ActivatedRoute,
-    private userservice: UserService,
-    private router: Router 
+    private orderservice: OrdersService,
+    private user: UserService
   ) {
 
     this.activatedRoute.paramMap.subscribe((data) => {
        this.idUser = Number(data.get('id'));
-
-      if(this.idUser === 0) {
-
-        this.currentUser = new Order(
-            0,
-            0,
-            [],
-            false,
-            0,
-            ""
-      )
-
-    } else {
-    
-    console.log(this.allUserOrders)
-     this.allUserOrders =  this.totalOrders[this.idUser];
-      
-    }
-
+       this.user.getUserByID(this.idUser).subscribe((user) => this.currentUser = user);
     })
 
   }
 
-  // Tentative de recup la liste de toutes les commandes filtrées par l'ID du client
 
-  getOrdersByUserID (idUser: number) {
-    return this.totalOrders.getOrders()[idUser]
-  }
+  ngOnInit() {  
 
-  ngOnInit() {
-   
+    this.orderservice.getUsersAndProductsNameInListOrders().subscribe((listOrders) => {
+      this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, listOrders);
+      console.log(this.allIndividualUserOrders);
+    });
+
+    console.log(this.allIndividualUserOrders);
+    console.log(this.idUser);
   }
 
 }
+
+
+  
+

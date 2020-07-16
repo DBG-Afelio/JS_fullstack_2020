@@ -10,6 +10,9 @@ import { SupplierDto } from '../interfaces/supplierDto'
 @Injectable({
   providedIn: 'root'
 })
+
+// BENOIT
+
 export class SuppliersService {
 
   private urlAPI: string = "http://localhost:3000/";
