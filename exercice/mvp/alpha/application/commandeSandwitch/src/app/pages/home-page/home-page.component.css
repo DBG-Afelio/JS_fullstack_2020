@@ -4,13 +4,13 @@
     column-gap: 2%;
     justify-content: space-between;
     justify-items: center;
-    margin-top: 70px;
+   margin-top: 35px;
 }
 
 @media screen and (max-width: 1000px) {
     .listSuppliers {
         grid-template-columns: 100%;
-    column-gap: 0;
+        column-gap: 0;
     }
 }
 
