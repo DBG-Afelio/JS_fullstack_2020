@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 0,
+      "credit": 1,
       "formation": "Le planté de baton",
       "banni": false,
       "admin": false,
@@ -109,6 +109,17 @@
       "banni": false,
       "admin": false,
       "id": 10
+    },
+    {
+      "login": "flo",
+      "password": "flo",
+      "nom": "Van",
+      "prenom": "Florent",
+      "credit": 3,
+      "formation": "FullStack WebDev",
+      "banni": false,
+      "admin": false,
+      "id": 11
     }
   ],
   "commandes": [

@@ -28,12 +28,15 @@ export class MainNavComponent implements OnInit {
   }
 
   public loadData(): void{
-    this.userService.getList().subscribe((list) => this.userList = list);
-    this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
-    this.orderService.getFullOrder().subscribe((full) => {
+    this.userService.isChangeInUserList().subscribe(() => {
+      this.userService.getList().subscribe((list) => this.userList = list);
+      this.userService.getCurrentUser().subscribe((user) => this.currentUser = user);
+      this.orderService.getFullOrder().subscribe((full) => {
       this.fullOrder = full;
       console.log('fullOrder MAIN-NAV :', full);
     });
+    })
+    
     this.orderService.isOnTime().subscribe((timingStatus) => this.isOnTime = timingStatus);
   }
   
