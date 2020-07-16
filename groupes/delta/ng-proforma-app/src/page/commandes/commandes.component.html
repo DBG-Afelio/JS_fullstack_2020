@@ -1,6 +1,6 @@
 <span (click)="switchDay()" *ngIf="isAdmin()" class="flaticon-switch"></span>
 <div *ngIf="commandes">
-  <app-tableau [tableau]="getTabCommands()" [link]="'commande'" [tableauOfHeader]="['id','produit','options','prix','payer','date']" ></app-tableau>
+  <app-tableau [tableau]="getTabCommands()" [link]="'commande'" [tableauOfHeader]="['id','produit','fournisseur','options','prix','payer','date']" ></app-tableau>
 </div>
 <span>{{getTotalOfThisDay()}}€</span><br>
 <span>{{getTotalUnpaidOfThisDay()}}€</span><br>

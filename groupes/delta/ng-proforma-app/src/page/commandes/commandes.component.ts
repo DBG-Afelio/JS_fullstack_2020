@@ -3,6 +3,7 @@ import { CommandesService } from 'src/service/commandes.service';
 import { Commande } from 'src/model/commande';
 import { UsersService } from 'src/service/users.service';
 import { Router } from '@angular/router';
+import { FournService } from 'src/service/fourn.service';
 
 @Component({
   selector: 'app-commandes',
@@ -24,7 +25,7 @@ export class CommandesComponent implements OnInit {
   getCommandsOfThisDay():Commande[] {
     const today = new Date();
     const commands = this.commandes?.filter(command => command.date.getDate() === today.getDate() && command.date.getMonth() === today.getMonth() && command.date.getFullYear() === today.getFullYear());
-    return commands && !commands.length ? commands : [];
+    return commands && commands.length > 0 ? commands : [];
   }
 
   getTotalOfThisDay():number {
@@ -65,6 +66,7 @@ class TabCommand {
  constructor(
     public id:number,
     public produit:string,
+    public fournisseur:string,
     public options:string,
     public prix:number,
     public payer:string,
@@ -72,6 +74,7 @@ class TabCommand {
   ) {
     this.id = id;
     this.produit = produit;
+    this.fournisseur = fournisseur;
     this.options = options;
     this.prix = prix;
     this.payer = payer;
@@ -81,6 +84,7 @@ class TabCommand {
   return new TabCommand(
     command.id,
     command.product.nom,
+    command.product.fournisseur.nom,
     command.options.map(option => option.nom).toLocaleString(),
     command.getTotal(),
     command.paye ? 'Oui' : 'Non',
