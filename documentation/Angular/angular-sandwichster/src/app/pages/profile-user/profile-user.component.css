@@ -2,6 +2,11 @@
     margin-top: 2rem;
 }
 
+.descriptionProfile{
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+}
+
 .divOrders{
     margin-top: 2rem;
     margin-bottom: 4rem;
@@ -13,4 +18,9 @@
 
 .productName{
     font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.buttonOrderAgain{
+    margin-top: 1.5rem;
 }

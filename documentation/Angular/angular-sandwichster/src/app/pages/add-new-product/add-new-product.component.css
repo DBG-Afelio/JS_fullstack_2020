@@ -1,3 +1,22 @@
+h1{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+input, textarea{
+    padding: 0.3rem;
+}
+
+.divName{
+    margin-bottom: 1rem;
+}
+
+.divPrice{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .divSupplier{
     border: 1px black solid;
     margin: 1rem 0;
@@ -18,8 +37,17 @@
     font-weight: bold;
 }
 
+.buttonAddOption{
+    margin-top: 1rem;
+}
+
 .divValidation{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
+}
+
+.divValidation button{
+    text-transform: capitalize;
 }

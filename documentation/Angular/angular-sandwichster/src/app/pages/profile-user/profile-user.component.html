@@ -9,10 +9,14 @@
 <div class="container" *ngIf="userDisplayed">
   <div class="divProfile">
     <h2>Mon profil</h2>
-    {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
-    A rembourser: {{ userDisplayed.credit}} euros<br>
-    Formation: <span>{{userDisplayed.formation}}</span>
-    <span *ngIf="userDisplayed.banni">Actuellement vous ne pouvez pas commander quelque chose. Contactez un administrateur</span>
+    <div class="descriptionProfile">
+      {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>
+      Crédit à rembourser: {{ userDisplayed.credit}} €<br>
+      Formation: <span>{{userDisplayed.formation}}</span>
+      <span *ngIf="userDisplayed.banni">Actuellement vous ne pouvez pas commander quelque chose. Contactez un administrateur</span>
+    </div>
+
+
   </div>
 
   <div class="divOrders">
@@ -29,7 +33,7 @@
           <span *ngFor="let option of order.getSelectedOptions()">{{option.nom}}: {{option.surcout}} euros</span>
         </div>
         <span> Prix total: {{order.getTotalPrice()}} euros</span><br>
-        <button class="btn btn-primary" (click)="orderAgain(order)">Commander à nouveau</button>
+        <button class="btn btn-primary buttonOrderAgain" (click)="orderAgain(order)">Commander à nouveau</button>
         <hr>
       </div>
     </div>
