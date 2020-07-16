@@ -19,21 +19,21 @@ form{
     
 }
 
-.container{
-    display: contents;
-}
+
 .userFormula{
     width: 300px;
     height: 550px;
     padding: 20px 30px ;
-    margin: 50px 60px;
-    background: rgb(92, 178, 248);
-    border: 2px solid rgba(115, 32, 170, 0.1);
+    margin-left:auto;
+    margin-right:auto;
+    background: #F8F0F0;
+    border: 1px solid grey;
+    box-shadow:0 0 20px rgba(0,0,0,0.25);
     border-radius: 20px;  
 }
+
 .inputClass{
     font-size: 16px;
-   
     background:white ;
     -webkit-background:white ;
     border: 2px solid rgba(8, 212, 8, 0.1);
@@ -49,12 +49,12 @@ button{
     border-radius: 6px;
     display: inline-block;
     transition: all 0.3s ease 0s;
-      }
-  button:hover{
+}
+button:hover{
     color: #e1b382 ;
     border-radius: 50px;
     border-color: #2d545e ;
     background-color: #ff5e6c;
     transition: all 0.3s ease 0s;
-  }
+}
   
