@@ -81,13 +81,13 @@
     </div>
     <div class="row">
         <div class="form-element form-isBlocked col-lg-6">
-            <label  for="blocked">Bloquer</label>
-            <input  #isBlocked type="checkbox" [(ngModel)]="user.isBlocked"  class="form-control"  name="login">
+            <label  for="blocked">Bloqué ?</label>
+            <input  #isBlocked type="checkbox" [(ngModel)]="user.isBlocked"  class="form-control"  name="blocked">
         </div>
 
         <div class="form-element form-isAdmin col-lg-6">
             <label  for="admin">Administrateur ?</label>
-            <input  #isAdmin type="checkbox" [(ngModel)]="user.isAdmin"  class="form-control"  name="password">
+            <input  #isAdmin type="checkbox" [(ngModel)]="user.isAdmin"  class="form-control"  name="admin">
         </div>
     </div>
 

@@ -6,7 +6,7 @@
         <a routerLink = "/admin/produit/ajouter/{{ supplierId }}">Ajouter un produit</a>
     </div>
     
-    <table>
+    <table *ngIf="listProducts">
         <tr>
             <th class="th-id">ID</th>
             <th class="th-name">NOM</th>
