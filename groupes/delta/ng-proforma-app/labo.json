@@ -216,23 +216,14 @@
       "date": "2020-07-15T11:29:34.792Z"
     },
     {
-<<<<<<< HEAD
-      "user_id": 3,
-      "product_id": 35,
-=======
       "user_id": 1,
       "product_id": 9,
->>>>>>> c3045a3e693e576640b140e5a4dc129fa04df4ef
       "option_ids": [
         1
       ],
       "paye": false,
       "id": 19,
-<<<<<<< HEAD
-      "date": "2020-07-16T12:52:46.425Z"
-=======
       "date": "2020-07-16T14:11:43.726Z"
->>>>>>> c3045a3e693e576640b140e5a4dc129fa04df4ef
     }
   ],
   "fournisseurs": [
