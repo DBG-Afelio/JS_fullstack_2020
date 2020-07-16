@@ -2,47 +2,36 @@
   "utilisateurs": [
     {
       "login": "admin",
-      "password": "admin",
-      "nom": "saispas",
-      "prenom": "gene",
+      "password": "",
+      "nom": "XYZ",
+      "prenom": "L'Administrateur",
       "credit": 0,
-      "formation": null,
+      "formation": "proforma 2020",
       "banni": false,
       "admin": true,
-      "id": 1
+      "id": 486
     },
     {
       "login": "steph_dub",
       "password": "froufrou",
       "nom": "dubois",
       "prenom": "stephane",
-      "credit": null,
+      "credit": 3.2,
       "formation": "JS_FULLSTACK",
       "banni": false,
       "admin": false,
-      "id": 2
+      "id": 4869
     },
     {
       "login": "lolo",
       "password": "miammiam",
       "nom": "duprieux",
       "prenom": "laurent",
-      "credit": 8.2,
+      "credit": 8.5,
       "formation": "INTRO_PROG",
       "banni": false,
       "admin": false,
       "id": 3
-    },
-    {
-      "login": "pierre",
-      "password": "xxx",
-      "nom": "Pag",
-      "prenom": "Pierre",
-      "credit": 5.8,
-      "formation": "JS Angular Super Agile",
-      "banni": false,
-      "admin": false,
-      "id": 4
     }
   ],
   "commandes": [
@@ -114,6 +103,26 @@
         true
       ],
       "tel": "04/3360262"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": 3,
+      "nom": "Sandwich test",
+      "description": "poissons",
+      "ferme": true,
+      "archive": false,
+      "horaire": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "tel": "01234564789"
+>>>>>>> bravo-sanwichster
     }
   ],
   "produits": [
@@ -1166,8 +1175,14 @@
     {
       "nom": "Royale",
       "description": "Tomate, mozzarella, jambon, champignons, artichauts, oeufs, 4 gambas, olives",
-      "prix": 10.5,
-      "options": [],
+      "prix": "10.5",
+      "options": [
+        {
+          "id": 1,
+          "nom": "Poivron",
+          "surcout": "2"
+        }
+      ],
       "fourn_id": 2,
       "id": 71
     }

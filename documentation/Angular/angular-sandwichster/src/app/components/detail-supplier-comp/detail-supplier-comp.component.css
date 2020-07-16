@@ -1,0 +1,54 @@
+h1{
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+th{
+    text-align: center;
+}
+
+th, td{
+    padding: 0.5rem;
+}
+
+form > div {
+    margin-bottom: 1.5rem;
+}
+
+.redStar{
+    color: red;
+}
+
+.mainDivAddSupplier{
+    margin: 2rem 0;
+}
+
+.divArchived{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    font-style: italic;
+}
+
+.spanSchedule{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.divRedStar{
+    margin-top: 1rem;
+}
+
+
+.divDataSupplier{
+    margin-bottom: 1rem;
+}
+
+.divAllButtons{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.divAllButtons button{
+    margin-right: 1rem;
+}
