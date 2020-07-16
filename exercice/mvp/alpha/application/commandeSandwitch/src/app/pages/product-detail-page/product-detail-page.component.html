@@ -68,8 +68,7 @@
                 Votre compte a été bloqué et ne vous permet plus de commander sur le site. Veuillez prendre contact aupres de <a routerLink="">l'administrateur</a> pour regulariser la situation.
             </div>
         </div>
-
-        <div class="buttons-detail" *ngIf="!currentUser?.isBlocked && product && !productSupplier?.closure && productSupplier?.isOpenedToday()">      
+        <div class="buttons-detail" *ngIf="currentUser && !currentUser?.isBlocked && product && !productSupplier?.closure && productSupplier?.isOpenedToday()">      
             <button
                 (click)="saveInLocalStorage()"
                 [disabled]="!isOnTime || fullOrder?.isConfirmed() || isAlreadyAdded">
