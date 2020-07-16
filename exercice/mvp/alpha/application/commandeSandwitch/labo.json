@@ -285,6 +285,16 @@
       "paye": true,
       "id": 39,
       "date": "Wed Jul 15 2020 21:20:56 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      "user_id": 4,
+      "product_id": 29,
+      "option_ids": [
+        1
+      ],
+      "paye": true,
+      "id": 40,
+      "date": "Thu Jul 16 2020 10:12:21 GMT+0200 (Central European Summer Time)"
     }
   ],
   "fournisseurs": [
