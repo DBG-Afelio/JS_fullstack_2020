@@ -9,6 +9,7 @@ import { UserDto } from 'src/app/interfaces/userDto'
 import { UserService } from 'src/app/services/user.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { ListItemsService } from 'src/app/services/list-items.service';
 
 
 
@@ -39,6 +40,7 @@ public user: UserModel;
 public userCreditUpdate: number = this.loginService.currentUser.credit;
 public order: Order;
 
+public previousOrderedItem: Item;
 
 public currentDate: string = this.orderService.dayOfToday;
 
@@ -49,38 +51,37 @@ public currentDateRegEx: RegExp = new RegExp(this.currentDate);
     public orderService: OrdersService,
     public userService: UserService,
     public loginService: LoginService,
-    private routeur: Router
+    private routeur: Router,
+    public listItemService: ListItemsService
     
 
   ) {   }
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.selectedProduct){
       this.getTotal();
-      console.log(changes, this.selectedProductPrice);
+      //console.log(changes, this.selectedProductPrice);
     }
-    console.log('OnChange : ' , changes)
+    //console.log('OnChange : ' , changes)
   }
 
   ngOnInit() {
-    console.log(this.currentDate);
+    //console.log(this.currentDate);
+    console.log(this.isOrderSent);
     this.getTotal();
     this.user = this.loginService.getCurrentUser();
+    //console.log(this.user)
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
-    this.orderService.getAllOrders().subscribe(allOrders => {
-      this.allOrders = allOrders
-      this.allOrders.filter(orders => orders.user_id === this.loginService.getCurrentUser().id).forEach(orderOfUser => {
-        if(this.currentDateRegEx.test(orderOfUser.date)){
-          console.log("orderSent > TRUE : l'user ne peut plus commander");
-          this.isOrderSent = true;
-        }
-      });
-    });
+    
+    this.orderedTodayTest();
+    
+    
 
 
+/*
+    //console.log('La date du jour, telle que définie dans order.service est : ', this.orderService.getDateFunc());
+    //console.log("xxx", this.allOrders);
 
-    console.log('La date du jour, telle que définie dans order.service est : ', this.orderService.getDateFunc());
-    console.log("xxx", this.allOrders);
-
+    ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ A SUPPRIMER ///////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     // ESSAI MEMORISATION COMMANDE AVEC BOOLEEN
     if(this.orderService.hasUserAlreadyOrdered === undefined || this.orderService.hasUserAlreadyOrdered === false){
       this.isOrderSent = false;
@@ -89,17 +90,58 @@ public currentDateRegEx: RegExp = new RegExp(this.currentDate);
       this.isOrderSent = true;
       this.order = this.orderService.todayUserOrder;
       this.sentPrice = this.orderService.receivedPrice;
-      console.log('Commande actuelle après la condition : ' + this.order.id);
+      //console.log('Commande actuelle après la condition : ' + this.order.id);
       
-    }
-
-    
-
-    // QUESTION // console.log('test user avec userService, doit renvoyer user', this.userService.getUserByID(1)); // QUESTION POURQUOI CECI NE FONCTIONNE PAS ???
-
-
+    }*/
   }
 
+orderedTodayTest(){
+  this.orderService.getAllOrders().subscribe(allOrders => {
+    this.allOrders = allOrders
+    this.allOrders.filter(orders => orders.user_id === this.loginService.getCurrentUser().id).forEach(orderOfUser => {
+      if(this.currentDateRegEx.test(orderOfUser.date)){
+        console.log("orderSent > TRUE : l'user ne peut plus commander");
+        this.isOrderSent = true;
+        this.order = orderOfUser;
+        this.previousOrderProduct();
+
+      }
+    });
+  });
+}
+
+previousOrderProduct(){
+  this.listItemService.getItemById(this.order.product_id).subscribe(getitem =>  
+    {
+      this.previousOrderedItem = getitem;
+      this.sentPrice = this.getTotalPriceOfPreviousOrder();
+      console.log("test récupération produit commandé précédemment s'il y a bien une commande", this.previousOrderedItem);
+      console.log("test récupération prix total si commande précédante existe", this.sentPrice);
+    })
+}
+
+
+getTotalPriceOfPreviousOrder(){
+  let total: number;
+  let itemPrice: number;
+  let optionTotal: number = 0;
+  itemPrice = this.previousOrderedItem.prix;
+  if(this.order.option_ids.length > 0){
+    for(let i = 0; i < this.order.option_ids.length; i ++){
+      this.previousOrderedItem.options.forEach(selectedOption => {
+        if(selectedOption.id === this.order.option_ids[i]){
+          optionTotal += selectedOption.surcout;
+        }
+      })
+    }
+  }
+  total  = itemPrice + optionTotal;
+  console.log("itemPrice : ", itemPrice);
+  console.log("optionTotal : ", optionTotal);
+  console.log("total : ", total);
+  return total;
+ 
+}
 
   //this.selectedProductOptionsPrices = this.selectedProductOptionsPrices.filter(optionSurcout => option.surcout != optionSurcout);
 
@@ -131,18 +173,18 @@ getTotal(){
 
 
 paidTrue(){ // C'EST SALE, BERK
-  console.log("payé");
+  //console.log("payé");
   this.isPaid = true;
 }
 
 paidFalse(){ // C'EST SALE, BERK
-  console.log("non-payé");
+  //console.log("non-payé");
   this.isPaid = false;
 }
 
   orderGoEvent(){
     this.timeLimitResponse = this.orderService.getTimeLimitResponse();
-    console.log("timeLimitResponse : " , this.timeLimitResponse);
+    //console.log("timeLimitResponse : " , this.timeLimitResponse);
     if(this.user.banni){
       alert('Vous avez été banni.')
     }
@@ -162,7 +204,7 @@ paidFalse(){ // C'EST SALE, BERK
   
       else{
         this.orderGoForReal();
-        console.log("La commande a été envoyée");
+        //console.log("La commande a été envoyée");
       }
     }
 
@@ -205,15 +247,14 @@ paidFalse(){ // C'EST SALE, BERK
     }
 
   orderDeleteEvent(){
-    console.log(this.sentPrice);
+    console.log('test du sentPrice : ', this.sentPrice);
     this.orderService.deleteOrder(this.order).subscribe();
-    if(!this.isPaid || this.isPaid === undefined){
-      this.user.credit = this.user.credit - this.sentPrice;
+    if(!this.order.paye){
+      this.user.credit = this.user.credit - this.sentPrice; // VERIFIER QU'EN CAS DE SUPPRESSION D'UNE COMMANDE EN COURS APRES DECONNEXION, LE CREDIT USER NE PASSE PLUS A NaN
+      this.userService.updateUser(this.user).subscribe();
     }
-    this.userService.updateUser(this.user).subscribe();
+    // voir si je ne dois pas rajouter un this.sentPrice = 0; ici
     this.isOrderSent = false;
-    this.orderService.userHasAlreadyOrdered(this.isOrderSent); // ESSAI MEMO COM AVEC BOOL
-  
 }
 
 orderModifyEvent(){
