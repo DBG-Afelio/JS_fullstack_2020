@@ -31,8 +31,6 @@ export class HistoryOrdersUserComponent implements OnInit {
        this.user.getUserByID(this.idUser).subscribe((user) => this.currentUser = user);
     })
 
-    //  this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, this.allIndividualUserOrders);
-
   }
 
 
