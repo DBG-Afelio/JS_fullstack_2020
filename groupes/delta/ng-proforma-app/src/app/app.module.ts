@@ -19,6 +19,7 @@ import { CommandesComponent } from 'src/page/commandes/commandes.component';
 import {MatButtonModule} from '@angular/material/button';
 import{MembreComponent} from 'src/page/membre/membre.component';
 import { TableauComponent } from 'src/component/tableau/tableau.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { TableauComponent } from 'src/component/tableau/tableau.component';
     MatCommonModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

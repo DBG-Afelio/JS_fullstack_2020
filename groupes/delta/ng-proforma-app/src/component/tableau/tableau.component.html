@@ -11,10 +11,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let membre of sortMembre()" [routerLink]="['/',link,membre.id]">
+    <tr *ngFor="let membre of (sortMembre() |slice:lowValue:highValue)"  [routerLink]="['/',link,membre.id]">
       <td *ngFor="let titre of tableauOfHeader">
         {{membre[titre]}}
       </td>
     </tr>
   </tbody>
 </table>
+<mat-paginator  [length]="tableau.length"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeOptions"
+                
+                (page)="getPaginator($event)"
+                > 
+</mat-paginator>
