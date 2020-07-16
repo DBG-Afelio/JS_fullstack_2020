@@ -1,8 +1,12 @@
 
       <nav class="sidebar">
-            <h1> {{ selectedProduct?.nom }} </h1>
+            <div class="divCloseSidebar">
+                <span class="sidebarX" (click)="closeSidebar()">X</span>  
+            </div>
+            <h1 class="h1SelectedProduct"> {{ selectedProduct?.nom }} </h1>
             <p> {{ selectedProduct?.description }}</p>
-            <p> {{ selectedProduct?.prix }} euros </p>
+            <p> Préparé par : {{ selectedProductSupplier?.nom }} </p>
+            <p> Prix de base: {{ selectedProduct?.prix }} € </p>
             
             <form *ngFor="let option of selectedProduct?.options; let index = index" (change)="optionSelection(option, index)">
                   
@@ -16,7 +20,7 @@
             
             <!-- ATTENTION LORS DE LA SELECTION D'UNE OPTION LE PRIX DOIT ÊTRE AFFICHÉ EN CSQ -->
 
-            <p> Fournisseur : {{ selectedProductSupplier?.nom }} </p>
+
             
             <div>
                   <input type="radio" value="true" name="paiedOrNotPaid" (click)="paidTrue()">
@@ -25,8 +29,8 @@
                   <label for="paymentStatus">Non-payé </label>
             </div>
             
-            <div class="total">
-                  <p> Total : {{ selectedOptionsSum }} </p>
+            <div class="divTotal">
+                  <p class="totalPrice"> Total : {{ selectedOptionsSum }} €</p>
   
             </div>
 

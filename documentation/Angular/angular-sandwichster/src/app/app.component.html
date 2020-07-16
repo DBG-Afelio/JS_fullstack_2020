@@ -1,18 +1,31 @@
+<header>
+  <a routerLink="">
+    <img src="/assets/proformaLogo.png" class="imgLogo">
+  </a>
 
-<nav>
-  <ul>
-    <li><a routerLink="">Liste produits (utilisateur/admin/invité)</a> </li>
-    <li *ngIf="!currentUser"><a routerLink="login">Login (utilisateur/admin)</a> </li>
-    <li *ngIf="currentUser?.admin">
-      <a routerLink="add-product">Ajouter nouveau produit (admin)</a>
-    </li>
-    <!-- <li *ngIf="currentUser"><a routerLink="summary">Résumé de ma commande (utilisateur)</a> </li> -->
-    <li *ngIf="currentUser"><a routerLink="profile">Mon profil (utilisateur/admin)</a> </li>
-    <li *ngIf="currentUser?.admin"><a routerLink="for-today">Liste commandes (admin)</a> </li>
-    <li *ngIf="currentUser?.admin"><a routerLink="list-users">Liste utilisateurs (admin)</a> </li>
-    <li *ngIf="currentUser?.admin"><a routerLink="list-suppliers">Liste fournisseurs (admin)</a> </li>
-  </ul>
-  <button *ngIf="currentUser" (click) ="disconnect()" class="btn btn-primary">Deconnexion</button>
-</nav>
+  <nav class="navbar navbar-expand-lg mainNavBar">
+    <ul class="nav">
+      <li class="nav-item"><a routerLink="">Liste produits</a> </li>
+      <li class="nav-item" *ngIf="!currentUser"><a routerLink="login">Login</a> </li>
+      <li class="nav-item" *ngIf="currentUser?.admin">
+        <a routerLink="add-product">Ajouter nouveau produit</a>
+      </li>
+      <li class="nav-item" *ngIf="currentUser"><a routerLink="profile">Mon profil</a> </li>
+      <li class="nav-item" *ngIf="currentUser?.admin"><a routerLink="for-today">Liste commandes</a> </li>
+      <li class="nav-item" *ngIf="currentUser?.admin"><a routerLink="list-users">Liste utilisateurs</a> </li>
+      <li class="nav-item" *ngIf="currentUser?.admin"><a routerLink="list-suppliers">Liste fournisseurs</a> </li>
+      <li>
+        <button *ngIf="currentUser" (click) ="disconnect()" class="btn btn-primary">Deconnexion</button>
+      </li>
+    </ul>
 
-<router-outlet></router-outlet>
+  </nav>
+</header>
+
+<div class="divRouterOutlet">
+  <router-outlet ></router-outlet>
+</div>
+
+<footer>
+
+</footer>

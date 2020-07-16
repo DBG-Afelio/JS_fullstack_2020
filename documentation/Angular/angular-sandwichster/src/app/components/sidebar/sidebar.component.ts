@@ -25,6 +25,7 @@ export class SidebarComponent implements OnInit, OnChanges {
 @Input() selectedProductSupplier: Supplier;
 @Output() newOrderOutput = new EventEmitter<Order>();
 
+@Output() visibleSidebar = new EventEmitter<boolean>();
 
 //public userCredit: any = this.userService.getUserByID(this.loginService.currentUser.id);
 public timeLimitResponse: boolean;
@@ -195,13 +196,18 @@ paidFalse(){ // C'EST SALE, BERK
     this.isOrderSent = false;
     this.orderService.userHasAlreadyOrdered(this.isOrderSent); // ESSAI MEMO COM AVEC BOOL
   
-}
+  }
 
-orderModifyEvent(){
+  orderModifyEvent(){
 
-  this.orderDeleteEvent();
+    this.orderDeleteEvent();
 
-  this.orderGoEvent();
+    this.orderGoEvent();
 
-}
+  }
+
+  closeSidebar(){
+    console.log("click");
+    this.visibleSidebar.emit(false);
+  }
 }
