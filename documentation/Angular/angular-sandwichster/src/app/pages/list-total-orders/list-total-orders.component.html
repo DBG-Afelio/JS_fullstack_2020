@@ -2,7 +2,7 @@
 <!-- BENOIT -->
 <h1 class="text-center">Liste des commandes </h1>
 <div class="container">
-  <div *ngFor="let order of todayOrders">
+  <div *ngFor="let order of displayTodayOrders(todayDisplay)">
     <ul>
       <li >Qui ? {{ order.user?.prenom | titlecase}} {{ order.user?.nom | uppercase }}</li>
       <li >Quoi ? {{ order.item.nom }}</li>
@@ -15,7 +15,7 @@
           </li>
         </ul>
       </li>
-      <li >Prix total: {{ order.item.prix }}</li>
+      <li >Prix total: {{ order.getTotalPrice() }}</li>
       <li ><span *ngIf="order.paye; else notPaid">Payé</span><ng-template #notPaid>Pas payé</ng-template></li>
       <li >{{ order.date | date: 'd/M/yyyy, h:mm a' }}</li>
     </ul>
@@ -24,7 +24,10 @@
     <hr>
   </div>
   <div class="text-center">
-      <span>Total de la commande d'aujourd'hui : <span> <b> {{ getTotalPriceForOneDay() }} € </b> </span></span>
+      <span>Total de la commande d'aujourd'hui : <span> <b> {{ getTotalPriceForOneDay(displayTodayOrders(true)) }} € </b> </span></span>
+  </div>
+  <div>
+    <button (click)="displaySwitch()"> {{todayDisplay?"Historique complet":"Commandes du jour"}} </button> <!-- revenir ici -->
   </div>
 </div>
 

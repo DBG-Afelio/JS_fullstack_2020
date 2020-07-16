@@ -16,7 +16,7 @@ export class ListUsersComponent implements OnInit {
   currentUserId: number;
   currentUserIndex: number;
   currentUser: UserModel;
-  userSearched: UserModel;
+  // userSearched: UserModel;
   
 
   constructor(public listusers: UserService) {
