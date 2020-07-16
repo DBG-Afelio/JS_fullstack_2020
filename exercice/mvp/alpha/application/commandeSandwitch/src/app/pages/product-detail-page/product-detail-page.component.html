@@ -33,11 +33,12 @@
     
 
     <div class="wrap-buttons">
+        
+        <div *ngIf="!(currentUser && product)">
+            Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
+        </div>
 
         <div class="msg-detail" *ngIf="currentUser && product"> 
-            <div *ngIf="!(currentUser && product)">
-                Pour commander ce sandwich,<span> identifiez-&shy;vous&nbsp;!</span>
-            </div>
 
             <div *ngIf="currentUser && isOnTime && fullOrder && !fullOrder?.isConfirmed()">
                 Commande <a [routerLink]="['','produit', fullOrder?.getProduct().id]">{{ fullOrder.getOrderProductWithOptions() }}</a> temporairement sauvegardée &nbsp;! Procéder au paiement avant <span>{{deadline?.getHours()}}h{{deadline?.getMinutes()}}</span> pour confirmer &nbsp;!

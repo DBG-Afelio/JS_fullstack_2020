@@ -177,11 +177,15 @@ export class OrderService {
     
   }
   public deleteOrderFromServer(payload: FullOrder): void {
-    if (!payload.getOrder().isPayed) {
-        this.currentUser.credit -= payload.getTotalPrice();
-        this.userService.setCurrentUser(this.currentUser);
-        this.userService.updateUser(this.currentUser).subscribe();
-    }
+// marche pas avec ce block gestion credit
+    // if (!payload.getOrder().isPayed) {
+    //   console.log('credit aavant: ', this.currentUser.credit);
+    //   Math.round((this.currentUser.credit -= payload.getTotalPrice())*100)/100; //pour avoir 2 digits float
+    //   console.log('credit apres: ', this.currentUser.credit);
+    //     this.userService.setCurrentUser(this.currentUser);
+    //   this.userService.updateUser(this.currentUser).subscribe((userDto) => console.log("user after update in Server :", User.fromDto(userDto)));
+    // }
+
     console.log('********DELETE REQUEST SERVER **********');
     this.http.delete<IOrderDto>(`${environment.baseUrl}/commandes/${payload.getOrder().id}`).subscribe({
       next: returnedOrder => {

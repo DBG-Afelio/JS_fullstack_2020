@@ -38,15 +38,15 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 2.4,
+      "credit": 7,
       "formation": "Le planté de baton",
       "banni": false,
       "admin": false,
       "id": 4
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "jules",
+      "password": "jules",
       "nom": "Cesar",
       "prenom": "Jules",
       "credit": 1.5,
@@ -56,8 +56,8 @@
       "id": 5
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "nico",
+      "password": "nico",
       "nom": "GRANDJEAN",
       "prenom": "Nicolas",
       "credit": 0,
@@ -67,8 +67,8 @@
       "id": 6
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "jerome",
+      "password": "jerome",
       "nom": "GRANDJEAN",
       "prenom": "Jerome",
       "credit": 0,
@@ -78,8 +78,8 @@
       "id": 7
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "oshi",
+      "password": "oshi",
       "nom": "GRANDJEAN",
       "prenom": "Oshi",
       "credit": 0,
@@ -89,8 +89,8 @@
       "id": 8
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "geof",
+      "password": "geof",
       "nom": "WINSTW",
       "prenom": "Geoffroy",
       "credit": 0,
@@ -100,8 +100,8 @@
       "id": 9
     },
     {
-      "login": "login",
-      "password": "mdp",
+      "login": "denis",
+      "password": "denis",
       "nom": "BOEGARTS",
       "prenom": "Denis",
       "credit": 0,

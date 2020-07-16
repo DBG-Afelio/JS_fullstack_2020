@@ -17,7 +17,7 @@ export class UserNavComponent implements OnInit {
   @Input() creditMax: number = null; 
   @Output() deleteRequest: EventEmitter<any> = new EventEmitter();
   constructor() {
-    if (this.creditMax && this.currentUser) {
+    if (this.currentUser && this.creditMax) {
       if (this.currentUser.credit > 0) {
         this.ariaLabelCredit = 'Pensez à vous acquitter du montant dû aupres de l\'administrateur.';
       } else {
