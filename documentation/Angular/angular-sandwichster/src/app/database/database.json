@@ -72,6 +72,17 @@
       "paye": true,
       "id": 3,
       "date": "2020-07-15T21:17:21.359Z"
+    },
+    {
+      "user_id": 45646846,
+      "product_id": 15,
+      "option_ids": [
+        1,
+        2
+      ],
+      "paye": true,
+      "id": 4,
+      "date": "2020-07-16T08:02:56.043Z"
     }
   ],
   "fournisseurs": [

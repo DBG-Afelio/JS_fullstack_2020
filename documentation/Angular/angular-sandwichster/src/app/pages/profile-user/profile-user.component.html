@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<!-- BENOIT -->
-=======
 <app-sidebar [selectedProduct]="selectedProduct" 
 
 [selectedProductPrice]="selectedProductPrice"
@@ -9,7 +6,6 @@
 *ngIf="sidebarDisplay" 
 (newOrderOutput)="createOrderEvent($event)"> </app-sidebar>
 
->>>>>>> origin/bravo-sanwichster-ben-sand06
 <div class="container" *ngIf="userDisplayed">
   <h2>Mon profil</h2>
   {{ userDisplayed.prenom | titlecase}} {{ userDisplayed.nom | titlecase}}<br>

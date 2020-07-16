@@ -43,12 +43,11 @@ export class HistoryOrdersUserComponent implements OnInit {
       this.allIndividualUserOrders = orders;
     });
 
-    this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, this.allIndividualUserOrders);
+    // this.allIndividualUserOrders = this.getFilteredOrders(this.idUser, this.allIndividualUserOrders);
 
-    this.allIndividualUserOrders;
+    console.log(this.allIndividualUserOrders);
 
     console.log(this.idUser);
-
   }
 
 }
