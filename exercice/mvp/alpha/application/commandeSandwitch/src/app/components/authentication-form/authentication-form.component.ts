@@ -27,6 +27,8 @@ export class AuthenticationFormComponent implements OnInit {
       if (foundUser) {
         this.UserChange.emit(foundUser);
       } else {
+
+        alert('Erreur sur login/pwd ou User inexistant');
         throw ('Erreur sur login/pwd ou User inexistant');
       }
  
