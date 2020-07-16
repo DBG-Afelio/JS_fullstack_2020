@@ -76,7 +76,7 @@ main .inner-main  {
 
 content {
     grid-area: content;
-   
+   min-width:425px;
     width: 100%;
     margin-bottom: 60px;
 }

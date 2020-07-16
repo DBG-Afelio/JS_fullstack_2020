@@ -15,7 +15,7 @@
         <th>MODIFIER</th>
         <th>SUPPRIMER</th>
     </tr>
-    <tr *ngFor = "let user of userList">
+    <tr *ngFor = "let user of userList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
         <td>{{ user.id }}</td>
         <td>{{ user.familyName }}</td>
         <td>{{ user.firstName }}</td>
@@ -24,3 +24,9 @@
         <td><button (click) = "deleteRequested(user)">Supprimer</button></td>
     </tr>
 </table>
+
+<ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+</ngb-pagination>

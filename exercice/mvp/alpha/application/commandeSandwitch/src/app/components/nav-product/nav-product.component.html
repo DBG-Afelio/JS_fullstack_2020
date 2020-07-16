@@ -1,6 +1,18 @@
-<nav class="nav-product">
-    <div class="inner-nav">
-        <a routerLink = "/fournisseur/{{ supplier.id }}" *ngFor="let supplier of listSuppliers"
-        >{{ supplier.name }}</a> 
-    </div>
-</nav>
+ <div class="nav-content">
+    <button class="prev" 
+        [class.active] = "index > min"
+        (click) = "previous()"
+    ><</button>
+    <nav class="nav-product">
+    
+    <div class="inner-nav" [style.left]="left + 'px'">
+            <a routerLink = "/fournisseur/{{ supplier.id }}" *ngFor="let supplier of listSuppliers"
+            >{{ supplier.name }}</a> 
+        </div>
+        
+    </nav>
+    <button class="next" 
+        [class.active] = "index + size < max"
+        (click) = "next()"
+    >></button>
+</div>
