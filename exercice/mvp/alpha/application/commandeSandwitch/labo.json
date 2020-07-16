@@ -368,7 +368,7 @@
       "nom": "Sushi House Mafia",
       "description": "Assortiments de mets asiatiques",
       "ferme": false,
-      "archive": false,
+      "archive": true,
       "horaire": [
         true,
         true,
