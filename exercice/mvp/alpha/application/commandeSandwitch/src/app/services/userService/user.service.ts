@@ -14,11 +14,17 @@ export class UserService {
  // ASSIA = new User("assia", "assia", "rachdi", "assia", 0, 'JSFull', false, false, 4);
   private currentUser: BehaviorSubject <User> = new BehaviorSubject(null); //remettre a (null)
   public userUrl: string = 'http://localhost:3000/utilisateurs/';
+  private isUserListUpdated: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor(private http: HttpClient) { 
     this.setCurrentUserToUnknown();
   }
-
+  private updateUserList(): void{
+    this.isUserListUpdated.next(true);
+  }
+  public isChangeInUserList(): Observable<boolean>{
+    return this.isUserListUpdated.asObservable();
+  }
   public setCurrentUser(user: User): void {
    this.currentUser.next(user);
   }
@@ -55,17 +61,23 @@ export class UserService {
       );
   }
 
-  public updateUser(payload: User): Observable<IUserDto>  {
-    return this.http.put<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`, payload.toDto())
-      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  public updateUser(payload: User): void  {
+    this.http.put<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`, payload.toDto()).subscribe({
+      next: returnedUserDto => this.updateUserList(),
+      error: error => console.error('Erreur Update User in Server', error)
+    });
   }
   
-  public deleteUser(payload: User): Observable<IUserDto>  {
-    return this.http.delete<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`)
-      .pipe(catchError((error: any) => Observable.throw(error.json())));
+  public deleteUser(payload: User): void  {
+    this.http.delete<IUserDto>(`${environment.baseUrl}/utilisateurs/${payload.id}`).subscribe({
+      next: returnedUserDto => this.updateUserList(),
+      error: error => console.error('Erreur Delete User in Server', error)
+    });
   }
-  public addUser(payload: User): Observable<IUserDto>  {
-    return this.http.post<IUserDto>(`${this.userUrl}`, payload.toDto())
-      .pipe(catchError((error: any) => throwError(error.json())));
+  public addUser(payload: User): void  {
+    this.http.post<IUserDto>(`${this.userUrl}`, payload.toDto()).subscribe({
+      next: returnedUserDto => this.updateUserList(),
+      error: error => console.error('Erreur Add User in Server', error)
+    });
   }
 }

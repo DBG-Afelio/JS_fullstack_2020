@@ -38,10 +38,9 @@ export class UserAdminPageComponent implements OnInit {
     const msg = `Cette action supprimera définitivement l'utilisateur du système. Etes-vous certain(e) de vouloir supprimer l\'utilisateur ${user.firstName} ${user.familyName} ?`;
     const isDeleteConfirmed: boolean = window.confirm(msg);
     if (isDeleteConfirmed) {
-      this.userService.deleteUser(user).subscribe(() => {
-        this.router.navigate(['/admin/utilisateur']);
-        this.reloadUserList();
-      });
+      this.userService.deleteUser(user);
+      this.router.navigate(['/admin/utilisateur']);
+      this.reloadUserList();
     }
   }
 

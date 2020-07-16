@@ -168,22 +168,16 @@ export class OrderService {
 
 
   /*-----------------------JSON Server/commandes-----------------------------*/
-  // public updateServerOrder(payload: Order): Observable<IOrderDto> { //dans notre appli en l'etat, ne sera pas utilised
-  //   this.setServerOrder(payload);
-  //   return this.http.put<IOrderDto>(`${environment.baseUrl}/commandes/${payload.id}`, payload.toDto())
-  //     .pipe(catchError((error: any) => Observable.throw(error.json())));
-  // }
+
   public updateCredit() {
     
   }
   public deleteOrderFromServer(payload: FullOrder): void {
 // marche pas avec ce block gestion credit
     if (!payload.getOrder().isPayed) {
-      console.log('credit aavant: ', this.currentUser.credit);
       Math.round((this.currentUser.credit -= payload.getTotalPrice())*100)/100; //pour avoir 2 digits float
-      console.log('credit apres: ', this.currentUser.credit);
-        this.userService.setCurrentUser(this.currentUser);
-      this.userService.updateUser(this.currentUser).subscribe((userDto) => console.log("user after update in Server :", User.fromDto(userDto)));
+    //  this.userService.setCurrentUser(this.currentUser);
+      this.userService.updateUser(this.currentUser);
     }
 
     console.log('********DELETE REQUEST SERVER **********');
@@ -191,10 +185,8 @@ export class OrderService {
       next: returnedOrder => {
         console.log('commande retiree du Local storage');
         if (returnedOrder) {
-          // this.getFullOrder().subscribe((o) => console.log('after delete before update :',o));
           this.updateFullOrder();
         }
-        //returnedOrder ? this.updateFullOrder() : console.log('retour requete DELETE ?');
       },
       error: error => console.error('Erreur DELETE order', error)
     });
@@ -204,10 +196,8 @@ export class OrderService {
     fullPayload.getOrder().date = new Date();
     if (!fullPayload.getOrder().isPayed) {
       fullPayload.getUser().credit += fullPayload.getTotalPrice(); 
-      this.userService.updateUser(fullPayload.getUser()).subscribe(() => {
-        this.userService.setCurrentUser(fullPayload.getUser());
-        this.setFullOrder(fullPayload);
-      });
+      console.log("update user ",fullPayload.getUser());
+      this.userService.updateUser(fullPayload.getUser());
     }
     this.http.post<IOrderDto>(`${this.orderUrl}`, fullPayload.getOrder().toDto()).subscribe({
       next: returnedOrder => {

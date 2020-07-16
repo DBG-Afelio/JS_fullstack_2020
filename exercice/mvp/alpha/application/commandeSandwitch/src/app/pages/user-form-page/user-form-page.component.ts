@@ -55,11 +55,11 @@ export class UserFormPageComponent implements OnInit {
     this.user.course = course;
     console.log(this.user);
     if (this.user.id === 0) {
-      this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/admin/utilisateur']));
+      this.userService.addUser(this.user);
     } else {
-      this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/admin/utilisateur']));
+      this.userService.updateUser(this.user);
     }
-    
+    this.router.navigate(['/admin/utilisateur']);
   }
-
+  
 }
