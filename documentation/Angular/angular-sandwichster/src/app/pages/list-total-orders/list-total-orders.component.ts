@@ -13,10 +13,20 @@ import { Router } from '@angular/router';
 export class ListTotalOrdersComponent implements OnInit {
 
   public todayOrders: Order[] = [];
+  public todaySelectedOrders: Order[] = [];
+  public currentDate: string = this.orderService.dayOfToday;
+  public todayDisplay: boolean = true;
 
-  constructor(private orderService: OrdersService, private loginservice: LoginService, private route: Router) {
+  public currentDateRegEx: RegExp = new RegExp(this.currentDate);
+
+  constructor(
+    private orderService: OrdersService, 
+    private loginservice: LoginService, 
+    private route: Router
+    ) 
+    {
     this.orderService.getUsersAndProductsNameInListOrders().subscribe((receivedOrders) => {
-      this.todayOrders = receivedOrders;
+      this.todayOrders = receivedOrders; 
 
    })
 
@@ -25,19 +35,38 @@ export class ListTotalOrdersComponent implements OnInit {
     if (!this.loginservice.getCurrentUser() || !this.loginservice.getCurrentUser().admin) {
       this.route.navigate(['/']);
     } 
+
   }
 
   ngOnInit() {
     this.getOrders();
+  }
 
+  getFilteredOrders (date: string, array: Order[]) {
+    return array.filter((order) => order.date  === date);
+  }
+
+  displayTodayOrders(onlyToday){
+    let orders: Order[];
+    if(onlyToday){
+      orders = this.todayOrders.filter(order => this.currentDateRegEx.test(order.date))
+    }
+    else {
+      orders = this.todayOrders;
+    }
+    return orders;
   }
 
   getOrders(){
     return this.todayOrders;
   }
   
-  getTotalPriceForOneDay(){
-    return this.todayOrders.reduce((total, oneOrder) => total + oneOrder.getTotalPrice(),0)
+  getTotalPriceForOneDay(list){
+    return list.reduce((total, oneOrder) => total + oneOrder.getTotalPrice(),0)
+  }
+
+  displaySwitch(){
+    this.todayDisplay = !this.todayDisplay;
   }
 
 }
