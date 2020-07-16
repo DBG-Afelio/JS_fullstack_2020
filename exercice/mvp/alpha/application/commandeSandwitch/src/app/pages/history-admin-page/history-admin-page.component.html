@@ -4,7 +4,7 @@
         <h1>Historique des commandes</h1>
     </div>
     
-    <table *ngIf="allOrders">
+    <table *ngIf="allOrders && mySupplier">
         <tr>
             <th class="th-user">NOM Prenom</th>
             <th class="th-course">FORMATION</th>
@@ -14,7 +14,7 @@
             <th class="th-date">DATE - HEURE</th>
             <th class="th-payed">STATUS</th>
         </tr>
-        <tr *ngFor="let userFullOrder of sortBy('date') | slice : (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <tr *ngFor="let userFullOrder of allOrders | slice : (page-1) * pageSize : (page-1) * pageSize + pageSize">
             <td 
                 [routerLink]="['/admin/utilisateur/modifier/', userFullOrder.getUser().id]">
                 {{ userFullOrder.getUser().familyName | uppercase }} 
@@ -35,7 +35,7 @@
         </tr>
     </table>
     
-    <ngb-pagination
+    <ngb-pagination *ngIf="collectionSize && page && pageSize"
         [(page)]="page"
         [pageSize]="pageSize"
         [collectionSize]="collectionSize">
