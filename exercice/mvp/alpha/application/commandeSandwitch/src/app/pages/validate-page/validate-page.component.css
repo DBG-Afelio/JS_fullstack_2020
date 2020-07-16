@@ -53,3 +53,25 @@ p.back-link {
     margin-bottom:15px;
     text-align: left;
 }
+
+
+@media screen and (max-width: 750px) {
+    .wrap-detail {
+        flex-direction: column;
+    }
+
+    .outer-detail {
+        width: 100%;
+        text-align: right;
+        
+        padding: 30px 30px 30px 0 ;
+        min-height: 400px;
+        border-bottom: 2px solid black;
+
+        border-right: none;
+    }
+    
+    .wrap-buttons {
+        width: 100%;
+    }
+}
