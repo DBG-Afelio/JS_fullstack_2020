@@ -99,15 +99,11 @@ export class ProductDetailPageComponent implements OnInit {
     
   }
 
-  public AreOptionsIdentical (optionArr1: Option[], optionArr2: Option[]):boolean {
+  public AreOptionsIdentical(optionArr1: Option[], optionArr2: Option[]): boolean {
     let isEqual: boolean = false;
-    if (optionArr1.length === optionArr2.length) {
-      for (let key in optionArr1) {
-        optionArr1[key] !== optionArr2[key] ? isEqual = false : true;
-        console.log('order options :', optionArr1[key], '==?', 'HERE options :', optionArr2[key]);
-      }
+    if (this.fullOrder && optionArr1.length === optionArr2.length) {
+      isEqual = optionArr1.every(option1 => optionArr2.find(option2 => option1.id === option2.id)) && optionArr2.every(option2 => optionArr1.find(option1 => option1.id === option2.id));
     }
-    console.log('isEqual :', isEqual)
     return isEqual;
 }
 
@@ -148,6 +144,7 @@ export class ProductDetailPageComponent implements OnInit {
   
   public remove(): void{
     if (this.isOnTime) {
+      this.isAlreadyAdded = false;
       if (!this.fullOrder.isConfirmed()) {
         this.orderService.removeFromLocalStorage();
       } else {

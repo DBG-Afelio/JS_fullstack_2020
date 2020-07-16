@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:fake-server": "json-server --watch labo.json"
+    "start:fake-server": "json-server castassia.json"
   },
   "private": true,
   "dependencies": {

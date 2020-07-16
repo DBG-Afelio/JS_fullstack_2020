@@ -74,7 +74,7 @@
                 (click)="saveInLocalStorage()"
                 [disabled]="!isOnTime || fullOrder?.isConfirmed() || isAlreadyAdded">
                 <!-- {{ isAlreadyAdded }} -->
-                    AJOUTER
+                    {{isAlreadyAdded ? 'AJOUTÉ' : 'AJOUTER'}}
             </button>  
             <button *ngIf="fullOrder && product.id === fullOrder.getOrder().productId"
                 (click)="remove()"
