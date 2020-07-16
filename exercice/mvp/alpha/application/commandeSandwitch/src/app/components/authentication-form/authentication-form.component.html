@@ -17,4 +17,7 @@
             Se connecter
         </button>
     </div>
+    <div class="row" *ngIf="!foundUser">
+        <div class="alert alert-danger">Erreur sur login/pwd ou User inexistant</div>
+    </div>
 </form>
