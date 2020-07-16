@@ -22,3 +22,8 @@
 p {
     text-align: left;;
 }
+
+@media screen and (max-width: 1000px) {
+    
+    .detail-options li, .detail-form-options li {margin-left: 0;}
+}

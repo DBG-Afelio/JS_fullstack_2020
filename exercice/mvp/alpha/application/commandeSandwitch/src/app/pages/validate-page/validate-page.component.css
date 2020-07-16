@@ -55,7 +55,7 @@ p.back-link {
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px) {
     .wrap-detail {
         flex-direction: column;
     }
@@ -74,4 +74,10 @@ p.back-link {
     .wrap-buttons {
         width: 100%;
     }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .detail-options ul, .detail-form-options ul {padding: 0 ;}
+    .detail-options li, .detail-form-options li {margin-left: 0;}
 }
