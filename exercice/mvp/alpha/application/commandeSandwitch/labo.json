@@ -38,7 +38,7 @@
       "password": "assia",
       "nom": "Rachdi",
       "prenom": "Assia",
-      "credit": 2,
+      "credit": 0,
       "formation": "FullStack WebDev",
       "banni": false,
       "admin": false,
@@ -347,16 +347,6 @@
       "paye": true,
       "id": 43,
       "date": "Thu Jul 16 2020 23:18:13 GMT+0200 (Central European Summer Time)"
-    },
-    {
-      "user_id": 4,
-      "product_id": 31,
-      "option_ids": [
-        1
-      ],
-      "paye": true,
-      "id": 44,
-      "date": "Fri Jul 17 2020 01:22:48 GMT+0200 (Central European Summer Time)"
     },
     {
       "user_id": 7,
