@@ -31,12 +31,14 @@
         <input formControlName="password">
     
     </label>
-    
+    <hr>
+    <button *ngIf='editMode === "create"'(click)='onCreateUserClick()'>Créer utilisateur</button>
+    <button *ngIf='editMode === "update"' (click)='onSaveUserClick()'>Enregistrer les modifications</button>
+    <button *ngIf='editMode === "update"' (click)='onDeleteUserClick()'>Supprimer l'utilisateur</button>
+
 </form>
 
-<button *ngIf='editMode === "create"'(click)='onCreateUserClick()'>Créer utilisateur</button>
-<button *ngIf='editMode === "update"' (click)='onSaveUserClick()'>Enregistrer les modifications</button>
-<button *ngIf='editMode === "update"' (click)='onDeleteUserClick()'>Supprimer l'utilisateur</button>
+
 
 
 

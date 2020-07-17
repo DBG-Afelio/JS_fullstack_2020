@@ -54,7 +54,7 @@ export class OrderProductComponent implements OnInit {
 
       }else{
 
-        this.dialogRef.close('order');
+        this.dialogRef.close(button);
 
       }
 

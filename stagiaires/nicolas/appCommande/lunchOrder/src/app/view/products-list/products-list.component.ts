@@ -86,7 +86,20 @@ export class ProductsListComponent implements OnInit {
 
       if(result === 'order'){
 
-        this.ordersListService.addOrder(newOrder).subscribe(_ => console.log('order ok'))
+        let isPayValid = confirm('le paiement est valide ?')
+
+        if(isPayValid){
+
+          this.ordersListService.addOrder(newOrder).subscribe(_ => console.log('order ok'));
+
+        }
+        
+
+      }else if(result === 'credit'){
+
+        this.ordersListService.addOrder(newOrder).subscribe(_ => console.log('order ok'));
+        this.currentUser.credit += newOrder.totalPrice
+        this.usersListService.updateUser(this.currentUser).subscribe()
 
       }else if(result === 'update'){
 

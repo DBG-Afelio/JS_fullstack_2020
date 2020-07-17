@@ -42,9 +42,11 @@
     </label>
     
     <br>    
+    <hr>
+    <button *ngIf='editMode === "create"' (click)="onCreateButtonClick()">Créer un nouveau Produit</button>
+    <button *ngIf='editMode === "update"' (click)="onSaveButtonClick()">Enregistrer les modifications</button>
+    <button  routerLink='/productsList/{{product?.providerId}}'>Annuler</button>
 
 </form>
 
-<button (click)="onCreateButtonClick()">Créer un nouveau Produit</button>
-<button (click)="onSaveButtonClick()">Sauvegarder le Produit</button>
-<button routerLink='/productsList/{{product?.providerId}}'>Annuler les modifications</button>
+

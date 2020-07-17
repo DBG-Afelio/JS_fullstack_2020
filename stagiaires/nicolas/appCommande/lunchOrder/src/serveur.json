@@ -5,7 +5,7 @@
       "password": "admin",
       "nom": "saispas",
       "prenom": "gene",
-      "credit": 0,
+      "credit": 4.8,
       "formation": null,
       "banni": false,
       "admin": true,

@@ -31,10 +31,13 @@
 
         </ul>
     </fieldset>
+    <hr>
+    <button *ngIf='editMode === "create"' (click)="onCreateButtonClick()">Créer ce commerce</button>
+    <button *ngIf='editMode === "update"' (click)="onSaveButtonClick()">Enregistrer les modifications</button>
+    <button routerLink=''>Annuler</button>
+
 </form>
 
-<button *ngIf='editMode === "create"' (click)="onCreateButtonClick()">Créer ce commerce</button>
-<button *ngIf='editMode === "update"' (click)="onSaveButtonClick()">Sauvegarder Les Changements</button>
-<button routerLink=''>Annuler les Changements</button>
+
 
 
