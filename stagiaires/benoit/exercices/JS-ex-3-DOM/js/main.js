@@ -6,7 +6,7 @@ window.onload = function() {
 
 // 1. - Un champ qui se vide lorsque l'on entre dedans.
 document.forms[0].ch1.addEventListener('focus', (event) => {
-    inside.value = "";  
+  document.forms[0].ch1.value = "";  
   });
 
 // 2. - Un champ qui se vide 
@@ -330,27 +330,43 @@ document.addEventListener('click', function (event) {
 const listSquares18 = document.getElementsByClassName ('carre2');
 let colorGiven = "";
 
-for(let i = 0; i<listSquares18.length; i++){
-  if(listSquares18[i].classList.contains("checked")){
-    colorGiven = listSquares18[i].getAttribute('data-color');
-  }
-}
+let squareOut = document.querySelector("div[name='out']");
+
+
 document.addEventListener('click', function (event) {
 
-	if (event.target.classList.contains("carre2")){
+
+	if(event.target.classList.contains("carre2")){
+
+    colorGiven = event.target.getAttribute('data-color');
 
     for(let i = 0; i<listSquares18.length; i++){
-      if(listSquares18[i].classList.contains("checked")){
-        colorGiven = listSquares18[i].getAttribute('data-color');
-      }
 
       listSquares18[i].classList.remove("checked");
       
     }
     event.target.classList.add("checked");
-    event.target.classList.remove("rouge", "vert", "jaune", "bleu");
-    event.target.classList.add(colorGiven);
-    event.target.setAttribute('data-color', colorGiven);
+    squareOut.classList.remove("rouge", "vert", "jaune", "bleu");
+    squareOut.classList.add(colorGiven);
+
   }
+
+}, false);
+
+// ** Bonus **
+// On clique sur l'image à droite pour lui donner le src de la dernière image de gauche sur laquelle on a cliqué
+
+let srcGiven = "";
+
+document.addEventListener('click', function (event) {
+
+  if(event.target !== document.querySelector("img[name='idroite']")){
+    srcGiven = event.target.src;
+
+  }
+  else if(srcGiven != ""){
+    document.querySelector("img[name='idroite']").src = srcGiven;
+  }
+
 
 }, false);
