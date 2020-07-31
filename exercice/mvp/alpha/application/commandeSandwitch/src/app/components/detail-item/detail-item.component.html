@@ -1,0 +1,11 @@
+<div class="detail" *ngIf ="product">
+    <div class="detail-name">{{ product.name }}</div>
+    <div class="detail-description">{{ product.description }}</div>
+    <div class="detail-price">Prix : {{ product.price }} €</div>
+    <p *ngIf="product.options" >Options disponibles : </p>
+    <div class="detail-options" *ngIf='!currentUser'>
+        <ul *ngFor="let option of product.options" > 
+            <li>{{ option.nom }} - Surcoût : {{ option.surcout }} €</li>
+        </ul>
+    </div>
+</div>

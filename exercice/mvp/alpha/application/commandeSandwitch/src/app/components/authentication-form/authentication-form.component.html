@@ -1,0 +1,23 @@
+<form> 
+    <div class="row">
+        <div class="form-element">
+            <label for="login">Identifiant</label>
+            <input #login type="text" name="login">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element">
+            <label for="pwd">Mot de passe</label>
+            <input #pwd type="password" name="pwd">
+        </div>
+    </div>
+    <div class="row">
+        <button class="authent-btn btn btn-ok"
+            (click)="changeConnexionRequest(login.value, pwd.value)">
+            Se connecter
+        </button>
+    </div>
+    <div class="row" *ngIf="!foundUser">
+        <div class="alert alert-danger">Erreur sur login/pwd ou User inexistant</div>
+    </div>
+</form>

@@ -1,0 +1,139 @@
+body, html {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.logo{
+    width: 275px;
+    
+}
+
+.logo:active, .logo:focus, .logo:hover {
+    outline: none;
+    border: none;
+}
+    
+main {
+    width: 100%;
+   
+    background: url('../assets/header/sandwich.jpg') black right top -120px repeat-x; 
+    background-size: auto 850px;
+}
+
+@media screen and (min-width: 1600px) {
+   main {
+    background: url('../assets/header/sandwich.jpg') black right top -120px repeat-x; 
+    background-size: 100% ;
+   } 
+}
+
+main aside, main footer, main content {
+
+    box-sizing: border-box;
+}
+
+main header {
+    grid-area: header;
+    height: 400px;
+
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+main .inner-main  {
+    width: 100vw;
+     margin: 0 auto;
+     display: grid;
+     
+    grid-template-columns:  320px auto;
+     grid-template-rows: auto;
+     min-height: 100vh;
+
+    grid-template-areas: 
+    "aside header"
+    "aside content"
+    "aside footer";
+
+    
+}
+
+
+.main-logo {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 350px;
+    background: -moz-linear-gradient(-10deg,  rgba(245, 245, 245, .9) 300px, rgba(255,255,255,0) 300px); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-10deg, rgba(245, 245, 245, .9) 300px,rgba(255,255,255,0) 300px); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(170deg,  rgba(245, 245, 245, .9) 300px,rgba(255,255,255,0) 300px); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    padding: 30px;
+}
+
+content {
+    grid-area: content;
+   min-width:425px;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+main aside {
+    grid-area: aside;
+    width: 100%;
+    overflow:hidden;
+}
+
+main .inner-aside {
+    background-color: rgba(0,0,0,0.5);
+    width: 320px;
+    height:100%;
+    padding: 1px 30px;
+    grid-template-columns:  320px auto;
+}
+
+main .inner-main.aside-closed {
+    grid-template-columns:  0 auto;
+}
+
+
+
+main .inner-main.aside-closed  .inner-aside {
+    background-color: rgba(0,0,0,0)
+}
+
+
+footer{
+    grid-area: footer;
+}
+
+.inner-content {
+    width: 80%;
+    padding: 30px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.9);
+}
+.aside-button {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    font-size: 35px;
+    background-color: transparent;
+    color: white;
+    padding: 0 0 15px 15px;
+    border: none;
+}
+
+.aside-button.out:after {
+    content :">>"
+}
+
+.aside-button:after {
+    content :"<<"
+}
+
+

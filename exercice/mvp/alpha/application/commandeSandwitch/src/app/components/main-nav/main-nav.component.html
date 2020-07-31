@@ -1,0 +1,36 @@
+
+<nav class="volet-lateral">
+    <!--  user unknown -->
+  <app-authentication-form *ngIf="currentUser === null"
+      [userList]="userList"
+      (UserChange)="updateCurrentUser($event)">
+  </app-authentication-form>
+  <div *ngIf="currentUser">
+    <div class="time-track">
+      <app-time-tracking></app-time-tracking>
+    </div>
+      <!-- admin loggedIN -->
+    <app-admin-nav 
+        *ngIf="currentUser !== null && currentUser.isAdmin">
+    </app-admin-nav>
+
+      <!-- standard user loggedIN -->
+    <app-user-nav *ngIf="currentUser !== null && !currentUser.isAdmin" 
+        [isOnTime]="isOnTime"
+        [fullOrder]="fullOrder"
+        [userList]="userList"
+        [currentUser]="currentUser"
+        [creditMax]="creditMaxAllowed"
+        (deleteRequest)="deleteOrder()">
+    </app-user-nav>
+
+    <a *ngIf="currentUser" class="onglet"
+     
+      (click)="updateCurrentUser(null)">
+      Se déconnecter
+    </a>
+  </div>
+</nav>
+
+
+

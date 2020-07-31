@@ -1,0 +1,9 @@
+<div class="supplier" routerLink = "/fournisseur/{{ supplier.id }}"
+    *ngIf = "!supplier.archieved">
+    <div class="supplier-name">{{ supplier.name }}</div>
+    <div>{{ supplier.description }} </div>
+    <div> {{ supplier.phone }}</div>
+    <div *ngIf= "isOpened(supplier)" class='open'>Ouvert</div>
+    <div *ngIf= "!isOpened(supplier)" class='closed'>Fermé</div>
+</div>
+

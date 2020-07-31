@@ -1,0 +1,1 @@
+ici nos partages de ressources .doc .pdf (ex: arbre de components, schema, ...)

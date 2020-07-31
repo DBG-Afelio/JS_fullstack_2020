@@ -1,0 +1,35 @@
+
+<div class="admin-title">
+    <h1>Gestion des utilisateurs</h1>
+</div>
+<div class="button-new">
+    <a routerLink = "/admin/utilisateur/ajouter">Ajouter un nouvel utilisateur</a>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>PRENOM</th>
+
+        <th>MODIFIER</th>
+        <th>SUPPRIMER</th>
+    </tr>
+    <tr *ngFor = "let user of userList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"
+        [class.banished] = "user.isBlocked"
+        [class.administrator] = "user.isAdmin"
+    >
+        <td>{{ user.id }}</td>
+        <td>{{ user.familyName }}</td>
+        <td>{{ user.firstName }}</td>
+        
+        <td><button routerLink = "/admin/utilisateur/modifier/{{ user.id }}">Editer</button></td>
+        <td><button (click) = "deleteRequested(user)">Supprimer</button></td>
+    </tr>
+</table>
+
+<ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+</ngb-pagination>
