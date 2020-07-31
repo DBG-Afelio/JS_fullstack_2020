@@ -38,7 +38,7 @@ changingSize.addEventListener('focus', (event) => {
 
 
     function changeSize() {
-      changingSize.style.width = "100%";
+      changingSize.size++;
       }
 });
 
