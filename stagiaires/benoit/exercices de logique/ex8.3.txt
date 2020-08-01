@@ -1,0 +1,37 @@
+// Ecrire le programme qui affiche les nombres parfaits inférieurs à 100.
+// Un nombre parfait est un entier égal à la somme de ses diviseurs sauf lui-même.
+
+// Ex: 6  -> ses diviseurs sont 1, 2, 3 et 1+2+3=6, c'est donc un nombre parfait
+
+
+Début nombresParfait
+
+    Variables locales
+
+        var debut: N -> 0
+        var fin: N -> 100
+        var numero: N -> 0
+        var compteur: N -> 1
+
+    Fin variables locales
+
+    Pour i allant de debut à fin
+
+        Pour j allant de 1 à j
+            
+            i/j = numero
+            
+            Si numero MOD 1 = 0
+                somme = somme + numero
+            Fin Si    
+        
+        j suivant
+
+        Si (i = somme)
+            Alors 
+                Afficher i
+        FinSi
+        
+    i suivant   
+
+Fin nombresParfait

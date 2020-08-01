@@ -1,0 +1,36 @@
+// Ecrire le programme qui calcule la moyenne d'une série de nombres entrés au clavier.
+
+// La fin de la série sera annoncée par un 100.
+
+
+
+
+Debut moyenne
+
+	VARIABLES LOCALES
+
+		var valeur_utilisateur: N <- 0
+		var moyenne: N <- 0
+		var somme: N <- 0
+		var compteur: N <- 0
+
+	Fin VARIABLES LOCALES
+	
+	Afficher "Bonjour, rentrez des valeurs, je vous retournerai leur moyenne. Tapper 100 pour montrer que vous avez atteint la fin"
+
+	Saisir valeur_utilisateur
+
+	TANT QUE (valeur_utilisateur != 100)
+
+		compteur = compteur + 1
+		somme = somme + valeur_utilisateur
+
+		Saisir valeur_utilisateur
+
+        FIN TANT QUE
+
+	moyenne = somme/compteur
+
+	Afficher "La moyenne est égale à ", moyenne
+
+Fin moyenne
