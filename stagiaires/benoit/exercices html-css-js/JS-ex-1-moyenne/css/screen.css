@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 20px;
+}
+
+button{
+    font-size: 0.9rem;
+}
+
+body{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    border: solid black 1px;
+    padding: 5px;
+}
+
+th{
+    border-bottom: solid black 1px;
+
+}
+
+td{
+    padding: 5px;
+}
+
+.tdResults{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.results{
+    border: solid grey 1px;
+    width: 100px;
+}
+
+.errorMessage{
+    color: red;
+    display: none;
+}
