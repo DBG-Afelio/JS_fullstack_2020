@@ -77,8 +77,6 @@ function takeColorsAndCompare(){
     divAnswerColor3 = document.querySelectorAll(".answerColor")[3];
     answersColors.push(divAnswerColor3.getAttribute("data-color"));
 
-    console.log(answersColors.length);
-
     for(let i=0; i<answersColors.length; i++){
         answerTocheck = answersColors[i];
 
@@ -92,9 +90,11 @@ function takeColorsAndCompare(){
         }
     }
 
-    results.push(blackDots);
+    console.log(answersColors)
 
-    console.log(answersColors);
+    console.log(listColorsToFind)
+
+    results.push(blackDots);
 
     for(let i=0; i<answersColors.length; i++){
         answerTocheck = answersColors[i];
@@ -102,8 +102,9 @@ function takeColorsAndCompare(){
         if(listColorsToFind.includes(answersColors[i])){
 
             indexToSlide = listColorsToFind.includes(answersColors[i]);
-            listColorsToFind.splice(indexToSlide, 1);
+
             whiteDots++;
+
         }
 
     }
