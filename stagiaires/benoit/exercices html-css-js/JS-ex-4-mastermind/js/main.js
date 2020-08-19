@@ -62,20 +62,10 @@ function takeColorsAndCompare(){
 
     listColorsToFind = [...colorsToFind];
 
-    answersColors = [];
     color = "";
     blackDots = 0;
     whiteDots = 0;
     results = [];
-
-    divAnswerColor0 = document.querySelectorAll(".answerColor")[0];
-    answersColors.push(divAnswerColor0.getAttribute("data-color"));
-    divAnswerColor1 = document.querySelectorAll(".answerColor")[1];
-    answersColors.push(divAnswerColor1.getAttribute("data-color"));
-    divAnswerColor2 = document.querySelectorAll(".answerColor")[2];
-    answersColors.push(divAnswerColor2.getAttribute("data-color"));
-    divAnswerColor3 = document.querySelectorAll(".answerColor")[3];
-    answersColors.push(divAnswerColor3.getAttribute("data-color"));
 
     for(let i=0; i<answersColors.length; i++){
         answerTocheck = answersColors[i];
@@ -102,7 +92,7 @@ function takeColorsAndCompare(){
         if(listColorsToFind.includes(answersColors[i])){
 
             indexToSlide = listColorsToFind.includes(answersColors[i]);
-
+            listColorsToFind.splice(indexToSlide, 1);
             whiteDots++;
 
         }
@@ -333,13 +323,23 @@ buttonValidation.addEventListener('click', (event) =>{
 
         console.log("click");
 
+        answersColors = [];
+
+        divAnswerColor0 = document.querySelectorAll(".answerColor")[0];
+        answersColors.push(divAnswerColor0.getAttribute("data-color"));
+        divAnswerColor1 = document.querySelectorAll(".answerColor")[1];
+        answersColors.push(divAnswerColor1.getAttribute("data-color"));
+        divAnswerColor2 = document.querySelectorAll(".answerColor")[2];
+        answersColors.push(divAnswerColor2.getAttribute("data-color"));
+        divAnswerColor3 = document.querySelectorAll(".answerColor")[3];
+        answersColors.push(divAnswerColor3.getAttribute("data-color"));
+
         for(let answer of answersColors){
-            console.log(!answer.getAttribute("data-color"));
-            if(!answer.getAttribute("data-color")){
+            if(answer === null){
                 return alert('Vous ne pouvez pas laisser de "trous" dans la séquence');
             }
         }
-    
+
         results = takeColorsAndCompare();
         showWhiteAndBlackDots(results);
 
