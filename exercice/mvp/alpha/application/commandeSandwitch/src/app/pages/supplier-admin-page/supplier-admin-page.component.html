@@ -1,0 +1,33 @@
+
+<div class="admin-title">
+    <h1>Gestion des fournisseurs</h1>
+</div>
+<div class="button-new">
+    <a routerLink = "/admin/fournisseur/ajouter">Ajouter un fournisseur</a>
+</div>
+<table *ngIf="listSuppliers">
+    <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>PRODUITS</th>
+        <th>MODIFIER</th>
+        <th>ARCHIVER</th>
+        <th>SUPPRIMER</th>
+    </tr>
+    <tr *ngFor = "let supplier of sortBy('name') | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" 
+        [class.archieved] = "supplier.archieved">
+        <td class="td-id">{{ supplier.id }}</td>
+        <td>{{ supplier.name }}</td>
+        <td class="td-button"><a routerLink = "/admin/fournisseur/{{ supplier.id }}/produit">Gérer les produits</a></td>
+        <td class="td-button"><button routerLink = "/admin/fournisseur/modifier/{{ supplier.id }}">Mod.</button></td>
+        <td class="td-button"><button (click) = "archieveSupplier(supplier)">{{ supplier.archieved ? "Activ" : "Archiv" }}.</button></td>
+        <td class="td-button"><button (click) = "removeSupplier(supplier)">Suppr.</button></td>
+    </tr>
+</table>
+
+<ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+</ngb-pagination>
+  

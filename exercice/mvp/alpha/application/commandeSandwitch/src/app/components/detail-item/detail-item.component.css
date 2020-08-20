@@ -1,0 +1,29 @@
+.detail-name {
+    font-size: 40px;
+    line-height:60px
+}
+
+.detail-price {
+    margin-top: 25px;
+    text-align: left;
+    font-size: 25px;
+    line-height:35px;
+}
+
+.detail-options {
+    text-align: left;
+}
+
+.detail-options li {
+    list-style-type: square;
+    margin-left: 60px;
+}
+
+p {
+    text-align: left;;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .detail-options li, .detail-form-options li {margin-left: 0;}
+}

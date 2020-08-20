@@ -1,0 +1,128 @@
+<form #SupplierForm="ngForm" class="form">
+    <div class="row">
+        <div class="form-element form-name col-lg-6">
+            <label  for="name">Nom</label>
+            <input class="form-control" type="text" name="name"
+                placeholder = "Nom (obligatoire)" required
+                [(ngModel)]="supplier.name" name="name">
+            <div *ngIf = "supplier.name === ''"
+                class="supplier-form__error alert alert-danger">
+                <p>Le nom est requis</p>
+            </div>
+        </div>
+        <div class="form-element form-phone col-lg-6">
+            <label for="phone">Téléphone</label>
+            <input type="text" name="phone" 
+                placeholder = "Téléphone (obligatoire)"
+                required
+                [(ngModel)]="supplier.phone" class="form-control" 
+                data-pristine="true" 
+                >
+            <div *ngIf = "supplier.phone === ''"
+                class="supplier-form__error alert alert-danger">
+                <p>Le numéro de téléphone est requis</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element form-description col-lg-12">
+            <label for="name">Description</label>
+            <textarea name="description" 
+                class="form-control" data-pristine="true" 
+                placeholder = "Description (obligatoire)"
+                required minlength="3" maxlength="100"
+                [(ngModel)]="supplier.description" 
+                name="description"
+            ></textarea>
+            <div *ngIf = "supplier.description === ''"
+                class="supplier-form__error alert alert-danger">
+                <p>La description est requise</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element form-closure col-lg-12" >
+            <input type="checkbox"  
+                value="0"  name="closure" 
+                [(ngModel)]="supplier.closure"
+            ><label for="closure">Fermeture</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element form-openings col-lg-12">
+            Ouverture
+            <div  class="checkboxes">
+                <div>
+                    <input type="checkbox" name="openings_0" 
+                    [(ngModel)]="supplier.openings[0]" >
+                    <label for="openings_0">Lundi </label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="openings_1" 
+                    [(ngModel)]="supplier.openings[1]" >
+                    <label for="openings_1">Mardi </label>
+                </div>
+
+                <div>
+                    <input type= "checkbox" name="openings_2" 
+                    [(ngModel)]="supplier.openings[2]" >
+                    <label for="openings_2">Mercredi </label>
+                </div>
+
+                <div>
+                    <input type= "checkbox" name="openings_3"  
+                    [(ngModel)]="supplier.openings[3]" >
+                    <label for="openings_3">Jeudi  </label>
+                </div>
+
+                <div>
+                    <input type= "checkbox" name="openings_4" 
+                    [(ngModel)]="supplier.openings[4]" >
+                    <label for="openings_4">Vendredi </label>
+                </div>
+
+                <div>
+                    <input type= "checkbox" name="openings_5" 
+                    [(ngModel)]="supplier.openings[5]" >
+                    <label for="openings_5">Samedi </label>
+                </div>
+
+                <div>
+                    <input type= "checkbox" name="openings_6" 
+                    [(ngModel)]="supplier.openings[6]" >
+                    <label for="openings_6">Dimanche </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-space admin-buttons col-lg-12">
+            <div class="supplier-form__actions">
+                <button class="btn btn-danger" 
+                    (click) = "navigateToAdmin()">Annuler
+                </button>
+
+                <button  *ngIf = "supplier.id === 0"
+                (click) = "createSupplier()"
+                [disabled] = "supplier.name === ''"
+                id="create_button"
+                type="button"
+                class="btn btn__ok"
+                >
+                
+                Ajouter
+                </button>
+
+                <button  *ngIf = "supplier.id !== 0"
+                    (click) = "saveChanges()"
+                    id="update_button"
+                    type="button"
+                    class="btn btn-dark"
+                    >Enregistrer
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

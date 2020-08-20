@@ -1,0 +1,16 @@
+<div class="admin-title"> 
+  <h1 *ngIf="supplierId === 0">Ajouter un fournisseur</h1>
+  <h1 *ngIf="supplierId !== 0">Modifier un fournisseur</h1>
+</div>
+
+<div class="button-back">
+  <a routerLink="/admin/fournisseur">Retour vers la liste des fournisseurs</a>
+</div>
+
+<div class="supplier-form" *ngIf="supplier">
+    <app-supplier-form 
+      [supplier] = "supplier"
+      (create) = "createSupplier($event)"
+      (update) = "updateSupplier($event)"
+    ></app-supplier-form>
+</div>

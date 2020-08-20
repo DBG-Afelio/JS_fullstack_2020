@@ -1,0 +1,47 @@
+// Ecrire un programme qui demande à l’utilisateur 
+// d’entrer un texte.
+// Le programme affichera le texte en ayant inversé les mots.
+
+// *Remarque :
+// Les mots sont des sous-chaines ne contenant pas d’espace.*
+
+
+
+Debut inversionMot
+
+	VARIABLES LOCALES :
+
+		var texteSource: T <- "" 
+		var texteInverse: T <- ""
+		var mot: T <- ""
+		var index: N <- 1
+
+	Fin VARIABLES LOCALES
+
+		Afficher "Entrez un texte de base"
+		Saisir texteSource
+
+	// On va parcourir le texte entré avec la boucle 
+
+    Pour i allant de 1 à longueur(texteSource)
+        
+		Si (carac(texteSource, i)) = ' ') // Quand on rencontre un espace, on s'arrête et...
+            Alors
+
+                mot <- sousChaine(texteSource, index, i) // ... on stocke les lettres avant cet espace dans un mot ...
+                texteInverse <- " " (+) mot (+) texteInverse   // ... et on met ce mot dans le texte qu'on va montrer à la fin
+
+				// A la première occurence, le mot se met à la fin car texteInverse est vide...
+				// ... et à la seconde occurence, le mot se met devant le mot précédent
+
+            index <- i+1 //On donne la valeur de i+1 à index comme ça on laisse un espace
+        Fin Si
+	
+    i++
+    
+    mot <- sousChaine(texteSource, index, i)
+    texteInverse <- (+) mot (+) texteInverse 
+
+    Afficher texteInverse
+
+Fin inversionMot

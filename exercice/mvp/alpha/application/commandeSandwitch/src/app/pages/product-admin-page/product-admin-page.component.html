@@ -1,0 +1,36 @@
+<div *ngIf="supplierId !== 0">
+    <div class="admin-title">
+        <h1>Gestion des Produits - {{ supplierName }}</h1>
+    </div>  
+    <div class="button-new">
+        <a routerLink = "/admin/produit/ajouter/{{ supplierId }}">Ajouter un produit</a>
+    </div>
+    
+    <table *ngIf="listProducts">
+        <tr>
+            <th class="th-id">ID</th>
+            <th class="th-name">NOM</th>
+            <th class="th-button">MODIFIER</th>
+            <th class="th-button">SUPPRIMER</th>
+        </tr>
+
+        <tr *ngFor = "let product of sortBy('name') | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+        
+            <td class="td-button">
+                <button routerLink = "/admin/produit/modifier/{{ product.id }}">Mod</button>
+            </td>
+        
+            <td class="td-button">
+                <button (click) = "removeProduct(product)">Suppr.</button>
+            </td>
+        </tr>
+    </table>
+
+    <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="collectionSize">
+    </ngb-pagination>
+    </div>

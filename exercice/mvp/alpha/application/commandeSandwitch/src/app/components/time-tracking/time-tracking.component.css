@@ -1,0 +1,48 @@
+* {
+    color: initial
+}
+.outOfTime{
+    color: red;
+}
+
+.clock-alert {
+    display: block;
+    width: 180px;
+    background-color: white;
+}
+
+.clock-time {
+    text-align: left;
+    width: 75%;
+    display: inline-block;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.clock-alert {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    border-radius:50%;
+}
+
+.clock-alert:hover .clock-msg {
+    display: block;
+    position: absolute;
+    bottom: 105%;
+    width: 200px;
+    background-color:white;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: left;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+ } 
+
+.clock-alert .clock-msg {
+    display: none;
+    
+}
