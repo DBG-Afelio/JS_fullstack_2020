@@ -7,8 +7,10 @@ const router = Router();
 router.get('/:id', (request, response) => {
     const id = parseInt(request.params.id);
     pool.query(`
-        SELECT  produits.nom as nom , description, prix, fourn_id, 
-                ARRAY_AGG(options.nom ) as nom_options , ARRAY_AGG(options.surcout) as surcouts 
+        SELECT  produits.nom as nom, description, prix, fourn_id, produits.id, 
+                ARRAY_AGG(options.nom ) as nom_options, 
+                ARRAY_AGG(options.surcout) as surcouts,  
+                ARRAY_AGG(options.id) as ids
         FROM produits 
         LEFT JOIN options ON options.produit_id = produits.id 
         WHERE produits.id = $1 GROUP BY produits.id`, [id] , (error, result) => {
@@ -25,12 +27,16 @@ function transformProduct(result) {
             produit.options =  [];
             produit.nom_options.map((option, index) => {
                 if (produit.nom_options[index]) {
-                    let item = { "nom": produit.nom_options[index], "surcout": produit.surcouts[index] };
-                    produit.options.push(item); //console.log("item ", item, "index ", index);
+                    let item = { 
+                        "nom": produit.nom_options[index], 
+                        "surcout": produit.surcouts[index],
+                        "id": produit.ids[index] };
+                    produit.options.push(item); 
                 }
             });
             delete produit.surcouts;
             delete produit.nom_options;
+            delete produit.ids;
         } 
     }) ;
 
@@ -40,7 +46,9 @@ function transformProduct(result) {
 //getList
 router.get('', (request, response) => {
     pool.query(`SELECT  produits.nom as nom , description, prix, fourn_id, produits.id, 
-                    ARRAY_AGG(options.nom ) as nom_options , ARRAY_AGG(options.surcout) as surcouts 
+                    ARRAY_AGG(options.nom ) as nom_options, 
+                    ARRAY_AGG(options.surcout) as surcouts, 
+                    ARRAY_AGG(options.id) as ids
                 FROM produits 
                 LEFT JOIN options ON options.produit_id = produits.id 
                 GROUP BY produits.id ORDER BY produits.id`, (error, result) => { 
@@ -64,7 +72,7 @@ router.post('', (request, response) => {
             pool.query(`SELECT MAX(id) FROM produits`,
             (error, result) => {
             if (error) { console.log(error)};
-            const produit_id = result.rows[0].max; console.log(produit_id);
+            const produit_id = result.rows[0].max;
 
             // insère chaque option avec le produit_id
             request.body.options.forEach(option => {
@@ -86,17 +94,24 @@ router.post('', (request, response) => {
 //updateProduct
 router.put('/:id', (request, response) => {
     const { nom , description, prix, fourn_id } = request.body;
-    const id = parseInt(request.params.id);
+    const produit_id = parseInt(request.params.id);
     pool.query(`UPDATE produits SET 
             nom = $1, 
             description = $2, 
             prix = $3, 
             fourn_id  = $4
         WHERE id = $5`,
-        [nom , description, prix, fourn_id,        id]
-
-    , (error, result) => {
-        response.status(200).json(result.rows);
+        [nom , description, prix, fourn_id, produit_id], (error, result) => {
+        
+        pool.query(`DELETE * FROM options WHERE produit_id = $1`, [id],  (error, result) => {
+            request.body.options.forEach(option => {
+                pool.query(`
+                        INSERT INTO options (nom, surcout, id) 
+                        VALUES ($1, $2, $3) WHERE produit_id = $4`, 
+                        [option.nom, option.surcout, option.id, produit_id],  (error, result) => {
+                });
+            });
+        });
     });
 });
 
