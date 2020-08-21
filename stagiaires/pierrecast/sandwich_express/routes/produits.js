@@ -93,6 +93,7 @@ router.post('', (request, response) => {
 
 //updateProduct
 router.put('/:id', (request, response) => {
+    console.log("debut");
     const { nom , description, prix, fourn_id } = request.body;
     const produit_id = parseInt(request.params.id);
     pool.query(`UPDATE produits SET 
@@ -102,15 +103,19 @@ router.put('/:id', (request, response) => {
             fourn_id  = $4
         WHERE id = $5`,
         [nom , description, prix, fourn_id, produit_id], (error, result) => {
-        
-        pool.query(`DELETE * FROM options WHERE produit_id = $1`, [id],  (error, result) => {
+            console.log("1 : ", error);
+        pool.query(`DELETE FROM options WHERE produit_id = $1`, [produit_id],  (error, result) => {
+            console.log("2 : ", error);
             request.body.options.forEach(option => {
                 pool.query(`
-                        INSERT INTO options (nom, surcout, id) 
-                        VALUES ($1, $2, $3) WHERE produit_id = $4`, 
-                        [option.nom, option.surcout, option.id, produit_id],  (error, result) => {
+                        INSERT INTO options (nom, surcout,  produit_id) 
+                        VALUES ($1, $2, $3) `, 
+                        [option.nom, option.surcout,  produit_id],  (error, result) => {
+                            console.log("3 : ", error);
+                            
                 });
             });
+            response.status(200).send("bien joué");
         });
     });
 });
