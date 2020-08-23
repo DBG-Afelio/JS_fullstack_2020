@@ -67,7 +67,6 @@ function displayData(toDoListToDisplay, status){
 
 function changeNameTask(numberTextToChange){
 
-
     displayData(toDoList, kindOfDataToDisplay);
 
     newInput = document.createElement("input");
@@ -91,6 +90,7 @@ function changeNameTask(numberTextToChange){
         if (e.key === 'Enter') {
 
             toDoList[numberTextToChange].name = newInput.value;
+            putInLocalStorage(toDoList);
             displayData(toDoList, kindOfDataToDisplay);
 
 
@@ -112,14 +112,31 @@ function dataStatusUpdated(numTask){
     valueStatus = document.querySelector(`select[data-taskStatus='${numTask}']`).value;
 
     toDoList[numTask].status = valueStatus;
+    putInLocalStorage(toDoList);
 
 }
+
+function putInLocalStorage(list){
+    localStorage.setItem('toDoList', JSON.stringify(list));
+}
+
+function clearLocalStorage(){
+    emptyList = [];
+    localStorage.setItem('toDoList', JSON.stringify(emptyList));
+}
+
+if(localStorage.getItem('toDoList')){
+    toDoList = JSON.parse(localStorage.getItem('toDoList'));
+    displayData(toDoList, "pending");
+}
+
+
 
 inputList.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
 
         addData(inputList);
-
+        putInLocalStorage(toDoList);
     }
 });
 
@@ -131,6 +148,7 @@ for(let button of listButtons){
             toDoList = [];
             displayData(toDoList, "all");
             kindOfDataToDisplay = "all";
+            clearLocalStorage();
         }
         else if(typeButton === "all"){
             displayData(toDoList, "all");
