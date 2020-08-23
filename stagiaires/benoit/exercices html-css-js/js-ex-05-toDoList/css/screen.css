@@ -1,0 +1,335 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Grid system inspired by boostrap */
+/* line 6, sass/base/_grid.scss */
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto; }
+  
+  @media (min-width: 576px) {
+	/* line 23, sass/base/_grid.scss */
+	.container {
+	  max-width: 540px; } }
+  
+  @media (min-width: 768px) {
+	/* line 23, sass/base/_grid.scss */
+	.container {
+	  max-width: 720px; } }
+  
+  @media (min-width: 992px) {
+	/* line 23, sass/base/_grid.scss */
+	.container {
+	  max-width: 960px; } }
+  
+  @media (min-width: 1200px) {
+	/* line 23, sass/base/_grid.scss */
+	.container {
+	  max-width: 1140px; } }
+  
+  /* line 32, sass/base/_grid.scss */
+  .row {
+	display: flex;
+	flex-wrap: wrap; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-1 {
+	flex: 0 0 8.33333%;
+	max-width: 8.33333%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-2 {
+	flex: 0 0 16.66667%;
+	max-width: 16.66667%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-3 {
+	flex: 0 0 25%;
+	max-width: 25%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-4 {
+	flex: 0 0 33.33333%;
+	max-width: 33.33333%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-5 {
+	flex: 0 0 41.66667%;
+	max-width: 41.66667%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-6 {
+	flex: 0 0 50%;
+	max-width: 50%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-7 {
+	flex: 0 0 58.33333%;
+	max-width: 58.33333%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-8 {
+	flex: 0 0 66.66667%;
+	max-width: 66.66667%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-9 {
+	flex: 0 0 75%;
+	max-width: 75%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-10 {
+	flex: 0 0 83.33333%;
+	max-width: 83.33333%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-11 {
+	flex: 0 0 91.66667%;
+	max-width: 91.66667%; }
+  
+  /* line 46, sass/base/_grid.scss */
+  .col-12 {
+	flex: 0 0 100%;
+	max-width: 100%; }
+  
+  @media (min-width: 768px) {
+	/* line 62, sass/base/_grid.scss */
+	.col-md-1 {
+	  flex: 0 0 8.33333%;
+	  max-width: 8.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-2 {
+	  flex: 0 0 16.66667%;
+	  max-width: 16.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-3 {
+	  flex: 0 0 25%;
+	  max-width: 25%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-4 {
+	  flex: 0 0 33.33333%;
+	  max-width: 33.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-5 {
+	  flex: 0 0 41.66667%;
+	  max-width: 41.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-6 {
+	  flex: 0 0 50%;
+	  max-width: 50%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-7 {
+	  flex: 0 0 58.33333%;
+	  max-width: 58.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-8 {
+	  flex: 0 0 66.66667%;
+	  max-width: 66.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-9 {
+	  flex: 0 0 75%;
+	  max-width: 75%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-10 {
+	  flex: 0 0 83.33333%;
+	  max-width: 83.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-11 {
+	  flex: 0 0 91.66667%;
+	  max-width: 91.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-md-12 {
+	  flex: 0 0 100%;
+	  max-width: 100%; } }
+  
+  @media (min-width: 992px) {
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-1 {
+	  flex: 0 0 8.33333%;
+	  max-width: 8.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-2 {
+	  flex: 0 0 16.66667%;
+	  max-width: 16.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-3 {
+	  flex: 0 0 25%;
+	  max-width: 25%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-4 {
+	  flex: 0 0 33.33333%;
+	  max-width: 33.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-5 {
+	  flex: 0 0 41.66667%;
+	  max-width: 41.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-6 {
+	  flex: 0 0 50%;
+	  max-width: 50%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-7 {
+	  flex: 0 0 58.33333%;
+	  max-width: 58.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-8 {
+	  flex: 0 0 66.66667%;
+	  max-width: 66.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-9 {
+	  flex: 0 0 75%;
+	  max-width: 75%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-10 {
+	  flex: 0 0 83.33333%;
+	  max-width: 83.33333%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-11 {
+	  flex: 0 0 91.66667%;
+	  max-width: 91.66667%; }
+	/* line 62, sass/base/_grid.scss */
+	.col-lg-12 {
+	  flex: 0 0 100%;
+	  max-width: 100%; } }
+  
+
+/**********************************************************************************************************
+**************************************************** NOT RESET
+************************************************/
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(255, 255, 188);
+}
+
+main{
+	margin-top: 5rem;
+}
+
+table{
+	margin-top: 2rem;
+}
+
+table, tr, td{
+	border: black solid 1px;
+}
+
+td{
+	padding: 2rem;
+	width: 5rem;
+}
+
+.mainH1{
+	color: rgb(0, 162, 232);
+	text-align: center;
+	font-size: 3rem;
+	text-transform: capitalize;
+	font-weight: bold;
+	margin-bottom: 2rem;
+}
+
+.divForm, .divTable{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainInput{
+	width: 20rem;
+	height: 2.5rem;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.inputItem{
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 0.2rem;
+}
+
+.divEraseButton, .divButtonsWithoutErase{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+}
+
+.button{
+	color: rgb(255, 255, 188);
+	text-align: center;
+	padding: 1rem 2rem;
+	cursor: pointer;
+}
+.buttonAllTasks{
+	background-color: rgb(0, 162, 232);
+}
+
+.buttonPendingTasks{
+	background-color: orange;
+}
+
+.buttonTasksDone{
+	background-color: rgb(39, 252, 39);
+}
+
+.buttonEraseTodo{
+	background-color: red;
+}
+
+
+

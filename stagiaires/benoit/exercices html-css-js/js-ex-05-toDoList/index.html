@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+<link rel="icon" href="./images/faviconAdapted.ico" type="image/x-icon"/>
+ 
+    <title>To Do List</title>
+</head>
+
+<body>
+    <main>
+        
+        <div class="container">
+            <h1 class="mainH1">Ceci est une to-do list (si si)</h1>
+            <div class="divForm">
+
+                <form onSubmit="return false;">
+                    <input class="mainInput" name="mainInput" placeholder="Que faire?" type="text">
+                </form>
+
+            </div>
+            <div class="divTable">
+                <table name="mainTable">
+
+                </table>
+            </div>
+            <div class="divButtonsWithoutErase">
+                <div class="button buttonAllTasks" data-button="all">
+                    Toute la liste
+                </div>
+                <div class="button buttonPendingTasks" data-button="pending">
+                    Taches en cours
+                </div>
+                <div class="button buttonTasksDone" data-button="done">
+                    Taches terminées
+                </div>
+            </div>
+
+            <div class="divEraseButton">
+
+                <div class="button buttonEraseTodo" data-button="eraseList">
+                    Effacer la liste
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
