@@ -50,7 +50,7 @@ router.get('', (request, response) => {
                     ARRAY_AGG(options.surcout) as surcouts, 
                     ARRAY_AGG(options.id) as ids
                 FROM produits 
-                LEFT JOIN options ON options.produit_id = produits.id 
+                LEFT JOIN options ON options.product_id = produits.id 
                 GROUP BY produits.id ORDER BY produits.id`, (error, result) => { 
                     if (error) { console.log(error)} ;
         response.status(200).json(transformProduct(result.rows));

@@ -16,6 +16,7 @@ router.get('', (request, response) => {
     pool.query('SELECT * FROM fournisseurs', (error, result) => {
         response.status(200).json(result.rows);
     });
+    console.log('test');
 });
 
 //createSupplier
