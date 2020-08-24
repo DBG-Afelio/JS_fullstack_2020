@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start-both": "concurrently \"npm run start:angular\" \"npm run start:fake-server\"",
+    "start-both": "concurrently \"npm run start:angular\" \"npm run start:backend\"",
     "start:angular": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "start:backend" : "nodemon backend/index.js",
     "start:fake-server": "json-server labo.json"
   },
   "private": true,
@@ -25,6 +26,9 @@
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
     "bootstrap": "^4.4.0",
     "dateformat": "^3.0.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

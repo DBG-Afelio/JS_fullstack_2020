@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
   ) { 
     this.supplierService.getList().subscribe((list) => {
       this.listSuppliers = list;
-      console.log(list);
+      console.log('Liste des forunisseurs: ', list);
     });
     this.productService.getList().subscribe((list) => {
       this.productList = list;

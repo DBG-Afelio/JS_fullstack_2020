@@ -17,12 +17,14 @@ router.get('/:id', (request, response) => {
 
 //getList
 router.get('', (request, response) => {
-    pool.query('SELECT * FROM commandes LEFT JOIN options ON options.commande.id = commandes.id ', (error, result) => {
+    pool.query(`SELECT * FROM commandes 
+                    INNER JOIN utilisateurs ON commandes.user_id = utilisateurs.id 
+                    INNER JOIN produits ON commandes.produit_id = produits.id`, (error, result) => {
         response.status(200).json(result.rows);
     });
 });
 
-//createProduct
+//createCommand
 router.post('', (request, response) => {
     const { user_id, paye, date, produit_id } = request.body;
     pool.query(`INSERT INTO commandes (
@@ -36,7 +38,7 @@ router.post('', (request, response) => {
 });
 
 
-//updateProduct
+//updateCommand
 router.put('/:id', (request, response) => {
     const { user_id, paye, date, produit_id } = request.body;
     const id = parseInt(request.params.id);
@@ -53,13 +55,12 @@ router.put('/:id', (request, response) => {
     });
 });
 
-//removeProduct
+//removeCommand
 router.delete('/:id', (request, response) => {
     const id = parseInt(request.params.id);
     pool.query(`DELETE FROM commandes WHERE id = $1`, [id],  (error, result) => {
         response.status(200).json(result.rows);
     });
 });
-
 
 module.exports = router;
