@@ -1,0 +1,34 @@
+
+.supplier {
+    padding: 45px 15px;
+    background-color: whitesmoke;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    box-shadow: 3px 2px 2px rgba(0,0,0,.3);
+    font: 18px/25px 'Oswald', sans-serif;
+    margin-bottom: 25px;
+}
+
+.supplier:hover, .supplier:active, .supplier:focus {
+    transform: scale(1.05);
+    cursor: pointer;
+} 
+
+.supplier-name {
+    font: 25px/35px  'Oswald', sans-serif;
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+.closed, .open {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.closed {
+    color: red;
+}
+
+.open {
+    color: green;
+}

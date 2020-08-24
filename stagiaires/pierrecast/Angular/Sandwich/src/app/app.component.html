@@ -1,0 +1,28 @@
+<main>
+    <div class="inner-main"  [class.aside-closed]="!aside">
+        <div class="main-logo">
+        <a routerLink="/" >
+            <img class="logo" src="../assets/img/logo.png">
+        </a>
+        </div>
+        <header>
+        </header>
+        <aside>
+            <div class="inner-aside">
+                <app-main-nav></app-main-nav>
+                
+            </div>
+        </aside>
+        <content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </content>
+        <footer>
+            <button (click) = "changeAside()"
+            class="aside-button"
+            [class.out]="!aside"
+            ></button>
+        </footer>
+    </div>
+</main>

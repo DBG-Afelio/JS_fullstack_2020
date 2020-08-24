@@ -1,0 +1,83 @@
+
+.wrap-buttons button{
+    background-color: initial;
+    pointer-events: initial;
+}
+.wrap-buttons button:disabled{
+    background-color:grey;
+    pointer-events: none;
+}
+
+
+.wrap-detail {
+    display: flex;
+    flex-direction: row;
+    align-items:  flex-end;
+}
+
+.outer-detail {
+    width: 66%;
+    text-align: right;
+    
+    padding: 30px 30px 30px 0 ;
+    min-height: 400px;
+    border-right: 2px solid black;
+}
+
+.wrap-buttons {
+    width: 33%;
+    text-align: right;
+    padding: 30px 0 30px 30px;
+}
+
+.wrap-buttons button {
+    padding: 8px;
+    width: 100%;
+    margin: 8px 0;
+    border: none;
+    background-color: white;
+    box-shadow: 3px 2px 2px rgba(0,0,0,0.2);
+}
+
+.wrap-buttons button:hover, .wrap-buttons button:focus, .wrap-buttons button:active {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+span {
+    font-size: 25px;
+    line-height: 40px;
+}
+
+p.back-link {
+    margin-bottom:15px;
+    text-align: left;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .wrap-detail {
+        flex-direction: column;
+    }
+
+    .outer-detail {
+        width: 100%;
+        text-align: right;
+        
+        padding: 30px 30px 30px 0 ;
+        min-height: 400px;
+        border-bottom: 2px solid black;
+
+        border-right: none;
+    }
+    
+    .wrap-buttons {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .detail-options ul, .detail-form-options ul {padding: 0 ;}
+    .detail-options li, .detail-form-options li {margin-left: 0;}
+}

@@ -1,0 +1,47 @@
+<div>
+    <div class="admin-title">
+        <h1>Commandes du Jour</h1>
+    </div>
+    <div *ngIf="todayOrders?.length === 0">
+        Aucune commande n'a été effectuée
+    </div>
+    <div *ngIf="todayOrders?.length > 0">
+        <div>
+            TOTAL : {{ total | currency : 'EUR':'symbol-narrow' }}
+        </div>
+        <div *ngIf="credit > 0">
+            CREDIT : {{ credit | currency : 'EUR':'symbol-narrow' }}
+        </div>
+        <table *ngIf="todayOrders">
+            <tr>
+                <th class="th-user">NOM Prenom</th>
+                <th class="th-order">PRODUIT</th>
+                <th class="th-supplier">FOURNISSEUR</th>
+                <th class="th-price">PRIX</th>
+                <th class="th-payed">STATUS</th>
+            </tr>
+            <tr *ngFor="let order of todayOrders"
+                [class.notPayed] = "!order.getOrder().isPayed"
+            >
+                <td>
+                    {{ order.getUser().familyName | uppercase }} 
+                    {{ order.getUser().firstName }}
+                </td>
+                <td>{{ order.getOrderProductWithOptions() }}</td>
+                <td>{{ order.getSupplier().name }}</td>
+                <td>{{ order.getTotalPrice() | currency : 'EUR':'symbol-narrow' }}</td>
+                <td>{{ order.getOrder().isPayed ? 'payé' : 'non payé' }}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <ngb-pagination *ngIf="page && pageSize && collectionSize"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize">
+    </ngb-pagination>
+    
+
+</div>
+

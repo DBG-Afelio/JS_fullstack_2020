@@ -1,0 +1,70 @@
+<nav class="volet-lateral" *ngIf="!currentUser.isAdmin">
+    <div>
+        <h1>
+            Bonjour {{ currentUser.firstName }} !
+        </h1>
+    </div>
+    <div *ngIf="!currentUser.isBlocked">
+        <div>
+            <h3 class="onglet-blanc">Commande du Jour</h3>
+            <div *ngIf="fullOrder">
+                <a class="day-order onglet-gris"
+                routerLink = "/produit/{{ fullOrder.getProduct().id }}"
+                [class.confirmed]="fullOrder.isConfirmed()"
+                [class.outOfTime]="!isOnTime">
+                    {{ setOrderMessage() }} 
+                </a>
+                <div class="order-buttons">
+                    <button *ngIf="!fullOrder.isConfirmed()"
+                        [disabled]="!isOnTime"
+                        routerLink = '/paiement'>
+                        Confirmer
+                    </button>
+                    <button 
+                        [disabled]="!isOnTime"
+                        (click)="deleteOrderRequested()">
+                        Supprimer
+                    </button>
+                </div>
+            </div> 
+            <div *ngIf="!fullOrder">
+                {{ setOrderMessage() }} 
+            </div>  
+        </div>
+    </div>
+    <div *ngIf="currentUser.isBlocked">
+        <p>
+            Votre compte est bloqué et ne vous permet pas de passer commande.
+            Veuillez contacter votre administrateur afin de régulariser la situation.
+        </p>
+    </div>
+    
+    <div>
+        <h3>
+            <!-- possible de faire un ternaire sur un attr.aria-label ? -->
+            <a class="onglet" [attr.aria-label]="currentUser.credit === 0 ? 'Vous etes à jour et beneficiez de 10€ de credit autorisé' : 'Penser à rembourser votre credit aupres de l\'administrateur'">
+                Crédit utilisé <span class="arrow">{{ currentUser.credit | currency: 'EUR':'symbol-narrow' }}</span>
+            </a>
+          
+        </h3> <!--<p>{{ setCreditMessage() }} ca peut degager (@AssiaRachdi 15-07)</p>--> 
+    </div>
+    
+    <div>
+        <h3>
+            <a aria-label="Consulter mon historique personnel de commandes"  class="onglet" 
+                routerLink = "/historique"
+            >Historique <span class="arrow"> >> </span>
+            </a>
+        </h3>
+    </div>
+
+    <div>
+        <h3>
+            <a aria-label="Contacter l'administrateur" class="onglet" 
+               
+                >Besoin d'aide ?  
+                <span class="arrow"> >> </span>
+            </a>
+        </h3>
+    </div>
+</nav>
