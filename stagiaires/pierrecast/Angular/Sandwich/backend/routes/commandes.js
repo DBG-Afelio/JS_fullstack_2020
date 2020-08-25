@@ -19,7 +19,7 @@ router.get('/:id', (request, response) => {
 router.get('', (request, response) => {
     pool.query(`SELECT * FROM commandes 
                     INNER JOIN utilisateurs ON commandes.user_id = utilisateurs.id 
-                    INNER JOIN produits ON commandes.produit_id = produits.id`, (error, result) => {
+                    INNER JOIN produits ON commandes.product_id = produits.id`, (error, result) => {
         response.status(200).json(result.rows);
     });
 });

@@ -2,6 +2,20 @@ const { Router } = require('express');
 const pool = require('../db/pool');
 const router = Router();
 
+async function getProductsFromSupplier(fourn_id) {
+
+    const value = await pool.query(` 
+        SELECT  produits.nom as nom, description, prix, fourn_id, produits.id, 
+                ARRAY_AGG(options.nom ) as nom_options, 
+                ARRAY_AGG(options.surcout) as surcouts,  
+                ARRAY_AGG(options.id) as ids
+        FROM produits 
+        LEFT JOIN options ON options.product_id = produits.id 
+        WHERE produits.fourn_id = $1 GROUP BY produits.id`, [fourn_id]  
+    );
+
+    return transformProduct(value.rows);
+}
 
 //getProductById
 router.get('/:id', (request, response) => {
@@ -12,7 +26,7 @@ router.get('/:id', (request, response) => {
                 ARRAY_AGG(options.surcout) as surcouts,  
                 ARRAY_AGG(options.id) as ids
         FROM produits 
-        LEFT JOIN options ON options.produit_id = produits.id 
+        LEFT JOIN options ON options.product_id = produits.id 
         WHERE produits.id = $1 GROUP BY produits.id`, [id] , (error, result) => {
             if (error) { console.log(error)} ;
         response.status(200).json(transformProduct(result.rows));
@@ -45,16 +59,23 @@ function transformProduct(result) {
 
 //getList
 router.get('', (request, response) => {
-    pool.query(`SELECT  produits.nom as nom , description, prix, fourn_id, produits.id, 
-                    ARRAY_AGG(options.nom ) as nom_options, 
-                    ARRAY_AGG(options.surcout) as surcouts, 
-                    ARRAY_AGG(options.id) as ids
-                FROM produits 
-                LEFT JOIN options ON options.product_id = produits.id 
-                GROUP BY produits.id ORDER BY produits.id`, (error, result) => { 
-                    if (error) { console.log(error)} ;
-        response.status(200).json(transformProduct(result.rows));
-    });
+    console.log("params:", request.query.fourn_id);
+    if (request.query.fourn_id) {
+        getProductsFromSupplier(request.query.fourn_id).then((products) => {
+            response.json(products);
+        });
+    } else {
+        pool.query(`SELECT  produits.nom as nom , description, prix, fourn_id, produits.id, 
+                        ARRAY_AGG(options.nom ) as nom_options, 
+                        ARRAY_AGG(options.surcout) as surcouts, 
+                        ARRAY_AGG(options.id) as ids
+                    FROM produits 
+                    LEFT JOIN options ON options.product_id = produits.id 
+                    GROUP BY produits.id ORDER BY produits.id`, (error, result) => { 
+                        if (error) { console.log(error)} ;
+            response.status(200).json(transformProduct(result.rows));
+        });
+    }
 });
 
 //createProduct
@@ -127,7 +148,5 @@ router.delete('/:id', (request, response) => {
         response.status(200).json(result.rows);
     });
 });
-
-//getProductsFromSupplier
 
 module.exports = router;

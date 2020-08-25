@@ -20,7 +20,7 @@ export class ProductPageComponent implements OnInit {
       this.supplierService.getSupplierWithProductsById(id).subscribe(supplier => {
         this.supplier = supplier;
         
-      } )
+      })
     });
     this.supplierService.getList().subscribe((list) => {
       this.listSuppliers = list;
