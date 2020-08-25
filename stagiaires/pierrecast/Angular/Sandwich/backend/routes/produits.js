@@ -14,7 +14,7 @@ async function getProductsFromSupplier(fourn_id) {
         WHERE produits.fourn_id = $1 GROUP BY produits.id`, [fourn_id]  
     );
 
-    return transformProduct(value.rows);
+    return transformProducts(value.rows);
 }
 
 //getProductById
@@ -29,34 +29,33 @@ router.get('/:id', (request, response) => {
         LEFT JOIN options ON options.product_id = produits.id 
         WHERE produits.id = $1 GROUP BY produits.id`, [id] , (error, result) => {
             if (error) { console.log(error)} ;
-        response.status(200).json(transformProduct(result.rows[0]));
+        response.status(200).json(transformProducts(result.rows)[0]);
     });
 });
 
-function transformProduct(result) {
-    
-    result.map(produit => { 
-        
-        if (produit.nom_options) {
-            produit.options =  [];
-            produit.nom_options.map((option, index) => {
-                if (produit.nom_options[index]) {
-                    let item = { 
-                        "nom": produit.nom_options[index], 
-                        "surcout": produit.surcouts[index],
-                        "id": produit.ids[index] };
-                    produit.options.push(item); 
-                }
-            });
-            delete produit.surcouts;
-            delete produit.nom_options;
-            delete produit.ids;
-        } 
-    }) ;
-
+function transformProducts(result) {
+    result.map(produit => transformProduct(produit)) ;
     return result;
 }
 
+function transformProduct(produit) {
+    if (produit.nom_options) {
+        produit.options =  [];
+        produit.nom_options.map((option, index) => {
+            if (produit.nom_options[index]) {
+                let item = { 
+                    "nom": produit.nom_options[index], 
+                    "surcout": produit.surcouts[index],
+                    "id": produit.ids[index] };
+                produit.options.push(item); 
+            }
+        });
+        delete produit.surcouts;
+        delete produit.nom_options;
+        delete produit.ids;
+    } 
+    return produit;
+}
 
 router.get('', (request, response) => {
     //console.log("params:", request.query.fourn_id);
@@ -76,7 +75,7 @@ router.get('', (request, response) => {
                     LEFT JOIN options ON options.product_id = produits.id 
                     GROUP BY produits.id ORDER BY produits.id`, (error, result) => { 
                         if (error) { console.log(error)} ;
-            response.status(200).json(transformProduct(result.rows));
+            response.status(200).json(transformProducts(result.rows));
         });
     }
 });
