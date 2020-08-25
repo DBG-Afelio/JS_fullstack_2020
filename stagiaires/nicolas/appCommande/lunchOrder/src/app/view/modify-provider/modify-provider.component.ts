@@ -19,8 +19,8 @@ export class ModifyProviderComponent implements OnInit {
   providerForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-    isClosed: new FormControl(''),
-    isArchived: new FormControl(''),
+    isClosed: new FormControl(false),
+    isArchived: new FormControl(false),
     timeTable: new FormArray([
       
       new FormControl(false),
@@ -33,7 +33,7 @@ export class ModifyProviderComponent implements OnInit {
 
     ]),
     phone: new FormControl(''),
-    id: new FormControl('')
+    id: new FormControl(0)
   });
 
 
@@ -49,6 +49,7 @@ export class ModifyProviderComponent implements OnInit {
     route.paramMap.subscribe( param => {
 
       const routeId = param.get('providerId');
+      console.log(routeId)
       
 
       if(routeId === 'new'){
@@ -59,11 +60,11 @@ export class ModifyProviderComponent implements OnInit {
       }else{
 
         this.providersListService.getProviderById(Number(routeId)).subscribe(providerFound=>{
-        
+          
           this.provider=providerFound;
           /*this.timeTable=providerFound.timeTable;*/
           this.providerForm.setValue(this.provider)
-          
+          this.providerForm.controls['id'].setValue(this.provider.id);
         })
       }
     })
@@ -89,7 +90,9 @@ export class ModifyProviderComponent implements OnInit {
   onSaveButtonClick(){
     
     this.updateProviderWithForm();
+    console.log(this.provider);
     this.providersListService.updateProvider(this.provider).subscribe(()=>{
+
        this.router.navigate(['']);
       }  
     );   
