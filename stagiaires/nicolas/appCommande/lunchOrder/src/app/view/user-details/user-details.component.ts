@@ -68,8 +68,10 @@ export class UserDetailsComponent implements OnInit {
     this.updateUserWithForm();
 
     console.log(this.userForm.value)
-    this.usersListService.addUser(this.user).subscribe();
-    this.router.navigate(['/usersList']);
+    this.usersListService.addUser(this.user).subscribe((userCreated)=>{
+      this.router.navigate(['/usersList']);
+    });
+
 
   }
   onSaveUserClick(){
@@ -79,8 +81,9 @@ export class UserDetailsComponent implements OnInit {
     if(confirmUpdate){
 
       this.updateUserWithForm();
-      this.usersListService.updateUser(this.user).subscribe()
-      this.router.navigate(['/usersList']);
+      this.usersListService.updateUser(this.user).subscribe((userSaved)=>{
+        this.router.navigate(['/usersList']);
+      })
 
     }
 
@@ -91,8 +94,10 @@ export class UserDetailsComponent implements OnInit {
 
     if(confirmDelete){
 
-      this.usersListService.removeUser(this.user.id).subscribe()
-      this.router.navigate(['/usersList']);
+      this.usersListService.removeUser(this.user.id).subscribe((userDeleted)=>{
+        this.router.navigate(['/usersList']);
+      })
+     
 
     }
     

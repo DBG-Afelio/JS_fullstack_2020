@@ -40,7 +40,11 @@ router.put('/:id', (request, response, next) => {
 router.delete('/:id', (request, response, next) => {
 
     pool.query('DELETE FROM fournisseurs WHERE id = $1',[request.params.id], (error, result) => {
-        response.json(result.rows);
+        if(error){
+            return next(error);
+        }
+        console.log('ko')
+        response.json('ok');
     });
     
 });

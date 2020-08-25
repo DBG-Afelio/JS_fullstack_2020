@@ -11,7 +11,7 @@ router.get('', (request, response, next) => {
 router.get('/:id', (request, response, next) => {
 
     pool.query('SELECT * FROM utilisateurs WHERE id = $1',[request.params.id], (error, result) => {
-        response.json(result.rows);
+        response.json(result.rows[0]);
     });
     
 });

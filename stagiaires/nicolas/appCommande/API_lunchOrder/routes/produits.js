@@ -97,11 +97,45 @@ router.get('/:id', (request, response, next) => {
 
 router.post('', (request, response) => {
 
-    const {nom,description,prix,fourn_id} = request.body;
-
-
+    const {options, nom,description,prix,fourn_id} = request.body; 
     pool.query('INSERT INTO produits (nom,description,prix,fourn_id) VALUES($1,$2,$3,$4)',[nom,description,prix,fourn_id], (error, result) => {
+        let idProduct;
+        pool.query('SELECT MAX(id) FROM produits',(error, result) => {
+            idProduct=result.rows[0].max;
+        })
+        if(options.length>0){
 
+            options.forEach(option=>{
+
+                pool.query('SELECT * FROM options', (error,result)=>{
+
+                    let idOption;
+
+                    if (!result.rows.some(element => element.nom === option.nom)){
+
+                        pool.query('INSERT INTO options(nom) VALUES($1)',[option.nom],(error,result)=>{
+                            idOption=result.rows.id;
+                            
+
+                        })
+
+                    }else{
+
+                         idOption=result.rows.find(element=>element.nom=option.nom).id;
+
+                    }
+                    pool.query('INSERT INTO options_produit (option_id, produit_id, surcout) VALUES($1,$2,$3)',[idOption, idProduct, option.surcout], (error,result) => {
+
+                        
+
+                    })
+
+                })
+                
+            })
+            
+        }
+        
         response.json(result.rows);
         
     });
