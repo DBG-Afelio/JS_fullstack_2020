@@ -5,18 +5,38 @@ const router = Router();
 //create
 router.post('', (req, res, next) => {
     const { nom, description, prix, fourn_id } = req.body;
-    pool.query('INSERT INTO produits (nom, description, prix,fourn_id) VALUES ($1, $2, $3, $4)', [nom, description, prix, fourn_id], (error, result) => {
-        if (error) {
-            console.log('error create', error);
-            return next(error);
-        }
-        res.status(200).json(result.rows);
+    pool.query(`
+        INSERT INTO produits (nom, description, prix,fourn_id) VALUES 
+        ($1, $2, $3, $4)`
+        , [nom, description, prix, fourn_id], (error, result) => {
+            if (error) {
+                console.log('error create produit', error);
+                return next(error);
+            }
+            // pool.query(`
+            //     SELECT MAX(id)
+            //     FROM produits
+            // `, (error, result) => {
+            //         if (error) {
+            //             console.log('error create options produit', error);
+            //             return next(error);
+            //         }
+            //         req.body.optio
+            //     }
+            // )
+            res.status(200).json(result.rows);
     });
 });
 
 //retrieve all
 router.get('', (request, response, next) => {
-    pool.query('SELECT * FROM produits', (error, result) => {
+    pool.query(`
+    SELECT * 
+    FROM produits 
+    JOIN options
+        ON produits.id = options.product_id
+    ORDER BY options.id
+    `, (error, result) => {
         if (error) {
             return next(error);
         }
@@ -24,9 +44,16 @@ router.get('', (request, response, next) => {
     });
 });
 
-//retrieve 1
+//retrieve 1 => ok
 router.get('/:id', (req, res, next) => {
-    pool.query(`SELECT * FROM produits WHERE id = $1`, [parseInt(req.params.id)], (error, result) => {
+    pool.query(`
+    SELECT * 
+    FROM produits 
+    JOIN options
+        ON produits.id = options.product_id
+    WHERE produits.id = $1 
+    ORDER BY options.id
+    `, [parseInt(req.params.id)], (error, result) => {
         if (error) {
             return next(error);
         }
@@ -64,7 +91,7 @@ router.delete('/:id', (req, res, next) => {
     });
 });
 
-//Produit + options dispo
+//Produit + options dispo pour ce produit
 router.get('/:id', (req, res, next) => {
     pool.query(`\
     SELECT * 
