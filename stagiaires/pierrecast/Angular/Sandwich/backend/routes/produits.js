@@ -57,14 +57,18 @@ function transformProduct(result) {
     return result;
 }
 
-//getList
+
 router.get('', (request, response) => {
     console.log("params:", request.query.fourn_id);
+    
+    
     if (request.query.fourn_id) {
+        //getProductsFromSupplier 
         getProductsFromSupplier(request.query.fourn_id).then((products) => {
             response.json(products);
         });
     } else {
+        //getList
         pool.query(`SELECT  produits.nom as nom , description, prix, fourn_id, produits.id, 
                         ARRAY_AGG(options.nom ) as nom_options, 
                         ARRAY_AGG(options.surcout) as surcouts, 
