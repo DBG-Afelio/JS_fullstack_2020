@@ -59,9 +59,8 @@ function transformProduct(result) {
 
 
 router.get('', (request, response) => {
-    console.log("params:", request.query.fourn_id);
-    
-    
+    //console.log("params:", request.query.fourn_id);
+        
     if (request.query.fourn_id) {
         //getProductsFromSupplier 
         getProductsFromSupplier(request.query.fourn_id).then((products) => {
