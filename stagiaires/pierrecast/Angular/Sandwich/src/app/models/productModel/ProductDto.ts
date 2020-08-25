@@ -1,4 +1,3 @@
-import { Option } from '../optionModel/Option';
 import { OptionDto } from '../optionModel/OptionDto';
 
 export interface ProductDto {

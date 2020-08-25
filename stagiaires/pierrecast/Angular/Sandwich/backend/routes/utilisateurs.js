@@ -5,7 +5,7 @@ const router = Router();
 router.get('/:id', (request, response) => {
     const id = parseInt(request.params.id);
     pool.query(`SELECT * FROM utilisateurs WHERE id = $1`, [id] , (error, result) => {
-        response.status(200).json(result.rows);
+        response.status(200).json(result.rows[0]);
     });
 });
 
@@ -18,7 +18,7 @@ router.get('', (request, response, next) => {
 router.post('', (request, response) => {
     const {  login, password, nom , prenom, credit, formation, banni, admin } = request.body;
     pool.query(`INSERT INTO utilisateurs (
-        login, password, nom , prenom, credit, formation, banni, admin
+        login, password, nom, prenom, credit, formation, banni, admin
     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [login, password, nom , prenom, credit, formation, banni, admin]
 

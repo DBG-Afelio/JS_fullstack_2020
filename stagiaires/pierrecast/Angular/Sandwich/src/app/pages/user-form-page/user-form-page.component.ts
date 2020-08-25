@@ -27,7 +27,9 @@ export class UserFormPageComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       this.userId = Number(params.get('id'));
       if (this.userId !== 0) {
-        this.userService.getUserById(this.userId).subscribe((user) => this.user = user);
+        this.userService.getUserById(this.userId).subscribe((user) => {
+          this.user = user; console.log('USER: ', user)
+        });
       } else {
         this.user = new User('', '', '', '', 0, '', false, false, 0);
       }

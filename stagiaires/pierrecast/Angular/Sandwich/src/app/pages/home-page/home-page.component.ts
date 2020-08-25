@@ -8,7 +8,6 @@ import { OrderService } from 'src/app/services/orderService/order.service';
 import { ProductService } from 'src/app/services/productService/product.service';
 import { Product } from 'src/app/models/productModel/Product';
 
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -30,7 +29,6 @@ export class HomePageComponent implements OnInit {
   ) { 
     this.supplierService.getList().subscribe((list) => {
       this.listSuppliers = list;
-      console.log('Liste des forunisseurs: ', list);
     });
     this.productService.getList().subscribe((list) => {
       this.productList = list;

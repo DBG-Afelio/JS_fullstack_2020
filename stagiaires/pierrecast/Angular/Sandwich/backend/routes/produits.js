@@ -29,7 +29,7 @@ router.get('/:id', (request, response) => {
         LEFT JOIN options ON options.product_id = produits.id 
         WHERE produits.id = $1 GROUP BY produits.id`, [id] , (error, result) => {
             if (error) { console.log(error)} ;
-        response.status(200).json(transformProduct(result.rows));
+        response.status(200).json(transformProduct(result.rows[0]));
     });
 });
 
@@ -96,20 +96,20 @@ router.post('', (request, response) => {
             pool.query(`SELECT MAX(id) FROM produits`,
             (error, result) => {
             if (error) { console.log(error)};
-            const produit_id = result.rows[0].max;
+            const product_id = result.rows[0].max;
 
-            // insère chaque option avec le produit_id
+            // insère chaque option avec le product_id
             request.body.options.forEach(option => {
                 const { nom, surcout } = option;
-                pool.query(`INSERT INTO options (nom, surcout, produit_id) 
-                VALUES ($1, $2, ${produit_id})`,
+                pool.query(`INSERT INTO options (nom, surcout, product_id) 
+                VALUES ($1, $2, ${product_id})`,
                     [nom, surcout], 
                     (error, result) => {
                     if (error) { console.log(error)} ;
                     
                 });
             }) ;
-            response.redirect(`produits/${produit_id}`);
+            response.redirect(`produits/${product_id}`);
         });
     });
 });
@@ -117,25 +117,24 @@ router.post('', (request, response) => {
 
 //updateProduct
 router.put('/:id', (request, response) => {
-    console.log("debut");
     const { nom , description, prix, fourn_id } = request.body;
-    const produit_id = parseInt(request.params.id);
+    const product_id = parseInt(request.params.id);
     pool.query(`UPDATE produits SET 
             nom = $1, 
             description = $2, 
             prix = $3, 
             fourn_id  = $4
         WHERE id = $5`,
-        [nom , description, prix, fourn_id, produit_id], (error, result) => {
-            console.log("1 : ", error);
-        pool.query(`DELETE FROM options WHERE produit_id = $1`, [produit_id],  (error, result) => {
-            console.log("2 : ", error);
+        [nom , description, prix, fourn_id, product_id], (error, result) => {
+            if(error){console.log("1 : ", error);}
+        pool.query(`DELETE FROM options WHERE product_id = $1`, [product_id],  (error, result) => {
+            if(error){console.log("2 : ", error);}
             request.body.options.forEach(option => {
                 pool.query(`
-                        INSERT INTO options (nom, surcout,  produit_id) 
+                        INSERT INTO options (nom, surcout,  product_id) 
                         VALUES ($1, $2, $3) `, 
-                        [option.nom, option.surcout,  produit_id],  (error, result) => {
-                            console.log("3 : ", error);
+                        [option.nom, option.surcout,  product_id],  (error, result) => {
+                            if(error){console.log("3 : ", error);}
                             
                 });
             });

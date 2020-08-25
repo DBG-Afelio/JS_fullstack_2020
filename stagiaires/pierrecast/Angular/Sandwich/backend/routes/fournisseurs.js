@@ -7,7 +7,7 @@ const router = Router();
 router.get('/:id', (request, response) => {
     const id = parseInt(request.params.id);
     pool.query(`SELECT * FROM fournisseurs WHERE id = $1`, [id] , (error, result) => {
-        response.status(200).json(result.rows);
+        response.status(200).json(result.rows[0]);
     });
 });
 
@@ -16,7 +16,6 @@ router.get('', (request, response) => {
     pool.query('SELECT * FROM fournisseurs', (error, result) => {
         response.status(200).json(result.rows);
     });
-    console.log('test');
 });
 
 //createSupplier
