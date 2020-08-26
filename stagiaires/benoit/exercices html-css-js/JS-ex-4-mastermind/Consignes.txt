@@ -1,0 +1,71 @@
+Exercice à plusieurs niveaux de difficultés
+Importance de créer une expérience utilisateur agréable
+Importance de créer une interface agréable
+Créer une paire pour tester le code de l'autre
+1. Les règles
+
+- Il existe 7 couleurs possibles
+
+- L'ordi tire au hasard une séquence de 4 couleurs
+
+- c'est la séquence à deviner pour l'utilisateur(modifié)
+
+- Le joueur(humain) fait des propositions de séquence de 4 couleurs
+
+- Le programme va lui répondre
+
+- un noir = une couleur est bien placée
+
+- un blanc = une couleur est mal placée(modifié)
+
+- l'utilisateur à 10 propositions
+
+- quand la réponse est 4 noires c'est gagné
+
+- après 10 propositions c'est perdu
+
+Exemple:
+La séquence est noir, jaune, rouge, vert
+
+l'utilisateur entre
+vert, jaune, bleu, violet
+
+le programme répond
+
+noir, blanc
+
+- les noirs sont toujours affichés en premier
+
+Les niveaux (3):
+
+1. La séquence tirée au hasard ne présente qu'une occurence de couleur : pas de jaune, jaune, bleu, vert
+
+Le programme devra veiller à ce que l'utilisateur ne puisse pas entrer plusieurs fois une même couleur dans sa proposition
+
+2. la possibilité d'avoir un ou plusieurs trous dans la séquence
+
+Donc l'utilisateur pourra proposer un à plusieurs trous dans sa séquence
+
+3. plus de restrictions dans les couleurs répétées
+
+et il peut y avoir des trous
+
+exemple: séquence = rouge, trous, rouge, vert
+
+proposition 1 : bleu, rouge, bleu, jaune
+
+réponse: un blanc
+
+proposition 2: rouge, jaune,trou, jaune
+
+réponse 2: un noir (pour le rouge), un blanc(pour le trou)
+
+le noir est prioritaire sur le blanc
+
+propostion 3: rouge, rouge, jaune, rouge
+
+réponse 3: un noir, un blanc
+
+proposition 4: jaune, rouge, rouge, vert
+
+réponse 4: 2 noirs, 1 blanc
