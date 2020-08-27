@@ -1,11 +1,13 @@
 const { Router } = require('express');
 const pool = require('../db/pool');
 const router = Router();
-const { getListArticles } = require('../models/articles_db.js');
+const { getListArticles } = require('../models/articles_db');
 
-router.get('', (request, response, next) => {
-    getListArticles();
-    response.send('ok');
+router.get('', (request, response) => {
+    console.log('route');
+    getListArticles()
+    .then(result => response.json(result))
+    .catch(error => response.status(500).send('Erreur'));
 });
 
 

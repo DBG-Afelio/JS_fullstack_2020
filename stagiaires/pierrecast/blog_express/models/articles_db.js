@@ -1,23 +1,19 @@
 const pool = require("../db/pool");
+const { response } = require("express");
 
 async function getListArticles() {
-    return new Promise((resolve, reject) => {
-        await pool.query(``)
-        
-        if (isEven) {
-            resolve([1000, "Success"]);
-        } else {
-            reject([1000, "Error"]);
-        }
+    console.log('function');
+    const value = await pool.query(`SELECT * FROM articles`)
+    .catch(error => {
+        console.log(error);
+        throw new Error('Error');
     });
+console.log(value.rows);
+    return value.rows;
 }
 
-function getListArticles() {
-
-}
-
-function getArticleById() {
-
+function getArticleById(id) {
+    //pool.query(`SELECT * FROM articles WHERE id = $1, [id]`)
 }
 
 module.export = {

@@ -8,10 +8,10 @@ app.use(express.json())
 
 app.use('/articles', articles);
 
-/*
+
 app.use((err, req, res, next) => {
     res.send(err);
-});*/
+});
 
 const port = 3000;
 
