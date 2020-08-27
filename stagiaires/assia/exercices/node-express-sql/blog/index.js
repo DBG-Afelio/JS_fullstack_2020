@@ -1,18 +1,10 @@
 const express = require('express');
-const utilisateurs = require('./routes/utilisateurs');
+const articles = require('./routes/articles');
 
 const app = express();
 
-
-app.use(express.json())
-
-app.use('/utilisateurs', utilisateurs);
-
-
-app.use((err, req, res, next) => {
-    res.send(err);
-});
+app.use(express.json());
+app.use('/articles', articles);
 
 const port = 3000;
-
 app.listen(port, () => console.log(`Listening on port ${port}`));
