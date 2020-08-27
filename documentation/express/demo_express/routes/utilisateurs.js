@@ -2,10 +2,17 @@ const { Router } = require('express');
 const pool = require('../db/pool');
 const router = Router();
 
-router.get('', (request, response, next) => {
-    pool.query('SELECT * FROM utilisateurs', (error, result) => {
-        response.json(result.rows);
+function getAllUtilisateur() {
+    let users = [];
+    await pool.query('SELECT * FROM utilisateurs', (error, result) => {
+        //asynchrone
     });
+    return users;
+
+}
+
+router.get('', (request, response, next) => {
+        response.json(getAllUtilisateur());
 });
 
 
