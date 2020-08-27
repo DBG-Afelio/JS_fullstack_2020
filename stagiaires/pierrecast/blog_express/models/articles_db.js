@@ -31,7 +31,7 @@ async function getArticleByAuteur(id) {
 async function getArticleByPage(page, par_page) {
     const value = await pool.query(`
         SELECT * FROM articles  
-        LIMIT ($1-1)*$2 OFFSET $1*$2`, [page, par_page])
+        LIMIT $2 OFFSET ($1-1)*$2`, [page, par_page])
     .catch(error => {
         console.log(error);
         throw new Error('Error');
