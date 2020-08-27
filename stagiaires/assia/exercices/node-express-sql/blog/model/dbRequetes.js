@@ -9,7 +9,11 @@ const pool = require('../db/pool');
  * GET /articles
  * */ 
 async function getAllArticles() {
-    const returnValue = await pool.query(`SELECT * FROM articles`);
+    const returnValue = await pool.query(`SELECT * FROM articles`)
+        .catch(error => {
+            console.log('ERROR IN FUNCTION getAllArticles', error.stack);
+            console.log('ERROR code :', error.code); //code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
+    });
     return returnValue.rows;
 }
 
@@ -17,22 +21,27 @@ async function getAllArticles() {
  * GET /articles/1
  * */ 
 async function getArticleById(id) {
-    const returnValue = await pool.query(`SELECT * FROM articles WHERE id = ${id}`);
+    const returnValue = await pool.query(`SELECT * FROM articles WHERE id = $1`, [id]);
     return returnValue.rows;
 }
 
 /**
  * POST /articles
  * */
-async function addArticle(article) {
-    const returnValue = await pool.query(`INSERT INTO articles (
+async function addArticle(articleData) {
+    console.log(articleData);
+    const { titre, contenu, auteurs_id, date, publie } = articleData;
+    await pool.query(`INSERT INTO articles (
         titre,
         contenu,
         auteurs_id,
         date,
         publie
-        ) VALUES ${article.titre, article.contenu, article.auteurs_id, article.date, article.publie}`);
-    return returnValue.rows;  
+        ) VALUES ($1, $2, $3, $4, $5)`,
+        [titre, contenu, auteurs_id, date, publie]);
+    
+    const { rows } = await pool.query(`SELECT * FROM articles ORDER BY id DESC LIMIT 1`);
+    return rows.length > 0 ? rows[0] : {};  
 }
 // PUT /articles/1
 // DELETE /articles/1

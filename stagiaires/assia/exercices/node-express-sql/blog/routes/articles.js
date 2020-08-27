@@ -7,7 +7,7 @@ const { getAllArticles, getArticleById, addArticle } = require('../model/dbReque
 router.get('', (request, response) => {
     getAllArticles()
         .then(result => response.json(result))
-        .catch(error => response.send('error GET all articles'))
+        .catch(error => response.status(500).send('error GET all articles'))
 });
 
 // GET /articles/1
@@ -19,11 +19,10 @@ router.get('/:id', (request, response) => {
 });
 
 // POST /articles
-router.get('', (request, response) => {
-    const article = request.body;
-    addArticle(article)
+router.post('', (request, response) => {
+    addArticle(request.body)
         .then(result => response.json(result))
-        .catch(error => response.send(`error GET article ${id}`))
+        .catch(error => response.send(`error POST article}`))
 });
 
 // PUT /articles/1
