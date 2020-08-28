@@ -10,13 +10,18 @@ const { getListCommentaires,
 
 const { mask } = require('../models/censures_db');
 
-router.get('/:id', (request, response) => {
+router.get('/:id', async(request, response) => {
     // GET /commentaires/1
-    const id = parseInt(request.params.id);
-    getCommentaireById(id)
-    .then(result => response.json(mask(result)))
-    .catch(error => response.status(500).send('Erreur'));
-    
+
+    try {
+        const id = parseInt(request.params.id);
+        const result = await getCommentaireById(id);
+        const mask_result = await mask(result);
+        response.json(mask_result);
+    } catch (error) {
+        console.log(error);
+        response.status(500).send('Erreur');
+    }
 });
 
 router.get('', async (request, response) => {
