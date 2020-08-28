@@ -8,7 +8,7 @@ const { getListCommentaires,
     updateCommentaire, 
     deleteCommentaire } = require('../models/commentaires_db');
 
-const { mask } = require('../models/censures_db');
+const { mask, checkComm } = require('../models/censures_db');
 
 router.get('/:id', async(request, response) => {
     // GET /commentaires/1
@@ -47,21 +47,30 @@ router.get('', async (request, response) => {
     }
 });
 
-router.post('', (request, response) => {
-   // POST /commentaires
-    createCommentaire(request.body)
-    .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+router.post('', async (request, response) => {
+    // POST /commentaires
+    if (await checkComm(request.body)) {
+        createCommentaire(request.body)
+        .then(result => response.json(result))
+        .catch(error => response.status(500).send('Erreur'));
+    
+    } else {
+       response.send('Contenu non autorisé');
+    }
     
 });
 
-router.put('/:id', (request, response) => {
+router.put('/:id', async (request, response) => {
     // PUT /commentaires/1
-    const id = parseInt(request.params.id);
-    updateCommentaire(id, request.body)
-    .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    if (await checkComm(request.body)) {
+        const id = parseInt(request.params.id);
+        updateCommentaire(id, request.body)
+        .then(result => response.json(result))
+        .catch(error => response.status(500).send('Erreur'));
 
+    } else {
+        response.send('Contenu non autorisé');
+    }
 });
 
 router.delete('/:id', (request, response) => {

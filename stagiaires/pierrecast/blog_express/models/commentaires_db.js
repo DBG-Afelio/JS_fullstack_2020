@@ -31,7 +31,7 @@ async function getCommentaireById(id) {
 async function createCommentaire(body) {
     const { nom, prenom, titre, article_id, commentaire, date_ajout  } = body;
     const value = await pool.query(`
-        INSERT INTO commentaires (nom, prenom, titre,articl_id, commentaire, date_ajout) VALUES ($1, $2, $3, $4, $5, $6)`,[nom, prenom, titre, article_id, commentaire, date_ajout] )
+        INSERT INTO commentaires (nom, prenom, titre,article_id, commentaire, date_ajout) VALUES ($1, $2, $3, $4, $5, $6)`,[nom, prenom, titre, article_id, commentaire, date_ajout] )
     .catch(error => {
         console.log(error);
         throw new Error('Error');
