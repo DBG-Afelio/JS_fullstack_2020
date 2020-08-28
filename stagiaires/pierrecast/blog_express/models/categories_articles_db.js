@@ -20,7 +20,7 @@ async function getCategoriesArticlesById(id) {
 }
 
 async function createCategoriesArticles(body) {
-    const { article_id, categorie_id  } = body;
+    const { article_id, categorie_id } = body;
     const value = await pool.query(`
         INSERT INTO categories_articles (article_id, categorie_id) VALUES ($1, $2, )`,[article_id, categorie_id] )
     .catch(error => {

@@ -97,6 +97,27 @@ async function mask(results) {
     return results;
 }
 
+async function checkComm(data) {
+    const censures = await getForbiddenCensures();
+    console.log('censures', censures);
+    console.log('data', data);
+    
+    const commentaire = data.commentaire;
+    let valid = true;
+    censures.forEach(censure => {
+        const mot = censure.mot;console.log(mot);
+        const mot_a_remplacer = mot.replace(/[-/\^$*+?.()|[]{}]/g, '\\$&');
+        const mot_a_remplacer_regexp = new RegExp(mot_a_remplacer, `gi`);
+        
+        if (mot_a_remplacer_regexp.test(commentaire)) {
+            valid = false;
+            console.log('Mot interdit', mot);
+        }
+    });
+
+    return valid;
+}
+
 module.exports = {
     getListCensures,
     getForbiddenCensures,
@@ -104,5 +125,6 @@ module.exports = {
     createCensure, 
     updateCensure, 
     deleteCensure, 
-    mask
+    mask, 
+    checkComm
 };
