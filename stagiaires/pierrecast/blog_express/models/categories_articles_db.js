@@ -19,30 +19,18 @@ async function getCategoriesArticlesById(id) {
     return value.rows;
 }
 
-async function createCategoriesArticles(body) {
-    const { article_id, categorie_id } = body;
-    const value = await pool.query(`
-        INSERT INTO categories_articles (article_id, categorie_id) VALUES ($1, $2, )`,[article_id, categorie_id] )
-    .catch(error => {
-        console.log(error);
-        throw new Error('Error');
+async function createCategoriesArticles(categories, article_id) {
+    categories.forEach(async categorie_id => {
+        const value = await pool.query(`
+            INSERT INTO categories_articles (article_id, categorie_id) VALUES ($1, $2)`,[article_id, categorie_id] )
+        .catch(error => {
+            console.log(error);
+            throw new Error('Error');
+        });
+ 
     });
-    return 'categories_articles crée !';
-}
-
-async function updateCategoriesArticles(id, body) {
-    const { article_id, categorie_id  } = body;
-    const value = await pool.query(`
-        UPDATE categories_articles SET 
-        article_id = $1, 
-        categorie_id = $2
-    WHERE id = $3`,
-[article_id, categorie_id, id] )
-    .catch(error => {
-        console.log(error);
-        throw new Error('Error');
-    });
-    return 'CategoriesArticles modifié !';
+    
+    return 'Catégories inserées dans l\'article !';
 }
 
 async function deleteCategoriesArticles(id) {
@@ -55,10 +43,20 @@ async function deleteCategoriesArticles(id) {
     return 'CategoriesArticles supprimé !';
 }
 
+async function deleteAllCategoriesFromArticle(id) {
+    const value = await pool.query(`
+    DELETE FROM categories_articles WHERE article_id = $1`, [id] )
+    .catch(error => {
+        console.log(error);
+        throw new Error('Error');
+    });
+    return '- !';
+}
+
 module.exports = {
     getListCategoriesArticles,
     getCategoriesArticlesById, 
     createCategoriesArticles, 
-    updateCategoriesArticles, 
-    deleteCategoriesArticles
+    deleteCategoriesArticles, 
+    deleteAllCategoriesFromArticle
 };
