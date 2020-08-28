@@ -7,7 +7,9 @@ const { getListArticles,
     getArticleByPage,
     createArticle, 
     updateArticle, 
-    deleteArticle } = require('../models/articles_db');
+    deleteArticle, getInsertId } = require('../models/articles_db');
+
+const { createCategoriesArticles, deleteAllCategoriesFromArticle } = require('../models/categories_articles_db');
 
 router.get('/:id', (request, response) => {
     // GET /articles/1
@@ -40,21 +42,34 @@ router.get('', (request, response) => {
     }
 });
 
-router.post('', (request, response) => {
+router.post('', async (request, response) => {
    // POST /articles
-    createArticle(request.body)
-    .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
     
+    try {
+        await createArticle(request.body);
+        const article_id = await getInsertId();
+        await createCategoriesArticles(request.body.categories, article_id);
+
+        response.send('insertion Articles et Catégories associées réussie');
+    } catch (error) {
+        console.log(error);
+        response.status(500).send('Erreur');
+    }
 });
 
-router.put('/:id', (request, response) => {
+router.put('/:id', async (request, response) => {
     // PUT /articles/1
-    const id = parseInt(request.params.id);
-    updateArticle(id, request.body)
-    .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    const article_id = parseInt(request.params.id);
+    try {
+        await updateArticle(article_id, request.body)
+        await deleteAllCategoriesFromArticle(article_id);
+        await createCategoriesArticles(request.body.categories, article_id);
 
+        response.send('mise à jour Articles et Catégories associées réussie');
+    } catch (error) {
+        console.log(error);
+        response.status(500).send('Erreur');
+    }
 });
 
 router.delete('/:id', (request, response) => {

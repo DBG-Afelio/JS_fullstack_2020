@@ -42,16 +42,19 @@ async function getArticleByPage(page, par_page) {
 async function createArticle(body) {
     const { titre, contenu, auteur_id, date, publie  } = body;
     const value = await pool.query(`
-        INSERT INTO articles (titre, contenu ,auteur_id,date, publie) VALUES ($1, $2, $3, $4, $5)`,[titre, contenu ,auteur_id,date, publie] )
+        INSERT INTO articles (titre, contenu ,auteur_id,date, publie) 
+        VALUES ($1, $2, $3, $4, $5)
+        `,[titre, contenu ,auteur_id,date, publie] )
     .catch(error => {
         console.log(error);
         throw new Error('Error');
     });
+    console.log('Article crée !');
     return 'Article crée !';
 }
 
 async function updateArticle(id, body) {
-    const { titre, contenu ,auteur_id,date, publie  } = body;
+    const { titre, contenu, auteur_id, date, publie  } = body;
     const value = await pool.query(`
         UPDATE articles SET 
         titre = $1, 
@@ -60,7 +63,7 @@ async function updateArticle(id, body) {
         date  = $4, 
         publie = $5
     WHERE id = $6`,
-[titre, contenu ,auteur_id,date, publie, id] )
+[titre, contenu, auteur_id, date, publie, id] )
     .catch(error => {
         console.log(error);
         throw new Error('Error');
@@ -79,6 +82,17 @@ async function deleteArticle(id) {
     return 'Article supprimé !';
 }
 
+
+async function getInsertId() {
+    const value = await pool.query(`SELECT MAX(id) FROM articles`)
+    .catch(error => {
+        console.log(error);
+        throw new Error('Error');
+    });
+    console.log('Article_id :', value.rows[0].max);
+    return value.rows[0].max;
+}
+
 module.exports = {
     getListArticles,
     getArticleById, 
@@ -86,5 +100,6 @@ module.exports = {
     getArticleByPage,
     createArticle, 
     updateArticle, 
-    deleteArticle
+    deleteArticle, 
+    getInsertId
 };
