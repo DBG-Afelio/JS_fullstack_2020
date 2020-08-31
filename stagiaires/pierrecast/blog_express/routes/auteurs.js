@@ -7,45 +7,45 @@ const { getListAuteurs,
     updateAuteur, 
     deleteAuteur } = require('../models/auteurs_db');
 
-router.get('/:id', (request, response) => {
+router.get('/:id', (request, response, next) => {
     // GET /auteurs/1
     const id = parseInt(request.params.id);
     getAuteurById(id)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
     
 });
 
-router.get('', (request, response) => {
+router.get('', (request, response, next) => {
     // GET /auteurs
     getListAuteurs()
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 });
 
-router.post('', (request, response) => {
+router.post('', (request, response, next) => {
    // POST /auteurs
     createAuteur(request.body)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
     
 });
 
-router.put('/:id', (request, response) => {
+router.put('/:id', (request, response, next) => {
     // PUT /auteurs/1
     const id = parseInt(request.params.id);
     updateAuteur(id, request.body)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 
 });
 
-router.delete('/:id', (request, response) => {
+router.delete('/:id', (request, response, next) => {
     // DELETE /auteurs/1
     const id = parseInt(request.params.id);
     deleteAuteur(id)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 
 });
 

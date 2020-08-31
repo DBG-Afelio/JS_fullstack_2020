@@ -7,43 +7,43 @@ const { getListCategoriesArticles,
     updateCategoriesArticles, 
     deleteCategoriesArticles } = require('../models/categories_articles_db');
 
-router.get('/:id', (request, response) => {
+router.get('/:id', (request, response, next) => {
     // GET /categories/1
     const id = parseInt(request.params.id);
     getCategoriesArticlesById(id)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 });
 
-router.get('', (request, response) => {
+router.get('', (request, response, next) => {
     // GET /categories
     getListCategoriesArticles()
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 });
 
-router.post('', (request, response) => {
+router.post('', (request, response, next) => {
    // POST /categories
    createCategoriesArticles(request.body)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
     
 });
 
-router.put('/:id', (request, response) => {
+router.put('/:id', (request, response, next) => {
     // PUT /categories/1
     const id = parseInt(request.params.id);
     updateCategoriesArticles(id, request.body)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 });
 
-router.delete('/:id', (request, response) => {
+router.delete('/:id', (request, response, next) => {
     // DELETE /categories/1
     const id = parseInt(request.params.id);
     deleteCategoriesArticles(id)
     .then(result => response.json(result))
-    .catch(error => response.status(500).send('Erreur'));
+    .catch(next);
 });
 
 module.exports = router;

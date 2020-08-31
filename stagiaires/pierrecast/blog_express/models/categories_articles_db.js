@@ -1,11 +1,12 @@
 const pool = require("../db/pool");
 const { response } = require("express");
+const { getCodeError } = require("./error_handlers");
 
 async function getListCategoriesArticles() {
     const value = await pool.query(`SELECT * FROM categories_articles`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -14,7 +15,7 @@ async function getCategoriesArticlesById(id) {
     const value = await pool.query(`SELECT * FROM categories_articles WHERE id = $1`, [id])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -25,7 +26,7 @@ async function createCategoriesArticles(categories, article_id) {
             INSERT INTO categories_articles (article_id, categorie_id) VALUES ($1, $2)`,[article_id, categorie_id] )
         .catch(error => {
             console.log(error);
-            throw new Error('Error');
+            throw new Error(getCodeError(error));
         });
  
     });
@@ -38,7 +39,7 @@ async function deleteCategoriesArticles(id) {
     DELETE FROM categories_articles WHERE id = $1`, [id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'CategoriesArticles supprimé !';
 }
@@ -48,7 +49,7 @@ async function deleteAllCategoriesFromArticle(id) {
     DELETE FROM categories_articles WHERE article_id = $1`, [id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return '- !';
 }

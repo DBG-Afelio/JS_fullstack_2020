@@ -1,11 +1,12 @@
 const pool = require("../db/pool");
 const { response } = require("express");
+const { getCodeError } = require("./error_handlers");
 
 async function getListCensures() {
     const value = await pool.query(`SELECT * FROM censures`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -14,7 +15,7 @@ async function getForbiddenCensures() {
     const value = await pool.query(`SELECT * FROM censures WHERE interdit = true`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -23,7 +24,7 @@ async function getCensureById(id) {
     const value = await pool.query(`SELECT * FROM censures WHERE id = $1`, [id])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -34,7 +35,7 @@ async function createCensure(body) {
         INSERT INTO censures (mot, interdit) VALUES ($1, $2`,[nom, prenom, titre, article_id, censure, date_ajout] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Censure crée !';
 }
@@ -50,7 +51,7 @@ async function updateCensure(id, body) {
 [mot, interdit, id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Censure modifié !';
 }
@@ -60,7 +61,7 @@ async function deleteCensure(id) {
     DELETE FROM censures WHERE id = $1`, [id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Censure supprimé !';
 }

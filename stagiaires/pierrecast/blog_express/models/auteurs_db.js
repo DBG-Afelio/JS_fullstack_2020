@@ -1,11 +1,12 @@
 const pool = require("../db/pool");
 const { response } = require("express");
+const { getCodeError } = require("./error_handlers");
 
 async function getListAuteurs() {
     const value = await pool.query(`SELECT * FROM auteurs`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -14,7 +15,7 @@ async function getAuteurById(id) {
     const value = await pool.query(`SELECT * FROM auteurs WHERE id = $1`, [id])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -25,7 +26,7 @@ async function createAuteur(body) {
         INSERT INTO auteurs (nom, prenom, email, presentation) VALUES ($1, $2, $3, $4, $5)`,[titre, contenu ,auteur_id,date, publie] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Auteur crée !';
 }
@@ -42,7 +43,7 @@ async function updateAuteur(id, body) {
 [nom, prenom, email, presentation, id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Auteur modifié !';
 }
@@ -53,7 +54,7 @@ async function deleteAuteur(id) {
     DELETE FROM auteurs WHERE id = $1`, [id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Auteur supprimé !';
 }

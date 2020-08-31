@@ -1,11 +1,12 @@
 const pool = require("../db/pool");
 const { response } = require("express");
+const { getCodeError } = require("./error_handlers");
 
 async function getListArticles() {
     const value = await pool.query(`SELECT * FROM articles`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -14,7 +15,7 @@ async function getArticleById(id) {
     const value = await pool.query(`SELECT * FROM articles WHERE id = $1`, [id])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -23,7 +24,7 @@ async function getArticleByAuteur(id) {
     const value = await pool.query(`SELECT * FROM articles WHERE auteur_id = $1`, [id])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -34,7 +35,7 @@ async function getArticleByPage(page, par_page) {
         LIMIT $2 OFFSET ($1-1)*$2`, [page, par_page])
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return value.rows;
 }
@@ -47,7 +48,7 @@ async function createArticle(body) {
         `,[titre, contenu ,auteur_id,date, publie] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     console.log('Article crée !');
     return 'Article crée !';
@@ -66,7 +67,7 @@ async function updateArticle(id, body) {
 [titre, contenu, auteur_id, date, publie, id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Article modifié !';
 }
@@ -77,7 +78,7 @@ async function deleteArticle(id) {
     DELETE FROM articles WHERE id = $1`, [id] )
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     return 'Article supprimé !';
 }
@@ -87,7 +88,7 @@ async function getInsertId() {
     const value = await pool.query(`SELECT MAX(id) FROM articles`)
     .catch(error => {
         console.log(error);
-        throw new Error('Error');
+        throw new Error(getCodeError(error));
     });
     console.log('Article_id :', value.rows[0].max);
     return value.rows[0].max;
