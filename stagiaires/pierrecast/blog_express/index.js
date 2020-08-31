@@ -18,8 +18,10 @@ app.use('/categories', categories);
 app.use('/categories_articles', categories_articles);
 app.use('/censures', censures);
 
-app.use((err, req, res, next) => {
-    res.send(err);
+app.use((error, req, res, next) => {
+    error.code = error.code || 500;
+    res.status(error.code).json({message: error.message,
+    code: error.code});
 });
 
 const port = 3000;

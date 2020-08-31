@@ -102,7 +102,7 @@ async function checkComm(data) {
     console.log('censures', censures);
     console.log('data', data);
     
-    const commentaire = data.commentaire;
+    const commentaire = data;
     let valid = true;
     censures.forEach(censure => {
         const mot = censure.mot;console.log(mot);

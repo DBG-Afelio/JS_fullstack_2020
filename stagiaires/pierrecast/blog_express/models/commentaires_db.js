@@ -1,5 +1,6 @@
 const pool = require("../db/pool");
 const { response } = require("express");
+const {checkComm} = require('./censures_db')
 
 async function getListCommentaires() {
     const value = await pool.query(`SELECT * FROM commentaires`)
@@ -30,13 +31,21 @@ async function getCommentaireById(id) {
 
 async function createCommentaire(body) {
     const { nom, prenom, titre, article_id, commentaire, date_ajout  } = body;
+    if (! await checkComm(commentaire)){
+        throw new Error('MOT_INTERDIT')
+    }
+
     const value = await pool.query(`
         INSERT INTO commentaires (nom, prenom, titre,article_id, commentaire, date_ajout) VALUES ($1, $2, $3, $4, $5, $6)`,[nom, prenom, titre, article_id, commentaire, date_ajout] )
     .catch(error => {
-        console.log(error);
-        throw new Error('Error');
+        console.log(error.code);
+        if (error.code.startsWith('22')){
+            throw new Error('INVALID_DATA_FORMAT');
+        }
+        throw new Error('INSERTION');
     });
     return 'Commentaire crée !';
+
 }
 
 async function updateCommentaire(id, body) {

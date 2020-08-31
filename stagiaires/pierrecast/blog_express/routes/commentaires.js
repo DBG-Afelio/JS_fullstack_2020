@@ -47,17 +47,11 @@ router.get('', async (request, response) => {
     }
 });
 
-router.post('', async (request, response) => {
+router.post('', async (request, response, next) => {
     // POST /commentaires
-    if (await checkComm(request.body)) {
         createCommentaire(request.body)
         .then(result => response.json(result))
-        .catch(error => response.status(500).send('Erreur'));
-    
-    } else {
-       response.send('Contenu non autorisé');
-    }
-    
+        .catch(error => next(error));
 });
 
 router.put('/:id', async (request, response) => {
