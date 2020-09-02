@@ -3,7 +3,7 @@ import { getCodeError }  from "./error_handlers";
 import { Categorie } from "../models/categories_models";
 
 export class CategorieService {
-    async getListCategories() {
+    async getListCategories(): Promise<Categorie[]> {
         const categoriesRows = await pool.query(`SELECT * FROM categories`)
         .catch((error: Error) => {
             console.log(error);
@@ -20,7 +20,7 @@ export class CategorieService {
         return categories;
     }
 
-    async getCategorieById(id: number) {
+    async getCategorieById(id: number): Promise<Categorie> {
         const categoriesRows = await pool.query(`SELECT * FROM categories WHERE id = $1`, [id])
         .catch((error: Error) => {
             console.log(error);
@@ -35,7 +35,7 @@ export class CategorieService {
         return categorie;
     }
 
-    async createCategorie(body: any) {
+    async createCategorie(body: any): Promise<string> {
         const { libelle, description  } = body;
         const value = await pool.query(`
             INSERT INTO categories (libelle, description) VALUES ($1, $2, $3, $4, $5, $6)`,[libelle, description] )
@@ -46,7 +46,7 @@ export class CategorieService {
         return 'Categorie crée !';
     }
 
-    async updateCategorie(id: number, body: any) {
+    async updateCategorie(id: number, body: any): Promise<string> {
         const { libelle, description } = body;
         const value = await pool.query(`
             UPDATE categories SET
@@ -61,7 +61,7 @@ export class CategorieService {
         return 'Categorie modifié !';
     }
 
-    async deleteCategorie(id: number) {
+    async deleteCategorie(id: number): Promise<string>{
         const value = await pool.query(`
         DELETE FROM categories WHERE id = $1`, [id] )
         .catch((error: Error) => {

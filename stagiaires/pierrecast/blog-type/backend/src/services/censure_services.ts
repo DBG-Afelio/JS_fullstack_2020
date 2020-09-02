@@ -5,7 +5,7 @@ import { Censure } from "../models/censures_models";
 import { Commentaire } from "../models/commentaires_models";
 
 export class CensureService {
-    async getListCensures() {
+    async getListCensures() : Promise<Censure[]> {
         const censuresRows = await pool.query(`SELECT * FROM censures`)
         .catch((error: Error) => {
             console.log(error);
@@ -22,7 +22,7 @@ export class CensureService {
         return censures;
     }
 
-    async getForbiddenCensures() {
+    async getForbiddenCensures() : Promise<Censure[]> {
         const censuresRows = await pool.query(`SELECT * FROM censures WHERE interdit = true`)
         .catch((error: Error) => {
             console.log(error);
@@ -38,7 +38,7 @@ export class CensureService {
         return censures;
     }
 
-    async getCensureById(id: number) {
+    async getCensureById(id: number): Promise<Censure> {
         const censuresRows = await pool.query(`SELECT * FROM censures WHERE id = $1`, [id])
         .catch((error: Error) => {
             console.log(error);
@@ -53,7 +53,7 @@ export class CensureService {
         return commentaire;
     }
 
-    async createCensure(body: any) {
+    async createCensure(body: any): Promise<string> {
         const { mot, interdit  } = body;
         const value = await pool.query(`
             INSERT INTO censures (mot, interdit) VALUES ($1, $2)
@@ -65,7 +65,7 @@ export class CensureService {
         return 'Censure crée !';
     }
 
-    async updateCensure(id: number, body: any) {
+    async updateCensure(id: number, body: any): Promise<string> {
         const { mot, interdit  } = body;
         const value = await pool.query(`
             UPDATE censures SET
@@ -81,7 +81,7 @@ export class CensureService {
         return 'Censure modifié !';
     }
 
-    async deleteCensure(id: number) {
+    async deleteCensure(id: number): Promise<string> {
         const value = await pool.query(`
         DELETE FROM censures WHERE id = $1`, [id] )
         .catch((error: Error) => {
@@ -91,7 +91,7 @@ export class CensureService {
         return 'Censure supprimé !';
     }
 
-    async mask(results: Commentaire[]) {
+    async mask(results: Commentaire[]): Promise<Commentaire[]> {
         const censures = await this.getListCensures();
 
         results.forEach(result => {
@@ -123,7 +123,7 @@ export class CensureService {
         return results;
     }
 
-    async checkComm(data: any) {
+    async checkComm(data: any): Promise<boolean> {
         const censures = await this.getForbiddenCensures();
         console.log('censures', censures);
         console.log('data', data);

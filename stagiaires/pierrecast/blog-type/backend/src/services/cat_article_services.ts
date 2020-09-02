@@ -3,7 +3,7 @@ import { getCodeError }  from "./error_handlers";
 import { CatArticle } from "../models/cat_articles_models";
 
 export class CatArticleService {
-    async getListCategoriesArticles() {
+    async getListCategoriesArticles(): Promise<CatArticle[]> {
         const catArticlesRows = await pool.query(`SELECT * FROM categories_articles`)
         .catch((error: Error) => {
             console.log(error);
@@ -19,7 +19,7 @@ export class CatArticleService {
         return catArticles;
     }
 
-    async getCategoriesArticlesById(id: number) {
+    async getCategoriesArticlesById(id: number): Promise<CatArticle> {
         const catArticlesRows = await pool.query(`SELECT * FROM categories_articles WHERE id = $1`, [id])
         .catch((error: Error) => {
             console.log(error);
@@ -34,7 +34,7 @@ export class CatArticleService {
         return catArticle;
     }
 
-    async createCategoriesArticles(categories:any[], articleId: number) {
+    async createCategoriesArticles(categories:any[], articleId: number): Promise<string> {
         categories.forEach(async categorieId => {
             const value = await pool.query(`
                 INSERT INTO categories_articles (article_id, categorie_id) VALUES ($1, $2)`,[articleId, categorieId] )
@@ -48,7 +48,7 @@ export class CatArticleService {
         return 'Catégories inserées dans l\'article !';
     }
 
-    async deleteCategoriesArticles(id: number) {
+    async deleteCategoriesArticles(id: number): Promise<string> {
         const value = await pool.query(`
         DELETE FROM categories_articles WHERE id = $1`, [id] )
         .catch((error: Error) => {
@@ -58,7 +58,7 @@ export class CatArticleService {
         return 'CategoriesArticles supprimé !';
     }
 
-    async deleteAllCategoriesFromArticle(id: number) {
+    async deleteAllCategoriesFromArticle(id: number): Promise<string> {
         const value = await pool.query(`
         DELETE FROM categories_articles WHERE article_id = $1`, [id] )
         .catch((error: Error) => {

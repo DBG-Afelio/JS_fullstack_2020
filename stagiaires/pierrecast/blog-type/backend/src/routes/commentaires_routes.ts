@@ -13,8 +13,8 @@ router.get('/:id', async(request: Request, response: Response, next: NextFunctio
     try {
         const id = parseInt(request.params.id,10);
         const result = await commentaireService.getCommentaireById(id);
-        const maskResult = await censureService.mask(result);
-        response.json(maskResult);
+        const maskResult = await censureService.mask([result]);
+        response.json(maskResult[0]);
     } catch (error) {
         console.log(error);
         next(error);

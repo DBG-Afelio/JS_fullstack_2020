@@ -6,7 +6,7 @@ import { Commentaire } from "../models/commentaires_models";
 const censureService = new CensureService();
 
 export class CommentaireService {
-    async getListCommentaires() {
+    async getListCommentaires(): Promise<Commentaire[]> {
         const commentairesRows = await pool.query(`SELECT * FROM commentaires`)
         .catch((error: Error) => {
             console.log(error);
@@ -26,7 +26,7 @@ export class CommentaireService {
         return commentaires;
     }
 
-    async getCommentairesByArticle(id: number) {
+    async getCommentairesByArticle(id: number): Promise<Commentaire[]> {
         const commentairesRows = await pool.query(`SELECT * FROM commentaires WHERE article_id = $1 `, [id])
         .catch((error: Error) => {
             console.log(error);
@@ -46,13 +46,23 @@ export class CommentaireService {
         return commentaires;
     }
 
-    async getCommentaireById(id: number) {
-        const value = await pool.query(`SELECT * FROM commentaires WHERE id = $1`, [id])
+    async getCommentaireById(id: number): Promise<Commentaire> {
+        const commentairesRows = await pool.query(`SELECT * FROM commentaires WHERE id = $1`, [id])
         .catch((error: Error) => {
             console.log(error);
             throw new Error(getCodeError(error));
         });
-        return value.rows;
+
+        const commentaire: Commentaire = new Commentaire(
+            commentairesRows.rows[0].id,
+            commentairesRows.rows[0].articleId,
+            commentairesRows.rows[0].titre,
+            commentairesRows.rows[0].nom,
+            commentairesRows.rows[0].prenom,
+            commentairesRows.rows[0].commentaire,
+            commentairesRows.rows[0].dateAjout
+        );
+        return commentaire;
     }
 
     async createCommentaire(body: any) {

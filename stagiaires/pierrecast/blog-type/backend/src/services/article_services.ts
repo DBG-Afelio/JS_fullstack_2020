@@ -4,7 +4,7 @@ import { getCodeError }  from "./error_handlers";
 import { Article } from "../models/articles_models";
 
 export class ArticleService {
-    async getListArticles() {
+    async getListArticles(): Promise<Article[]> {
         const articlesRows = await pool.query(`SELECT * FROM articles`)
         .catch((error: Error) => {
             console.log(error);
@@ -24,7 +24,7 @@ export class ArticleService {
         return articles;
     }
 
-    async getArticleById(id: number) {
+    async getArticleById(id: number): Promise<Article> {
         const articlesRows = await pool.query(`SELECT * FROM articles WHERE id = $1`, [id])
         .catch(error => {
             console.log(error);
@@ -43,7 +43,7 @@ export class ArticleService {
         return article;
     }
 
-    async getArticleByAuteur(id: number) {
+    async getArticleByAuteur(id: number): Promise<Article[]> {
         const articlesRows = await pool.query(`SELECT * FROM articles WHERE auteur_id = $1`, [id])
         .catch(error => {
             console.log(error);
@@ -62,7 +62,7 @@ export class ArticleService {
         return articles;
     }
 
-    async getArticleByPage(page: number, parPage: number) {
+    async getArticleByPage(page: number, parPage: number): Promise<Article[]> {
         const articlesRows = await pool.query(`
             SELECT * FROM articles
             LIMIT $2 OFFSET ($1-1)*$2`, [page, parPage])
@@ -83,7 +83,7 @@ export class ArticleService {
         return articles;
     }
 
-    async createArticle(body:any) {
+    async createArticle(body:any): Promise<string> {
         const { titre, contenu, auteur_id, date, publie  } = body;
         const value = await pool.query(`
             INSERT INTO articles (titre, contenu ,auteur_id,date, publie)
@@ -97,7 +97,7 @@ export class ArticleService {
         return 'Article crée !';
     }
 
-    async updateArticle(id: number, body:any) {
+    async updateArticle(id: number, body:any): Promise<string> {
         const { titre, contenu, auteur_id, date, publie  } = body;
         const value = await pool.query(`
             UPDATE articles SET
@@ -115,7 +115,7 @@ export class ArticleService {
         return 'Article modifié !';
     }
 
-    async deleteArticle(id: number) {
+    async deleteArticle(id: number): Promise<string> {
 
         const value = await pool.query(`
         DELETE FROM articles WHERE id = $1`, [id] )
@@ -126,7 +126,7 @@ export class ArticleService {
         return 'Article supprimé !';
     }
 
-    async getInsertId() {
+    async getInsertId(): Promise<number> {
         const value = await pool.query(`SELECT MAX(id) FROM articles`)
         .catch(error => {
             console.log(error);
