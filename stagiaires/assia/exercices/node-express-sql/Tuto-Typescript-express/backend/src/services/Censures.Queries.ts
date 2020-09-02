@@ -20,7 +20,7 @@ export async function getOnlyForbidden() {
             console.log('ERROR code :', error.code); // code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
             throw new Error('500');
         });
-    console.log('nombre de mots interdit a bloquer en entree: ', onlyForbidden.rows.length);
+   // console.log('nombre de mots interdit a bloquer en entree: ', onlyForbidden.rows.length);
     return onlyForbidden.rows.length > 0 ? onlyForbidden.rows : [];
 }
 
@@ -31,7 +31,7 @@ export async function getOnlyWordsToHide() {
             console.log('ERROR code :', error.code); // code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
             throw new Error('500');
         });
-    console.log('nombre de mots censures a cacher seulement : ', onlyHidden.rows.length);
+   // console.log('nombre de mots censures a cacher seulement : ', onlyHidden.rows.length);
     return onlyHidden.rows.length > 0 ? onlyHidden.rows : [];
 }
 
@@ -67,7 +67,7 @@ export async function addCensure(censureData:any) {
     return rows.length > 0 ? rows[0] : {};
 }
 
-// PUT /commentaire/1
+// PUT /censure/1
 
 export async function updateCensure(censureData: any) {
 
@@ -94,7 +94,7 @@ export async function updateCensure(censureData: any) {
 
     const update = await getCensureById(id)
         .catch(error => {
-            console.log('Erreur dans la recup du commentaire updated : foncion updateCensure() > getCensureById()', error.stack);
+            console.log('Erreur dans la recup du censure updated : foncion updateCensure() > getCensureById()', error.stack);
             console.log('ERROR code :', error.code); // code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
             throw new error('500');
         });
@@ -103,5 +103,13 @@ export async function updateCensure(censureData: any) {
 }
 
 // DELETE /censures/1
-
+export async function deleteCommentaireById(id:number) {
+    await pool.query(`
+    DELETE FROM censures WHERE id = $1`, [id] )
+    .catch(error => {
+        console.log('Erreur in deleteCensureById() : ', error);
+        throw new Error(error);
+    });
+    return {};
+}
 

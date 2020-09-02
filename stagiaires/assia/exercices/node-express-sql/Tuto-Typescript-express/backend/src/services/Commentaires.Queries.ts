@@ -28,9 +28,7 @@ export async function getCommentaireById(id:number) {
 // POST /commentaires
 
 export async function addCommentaire(commentaireData:any) {
-
     const { titre, contenu, articles_id, nom, prenom, date } = commentaireData.body;
-
     const check = await isAnyWordForbidden(contenu);
 
     if (!check.isAnyForbidden) {
@@ -46,13 +44,18 @@ export async function addCommentaire(commentaireData:any) {
             .catch(error => {
                 console.log('Erreur dans la foncion addCommentaire()', error.stack);
                 console.log('ERROR code :', error.code); // code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
-                throw new Error('500');
+                if (error.code.startsWith('22')) {
+                    throw new Error('FORMAT_INVALIDE');
+                } else {
+                    throw new Error('INDEFINI');
+                }
             });
 
         const { rows } = await pool.query(`SELECT * FROM commentaires ORDER BY id DESC LIMIT 1`);
         return rows.length > 0 ? rows[0] : {};
     } else {
-        throw new Error('500: il y a un mot interdit dans le commentaire');
+        console.log("500: il y a un mot interdit dans le commentaire");
+        throw new Error('MOT_INTERDIT');
     }
 
 }
@@ -75,10 +78,10 @@ export async function updateCommentaire(commentaireData:any) {
         .catch(error => {
             console.log('Erreur dans la foncion updateCommentaire()', error.stack);
             console.log('ERROR code :', error.code); // code erreur https://www.postgresql.org/docs/9.6/errcodes-appendix.html
-            if (error.code === '23503') {
-                throw new Error('404');
+            if (error.code.startsWith('22')) {
+                throw new Error('FORMAT_INVALIDE');
             } else {
-                throw new Error('500');
+                throw new Error('INDEFINI');
             }
         });
 
@@ -93,23 +96,37 @@ export async function updateCommentaire(commentaireData:any) {
 }
 
 // DELETE /commentaires/1
+export async function deleteCommentaireById(id:number) {
+    await pool.query(`
+    DELETE FROM commentaires WHERE id = $1`, [id] )
+    .catch(error => {
+        console.log('Erreur in deleteCommentaireById() : ', error);
+        throw new Error(error);
+    });
+    return {};
+}
 
 // Check if any censured word
 export async function isAnyWordForbidden(commentIn:string) {
-    console.log('commentIN :', commentIn);
+   // console.log('commentIN :', commentIn);
+
     const retour = { isAnyForbidden: false, commentOut: commentIn };
     const forbiddenList = await getOnlyForbidden().catch(error => { throw new Error(error) });
+
+  //  console.log('forbiddenList = ', forbiddenList);
+  // console.log(`mot interdit db: ${forbiddenObj.mot} =?= mot commentaire : ${commentWord}`);
     if (forbiddenList.length) {
         retour.isAnyForbidden = commentIn.split(' ').some(commentWord => {
-            forbiddenList.forEach((forbiddenWord) => forbiddenWord === commentWord)
+            forbiddenList.forEach((forbiddenObj) => forbiddenObj.mot === commentWord)
         });
+        console.log('is any Forbidden word in comment ? : ', retour.isAnyForbidden);
     }
     const hiddenList = await getOnlyWordsToHide().catch(error => { throw new Error(error) });
     if (!retour.isAnyForbidden && hiddenList) {
         retour.commentOut = '';
         commentIn.split(' ').forEach(commentWord => {
-            hiddenList.forEach(wordToHide => {
-                if (commentWord === wordToHide) {
+            hiddenList.forEach(wordToHideObj => {
+                if (commentWord === wordToHideObj.mot) {
                     retour.commentOut += ` *****`;
                 } else {
                     retour.commentOut += ` ${commentWord}`;

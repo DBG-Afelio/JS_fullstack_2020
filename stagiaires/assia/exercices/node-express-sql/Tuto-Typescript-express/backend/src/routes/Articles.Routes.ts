@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getAllArticles, getArticleById, addArticle, updateArticle } from '../services/Articles.Queries';
 export const router = Router();
+
 // GET /articles
 router.get('', (request, response) => {
     getAllArticles()
