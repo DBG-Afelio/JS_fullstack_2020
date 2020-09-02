@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from 'src/app/models/articleModel/Article';
+import { ArticlesService } from 'src/app/services/articles/articles.service';
 
 @Component({
   selector: 'app-home-view',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeViewComponent implements OnInit {
 
-  constructor() { }
+  public articleList: Article[] = [];
 
+  constructor(
+    private articleService: ArticlesService
+  ) { 
+    this.articleService.getArticleList().subscribe((list) => {
+      this.articleList = list;
+      console.log('mes articles : ', this.articleList);
+    });
+  }
   ngOnInit(): void {
   }
 

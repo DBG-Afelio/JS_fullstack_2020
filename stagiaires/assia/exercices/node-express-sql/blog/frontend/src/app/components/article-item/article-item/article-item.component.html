@@ -1,0 +1,8 @@
+<p>article-item works!</p>
+<div class="article" *ngIf="articleIn">
+    <ul *ngIf="articleIn.getIsPublished()">
+        <li>{{ articleIn.getTitle() }}</li>
+        <li>{{ articleIn.getContent() }}</li>
+        <li>{{ articleIn.getAuthorId() }} - {{ articleIn.getAuthorId() }}</li>
+    </ul>
+</div>

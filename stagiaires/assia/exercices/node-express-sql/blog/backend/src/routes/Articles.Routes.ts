@@ -9,9 +9,7 @@ const articleService = new ArticlesService();
 router.get('', (request: Request, response: Response, next: NextFunction) => {
     articleService.getAllArticles()
         .then((result: Article[]) => {
-            response.json(
-                { articles: result.map((art: Article) => art.toDto()) }
-            )
+            response.json(result.map((art: Article) => art.toDto()))
         })
         .catch(next)
 });

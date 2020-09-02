@@ -1,1 +1,7 @@
 <p>Bienvenue sur mon blog (app-home-view)</p>
+
+<div class="articleList">
+    <app-article-item *ngFor="let article of articleList"
+        [articleIn] = "article"
+    ></app-article-item>
+</div>
