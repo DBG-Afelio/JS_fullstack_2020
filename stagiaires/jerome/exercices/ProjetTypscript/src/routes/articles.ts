@@ -1,13 +1,24 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { ArticleService } from '../services/ArticleService';
+import { Article } from '../models/Article';
 export const router = Router();
 
 const articleService= new ArticleService();
 
 
 router.get('', (request:Request, response:Response, next:NextFunction) => {
+        request.query.
     articleService.getAllArticles()
-            .then(result=>response.json(result))
+            .then(
+                    (result: Article[]) => {
+                            // Business Logic si court
+                            response.json(
+                                    {
+                                        articles : result.map((art: Article) => art.toArticleItemDto())
+                                    }
+                                    )
+                        }
+                )
             .catch(next);
     });
 

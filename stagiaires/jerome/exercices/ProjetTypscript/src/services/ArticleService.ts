@@ -1,14 +1,35 @@
 import {pool} from "../pool";
+import { Article } from '../models/Article';
+import { AuteurArticle } from '../models/AuteurArticle';
 
 export class ArticleService{
 
-    async getAllArticles(){
-        const articles = await pool.query('SELECT * FROM articles a INNER JOIN auteurs_articles aa ON a.id_auteur_article = aa.id_auteur_articles')
+    async getAllArticles(): Promise<Article[]>{
+        const articles_rows = await pool.query(
+            'SELECT * FROM articles a INNER JOIN auteurs_articles aa ON a.id_auteur_article = aa.id_auteur_articles'
+            )
         .catch((error : Error)=>{
             console.log(error);
             throw new Error('Demande Introuvable');
         })
-        return articles.rows;
+        const articles : Article[] = articles_rows.rows.map(
+            (row: any) => new Article(
+                row.id_article,
+                row.titre_article,
+                row.contenu_article,
+                row.date_article,
+                row.publie_article,
+                new AuteurArticle(
+                    row.id_auteur_articles,
+                    row.nom_auteur_articles,
+                    row.prenom_auteur_articles,
+                    row.email_auteur_articles,
+                    row.presentation_auteur_articles,
+                )
+            )
+        );
+
+        return articles;
     }
 
     async getArticleById(id:number){
