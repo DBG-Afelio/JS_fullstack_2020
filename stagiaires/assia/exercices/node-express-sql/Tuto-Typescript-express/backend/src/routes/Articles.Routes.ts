@@ -10,7 +10,7 @@ router.get('', (request, response) => {
 
 // GET /articles/1
 router.get('/:id', (request, response) => {
-    const id = parseInt(request.params.id);
+    const id:number = parseInt(request.params.id, 10);
     getArticleById(id)
         .then(result => response.json(result))
         .catch(error => response.status(500).send(`error GET article ${id}`))
@@ -29,7 +29,7 @@ router.put('/:id', (request, response) => {
         .then(result => response.json(result))
         .catch(error => {
             console.log('errueru ligne 32',error);
-            if (error === 'Error: 404') { //condition foireuse, marche pas
+            if (error === 'Error: 404') { // condition foireuse, marche pas
                 response.status(404).send(`Auteur inexistant`);
             } else {
                 response.status(500).send(`autre erreur`);

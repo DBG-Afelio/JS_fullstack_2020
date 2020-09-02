@@ -3,9 +3,9 @@ export class Article {
         private id: number,
         private titre: string,
         private contenu: string,
-        private auteurs_id: number,
+        private auteurId: number,
         private date: Date,
         private publie: boolean
     ) {}
-    
+
 }

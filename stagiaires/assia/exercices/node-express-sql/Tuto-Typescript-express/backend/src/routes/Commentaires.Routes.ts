@@ -12,7 +12,7 @@ router.get('', (request, response) => {
 
 // GET /commentaires/1
 router.get('/:id', (request, response) => {
-    const id = parseInt(request.params.id);
+    const id = parseInt(request.params.id, 10);
     getCommentaireById(id)
         .then(result => response.json(result))
         .catch(error => response.status(500).send(`error GET commentaire ${id}`))

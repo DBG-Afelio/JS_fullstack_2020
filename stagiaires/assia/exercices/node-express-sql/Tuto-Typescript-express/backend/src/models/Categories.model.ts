@@ -4,5 +4,5 @@ export class Categories {
         private nom: string,
         private description: string
     ) {}
-    
+
 }

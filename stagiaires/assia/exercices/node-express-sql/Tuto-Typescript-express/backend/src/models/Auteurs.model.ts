@@ -6,5 +6,5 @@ export class Auteurs {
         private nom: string,
         private prenom: string
     ) {}
-    
+
 }

@@ -3,10 +3,10 @@ export class Commentaires {
         private id: number,
         private titre: string,
         private contenu: string,
-        private articles_id: number,
+        private articleId: number,
         private nom: string,
         private prenom: string,
-        private date: Date,
+        private date: Date
     ) {}
-    
+
 }

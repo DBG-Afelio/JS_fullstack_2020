@@ -4,8 +4,8 @@ export const router = Router();
 
 // GET /censures
 router.get('', (request, response) => {
-    //getOnlyForbidden()
-    //getOnlyWordsToHide()
+    // getOnlyForbidden()
+    // getOnlyWordsToHide()
     getAllCensures()
         .then(result => {
             response.json(result);
@@ -16,7 +16,7 @@ router.get('', (request, response) => {
 
 // GET /censures/1
 router.get('/:id', (request, response) => {
-    const id = parseInt(request.params.id);
+    const id = parseInt(request.params.id, 10);
     getCensureById(id)
         .then(result => response.json(result))
         .catch(error => response.status(500).send(`error GET censure ${id}`))
