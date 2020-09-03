@@ -4,9 +4,9 @@ export interface ListArticlesDto {
 
 export interface ArticleItemDto {
     id: number,
+    auteur_id: number,
     titre: string,
     contenu: string,
-    auteur_id: number,
     date: Date,
     publie: boolean
 }

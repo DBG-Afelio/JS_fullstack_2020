@@ -14,10 +14,10 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
+                row.auteurId,
                 row.titre,
                 row.contenu,
                 row.date,
-                row.auteurId,
                 row.publie
             )
         );
@@ -33,10 +33,10 @@ export class ArticleService {
 
         const article = new Article(
             articlesRows.rows[0].id,
+            articlesRows.rows[0].auteurId,
             articlesRows.rows[0].titre,
             articlesRows.rows[0].contenu,
             articlesRows.rows[0].date,
-            articlesRows.rows[0].auteurId,
             articlesRows.rows[0].publie
 
         );
@@ -52,10 +52,10 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
+                row.auteurId,
                 row.titre,
                 row.contenu,
                 row.date,
-                row.auteurId,
                 row.publie
             )
         );
@@ -73,10 +73,10 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
+                row.auteurId,
                 row.titre,
                 row.contenu,
                 row.date,
-                row.auteurId,
                 row.publie
             )
         );

@@ -1,0 +1,8 @@
+<div *ngIf="listArticles" class="listArticles">
+    <app-list-articles
+        [listArticles] = "listArticles"
+    ></app-list-articles>
+</div>
+<div *ngIf="!listArticles" class="listArticles">
+    Aucun article
+</div>

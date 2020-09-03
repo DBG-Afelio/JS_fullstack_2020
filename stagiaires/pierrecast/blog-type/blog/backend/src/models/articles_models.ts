@@ -4,10 +4,10 @@ import { ArticleItemDto } from "../dtos/list_articles_dtos";
 export class Article {
     constructor (
         public id: number,
+        public auteurId: number,
         /* private _titre: string, */
         public titre: string,
         public contenu: string,
-        public auteurId: number,
         public date: Date,
         public publie: boolean
     ) {
@@ -38,17 +38,17 @@ export class Article {
 
     static fromDB(dbResult: {
         id: number;
+        auteurId: number;
         titre: string;
         contenu: string;
-        auteurId: number;
         date: Date;
         publie: boolean;
     }) {
         return new Article(
             dbResult.id,
+            dbResult.auteurId,
             dbResult.titre,
             dbResult.contenu,
-            dbResult.auteurId,
             dbResult.date,
             dbResult.publie,
         );
