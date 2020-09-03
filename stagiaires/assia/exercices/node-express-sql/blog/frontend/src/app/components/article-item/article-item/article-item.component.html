@@ -1,8 +1,15 @@
-<p>article-item works!</p>
-<div class="article" *ngIf="articleIn">
-    <ul *ngIf="articleIn.getIsPublished()">
-        <li>{{ articleIn.getTitle() }}</li>
+
+<div class="article" *ngIf="articleIn" routerlink="/article/{{articleIn.getId()}}">
+    <ul *ngIf="articleIn.getIsPublished()"> 
+        <h2>{{ articleIn.getTitle() | uppercase }}</h2>
         <li>{{ articleIn.getContent() }}</li>
-        <li>{{ articleIn.getAuthorId() }} - {{ articleIn.getAuthorId() }}</li>
+        <li>Redige par {{ articleIn.getAuthorId() }} - {{ articleIn.getDate() | date }}</li>
     </ul>
+    <div *ngIf="!articleIn.getIsPublished()">
+        <!-- article a ne pas publier -->
+    </div>
+</div>
+
+<div class="article" *ngIf="!articleIn">
+    Pas encore d'article publié !
 </div>

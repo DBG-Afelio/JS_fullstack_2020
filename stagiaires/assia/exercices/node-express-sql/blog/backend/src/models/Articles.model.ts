@@ -10,7 +10,7 @@ export class Article {
         private isPublished: boolean
     ) {}
 
-    // <<< from front
+    // <<< from client
     public static fromDto(articleDto: ArticleDto): Article{
         return new Article(
             articleDto.id,
@@ -22,7 +22,7 @@ export class Article {
         );
     }
 
-    // >>> to front
+    // >>> to client
     public toDto(): ArticleDto{
         return {
             id: this.id,

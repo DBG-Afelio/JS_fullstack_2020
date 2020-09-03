@@ -8,12 +8,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeViewComponent } from './views/home/home-view/home-view.component';
 import { ArticleItemComponent } from './components/article-item/article-item/article-item.component';
+import { ArticleFormComponent } from './components/articleForm/article-form/article-form.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail/article-detail.component';
+import { SingleArticleViewComponent } from './views/single-article/single-article-view/single-article-view.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeViewComponent,
     ArticleItemComponent,
+    ArticleFormComponent,
+    ArticleDetailComponent,
+    SingleArticleViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +28,7 @@ import { ArticleItemComponent } from './components/article-item/article-item/art
     HttpClientModule,
     FormsModule,
     //NgbModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
