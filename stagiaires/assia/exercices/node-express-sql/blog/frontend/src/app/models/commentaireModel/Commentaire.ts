@@ -1,4 +1,4 @@
-import { CommentaireDto , CommentaireDb } from "../dtos/CommentaireListDto";
+import { CommentaireDto } from "../commentaireModel/CommentaireDto";
 
 export class Commentaire {
     constructor(
@@ -36,32 +36,6 @@ export class Commentaire {
             date: this.date
         }
     }
-
-        // <<< from db
-        public static fromDb(commentaireDb: CommentaireDb): Commentaire{
-            return new Commentaire(
-                commentaireDb.id,
-                commentaireDb.titre,
-                commentaireDb.contenu,
-                commentaireDb.articles_id,
-                commentaireDb.nom,
-                commentaireDb.prenom,
-                commentaireDb.date
-            );
-        }
-    
-        // >>> to db
-        public toDb(): CommentaireDb{
-            return {
-                id: this.id,
-                titre: this.title,
-                contenu: this.content,
-                articles_id: this.articleId,
-                nom: this.familyName,
-                prenom: this.firstName,
-                date: this.date
-            }
-        }
 
     // getter
     public getId(): number{

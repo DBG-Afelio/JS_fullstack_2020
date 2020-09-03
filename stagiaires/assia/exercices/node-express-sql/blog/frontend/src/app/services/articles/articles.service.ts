@@ -27,4 +27,11 @@ export class ArticlesService {
     );
   }
 
+  public getArticleById(id:number): Observable<Article>{
+    return this.http.get<ArticleDto>(`${this.url}/${id}`)
+      .pipe(
+        map((articleDto:ArticleDto) => Article.fromDto(articleDto))
+    )
+  }
+
 }

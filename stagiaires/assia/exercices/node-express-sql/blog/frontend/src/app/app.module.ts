@@ -12,6 +12,7 @@ import { ArticleFormComponent } from './components/articleForm/article-form/arti
 import { ArticleDetailComponent } from './components/article-detail/article-detail/article-detail.component';
 import { SingleArticleViewComponent } from './views/single-article/single-article-view/single-article-view.component';
 import { RouterModule } from '@angular/router';
+import { CommentaireItemComponent } from './components/commentaire-item/commentaire-item/commentaire-item.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     ArticleFormComponent,
     ArticleDetailComponent,
     SingleArticleViewComponent,
+    CommentaireItemComponent,
   ],
   imports: [
     BrowserModule,

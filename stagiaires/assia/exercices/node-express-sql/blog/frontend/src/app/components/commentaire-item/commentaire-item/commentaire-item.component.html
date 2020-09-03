@@ -1,0 +1,8 @@
+<div class="comment" *ngIf="commentaireIn">
+    <ul> {{ commentaireIn.getFirstName() }} {{ commentaireIn.getFamilyName().substr(0,1) }} - {{  commentaireIn.getDate() | date }}
+        <li> {{ commentaireIn.getTitle() | uppercase }} </li>
+        <li> {{ commentaireIn.getContent() }} </li>
+        <li> Modifier (lien) </li>
+        <li> Supprimer (lien) </li>
+    </ul>
+</div>
