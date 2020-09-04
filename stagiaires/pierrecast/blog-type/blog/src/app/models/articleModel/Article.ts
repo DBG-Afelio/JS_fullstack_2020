@@ -1,28 +1,29 @@
 import { ArticleDto } from './ArticleDto';
+import { Auteur } from '../auteurModel/Auteur';
 
 export class Article {
     constructor(
         public id: number,
         public titre: string,
         public contenu: string,
-        public auteur_id: number,
+        public auteur: Auteur,
         public date: Date,
         public publie: boolean
     ) {
         this.id = id;
         this.titre = titre;
         this.contenu = contenu;
-        this.auteur_id = auteur_id;
+        this.auteur = auteur;
         this.date = date;
         this.publie = publie;
     }
 
-    public static fromDto(articleDto: ArticleDto): Article {
+    public static fromDto(articleDto: ArticleDto, auteur: Auteur): Article {
         return new Article(
             articleDto.id,
             articleDto.titre,
             articleDto.contenu,
-            articleDto.auteur_id,
+            auteur,
             articleDto.date,
             articleDto.publie,
         );
@@ -33,7 +34,7 @@ export class Article {
             id: this.id,
             titre: this.titre,
             contenu: this.contenu, 
-            auteur_id: this.auteur_id,
+            auteur_id: this.auteur.id,
             date: this.date,
             publie: this.publie
         }

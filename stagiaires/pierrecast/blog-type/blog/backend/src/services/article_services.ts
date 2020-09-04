@@ -1,5 +1,4 @@
 import { pool } from "../db/pool";
-import { response } from "express";
 import { getCodeError }  from "./error_handlers";
 import { Article } from "../models/articles_models";
 
@@ -14,9 +13,9 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
-                row.auteurId,
                 row.titre,
                 row.contenu,
+                row.auteur_id,
                 row.date,
                 row.publie
             )
@@ -33,9 +32,9 @@ export class ArticleService {
 
         const article = new Article(
             articlesRows.rows[0].id,
-            articlesRows.rows[0].auteurId,
             articlesRows.rows[0].titre,
             articlesRows.rows[0].contenu,
+            articlesRows.rows[0].auteur_id,
             articlesRows.rows[0].date,
             articlesRows.rows[0].publie
 
@@ -52,9 +51,9 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
-                row.auteurId,
                 row.titre,
                 row.contenu,
+                row.auteur_id,
                 row.date,
                 row.publie
             )
@@ -73,9 +72,9 @@ export class ArticleService {
         const articles: Article[] = articlesRows.rows.map(
             (row: any) => new Article(
                 row.id,
-                row.auteurId,
                 row.titre,
                 row.contenu,
+                row.auteur_id,
                 row.date,
                 row.publie
             )
@@ -88,7 +87,7 @@ export class ArticleService {
         const value = await pool.query(`
             INSERT INTO articles (titre, contenu ,auteur_id,date, publie)
             VALUES ($1, $2, $3, $4, $5)
-            `,[titre, contenu ,auteur_id,date, publie] )
+            `,[titre, contenu, auteur_id, date, publie] )
         .catch(error => {
             console.log(error);
             throw new Error(getCodeError(error));

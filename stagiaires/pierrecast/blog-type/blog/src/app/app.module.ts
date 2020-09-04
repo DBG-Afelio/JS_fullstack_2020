@@ -7,6 +7,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ArticleItemComponent } from './pages/article-item/article-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListArticlesComponent } from './components/list-articles/list-articles.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ListArticlesComponent } from './components/list-articles/list-articles.
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

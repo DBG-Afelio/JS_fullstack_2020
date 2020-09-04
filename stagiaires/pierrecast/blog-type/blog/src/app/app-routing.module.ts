@@ -5,7 +5,7 @@ import { ArticleItemComponent } from './pages/article-item/article-item.componen
 
 
 const routes: Routes = [
-  { path : "article/:id", component:  ArticleItemComponent},
+  { path : "articles/:id", component:  ArticleItemComponent},
   { path : "homepage", component:  HomepageComponent},
   { path : "", redirectTo: "/homepage" , pathMatch: "full"},
   { path : "**", redirectTo: "/homepage", pathMatch: "full" },
