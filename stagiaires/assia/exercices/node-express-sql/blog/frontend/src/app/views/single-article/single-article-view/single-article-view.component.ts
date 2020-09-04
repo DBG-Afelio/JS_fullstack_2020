@@ -31,4 +31,5 @@ export class SingleArticleViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

@@ -39,7 +39,7 @@ export class ArticlesService{
         return Article.fromDb(returnValue.rows[0]);
 
     }
-
+    
     async addArticle(newArticle: CreateArticleDto): Promise<Article> {
         let addedArticle: Article | null ;
         const { titre, contenu, auteurs_id, date, publie } = newArticle;

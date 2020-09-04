@@ -24,7 +24,7 @@ router.get('/:id', (request, response, next) => {
 // POST /articles
 router.post('', (request, response, next) => {
     articleService.addArticle(request.body)
-        .then(result => response.json(result.toDto()))
+        .then((result:Article) => response.json(result.toDto()))
         .catch(next)
 });
 

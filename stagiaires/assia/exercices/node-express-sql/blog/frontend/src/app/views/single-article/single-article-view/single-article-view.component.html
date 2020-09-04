@@ -1,20 +1,20 @@
-<p>[article en details] + [commentaires] + [detail auteur]</p>
 
-
-<!-- article id=x-->
-<!-- tous les commentaires de cet article -->
-    <!-- commentaire detail avec possibilite de modif ou supp -->
-<!-- lien pour ajouter un commentaire  -->
-<div class="container">
+<div >
     <a routerLink=""> Page d'accueil </a>
 
-    <div *ngIf="currentArticle">
+    <div class="container" *ngIf="currentArticle">
         <section class="article">
             <app-article-detail
-                [articleIn]="currentArticle"></app-article-detail>
+                [articleIn]="currentArticle">
+                
+            </app-article-detail>
+            <button routerLink="/article/modifier/{{ currentArticle.getId() }}">
+                Modifier
+            </button>
         </section>
         
         <section class="commentaires">
+            <a routerLink="/commentaire/ajouter">Ajouter un commentaire</a>
             <div *ngIf="!artCommentList">
                 Soyez le 1er a commenter cet article !
             </div>

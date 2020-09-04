@@ -1,7 +1,7 @@
 
-<div class="article" *ngIf="articleIn" routerLink="/article/{{articleIn.getId()}}">
+<div *ngIf="articleIn" routerLink="/article/{{articleIn.getId()}}">
 
-    <ul *ngIf="articleIn.getIsPublished()"> 
+    <ul class="article" *ngIf="articleIn.getIsPublished()"> 
         <h2>{{ articleIn.getTitle() | uppercase }}</h2>
         <li>{{ articleIn.getContent().substr(0, 100).concat('...') }}</li>
         <li> Redige par {{ articleIn.getAuthorId() }} - {{ articleIn.getDate() | date }}</li>

@@ -1,13 +1,13 @@
-import { ArticleDto } from "../articleModel/ArticleDto";
+import { ArticleDto, CreateArticleDto } from "../articleModel/ArticleDto";
 
 export class Article {
     constructor(
-        private id: number,
-        private title: string,
-        private content: string,
-        private authorId: number,
-        private date: Date,
-        private isPublished: boolean
+        public id: number,
+        public title: string,
+        public content: string,
+        public authorId: number,
+        public date: Date,
+        public isPublished: boolean
     ) {}
 
     // <<< from front
@@ -26,6 +26,16 @@ export class Article {
     public toDto(): ArticleDto{
         return {
             id: this.id,
+            titre: this.title,
+            contenu: this.content,
+            auteurs_id: this.authorId,
+            date: this.date,
+            publie: this.isPublished
+        }
+    }
+
+    public toDtoCrea(): CreateArticleDto{
+        return {
             titre: this.title,
             contenu: this.content,
             auteurs_id: this.authorId,
@@ -55,5 +65,19 @@ export class Article {
     }
 
     // setter
-
+    public setTitle(title: string): void{
+        this.title = title;
+    }
+    public setContent(content: string): void{
+        this.content = content;
+    }
+    public setAuthorId(authorId: number): void{
+        this.authorId = authorId;
+    }
+    public setDate(): void{
+        this.date = new Date();
+    }
+    public setIsPublished(isPublished: boolean): void{
+        this.isPublished = isPublished;
+    }
 }
