@@ -1,4 +1,4 @@
 a.article {
     display: grid;
-    grid-template-columns: 5% 10% 85%;
+    grid-template-columns: repeat(4, auto);
 }

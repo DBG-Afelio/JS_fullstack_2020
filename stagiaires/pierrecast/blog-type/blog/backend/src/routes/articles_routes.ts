@@ -11,7 +11,7 @@ router.get('/:id', (request: Request, response: Response, next: NextFunction) =>
     // GET /articles/1
     const id = parseInt(request.params.id,10);
     articleService.getArticleById(id)
-    .then(result => response.json(result))
+    .then(result => response.json(result.toArticleItemDto()))
     .catch(next);
 });
 
@@ -22,11 +22,9 @@ router.get('', (request: Request, response: Response, next: NextFunction) => {
         articleService.getArticleByAuteur(id)
         .then(
             (result: Article[]) =>  {
-                response.json({
-                articles : result.map(
-                   (art: Article) => result.map(article => article.toArticleItemDto())
-                )
-            })
+                response.json(
+                result.map((art: Article) =>  art.toArticleItemDto())
+            )
         })
         .catch(next);
     } else if (request.query.page && request.query.parPage) {
@@ -34,12 +32,16 @@ router.get('', (request: Request, response: Response, next: NextFunction) => {
          const page = parseInt(request.query.page as string, 10);
          const parPage = parseInt(request.query.par_page as string, 10);
          articleService.getArticleByPage(page, parPage)
-        .then(result => response.json(result))
+        .then(result => response.json(
+            result.map((art: Article) =>  art.toArticleItemDto())
+        ))
         .catch(next);
     } else {
         // GET /articles
         articleService.getListArticles()
-        .then(result => response.json(result))
+        .then(result => response.json(
+            result.map((art: Article) =>  art.toArticleItemDto())
+        ))
         .catch(next);
     }
 });

@@ -22,11 +22,14 @@ export class ArticleItemComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       this.articleService.getArticleWithAuteurById(id).subscribe(article => {
-        this.article = article;
-        console.log(article);
+        this.article  = article;
+        console.log(this.article);
       })
-      this.datePipeString = datePipe.transform(Date.now(),'dd/MM/yyyy');
     });
+  }
+
+  public transformDate(date : Date): string {    
+    return this.datePipe.transform(date, 'dd/MM/yyyy');
   }
   
   ngOnInit(): void {

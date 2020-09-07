@@ -1,4 +1,4 @@
 <h1>{{ article.titre }} </h1>
-<!--<div class="auteur">par {{ auteur.nom }} {{ auteur.prenom}} </div>-->
-<div class="date">{{ datePipeString }}</div>
+<div class="auteur">par {{ article.auteur.prenom }} {{ article.auteur.nom }} </div>
+<div class="date">{{ transformDate(article.date) }}</div>
 <div class="contenu">{{ article.contenu }}</div>

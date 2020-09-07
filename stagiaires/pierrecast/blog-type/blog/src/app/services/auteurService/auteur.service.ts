@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuteurService {
-  url: string = 'http://localhost:8080/articles';
+  url: string = 'http://localhost:8080/auteurs';
 
   constructor(
     private http: HttpClient,
@@ -20,6 +20,7 @@ export class AuteurService {
     return this.http.get<AuteurDto[]>(this.url)
       .pipe(
         map((arrayAuteurDto : AuteurDto[]) => {
+          console.log(arrayAuteurDto);
           return arrayAuteurDto.map(auteurDto => Auteur.fromDto(auteurDto));
         }),
       )

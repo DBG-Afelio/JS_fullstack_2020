@@ -1,8 +1,9 @@
 <h1> Liste de tous les articles</h1>
-<div *ngFor="let article of listArticles">
-    <a class="article" ><!--routerlink = "/articles/{{ article.id }}" >-->
+<div *ngFor="let article of listArticles"> 
+    <a class="article" routerLink = "/articles/{{ article.id }}">
         <span class="num">{{ article.id }}</span>
-        <span class="date">{{ article.date }}</span>
+        <span class="date">{{ transformDate(article.date) }}</span>
         <span class="titre">{{ article.titre }}</span>
+        <span class="titre">{{ article.auteur.nom }} - {{ article.auteur.nom }}</span>
     </a>
 </div>

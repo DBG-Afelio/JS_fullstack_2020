@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Article } from 'backend/src/models/articles_models';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-list-articles',
@@ -9,7 +10,15 @@ import { Article } from 'backend/src/models/articles_models';
 export class ListArticlesComponent implements OnInit {
 
   @Input() listArticles: Article[];
-  constructor() { }
+  public datePipeString : string;
+
+  constructor(private datePipe: DatePipe) {
+    
+  }
+
+  public transformDate(date : Date): string {    
+    return this.datePipe.transform(date, 'dd/MM/yyyy');
+  }
 
   ngOnInit(): void {
   }
