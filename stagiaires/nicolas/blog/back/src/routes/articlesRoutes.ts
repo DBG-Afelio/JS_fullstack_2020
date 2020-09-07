@@ -17,13 +17,13 @@ router.get('', (request:Request,response:Response, next:NextFunction) => {
 router.get('/:id', (request:Request,response:Response, next:NextFunction) => {
 
     ArticleDb.getArticleByid(request.params.id)
-        .then(result => {response.json(result)})
+        .then(result => {response.json(result.toDto())})
         .catch(error => next(error))
 
 })
 router.post('', (request:Request,response:Response, next:NextFunction) => {
 
-    ArticleDb.createArticle(request.body)
+    ArticleDb.createArticle(request)
         .then(result => {response.json(result)})
         .catch(error => next(error))
 
@@ -36,7 +36,7 @@ router.put('/:id', (request:Request,response:Response, next:NextFunction) => {
 
 })
 router.delete('/:id', (request:Request,response:Response, next:NextFunction) => {
-
+    console.log(request.params.id)
     ArticleDb.deleteArticle(request.params.id)
         .then(result => {response.json(result)})
         .catch(error => next(error))

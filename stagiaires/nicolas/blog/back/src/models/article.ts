@@ -11,19 +11,35 @@ export class Article {
        public publie :boolean
     ){}
 
-    static fromDto(articleDto:ArticleDto):Article{
+    static isArticleDto(object:any):object is ArticleDto{
 
-        return new Article(
-            articleDto.id,
-            articleDto.titre,
-            articleDto.contenu,
-            articleDto.auteur_id,
-            articleDto.date,
-            articleDto.publie
-            )
-
+        const articleDtoProperties = ["id","titre","contenu","auteur_id","date","publie"]
+        let isDto = articleDtoProperties.every(property => property in object)
+        return isDto
 
     }
+
+    static fromDto(articleDto:any):Article {
+        if(Article.isArticleDto(articleDto)){
+
+            return new Article(
+                articleDto.id,
+                articleDto.titre,
+                articleDto.contenu,
+                articleDto.auteur_id,
+                articleDto.date,
+                articleDto.publie
+            )
+
+        }else{
+
+            throw new Error('not_corresponding_object')
+
+        }
+        
+    }
+
+    
     toDto():ArticleDto{
 
         return {

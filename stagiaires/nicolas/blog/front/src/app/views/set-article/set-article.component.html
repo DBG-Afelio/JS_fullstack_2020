@@ -1,0 +1,18 @@
+<div class="articleEditor">
+
+    <form [formGroup]="articleForm">
+
+        <input class="titre" type="text" placeholder="Indiquez le titre de votre article" formControlName="titre" >
+        <textarea [froalaEditor] class="contenu" formControlName="contenu" placeholder="Ecrire quelque chose ..."></textarea>    
+    
+    </form>
+
+</div>
+<div class="buttons">
+
+    <button *ngIf='editMode === "create"'  (click)="onCreateButtonClick()">Créer</button>
+    <button *ngIf='editMode === "update"'  (click)="onSaveButtonClick()">Enregistrer les modifications</button>
+
+    <button routerLink='' >Retour aux articles</button>
+
+</div>

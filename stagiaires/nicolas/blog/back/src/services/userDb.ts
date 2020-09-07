@@ -18,7 +18,7 @@ export class UserDb {
         return result.rows
 
     }
-    static async getUserByid(id:string):Promise<User[]>{
+    static async getUserByid(id:string):Promise<User>{
 
         const result = await pool.query("SELECT u.id,u.nom,u.prenom,u.bio,e.adresse FROM Utilisateurs u INNER JOIN Emails e ON e.utilisateur_id = u.id  WHERE u.id = $1",[id])
         .catch(error => {
@@ -27,7 +27,16 @@ export class UserDb {
             throw new Error('error');
 
         })
-        return result.rows
+        const user = result.rows[0]
+        return new User(
+
+            user.id,
+            user.nom,
+            user.prenom,
+            user.bio,
+            user.addresse
+
+        )
 
     }
     static async createUser(bodyRequest:UserDto){

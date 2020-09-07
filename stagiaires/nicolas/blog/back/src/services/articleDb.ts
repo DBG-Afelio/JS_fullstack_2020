@@ -1,12 +1,13 @@
 import { pool } from "../pool";
 import { ArticleDto } from "../models/dtos/articleDto";
 import { Article } from "../models/article";
+import { Request } from "express";
 
 
 export class ArticleDb {
 
     static async getAllArticles():Promise <Article[]>{
-
+        
         const result = await pool.query("SELECT * FROM Articles")
         const articles:Article[] = result.rows.map(article => {
 
@@ -25,7 +26,7 @@ export class ArticleDb {
         return articles
 
     }
-    static async getArticleByid(id:string):Promise <Article[]>{
+    static async getArticleByid(id:string):Promise <Article>{
 
         const result = await pool.query("SELECT * FROM Articles WHERE id = $1",[id]).catch(error => {
 
@@ -33,9 +34,9 @@ export class ArticleDb {
             throw new Error('error');
 
         })
-        const articles:Article[] = result.rows.map(article => {
+        const article:any = result.rows[0]
 
-            return new Article(
+        return new Article(
 
                 article.id,
                 article.titre,
@@ -46,16 +47,14 @@ export class ArticleDb {
 
             )
 
-        })
-        return articles
-
     }
 
-    static async createArticle(bodyRequest:ArticleDto){
+    static async createArticle(request:Request){
+        
+        const article = Article.fromDto(request.body)
+        const {titre,contenu,auteurId,date,publie} = article;
 
-        const {titre,contenu,auteur_id,date,publie} = bodyRequest;
-
-        const result = await pool.query("INSERT INTO Articles (titre,contenu,auteur_id,date,publie) VALUES ($1,$2,$3,$4,$5) ",[titre,contenu,auteur_id,date,publie]).catch(error => {
+        const result = await pool.query("INSERT INTO Articles (titre,contenu,auteur_id,date,publie) VALUES ($1,$2,$3,$4,$5) ",[titre,contenu,auteurId,date,publie]).catch(error => {
 
             console.log(error);
             throw new Error('error');

@@ -1,0 +1,46 @@
+h1,h2,h3,h4,h5,h6{
+
+    cursor:default;
+
+}
+.container{
+
+    border: thin solid;
+    border-radius:20px;
+    background-color:gainsboro;
+    margin : 10px;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.container:hover{
+
+    box-shadow: 5px 5px;
+    cursor:pointer;
+
+}
+.header{
+
+    border-bottom: thin solid;
+    border-radius: 20px 20px 0px 0px;
+    padding:10px;
+    background-color:rgba(0,0,0,0.15);
+}
+.body{
+
+    padding:10px;
+    height: 100%;
+    box-shadow:inset 0px 0px 30px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+    
+}
+.footer{
+
+    display:flex;
+    justify-content: space-between;
+    padding:10px ;
+    align-items: center;
+}

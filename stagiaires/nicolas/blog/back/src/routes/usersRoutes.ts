@@ -18,7 +18,7 @@ router.get('', (request:Request,response:Response, next:NextFunction) => {
 router.get('/:id', (request:Request,response:Response, next:NextFunction) => {
 
     UserDb.getUserByid(request.params.id)
-        .then(result => {response.json(result)})
+        .then(result => {response.json(result.toDto())})
         .catch(error => next(error))
 
 })

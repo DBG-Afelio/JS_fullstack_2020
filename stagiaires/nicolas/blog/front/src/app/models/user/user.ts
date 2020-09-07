@@ -1,4 +1,4 @@
-import { UserDto } from "./dtos/userDto";
+import { UserDto } from "./user-Dto";
 
 export class User {
 
@@ -22,15 +22,15 @@ export class User {
 
 
     }
-    toDto():UserDto{
+    toDto(user:User):UserDto{
 
         return {
 
-            id : this.id,
-            nom : this.nom,
-            prenom : this.prenom,
-            bio:this.bio,
-            adresse:this.adresse
+            id : user.id,
+            nom : user.nom,
+            prenom : user.prenom,
+            bio:user.bio,
+            adresse:user.adresse
 
         }
 

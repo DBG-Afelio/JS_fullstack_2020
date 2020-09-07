@@ -1,0 +1,6 @@
+<button routerLink='setArticle/new' >Créer un article</button>
+<div class="grid">
+
+    <app-article-resume *ngFor="let article of articles" (deleteArticle)='onArticleDelete($event)' [article]='article'></app-article-resume>
+
+</div>

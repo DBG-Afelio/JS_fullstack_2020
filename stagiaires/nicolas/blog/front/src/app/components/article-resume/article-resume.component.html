@@ -1,0 +1,27 @@
+<div routerLink='article/{{article.id}}' class='container'>
+    <div class='header'>
+
+        <h2 routerLink='article/{{article.id}}'>{{article.titre}}</h2>
+
+    </div>
+    
+    <div class='body'>
+
+        {{article.contenu}}
+
+    </div>
+
+    <div class='footer'>
+
+        <div>
+
+            <button routerLink='setArticle/{{article.id}}'>Modifier l'article</button>
+            <button (click)='onDeleteButtonClick()'>Supprimer l'article</button>
+
+        </div>
+        
+        <span>{{article.date | date:'fullDate'}}</span>
+
+    </div>
+</div>
+

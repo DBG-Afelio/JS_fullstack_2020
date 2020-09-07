@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import {router as UsersRoute } from "./routes/usersRoutes";
 import {router as ArticlesRoute} from "./routes/articlesRoutes";
 import {router as CommentsRoute} from "./routes/commentsRoutes";
+import bodyParser from "body-parser"
 
 const usersRoute = UsersRoute;
 const articlesRoute = ArticlesRoute;
@@ -18,6 +19,8 @@ app.use((request:Request,response:Response,next:NextFunction) => {
 
     next();
 })
+
+
 
 app.use('/utilisateurs',usersRoute);
 app.use('/articles',articlesRoute);
