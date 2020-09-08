@@ -42,11 +42,12 @@ export class HomepageComponent implements OnInit {
       {name: 'Développeur Front', value: "1"},
       {name: 'Développeur Back', value: "2"},
       {name: 'Intégrateur', value: "3"},
-      {name: 'Intégrateur', value: "4"},
-      {name: 'Intégrateur', value: "5"}
+      {name: 'UX/UI', value: "4"},
+      {name: 'Rien de tout cela', value: "5"}
     ];
     
     this.roles = this.formBuilder.group({
+      
       firstName: ['', [Validators.required]],
       bUnits: this.formBuilder.array(
         this.roles.map(() => this.formBuilder.control('')),
