@@ -13,7 +13,6 @@ export class UsersController {
         const value = await this.usersService.getUserList()
             .then((userList: User[]) => userList.map((user: User) => user.toDto()))
             .catch(error => {
-                
                 throw new Error(error)
             });
         return value;
