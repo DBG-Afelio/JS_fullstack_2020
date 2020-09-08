@@ -1,0 +1,15 @@
+<div class="products" >
+    <div class="products__new">
+      <a class="btn btn__ok" href="./new">
+        New Pizza
+      </a>
+    </div>
+    <div *ngIf="!pizzas" class="products__list">
+      No pizzas, add one to get started.
+    </div>
+    <div *ngIf="pizzas" class="products__list">
+      <pizza-item *ngFor="let pizza of pizzas" [pizza]="pizza"></pizza-item>
+      
+    </div>
+
+  </div> 
