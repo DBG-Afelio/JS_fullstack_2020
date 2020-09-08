@@ -1,0 +1,96 @@
+<form [formGroup]="userForm" (ngSubmit) = "onSubmitForm()">
+
+	<div class="form-group form-element">
+		<label>Nom</label>
+        <input type="text" class="form-control" [formControl]="userForm.controls.firstName">
+        <span class="errors" 
+            [hidden]='userForm.controls.firstName.pristine || (!userForm.controls.firstName.errors || !userForm.controls.firstName.errors.required)'>
+            Le nom est requis</span>
+        <span class="errors" 
+            [hidden]='userForm.controls.firstName.pristine || (!userForm.controls.firstName.errors || !userForm.controls.firstName.errors.maxlength)'>
+            Le nom doit être inférieur à 30 caractères.</span>
+
+	</div>
+
+	<div class="form-group">
+		<label>Prénom</label>
+        <input type="text" class="form-control" formControlName="lastName">
+        
+        <span class="errors" 
+            [hidden]='userForm.controls.lastName.pristine || (!userForm.controls.lastName.errors || !userForm.controls.lastName.errors.maxlength)'>
+            Le prénom doit être inférieur à 30 caractères.</span>
+	</div>
+
+	<div class="form-group">
+		<label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <span class="errors" 
+            [hidden]='userForm.controls.email.pristine || (!userForm.controls.email.errors || !userForm.controls.email.errors.required)'>
+            L'email est requis</span>
+        <span class="errors" 
+            [hidden]='userForm.controls.email.pristine || (!userForm.controls.email.errors || !userForm.controls.email.errors.email)'>
+            L'email n'a pas le bon format.</span>
+	</div>
+
+
+	<div class="form-group">
+		<label>Nationalité</label>
+		<select class="form-control" formControlName="nationality">
+            <option value='' disabled selected >Selectionnez un élément</option>
+            <option *ngFor = "let option of nationalities; let i = index" value='{{ i }}' >
+                {{ option }}
+            </option>
+        </select>
+        <span class="errors" 
+            [hidden]='userForm.controls.nationality.pristine || (!userForm.controls.nationality.errors || !userForm.controls.nationality.errors.required)'>
+            La nationalité est requise</span>
+    </div>
+
+	<div class="form-group">
+		<div>
+            <input type="radio" class="form-control" formControlName="sex" value="sexF">
+            <label>Femme</label>
+            
+            <input type="radio"  class="form-control" formControlName="sex" value="sexM">
+            <label>Homme</label>
+            
+            <input type="radio"   class="form-control" formControlName="sex" value="sex0" checked>
+            <label>Autre</label>
+        </div>
+        <span class="errors" 
+            [hidden]='userForm.controls.sex.pristine || (!userForm.controls.sex.errors || !userForm.controls.sex.errors.validSex)'>
+            Le genre est requis</span>
+    </div>
+
+    <div class="form-group">
+		<div>
+            <input type="checkbox" class="form-control" formControlName="roles">
+            <label>Développeur Front</label>
+        </div>
+        <div>
+            <input type="checkbox" class="form-control" formControlName="roles">
+            <label>Développeur Back</label>
+        </div>
+        <div>
+            <input type="checkbox" class="form-control" formControlName="roles">
+            <label>Intégrateur</label>
+        </div>
+        <div>
+            <input type="checkbox" class="form-control" formControlName="roles">
+            <label>UX/UI</label>
+        </div>
+        <div>
+            <input type="checkbox" class="form-control" formControlName="roles">
+            <label>Rien de tout cela</label>
+        </div>
+	</div>
+    
+
+    
+    <div class="submit-container">
+        <button type="submit" 
+            class="btn btn-primary"
+            [disabled]="userForm.invalid"
+        >Sousmettre</button>
+    </div>
+</form>
