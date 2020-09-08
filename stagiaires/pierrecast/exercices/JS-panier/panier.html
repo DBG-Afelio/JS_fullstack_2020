@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/theme.css">
+        <title>Panier</title>
+    </head>
+    <body>
+        <main>
+            <div class="view view-list active">
+                <div class="wrap-detail">
+                    <div class="block block-detail">
+                        <img src="#" alt="image" />
+                        <div class="info-detail">
+                            <h2>Nom de l'article</h2>
+                            <div class="origin">De source, Pays</div>
+                            <div class="comment">commentaire</div>
+                        </div>
+                        <form>
+                            <input type="Number" placeholder="Nombre à commander" />
+                            <button>Commander</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="wrap-basket">
+                    <div class="block block-basket">
+                        <div>Nb articles&nbsp;:<output class='nb-articles'>0</output></div>
+                        <div>Total&nbsp;:<output class='total'>0</output></div>
+                        <button class="button-confirm">Voir le panier</button>
+                    </div>
+                </div>
+                <div class="wrap-liste">
+                    <div class="block block-liste"></div>
+                </div>
+            </div>
+            <div class="view view-recap">
+                <div class="wrap-recap">
+                    <div class="block-recap">
+                        
+                    </div>
+                    <div class="recap-bottom">
+                        <output class="total">0</output>
+                        <button class="clearBasket">Vider le panier</button>
+                        <button class="backToList">Revenir à la liste</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="source/sourceJSON.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

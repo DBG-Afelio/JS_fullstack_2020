@@ -1,0 +1,91 @@
+import { CommentaireDto , CommentaireDb } from "../dtos/CommentaireListDto";
+
+export class Commentaire {
+    constructor(
+        private id: number,
+        private title: string,
+        private content: string,
+        private articleId: number,
+        private familyName: string,
+        private firstName: string,
+        private date: Date
+    ) {}
+
+    // <<< from front
+    public static fromDto(commentaireDto: CommentaireDto): Commentaire{
+        return new Commentaire(
+            commentaireDto.id,
+            commentaireDto.titre,
+            commentaireDto.contenu,
+            commentaireDto.articles_id,
+            commentaireDto.nom,
+            commentaireDto.prenom,
+            commentaireDto.date
+        );
+    }
+
+    // >>> to front
+    public toDto(): CommentaireDto{
+        return {
+            id: this.id,
+            titre: this.title,
+            contenu: this.content,
+            articles_id: this.articleId,
+            nom: this.familyName,
+            prenom: this.firstName,
+            date: this.date
+        }
+    }
+
+        // <<< from db
+        public static fromDb(commentaireDb: CommentaireDb): Commentaire{
+            return new Commentaire(
+                commentaireDb.id,
+                commentaireDb.titre,
+                commentaireDb.contenu,
+                commentaireDb.articles_id,
+                commentaireDb.nom,
+                commentaireDb.prenom,
+                commentaireDb.date
+            );
+        }
+    
+        // >>> to db
+        public toDb(): CommentaireDb{
+            return {
+                id: this.id,
+                titre: this.title,
+                contenu: this.content,
+                articles_id: this.articleId,
+                nom: this.familyName,
+                prenom: this.firstName,
+                date: this.date
+            }
+        }
+
+    // getter
+    public getId(): number{
+        return this.id;
+    }
+    public getTitle(): string{
+        return this.title;
+    }
+    public getContent(): string{
+        return this.content;
+    }
+    public getArticleId(): number{
+        return this.articleId;
+    }
+    public getDate(): Date{
+        return this.date;
+    }
+    public getFamilyName(): string{
+        return this.familyName;
+    }
+    public getFirstName(): string{
+        return this.firstName;
+    }
+
+    // setter
+
+}

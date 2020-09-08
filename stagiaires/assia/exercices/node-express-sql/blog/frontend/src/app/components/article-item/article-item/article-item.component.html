@@ -1,0 +1,17 @@
+
+<div *ngIf="articleIn" routerLink="/article/{{articleIn.getId()}}">
+
+    <ul class="article" *ngIf="articleIn.getIsPublished()"> 
+        <h2>{{ articleIn.getTitle() | uppercase }}</h2>
+        <li>{{ articleIn.getContent().substr(0, 100).concat('...') }}</li>
+        <li> Redige par {{ articleIn.getAuthorId() }} - {{ articleIn.getDate() | date }}</li>
+    </ul>
+
+    <div *ngIf="!articleIn.getIsPublished()">
+        <!-- article a ne pas publier -->
+    </div>
+</div>
+
+<div class="article" *ngIf="!articleIn">
+    Pas encore d'article publié !
+</div>

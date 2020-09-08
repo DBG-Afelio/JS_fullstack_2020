@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width: 100%;
+}
+.article,
+.commentaires{
+    border: solid;
+    margin: 5px;
+}
+
+.commentaires{
+    height: 30%;
+}
