@@ -1,0 +1,70 @@
+<form *ngIf="article" class="form"  #ArticleForm="ngForm" ngForm >
+
+    <div class="row">
+        <div class="form-element form-title col-lg-6">
+            <label  for="title">Titre</label>
+            <input 
+                #title 
+                type="text" 
+                [(ngModel)]="article.title"  
+                class="form-control"  
+                name="title" 
+                placeholder="Titre (obligatoire)" 
+                required data-pristine="true">
+
+            <div *ngIf="title.value === ''"
+                class="article-form__error alert alert-danger">
+                <p>Le titre est requis</p>
+            </div>
+        </div>
+
+        <div class="form-element form-content col-lg-6">
+            <label  for="content">Contenu</label>
+            <input #content type="text" [(ngModel)]="article.content"  class="form-control"  name="content"
+                placeholder = "Contenu (obligatoire)" required
+                >
+            <div *ngIf="article.content === ''"
+                class="article-form__error alert alert-danger">
+                <p>Le contenu de l'article est requis</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">  
+        <div class="form-element form-auteur col-lg-6">
+            <label  for="auteur">AuteurId</label>
+            <input  #auteur type="number" [(ngModel)]="article.authorId"  class="form-control"  name="auteur"
+                placeholder = "AuteurId-seuelemnt pour test => 1" required 
+                >
+            <div *ngIf="article.authorId === 0" class="article-form__error alert alert-danger">
+               auteur requis
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-element form-isPublished col-lg-6">
+            <label  for="published">Publier ?</label>
+            <input  #isPublished type="checkbox" [(ngModel)]="article.isPublished"  class="form-control"  name="published">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-space col-lg-12">
+            <div class="article-form__actions">
+
+                <button 
+                    routerLink="" 
+                    class="btn btn-danger">
+                    Annuler
+                </button>
+
+                <button 
+                    class="btn btn-ok"
+                    (click)="saveArticle(title.value, content.value, auteur.valueAsNumber, isPublished.checked)">
+                    Sauvegarder
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,12 @@
+.articleList{
+    display: flex;
+    flex-flow: row wrap;
+    /* align-items: stretch; */
+    justify-content: stretch;
+    justify-items: stretch;
+    position: relative;
+    margin: auto auto;
+    justify-items: center;
+    height: 80%;
+    width: 90%;
+}

@@ -1,0 +1,6 @@
+<div class="comment" *ngIf="commentaireIn">
+    <ul> {{ commentaireIn.getFirstName() }} {{ commentaireIn.getFamilyName().substr(0,1) }} - {{  commentaireIn.getDate() | date }} <button> Modifier </button> <button> Supprimer </button>
+        <li> {{ commentaireIn.getTitle() | uppercase }} </li>
+        <li> {{ commentaireIn.getContent() }} </li>
+    </ul>
+</div>

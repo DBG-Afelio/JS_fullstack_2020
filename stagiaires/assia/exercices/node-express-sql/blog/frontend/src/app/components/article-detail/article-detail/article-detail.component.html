@@ -1,0 +1,5 @@
+<ul *ngIf="articleIn.getIsPublished()"> 
+    <h2>{{ articleIn.getTitle() | uppercase }}</h2>
+    <li>{{ articleIn.getContent() }}</li>
+    <li>Redige par {{ articleIn.getAuthorId() }} - {{ articleIn.getDate() | date }}</li>
+</ul>
