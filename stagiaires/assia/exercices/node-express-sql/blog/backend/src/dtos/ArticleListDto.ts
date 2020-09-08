@@ -2,6 +2,7 @@ export interface ArticleListDto {
     articles : ArticleDto[]
 }
 
+
 export interface ArticleDto{
     id : number,
     titre: string,
