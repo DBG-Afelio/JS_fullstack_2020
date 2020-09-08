@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn } from '@angular/forms'
 import { UserService } from 'src/app/services/userServices/user.service';
-import { Observable } from 'rxjs';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class HomepageComponent implements OnInit {
   public userForm : FormGroup;
   public nationalities : string[];
+  public roles: any[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,8 +33,26 @@ export class HomepageComponent implements OnInit {
       email: ['p_cast@gamil.com', [ Validators.required, Validators.email ]],
       nationality: [1, [ Validators.required ] ],
       sex: [ 'sex0', [ validSex ] ],
-      roles: [ ''],
+      roles: [ '', [ validRoles ]],
     });
+
+
+    // do some stub to grab data
+  /*  this.roles = [
+      {name: 'Développeur Front', value: "1"},
+      {name: 'Développeur Back', value: "2"},
+      {name: 'Intégrateur', value: "3"},
+      {name: 'Intégrateur', value: "4"},
+      {name: 'Intégrateur', value: "5"}
+    ];
+    
+    this.roles = this.formBuilder.group({
+      firstName: ['', [Validators.required]],
+      bUnits: this.formBuilder.array(
+        this.roles.map(() => this.formBuilder.control('')),
+        validRoles.multipleCheckboxRequireOne
+      )
+    });*/
   }
 
   onSubmitForm() {
@@ -59,5 +78,37 @@ export const validSex: ValidatorFn = (control: AbstractControl) => {
     }
   } else {
     return null;
+  }
+}
+
+/*
+export const validRoles: ValidatorFn = (control: AbstractControl) => {
+  console.log('control: ', control.value);
+  if (!control.value) {
+    return {
+      'validRoles' : {
+        message: 'Un rôle au minimum est requis !'
+      }
+    }
+  } else {
+    return null;
+  }
+}*/
+
+
+export class validRoles {
+  static multipleCheckboxRequireOne(fa: FormArray) {
+    let valid = false;
+
+    for (let x = 0; x < fa.length; ++x) {
+      if (fa.at(x).value) {
+        valid = true;
+        break;
+      }
+    }
+
+    return valid ? null : {
+      multipleCheckboxRequireOne: true
+    };
   }
 }
