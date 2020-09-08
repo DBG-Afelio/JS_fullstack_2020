@@ -1,0 +1,39 @@
+
+.ground{
+    background-color: silver;
+    width: 100%;
+    height: 40vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    transform: translateZ(-500px);
+    background: #9c9ea8; /* Old browsers */
+    background: -moz-linear-gradient(top, #9c9ea8 0%, #3f3f47 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #9c9ea8 0%,#3f3f47 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #9c9ea8 0%,#3f3f47 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    background: #dcdfef; /* Old browsers */
+    background: -moz-linear-gradient(top, #dcdfef 0%, #b1b1c9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #dcdfef 0%,#b1b1c9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #dcdfef 0%,#b1b1c9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+* {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+
+main {
+    perspective: 1500px;
+    perspective-origin: 0 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+
+}
+
+main > * {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+}
