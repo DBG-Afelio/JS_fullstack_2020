@@ -1,0 +1,90 @@
+<form class="form-group" (ngSubmit)="onFormSubmit()">
+
+    <input class="form-control" placeholder="Nom(Obligatoire)">
+    <input class="form-control" placeholder="Prénom">
+    <input class="form-control" placeholder="Email">
+    <input class="form-control" placeholder="Nationalité">
+
+    <div class="genders">
+
+        <label>
+            
+            Femme<input class="form-control" type="radio">
+
+        </label>
+        <label>
+
+            Homme<input class="form-control" type="radio">
+
+        </label>
+        <label>
+
+            Autre<input class="form-control" type="radio">
+
+        </label>
+
+    </div>
+
+    <hr>
+
+    <div class="skills">
+
+        <label>
+
+            <input type="checkbox"> Développeur Front
+    
+        </label>
+        <label>
+    
+            <input type="checkbox"> Développeur Back
+    
+        </label>
+        <label>
+    
+            <input type="checkbox"> Intégrateur
+    
+        </label>
+        <label>
+    
+            <input type="checkbox"> UX/UI
+    
+        </label>
+        <label >
+    
+            <input type="checkbox"> Rien de tout cela
+    
+        </label>
+
+    </div>
+    
+    <hr>
+    
+    <input class="form-control" type="date">
+
+    <div>
+
+        <input class="form-control" type="password" placeholder="Mot de passe (obligatoire)">
+        <input class="form-control" type="password" placeholder="Resaisir mot de passe (obligatoire)">
+
+    </div>
+    
+    <input class="form-control" placeholder="Choisissez un login (obligatoire)" type="text">
+
+    <div class="form-group">
+
+        <label>
+
+            De <input class="form-control" type="date">
+
+        </label>
+        <label>
+
+            A <input class="form-control" type="date">
+
+        </label>
+
+    </div>
+
+    <button type="submit">Valider</button>
+
+</form>

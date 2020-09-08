@@ -1,0 +1,43 @@
+Nom : 
+- entre 1 et 30 car
+- obligatoire
+[08:42]
+Prénom :
+- entre 1 et 30 car
+- facultatif
+[08:43]
+Email:
+- obligatoire
+- format email natif
+[08:44]
+Nationalité 
+- Obligatoire
+- Liste provenant d'un service
+[08:45]
+Sexe: 
+- Obligatoire
+[08:47]
+Fonctions: 
+- soit 0 à plusieurs fonctions, soit rien de tout cela
+[08:48]
+Date de naissance:
+- Obligatoire
+- Date valide
+- inférieur à aujourd'hui
+- minimum 18 années
+[08:48]
+Mot de passe:
+- Obligatoire
+- min 6 car
+- répétition du mot de passe identique
+[08:49]
+login:
+- Obligatoire
+- min  6 car
+- unique (créer un fake service permettant de récupérer un login depui un tableau interne)
+NOUVEAU
+[08:51]
+Libre de ... à ... :
+- facultatif
+- dans l'année courante
+- date de début inférieur à date de fin

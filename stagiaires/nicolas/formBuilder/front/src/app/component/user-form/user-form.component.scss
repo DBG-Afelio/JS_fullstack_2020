@@ -1,0 +1,24 @@
+:host{
+
+    display: block;
+    max-width: 250px;
+    margin: 10px;
+    background-color: gainsboro;
+    padding: 10px;
+    height: 100%;
+
+}
+.skills{
+
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.genders{
+
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+
+}
