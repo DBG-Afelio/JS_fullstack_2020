@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/UserService/user.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -45,10 +45,10 @@ export class FormComponent implements OnInit, OnDestroy {
       freeUpTo: '',
     })
     this.userForm = this.formB.group({
-      lastName: '',
-      firstName: '',
-      email: '',
-      nation: '',
+      lastName: ['', Validators.required, Validators.minLength(1), Validators.maxLength(30)],
+      firstName: ['', Validators.minLength(1), Validators.maxLength(30)],
+      email: ['', Validators.required, Validators.email],
+      nation: ['', Validators.required],
       gender:'',
       job: '',
       dob: '',
@@ -60,6 +60,13 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   public onSubmitForm(): void{
-    
+    const userFormValue = this.userForm.value;
+    const newUser = new User(
+      userFormValue['lastName'],
+      userFormValue['email'],
+      userFormValue['nation'],
+      userFormValue['firstName'],
+    );
+    this.userService.addUser(newUser);
   }
 }

@@ -1,4 +1,4 @@
-<div>
+<div class="col-sm-8 col-sm-offset-2">
     <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
         <div class="form-group">
             <label for="lastName">Nom</label>
@@ -26,5 +26,23 @@
             class="form-control"
             formControlName="email">
         </div>
+
+        <div class="form-group">
+            <label for="nation">Nationalite</label>
+            <select 
+            id="nation"
+            class="form-control"
+            formControlName="nation">
+                <option value="french">Francaise</option>
+                <option value="italian">Italienne</option>
+                <option value="belgian">Belge</option>
+            </select>
+        </div>
+        <button
+        [disabled]="userForm.invalid"
+        type="submit"
+        class="btn btn-primary">
+        Soumettre
+        </button>
     </form>
 </div>
