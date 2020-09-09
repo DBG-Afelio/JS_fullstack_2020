@@ -21,24 +21,13 @@ form {
     flex-direction: row-reverse;
     overflow: hidden;
 }
-/*
-form.complete {
+
+form {
     max-width: 450px;
     padding-bottom: 30px;
-}
-
-form.incomplete #leftPart,
-form.incomplete #rightPart,
-form.complete #infos-part .insidePart {
     display: block;
 }
-
-form.complete #leftPart,
-form.complete #rightPart,
-form.incomplete #infos-part .insidePart {
-    display: none;
-}
-
+/*
 form.incomplete #infos-part {
     background-color: #fbc153;
     position: absolute;
@@ -78,7 +67,7 @@ form.incomplete .insidePart {
 form.incomplete #leftPart .insidePart {
     padding: 60px 80px 60px 40px;
 }
-
+*/ 
 @media screen and (max-width : 1050px) {
     form {
         display: block;
@@ -96,7 +85,7 @@ form.incomplete #leftPart .insidePart {
     }
 }
 
-
+/*
 label {
     display: none;
 }
@@ -122,7 +111,9 @@ label {
 }
 .form-element .error-message {
     display: none;
-}/*
+}
+
+
 
 .form-element.error-difference .error-message.error-difference,
 .form-element.error-not-available .error-message.error-not-available,
@@ -216,6 +207,7 @@ label {
     border: 3px solid #fbc153;
 }
 
+
 input, select, #sugestButton {
     width: 100%;
     box-sizing: border-box;
@@ -226,6 +218,7 @@ input, select, #sugestButton {
     border: 1px solid transparent;
     border-bottom: 1px solid black;
 }
+
 
 #leftPart input, #leftPart select {
     border-radius: 12px 0 0 12px;
@@ -277,29 +270,6 @@ select, select option {
     text-align: center;
 }
 
-.force {
-    display: inline-block;
-    width: 30%;
-    height: 15px;
-    background-color:silver;
-    border: 2px solid white;
-    text-align: center;
-    top: 15px;
-    text-transform: uppercase;
-    font-size: 13px;
-    margin-top: 10px;
-    color: white;
-}
-
-#weak.active {
-    background-color: rgb(178,34,34);
-}
-#medium.active {
-    background-color: orange;
-}
-#strong.active {
-    background-color: green;
-}
 
 .form-password input{
     margin-bottom: 10px;
@@ -473,4 +443,3 @@ select, select option {
         width: 100%;
     }
 }
-*/
