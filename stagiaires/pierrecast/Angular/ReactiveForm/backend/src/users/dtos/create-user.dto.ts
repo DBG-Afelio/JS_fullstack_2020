@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, MaxLength, IsNumber, IsIn, IsDate, IsOptional } from 'class-validator'
+import { IsString, IsNotEmpty, MaxLength, IsNumber, IsIn, IsDate, IsOptional, IsEmail } from 'class-validator'
 import { Type } from 'class-transformer'
 
 
@@ -12,10 +12,7 @@ export class CreateUserDto {
     })
     readonly nom: string;
 
-    @IsString()
-    @MaxLength(30, {
-        message: 'Taille maximale est de 30 caractères'
-    })
+    @IsEmail()
     @IsNotEmpty()
     readonly email: string;
 
@@ -50,5 +47,8 @@ export class CreateUserDto {
 
     @IsString()
     @IsOptional()
+    @MaxLength(30, {
+        message: 'Taille maximale est de 30 caractères'
+    })
     readonly prenom?: string;
 }

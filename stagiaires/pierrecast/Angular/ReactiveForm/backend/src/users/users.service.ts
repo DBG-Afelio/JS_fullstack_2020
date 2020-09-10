@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './models/user.model';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { pool } from 'src/db/pool';
+import { UserComplete } from './models/userComplete.model';
+import { Role } from 'src/roles/models/role.model';
 
 
 @Injectable()
@@ -32,6 +34,19 @@ export class UsersService {
         return user;
     }
 
+    static mapUser = (row: any) => new User(
+        row.id,
+        row.nom,
+        row.email,
+        row.nation_id,
+        row.sex,
+        row.date_naissance,
+        row.login,
+        row.date_debut,
+        row.date_fin,
+        row.prenom
+    )
+    
     async findAll(): Promise<User[]> 
     {
        const usersRows = await pool.query(`SELECT * FROM users`)
@@ -41,17 +56,31 @@ export class UsersService {
         });
 
         const users: User[] = usersRows.rows.map(
-            (row: any) => new User(
-                row.id,
-                row.nom,
-                row.email,
-                row.nation_id,
-                row.sex,
-                row.date_naissance,
-                row.login,
-                row.date_debut,
-                row.date_fin,
-                row.prenom
+            UsersService.mapUser
+        );
+
+        return users;
+    }
+
+
+    async getUsersWithRoles(): Promise<UserComplete[]> 
+    {
+       const usersRows = await pool.query(`
+            SELECT users.*, ARRAY_AGG(roles.role) as roles, ARRAY_AGG(roles.id) as ids, nationalities.nationality as nationality FROM users 
+            LEFT JOIN user_roles ON user_roles.user_id = users.id
+            INNER JOIN roles ON user_roles.role_id = roles.id
+            INNER JOIN nationalities ON users.nation_id = nationalities.id
+            GROUP BY users.id, nationalities.nationality`)
+        .catch((error: Error) => {
+            console.log(error);
+            throw new Error(getCodeError(error));
+        });
+
+        const users: UserComplete[] = usersRows.rows.map(
+            (row: any) => new UserComplete(
+                UsersService.mapUser(row),
+                row.nationality,
+                row.roles.filter(role => role !== null)
             )
         );
 

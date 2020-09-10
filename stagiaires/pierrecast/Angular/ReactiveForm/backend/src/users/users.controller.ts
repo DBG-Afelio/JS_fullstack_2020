@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete, ParseIntPipe, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, ParseIntPipe, HttpStatus, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './models/user.model';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UserDto } from './dtos/userDto';
+import { UserCompleteDto } from './dtos/userCompleteDto';
+import { Sex } from './models/sex.enum';
 
 // localhost:3000/users
 @Controller('users')
@@ -16,7 +18,34 @@ export class UsersController {
     }
 
     @Get()
-    public async findAll(): Promise<UserDto[]> {
+    public async findAll(
+        @Query('_embed') embeddedRessource: string, 
+        @Query('sex') sex :Sex, 
+        @Query('roles') roles: string
+        ): Promise<UserDto[]|UserCompleteDto[]> {
+        if (embeddedRessource && embeddedRessource === 'roles') {
+           /* if (roles) {
+                const tab_roles = roles.split(',');
+                console.log(tab_roles);
+                return this.usersService
+                        .getUsersWithRoles()
+                        .then(users => users.filter(user => {
+                            user.roles.some(role => {
+
+                            })
+                        })
+                        .map(user => user.toDto()));
+            }*/
+            
+            return this.usersService.getUsersWithRoles().then(users => users.map(user => user.toDto()));
+        } else if (sex) {
+            return this.usersService
+                    .findAll()
+                    .then(users => users
+                        .filter(user => user.sex === sex)
+                        .map(user => user.toDto())
+                    );
+        }
         return this.usersService.findAll().then(users => users.map(user => user.toDto()));
     }
 
