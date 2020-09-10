@@ -1,5 +1,6 @@
-import { Controller, Get, Query, Param, Post } from '@nestjs/common';
+import { Controller, Get, Query, Param, Post, UsePipes, ValidationPipe, Body } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { UsersDto } from './models/users-dto';
 
 @Controller('users')
 export class UsersController {
@@ -15,14 +16,16 @@ export class UsersController {
 
 @Get('/:userId')
     public getUserById(@Param() param){
+
         return this.usersService.getUserById(Number(param.userId))
 
     }
 
 @Post()
-    public createUser(){
+@UsePipes(ValidationPipe)
+    public createUser(@Body() body:UsersDto){
 
-        return this.usersService.createUser()
+        return this.usersService.createUser(body)
 
     }
 

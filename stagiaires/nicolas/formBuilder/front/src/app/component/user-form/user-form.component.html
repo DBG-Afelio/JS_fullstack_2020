@@ -1,25 +1,34 @@
-<form class="form-group" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="userForm" class="form-group" (ngSubmit)="onFormSubmit()">
 
-    <input class="form-control" placeholder="Nom(Obligatoire)">
-    <input class="form-control" placeholder="Prénom">
-    <input class="form-control" placeholder="Email">
-    <input class="form-control" placeholder="Nationalité">
+    <input formControlName="lastName" class="form-control" placeholder="Nom(Obligatoire)">
+    <span class="errors" [hidden]='!userForm.controls.lastName.errors || userForm.controls.lastName.pristine'>incorrect</span>
+
+    <input formControlName="firstName" class="form-control" placeholder="Prénom">
+    <span class="errors" [hidden]='!userForm.controls.firstName.errors || userForm.controls.lastName.pristine'>incorrect</span>
+
+    <input formControlName="email" class="form-control" placeholder="Email">
+    <span class="errors" [hidden]='!userForm.controls.email.errors || userForm.controls.lastName.pristine'>incorrect</span>
+
+    <input formControlName="nationality" class="form-control" placeholder="Nationalité">
+    <span class="errors" [hidden]='!userForm.controls.nationality.errors || userForm.controls.lastName.pristine'>incorrect</span>
+
 
     <div class="genders">
 
         <label>
             
-            Femme<input class="form-control" type="radio">
+            Femme<input formControlName="gender" value="Female" class="form-control" type="radio" name="gender">
+
+        </label>
+        
+        <label>
+
+            Homme<input formControlName="gender" value="Male" class="form-control" type="radio" name="gender">
 
         </label>
         <label>
 
-            Homme<input class="form-control" type="radio">
-
-        </label>
-        <label>
-
-            Autre<input class="form-control" type="radio">
+            Autre<input formControlName="gender" value="Other" class="form-control" type="radio" name="gender">
 
         </label>
 
@@ -27,31 +36,31 @@
 
     <hr>
 
-    <div class="skills">
+    <div formGroupName="skills" class="skills">
 
         <label>
 
-            <input type="checkbox"> Développeur Front
+            <input formControlName="frontDev" type="checkbox"> Développeur Front
     
         </label>
         <label>
     
-            <input type="checkbox"> Développeur Back
+            <input formControlName="backDev" type="checkbox"> Développeur Back
     
         </label>
         <label>
     
-            <input type="checkbox"> Intégrateur
+            <input formControlName="integrator" type="checkbox"> Intégrateur
     
         </label>
         <label>
     
-            <input type="checkbox"> UX/UI
+            <input formControlName="uxui" type="checkbox"> UX/UI
     
         </label>
         <label >
     
-            <input type="checkbox"> Rien de tout cela
+            <input formControlName="nothing" type="checkbox"> Rien de tout cela
     
         </label>
 
@@ -59,27 +68,27 @@
     
     <hr>
     
-    <input class="form-control" type="date">
+    <input formControlName="birthdayDate" class="form-control" type="date">
 
     <div>
 
-        <input class="form-control" type="password" placeholder="Mot de passe (obligatoire)">
-        <input class="form-control" type="password" placeholder="Resaisir mot de passe (obligatoire)">
+        <input formControlName="password" class="form-control" type="password" placeholder="Mot de passe (obligatoire)">
+        <input formControlName="checkPassword" class="form-control" type="password" placeholder="Resaisir mot de passe (obligatoire)">
 
     </div>
     
-    <input class="form-control" placeholder="Choisissez un login (obligatoire)" type="text">
+    <input formControlName="login" class="form-control" placeholder="Choisissez un login (obligatoire)" type="text">
 
-    <div class="form-group">
+    <div formGroupName="availabilities" class="form-group">
 
         <label>
 
-            De <input class="form-control" type="date">
+            De <input formControlName="startDate" class="form-control" type="date">
 
         </label>
         <label>
 
-            A <input class="form-control" type="date">
+            A <input formControlName="endDate" class="form-control" type="date">
 
         </label>
 

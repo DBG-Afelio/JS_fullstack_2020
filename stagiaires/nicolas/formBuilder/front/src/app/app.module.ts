@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { SetUserComponent } from './views/set-user/set-user.component';
 import { UserFormComponent } from './component/user-form/user-form.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +17,8 @@ import { UserFormComponent } from './component/user-form/user-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
