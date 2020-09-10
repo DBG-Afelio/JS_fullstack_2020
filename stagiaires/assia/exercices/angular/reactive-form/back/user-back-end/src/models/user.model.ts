@@ -1,9 +1,6 @@
-import { NationEnum } from "../enums/nation.enum";
-import { GenderEnum } from "../enums/gender.enum";
-import { JobsEnum } from "../enums/jobs.enum";
 import { CreateUser_Dto } from "src/dtos/CreateUser_Dto";
 import { UpdateUser_Dto } from "src/dtos/UpdateUser_Dto";
-import { QueryResult, QueryResultRow } from "pg";
+import { QueryResultRow } from "pg";
 import { User_Dto } from "src/dtos/User_Dto";
 
 export class User {
@@ -22,7 +19,7 @@ export class User {
     ){}
     
 
-    public static fromDbQuery(queryResultRow: QueryResultRow): User{
+    public static fromQueryResultDb(queryResultRow: QueryResultRow): User{
         return new User(
             queryResultRow.id,
             queryResultRow.familyname,
