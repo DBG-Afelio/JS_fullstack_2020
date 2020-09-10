@@ -6,6 +6,7 @@ import { QueryResult, QueryResultRow } from 'pg';
 import { promises } from 'dns';
 import { CreateUser_Dto } from 'src/dtos/CreateUser_Dto';
 import { UpdateUser_Dto } from 'src/dtos/UpdateUser_Dto';
+import { GetUserFiltersDto } from 'src/dtos/GetUserFiltersDto';
 
 @Injectable()
 export class UsersService {
@@ -19,8 +20,43 @@ export class UsersService {
             });
         
         userList = queryResult.rows.map((row: QueryResultRow) => User.fromQueryResultDb(row));
-        console.log(userList);
+        // console.log(userList);
         return userList;
+
+
+    /*************************** SQL *************************/
+    // select 
+    // uj.userid, 
+    // familyname, 
+    // firstname, 
+    // gender, 
+    // countryname, 
+    // array_agg(j.title) as fonctions
+    
+    // from
+    // user_jobs,
+    // users u
+    
+    // inner join nationalities n on nationality_id = n.id
+    // left join user_jobs uj on  u.id = uj.userid
+    // left join jobs j on j.id = uj.jobid
+    
+    // group by 1,2,3,4,5
+    // order by 1
+      /****************************************************/
+    
+    }
+
+    async getFiltered(myFilters: GetUserFiltersDto): Promise<User[]> {
+        // console.log('myFilters : ', myFilters);
+        let filtered: User[] = [];
+        await this.getAll().then((allUsers) => filtered = allUsers);
+        return filtered.filter((user) => {
+            for (const key in myFilters) {
+                // console.log(user[key], ' =?= ', myFilters[key]);
+                return (user.hasOwnProperty(key) && user[key] === myFilters[key]);
+            }
+        });
     }
 
     async getById(id: number): Promise<User> {
