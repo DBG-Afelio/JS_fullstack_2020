@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, ParseIntPipe, HttpStatus } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './models/user.model';
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -10,7 +10,8 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) { }
 
     @Get(':id') 
-    public async findOne(@Param('id') id: string) {
+    public async findOne(@Param('id', new ParseIntPipe(
+        { errorHttpStatusCode: HttpStatus.NOT_FOUND })) id: string) {
         return this.usersService.findOne(id).then(user => user.toDto());
     }
 
@@ -26,12 +27,12 @@ export class UsersController {
     }
 
     @Patch(':id')
-    public async updateUser(@Param('id') id: string, @Body() user: CreateUserDto) {
+    public async updateUser(@Param('id', ParseIntPipe) id: string, @Body() user: CreateUserDto) {
         return this.usersService.update(id, user);
     }
 
     @Delete(':id') 
-    public async deleteToDo(@Param('id') id: string) {
+    public async deleteToDo(@Param('id', ParseIntPipe) id: string) {
         return this.usersService.delete(id);
     }
 }
