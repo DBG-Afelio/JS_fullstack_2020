@@ -1,0 +1,146 @@
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+
+        <!-- Nom de Famille -->
+        <div class="form-group">
+            <label for="lastName"> 
+                Nom : 
+            </label>
+            <input class="form-control" 
+                type="text"
+                [formControl]="userForm.controls.lastName" 
+            >
+
+            <div *ngIf="userForm.controls.lastName.invalid && (userForm.controls.lastName.dirty || userForm.controls.lastName.touched)" class="alert alert-danger">
+                <div *ngIf="userForm.controls.lastName.errors.required">
+                    Ce champ est requis.
+                </div>
+                <div *ngIf="userForm.controls.lastName.errors.minlength">
+                    Le nom est trop court.
+                </div>
+                <div *ngIf="userForm.controls.lastName.errors.maxlength">
+                    Le nom est trop long.
+                </div>
+            </div>
+        </div>
+
+        <!-- Prenom -->
+        <div class="form-group">
+            <label for="firstName">
+                Prenom :
+            </label>
+            <input class="form-control"
+                type="text"
+                [formControl]="userForm.controls.firstName"
+            >
+
+            <div *ngIf="userForm.controls.firstName.invalid && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)" class="alert alert-danger">
+                <div *ngIf="userForm.controls.firstName.errors.minlength">
+                    Le Prenom est trop court.
+                </div>
+                <div *ngIf="userForm.controls.firstName.errors.maxlength">
+                    Le Prenom est trop long.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">
+                Email :
+            </label>
+            <input class="form-control"
+                type="email"
+                [formControl]="userForm.controls.email"
+            >
+
+            <div *ngIf="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)" class="alert alert-danger">
+                <div *ngIf="userForm.controls.email.invalid && !userForm.controls.email.errors.required">
+                    Format incorrecte.
+                </div>
+                <div *ngIf="userForm.controls.email.errors.required">
+                    Ce champ est requis
+                </div>
+            </div>
+        </div>
+
+        <!-- Nationalite -->
+        <div class="form-group">
+            <label for="nation">
+                Nationalite :
+            </label>
+            <select class="form-control"
+                [formControl]="userForm.controls.nation">
+                <option value="" disabled> Choix Nationalite </option>
+                <option *ngFor="let country of nationList" [ngValue]="country">{{ country }}</option>
+                
+            </select>
+
+            <div *ngIf="userForm.controls.nation.invalid && (userForm.controls.nation.dirty || userForm.controls.nation.touched)" class="alert alert-danger">
+                <div *ngIf="userForm.controls.nation.errors.required">
+                    Ce champ est requis
+                </div>
+            </div>
+        </div>
+
+        <!-- Genre -->
+        <div class="form-group">
+
+            <label class="custom-control-label" for="male">Homme</label>
+            <input id="male" type="radio" class="custom-control-input" value="male" name="gender" 
+                [formControl]="userForm.controls.gender">
+
+            <label class="custom-control-label" for="female">Femme</label>
+            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" 
+                [formControl]="userForm.controls.gender">
+
+            <label class="custom-control-label" for="trans">Trans</label>
+            <input id="trans" type="radio" class="custom-control-input" value="trans" name="gender" 
+                [formControl]="userForm.controls.gender">
+
+            <label class="custom-control-label" for="other">Autre</label>
+            <input id="other" type="radio" class="custom-control-input" value="other" name="gender" 
+                [formControl]="userForm.controls.gender">
+
+            <div *ngIf="userForm.controls.gender.invalid && (userForm.controls.gender.dirty || userForm.controls.gender.touched)" class="alert alert-danger">
+                <div *ngIf="userForm.controls.gender.errors.required">
+                    Vous devez selectionner un parmi les choix ci-dessus.
+                </div>
+            </div>
+        </div>
+
+        <button
+            [disabled]="userForm.invalid"
+            type="submit"
+            class="btn btn-primary">
+            Soumettre
+        </button>
+    </form>
+
+    <pre>
+        {{ userForm.value | json }}
+    </pre>
+
+
+
+        <!-- <div class="form-group">
+            <label class="email">Email</label>
+            <input
+            type="email"
+            id="email"
+            class="form-control"
+            formControlName="email">
+        </div>
+
+        <div class="form-group">
+            <label for="nation">Nationalite</label>
+            <select 
+            id="nation"
+            class="form-control"
+            formControlName="nation">
+                <option value="french">Francaise</option>
+                <option value="italian">Italienne</option>
+                <option value="belgian">Belge</option>
+            </select>
+        </div> -->
