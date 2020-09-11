@@ -87,21 +87,25 @@
         <!-- Genre -->
         <div class="form-group">
 
-            <label class="custom-control-label" for="male">Homme</label>
-            <input id="male" type="radio" class="custom-control-input" value="male" name="gender" 
-                [formControl]="userForm.controls.gender">
+            <input id="male" type="radio" class="custom-control-input" value="male" name="gender" [formControl]="userForm.controls.gender">
+            <label class="custom-control-label" for="male">
+                Homme
+            </label>
 
-            <label class="custom-control-label" for="female">Femme</label>
-            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" 
-                [formControl]="userForm.controls.gender">
+            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" [formControl]="userForm.controls.gender">
+            <label class="custom-control-label" for="female">
+                Femme
+            </label>
 
-            <label class="custom-control-label" for="trans">Trans</label>
-            <input id="trans" type="radio" class="custom-control-input" value="trans" name="gender" 
-                [formControl]="userForm.controls.gender">
+            <input id="trans" type="radio" class="custom-control-input" value="trans" name="gender" [formControl]="userForm.controls.gender">
+            <label class="custom-control-label" for="trans">
+                Trans
+            </label>
 
-            <label class="custom-control-label" for="other">Autre</label>
-            <input id="other" type="radio" class="custom-control-input" value="other" name="gender" 
-                [formControl]="userForm.controls.gender">
+            <input id="other" type="radio" class="custom-control-input" value="other" name="gender" [formControl]="userForm.controls.gender">
+            <label class="custom-control-label" for="other">
+                Autre
+            </label>
 
             <div *ngIf="userForm.controls.gender.invalid && (userForm.controls.gender.dirty || userForm.controls.gender.touched)" class="alert alert-danger">
                 <div *ngIf="userForm.controls.gender.errors.required">
