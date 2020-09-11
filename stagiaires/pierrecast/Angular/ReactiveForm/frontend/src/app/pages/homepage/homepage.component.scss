@@ -41,7 +41,8 @@ form.incomplete #infos-part {
 }
 */
 form > * {
-    margin: 0 0 12px 0
+    margin: 0 0 12px 0;
+    padding-bottom: 100px;
 }
 /*
 #leftPart, #rightPart {
@@ -59,15 +60,15 @@ form > * {
     box-shadow: 5px 5px 15px rgba(0,0,0, .5);
 }
 
-form.incomplete .insidePart {
+form .insidePart {
     background-color: white;
     padding: 60px;
 }
 
-form.incomplete #leftPart .insidePart {
+form #leftPart .insidePart {
     padding: 60px 80px 60px 40px;
 }
-*/ 
+ 
 @media screen and (max-width : 1050px) {
     form {
         display: block;
@@ -95,6 +96,7 @@ label {
     margin: 5px 0;
     width:100%;
 }
+/*
 .form-element.valide .valide-ok, 
 .form-element.invalide .valide-ko {
     display: block
@@ -103,18 +105,19 @@ label {
 .form-element.valide .valide-ko, 
 .form-element.invalide .valide-ok{
     display: none
-}
+}*/
 
 .error-message-container {
     margin-bottom: 6px;
     text-align: right;
 }
+/*
 .form-element .error-message {
     display: none;
-}
+}*/
 
 
-
+/*
 .form-element.error-difference .error-message.error-difference,
 .form-element.error-not-available .error-message.error-not-available,
 .form-element.error-min-age .error-message.error-min-age,
@@ -124,7 +127,7 @@ label {
 .form-element.error-min-length .error-message.error-min-length,
 .form-element.error-max-length .error-message.error-max-length {
     display: block;
-}
+}*/
 
 .valide-container {
     position: absolute;
@@ -170,7 +173,7 @@ label {
 }
 
 .error-message {
-    display: block;
+    
     border-radius: 5px;
     color: white; background-color:rgb(178,34,34);
     padding: 3px 8px;
@@ -179,6 +182,7 @@ label {
 
 .submit-container {
     width: 150px;
+    z-index: -1;
     position: absolute;
     right: 0; 
     bottom: 0;
@@ -188,7 +192,7 @@ label {
 }
 
 .submit-container button.submit-button {
-    //background: url('../img/arrowL.png') #282828 no-repeat -176px -165px; 
+    background: url('../../../assets/img/arrowL.png') #282828 no-repeat -176px -165px; 
     background-size: 300px 300px;
     color: white;
     text-transform: uppercase;
@@ -298,52 +302,6 @@ select, select option {
 .form-role .checkboxButton:last-child {
     padding: 2px 2px 2px  0;
 }
-
-.form-avatar .avatars,
-.form-avatar .avatar{
-    display: inline-block;
-}
-.form-avatar .avatars {
-    width: 60%;
-    margin-top: 80px;
-    text-align: right;
-}
-
-.form-avatar .avatars img {
-    width: 100%;
-}
-
-@media screen and (max-width: 1230px) {
-    .form-avatar .avatars {
-        width: 100%;
-        margin-top: 0;
-        text-align: right;
-    }  
-    .form-avatar .avatars img{
-        width: 70%;
-    }
-}
-@media screen and (max-width: 600px) {
-    .form-avatar .avatars img{
-        width: 100%;
-        margin-top: 25px;
-    }
-}
-
-.form-avatar .avatar {
-    width: 132px;
-    height: 140px;
-    overflow:hidden;
-    position: relative;
-}
-.form-avatar .avatar img {
-    width: 400%;
-    position: absolute;
-    top: 0;
-    left: -400%;
-}
-
-
 
 @media screen and (max-width : 550px) {
     form {

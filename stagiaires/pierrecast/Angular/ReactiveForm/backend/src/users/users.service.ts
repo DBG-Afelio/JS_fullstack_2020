@@ -66,7 +66,10 @@ export class UsersService {
     async getUsersWithRoles(): Promise<UserComplete[]> 
     {
        const usersRows = await pool.query(`
-            SELECT users.*, ARRAY_AGG(roles.role) as roles, ARRAY_AGG(roles.id) as ids, nationalities.nationality as nationality FROM users 
+            SELECT users.*, 
+            ARRAY_AGG(roles.role) as roles, 
+            ARRAY_AGG(roles.id) as ids, 
+            nationalities.nationality as nationality FROM users 
             LEFT JOIN user_roles ON user_roles.user_id = users.id
             INNER JOIN roles ON user_roles.role_id = roles.id
             INNER JOIN nationalities ON users.nation_id = nationalities.id
