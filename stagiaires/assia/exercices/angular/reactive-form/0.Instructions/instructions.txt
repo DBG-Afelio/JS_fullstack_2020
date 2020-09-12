@@ -1,3 +1,5 @@
+
+
 Nom : 
 - entre 1 et 30 car
 - obligatoire
@@ -12,6 +14,10 @@ Nationalité
 - Liste provenant d'un service
 Sexe: 
 - Obligatoire
+
+//////
+
+
 Fonctions: 
 - soit 0 à plusieurs fonctions, soit rien de tout cela
 Date de naissance:

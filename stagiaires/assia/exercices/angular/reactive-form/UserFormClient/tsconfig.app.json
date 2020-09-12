@@ -10,5 +10,8 @@
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/app/app.module.ngtypecheck.ts"
   ]
 }

@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     'Espagne'
   ];
   public genderList: string[] = ['Homme', 'Femme', 'Trans', 'Autre'];
+  public loginList: string[] = ['login1', 'LOGIN2', 'LogIN3', '_login-4'];
   
     constructor(
       // private userService: UserService,
