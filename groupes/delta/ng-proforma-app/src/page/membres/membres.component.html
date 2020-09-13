@@ -1,0 +1,11 @@
+
+<p>FILTRER PAR :</p>
+<select>
+  <option>TOUS</option>
+  <option>ADMIN</option>
+  <option>CREDITS</option>
+</select>
+
+
+<app-tableau [tableau]="membres" [link]="'membre'" [tableauOfHeader]="['id','nom','prenom','login','credit','formation']"></app-tableau>
+<button routerLink='/membre'>Ajouter un utilisateur</button>

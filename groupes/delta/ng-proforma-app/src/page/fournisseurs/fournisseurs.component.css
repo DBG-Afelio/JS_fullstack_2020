@@ -1,0 +1,31 @@
+.fourn {
+    background-color:  rgba(255, 255, 255, 0.65);
+    color: black;
+    width: 700px;
+    border: 1px solid darkgray;
+    position: relative;
+    padding: 10px;
+}
+.today-status {
+    background-color: red;
+    color: white;
+    width: 70px;
+    border: 2px solid black;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-align: center;
+}
+.is-open {
+    background-color: green;
+}
+.view-fourn {
+    background-color: lightgreen;
+    color: rgb(0, 0, 0);
+    width: 120px;
+    border: 2px solid black;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    text-align: center;
+}

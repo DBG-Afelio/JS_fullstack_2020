@@ -1,0 +1,12 @@
+
+<nav>
+<ul>
+  <li class="ulList" *ngFor="let option of options ; index as i">
+    {{i+1}} :Nom :{{option.nom}}. <br>
+    Surcout :{{option.surcout}}€.<br>
+    <input *ngIf="selected_options && !read_only" type="checkbox" [checked]="selected_options.includes(option)" (click)="selectOption(option)">
+    <span *ngIf="selected_options.includes(option) && read_only" class="flaticon-checked-1"></span>
+    <span *ngIf="!selected_options.includes(option) && read_only" class="flaticon-multiply-1"></span>
+  </li>
+</ul>
+</nav>

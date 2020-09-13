@@ -1,0 +1,8 @@
+<div class="container" *ngIf="fourns">
+  <div class="fourn" *ngFor="let fourn of fourns">
+    <h2>{{fourn.nom}}</h2>
+    <p>{{fourn.description}}</p>
+    <div class="today-status" [class.is-open]="fourn.openToday()" >{{fourn.openToday() ? "Ouvert" : "Fermer"}}</div>
+    <button class="view-fourn" routerLink="../fournisseur/{{fourn.id}}">Voir le fournisseur</button>
+  </div>
+</div>

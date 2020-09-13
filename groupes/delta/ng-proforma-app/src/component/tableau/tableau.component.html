@@ -1,0 +1,27 @@
+<table class="container-white">
+  <caption><h1>Récapitulatif</h1></caption>
+  <thead>
+    <tr>
+      <th *ngFor="let titre of tableauOfHeader"
+      [class.is-sorted-up]="titre === sortby[0] && !sortby[1]"
+      [class.is-sorted-down]="titre === sortby[0] && sortby[1]"
+      (click)="sortBy(titre)">
+        {{titre.toUpperCase()}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let membre of (sortMembre() |slice:lowValue:highValue)"  [routerLink]="['/',link,membre.id]">
+      <td *ngFor="let titre of tableauOfHeader">
+        {{membre[titre]}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<mat-paginator  [length]="tableau.length"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeOptions"
+                
+                (page)="getPaginator($event)"
+                > 
+</mat-paginator>

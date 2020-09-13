@@ -1,0 +1,18 @@
+<!--<input #login type="text" placeholder="Login">
+<input #password type="password" placeholder="Password">
+<button (click)="auth(login.value,password.value)">Send</button>
+-->
+
+
+<div class="container">
+  <form class="signIn">       
+    <h2 class="signInTitle">Login</h2>
+    <input #login type="text" class="control" placeholder="Login">
+    <input #password type="password" class="control"  placeholder="Mot De passe">      
+    
+    <button (click)="auth(login.value,password.value)" class="loginButton" type="submit">Valider</button>   
+  </form>
+  <div class="messageError" *ngIf="error">
+    <p>Une erreur est survenu durant la connexion</p>
+  </div>
+</div>
