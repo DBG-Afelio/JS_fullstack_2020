@@ -11,16 +11,16 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
   //   public userList: User[];
   //   public userSubscription: Subscription;
-  public currentUser: User = new User('', '', '','',[],new Date(),'','');
+  public currentUser: User = new User('', '', '', '', [], new Date(), '', '');
   public userForm: FormGroup;
-  public nationList: string[] = [
+  public nationList: Array<string>  = [
     'Belgique',
     'France',
     'Italie',
     'Espagne'
   ];
-  public genderList: string[] = ['Homme', 'Femme', 'Trans', 'Autre'];
-  public loginList: string[] = ['login1', 'LOGIN2', 'LogIN3', '_login-4'];
+  public genderList: Array<string> = ['Homme', 'Femme', 'Trans', 'Autre'];
+  public loginList: Array<string> = ['login1', 'LOGIN2', 'LogIN3', '_login-4'];
   public limits = {
     firstNameMin: 3,
     lastNameMin : 3,
@@ -28,42 +28,47 @@ export class UserFormComponent implements OnInit, OnDestroy {
     lastNameMax : 10,
     loginMin : 6,
   };
-  public strOnlyPattern: string = '[a-zA-Z ]*';
+  public strOnlyPattern = '[a-zA-Z ]*';
+  public digitsOnlyPattern = '[0-9 ]*';
+  public alphaNumPattern = '[a-zA-Z0-9 ]*';
+  public telpattern = '[0-9 ]*'; //a modifier bien sur
+
   public jobList: Array<any> = [
-    { id: 1, title: 'Developpeur FrontEnd', group: 'A' }, 
+    { id: 1, title: 'Developpeur FrontEnd', group: 'A' },
     { id: 2, title: 'Developpeur BackEnd', group: 'A' },
     { id: 3, title: 'Integrateur', group: 'A' },
-    { id: 4, title: 'UX/UI', group: 'A' }, 
+    { id: 4, title: 'UX/UI', group: 'A' },
     { id: 5, title: 'Rien de tout cela', group: 'B' },
   ];
-   
 
     constructor(
       // private userService: UserService,
-      public formB: FormBuilder,
+      private _formB: FormBuilder,
     ) { }
-  
+
     ngOnInit(): void {
       this.initForm();
-  
+      console.log('longueur address = ', this.addressArray.controls.length );
+
       // this.userSubscription = this.userService.userListSubject.subscribe(
       //   (userListReceived) => this.userList = userListReceived);
     }
-  
+
     ngOnDestroy(): void{
       // this.userSubscription.unsubscribe();
     }
 
-    
+
   public initForm(): void {
-      
-    this.userForm = this.formB.group({
+    // console.log('longueur address = ', this.addressArray.controls.length );
+
+    this.userForm = this._formB.group({
 
       lastName : new FormControl(
         this.currentUser.lName,
         [
-          Validators.required, 
-          Validators.minLength(this.limits.lastNameMin), 
+          Validators.required,
+          Validators.minLength(this.limits.lastNameMin),
           Validators.maxLength(this.limits.lastNameMax),
           Validators.pattern(this.strOnlyPattern),
         ],
@@ -78,11 +83,21 @@ export class UserFormComponent implements OnInit, OnDestroy {
         ],
       ),
 
+      address: new FormArray([this.addAddressGroup()]),
+
       email: new FormControl(
         this.currentUser.email,
         [
           Validators.required,
           Validators.email],
+      ),
+
+      tel: new FormControl(
+        '',
+        [
+          Validators.required,
+          Validators.pattern(this.telpattern),
+      ]
       ),
 
       nation: new FormControl(
@@ -92,6 +107,14 @@ export class UserFormComponent implements OnInit, OnDestroy {
         ],
       ),
 
+      dob: new FormControl(
+        this.currentUser.dob,
+        [
+          Validators.required,
+          // custom Date Validator + validate age > 18
+        ]
+      ),
+
       gender: new FormControl(
         this.currentUser.gender,
         [
@@ -99,60 +122,86 @@ export class UserFormComponent implements OnInit, OnDestroy {
         ],
       ),
 
-      jobs: new FormArray(
-        [],
-        Validators.required,
-        this.jobsCustomValidator(),
-        ),
+      // jobs: new FormArray(
+      //   [],
+      //   Validators.required,
+      //   this.jobsCustomValidator(),
+      //   ),
 
-      // pwdGrp: this.formB.group({
+      // pwdGrp: this._formB.group({
       //   pwd: this.pwd.control(),
       //   pwdBis: this.pwdBis.control(),
       // }),
 
       // login: '',
 
-      // freeGrp: this.formB.group({
+      // freeGrp: this._formB.group({
       //   freeFrom: this.freeFrom.control(),
       //   freeUpTo: this.freeUpTo.control(),
       // }),
-        
+
     });
-    this.addJobsCheckBoxes();
+    // this.addJobsCheckBoxes();
 
   }
 
-  public get jobsFormArray():FormArray{
-    return this.userForm.get('jobs') as FormArray;
+  // -------- address related START --------------------------
+  public get addressArray(): FormArray {
+    return this.userForm.get('address') as FormArray;
   }
+
+  public addAddressGroup(): FormGroup {
+    return this._formB.group({
+      primaryFlag: new FormControl('', [Validators.required]),
+      street: new FormControl('', [Validators.required, Validators.pattern(this.alphaNumPattern)]),
+      city: new FormControl('', [Validators.required, Validators.pattern(this.strOnlyPattern)]),
+      zipcode: new FormControl('', [Validators.required, Validators.pattern(this.digitsOnlyPattern)]),
+      country: new FormControl('', [Validators.required, Validators.pattern(this.strOnlyPattern)]),
+    });
+  }
+
+  public clickAddAddress(): void {
+    this.addressArray.push(this.addAddressGroup());
+    console.log('longueur address = ', this.addressArray.controls.length );
+  }
+
+  public clickRemoveAddress(indexAddress: number): void {
+    this.addressArray.removeAt(indexAddress);
+    console.log('longueur address = ', this.addressArray.controls.length );
+  }
+
+// -------- address related END --------------------------
+
+  // public get jobsFormArray(): FormArray{
+  //   return this.userForm.get('jobs') as FormArray;
+  // }
+
   public onSubmitForm(): void {
 
-    const userFormValue = this.userForm.value;
-    const selectedJobs = userFormValue.jobs
-    .map( (checked: boolean, i: number) => checked ? this.jobList[i].title : null)
-    .filter( (val: any) => val !== null);
+    // const userFormValue = this.userForm.value;
+    // const selectedJobs = userFormValue.jobs
+    // .map( (checked: boolean, i: number) => checked ? this.jobList[i].title : null)
+    // .filter( (val: any) => val !== null);
 
-    console.log(userFormValue);
+    // console.log(userFormValue);
     // const newUser = new User(
     //   userFormValue['lastName'],
     //   userFormValue['firstName'],
     //   userFormValue['email'],
     //   userFormValue['nation'],
     //   selectedJobs,
-      
+
     // );
     // this.userService.addUser(newUser);
   }
 
-  private addJobsCheckBoxes():void{
-    this.jobList.forEach(() => this.jobsFormArray.push(new FormControl(false)));
-    console.log('jobsFormArray : ', this.jobsFormArray);
-  }
+  // private addJobsCheckBoxes(): void{
+  //   this.jobList.forEach(() => this.jobsFormArray.push(new FormControl(false)));
+  //   console.log('jobsFormArray : ', this.jobsFormArray);
+  // }
 
-  public jobsCustomValidator():any{
+  // public jobsCustomValidator(): any{
 
-  }
+  // }
 
-
-  
 }

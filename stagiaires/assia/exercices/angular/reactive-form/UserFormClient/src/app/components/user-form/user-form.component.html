@@ -1,109 +1,220 @@
 
-    <form class="container" [formGroup]="userForm" (ngSubmit)="onSubmitForm()" novalidate>
+    <form class="form container-fluid" [formGroup]="userForm" (ngSubmit)="onSubmitForm()" novalidate>
 
-        <!-- Nom de Famille -->
-        <div class="form-group row">
-            <label for="lastName"> Nom </label>
-            <input class="form-control" type="text" [formControl]="userForm.controls.lastName">
+        <!-- bloc (nom + prenom) -->
+        <div class="bloc-names form-row justify-content-between">
 
-            <div *ngIf="userForm.controls.lastName.invalid && (userForm.controls.lastName.dirty || userForm.controls.lastName.touched)" class="alert alert-danger">
-                <div *ngIf="userForm.controls.lastName.errors.required">
-                    Ce champ est requis.
-                </div>
-                <div *ngIf="!userForm.controls.lastName.errors.pattern && userForm.controls.lastName.errors.minlength">
-                    Nom trop court (min {{ limits.lastNameMin }} caracteres).
-                </div>
-                <div *ngIf="!userForm.controls.lastName.errors.pattern && userForm.controls.lastName.errors.maxlength">
-                    Nom trop long (max {{ limits.lastNameMax }} caracteres).
-                </div>
-                <div *ngIf="userForm.controls.lastName.errors.pattern">
-                    Mauvais pattern ! 
+            <!-- Nom de Famille -->
+            <div class="form-group col lastname">
+                <label for="lastName">
+                    Nom
+                    <input class="form-control" type="text" placeholder="Nom (requis)" [formControl]="userForm.controls.lastName">
+                </label>
+
+                <div *ngIf="userForm.controls.lastName.invalid && (userForm.controls.lastName.dirty || userForm.controls.lastName.touched)" class="alert alert-danger row">
+                    <div *ngIf="userForm.controls.lastName.errors.required">
+                        Ce champ est requis.
+                    </div>
+                    <div *ngIf="!userForm.controls.lastName.errors.pattern && userForm.controls.lastName.errors.minlength">
+                        Nom trop court (min {{ limits.lastNameMin }} caracteres).
+                    </div>
+                    <div *ngIf="!userForm.controls.lastName.errors.pattern && userForm.controls.lastName.errors.maxlength">
+                        Nom trop long (max {{ limits.lastNameMax }} caracteres).
+                    </div>
+                    <div *ngIf="userForm.controls.lastName.errors.pattern">
+                        Mauvais pattern ! 
+                    </div>
                 </div>
             </div>
+
+            <!-- Prenom -->
+            <div class="form-group col align-content-end firstname">
+                <label for="firstName">
+                    Prenom
+                    <input class="form-control" type="text" [formControl]="userForm.controls.firstName" placeholder="Prenom (facultatif)">
+                </label>
+                
+                <div *ngIf="userForm.controls.firstName.invalid && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)" class="alert alert-danger row">
+                    <div *ngIf="!userForm.controls.firstName.errors.pattern && userForm.controls.firstName.errors.minlength">
+                        Prenom trop court (min caracteres).
+                    </div>
+                    <div *ngIf="!userForm.controls.firstName.errors.pattern && userForm.controls.firstName.errors.maxlength">
+                        Prenom trop long (min {{ limits.firstNameMax }} caracteres).
+                    </div>
+                    <div *ngIf="userForm.controls.firstName.errors.pattern">
+                        Mauvais pattern ! 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- bloc (adresses)  -->
+        <div class="bloc-addresses form-group">
+            <!-- Adresses Postales -->
+            <div class="form-array" formArrayName="address">
+
+                <!-- row 1/4 -->
+                <div class="row justify-content-between">
+                    <div class="col">
+                        Adresse(s)
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success" (click)="clickAddAddress()">
+                            Ajouter
+                        </button> 
+                    </div>
+                </div>
+
+                <div class="form-group single-address" *ngFor="let addressGroup of addressArray.controls; let i = index;" [formGroupName]="i">
+
+                    <!-- row 2/4 -->
+                    <div class="row justify-content-between">
+                        
+                        <div class="col-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <input type="radio" aria-label="Radio button for following text input" name="flag" [checked]="addressArray.controls.length === 1" [formControl]="userForm.controls.primaryFlag">
+                                  </div>
+                                </div>
+                                <output type="text" class="form-output" aria-label="Text input with radio button" >
+                                    Choisir comme adresse preferee
+                                </output>
+                            </div> 
+                        </div>
+    
+                        <div class="col-3">
+                            <button *ngIf="addressArray.controls.length > 1" class="btn btn-danger control-buttons" (click)="clickRemoveAddress(i)">
+                                Supprimer
+                            </button>
+                        </div>
+
+                    </div>
+        
+                    <!-- row3/4 -->
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-input-label" for="street">
+                                Nom de Rue + No
+                                <input class="form-control form-text-input" type="text"
+                                    formControlName="street">
+                            </label>
+                        </div>
+                    </div>
+        
+                    <!-- row 4/4 -->
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <label class="form-input-label" for="city">
+                                Ville
+                                <input class="form-control form-text-input" type="text"
+                                    formControlName="city">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label class="form-input-label" for="zipcode">
+                                Code Postale
+                                <input class="form-control form-text-input" type="text"
+                                    formControlName="zipcode">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label class="form-input-label" for="country">
+                                Pays
+                                <input class="form-control form-text-input" type="text"
+                                    formControlName="country">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        
+        </div>
+        
+        <!-- row Email + N* tel -->
+        <div class="form-group row">
+             <!-- Email -->
+            <div class="col">
+                <label for="email">
+                    Email
+                    <input class="form-control" type="email" [formControl]="userForm.controls.email">
+                </label>
+
+                <div *ngIf="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)" class="alert alert-danger">
+                    <div *ngIf="userForm.controls.email.invalid && !userForm.controls.email.errors.required">
+                        Format incorrecte.
+                    </div>
+                    <div *ngIf="userForm.controls.email.errors.required">
+                        Ce champ est requis
+                    </div>
+                </div>
+            </div>
+
+            <!-- num tel -->
+            <div class="col">
+                <label for="tel">
+                    Telephone
+                    <input type="tel" class="form-control" [formControl]="userForm.controls.tel">
+                </label>
+
+                <!-- gestion erreur tel a faire -->
+            </div>
+
         </div>
 
-        <!-- Prenom -->
-        <div class="form-group row">
-            <label for="firstName"> Prenom </label> {{ userForm.controls.firstName.errors.minLength }}
-            <input class="form-control" type="text" [formControl]="userForm.controls.firstName">
-
-            <div *ngIf="userForm.controls.firstName.invalid && (userForm.controls.firstName.dirty || userForm.controls.firstName.touched)" class="alert alert-danger">
-                <div *ngIf="!userForm.controls.firstName.errors.pattern && userForm.controls.firstName.errors.minlength">
-                    Prenom trop court (min caracteres).
-                </div>
-                <div *ngIf="!userForm.controls.firstName.errors.pattern && userForm.controls.firstName.errors.maxlength">
-                    Prenom trop long (min {{ limits.firstNameMax }} caracteres).
-                </div>
-                <div *ngIf="userForm.controls.firstName.errors.pattern">
-                    Mauvais pattern ! 
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Email -->
-        <div class="form-group row">
-            <label for="email"> Email </label>
-            <input class="form-control" type="email" [formControl]="userForm.controls.email">
-
-            <div *ngIf="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)" class="alert alert-danger">
-                <div *ngIf="userForm.controls.email.invalid && !userForm.controls.email.errors.required">
-                    Format incorrecte.
-                </div>
-                <div *ngIf="userForm.controls.email.errors.required">
-                    Ce champ est requis
+        <!-- row Nationalite + dob -->
+        <div class="form-group row justify-content-stretch">
+            <!-- Nationalite -->
+            <div class="col">
+                <label for="nation"> Nationalite 
+                    <select class="form-control" [formControl]="userForm.controls.nation">
+                        <option value="" disabled> Choix Nationalite </option>
+                        <option *ngFor="let country of nationList" [ngValue]="country">{{ country }}</option>
+                    </select>
+                </label>
+    
+                <div *ngIf="userForm.controls.nation.invalid && (userForm.controls.nation.dirty || userForm.controls.nation.touched)" class="alert alert-danger">
+                    <div *ngIf="userForm.controls.nation.errors.required">
+                        Ce champ est requis
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Nationalite -->
-        <div class="form-group row">
-            <label for="nation"> Nationalite </label>
-            <select class="form-control" [formControl]="userForm.controls.nation">
-                <option value="" disabled> Choix Nationalite </option>
-                <option *ngFor="let country of nationList" [ngValue]="country">{{ country }}</option>
-            </select>
+            <!-- dob -->
+            <div class="col">
+                <label for="dob"> Date de Naissance 
+                    <input type="date" class="form-control form-date-input" [formControl]="userForm.controls.dob">
+                </label>
 
-            <div *ngIf="userForm.controls.nation.invalid && (userForm.controls.nation.dirty || userForm.controls.nation.touched)" class="alert alert-danger">
-                <div *ngIf="userForm.controls.nation.errors.required">
-                    Ce champ est requis
-                </div>
             </div>
+           
         </div>
 
         <!-- Genre -->
-        <div class="form-group container">
+        <div class="form-group row">
 
-            <div class="row">
-
-                <div class="col-md-3">
-                    <label class="custom-control-label" for="male"> 
-                        <input id="male" type="radio" class="custom-control-input" value="male" name="gender" [formControl]="userForm.controls.gender">
-                        Homme
-                    </label>
+                <div class="col-2 form-check form-check-inline">
+                    <input id="male" type="radio" class="form-control form-check-input" value="male" name="gender" [formControl]="userForm.controls.gender">
+                    <label class="form-check-label" for="male"> Homme </label>
                 </div>
-
-                <div class="col-md-3">
-                    <label class="custom-control-label" for="female"> 
-                        <input class="col-md-4" id="female" type="radio" class="custom-control-input" value="female" name="gender" [formControl]="userForm.controls.gender">
-                        Femme 
-                    </label>
+    
+                <div class="col-2 form-check form-check-inline">
+                    <input id="female" type="radio" class="form-control form-check-input" value="female" name="gender" [formControl]="userForm.controls.gender">
+                    <label class="form-check-label" for="female"> Femme </label>
                 </div>
                 
-                <div class="col-md-3">
-                    <label class="custom-control-label" for="trans">
-                        <input class="col-md-4" id="trans" type="radio" class="custom-control-input" value="trans" name="gender" [formControl]="userForm.controls.gender">
-                        Trans 
-                    </label>
+                <div class="col-2 form-check form-check-inline">
+                    <input id="trans" type="radio" class="form-control form-check-input" value="trans" name="gender" [formControl]="userForm.controls.gender">
+                    <label class="form-check-label" for="trans"> Trans </label>
                 </div>
                 
-                <div class="col-md-3">
-                    <label class="custom-control-label" for="other"> 
-                        <input class="col-md-4" id="other" type="radio" class="custom-control-input" value="other" name="gender" [formControl]="userForm.controls.gender">
-                        Autre 
-                    </label>
+                <div class="col-2 form-check form-check-inline">
+                    <input id="other" type="radio" class="form-control form-check-input" value="other" name="gender" [formControl]="userForm.controls.gender">
+                    <label class="form-check-label" for="other"> Autre </label>
                 </div>
-            </div>
+            
 
             <div class="row" *ngIf="userForm.controls.gender.invalid && (userForm.controls.gender.dirty || userForm.controls.gender.touched)" class="alert alert-danger">
                 <div *ngIf="userForm.controls.gender.errors.required">
@@ -113,9 +224,16 @@
         </div>
 
         <!-- Fonctions occupees -->
-        <div>{{jobsFormArray.controls}}</div>
 
-        <div class="form-array container">
+
+
+
+
+
+
+
+        <!-- fonctions 1er -->
+        <!-- <div class="form-array container">
             <div *ngFor="let group of jobList">
                 <input type="checkbox"> tout selectionner
                 
@@ -124,7 +242,7 @@
                     {{ jobList[child.index].title }}
                 </label>
                 
-            </div>
+            </div> -->
             <!-- <div [formArray]="userForm.controls.jobs" class="form-control " *ngFor="let job of jobOptions; let i=index">
                 <label class="custom-control-label">
                     <input type="checkbox"  [value]="job[i].value">
@@ -132,7 +250,7 @@
                 </label>
             </div> -->
 
-        </div>
+       
 
 
         <!-- Date de naissance -->
@@ -142,15 +260,26 @@
         <!-- login -->
 
         <!-- libre de ... a ... -->
-        <button 
-            class="btn btn-primary"
-            [disabled]="userForm.invalid"
+        <button class="btn"
+            [class.btn-primary]="userForm.valid"
+            [class.btn-secondary]="userForm.invalid"
             type="submit">
             Soumettre
         </button>
 
+        <!-- <button 
+        [class.btn-secondary, disabled]="userForm.invalid"
+        [class.btn-success]="userForm.valid"
+        type="submit">
+        Soumettre
+    </button> -->
+
     </form>
 
+    <div>
+
+        Form is Valid ? {{ userForm.valid }}
+    </div>
     <pre>
         {{ userForm.value | json }}
     </pre>
