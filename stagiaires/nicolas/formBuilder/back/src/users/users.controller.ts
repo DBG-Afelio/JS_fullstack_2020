@@ -24,7 +24,6 @@ export class UsersController {
 @Post()
 @UsePipes(ValidationPipe)
     public createUser(@Body() body:UsersDto){
-
         return this.usersService.createUser(body)
 
     }

@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" class="form-group" (ngSubmit)="onFormSubmit()">
+<form *ngIf='userForm' [formGroup]="userForm" class="form-group" (ngSubmit)="onFormSubmit()">
 
     <input formControlName="lastName" class="form-control" placeholder="Nom(Obligatoire)">
     <span class="errors" [hidden]='!userForm.controls.lastName.errors || userForm.controls.lastName.pristine'>incorrect</span>
@@ -9,7 +9,11 @@
     <input formControlName="email" class="form-control" placeholder="Email">
     <span class="errors" [hidden]='!userForm.controls.email.errors || userForm.controls.lastName.pristine'>incorrect</span>
 
-    <input formControlName="nationality" class="form-control" placeholder="Nationalité">
+    <select formControlName="nationality" class="form-control">
+
+        <option *ngFor="let demonym of demonyms" [value]='demonym.alpha3Code' >{{demonym.demonym}}</option>
+
+    </select>
     <span class="errors" [hidden]='!userForm.controls.nationality.errors || userForm.controls.lastName.pristine'>incorrect</span>
 
 
@@ -36,31 +40,11 @@
 
     <hr>
 
-    <div formGroupName="skills" class="skills">
+    <div *ngIf="skills" formArrayName="skillsForm" class="skills">
 
-        <label>
+        <label *ngFor="let skill of skillsForm.controls; index as i">
 
-            <input formControlName="frontDev" type="checkbox"> Développeur Front
-    
-        </label>
-        <label>
-    
-            <input formControlName="backDev" type="checkbox"> Développeur Back
-    
-        </label>
-        <label>
-    
-            <input formControlName="integrator" type="checkbox"> Intégrateur
-    
-        </label>
-        <label>
-    
-            <input formControlName="uxui" type="checkbox"> UX/UI
-    
-        </label>
-        <label >
-    
-            <input formControlName="nothing" type="checkbox"> Rien de tout cela
+            <input [formControlName]="i" type="checkbox"> {{skills[i].name}}
     
         </label>
 
@@ -70,13 +54,13 @@
     
     <input formControlName="birthdayDate" class="form-control" type="date">
 
-    <div>
+    <div formGroupName="passwordValidation">
 
         <input formControlName="password" class="form-control" type="password" placeholder="Mot de passe (obligatoire)">
-        <input formControlName="checkPassword" class="form-control" type="password" placeholder="Resaisir mot de passe (obligatoire)">
+        <input formControlName="passwordConfirm" class="form-control" type="password" placeholder="Resaisir mot de passe (obligatoire)">
 
     </div>
-    
+
     <input formControlName="login" class="form-control" placeholder="Choisissez un login (obligatoire)" type="text">
 
     <div formGroupName="availabilities" class="form-group">

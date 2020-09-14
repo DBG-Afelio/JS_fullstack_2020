@@ -62,7 +62,7 @@ export class User {
             nationality:this.nationality,
             gender:this.gender,
             skills:this.skills,
-            birthdayDate:this.birthdayDate,
+            birthdayDate:new Date(this.birthdayDate),
             password:this.password,
             login:this.login
 
