@@ -42,8 +42,8 @@ export class HomepageComponent implements OnInit {
           (this.userForm.get('rolesGroup') as FormArray).controls.push(new FormControl(this.defaultSkills.find(item => item.id === role.id)));
       })
       this.roles = list;
-      console.log(this.userForm.get('rolesGroup'));
-      this.rolesGroup.controls[this.rolesGroup.length-1].setValue(true);
+      
+      //this.rolesGroup.controls[this.rolesGroup.length-1].setValue(true);
     });
 
     this.userService.getLogins().subscribe((list) => {
@@ -54,8 +54,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
-
-
 
   get rolesGroup() {
     return this.userForm.get('rolesGroup') as FormArray;
@@ -84,7 +82,7 @@ export class HomepageComponent implements OnInit {
     }, {
       validators : [compareDatefields('date_debut', 'date_fin'), ]
     });
-
+    console.log('Données du  : ', this.userForm.value);
   }
 
   onSubmitForm() {
@@ -230,4 +228,4 @@ export function comparePassword(field1: string, field2: string): ValidatorFn {
  
    };
  }
- 
+
