@@ -1,5 +1,3 @@
-
-
 form {
     position: relative;
     width: 90%;
@@ -22,12 +20,6 @@ form {
     overflow: hidden;
 }
 
-form {
-    max-width: 450px;
-    padding-bottom: 30px;
-    display: block;
-}
-/*
 form.incomplete #infos-part {
     background-color: #fbc153;
     position: absolute;
@@ -39,12 +31,12 @@ form.incomplete #infos-part {
     border-radius: 80px;
     z-index:-1;
 }
-*/
+
 form > * {
     margin: 0 0 12px 0;
     padding-bottom: 100px;
 }
-/*
+
 #leftPart, #rightPart {
     width: 45%;
     align-self: center;
@@ -60,13 +52,19 @@ form > * {
     box-shadow: 5px 5px 15px rgba(0,0,0, .5);
 }
 
-form .insidePart {
+form  #rightPart .insidePart {
     background-color: white;
     padding: 60px;
 }
 
 form #leftPart .insidePart {
     padding: 60px 80px 60px 40px;
+}
+
+#leftPart, #rightPart {
+    width: 45%;
+    align-self: center;
+    box-sizing: border-box;
 }
  
 @media screen and (max-width : 1050px) {
@@ -94,18 +92,18 @@ label {
 .form-element {
     position: relative;
     margin: 5px 0;
-    width:100%;
+    width: 100%;
 }
-/*
+
 .form-element.valide .valide-ok, 
 .form-element.invalide .valide-ko {
-    display: block
+    display: block;
 }
 
 .form-element.valide .valide-ko, 
 .form-element.invalide .valide-ok{
-    display: none
-}*/
+    display: none;
+}
 
 .error-message-container {
     margin-bottom: 6px;
@@ -131,7 +129,7 @@ label {
 
 .valide-container {
     position: absolute;
-    top:0;
+    top: 0;
     left: -20px;
 }
 
@@ -147,7 +145,6 @@ label {
     border: 2px solid white;
     font-size: 20px;
     transform: scaleX(-1) rotate(-45deg);
-    
 }
 
 .valide-ok {
@@ -384,7 +381,7 @@ select, select option {
     font-size: 25px; line-height: 35px;
     margin: 70px 0 30px 0;
     text-transform: uppercase;
-   // background: url('../img/arrow50.png') #282828 no-repeat -26px -58px;
+    background: url('../../../assets/img/arrow50.png') #282828 no-repeat -26px -58px;
     background-size: 150px 150px;
     border: 1px solid transparent;
     color: white;

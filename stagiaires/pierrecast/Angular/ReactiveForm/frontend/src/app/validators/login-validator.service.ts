@@ -14,7 +14,6 @@ export class LoginValidatorService implements AsyncValidator{
   validate = (control: FormControl) => {
     return this.userService.isLoginExist(control.value).pipe(
       map ((loginExist) => {
-          console.log ('validate')
           return (loginExist) ?
           {'isUsed': {
             message: 'login already exist'

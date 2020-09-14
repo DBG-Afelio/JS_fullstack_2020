@@ -2,28 +2,28 @@
 import { Subject, of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { User } from 'src/app/models/userModels/User';
+import { UserDto } from 'src/app/models/userModels/UserDto';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
-  constructor() {
+  url: string = 'http://localhost:3000/users';
+
+  constructor(private http: HttpClient) {
 
   }
 
-  public getNationalities(): Observable<string[]> {
-    const nationalities = [
-      'Belgique', 'France', 'Suisse'
-    ];
-    return of(nationalities);
-  }
-
-  public getRoles(): Observable<string[]> {
-    const roles = [
-      'Développeur Frond-End', 'Développeur Back-End', 'Intégrateur', 'UX/UI Designer'
-    ];
-    return of(roles);
+  public getList(): Observable<User[]> {
+    return this.http.get<UserDto[]>(this.url)
+      .pipe(
+        map((arrayUserDto : UserDto[]) => {
+          return arrayUserDto.map(userDto => User.fromDto(userDto));
+        }),
+      )
+    ;
   }
 
   public getLogins(): Observable<string[]> {

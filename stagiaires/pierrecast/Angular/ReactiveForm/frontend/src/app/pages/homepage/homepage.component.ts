@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, FormControl } from '@angular/forms'
 import { UserService } from 'src/app/services/userServices/user.service';
 import { FormArray } from '@angular/forms';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { map, delay } from 'rxjs/operators';
 import { LoginValidatorService } from 'src/app/validators/login-validator.service'
+import { RoleService } from 'src/app/services/roleService/role.service';
+import { Role } from 'src/app/models/roleModel/Role';
+import { Nationality } from 'src/app/models/nationalityModel/Nationality';
+import { NationalityService } from 'src/app/services/nationalityService/nationality.service';
+import { User } from 'src/app/models/userModels/User';
 
 @Component({
   selector: 'app-homepage',
@@ -13,22 +18,32 @@ import { LoginValidatorService } from 'src/app/validators/login-validator.servic
 })
 export class HomepageComponent implements OnInit {
   public userForm : FormGroup;
-  public nationalities : string[];
-  public roles: string[];
+  public nationalities : Nationality[];
+  public roles: Role[];
   public logins: string[];
+  public defaultSkills: Role[] = [
+    new Role(1, ''), 
+    new Role(2, '')
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private roleService: RoleService,
+    private nationalityService: NationalityService,
     private loginValidator: LoginValidatorService
   ) {
-    this.userService.getNationalities().subscribe((list) => {
+    this.nationalityService.getList().subscribe((list) => {
       this.nationalities = list;
     });
 
-    this.userService.getRoles().subscribe((list) => {
-      this.roles = list;console.log(list);
-      this.rolesGroup.setValue(list)
+    this.roleService.getList().subscribe((list) => {
+      list.forEach((role) => {
+          (this.userForm.get('rolesGroup') as FormArray).controls.push(new FormControl(this.defaultSkills.find(item => item.id === role.id)));
+      })
+      this.roles = list;
+      console.log(this.userForm.get('rolesGroup'));
+      this.rolesGroup.controls[this.rolesGroup.length-1].setValue(true);
     });
 
     this.userService.getLogins().subscribe((list) => {
@@ -40,11 +55,7 @@ export class HomepageComponent implements OnInit {
     this.initForm();
   }
 
-  addRolesFormGroup(): FormGroup {
-    return this.formBuilder.group({
-      role: ['', [ Validators.required ]]
-    })
-  }
+
 
   get rolesGroup() {
     return this.userForm.get('rolesGroup') as FormArray;
@@ -58,7 +69,7 @@ export class HomepageComponent implements OnInit {
       nationality: [2, [ Validators.required ] ],
       sex: [ 'sex0', [ validSex ] ],
       rolesGroup: this.formBuilder.array([
-        this.addRolesFormGroup()
+       
       ]),
       date_naissance: ['1990-01-01', [ validDate ]],
       login: ['pierre-cast', [ Validators.required ], [this.loginValidator.validate] ],
@@ -81,9 +92,17 @@ export class HomepageComponent implements OnInit {
     /*const newUser = new User(
       formValue['firstName'],
       formValue['lastName'],
+      formValue['email'],
+      formValue['nation_id'],
+      formValue['sex'],
+      formValue['date_naissance'],
+      formValue['login'],
+      formValue['password'],
+      formValue['date_debut'],
+      formValue['date_fin'],
     );*/
     
-    //this.userService.addUser(newUser);
+    /*this.userService.addUser(newUser);*/
 
     console.log('Données du formulaire : ', this.userForm.value);
   }
@@ -101,17 +120,6 @@ export const validSex: ValidatorFn = (control: AbstractControl) => {
   }
 }
 
-/*
-export function hasRole(fa: FormArray) {
-  let valid = false;
-  for (let x = 0; x < fa.length-1; ++x) {
-    if (fa.at(x).value) {
-      valid = true;
-      break;
-    }
-  }
-}*/
-
 // export const validRoles: ValidatorFn = (control: AbstractControl) => {
 /*export class validRoles {
   static multipleCheckboxRequireOne(fa: FormArray) {
@@ -125,7 +133,6 @@ export function hasRole(fa: FormArray) {
     };
   }
 }*/
-
 
 export const validDate: ValidatorFn = (control: AbstractControl) => {
   const date = new Date(control.value);
@@ -224,33 +231,3 @@ export function comparePassword(field1: string, field2: string): ValidatorFn {
    };
  }
  
-export const isUsed: AsyncValidatorFn = (control: AbstractControl) => {
-  return of(control).pipe(
-    map((control) => {
-      console.log('logins',this.logins);
-       if (this.logins.includes((control as FormControl).value)) {
-          console.log('async error emit');
-          return {
-            'isUsed' : {
-              message: 'Ce pseudo est déja utilisé !'
-            }
-          };
-        } else {
-          console.log('no errors')
-          return null;
-        }
-    })
-  );
-  
-  
-  
-  /*if (this.logins && this.logins.includes(control.value)) {
-    return {
-      'isUsed' : {
-        message: 'Ce pseudo est déja utilisé !'
-      }
-    }
-  } else {
-    return null;
-  }*/
-}
