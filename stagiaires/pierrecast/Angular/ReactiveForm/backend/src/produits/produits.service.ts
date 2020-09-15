@@ -36,13 +36,11 @@ export class ProduitsService {
         }
         return await this.produitsRepository.save(newProduit);
     }
-
-    /* 
+ 
     updateProducts2(updateCriteria, cv : UpdateProduitsDto) {
         return this.produitsRepository.update(updateCriteria, cv)
     }
-   */
-
+   
     async removeProduits(id:number) {
         const produitToRemove = await this.produitsRepository.findOne(id);
         if (!produitToRemove) {
@@ -51,10 +49,7 @@ export class ProduitsService {
         this.produitsRepository.remove(produitToRemove)
     }
 
-    /*
     async deleteProduits(id:number) {
         this.produitsRepository.delete(id)
     }
-    */
-
 }
