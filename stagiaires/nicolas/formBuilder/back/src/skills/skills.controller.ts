@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { SkillsDto } from './models/skills-dto';
 import { SkillsService } from './skills.service';
 

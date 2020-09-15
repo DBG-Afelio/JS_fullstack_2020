@@ -100,7 +100,7 @@ export class UserFormComponent implements OnInit, OnChanges {
 
     
       console.log(this.createUserWithForm(formValues))
-   // this.createUser.emit(this.createUserWithForm(formValues))
+   this.createUser.emit(this.createUserWithForm(formValues))
 
   }
 

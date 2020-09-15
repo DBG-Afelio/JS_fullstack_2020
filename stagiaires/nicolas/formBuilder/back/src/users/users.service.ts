@@ -1,43 +1,71 @@
-import { Injectable } from '@nestjs/common';
-import {pool} from '../pool'
+import { HttpService, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { UserEntity } from 'src/entity/user.entity';
+import { Repository } from 'typeorm';
 import { UsersDto } from './models/users-dto';
 
 @Injectable()
 export class UsersService {
 
-    constructor(){}
+    constructor(
+        private http:HttpService,
+        @InjectRepository(UserEntity)
+        private usersRepository: Repository<UserEntity>,
+      ) {}
 
-    async getAllUsers(){
+    async getAllUsers():Promise<UsersDto[]>{
 
-        const result = await pool.query('SELECT * from Users')
-
-        return result.rows
-
-    }
-
-    async getUserById(userId:number){
-
-        const result  = await pool.query('SELECT * FROM Users WHERE id = $1',[userId])
-        return result.rows
+        const allUsers = await this.usersRepository.find()
+        return allUsers.map(user => UsersDto.toDto(user))
 
     }
 
-    async getUserByCountry(countryCode:string){
+    async getUserById(userId:number):Promise<UsersDto>{
 
-        const result  = await pool.query('SELECT * FROM Users WHERE nationality = $1',[countryCode])
-        return result.rows
+        const user = await this.usersRepository.findOne(userId)
+        return UsersDto.toDto(user)
+
+    }
+
+    async getUserByCountry(countryCode:string):Promise<UsersDto[]>{
+
+        const allUsers = await this.usersRepository.find({ nationality:countryCode })
+        return allUsers.map(user => UsersDto.toDto(user))
 
     }
 
     async createUser(user:UsersDto){
-        console.log(user)
 
-        // UserID ??? const resultEmail  = await pool.query('INSERT INTO Emails VALUES($1,$2)',[user.lastName,user.email])
-        const resultUser  = await pool.query('INSERT INTO Users(lastName,nationality,gender,birthdayDate,password,login,availabilities,firstName) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',[user.lastName,user.nationality,user.gender,user.birthdayDate,user.password,user.login,user.availabilities,user.firstName])
- 
-        return [resultUser]
+    
+        const userDB = new UserEntity()
+        userDB.lastName = user.lastName;
+        userDB.id = user.id;
+        userDB.gender = user.gender;
+        userDB.birthdayDate = user.birthdayDate;
+        userDB.login = user.login;
+        userDB.nationality = user.nationality;
+        userDB.password = user.password;
+        userDB.availabilities = user.availabilities;
+
+        console.log(userDB)
+        return this.usersRepository.save(userDB)
+
 
     }
+    getAllCountryCode():Observable<string[]>{
 
+        return this.http.get<{alpha3Code:string}[]>('https://restcountries.eu/rest/v2/all?fields=alpha3Code')
+          .pipe(
+            map(codes => {
+    
+              return codes.data.map(code => code.alpha3Code)
+    
+            })
+    
+          )
+    
+      }
 
 }

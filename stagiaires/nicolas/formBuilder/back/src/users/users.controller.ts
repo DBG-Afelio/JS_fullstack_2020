@@ -8,11 +8,17 @@ export class UsersController {
     constructor(private readonly usersService:UsersService){}
 
 @Get()
-    public getAllUsers(){
+    public getAllUsers(@Query() queries){
+        console.log(queries)
+        if(queries.country){
 
+            this.usersService.getUserByCountry(queries.country)
+
+        }
         return this.usersService.getAllUsers()
 
     }
+
 
 @Get('/:userId')
     public getUserById(@Param() param){
