@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/userModels/User';
 import { UserDto } from 'src/app/models/userModels/UserDto';
 import { HttpClient } from '@angular/common/http';
+import { Sex } from 'src/app/models/userModels/sex.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class UserService {
         map((arrayUserDto : UserDto[]) => {
           return arrayUserDto.map(userDto => User.fromDto(userDto));
         }),
+      )
+    ;
+  }
+
+  public getUserById(id: number): Observable<User> {
+    return this.http.get<UserDto>(this.url + '/' +id)
+      .pipe(
+        map(userDto => User.fromDto(userDto)),
       )
     ;
   }
@@ -50,4 +59,6 @@ export class UserService {
     this.users.push(user);
     this.emitUsers();
   }*/
+
+ 
 }

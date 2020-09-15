@@ -1,3 +1,5 @@
+import { RoleService } from 'src/app/services/roleService/role.service';
+import { Role } from '../roleModel/Role';
 import { Sex } from './sex.enum';
 import { UserDto } from './UserDto';
 
@@ -6,8 +8,9 @@ export class User {
     public id: number,
     public nom: string,
     public email: string,
-    public nation_id: string,
+    public nationality: string,
     public sex: Sex,
+    public roles: Role[],
     public date_naissance: Date,
     public login: string,
     public date_debut: Date,
@@ -21,8 +24,9 @@ export class User {
           id: this.id,
           nom: this.nom,
           email: this.email,
-          nation_id: this.nation_id,
+          nationality: this.nationality,
           sex: this.sex,
+          roles: this.roles,
           date_naissance: this.date_naissance,
           login: this.login,
           date_debut: this.date_debut,
@@ -36,8 +40,9 @@ export class User {
         userDto.id, 
         userDto.nom,
         userDto.email,
-        userDto.nation_id,
+        userDto.nationality,
         userDto.sex,
+        userDto.roles,
         userDto.date_naissance,
         userDto.login,
         userDto.date_debut,

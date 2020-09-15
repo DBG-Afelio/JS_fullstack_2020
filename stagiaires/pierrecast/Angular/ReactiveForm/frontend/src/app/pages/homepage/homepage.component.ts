@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, FormControl } from '@angular/forms'
 import { UserService } from 'src/app/services/userServices/user.service';
 import { FormArray } from '@angular/forms';
-import { of, throwError } from 'rxjs';
+import { forkJoin, Observable, of, throwError } from 'rxjs';
 import { map, delay } from 'rxjs/operators';
 import { LoginValidatorService } from 'src/app/validators/login-validator.service'
 import { RoleService } from 'src/app/services/roleService/role.service';
@@ -42,24 +42,13 @@ export class HomepageComponent implements OnInit {
           (this.userForm.get('rolesGroup') as FormArray).controls.push(new FormControl(this.defaultSkills.find(item => item.id === role.id)));
       })
       this.roles = list;
-      
       //this.rolesGroup.controls[this.rolesGroup.length-1].setValue(true);
     });
 
     this.userService.getLogins().subscribe((list) => {
       this.logins = list;
     });
-  }
 
-  ngOnInit() {
-    this.initForm();
-  }
-
-  get rolesGroup() {
-    return this.userForm.get('rolesGroup') as FormArray;
-  }
-
-  initForm() {
     this.userForm = this.formBuilder.group({
       firstName: ['Castronovo', [ Validators.required, Validators.maxLength(30) ]],
       lastName: ['Pierre', [ Validators.maxLength(30)]],
@@ -82,7 +71,49 @@ export class HomepageComponent implements OnInit {
     }, {
       validators : [compareDatefields('date_debut', 'date_fin'), ]
     });
+
+  }
+
+  ngOnInit() {
+    this.initForm(12);
+  }
+
+  /*get rolesGroup() {
+    return this.userForm.get('rolesGroup') as FormArray;
+  }*/
+
+  initForm(userId: number) {
+    forkJoin([this.getDefaultSkills(), this.getUser(userId)]).subscribe(
+      (response: [void, User]) => {
+        console.log('init', this.defaultSkills)
+        this.userForm.get('nom').setValue(response[1].nom);
+        this.userForm.get('prenom').setValue(response[1].prenom);
+        this.userForm.get('roles').setValue(
+          this.defaultSkills.map(
+            (skill) => {
+              return !!response[1].roles.find((role: Role) => role.id === skill.id)
+            }
+          )
+        );
+      });
+
+    
     console.log('Données du  : ', this.userForm.value);
+  }
+
+  private getDefaultSkills() : Observable<void> {
+    return this.roleService.getList().pipe(
+      map((list) => {
+      list.forEach((role) => {
+          (this.userForm.get('rolesGroup') as FormArray).controls.push(new FormControl(this.defaultSkills.find(item => item.id === role.id)));
+      })
+      this.defaultSkills = list;
+      //this.rolesGroup.controls[this.rolesGroup.length-1].setValue(true);
+    }));
+  }
+
+  private getUser(userId: number): Observable<User> {
+    return this.userService.getUserById(12);
   }
 
   onSubmitForm() {
@@ -104,19 +135,10 @@ export class HomepageComponent implements OnInit {
 
     console.log('Données du formulaire : ', this.userForm.value);
   }
+
+  
 }
 
-export const validSex: ValidatorFn = (control: AbstractControl) => {
-  if (control.value === 'sex0') {
-    return {
-      'validSex' : {
-        message: 'Le genre est requis !'
-      }
-    }
-  } else {
-    return null;
-  }
-}
 
 // export const validRoles: ValidatorFn = (control: AbstractControl) => {
 /*export class validRoles {
@@ -228,4 +250,16 @@ export function comparePassword(field1: string, field2: string): ValidatorFn {
  
    };
  }
+
+export const validSex: ValidatorFn = (control: AbstractControl) => {
+  if (control.value === 'sex0') {
+    return {
+      'validSex' : {
+        message: 'Le genre est requis !'
+      }
+    }
+  } else {
+    return null;
+  }
+}
 
