@@ -23,15 +23,22 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@nestjs/common": "^7.0.0",
+    "@nestjs/config": "^0.5.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/typeorm": "^7.1.4",
     "@types/pg": "^7.14.4",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
+    "mysql": "^2.18.1",
     "pg": "^8.3.3",
+    "postgres": "^1.0.2",
+    "postgresql": "0.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "typeorm": "^0.2.26"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

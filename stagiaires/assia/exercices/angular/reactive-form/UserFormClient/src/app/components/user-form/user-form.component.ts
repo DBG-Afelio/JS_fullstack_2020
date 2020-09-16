@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, FormArray, ValidatorFn, AbstractControl } from '@angular/forms';
+import { AreFieldsEqual } from 'src/app/custom-validators/AreFieldsEqual';
 import { User } from 'src/app/models/user/user.model';
 
 @Component({
@@ -11,7 +12,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
   //   public userList: User[];
   //   public userSubscription: Subscription;
-  public currentUser: User = new User('', '', '', '', [], new Date(), '', '');
+  public currentUser: User = new User('', '', '', '', [], new Date(), 'passpass', '');
   public userForm: FormGroup;
   public nationList: Array<string>  = [
     'Belgique',
@@ -27,19 +28,23 @@ export class UserFormComponent implements OnInit, OnDestroy {
     firstNameMax : 10,
     lastNameMax : 10,
     loginMin : 6,
+    pwdMin: 6,
+    pwdMax: 10
   };
   public strOnlyPattern = '[a-zA-Z ]*';
   public digitsOnlyPattern = '[0-9 ]*';
   public alphaNumPattern = '[a-zA-Z0-9 ]*';
-  public telpattern = '[0-9 ]*'; //a modifier bien sur
+  public telpattern = '[0-9 ]*'; // a modifier bien sur
 
   public jobList: Array<any> = [
-    { id: 1, title: 'Developpeur FrontEnd', group: 'A' },
-    { id: 2, title: 'Developpeur BackEnd', group: 'A' },
-    { id: 3, title: 'Integrateur', group: 'A' },
-    { id: 4, title: 'UX/UI', group: 'A' },
-    { id: 5, title: 'Rien de tout cela', group: 'B' },
+    { id: 0, title: 'Tout selectionner', group: 'all', selected: false },
+    { id: 1, title: 'Developpeur FrontEnd', group: 'option', selected: false },
+    { id: 2, title: 'Developpeur BackEnd', group: 'option', selected: false},
+    { id: 3, title: 'Integrateur', group: 'option' , selected: true},
+    { id: 4, title: 'UX/UI', group: 'option' , selected: false},
+    { id: 5, title: 'Rien de tout cela', group: 'none' , selected: false},
   ];
+
 
     constructor(
       // private userService: UserService,
@@ -87,40 +92,32 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
       email: new FormControl(
         this.currentUser.email,
-        [
-          Validators.required,
-          Validators.email],
+        [Validators.required, Validators.email],
       ),
 
       tel: new FormControl(
         '',
-        [
-          Validators.required,
-          Validators.pattern(this.telpattern),
-      ]
+        [Validators.required, Validators.pattern(this.telpattern)],
       ),
 
       nation: new FormControl(
         this.currentUser.nation,
-        [
-          Validators.required,
-        ],
+        [Validators.required],
       ),
 
       dob: new FormControl(
         this.currentUser.dob,
-        [
-          Validators.required,
+        [Validators.required,
           // custom Date Validator + validate age > 18
         ]
       ),
 
       gender: new FormControl(
         this.currentUser.gender,
-        [
-          Validators.required,
-        ],
+        [Validators.required],
       ),
+
+      jobs: this._formB.array(this.jobList.map(job => job.selected)),
 
       // jobs: new FormArray(
       //   [],
@@ -128,10 +125,19 @@ export class UserFormComponent implements OnInit, OnDestroy {
       //   this.jobsCustomValidator(),
       //   ),
 
-      // pwdGrp: this._formB.group({
-      //   pwd: this.pwd.control(),
-      //   pwdBis: this.pwdBis.control(),
-      // }),
+      pwdGrp: this._formB.group({
+        passwd: this._formB.control(
+          this.currentUser.pwd,
+          [Validators.required,
+            Validators.minLength(this.limits.loginMin),
+          Validators.maxLength(this.limits.pwdMax)]),
+        passwdRetyped: this._formB.control(
+          this.currentUser.pwd,
+          [Validators.required]),
+      },
+      {
+        validators: [AreFieldsEqual('passwd', 'passwdRetyped')]
+      }),
 
       // login: '',
 
@@ -144,6 +150,11 @@ export class UserFormComponent implements OnInit, OnDestroy {
     // this.addJobsCheckBoxes();
 
   }
+
+  public get pwdGrp(): FormGroup {
+    return this.userForm.get('pwdGrp') as FormGroup;
+  }
+
 
   // -------- address related START --------------------------
   public get addressArray(): FormArray {
@@ -176,8 +187,11 @@ export class UserFormComponent implements OnInit, OnDestroy {
   //   return this.userForm.get('jobs') as FormArray;
   // }
 
+
+
   public onSubmitForm(): void {
 
+    console.log(this.userForm.controls.titres);
     // const userFormValue = this.userForm.value;
     // const selectedJobs = userFormValue.jobs
     // .map( (checked: boolean, i: number) => checked ? this.jobList[i].title : null)

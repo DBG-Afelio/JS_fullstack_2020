@@ -75,7 +75,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">
-                                    <input type="radio" aria-label="Radio button for following text input" name="flag" [checked]="addressArray.controls.length === 1" [formControl]="userForm.controls.primaryFlag">
+                                    <input type="radio" aria-label="Radio button for following text input" [checked]="addressArray.controls.length === 1" [formControl]="userForm.controls.primaryFlag">
                                   </div>
                                 </div>
                                 <output type="text" class="form-output" aria-label="Text input with radio button" >
@@ -223,14 +223,51 @@
             </div>
         </div>
 
+        <div *ngFor="let job of jobList; let i = index;" > 
+            <input type="checkbox"  [formControl] = "userForm.controls.jobs['controls'][i]"> {{ job.title }} {{ job.selected }}
+        </div>
+
+        <!-- row Mot de passe + retype Groupe -->
+        <div class="form-group row">
+
+          <!-- Mot de passe -->
+          <div class="col">
+            <label for="pwd">Mot de Passe</label>
+            <input type="password" class="form-control" id="pwd" formControl="passwd">
+            <div>{{userForm.controls.pwdGrp['controls']['passwd'].value}}</div>
+            
+            <div *ngIf="userForm.controls.pwdGrp['controls'].passwd && (userForm.controls.pwdGrp['controls'].passwd.dirty || userForm.controls.pwdGrp['controls'].passwd.touched)" class="alert alert-danger">
+              <div *ngIf="userForm.controls.pwdGrp['controls'].passwd.errors.required">
+                  Ce champ est requis.
+              </div>
+              <div *ngIf="userForm.controls.pwdGrp['controls'].passwd.errors.minlength">
+                  Mot de passe trop court (min {{ limits.pwdMin }} caracteres).
+              </div>
+              <div *ngIf="userForm.controls.pwdGrp['controls'].passwd.errors.maxlength">
+                  Mot de passe trop long (max {{ limits.pwdMax }} caracteres).
+              </div> 
+            </div>
+          </div>
+
+          <!-- retype -->
+          <div class="col">
+            <label for="pwdRe">Confirmer Mot de Passe</label>
+            <input type="password" class="form-control" id="pwdRe" formControl="passwdRetyped">
+            <div>{{userForm.controls.pwdGrp['controls']['passwdRetyped'].value}}</div>
+
+            <div *ngIf="userForm.controls.pwdGrp['controls'].passwdRetyped.invalid && (userForm.controls.pwdGrp['controls'].passwdRetyped.dirty || userForm.controls.pwdGrp['controls'].passwdRetyped.touched)" class="alert alert-danger">
+              <div *ngIf="userForm.controls.pwdGrp['controls'].passwdRetyped.errors.required">
+                  Ce champ est requis.
+              </div>
+              <div *ngIf="userForm.controls.pwdGrp.errors.match">
+                Les mots de passe ne sont pas identiques.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <!-- Fonctions occupees -->
-
-
-
-
-
-
-
 
         <!-- fonctions 1er -->
         <!-- <div class="form-array container">
@@ -250,13 +287,7 @@
                 </label>
             </div> -->
 
-       
-
-
-        <!-- Date de naissance -->
-
-        <!-- Mot de passe + retype Groupe -->
-
+     
         <!-- login -->
 
         <!-- libre de ... a ... -->
