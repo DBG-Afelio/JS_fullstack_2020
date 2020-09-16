@@ -7,12 +7,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
 import { UserModule } from './user/user.module';
 import { NationalityModule } from './nationality/nationality.module';
-import { UserEntity } from './user/entities/user.entity';
+import { RoleModule } from './role/role.module';
 
 dotenv.config();
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserEntity]),
+    
 
     ConfigModule.forRoot({
       isGlobal: true
@@ -29,10 +29,11 @@ dotenv.config();
       logging: true,
     }),
     UserModule,
-    NationalityModule
+    NationalityModule,
+    RoleModule
   ],
   controllers: [
-    AppController    
+    AppController   
   ],
   providers: [
     AppService
