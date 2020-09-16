@@ -8,7 +8,7 @@ export class NationalityEntity {
   id:number;
 
   @Column({
-    name: 'country name',
+    name: 'country_name',
     length: 50,
     nullable: false,
     unique: true,

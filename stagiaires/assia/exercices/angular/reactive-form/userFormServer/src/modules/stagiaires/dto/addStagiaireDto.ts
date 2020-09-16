@@ -1,4 +1,4 @@
-import { IsDate, IsEmail, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, Length } from "class-validator";
+import { IsDate, IsDateString, IsEmail, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, Length, MaxLength, MinLength } from "class-validator";
 import { GenderEnum } from "src/enums/gender.enum";
 
 export class AddStagiaireDto {
@@ -22,29 +22,31 @@ export class AddStagiaireDto {
   public nationId: number;
 
   @IsNotEmpty()
-  @IsEnum(GenderEnum)
-  public gender: GenderEnum;
+  @IsEnum(GenderEnum) // << affaire a suivre...
+  public gender: string;
 
   @IsNotEmpty()
-  @IsDate()
+  @IsDateString()
   public dob: Date;
 
   @IsNotEmpty()
   @IsString()
-  @Length(6,10)
+  @MinLength(6)
+  @MaxLength(100)
   public pwd: string;
   
   @IsNotEmpty()
   @IsString()
-  @Length(6,10)
+  @MinLength(6)
+  @MaxLength(10)
   public login: string;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   public freeFrom: Date;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   public freeUntil: Date;
    
 }

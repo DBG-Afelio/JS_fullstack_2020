@@ -12,9 +12,14 @@ import * as dotenv from 'dotenv';
 import { CategoriesEntity } from './modules/_example-tuto/categories/entities/categories.entity';
 import { StagiaireEntity } from './modules/stagiaires/entities/stagiaire.entity';
 import { NationalityEntity } from './modules/stagiaires/entities/nationality.entity';
+import { StagiairesService } from './modules/stagiaires/stagiaires.service';
 dotenv.config();
 @Module({
   imports: [
+    TypeOrmModule.forFeature([
+      StagiaireEntity, 
+      NationalityEntity
+    ]),
     UsersModule, 
     // ProductsModule, 
     ConfigModule.forRoot({
@@ -34,7 +39,7 @@ dotenv.config();
     // CategoriesModule
   ],
   controllers: [AppController, UsersController],
-  providers: [AppService, UsersService],
+  providers: [AppService, UsersService, StagiairesService],
 })
 export class AppModule  {
 }
