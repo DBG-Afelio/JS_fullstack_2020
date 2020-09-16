@@ -5,16 +5,14 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
-import { ProduitsModule } from './produits/produits.module';
 import { UserModule } from './user/user.module';
-import { NationalityController } from './nationality/nationality.controller';
 import { NationalityModule } from './nationality/nationality.module';
-import { NationalityService } from './nationality/nationality.service';
+import { UserEntity } from './user/entities/user.entity';
 
 dotenv.config();
 @Module({
   imports: [
-    ProduitsModule,
+    TypeOrmModule.forFeature([UserEntity]),
 
     ConfigModule.forRoot({
       isGlobal: true

@@ -15,7 +15,9 @@ export class NationalityService {
     }
 
     async getAllNationalities(): Promise<NationalityEntity[]> {
-        return await this.nationalityRepository.find();
+        return await this.nationalityRepository.find({
+            relations: ["users"]
+        });
     }
 
     async getNationalityById(id: number): Promise<NationalityEntity> {

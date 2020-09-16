@@ -1,5 +1,6 @@
 import { Type } from "class-transformer";
-import { IsDate, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { Allow, IsDate, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { NationalityEntity } from "src/nationality/entities/nationality.entity";
 import { Sex } from "../entities/sex.enum";
 
 export class UpdateUserDto {

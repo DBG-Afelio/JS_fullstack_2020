@@ -33,6 +33,9 @@ export class UserEntity {
     )
     date_debut: Date;
 
+    @Column()
+    date_fin: Date;
+
     @Column({
         unique: true
     })
@@ -41,14 +44,13 @@ export class UserEntity {
     @Column()
     password: string;
 
-    @Column()
-    date_fin: Date;
 
     @ManyToOne(
         type => NationalityEntity,
         (nationality) => nationality.users,
         {
             nullable: true,
+            eager: true
         }
     )
     nationality: NationalityEntity;

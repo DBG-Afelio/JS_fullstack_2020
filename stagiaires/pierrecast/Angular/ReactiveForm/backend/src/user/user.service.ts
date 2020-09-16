@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { NationalityEntity } from "src/nationality/entities/nationality.entity";
 import { Repository } from "typeorm";
 import { AddUserDto } from "./dto/add-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
@@ -10,11 +11,12 @@ export class UserService {
     constructor(
         @InjectRepository(UserEntity)
         private userRepository : Repository<UserEntity>
+       
     ) {
 
     }
 
-    async getAllNationalities(): Promise<UserEntity[]> {
+    async getAllUsers(): Promise<UserEntity[]> {
         return await this.userRepository.find();
     }
 
@@ -23,16 +25,21 @@ export class UserService {
     }
 
     async addUser(user: AddUserDto): Promise<UserEntity> {
-        return await this.userRepository.save(user);
+        return await this.userRepository.save({
+            ...user, 
+            nationality:{id:user.nationalityId}
+        });
     }
 
     async updateUser(id: number, user: UpdateUserDto): Promise<UserEntity> {
+        
         const newUser = await this.userRepository.preload({
             id,
-            ...user
+            ...user, 
+            nationality:{id:user.nationalityId}
         });
         if (!newUser) {
-            throw new NotFoundException(`Nationalité ${id} inexistante`);
+            throw new NotFoundException(`User ${id} inexistant`);
         }
         return await this.userRepository.save(newUser);
 
@@ -41,7 +48,7 @@ export class UserService {
     async removeUser(id:number) {
         const userToRemove = await this.userRepository.findOne(id);
         if (!userToRemove) {
-            throw new NotFoundException(`Nationalité ${id} inexistante`);
+            throw new NotFoundException(`User ${id} inexistant`);
         }
         this.userRepository.remove(userToRemove)
     }

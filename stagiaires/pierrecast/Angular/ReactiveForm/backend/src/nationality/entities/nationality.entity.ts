@@ -14,8 +14,7 @@ export class NationalityEntity {
         (user) => user.nationality,
         {
             cascade: true,
-            nullable: true,
-            eager: true
+            nullable: true
         }
     )
     users: UserEntity[];

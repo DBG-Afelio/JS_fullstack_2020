@@ -20,8 +20,8 @@ export class UserController {
     }
 
     @Get()
-    async getAllNationalities(): Promise<UserEntity[]> {
-        return await this.userService.getAllNationalities();
+    async getAllUsers(): Promise<UserEntity[]> {
+        return await this.userService.getAllUsers();
     }
 
     @Post()
