@@ -13,14 +13,20 @@ import { CategoriesEntity } from './modules/_example-tuto/categories/entities/ca
 import { StagiaireEntity } from './modules/stagiaires/entities/stagiaire.entity';
 import { NationalityEntity } from './modules/stagiaires/entities/nationality.entity';
 import { StagiairesService } from './modules/stagiaires/stagiaires.service';
+import { RoleEntity } from './modules/roles/entities/role.entity';
+import { RolesModule } from './modules/roles/roles.module';
+import { StagiairesModule } from './modules/stagiaires/stagiaires.module';
 dotenv.config();
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       StagiaireEntity, 
-      NationalityEntity
+      NationalityEntity,
+      RoleEntity
     ]),
     UsersModule, 
+    StagiairesModule,
+    RolesModule,
     // ProductsModule, 
     ConfigModule.forRoot({
       isGlobal: true,
@@ -32,7 +38,7 @@ dotenv.config();
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [StagiaireEntity, NationalityEntity],  //"dist/**/*.entity{.ts,.js}" recupere l'ensemble des fichiers 'Entity'
+      entities: [StagiaireEntity, NationalityEntity, RoleEntity],  //"dist/**/*.entity{.ts,.js}" recupere l'ensemble des fichiers 'Entity'
       synchronize: true,
       logging: true // permet de logger dans la console les requetes sql qui passent
     }),

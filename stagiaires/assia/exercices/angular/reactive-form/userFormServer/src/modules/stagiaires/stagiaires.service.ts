@@ -18,7 +18,7 @@ export class StagiairesService {
     });
 
     if(list.length === 0){
-        throw new ImATeapotException(`Humm.. Pretty quiete here ! Seems like no user could be found. Make sure you add some new users`)
+        throw new ImATeapotException(`Humm.. Pretty quiete here ! Seems like no user could be found. Make sure you add some in your db`)
     } else if(!list) {
       throw new NotFoundException(`Oups ! Seems like we're having trouble retrieving users`);
     }
@@ -37,7 +37,7 @@ export class StagiairesService {
   async addOne(stagiaire: AddStagiaireDto): Promise<StagiaireEntity> {
     return await this.stagiairesRepository.save({
       ...stagiaire,
-      nation: { id: stagiaire.nationId }
+      nation: { id: stagiaire.nationId },
     })
     .catch((error) => {
       throw new BadRequestException(error.message, error.name);
@@ -59,5 +59,16 @@ export class StagiairesService {
       });
     }
   }
+
+  async deleteOne(id: number): Promise<StagiaireEntity> {
+    const del = await this.getOne(id);
+    if (del) {
+      return await this.stagiairesRepository.remove(del)
+      .catch((error) => {
+        throw new BadRequestException(error.message, error.name);
+      });
+    }
+  }
+  
   
 }

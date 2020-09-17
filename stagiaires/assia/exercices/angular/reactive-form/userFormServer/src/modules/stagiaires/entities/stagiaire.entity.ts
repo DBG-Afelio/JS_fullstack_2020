@@ -1,7 +1,9 @@
+import { Exclude } from "class-transformer";
 import { IsNotEmpty } from "class-validator";
 import { type } from "os";
 import { GenderEnum } from "src/enums/gender.enum";
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { RoleEntity } from "src/modules/roles/entities/role.entity";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { NationalityEntity } from "./nationality.entity";
 
 @Entity('student')
@@ -53,6 +55,7 @@ export class StagiaireEntity {
   })
   dob: Date;
 
+  @Exclude()
   @Column({
     name: 'password',
     length: 100,
@@ -76,4 +79,17 @@ export class StagiaireEntity {
     name: 'available until'
   })
   freeUntil: Date;
+
+  @ManyToMany(
+    type => RoleEntity, (role) => role.stagiaires,
+    {
+      eager: true
+    }
+  )
+  @JoinTable()
+  roles: RoleEntity[];
+
+  constructor(partial: Partial<StagiaireEntity>) {
+    Object.assign(this, partial);
+  }
 }

@@ -3,5 +3,4 @@ export enum JobsEnum {
     BACKDEV = 'Developpeur Back',
     INTEGR = 'Integrateur',
     UXUI = 'UX / UI Design',
-    NONE = 'Rien de tout cela'
 }

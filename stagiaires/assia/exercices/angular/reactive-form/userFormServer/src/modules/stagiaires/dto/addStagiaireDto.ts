@@ -1,5 +1,7 @@
+import { Transform } from "class-transformer";
 import { IsDate, IsDateString, IsEmail, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, Length, MaxLength, MinLength } from "class-validator";
 import { GenderEnum } from "src/enums/gender.enum";
+import { RoleEntity } from "src/modules/roles/entities/role.entity";
 
 export class AddStagiaireDto {
 
@@ -48,5 +50,10 @@ export class AddStagiaireDto {
   @IsOptional()
   @IsDateString()
   public freeUntil: Date;
-   
+
+  @IsOptional()
+  @Transform(
+    rolesIds => rolesIds.map((id:number) => ({ id }))
+  )
+  roles: Partial<RoleEntity>[]
 }

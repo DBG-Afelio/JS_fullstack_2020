@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, ParseIntPipe, HttpStatus, ValidationPipe, UsePipes, Patch, Put, Delete, Query, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, ParseIntPipe, HttpStatus, ValidationPipe, UsePipes, Patch, Put, Delete, Query, NotFoundException, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from 'src/models/user.model';
 import { User_Dto } from 'src/dtos/User_Dto';
@@ -25,38 +25,46 @@ export class UsersController {
     
 //******* 2nd option- with InjectRepository in Service ****/ 
 //********1rst method  */
+    @UseInterceptors(ClassSerializerInterceptor)
     @Get()
-    @UsePipes(ValidationPipe)
     public getUserList(
         // @Query() myFilters: GetUserFiltersDto
         ): Promise<StagiaireEntity[]> {
            // need to add getFiltered() here for filtered searches
           return this.stagiairesService.getAll();
         }
-    
+
+    @UseInterceptors(ClassSerializerInterceptor)
     @Get(':id')
     public getUserById(
         @Param('id', new ParseIntPipe({ errorHttpStatusCode : HttpStatus.NOT_FOUND})) id:number): Promise<StagiaireEntity> {
         return this.stagiairesService.getOne(id);
     }
 
+    @UseInterceptors(ClassSerializerInterceptor)
     @Post()
-    @UsePipes(ValidationPipe)
-    public createUser(@Body() newUser: AddStagiaireDto): Promise<StagiaireEntity> {
+    public createUser(
+      @Body() newUser: AddStagiaireDto): Promise<StagiaireEntity> {
         return this.stagiairesService.addOne(newUser);
     }
 
+    @UseInterceptors(ClassSerializerInterceptor)
     @Patch(':id')
-    @UsePipes(ValidationPipe)
     public updateUser(
       @Param('id', new ParseIntPipe({ errorHttpStatusCode : HttpStatus.NOT_FOUND})) id:number,
       @Body() userToUpdate: UpdateStagiaireDto): Promise<StagiaireEntity> {
         return this.stagiairesService.updateOne(id, userToUpdate);
     }
 
+    @Delete(':id')
+    public deleteUser(
+      @Param('id', new ParseIntPipe({ errorHttpStatusCode : HttpStatus.NOT_FOUND})) id:number): Promise<StagiaireEntity> {
+        return this.stagiairesService.deleteOne(id);
+    }
+
   }
 
-    // -------------------- with 1rst method
+    // -------------------- with 1rst method ------------------------------------
     // @Get()
     // @UsePipes(ValidationPipe)
     // getUserList(
