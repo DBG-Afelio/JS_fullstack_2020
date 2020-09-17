@@ -1,5 +1,6 @@
 export class User {
     constructor(
+       // public id: number,
         public lName: string,
         public email: string,
         public nation: string,
@@ -8,8 +9,7 @@ export class User {
         public dob: Date,
         public pwd: string,
         public login: string,
-//optional come always at the end
         public fName?: string,
-        public freeTimeSlot?: { freeFrom?: Date, freeUpto: Date },
+        public freeTimeSlot?: { freeFrom?: Date, freeUpto?: Date },
     ){}
 }
