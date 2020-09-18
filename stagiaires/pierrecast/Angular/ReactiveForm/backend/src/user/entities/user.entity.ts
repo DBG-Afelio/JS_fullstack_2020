@@ -1,5 +1,7 @@
+import { Exclude } from "class-transformer";
 import { NationalityEntity } from "src/nationality/entities/nationality.entity";
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { RoleEntity } from "src/role/entities/role.entity";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Sex } from "./sex.enum";
 
 @Entity('user')
@@ -41,9 +43,9 @@ export class UserEntity {
     })
     login: string;
 
+    @Exclude()
     @Column()
     password: string;
-
 
     @ManyToOne(
         type => NationalityEntity,
@@ -54,4 +56,19 @@ export class UserEntity {
         }
     )
     nationality: NationalityEntity;
+
+    @ManyToMany(
+        type => RoleEntity,
+        {
+            eager: true
+        }
+        )
+    @JoinTable({
+        name : 'user_roles'
+    })
+    roles: RoleEntity[];
+
+    constructor(partial: Partial<UserEntity>) {
+        Object.assign(this, partial);
+    }
 }

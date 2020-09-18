@@ -1,5 +1,6 @@
-import { Type } from "class-transformer";
+import { Transform, Type } from "class-transformer";
 import { IsDate, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { RoleEntity } from "src/role/entities/role.entity";
 import { Sex } from "../entities/sex.enum";
 
 export class AddUserDto {
@@ -19,6 +20,12 @@ export class AddUserDto {
     @Type(() => Number)
     @IsNumber()
     nationalityId: number;
+
+    @IsOptional()
+    @Transform(
+        roleIds => roleIds.map((id: number) => ({ id })) 
+    )
+    roles: Partial<RoleEntity>[];
     
     @IsNotEmpty()
     @IsIn(['F', 'M'])

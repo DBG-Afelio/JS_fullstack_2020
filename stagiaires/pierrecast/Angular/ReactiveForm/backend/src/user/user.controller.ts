@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UseInterceptors } from '@nestjs/common';
 import { AddUserDto } from './dto/add-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserEntity } from './entities/user.entity';
@@ -12,6 +12,7 @@ export class UserController {
 
     }
 
+    @UseInterceptors(ClassSerializerInterceptor)
     @Get(':id')
     async getUserById(
         @Param('id', ParseIntPipe) id: number
@@ -19,6 +20,7 @@ export class UserController {
         return await this.userService.getUserById(id);
     }
 
+    @UseInterceptors(ClassSerializerInterceptor)
     @Get()
     async getAllUsers(): Promise<UserEntity[]> {
         return await this.userService.getAllUsers();
