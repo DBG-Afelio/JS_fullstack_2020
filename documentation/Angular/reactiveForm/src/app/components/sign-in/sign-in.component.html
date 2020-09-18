@@ -1,0 +1,16 @@
+  
+  <div>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+      <div>
+        <label for="userName">
+          Nom : 
+        </label>
+        <input type="text" [formControl]="userForm.controls.userName">
+        <span class="errors" [hidden]='!userForm.controls.userName.errors || !userForm.controls.userName.errors.minlength'>trop court</span>
+        <span class="errors" [hidden]='userForm.controls.userName.pristine || (!userForm.controls.userName.errors || !userForm.controls.userName.errors.required)'>requis</span>
+      </div>
+      <button type="submit" class="" >Soumettre</button>
+    </form>
+  </div>
+  {{ userForm.controls.userName.errors | json }} 
