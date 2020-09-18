@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.image-loader {
+    position: absolute;
+    background-color: #f00;
+    animation: colorchange 1s linear infinite alternate forwards;
+    
+}
+@keyframes colorchange {
+    form:  rgb(234,34,32);
+    to:  rgb(108,34,32);
+}

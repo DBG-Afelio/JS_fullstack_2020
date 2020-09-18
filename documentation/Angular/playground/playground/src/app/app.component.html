@@ -1,14 +1,19 @@
-
-<!-- <div class="content" role="main">
-  
-  <div class="card highlight-card card-small">
-    <span>{{ title }} app is running!</span>
-    <button (click)="updateTitle(title)">mon super bouton</button>
-  </div>
-  <div>
-    <input type="text" [(ngModel)]="cpt"> {{cpt}}
-    <button (click)="updateCpt()">mon super bouton3</button>
-  </div>
-</div> -->
+<!-- 
   <app-my-component></app-my-component>
-  <app-side-bar></app-side-bar>
+  <app-side-bar></app-side-bar> -->
+<!-- <img [src]="'http://placekitten.com/200/200'" 
+      [lowsrc]="'http://placekitten.com/200/200'" 
+      width= "2400"
+      height = "2400"
+      alt="" 
+      appImageLoader> -->
+
+      <img 
+        [src]="'http://placekitten.com/200/200'" 
+        width= "200"
+        [height] = "200"
+        alt="" 
+        *appStructuralImageLoader="let i from {height:200, width: 200}"
+      >
+
+      
