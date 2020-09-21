@@ -15,25 +15,30 @@ export class UsersService {
         private usersRepository: Repository<UserEntity>,
       ) {}
 
-    async getAllUsers():Promise<UsersDto[]>{
+    async getAllUsers():Promise<UserEntity[]>{
 
         const allUsers = await this.usersRepository.find()
-        return allUsers.map(user => UsersDto.toDto(user))
+
+
+       return allUsers
 
     }
 
-    async getUserById(userId:number):Promise<UsersDto>{
+    async getUserById(userId:number):Promise<UserEntity>{
 
         const user = await this.usersRepository.findOne(userId)
-        return UsersDto.toDto(user)
+
+
+        return user
 
     }
 
-    async getUserByCountry(countryCode:string):Promise<UsersDto[]>{
+    async getUserByCountry(countryCode:string):Promise<UserEntity[]>{
 
         const allUsers = await this.usersRepository.find({ nationality:countryCode })
-        return allUsers.map(user => UsersDto.toDto(user))
-
+          
+        return allUsers
+        
     }
 
     async createUser(user:UsersDto){

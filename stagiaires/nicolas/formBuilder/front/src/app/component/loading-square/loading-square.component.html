@@ -1,0 +1,1 @@
+<img class="portrait" *ngFor='let portrait of portraits; let i = index' [src]='portrait.webformatURL' [hidden]="!(i === currentImage)">

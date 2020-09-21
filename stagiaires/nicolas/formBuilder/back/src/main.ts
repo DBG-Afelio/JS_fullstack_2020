@@ -8,8 +8,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
   app.enableCors();
-
-  useContainer(app, { fallbackOnErrors: true });
+  
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
   await app.listen(3000);
 
 }

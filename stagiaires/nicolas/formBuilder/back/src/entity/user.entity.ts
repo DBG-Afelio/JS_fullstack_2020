@@ -1,8 +1,11 @@
+import { Exclude, Expose } from "class-transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 
 @Entity()
 export class UserEntity {
 
+    @Expose()
     @PrimaryGeneratedColumn()
     id:number;
 
@@ -18,6 +21,7 @@ export class UserEntity {
     @Column()
     gender:string;
 
+
     @Column()
     birthdayDate:Date;
 
@@ -27,6 +31,7 @@ export class UserEntity {
     @Column()
     login: string;
 
+    @Exclude()
     @Column("date", { array: true,nullable:true })
     availabilities?: Date[];
 

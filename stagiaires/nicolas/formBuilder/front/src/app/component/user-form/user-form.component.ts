@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, ViewChildren } from '@angular/core';
 import { User } from 'src/app/models/user/user';
 import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, FormArray } from '@angular/forms';
 import { Demonym } from 'src/app/models/interfaces/demonym.interface';
@@ -30,9 +30,10 @@ export class UserFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
 
 
-
   }
+
   ngOnChanges(changes: SimpleChanges) {
+
     // changes.prop contains the old and the new value...
 
     if(changes.skills && !changes.skills.firstChange){
@@ -42,7 +43,11 @@ export class UserFormComponent implements OnInit, OnChanges {
     }
 
   }
+  isLoaded(img:HTMLImageElement){
 
+    return img.onload
+
+  }
   loadComponent(){
 
 
@@ -79,6 +84,7 @@ export class UserFormComponent implements OnInit, OnChanges {
     
     
   }
+  
   
   createSkillsController(skillsArray:Skill[]){
 

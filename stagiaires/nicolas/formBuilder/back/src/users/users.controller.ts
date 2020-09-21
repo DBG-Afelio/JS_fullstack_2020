@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Param, Post, UsePipes, ValidationPipe, Body } from '@nestjs/common';
+import { Controller, Get, Query, Param, Post, UsePipes, ValidationPipe, Body, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersDto } from './models/users-dto';
 
@@ -7,13 +7,15 @@ export class UsersController {
 
     constructor(private readonly usersService:UsersService){}
 
+
 @Get()
+@UseInterceptors(ClassSerializerInterceptor)
     public getAllUsers(@Query() queries){
-        console.log(queries)
+        
         if(queries.country){
 
             this.usersService.getUserByCountry(queries.country)
-
+            
         }
         return this.usersService.getAllUsers()
 

@@ -1,3 +1,5 @@
+<input type="number" [value]="5 | parseDecimal">
+
 <form *ngIf='userForm' [formGroup]="userForm" class="form-group" (ngSubmit)="onFormSubmit()">
 
     <input formControlName="lastName" class="form-control" placeholder="Nom(Obligatoire)">
@@ -15,7 +17,6 @@
 
     </select>
     <span class="errors" [hidden]='!userForm.controls.nationality.errors || userForm.controls.lastName.pristine'>incorrect</span>
-
 
     <div class="genders">
 
