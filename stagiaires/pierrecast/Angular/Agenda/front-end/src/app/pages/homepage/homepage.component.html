@@ -1,0 +1,11 @@
+
+
+<div *ngIf="events">
+    <div *ngFor="let event of events">
+        {{ event.name }} - {{ event.date_start }}
+    </div>
+</div>
+
+<div *ngIf="!events">
+    Aucun évènement
+</div>
