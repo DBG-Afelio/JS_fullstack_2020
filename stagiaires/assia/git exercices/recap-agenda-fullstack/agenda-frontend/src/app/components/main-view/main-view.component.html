@@ -1,1 +1,13 @@
 <p>main-view works!</p>
+
+<div *ngIf="events.length !== 0">
+  <div *ngFor="let event of events">
+    {{ event.id }}
+    {{ event.name }}
+    {{ event.description }}
+  </div>
+</div>
+
+<div *ngIf="events.length === 0">
+  There's no events 
+</div>

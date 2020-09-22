@@ -1,4 +1,3 @@
-import { Address } from 'cluster';
 import { Tag } from '../tag.model/tag';
 
 export interface CreateEventDto {
@@ -14,7 +13,7 @@ export interface CreateEventDto {
   zipcode: number;
   city: string;
   street: string;
-  tel: number;
+  tel: string;
   email: string;
   tags: Tag[];
   uId: string;

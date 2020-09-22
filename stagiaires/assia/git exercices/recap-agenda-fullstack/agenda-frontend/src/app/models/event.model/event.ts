@@ -14,7 +14,7 @@ export class Event {
     public gpsCoord: string,
     public imageUrl: string,
     public address: Address,
-    public tel: number,
+    public tel: string,
     public email: string,
     public tags: Tag[],
     public uId: string,
