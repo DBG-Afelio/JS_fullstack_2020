@@ -2,9 +2,11 @@
 
 <div *ngIf="events.length !== 0">
   <div *ngFor="let event of events">
-    {{ event.id }}
-    {{ event.name }}
-    {{ event.description }}
+    <p>{{ event.id }}</p>
+    <p>{{ event.name }}</p>
+    <p>{{ event.description }}</p>
+    <p>{{ event.tags[0] | json }} {{ event.tags[1] | json }} </p>
+    <p>{{ event.address | json }}</p>
   </div>
 </div>
 

@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { EventDetailViewComponent } from './components/event-detail-view/event-detail-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { EventDetailViewComponent } from './components/event-detail-view/event-d
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
