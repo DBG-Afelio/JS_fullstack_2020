@@ -11,6 +11,7 @@ import { MainViewComponent } from './components/main-view/main-view.component';
 import { EventDetailViewComponent } from './components/event-detail-view/event-detail-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,39 @@
 <p>main-view works!</p>
 
-<div *ngIf="events.length !== 0">
+<div>
+  <button (click)="updateEvents()" id="updateEvents">Update events</button>
+  <button (click)="updateHeader()" id="updateHeader">Update header</button>
+  <full-calendar [options]="options"
+    *ngIf="options"
+    #fullcalendar
+    [editable]="true"
+    [events]="eventsModel"
+    [header]="options.header"
+    [locales]="options.locales"
+    [locale]="options.locale"
+    [customButtons]="options.customButtons"
+    (dateClick)="dateClick($event)"
+    (eventDragStop)="eventDragStop($event)"
+    [plugins]="options.plugins"
+    (dayRender)="dayRender($event,el)"
+    (eventClick)="eventClick($event)"
+    [columnHeaderHtml]="options.columnHeaderHtml"
+  ></full-calendar>
+  
+  <div #external>
+    <p>
+      <strong>Draggable Events</strong>
+    </p>
+    <div class='fc-event'>My Event 1</div>
+    <div class='fc-event'>My Event 2</div>
+    <div class='fc-event'>My Event 3</div>
+    <div class='fc-event'>My Event 4</div>
+    <div class='fc-event'>My Event 5</div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="events.length !== 0">
   <div *ngFor="let event of events">
     <p>{{ event.id }}</p>
     <p>{{ event.name }}</p>
@@ -10,6 +43,7 @@
   </div>
 </div>
 
+
 <div *ngIf="events.length === 0">
   There's no events 
-</div>
+</div> -->
