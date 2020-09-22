@@ -1,0 +1,24 @@
+[
+  {
+    "id": "55f99b757f48ae74f2932aba",
+    "name": "Pierre",
+    "email": "isabellemckay@biospan.com",
+    "phone": "+1 (879) 468-3257",
+    "style": "#EA157A",
+    "address": "408 Malta Street, Loyalhanna, Georgia, 7085",
+    "description": "Exercitation esse amet in commodo pariatur sit tempor deserunt. Exercitation elit exercitation consectetur dolor duis aliquip. Ea eu magna non deserunt id irure proident minim nisi laborum nisi exercitation. Nisi fugiat sunt ipsum amet amet nisi quis adipisicing pariatur amet deserunt officia id mollit. Sunt ullamco laborum labore Lorem Lorem ullamco excepteur voluptate magna sit et eiusmod nisi.\r\n",
+    "date_start": "2020-09-21 15:30",
+    "date_end": "2020-09-25 20:30"
+  },
+  {
+    "id": "55f99b758c8117b13579dd99",
+    "name": "fake event 2",
+    "email": "mollielangley@pigzart.com",
+    "phone": "+1 (984) 501-2056",
+    "style": "#0069A5",
+    "address": "507 Waldorf Court, Selma, Palau, 7229",
+    "description": "Sit aliquip eu eu aliquip magna irure fugiat exercitation voluptate nulla ex. Officia culpa esse esse ex do adipisicing non velit dolore esse aute cupidatat. Qui nulla ad mollit esse enim dolor laborum nulla sint nulla dolor laboris quis in. Laboris magna culpa ipsum proident ad quis consequat irure ea officia anim nulla sunt laborum. Sint do pariatur velit amet labore exercitation tempor duis labore deserunt. Est exercitation dolor ut aute exercitation do aliquip ea.\r\n",
+    "date_start": "2020-09-24 12:30",
+    "date_end": "2020-09-25 17:30"
+  }
+]
