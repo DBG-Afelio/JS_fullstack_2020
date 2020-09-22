@@ -1,0 +1,36 @@
+
+
+.calendar {
+    border: 2px solid black;
+    display : grid;
+    grid-template-columns: repeat(7, auto);
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight:400 ;
+    
+    .calendar_day {
+        border: 1px solid black;  
+        min-height: 70px; 
+        min-width: 70px;
+        margin: 0 auto;
+        padding-top: 5px;
+        box-sizing: border-box;
+
+        .bubble {
+            font-size: 20px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .activeBubble {
+            background-color: silver;
+        }
+    }
+}
