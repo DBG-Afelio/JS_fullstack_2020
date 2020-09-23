@@ -13,7 +13,7 @@ import { TagModule } from './tag/tag.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'jujeniroso',
+      password: 'POSTGRES',
       database: 'agenda',
       logging: false,
       entities: ['dist/**/*.entity{.ts,.js}'],

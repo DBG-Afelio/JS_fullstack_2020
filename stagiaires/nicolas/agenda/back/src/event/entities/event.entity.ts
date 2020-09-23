@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { Tag } from '../../tag/entities/tag.entity';
 import { AddInfos } from './addInfos.entity';
+import { PointDto } from '../dto/point.dto';
 
 @Entity()
 export class Event {
@@ -30,8 +31,15 @@ export class Event {
   @Column({nullable:true})
   description:string;
 
-  @Column("point",{nullable:true})
-  coordinates:string;
+  @Column({
+    type: 'point',
+    nullable: true,
+    transformer: {
+      from: v => v,
+      to: v => `${v.x},${v.y}`,
+    },
+  })
+  coordinates:PointDto;
 
   @Column({nullable:true})
   image:string;
@@ -65,5 +73,7 @@ export class Event {
   )
   @JoinTable()
   tags: Tag[];
+
+  
   
 }

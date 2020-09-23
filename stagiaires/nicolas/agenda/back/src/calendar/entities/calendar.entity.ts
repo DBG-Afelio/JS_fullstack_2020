@@ -15,7 +15,7 @@ export class Calendar {
   @Column()
   label: string;
 
-  @ManyToMany(type => Calendar,Calendar => Calendar.events,)
+  @ManyToMany(type => Event,{cascade:true,eager:true})
   @JoinTable()
   events:Event[];
 }

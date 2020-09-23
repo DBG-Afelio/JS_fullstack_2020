@@ -9,6 +9,9 @@ export class Tag {
   @Column()
   label: string;
 
+  @Column()
+  color:string
+
   @ManyToMany(type => Event,event => event.tags,{nullable:true})
   events: Event[];
 }
