@@ -33,4 +33,17 @@ export class EventService {
       )
     ;
   }
+
+  /* NAMUR */ 
+  public getNamurList(): Observable<Event[]> {
+    return this.http.get<EventDto[]>(this.url+ '/namur')
+      .pipe(
+        map((arrayEventDto : EventDto[]) => {
+          return arrayEventDto.map(eventDto => Event.fromDto(eventDto));
+        }),
+      )
+    ;
+  }
+
+  
 }

@@ -13,6 +13,7 @@ export class CalendarJqxComponent implements AfterViewInit, OnInit, OnChanges {
   @ViewChild('grid', { static: false }) grid: jqxGridComponent;
 
   @Input('events') events: Event[];
+  @Input('namurEvents') namurEvents: Event[];
 
    constructor() {
      console.log('constructor')
@@ -68,6 +69,11 @@ export class CalendarJqxComponent implements AfterViewInit, OnInit, OnChanges {
   ngOnChanges(changes :SimpleChanges) {
     if (changes.events) {
       this.source.localdata = this.events;
+     /* this.namurEvents.forEach((item) =>  {
+        if  ()
+      })*/
+      console.log('localdata',this.source.localdata);
+      console.log('namur',this.namurEvents);
       this.dataAdapter = new jqx.dataAdapter(this.source);
     }
   }
