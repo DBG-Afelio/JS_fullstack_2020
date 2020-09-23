@@ -12,6 +12,17 @@ import { EventDetailViewComponent } from './components/event-detail-view/event-d
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+]);
 @NgModule({
   declarations: [
     AppComponent,
