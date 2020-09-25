@@ -22,4 +22,4 @@ export interface EventDto {
     code?: string;
     tags?: Tag[]
 }
-  
+   

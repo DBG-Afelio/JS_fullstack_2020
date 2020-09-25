@@ -1,7 +1,11 @@
 import { Tag } from '../tagModel/Tag';
 import { EventDto } from './EventDto';
+import { AddEventDto } from './AddEventDto';
+import { UpdateEventDto } from './UpdateEventDto';
 
 export class Event {
+  public style: string = '';
+
   constructor(
     public id: number,
     public name: string,
@@ -20,7 +24,8 @@ export class Event {
     public phone?: string,
     public email?: string,
     public code?: string,
-    public tags?: Tag[]
+    public tags?: Tag[],
+
   ) {
   }
 
@@ -49,7 +54,7 @@ export class Event {
 
   public static fromDto(eventDto: EventDto): Event {
     return new Event(
-        eventDto.id, 
+        eventDto.id ? eventDto.id : 0, 
         eventDto.name, 
         eventDto.date_start, 
         eventDto.date_end, 
@@ -66,7 +71,53 @@ export class Event {
         eventDto.phone, 
         eventDto.email, 
         eventDto.code, 
-        eventDto.tags
+        eventDto.tags 
     );
+  }
+
+
+  public toUpdateDto(): UpdateEventDto {
+    return  {
+        name: this.name,
+        date_start: this.date_start,
+        date_end: this.date_end,
+        url: this.url,
+        description: this.description,
+        localisation: this.localisation,
+        image: this.image,
+        country: this.country,
+        departement: this.departement,
+        city: this.city,
+        address: this.address,
+        postcode: this.postcode,
+        contact: this.contact,
+        phone: this.phone,
+        email: this.email,
+        code: this.code,
+        tags: this.tags
+    }
+  }
+
+
+  public toAddDto(): AddEventDto {
+    return  {
+        name: this.name,
+        date_start: this.date_start,
+        date_end: this.date_end,
+        url: this.url,
+        description: this.description,
+        localisation: this.localisation,
+        image: this.image,
+        country: this.country,
+        departement: this.departement,
+        city: this.city,
+        address: this.address,
+        postcode: this.postcode,
+        contact: this.contact,
+        phone: this.phone,
+        email: this.email,
+        code: this.code,
+        tags: this.tags
+    }
   }
 }

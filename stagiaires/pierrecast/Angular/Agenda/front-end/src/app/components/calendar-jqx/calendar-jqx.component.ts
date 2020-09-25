@@ -1,6 +1,8 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation, EventEmitter } from '@angular/core';
+import { jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
+import { plainToClass } from 'class-transformer'
+import { Event } from 'src/app/models/eventModel/Event';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-calendar-jqx',
@@ -10,18 +12,17 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class CalendarJqxComponent implements AfterViewInit, OnInit, OnChanges {
 
-  @ViewChild('grid', { static: false }) grid: jqxGridComponent;
+  @ViewChild('schedulerReference') myScheduler: jqxSchedulerComponent;
 
   @Input('events') events: Event[];
   @Input('namurEvents') namurEvents: Event[];
+  @Output() create: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() update: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() remove: EventEmitter<Event> = new EventEmitter<Event>();
 
-   constructor() {
-     console.log('constructor')
-   }
+  constructor() { }
 
   dataAdapter: any;
-
-
 	date: any = new jqx.date(2020, 9, 23);
   source: any =
   {
@@ -37,23 +38,22 @@ export class CalendarJqxComponent implements AfterViewInit, OnInit, OnChanges {
       id: 'id'      
   };
 
+  appointmentDataFields: any =
+  {
+    from: 'date_start',
+    to: 'date_end',
+    id: 'id',
+    description: 'description',
+    subject: 'name',
+    style: 'style'
+  };
+  views: any[] =
+  [
+    'dayView',
+    'weekView',
+    'monthView'
+  ];
   
-	
-    appointmentDataFields: any =
-    {
-        from: 'date_start',
-        to: 'date_end',
-        id: 'id',
-        description: 'description',
-        subject: 'name',
-        style: 'style'
-    };
-    views: any[] =
-    [
-        'dayView',
-        'weekView',
-        'monthView'
-	];
   public getWidth() : any {
 		if (document.body.offsetWidth < 850) {
 			return '90%';
@@ -68,17 +68,64 @@ export class CalendarJqxComponent implements AfterViewInit, OnInit, OnChanges {
 
   ngOnChanges(changes :SimpleChanges) {
     if (changes.events) {
-      this.source.localdata = this.events;
-     /* this.namurEvents.forEach((item) =>  {
-        if  ()
-      })*/
-      console.log('localdata',this.source.localdata);
-      console.log('namur',this.namurEvents);
-      this.dataAdapter = new jqx.dataAdapter(this.source);
+      this.resetColorEvent();
     }
   }
 
   ngAfterViewInit() {
-	
+    this.resetColorEvent();
+  }
+
+  resetColorEvent() {
+    this.source.localdata = [];
+
+    if (this.events) {
+      this.events.forEach(item => item['style'] = "#77959a");
+      this.source.localdata.push(...this.events);
+    }
+
+    if (this.namurEvents) {
+      this.namurEvents.forEach(item => {
+        item['style'] = "#f08080";
+         if (!this.checkInDB(item)){
+          this.source.localdata.push(item);
+        }
+      });
+    }
+
+    this.dataAdapter = new jqx.dataAdapter(this.source); 
+  }
+
+  checkInDB(extEvent: Event): boolean {
+    return this.events.some(event => event.code === extEvent.code)
+  }
+
+  onAddApp(event: any): void {
+    const data = event.args.appointment.originalData;
+    console.log('add', event);
+    this.create.emit(this.transformDatatoEvent(data));
+  }
+
+  onChangeApp(event: any): void {
+    const data = event.args.appointment.originalData;
+    console.log('change', event);
+    if (data.id !== 0) {
+      data.style = "#77959a";
+      this.update.emit(this.transformDatatoEvent(data));
+    } else {
+      this.create.emit(this.transformDatatoEvent(data));
+    }
+  }
+
+  onDeleteApp(event: any): void {
+    const data = event.args.appointment.originalData;      
+    console.log('delete', event);
+    if (data.id !== 0 && window.confirm('Etes-vous sûr de vouloir supprimer cet évènement ?')) {
+      this.remove.emit(this.transformDatatoEvent(data));
+    }
+  }
+
+  transformDatatoEvent(data: any): Event {
+    return plainToClass(Event, data);   
   }
 }

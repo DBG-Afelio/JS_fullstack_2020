@@ -10,7 +10,7 @@ import { EventService } from 'src/app/services/eventService/event.service';
 export class HomepageComponent  implements OnInit {
 
   	public events: Event[];
-  	public namurEvents: Event [];
+  	public namurEvents: Event[];
 
 	constructor(private eventService: EventService) { 
 		this.eventService.getList().subscribe((list) => {
@@ -21,6 +21,24 @@ export class HomepageComponent  implements OnInit {
 			this.namurEvents = list;
 		});
 	}
+
+	public createEvent(event: Event) {
+		this.eventService.createEvent(event).subscribe(() => {
+			alert('add OK');
+		});
+	  }
+	
+	  public updateEvent(event: Event) {
+		this.eventService.updateEvent(event).subscribe(() => {
+			alert('update OK');
+		});
+	  }
+	
+	  public removeEvent(event: Event) {
+		this.eventService.removeEvent(event).subscribe(() => {
+		  alert('delete OK');
+		});
+	  }
 	 
   	ngOnInit() {
 

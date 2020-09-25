@@ -9,6 +9,9 @@
         <app-calendar-jqx
             [events] = "events"
             [namurEvents] = "namurEvents"
+            (create) = "createEvent($event)"
+            (update) = "updateEvent($event)"
+            (remove) = "removeEvent($event)"
         ></app-calendar-jqx>
     </div>
 </div>
