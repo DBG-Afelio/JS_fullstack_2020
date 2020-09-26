@@ -19,6 +19,9 @@
     "@angular/platform-browser": "~10.1.1",
     "@angular/platform-browser-dynamic": "~10.1.1",
     "@angular/router": "~10.1.1",
+    "@syncfusion/ej2-angular-buttons": "^18.2.58",
+    "@syncfusion/ej2-angular-schedule": "^18.2.59",
+    "@syncfusion/ej2-material-theme": "~18.2.57",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

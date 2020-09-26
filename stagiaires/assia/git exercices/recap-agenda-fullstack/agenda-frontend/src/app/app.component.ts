@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Event } from './models/event.model/event';
 import { Tag } from './models/tag.model/tag';

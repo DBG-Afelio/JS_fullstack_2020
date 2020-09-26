@@ -1,25 +1,18 @@
 <main>
     <div class="inner-main">
-  
-      <div class="main-logo"></div>
-  
-      <header> AGENDA </header>
-  
-      <aside>
-        <div class="inner-aside">
-          <app-side-menu></app-side-menu>
+        <div class="main-logo"></div>
+        <header> AGENDA </header>
+        <div class="agenda-full">
+            <aside class="inner-aside">
+                <app-side-menu></app-side-menu>
+            </aside>
+    
+            <content class="inner-content">
+                <app-scheduler-view
+                    [myEvents]="eventList">
+                </app-scheduler-view> 
+            </content>
         </div>
-      </aside>
-  
-      <content>
-        <div class="inner-content">
-          <app-scheduler-view
-            [events]="eventList">
-          </app-scheduler-view> 
-        </div>
-      </content>
-  
-      <footer></footer>
-  
+        <footer></footer>
     </div>
   </main>

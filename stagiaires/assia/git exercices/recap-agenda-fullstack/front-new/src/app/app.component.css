@@ -1,0 +1,22 @@
+.inner-main{
+    display: flex;    
+    flex-flow: column wrap;
+    width: auto;
+}
+
+.agenda-full{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.inner-aside{
+    width: 20%;
+}
+
+.inner-content{
+    width: 80%;
+}
+
+header, footer{
+    text-align: center;
+}

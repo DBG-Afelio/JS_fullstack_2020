@@ -1,1 +1,7 @@
-<p>scheduler-view works!</p>
+<button type="button" content="add" #addButton ejs-button class="addButton" (click)="onAddButtonClick()"></button>
+<ejs-schedule 
+    #myAgenda 
+
+    [eventSettings]='eventSettings'
+    >
+</ejs-schedule>
