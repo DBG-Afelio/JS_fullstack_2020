@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Event } from './models/event.model/event';
+import { MyEvent } from './models/event.model/MyEvent';
 import { Tag } from './models/tag.model/tag';
 import { EventsService } from './services/events.service';
 import { TagsService } from './services/tags.service';
@@ -8,12 +7,11 @@ import { TagsService } from './services/tags.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'agenda';
-
-  public eventList: Event[] = [];
+  title = 'front-new';
+  public eventList: MyEvent[] = [];
   public tagList: Tag[] = [];
 
   constructor(

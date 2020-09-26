@@ -1,0 +1,25 @@
+<main>
+    <div class="inner-main">
+  
+      <div class="main-logo"></div>
+  
+      <header> AGENDA </header>
+  
+      <aside>
+        <div class="inner-aside">
+          <app-side-menu></app-side-menu>
+        </div>
+      </aside>
+  
+      <content>
+        <div class="inner-content">
+          <app-scheduler-view
+            [events]="eventList">
+          </app-scheduler-view> 
+        </div>
+      </content>
+  
+      <footer></footer>
+  
+    </div>
+  </main>

@@ -5,5 +5,7 @@
  @import '~@fullcalendar/timegrid/main.css'; 
  */
 
+@import '/node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

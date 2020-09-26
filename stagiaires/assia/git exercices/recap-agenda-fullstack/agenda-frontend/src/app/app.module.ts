@@ -11,18 +11,20 @@ import { MainViewComponent } from './components/main-view/main-view.component';
 import { EventDetailViewComponent } from './components/event-detail-view/event-detail-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
+// import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+// import dayGridPlugin from '@fullcalendar/daygrid';
+// import timeGridPlugin from '@fullcalendar/timegrid';
+// import listPlugin from '@fullcalendar/list';
+// import interactionPlugin from '@fullcalendar/interaction';
 
-FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  timeGridPlugin,
-  listPlugin,
-  interactionPlugin
-]);
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
+
+// FullCalendarModule.registerPlugins([
+//   dayGridPlugin,
+//   timeGridPlugin,
+//   listPlugin,
+//   interactionPlugin
+// ]);
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +39,20 @@ FullCalendarModule.registerPlugins([
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FullCalendarModule,
+//     FullCalendarModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
   ],
-  providers: [],
+  providers: [
+    DayService,
+    WeekService,
+    WorkWeekService,
+    MonthService,
+    AgendaService,
+    MonthAgendaService,
+    TimelineViewsService,
+    TimelineMonthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
