@@ -1,0 +1,21 @@
+<p>Home</p>
+
+<div *ngIf="!currentUserLogin">
+    <button routerLink="/login">
+        CONNECTION
+    </button>
+</div>
+    
+<div *ngIf="currentUserLogin">
+    <button
+        (click)="logout()">
+        DECONNECTION
+    </button>
+    <div>
+        <a routerLink="/private">Ma page perso ({{ currentUserLogin }})</a>
+    </div>
+</div>
+
+
+
+
