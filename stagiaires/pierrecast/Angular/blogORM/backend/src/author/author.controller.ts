@@ -9,9 +9,7 @@ export class AuthorController {
  
     constructor(
         private authorService: AuthorService
-    ) {
-
-    }
+    ) { }
 
     @Get(':id')
     async getAuthorById(
@@ -35,14 +33,14 @@ export class AuthorController {
     @Patch(':id')
     async updateAuthor(
        @Body() updateAuthorDto: UpdateAuthorDto,
-       @Param('id', ParseIntPipe) id :number
+       @Param('id', ParseIntPipe) id: number
     ): Promise<AuthorEntity> {
         return await this.authorService.updateAuthor(id, updateAuthorDto);
     }
 
     @Delete(':id')
     async removeAuthor(
-        @Param('id', ParseIntPipe) id :number
+        @Param('id', ParseIntPipe) id: number
     ) {
         return this.authorService.removeAuthor(id);
     }

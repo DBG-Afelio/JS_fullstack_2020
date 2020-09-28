@@ -20,7 +20,6 @@ export class AuthorEntity {
     @Column({
         length: 50,
     })
-    
     email: string;
 
     @Column()

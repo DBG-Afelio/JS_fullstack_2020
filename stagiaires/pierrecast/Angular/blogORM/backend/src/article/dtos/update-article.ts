@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsNotEmpty, IsString, IsOptional, IsDate, IsNumber, IsBoolean } from "class-validator";
+import { IsNotEmpty, IsString, IsDate, IsNumber, IsBoolean } from "class-validator";
 
 export class UpdateArticleDto {
     @IsNotEmpty()

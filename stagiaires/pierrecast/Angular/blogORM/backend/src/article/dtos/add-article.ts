@@ -23,6 +23,4 @@ export class AddArticleDto {
     @IsNotEmpty()
     @IsBoolean()
     published: boolean
-
-
 }

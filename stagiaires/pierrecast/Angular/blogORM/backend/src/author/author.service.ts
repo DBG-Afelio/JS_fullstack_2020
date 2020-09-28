@@ -10,9 +10,7 @@ export class AuthorService {
     constructor(
         @InjectRepository(AuthorEntity)
         private authorRepository : Repository<AuthorEntity>
-    ) {
-
-    }
+    ) { }
 
     async getAllAuthors(): Promise<AuthorEntity[]> {
         return await this.authorRepository.find();
@@ -35,7 +33,6 @@ export class AuthorService {
             throw new NotFoundException(`Auteur ${id} inexistant`);
         }
         return await this.authorRepository.save(newAuthor);
-
     }
 
     async removeAuthor(id:number) {
@@ -43,6 +40,6 @@ export class AuthorService {
         if (!authorToRemove) {
             throw new NotFoundException(`Auteur ${id} inexistant`);
         }
-        this.authorRepository.remove(authorToRemove)
+        this.authorRepository.remove(authorToRemove);
     }
 }
