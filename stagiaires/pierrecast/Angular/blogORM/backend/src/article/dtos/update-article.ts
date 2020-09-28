@@ -1,3 +1,4 @@
+import { Type } from "class-transformer";
 import { IsNotEmpty, IsString, IsOptional, IsDate, IsNumber, IsBoolean } from "class-validator";
 
 export class UpdateArticleDto {
@@ -11,10 +12,12 @@ export class UpdateArticleDto {
 
     @IsNotEmpty()
     @IsNumber()
+    @Type(() => Number)
     authorId: number;
     
     @IsNotEmpty()
     @IsDate()
+    @Type(() => Date)
     date: Date;
 
     @IsNotEmpty()

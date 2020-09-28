@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString, IsOptional, IsDate, IsNumber, IsBoolean } from "class-validator";
+import { Type } from "class-transformer";
+import { IsNotEmpty, IsString, IsDate, IsNumber, IsBoolean } from "class-validator";
 
 export class AddArticleDto {
     @IsNotEmpty()
@@ -11,13 +12,17 @@ export class AddArticleDto {
 
     @IsNotEmpty()
     @IsNumber()
+    @Type(() => Number)
     authorId: number;
     
     @IsNotEmpty()
     @IsDate()
+    @Type(() => Date)
     date: Date;
 
     @IsNotEmpty()
     @IsBoolean()
     published: boolean
+
+
 }
