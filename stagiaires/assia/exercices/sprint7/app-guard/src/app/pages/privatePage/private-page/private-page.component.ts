@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from 'src/app/services/login-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-private-page',
@@ -10,7 +10,7 @@ export class PrivatePageComponent implements OnInit {
 
     public currentUserLogin: string = '';
     constructor(
-      private loginService: LoginServiceService
+      private loginService: AuthService
   ) { 
       this.loginService.userLogin.subscribe((value) => this.currentUserLogin = value)
   }

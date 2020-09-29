@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginServiceService } from '../services/login-service.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { LoginServiceService } from '../services/login-service.service';
 export class LoggedOutOnlyGuard implements CanActivate {
     public currentUserLogin: string = '';
     constructor(
-        private loginService: LoginServiceService,
+        private loginService: AuthService,
         private router: Router,
     ){
         this.loginService.userLogin.subscribe((value)=> this.currentUserLogin = value);

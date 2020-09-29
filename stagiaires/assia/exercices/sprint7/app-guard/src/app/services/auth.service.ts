@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { Credentials } from '../models/credentials.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
+export class AuthService {
 
-    public userLogin: BehaviorSubject<string> = new BehaviorSubject(this._findUserLogin()) ;
+    public credentials: BehaviorSubject<Credentials> = new BehaviorSubject(this._findSessionUser()) ;
     
-    constructor(
-        
-    ) { }
+    constructor() { }
 
     public saveUserLogin(login: string): void {
         this.userLogin.next(login);
@@ -24,7 +23,8 @@ export class LoginServiceService {
         console.log('session cleared');
     }
 
-    private _findUserLogin(): string {
+    private _findSessionUser(): string {
+        
         return sessionStorage.getItem('login');
     }
 
