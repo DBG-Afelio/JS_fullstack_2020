@@ -7,6 +7,10 @@ import { IntroComponent } from './pages/intro/intro.component';
 import { InfoComponent } from './pages/info/info.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { LoginGuard } from './guard/login.guard';
+import { LoginInterceptorProvider } from './interceptors/login.interceptors';
 
 @NgModule({
   declarations: [
@@ -14,13 +18,15 @@ import { HeaderComponent } from './components/header/header.component';
     IntroComponent,
     InfoComponent,
     AdminComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

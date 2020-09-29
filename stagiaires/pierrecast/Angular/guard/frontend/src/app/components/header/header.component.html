@@ -1,21 +1,14 @@
 <nav>
     <a routerLink=''        >INTRO</a>
-    <a routerLink='/login'  >INFO</a>
+    <a routerLink='/login'  >LOGIN</a>
     <a routerLink='/admin'  >ADMIN</a>
-    
-    <form *ngIf="true"  (ngSubmit) = "login()">
-        <label for="pseudo"></label>
-        <input type="text" name="pseudo" placeholder="LogIn" class="form-control"> 
-        
-        <label for="password"></label>
-        <input type="password" name="password" placeholder="password" class="form-control">
-        
-        <input type="submit" value="LogIn">
-    </form>
-    
+
+
     <div *ngIf="true" >
-        <button
+        <button 
             (click) = 'logout()'
         >LogOut</button>
     </div>
 </nav>
+
+
