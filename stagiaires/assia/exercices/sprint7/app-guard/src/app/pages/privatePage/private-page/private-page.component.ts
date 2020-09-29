@@ -10,15 +10,15 @@ export class PrivatePageComponent implements OnInit {
 
     public currentUserLogin: string = '';
     constructor(
-      private loginService: AuthService
+      private authService: AuthService
   ) { 
-      this.loginService.userLogin.subscribe((value) => this.currentUserLogin = value)
+      this.authService.userLogin.subscribe((value) => this.currentUserLogin = value)
   }
 
   ngOnInit(): void {
   }
 
   public logout(): void {
-    this.loginService.removeUserLogin();
+    this.authService.removeSessionUser();
   }
 }

@@ -1,0 +1,57 @@
+<p>Subscription Form</p>
+
+<form [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
+
+    <!-- LOGIN -->
+    <div>
+        <label for="login">
+            Login :
+        </label>
+        <input type="text" name="login" formControlName="login" placeholder="Entre 3 et 10 characteres">
+        <div *ngIf="credentialsForm.controls.login.invalid && !credentialsForm.controls.login.pristine" class="error">
+            <div *ngIf="credentialsForm.controls.login.errors.required">
+                Required Nom de Zeus !
+            </div>
+            <div *ngIf="credentialsForm.controls.login.minLength">
+                Too short. Must be longer than 3 characteres
+            </div>
+            <div *ngIf="credentialsForm.controls.login.maxLength">
+                Too long. Must be shorter than 10 characteres
+            </div>
+        </div>
+    </div>
+
+    <!-- PASSWORD GROUP -->
+    <div>
+        <label for="password">
+          Password : 
+        </label>
+        <input name="password" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
+    </div>
+
+    <div >
+        <label for="passwordRetyped">
+            Confirm Password: 
+        </label>
+        <input name="passwordRetyped" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].passwordRetyped">
+
+        <div class="error" *ngIf='!credentialsForm.controls.passwordGroup.pristine && credentialsForm.controls.passwordGroup.errors && credentialsForm.controls.passwordGroup.errors.compareFields'>
+            Password missmatch !
+        </div>
+    </div>
+
+    <button
+    type="submit"
+        [disabled]="credentialsForm.invalid">
+        Submit
+    </button>
+
+</form>
+<br>
+<div>
+    Form is Valid ? {{ credentialsForm.valid }}
+</div>
+<pre>
+    {{ credentialsForm.value | json }}
+</pre>
+
