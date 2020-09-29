@@ -1,0 +1,8 @@
+.error {
+    color: red;
+}
+
+.message {
+    color: orange;
+    background-color: yellow;
+}

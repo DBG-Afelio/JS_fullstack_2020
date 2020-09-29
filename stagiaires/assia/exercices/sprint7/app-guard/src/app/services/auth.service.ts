@@ -23,18 +23,20 @@ export class AuthService {
     ) { }
 
     public registerNewUser(credentials: Credentials): Observable<User> {
+        console.log('avant post : ', credentials);
         return this._http.post<CreateCredentialsDto>(this.subscriptionUrl, credentials.toDto())
             .pipe(
-                map((createdUser: UserDto) => User.fromDto(createdUser)),
-                tap((newUser: User) => this._saveSessionUser(newUser.login))
+                map((createdUser: UserDto) => User.fromDto(createdUser))
             );
     }
+// (request.headers.get('Authorization') === `Basic ${window.btoa('test:test')}`
     
     public connectUser(credentials: Credentials): Observable<User> {
         return this._http.get<UserDto>(this.connexionUrl, {
-            headers: { authorization : "Basic naW50ZXN0OnB3ZHRlc3Q=" }
+            headers: { authorization : `Basic ${window.btoa(`${credentials.login}:${credentials.password}`)}` } 
         }).pipe(
-            map((userDto: UserDto) => User.fromDto(userDto))
+            map((userDto: UserDto) => User.fromDto(userDto)),
+            tap((newUser: User) => this._saveSessionUser(newUser.login))
         )
     }
 
@@ -42,7 +44,7 @@ export class AuthService {
     /***************************************************** session storage */
     private _saveSessionUser(login: string): void {
         this.userLogin.next(login);
-        sessionStorage.setItem('login',login);
+        sessionStorage.setItem('current_user',login);
         console.log('user saved in session stotage ', login);
     }
 
@@ -53,7 +55,7 @@ export class AuthService {
     }
 
     private _findSessionUser(): string {
-        return sessionStorage.getItem('login');
+        return sessionStorage.getItem('current_user');
     }
 
 }

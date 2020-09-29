@@ -1,4 +1,5 @@
-<p>Page privee - Bonjour {{ currentUserLogin }}</p>
+<p *ngIf="currentUser?.firstName">Page privee - Bonjour {{ currentUser.firstName }}</p>
+<p *ngIf="!currentUser?.firstName">Page privee - Bonjour {{ currentUser.login }}</p>
 
 <button
     (click)="logout()"

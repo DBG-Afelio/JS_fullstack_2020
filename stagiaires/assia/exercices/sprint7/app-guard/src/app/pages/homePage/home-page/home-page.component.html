@@ -12,13 +12,14 @@
 </div>
     
 <div *ngIf="currentUserLogin">
+    <div>
+        <a routerLink="/private">Ma page perso</a>
+    </div>
     <button
         (click)="logout()">
         DECONNECTION
     </button>
-    <div>
-        <a routerLink="/private">Ma page perso ({{ currentUserLogin }})</a>
-    </div>
+
 </div>
 
 

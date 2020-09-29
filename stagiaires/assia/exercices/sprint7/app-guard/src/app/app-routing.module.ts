@@ -4,9 +4,7 @@ import { SignInFormComponent } from './components/sign-in-form/sign-in-form.comp
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoggedInOnlyGuard } from './guards/logged-in-only.guard';
 import { LoggedOutOnlyGuard } from './guards/logged-out-only.guard';
-import { AuthenticationPageComponent } from './pages/authenticationPage/authentication-page/authentication-page.component';
 import { HomePageComponent } from './pages/homePage/home-page/home-page.component';
-
 import { PrivatePageComponent } from './pages/privatePage/private-page/private-page.component';
 
 const routes: Routes = [

@@ -8,14 +8,14 @@
             Login :
         </label>
         <input type="text" name="login" formControlName="login" placeholder="Entre 3 et 10 characteres">
-        <div *ngIf="credentialsForm.controls.login.invalid && !credentialsForm.controls.login.pristine" class="error">
+        <div *ngIf="credentialsForm.controls.login.invalid && (credentialsForm.controls.login.dirty || credentialsForm.controls.login.touched)" class="error">
             <div *ngIf="credentialsForm.controls.login.errors.required">
                 Required Nom de Zeus !
             </div>
-            <div *ngIf="credentialsForm.controls.login.minLength">
+            <div *ngIf="credentialsForm.controls.login.errors.minlength">
                 Too short. Must be longer than 3 characteres
             </div>
-            <div *ngIf="credentialsForm.controls.login.maxLength">
+            <div *ngIf="credentialsForm.controls.login.errors.maxlength">
                 Too long. Must be shorter than 10 characteres
             </div>
         </div>
@@ -23,30 +23,50 @@
 
     <!-- PASSWORD GROUP -->
     <div>
-        <label for="password">
-          Password : 
-        </label>
-        <input name="password" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
-    </div>
+        <div>
+            <label for="password">
+            Password : 
+            </label>
+            <input name="password" type="password" placeholder="min 6 characters" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
+          
+            <div class="error" *ngIf="credentialsForm.controls.passwordGroup['controls'].password.invalid && (credentialsForm.controls.passwordGroup['controls'].password.touched || credentialsForm.controls.passwordGroup['controls'].password.dirty)">
+                <div *ngIf="credentialsForm.controls.passwordGroup['controls'].password.errors.required">
+                    Required Nom de Zeus !
+                </div>
+                <div *ngIf="credentialsForm.controls.passwordGroup['controls'].password.errors?.minlength">
+                    Too short. Must be longer than 6 characteres
+                </div>
+            </div>
+        </div>
 
-    <div >
-        <label for="passwordRetyped">
-            Confirm Password: 
-        </label>
-        <input name="passwordRetyped" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].passwordRetyped">
-
-        <div class="error" *ngIf='!credentialsForm.controls.passwordGroup.pristine && credentialsForm.controls.passwordGroup.errors && credentialsForm.controls.passwordGroup.errors.compareFields'>
-            Password missmatch !
+        <div >
+            <label for="passwordRetyped">
+                Confirm Password: 
+            </label>
+            <input name="passwordRetyped" type="password" placeholder="min 6 characters" [formControl]="credentialsForm.controls.passwordGroup['controls'].passwordRetyped">
+            
+            <div class="error" *ngIf="(credentialsForm.controls.passwordGroup['controls'].passwordRetyped.invalid || credentialsForm.controls.passwordGroup.invalid) && (credentialsForm.controls.passwordGroup['controls'].passwordRetyped.touched || credentialsForm.controls.passwordGroup['controls'].passwordRetyped.dirty)">
+                <div *ngIf="credentialsForm.controls.passwordGroup['controls'].passwordRetyped.errors?.required">
+                    Required Nom de Zeus !
+                </div>
+                <div *ngIf="credentialsForm.controls.passwordGroup['controls'].passwordRetyped.errors?.minlength">
+                    Too short. Must be longer than 6 characteres
+                </div>
+                <div *ngIf="credentialsForm.controls.passwordGroup.errors?.compareFields">
+                    Password missmatch !
+                </div>
+            </div>
         </div>
     </div>
 
     <button
-    type="submit"
+        type="submit"
         [disabled]="credentialsForm.invalid">
         Submit
     </button>
 
 </form>
+
 <br>
 <div>
     Form is Valid ? {{ credentialsForm.valid }}
