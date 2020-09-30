@@ -1,0 +1,24 @@
+<h1>Sign In</h1>
+
+<form [formGroup]="loginForm" (ngSubmit) = "onSubmitForm()"  >
+    <div class="form-group form-element form-username">
+        <label for="username">Pseudo</label>
+        <input type="text" name="username" id="username" data-pristine="true" 
+        placeholder="Choisissez un pseudo (obligatoire)" required 
+        class="form-control"  formControlName="username">
+    </div>
+
+    <div class="form-group form-element form-password">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" data-pristine="true" 
+        placeholder="Mot de passe" required 
+        class="form-control"  formControlName="password">
+    </div>
+
+    <div class="form-group">
+        <button type="submit"  
+            class="submit-button"
+            [disabled]="loginForm.invalid"
+        >Envoyer</button>
+    </div>
+</form>

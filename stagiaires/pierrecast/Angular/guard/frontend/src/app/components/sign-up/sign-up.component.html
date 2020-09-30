@@ -1,0 +1,55 @@
+<h1>Sign Up</h1>
+
+<form [formGroup]="userForm" (ngSubmit) = "onSubmitForm()"  >
+    <div class="form-group form-element form-username">
+        <label for="username">Pseudo</label>
+        <input type="text" name="username" id="username" data-pristine="true" 
+        placeholder="Choisissez un pseudo (obligatoire)" required 
+        class="form-control"  formControlName="username">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='userForm.controls.username.pristine || (!userForm.controls.username.errors || !userForm.controls.username.errors.required)'>
+                le pseudo est requis
+            </div>
+           <!-- <div class="errors error-message error-required" 
+            [hidden]='userForm.controls.username.pristine || (!userForm.controls.username.errors || !userForm.controls.username.errors.isUsed)'>
+                Ce pseudo est déja utilisé
+            </div>-->
+        </div>
+    </div>
+
+    <div class="form-group form-element form-password" 
+        formGroupName="passwordGroup">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" 
+            class="form-control"  formControlName="password"
+            data-pristine="true" placeholder="Mot de passe (obligatoire)" required>
+        <label for="repeat">Resaisir le mot de passe</label>
+        <input type="password" name="repeat" id="repeat" 
+            class="form-control"  formControlName="repeat"
+            data-pristine="true" placeholder="Resaisissez Mot de passe (obligatoire)" required>
+        
+        <div class="valide-container">
+            <span class="valide-ok"></span>
+            <span class="valide-ko"></span>
+        </div>
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+                [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.required)'>
+                le mot de passe est requis
+            </div>
+            <div class="errors error-message error-difference " 
+                [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.comparePassword)'>
+                les mots de passe sont différents
+            </div>
+        </div>        
+
+        <div class="submit-container">
+            <button type="submit"  
+                class="submit-button"
+                [disabled]="userForm.invalid"
+            ></button>
+        </div>
+    </div>
+</form>

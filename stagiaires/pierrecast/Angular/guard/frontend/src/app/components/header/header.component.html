@@ -1,10 +1,18 @@
 <nav>
-    <a routerLink=''        >INTRO</a>
-    <a routerLink='/login'  >LOGIN</a>
-    <a routerLink='/admin'  >ADMIN</a>
-
+    <a routerLink=''        >Home</a>
+    <a routerLink='/admin'  >Admin</a>
 
     <div *ngIf="true" >
+        <button 
+            routerLink='/sign-in'
+        >Sign In</button> | 
+        <button 
+            routerLink='/sign-up'
+        >Sign Up</button>
+    </div>
+
+    <div *ngIf="true" >
+        <span>user</span> | 
         <button 
             (click) = 'logout()'
         >LogOut</button>

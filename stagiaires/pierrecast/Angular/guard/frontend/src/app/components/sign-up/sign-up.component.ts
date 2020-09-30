@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { User } from 'src/app/models/userModels/User';
+import { UserService } from 'src/app/services/userServices/user.service';
+
+@Component({
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
+})
+export class SignUpComponent implements OnInit {
+
+  public userForm : FormGroup;
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder
+  ) {
+    this.userForm = this.formBuilder.group({
+      username: ['', [ Validators.required ] ], //[this.loginValidator.validate]
+      passwordGroup: this.formBuilder.group({
+        password: this.formBuilder.control(''),
+        repeat: this.formBuilder.control('')
+      }, {
+        validators : [ Validators.required, comparePassword('password', 'repeat')]
+      }),
+      
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  onSubmitForm() {
+    const formValue = this.userForm.value;
+    
+    this.userService.createUser(formValue['username'],formValue['passwordGroup'].password).subscribe(console.log);
+    console.log('Données du formulaire : ', this.userForm.value);
+  }
+}
+
+export function comparePassword(field1: string, field2: string): ValidatorFn {
+  return (control) => {
+    const field1Control = control.get(field1) as FormControl;
+    const field2Control = control.get(field2) as FormControl;
+       
+    // Is not valid. 
+    if (!field1Control.value || !field2Control.value) {
+      return {
+        'required': {
+            message: 'Le mot de passe est requis'
+        }
+      };
+    }
+
+    if (field1Control.value !== field2Control.value) {
+      return {
+          'comparePassword': {
+              message: 'Les mots de passe sont différents'
+          }
+      };
+    }
+    
+    // Is valid.
+    return null;
+ 
+   };
+ }
