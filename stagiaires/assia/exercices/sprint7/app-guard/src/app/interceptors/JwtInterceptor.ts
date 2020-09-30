@@ -11,18 +11,20 @@ export class JwtInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler): Observable<HttpEvent<any>> {
 
-            console.log('intercepted req', req);
+            // Intercepts All except /auth/sign-in and /auth/sign-up
+           if(!req.url.includes('auth')){
+console.log('intercepted ----------')
+                //retrieve token if any, from sessionStorage
+                let sessionToken = this.authService.currentUsertoken.getValue();
 
-            //retrieve token if any, from sessionStorage
-            let sessionToken = this.authService.currentUsertoken.getValue();
-
-            if(sessionToken){
-                //if so, add authorization header with jwt token 
-                req = req.clone({
-                    setHeaders: {
-                        Authorization: `Bearer ${sessionToken}`
-                    }
-                })
+                if(sessionToken){
+                    //if so, add authorization header with jwt token 
+                    req = req.clone({
+                        setHeaders: {
+                            Authorization: `Bearer ${sessionToken}`
+                        }
+                    })
+                }
             }
 
             return next.handle(req);
