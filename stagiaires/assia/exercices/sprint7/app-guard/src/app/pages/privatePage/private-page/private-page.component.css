@@ -1,0 +1,11 @@
+.error {
+    color: red;
+}
+.loginList{
+    border: solid;
+    height: 200px;
+    overflow: auto;;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+}

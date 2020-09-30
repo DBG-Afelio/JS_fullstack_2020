@@ -16,7 +16,7 @@ export class AuthService {
     public subscriptionUrl = `${this.url}/sign-up`;
     public connexionUrl = `${this.url}/sign-in`;
 
-    public userLogin: BehaviorSubject<string> = new BehaviorSubject(this._findSessionUser()) ;
+    public currentUsertoken: BehaviorSubject<string> = new BehaviorSubject(this._findSessionUser()) ;
     
     constructor(
         private _http: HttpClient,
@@ -29,8 +29,17 @@ export class AuthService {
                 map((createdUser: UserDto) => User.fromDto(createdUser))
             );
     }
-// (request.headers.get('Authorization') === `Basic ${window.btoa('test:test')}`
     
+    public connectUser(credentials: Credentials): Observable<any> {
+        return this._http.get<UserDto>(this.connexionUrl, {
+            headers: { authorization : `Basic ${window.btoa(`${credentials.login}:${credentials.password}`)}` } 
+        }).pipe(
+            tap((tokenObj) => this._saveSessionUser(tokenObj.access_token))
+        )
+    }
+
+    /* before use of token
+
     public connectUser(credentials: Credentials): Observable<User> {
         return this._http.get<UserDto>(this.connexionUrl, {
             headers: { authorization : `Basic ${window.btoa(`${credentials.login}:${credentials.password}`)}` } 
@@ -40,16 +49,18 @@ export class AuthService {
         )
     }
 
+    */
+
 
     /***************************************************** session storage */
-    private _saveSessionUser(login: string): void {
-        this.userLogin.next(login);
-        sessionStorage.setItem('current_user',login);
-        console.log('user saved in session stotage ', login);
+    private _saveSessionUser(token: string): void {
+        this.currentUsertoken.next(token);
+        sessionStorage.setItem('current_user',token);
+        console.log('user saved in session stotage ', token);
     }
 
     public removeSessionUser(): void {
-        this.userLogin.next(null);
+        this.currentUsertoken.next(null);
         sessionStorage.clear();
         console.log('session cleared');
     }

@@ -1,13 +1,35 @@
-<p *ngIf="currentUser?.firstName">Page privee - Bonjour {{ currentUser.firstName }}</p>
-<p *ngIf="!currentUser?.firstName">Page privee - Bonjour {{ currentUser.login }}</p>
+<p> Page privee - Bonjour </p>
 
-<button
+<button mat-raised-button
+    color="warn"
     (click)="logout()"
     routerLink="">
-    Se deconnecter
+    Sign out    
 </button>
 
-<button
+<button mat-raised-button
+    color="primary"
     routerLink="">
-    Accueil
+    Home
 </button>
+
+<button 
+    mat-raised-button
+    color="link"
+    (click)="getAllLogin()">
+    Show all users login
+</button>
+
+<div class="loginList" *ngIf="isOkToShow">
+    <mat-list *ngFor="let item of list">
+        <mat-list-item> {{ item }} </mat-list-item>
+    </mat-list>
+    <div *ngIf="list.length === 0">
+        The DB is empty, no user registered
+    </div>
+</div>
+<div class="error" *ngIf="!isOkToShow">
+    {{ error_message }}
+</div>
+
+

@@ -1,37 +1,38 @@
 <p>Connection Form</p>
 
+<button mat-raised-button
+    color="primary"
+    routerLink="">
+    Home
+</button>
+
 <form [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
-
+    
     <!-- LOGIN -->
-    <div>
-        <label for="login">
-            Login :
-        </label>
-        <input type="text" name="login" formControlName="login">
-
-        <div *ngIf="credentialsForm.controls.login.errors?.required && (credentialsForm.controls.login.dirty || credentialsForm.controls.login.touched)" class="error">
-            Required Nom de Zeus !
-        </div>
-    </div>
+    <mat-form-field>
+        <mat-label for="login"> Login </mat-label>
+        <input matInput type="text" name="login" formControlName="login">
+        <mat-error *ngIf="credentialsForm.controls.login.errors?.required && (credentialsForm.controls.login.dirty || credentialsForm.controls.login.touched)" class="error">
+            Login is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
     <!-- PASSWORD -->
-    <div>
-        <label for="password">
-        Password : 
-        </label>
-        <input name="password" type="password" formControlName="password">
-          
-        <div class="error" *ngIf="credentialsForm.controls.password.errors?.required && (credentialsForm.controls.password.touched || credentialsForm.controls.password.dirty)">
-            Required là aussi, Nom de Zeus !
-        </div>
-    </div>
+    <mat-form-field>
+        <mat-label for="password"> Password </mat-label>
+        <input matInput name="password" type="password" formControlName="password">
+        <mat-error class="error" *ngIf="credentialsForm.controls.password.errors?.required && (credentialsForm.controls.password.touched || credentialsForm.controls.password.dirty)">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-    <div class="message" *ngIf="areCredentialsWrong">
-        Wrong credentials ! Essaye encore
-    </div>
+    <!-- <div class="message" *ngIf="areCredentialsWrong">
+        Wrong credentials ! 
+    </div> -->
 
-    <button
-        type="submit"
+    <button mat-raised-button
+        type="submit" 
+        color="primary"
         [disabled]="credentialsForm.invalid">
         Submit
     </button>

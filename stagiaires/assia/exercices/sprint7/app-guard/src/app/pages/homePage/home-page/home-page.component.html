@@ -1,26 +1,44 @@
 <p>Home</p>
 
-<div *ngIf="!currentUserLogin">
-    <button 
-        routerLink="/sign-up">
-        SOUSCRIPTION
-    </button>
-    <button
-        routerLink="/sign-in">
-        CONNECTION
-    </button>
+<div *ngIf="!currentUsertoken">
+    
+    <!-- <mat-form-field> -->
+        <button mat-raised-button
+            color="primary"
+            routerLink="/sign-up">
+            Subscribe        
+        </button>
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field> -->
+        <button mat-raised-button
+            color="primary"
+            routerLink="/sign-in">
+            Sign-in
+        </button>
+    <!-- </mat-form-field> -->
+    
 </div>
     
-<div *ngIf="currentUserLogin">
-    <div>
-        <a routerLink="/private">Ma page perso</a>
-    </div>
-    <button
-        (click)="logout()">
-        DECONNECTION
-    </button>
-
+<div *ngIf="currentUsertoken">
+  <!-- <mat-form-field> -->
+        <button mat-raised-button
+            color="primary"
+            routerLink="/private">
+            My Page
+        </button>
+    <!-- </mat-form-field> -->
+    
+    <!-- <mat-form-field> -->
+        <button mat-raised-button
+            color="warn"
+            (click)="logout()">
+            Sign-out
+        </button>
+    <!-- </mat-form-field> -->
 </div>
+
+
 
 
 

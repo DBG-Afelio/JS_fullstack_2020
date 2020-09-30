@@ -9,13 +9,13 @@ import { AuthService } from '../services/auth.service';
 export class LoggedInOnlyGuard implements CanActivate {
 
 
-    public currentUserLogin: string = '';
+    public currentUsertoken: string = '';
 
     constructor(
-        private loginService: AuthService,
+        private authService: AuthService,
         private router: Router,
     ){
-        this.loginService.userLogin.subscribe((value)=> this.currentUserLogin = value);
+        this.authService.currentUsertoken.subscribe((value)=> this.currentUsertoken = value);
     }
 
   canActivate(
@@ -23,7 +23,8 @@ export class LoggedInOnlyGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         
         let isLoggedIn = true;
-        if(!this.currentUserLogin) {
+        
+        if(!this.currentUsertoken) {
             window.alert('Vous n\'avez pas les droits pour visualiser cette page');
             this.router.navigate(['']);
             isLoggedIn = false;

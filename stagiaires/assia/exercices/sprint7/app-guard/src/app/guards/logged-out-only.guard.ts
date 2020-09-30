@@ -7,19 +7,19 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class LoggedOutOnlyGuard implements CanActivate {
-    public currentUserLogin: string = '';
+    public currentUsertoken: string = '';
     constructor(
-        private loginService: AuthService,
+        private authService: AuthService,
         private router: Router,
     ){
-        this.loginService.userLogin.subscribe((value)=> this.currentUserLogin = value);
+        this.authService.currentUsertoken.subscribe((value)=> this.currentUsertoken = value);
     }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         let isLoggedOut = true;
-        if(this.currentUserLogin) {
+        if(this.currentUsertoken) {
             this.router.navigate(['/private']);
             isLoggedOut = false;
         }

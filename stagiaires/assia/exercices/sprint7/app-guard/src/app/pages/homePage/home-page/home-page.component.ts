@@ -9,14 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomePageComponent implements OnInit {
 
-    public currentUserLogin: string = '';
+    public currentUsertoken: string = '';
     constructor(
-      private loginService: AuthService,
+      private authService: AuthService,
       private router: Router,
   ) { 
-      this.loginService.userLogin.subscribe((value) => {
-          this.currentUserLogin = value;
-          console.log('current user login : ', this.currentUserLogin)
+      this.authService.currentUsertoken.subscribe((value) => {
+          this.currentUsertoken = value;
+          console.log('current user login : ', this.currentUsertoken)
         });
   }
 
@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit {
   }
 
     public logout(): void {
-        this.loginService.removeSessionUser();        
+        this.authService.removeSessionUser();        
     }
 
 

@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { compareFields } from 'src/app/custom-validators/compareFields';
 import { Credentials } from 'src/app/models/Credentials/Credentials.model';
@@ -19,6 +20,7 @@ export class SignUpFormComponent implements OnInit {
         private _formBuilder: FormBuilder,
         private authService: AuthService,
         public router: Router,
+        private _snackBar: MatSnackBar,
     ) { 
         this.credentialsForm = _formBuilder.group({
             login: _formBuilder.control('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
@@ -42,15 +44,23 @@ export class SignUpFormComponent implements OnInit {
             )
             this.authService.registerNewUser(cred).subscribe(
                 () => {
-                    window.alert('Subscription succeeded !')
+                    this.openSnackBar(
+                        'Subscription succeeded !');
                     this.router.navigate(['']);
                 },
                 (error: HttpErrorResponse) => {
                     console.log('erreur subscription', error.message);
                     // gerer l'erreur vis a vis de l'interface 
+                    // ==> via ErrorInterceptor
                 }
             );
         }
+    }
+
+    public openSnackBar(message: string, action?: string) {
+        this._snackBar.open(message, action, {
+            duration: 3000,
+        });
     }
 
 }
