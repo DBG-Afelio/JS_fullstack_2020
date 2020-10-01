@@ -1,4 +1,9 @@
-<p>admin works!</p>
-
+<h1>Admin!</h1>
 
 <p> Cette page n'est accessible qu'aux administrateurs ! </p>
+
+<div *ngIf="users">
+    <div *ngFor="let user of users">
+        {{ user.username }}
+    </div>
+</div>

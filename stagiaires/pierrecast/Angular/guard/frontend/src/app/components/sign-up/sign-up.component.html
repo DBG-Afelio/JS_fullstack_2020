@@ -12,10 +12,6 @@
             [hidden]='userForm.controls.username.pristine || (!userForm.controls.username.errors || !userForm.controls.username.errors.required)'>
                 le pseudo est requis
             </div>
-           <!-- <div class="errors error-message error-required" 
-            [hidden]='userForm.controls.username.pristine || (!userForm.controls.username.errors || !userForm.controls.username.errors.isUsed)'>
-                Ce pseudo est déja utilisé
-            </div>-->
         </div>
     </div>
 
@@ -49,7 +45,7 @@
             <button type="submit"  
                 class="submit-button"
                 [disabled]="userForm.invalid"
-            ></button>
+            >Envoyer</button>
         </div>
     </div>
 </form>

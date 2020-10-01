@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/userModels/User';
 import { UserService } from 'src/app/services/userServices/user.service';
 
@@ -13,7 +14,8 @@ export class SignUpComponent implements OnInit {
   public userForm : FormGroup;
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder, 
+    private router: Router
   ) {
     this.userForm = this.formBuilder.group({
       username: ['', [ Validators.required ] ], //[this.loginValidator.validate]
@@ -33,8 +35,16 @@ export class SignUpComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.userForm.value;
     
-    this.userService.createUser(formValue['username'],formValue['passwordGroup'].password).subscribe(console.log);
+    this.userService.createUser(formValue['username'],formValue['passwordGroup'].password).subscribe(
+      (res) => { 
+        this.router.navigateByUrl('/');
+      }, 
+      (error) => {
+        //  renvoyer une erreur ??
+      });
+      
     console.log('Données du formulaire : ', this.userForm.value);
+    
   }
 }
 

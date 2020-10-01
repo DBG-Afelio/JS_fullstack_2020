@@ -2,7 +2,7 @@
     <a routerLink=''        >Home</a>
     <a routerLink='/admin'  >Admin</a>
 
-    <div *ngIf="true" >
+    <div *ngIf="!logged" >
         <button 
             routerLink='/sign-in'
         >Sign In</button> | 
@@ -11,12 +11,13 @@
         >Sign Up</button>
     </div>
 
-    <div *ngIf="true" >
-        <span>user</span> | 
+    <div *ngIf="logged" >
         <button 
             (click) = 'logout()'
         >LogOut</button>
     </div>
+
+    <div> {{ logged }} </div>
 </nav>
 
 
