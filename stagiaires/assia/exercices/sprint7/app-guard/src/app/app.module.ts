@@ -38,19 +38,19 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     MatListModule,
   ],
   providers: [
-      {
-          provide: HTTP_INTERCEPTORS,
-          useClass: JwtInterceptor, 
-          multi: true
-      },
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ErrorInterceptor, 
-        multi: true
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor, 
+      multi: true
     },
     {
-        provide: ErrorStateMatcher, 
-        useClass: ShowOnDirtyErrorStateMatcher
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor, 
+      multi: true
+    },
+    {
+      provide: ErrorStateMatcher, 
+      useClass: ShowOnDirtyErrorStateMatcher
     }
   ],
   bootstrap: [AppComponent]
