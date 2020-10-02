@@ -19,10 +19,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button'; 
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 @NgModule({
-    exports: [
-  //      ,
-
-    ],
   declarations: [
     AppComponent,
     HomePageComponent,

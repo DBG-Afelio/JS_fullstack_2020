@@ -1,0 +1,35 @@
+import { Transform } from "class-transformer";
+import { IsDateString, IsEnum, IsOptional, IsString } from "class-validator";
+import { StatusEnum } from "src/enum/status.enum";
+import { TagsEntity } from "src/modules/tag/entities/tags.entity";
+
+export class UpdateArticleDto {
+
+    @IsOptional()
+    @IsString()
+    title: string;
+
+    @IsOptional()
+    @IsString()
+    content: string;
+
+    @IsOptional()
+    @IsDateString()
+    publiDate: Date;
+
+    @IsOptional()
+    @IsEnum(StatusEnum)
+    status: StatusEnum;
+
+    @IsOptional()
+    @IsString()
+    imageUrl?: string;
+
+    @IsOptional()
+    @Transform(
+        tagIds => tagIds.map((id: number) => ({ id }))
+    )
+    tags?: Partial<TagsEntity>[];
+}
+
+
