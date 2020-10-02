@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/userModels/User';
 import { UserService } from 'src/app/services/userServices/user.service';
 
 @Component({
@@ -18,7 +17,8 @@ export class SignUpComponent implements OnInit {
     private router: Router
   ) {
     this.userForm = this.formBuilder.group({
-      username: ['', [ Validators.required ] ], //[this.loginValidator.validate]
+      username: ['', [ Validators.required ]], //[this.loginValidator.validate]
+      email: ['', [ Validators.required, Validators.email ]],
       passwordGroup: this.formBuilder.group({
         password: this.formBuilder.control(''),
         repeat: this.formBuilder.control('')

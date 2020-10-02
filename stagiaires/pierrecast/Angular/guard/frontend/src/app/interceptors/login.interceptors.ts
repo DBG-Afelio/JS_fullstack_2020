@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpParams, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
@@ -12,18 +12,19 @@ export class LoginInterceptor implements HttpInterceptor {
         
         if (token) {
             const cloneReq = req.clone({
-                setHeaders : { Authorization: 'Bearer ' +token}
+                setHeaders : { Authorization: 'Bearer ' + token}
             });
           
             return next.handle(cloneReq).pipe(
-               catchError((error: HttpErrorResponse) => {
+                catchError((error: HttpErrorResponse) => {
                     if (error.status === 401) {
                         this.router.navigateByUrl('/sign-in')
                     } else {
                         return throwError(error);
                     }
-               })
+                })
             );
+
         } else {
             return next.handle(req);
         }

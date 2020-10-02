@@ -1,0 +1,12 @@
+<p>articles-admin works!</p>
+
+<div *ngIf='listArticles'>
+    <div *ngFor='let article of listArticles'>
+        {{ article.title }} 
+        <a routerLink="/admin/article/{{article.id}}">Modifier</a>
+    </div>
+</div>
+
+<div *ngIf='!listArticles'>
+    Aucun article
+</div>

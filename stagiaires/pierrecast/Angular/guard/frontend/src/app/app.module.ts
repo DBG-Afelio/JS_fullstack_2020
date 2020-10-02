@@ -12,6 +12,12 @@ import { LoginInterceptorProvider } from './interceptors/login.interceptors';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { ArticlesAdminComponent } from './pages/articles-admin/articles-admin.component';
+import { ArticleAdminComponent } from './pages/article-admin/article-admin.component';
+import { AuthorsAdminComponent } from './pages/authors-admin/authors-admin.component';
+import { AuthorAdminComponent } from './pages/author-admin/author-admin.component';
+import { UsersAdminComponent } from './pages/users-admin/users-admin.component';
+import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     AdminComponent,
     HeaderComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    ArticlesAdminComponent,
+    ArticleAdminComponent,
+    AuthorsAdminComponent,
+    AuthorAdminComponent,
+    UsersAdminComponent,
+    UserAdminComponent
   ],
   imports: [
     BrowserModule,

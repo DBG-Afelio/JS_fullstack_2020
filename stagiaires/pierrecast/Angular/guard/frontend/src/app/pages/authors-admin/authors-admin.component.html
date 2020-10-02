@@ -1,0 +1,11 @@
+<p>authors-admin works!</p>
+
+<div *ngIf='listAuthors'>
+    <div *ngFor='let author of listAuthors'>
+       {{ author.id }} / {{ author.firstname }} {{ author.lastname }}
+    </div>
+</div>
+
+<div *ngIf='!listAuthors'>
+    Aucun auteur
+</div>

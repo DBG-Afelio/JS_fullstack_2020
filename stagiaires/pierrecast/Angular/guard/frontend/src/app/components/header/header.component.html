@@ -2,6 +2,13 @@
     <a routerLink=''        >Home</a>
     <a routerLink='/admin'  >Admin</a>
 
+
+    <a routerLink='/admin/users'  >USERS</a>
+
+    <a routerLink='/admin/authors'  >AUTHORS</a>
+
+    <a routerLink='/admin/articles'  >ARTICLES</a>
+
     <div *ngIf="!logged" >
         <button 
             routerLink='/sign-in'
@@ -17,7 +24,4 @@
         >LogOut</button>
     </div>
 
-    <div> {{ logged }} </div>
 </nav>
-
-

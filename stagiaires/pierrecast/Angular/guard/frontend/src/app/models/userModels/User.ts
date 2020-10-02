@@ -4,15 +4,14 @@ export class User {
   constructor(
     public id: number,
     public username: string,
-    //public password,
-  ) {
-  }
+    public email: string,
+  ) { }
 
   public toDto(): UserDto {
       return  {
           id: this.id,
           username: this.username,
-          //password: this.password,
+          email: this.email,
       }
   }
 
@@ -20,7 +19,7 @@ export class User {
     return new User(
         userDto.id, 
         userDto.username,
-        //userDto.password
+        userDto.email,
     );
   }
 }
