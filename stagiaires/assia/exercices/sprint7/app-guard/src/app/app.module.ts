@@ -9,7 +9,6 @@ import { PrivatePageComponent } from './pages/privatePage/private-page/private-p
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignInFormComponent } from './components/sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
-import { MyHttpInterceptor } from './interceptors/my-http-interceptor';
 import { JwtInterceptor} from './interceptors/JwtInterceptor';
 import { ErrorInterceptor } from './interceptors/ErrorInterceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
