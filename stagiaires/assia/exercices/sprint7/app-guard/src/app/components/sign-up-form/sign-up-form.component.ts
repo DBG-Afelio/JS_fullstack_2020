@@ -44,14 +44,11 @@ export class SignUpFormComponent implements OnInit {
             )
             this.authService.registerNewUser(cred).subscribe(
                 () => {
-                    this.openSnackBar(
-                        'Subscription succeeded !');
                     this.router.navigate(['']);
                 },
                 (error: HttpErrorResponse) => {
                     console.log('erreur subscription', error.message);
-                    // gerer l'erreur vis a vis de l'interface 
-                    // ==> via ErrorInterceptor
+                    // handled by errorInterceptor
                 }
             );
         }

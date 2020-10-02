@@ -9,18 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomePageComponent implements OnInit {
 
-    public currentUsertoken: string = '';
+    public currentUsertoken: string = this.authService.currentUsertoken.getValue();
     constructor(
       private authService: AuthService,
       private router: Router,
-  ) { 
-      this.authService.currentUsertoken.subscribe((value) => {
-          this.currentUsertoken = value;
-          console.log('current user login : ', this.currentUsertoken)
-        });
-  }
+  ) {}
 
   ngOnInit(): void {
+    console.log('current user token : ', this.currentUsertoken);
   }
 
     public logout(): void {

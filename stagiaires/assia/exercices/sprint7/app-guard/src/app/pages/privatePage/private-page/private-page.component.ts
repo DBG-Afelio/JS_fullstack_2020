@@ -11,16 +11,14 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class PrivatePageComponent implements OnInit {
 
-    public currentUsertoken: string = '';
+   // public currentUsertoken: string = this.authService.currentUsertoken.getValue();
     public isOkToShow: boolean = false;
     public error_message: string;
     public list: string[]=[];
     constructor(
       private authService: AuthService,
       private userService: UsersService,
-  ) { 
-      this.authService.currentUsertoken.subscribe((value) => this.currentUsertoken = value)
-  }
+  ) {}
 
   ngOnInit(): void {
   }

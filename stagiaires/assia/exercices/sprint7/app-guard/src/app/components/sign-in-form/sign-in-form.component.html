@@ -26,16 +26,14 @@
         </mat-error>
     </mat-form-field>
 
-    <!-- <div class="message" *ngIf="areCredentialsWrong">
-        Wrong credentials ! 
-    </div> -->
-
-    <button mat-raised-button
-        type="submit" 
-        color="primary"
-        [disabled]="credentialsForm.invalid">
-        Submit
-    </button>
+    <div>
+        <button mat-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="credentialsForm.invalid">
+            Submit
+        </button>
+    </div>
 
 </form>
 

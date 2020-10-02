@@ -6,8 +6,21 @@ html, body {
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: lightgray; 
+    /* background-color: lightgray;  */
+    background-color: gray; 
 }
-*{
+/* *{
     color: black;
+} */
+
+mat-form-field {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+button {
+    margin: 15px 15px;
+}
+
+/* mat-hint {
+    color: ;
+} */

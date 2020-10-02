@@ -13,7 +13,6 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SignInFormComponent implements OnInit {
     public credentialsForm: FormGroup;
-    public areCredentialsWrong: boolean = false;
 
 
     constructor(
@@ -46,20 +45,13 @@ export class SignInFormComponent implements OnInit {
             );
             
             this.authService.connectUser(cred).subscribe(
-                (res) => {
-                    this.areCredentialsWrong = false;
+                () => {
                     this.router.navigate(['/private']);
-                    this.openSnackBar(
-                        'Connection succeeded !');
                 },
                 (error: HttpErrorResponse) => {
-                    this.areCredentialsWrong = true ;
                     console.log('erreur connection : ', error);
-                    this.openSnackBar('Login and/or Password incorrect')
-                    // if(error.status === 401) {
-                    //     this.openSnackBar(
-                    //         'Login and/or Password incorrect');
-                    // }
+                    // handled by errorInterceptor
+
                 },
                 
             );

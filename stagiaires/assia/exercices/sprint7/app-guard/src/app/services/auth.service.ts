@@ -31,25 +31,14 @@ export class AuthService {
     }
     
     public connectUser(credentials: Credentials): Observable<any> {
-        return this._http.get<UserDto>(this.connexionUrl, {
+        return this._http.get<CreateCredentialsDto>(this.connexionUrl, {
             headers: { authorization : `Basic ${window.btoa(`${credentials.login}:${credentials.password}`)}` } 
         }).pipe(
-            tap((tokenObj) => this._saveSessionUser(tokenObj.access_token))
-        )
+            tap((customBody) => {
+                this._saveSessionUser(customBody.body.access_token)})
+        );
     }
 
-    /* before use of token
-
-    public connectUser(credentials: Credentials): Observable<User> {
-        return this._http.get<UserDto>(this.connexionUrl, {
-            headers: { authorization : `Basic ${window.btoa(`${credentials.login}:${credentials.password}`)}` } 
-        }).pipe(
-            map((userDto: UserDto) => User.fromDto(userDto)),
-            tap((newUser: User) => this._saveSessionUser(newUser.login))
-        )
-    }
-
-    */
 
 
     /***************************************************** session storage */

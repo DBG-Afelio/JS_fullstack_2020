@@ -13,7 +13,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
             // Intercepts All except /auth/sign-in and /auth/sign-up
            if(!req.url.includes('auth')){
-console.log('intercepted ----------')
+            console.log('intercepted ----------')
                 //retrieve token if any, from sessionStorage
                 let sessionToken = this.authService.currentUsertoken.getValue();
 

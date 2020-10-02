@@ -30,7 +30,7 @@
     <!-- PASSWORD GROUP -->
     <mat-form-field>
         <mat-label for="password"> Password </mat-label>
-        <input matInput name="password" type="password" placeholder="min 6 characters" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
+        <input matInput name="password" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
         <mat-hint>Must be at least 6 characters long</mat-hint>
 
         <mat-error class="error" *ngIf="credentialsForm.controls.passwordGroup['controls'].password.invalid && (credentialsForm.controls.passwordGroup['controls'].password.touched || credentialsForm.controls.passwordGroup['controls'].password.dirty)">
@@ -61,12 +61,14 @@
         </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button
-        type="submit"
-        color="primary"
-        [disabled]="credentialsForm.invalid">
-        Submit
-    </button>
+    <div>
+        <button mat-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="credentialsForm.invalid">
+            Submit
+        </button>
+    </div>
 
 </form>
 
