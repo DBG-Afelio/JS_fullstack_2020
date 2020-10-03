@@ -1,3 +1,16 @@
-<h1>Homepage</h1>
 
-<p> Cette page est accessible pour tout le monde ! </p>
+
+<div *ngIf='listArticles' class="listArticles" [style.height]="this.height+'px'">
+    <a class="article" *ngFor="let article of listArticles" routerLink='/myArticle/{{ article.id }}'>
+        <div class="header-title">
+            <div class="header"></div>
+            <div class="title">{{ article.title }}</div>
+        </div>
+        <div class="content">{{ article.content }}</div>
+        <div class="date-author">{{ article.authorId }} - {{ article.date }}</div>
+    </a>
+</div>
+{{ this.height }}
+<div *ngIf='!listArticles'>
+    Aucun article
+</div>

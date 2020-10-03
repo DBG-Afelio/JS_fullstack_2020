@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/models/articleModels/Article';
+import { ArticleService } from 'src/app/services/articleServices/article.service';
 
 @Component({
   selector: 'app-intro',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroComponent implements OnInit {
 
-  constructor() { }
+  
+  public listArticles: Article[];
+  public height: number;
+
+  constructor(
+    private articleService: ArticleService
+  ) { 
+    this.articleService.getList().subscribe(list => {
+      this.listArticles = list;
+      this.height = Math.ceil(this.listArticles.length/3)*750;
+      console.log(this.listArticles);
+    });
+  }
 
   ngOnInit(): void {
   }

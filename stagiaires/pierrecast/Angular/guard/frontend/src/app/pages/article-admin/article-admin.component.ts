@@ -25,50 +25,41 @@ export class ArticleAdminComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     public router: Router
   ) {
-    /*this.activatedRoute.paramMap.subscribe(params => {
-      let id = Number(params.get('id'));
-      if (id && id !== 0) {
-        this.articleService.getArticleById(id).subscribe(article => {
-          this.article = article;
-          console.log('Article',this.article);
-        })
-      }
-    });*/
     this.articleForm = this.formBuilder.group({
       title : this.formBuilder.control('', [ Validators.required ]),
-      /*content : this.formBuilder.control(this.article?.content, [ Validators.required ]),
+      content : this.formBuilder.control(this.article?.content, [ Validators.required ]),
       date : this.formBuilder.control(this.article?.title, [ Validators.required ]),
       published : this.formBuilder.control(this.article?.published, [ Validators.required ]),
       complete : this.formBuilder.control(this.article?.complete, [ Validators.required ]),
-      author : this.formBuilder.control(this.article?.author, [ Validators.required ]),*/
+      author : this.formBuilder.control(this.article?.author, [ Validators.required ]),
     });
+    this.activatedRoute.paramMap.subscribe(params => {
+      let id = Number(params.get('id'));
+      this.initForm(id);
+    });
+
   }
 
   ngOnInit() {
-    this.initForm(this.article? this.article.id : 0);
+    
   }
 
   private initForm(articleId: number) {
-    forkJoin([this.getAllAuthors(), this.articleService.getArticleById(articleId)]).subscribe(
-      (response: [void, Article]) => {
+    forkJoin([this.authorService.getList(), this.articleService.getArticleById(articleId)]).subscribe(
+      ([listAuthors, article]: [Author[], Article]) => {
+        this.listAuthors =  listAuthors;
+
         console.log('init', this.listAuthors)
-        this.articleForm.get('title').setValue(response[1].title);
-       /* this.articleForm.get('content').setValue(response[1].content);
-        this.articleForm.get('auhors').setValue(
-          this.listAuthors.map(
-            (profession) => {
-              return !!response[1].skills.find(skill => skill.id === profession.id)
-            }
-          )
-        );*/
-      });
+        this.articleForm.get('title').setValue(article.title);
+        this.articleForm.get('content').setValue(article.content);
+        this.articleForm.get('date').setValue(article.date); 
+        this.articleForm.get('complete').setValue(article.complete); 
+        this.articleForm.get('published').setValue(article.published);
+        this.articleForm.get('author').setValue(article.author);
+    }); 
   }
 
-  public getAllAuthors() {
-    return this.authorService.getList().subscribe(list => {
-      this.listAuthors = list;
-    });
-  }
+ 
 
   public getArticle(articleId: number) {
     return this.articleService.getArticleById(articleId).subscribe(article => {
@@ -91,14 +82,16 @@ export class ArticleAdminComponent implements OnInit {
     console.log('Données du formulaire : ', this.articleForm.value);
 
     if (newArticle.id === 0) {
-      this.articleService.createArticle(newArticle);
-      alert('Article ajouté');
+      this.articleService.createArticle(newArticle).subscribe(() => {
+        alert('Article ajouté');
+      });
+     
     } else {
-      this.articleService.updateArticle(newArticle);
-      alert('Article modifié');
+      this.articleService.updateArticle(newArticle).subscribe(() => {
+        alert('Article modifié');
+      });
     }
 
     this.router.navigateByUrl('/admin/articles');
   }
-
 }

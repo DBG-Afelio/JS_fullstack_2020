@@ -1,25 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Article } from 'src/app/models/articleModels/Article';
-import { ArticleService } from 'src/app/services/articleServices/article.service';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
+import { ArticlesAdminDataSource, ArticlesAdminItem } from './articles-admin-datasource';
 
 @Component({
   selector: 'app-articles-admin',
   templateUrl: './articles-admin.component.html',
   styleUrls: ['./articles-admin.component.css']
 })
-export class ArticlesAdminComponent implements OnInit {
+export class ArticlesAdminComponent implements AfterViewInit, OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatTable) table: MatTable<ArticlesAdminItem>;
+  dataSource: ArticlesAdminDataSource;
 
-  public listArticles: Article[];
+  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  displayedColumns = ['id', 'title', 'date', 'author'];
 
-  constructor(
-    private articleService: ArticleService
-  ) { 
-    this.articleService.getList().subscribe(list => {
-      this.listArticles = list;
-    })
+  ngOnInit() {
+    this.dataSource = new ArticlesAdminDataSource();
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
   }
-
 }
+
+
+/* constructor(private articleService: ArticleService) {
+    super();
+
+    this.articleService.getList().subscribe(list => {
+      this.listArticles = list
+    });
+  } */

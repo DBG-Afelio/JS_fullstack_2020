@@ -18,6 +18,10 @@ import { AuthorsAdminComponent } from './pages/authors-admin/authors-admin.compo
 import { AuthorAdminComponent } from './pages/author-admin/author-admin.component';
 import { UsersAdminComponent } from './pages/users-admin/users-admin.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -32,14 +36,18 @@ import { UserAdminComponent } from './pages/user-admin/user-admin.component';
     AuthorsAdminComponent,
     AuthorAdminComponent,
     UsersAdminComponent,
-    UserAdminComponent
+    UserAdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [LoginGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
