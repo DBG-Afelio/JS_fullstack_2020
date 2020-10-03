@@ -1,25 +1,39 @@
-import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Patch, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Patch, Post, Query, Req, UseGuards } from '@nestjs/common';
 import { RolesEnum } from 'src/enum/roles.enum';
 import { Roles } from 'src/guards/roles.decorator';
 import { RolesGuard } from 'src/guards/roles.guard';
 import { JwtAuthGuard } from 'src/passport/jwt-auth.guard';
 import { ArticleService } from './article.service';
 import { CreateArticleDto } from './dto/create-article-dto';
+import { GetArticleFiltersDto } from './dto/get-article-filters-dto';
 import { UpdateArticleDto } from './dto/update-article-dto';
 import { ArticleEntity } from './entities/article.entity';
 
-@UseGuards(JwtAuthGuard, RolesGuard)
+ @UseGuards(JwtAuthGuard) //, RolesGuard
 @Controller('articles')
 export class ArticleController {
     constructor(
       private readonly articleService: ArticleService,
     ) {}
   
-  //   @Roles()
+  //   @Roles('')
       @Get()
       getArticleList(
+        @Query() myFilters: GetArticleFiltersDto
       ): Promise<ArticleEntity[]> {
+        console.log('getall ');
+
+        if(Object.keys(myFilters).length) {
+
+          console.log('with filters: ', myFilters);
+          return this.articleService.getFiltered(myFilters);
+
+        } else {
+
+          console.log(' with no filters ');
           return this.articleService.getAll();
+
+        }
       }
   
   //   @Roles()
@@ -30,11 +44,11 @@ export class ArticleController {
           return this.articleService.getOne(id);
       }
 
-   //   @Roles()
-   @Get('published')
-   getPublishedList(): Promise<ArticleEntity[]> {
-       return this.articleService.getPublishedList();
-   }     
+  //  //   @Roles()
+  //  @Get('published')
+  //  getPublishedList(): Promise<ArticleEntity[]> {
+  //      return this.articleService.getPublishedList();
+  //  }     
   
       @Post()
       createArticle(

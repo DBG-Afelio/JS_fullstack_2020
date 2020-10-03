@@ -8,7 +8,7 @@ import { UsersEntity } from './entities/users.entity';
 import { UserService } from './user.service';
 
 @UseInterceptors(ClassSerializerInterceptor)
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard) //JwtAuthGuard
 @Controller('users')
 export class UserController {
   constructor(
@@ -18,9 +18,10 @@ export class UserController {
     @Roles(RolesEnum.MASTER)
     @Get()
     getUserList(
-        @Req() req
+      @Req() req
     ): Promise<UsersEntity[]> {
-        return this.userService.getAll();
+      console.log('req.user from controller : ', req.user);  
+      return this.userService.getAll();
     }
 
    @Roles(RolesEnum.MASTER)

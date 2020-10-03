@@ -18,7 +18,7 @@ export class ArticleEntity {
 
     @ManyToOne(
         type => UsersEntity,
-        (user) => user.articles,
+        (user) => user.articlesAsAuthor,
         {
           nullable: false,
           cascade: ['insert', 'update'],

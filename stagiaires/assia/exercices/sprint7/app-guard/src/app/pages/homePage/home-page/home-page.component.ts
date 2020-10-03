@@ -20,7 +20,8 @@ export class HomePageComponent implements OnInit {
   }
 
     public logout(): void {
-        this.authService.removeSessionUser();        
+        this.authService.removeSessionUser();    
+        location.reload();    
     }
 
 

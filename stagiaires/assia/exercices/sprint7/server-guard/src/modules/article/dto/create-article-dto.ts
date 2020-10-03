@@ -15,8 +15,10 @@ export class CreateArticleDto {
     content: string;
 
     @IsNotEmpty()
-    @IsString()
-    author: UsersEntity;
+    @Transform(
+      authorId => ({ id: authorId })
+    )
+    author: Partial<UsersEntity>;
 
     @IsNotEmpty()
     @IsEnum(StatusEnum)

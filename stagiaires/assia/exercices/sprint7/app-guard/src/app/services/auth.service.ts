@@ -5,7 +5,7 @@ import { CreateCredentialsDto } from '../models/Credentials/CreateCredentialsDto
 import { Credentials } from '../models/Credentials/Credentials.model';
 import { User } from '../models/User/User.model';
 import { map, catchError, tap } from 'rxjs/operators'
-import { UserDto } from '../models/User/UserDto';
+import { GetUserDto } from '../models/User/GetUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +23,9 @@ export class AuthService {
     ) { }
 
     public registerNewUser(credentials: Credentials): Observable<User> {
-        console.log('avant post : ', credentials);
         return this._http.post<CreateCredentialsDto>(this.subscriptionUrl, credentials.toDto())
             .pipe(
-                map((createdUser: UserDto) => User.fromDto(createdUser))
+                map((createdUser: GetUserDto) => User.fromDto(createdUser))
             );
     }
     

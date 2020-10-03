@@ -14,6 +14,7 @@ export class PassportBasicStrategy extends PassportStrategy(BasicStrategy) {
     }
 
     async validate(login: string, password: string): Promise<UsersEntity> {
+      console.log('validate passep basic auth');
         const user = await this.authService.checkUser(login, password);
         return user;
     }

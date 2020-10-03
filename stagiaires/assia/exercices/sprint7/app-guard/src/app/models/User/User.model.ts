@@ -1,4 +1,8 @@
-import { UserDto } from './UserDto';
+import { RolesEnum } from 'src/app/enum/roles.enum';
+import { Article } from '../Article/Article.model';
+import { UserComment } from '../UserComment/userComment.model';
+import { GetUserDto } from './GetUserDto';
+import { SetUserDto } from './SetUserDto';
 
 export class User {
     constructor(
@@ -7,25 +11,41 @@ export class User {
         public password: string,
         public familyName?: string,
         public firstName?: string,
+        public isBlocked?: boolean,
+        public role?: RolesEnum,
+        public email?: string,
+        public authorAccessRightsRequested?: boolean,
+        public commentsAsAny?: UserComment[],
+        public articlesAsAuthor?: Article[],
+ 
     ){}
 
-    public toDto(): UserDto {
+    public toDto(): SetUserDto {
         return {
-            id: this.id,
-            login: this.login,
-            _password: this.password,
-            firstName: this.firstName,
-            familyName: this.familyName,
-        }
+          familyName: this.familyName,
+          firstName: this.firstName,
+          login: this.login,
+          _password: this.password,
+          isBlocked: this.isBlocked,
+          role: this.role,
+          email: this.email,
+          authorAccessRightsRequested: this.authorAccessRightsRequested,
+        }   
     }
 
-    public static fromDto(userDto: UserDto): User {
+    public static fromDto(userDto: GetUserDto): User {
         return new User(
             userDto.id,
             userDto.login,
             userDto._password,
             userDto.familyName,
-            userDto.firstName
+            userDto.firstName,
+            userDto.isBlocked,
+            userDto.role,
+            userDto.email,
+            userDto.authorAccessRightsRequested,
+            userDto.commentsAsAny,
+            userDto.articlesAsAuthor,
         )
     }
 

@@ -34,7 +34,6 @@ export class UsersEntity {
     _password: string;
 
     @Column({
-        nullable: true,
         default: false,
     })
     isBlocked: boolean;
@@ -53,7 +52,7 @@ export class UsersEntity {
             nullable: true,
         }
       )
-    articles: ArticleEntity[];
+    articlesAsAuthor: ArticleEntity[];
 
     @Column({
         nullable: true,
@@ -64,6 +63,11 @@ export class UsersEntity {
         type => CommentsEntity,
         (comment) => comment.reviewer
     )
-    comments: CommentsEntity;
+    commentsAsAny: CommentsEntity;
+
+    @Column({
+      default: false,
+    })
+    authorAccessRightsRequested: boolean;
 }
 

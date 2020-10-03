@@ -30,6 +30,11 @@ export class CreateUserDto {
     @IsOptional()
     @IsEmail()
     email?: string;
+
+    @IsOptional()
+    @IsBoolean()
+    authorAccessRightsRequested?: boolean;
+
 }
 
 export class CreateCredentialsDto {

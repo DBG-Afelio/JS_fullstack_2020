@@ -21,6 +21,8 @@ export class RolesGuard implements CanActivate {
         console.log('-----------Route restricted');
         console.log('Roles :', RolesEnum.MASTER);
         const request = context.switchToHttp().getRequest();
+        
+        console.log('userPayload : ', request.user);
         const payload: Payload = request.user; 
         return authorizedRoles.includes(payload.role);
     }

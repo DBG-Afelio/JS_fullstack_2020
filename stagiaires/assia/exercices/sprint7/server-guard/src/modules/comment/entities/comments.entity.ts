@@ -36,7 +36,7 @@ export class CommentsEntity {
 
     @ManyToOne(
         type => UsersEntity, 
-        (reviewer) => reviewer.comments,
+        (reviewer) => reviewer.commentsAsAny,
         {
             nullable: true
         }

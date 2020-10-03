@@ -11,6 +11,9 @@ import { CommentModule } from './modules/comment/comment.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { TagModule } from './modules/tag/tag.module';
+import { JwtStrategy } from './passport/jwt.strategy';
+import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from './modules/auth/constants';
 
 @Module({
   imports: [
@@ -27,6 +30,7 @@ import { TagModule } from './modules/tag/tag.module';
         entities: ["dist/**/*.entity{.ts,.js}"],
         synchronize: true,
       }),
+      
       AuthModule, 
       UserModule, 
       ArticleModule, 

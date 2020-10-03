@@ -4,6 +4,7 @@ import { StatusEnum } from 'src/enum/status.enum';
 import { UpdateArticleDto } from 'src/modules/article/dto/update-article-dto';
 import { DeepPartial, Repository } from 'typeorm';
 import { CreateArticleDto } from './dto/create-article-dto';
+import { GetArticleFiltersDto } from './dto/get-article-filters-dto';
 import { ArticleEntity } from './entities/article.entity';
 
 @Injectable()
@@ -24,6 +25,18 @@ export class ArticleService {
       throw new ImATeapotException(`Huum.. pretty quiete here ! Seems like there's none in the db yet`);
     } 
     return list;
+  }
+
+  async getFiltered(myArticleFilters: GetArticleFiltersDto): Promise<ArticleEntity[]> {
+    let filtered: ArticleEntity[] = [];
+    console.log('myArticleFilters : ', myArticleFilters);
+
+    await this.getAll().then((all) => filtered = all);
+    return filtered.filter((article) => {
+      for (const filterKey in myArticleFilters) {
+        return (article.hasOwnProperty(filterKey) && article[filterKey] === myArticleFilters[filterKey]);
+      }
+    })
   }
 
   async getPublishedList(): Promise<ArticleEntity[]> {

@@ -3,32 +3,35 @@ import { RolesEnum } from "src/enum/roles.enum";
 
 
 export class UpdateUserDto {
+  @IsOptional()
+  @IsString()
+  familyName: string;
 
-    @IsOptional()
-    @IsString()
-    login: string;
+  @IsOptional()
+  @IsString()
+  firstName: string;
 
-    @IsOptional()
-    @IsString()
-    _password: string;
+  @IsOptional()
+  @IsString()
+  login: string;
 
-    @IsOptional()
-    @IsString()
-    familyName: string;
+  @IsOptional()
+  @IsString()
+  _password: string;
 
-    @IsOptional()
-    @IsString()
-    firstName: string;
+  @IsOptional()
+  @IsBoolean()
+  isBlocked: boolean;
 
-    @IsOptional()
-    @IsEnum(RolesEnum)
-    role: RolesEnum;
+  @IsOptional()
+  @IsEnum(RolesEnum)
+  role: RolesEnum;
 
-    @IsOptional()
-    @IsBoolean()
-    isBlocked: boolean;
+  @IsOptional()
+  @IsEmail()
+  email: string;
 
-    @IsOptional()
-    @IsEmail()
-    email: string;
+  @IsOptional()
+  @IsBoolean()
+  authorAccessRightsRequested: boolean;
 }
