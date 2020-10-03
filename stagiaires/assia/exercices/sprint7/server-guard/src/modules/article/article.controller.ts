@@ -18,7 +18,6 @@ export class ArticleController {
   //   @Roles()
       @Get()
       getArticleList(
-          @Req() req
       ): Promise<ArticleEntity[]> {
           return this.articleService.getAll();
       }
@@ -30,6 +29,12 @@ export class ArticleController {
       ): Promise<ArticleEntity> {
           return this.articleService.getOne(id);
       }
+
+   //   @Roles()
+   @Get('published')
+   getPublishedList(): Promise<ArticleEntity[]> {
+       return this.articleService.getPublishedList();
+   }     
   
       @Post()
       createArticle(

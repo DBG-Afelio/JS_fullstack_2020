@@ -1,5 +1,6 @@
 import { BadRequestException, ImATeapotException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { StatusEnum } from 'src/enum/status.enum';
 import { UpdateArticleDto } from 'src/modules/article/dto/update-article-dto';
 import { DeepPartial, Repository } from 'typeorm';
 import { CreateArticleDto } from './dto/create-article-dto';
@@ -23,6 +24,24 @@ export class ArticleService {
       throw new ImATeapotException(`Huum.. pretty quiete here ! Seems like there's none in the db yet`);
     } 
     return list;
+  }
+
+  async getPublishedList(): Promise<ArticleEntity[]> {
+    let published: ArticleEntity[] = [];
+    this.getAll().then((list) => published = list.filter((art) => art.status === StatusEnum.PUBLISHED));
+    return published;
+  }
+
+  async getPendingList(): Promise<ArticleEntity[]> {
+    let pending: ArticleEntity[] = [];
+    this.getAll().then((list) => pending = list.filter((art) => art.status === StatusEnum.TO_REVIEW));
+    return pending;
+  } 
+
+  async getByAtuthorId(authorId: number): Promise<ArticleEntity[]> {
+    let authorArticles: ArticleEntity[] = [];
+    this.getAll().then((list) => authorArticles = list.filter((art) => art.author.id === authorId));
+    return authorArticles;
   }
 
   async getOne(articleId: number): Promise<ArticleEntity> {
