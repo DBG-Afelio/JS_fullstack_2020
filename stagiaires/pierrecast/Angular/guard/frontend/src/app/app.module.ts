@@ -47,7 +47,10 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,
+    MatSortModule
+  ],
+  exports: [
+
   ],
   providers: [LoginGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]
