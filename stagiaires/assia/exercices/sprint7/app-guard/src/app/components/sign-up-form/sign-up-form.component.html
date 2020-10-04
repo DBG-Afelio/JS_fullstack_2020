@@ -1,82 +1,103 @@
-<p>Subscription Form</p>
+<div>
 
-<button mat-raised-button
-    color="primary"
-    routerLink="">
-    Home
-</button>
-
-<form class="mat-form-field" [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
-
+  <form class="mat-form-field" [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
     <!-- LOGIN -->
     <mat-form-field>
-        <mat-label for="login"> Login </mat-label>
-        <input matInput type="text" name="login" formControlName="login">
-        <mat-hint>Must be between 3 and 10 characters long</mat-hint>
+      <mat-label for="login"> Login </mat-label>
+      <input matInput type="text" name="login" formControlName="login" />
+      <mat-hint>Between 3 and 10 characters</mat-hint>
 
-        <mat-error *ngIf="credentialsForm.controls.login.invalid && (credentialsForm.controls.login.dirty || credentialsForm.controls.login.touched)" class="error">
-            <mat-error *ngIf="credentialsForm.controls.login.errors.required">
-                Login is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="credentialsForm.controls.login.errors.minlength">
-                Too short. Must be longer than 3 characters
-            </mat-error>
-            <mat-error *ngIf="credentialsForm.controls.login.errors.maxlength">
-                Too long. Must be shorter than 10 characters
-            </mat-error>
+      <mat-error *ngIf="
+          credentialsForm.controls.login.invalid &&
+          (credentialsForm.controls.login.dirty ||
+            credentialsForm.controls.login.touched)
+        " class="error">
+        <mat-error *ngIf="credentialsForm.controls.login.errors.required">
+          Login is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="credentialsForm.controls.login.errors.minlength">
+          Too short. Min. 3 characters
+        </mat-error>
+        <mat-error *ngIf="credentialsForm.controls.login.errors.maxlength">
+          Too long. Max. 10 characters
+        </mat-error>
+      </mat-error>
     </mat-form-field>
 
     <!-- PASSWORD GROUP -->
     <mat-form-field>
-        <mat-label for="password"> Password </mat-label>
-        <input matInput name="password" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].password">
-        <mat-hint>Must be at least 6 characters long</mat-hint>
+      <mat-label for="password"> Password </mat-label>
+      <input matInput name="password" type="password" [formControl]="
+          credentialsForm.controls.passwordGroup['controls'].password
+        " />
+      <mat-hint>Min. 6 characters</mat-hint>
 
-        <mat-error class="error" *ngIf="credentialsForm.controls.passwordGroup['controls'].password.invalid && (credentialsForm.controls.passwordGroup['controls'].password.touched || credentialsForm.controls.passwordGroup['controls'].password.dirty)">
-            <mat-error *ngIf="credentialsForm.controls.passwordGroup['controls'].password.errors.required">
-                Password is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="credentialsForm.controls.passwordGroup['controls'].password.errors?.minlength">
-                Too short. Must be longer than 6 characters
-            </mat-error>
+      <mat-error class="error" *ngIf="
+          credentialsForm.controls.passwordGroup['controls'].password.invalid &&
+          (credentialsForm.controls.passwordGroup['controls'].password
+            .touched ||
+            credentialsForm.controls.passwordGroup['controls'].password.dirty)
+        ">
+        <mat-error *ngIf="
+            credentialsForm.controls.passwordGroup['controls'].password.errors
+              .required
+          ">
+          Password is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="
+            credentialsForm.controls.passwordGroup['controls'].password.errors
+              ?.minlength
+          ">
+          Too short. Min. 6 characters
+        </mat-error>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label for="passwordRetyped"> Confirm Password </mat-label>
-        <input matInput name="passwordRetyped" type="password" [formControl]="credentialsForm.controls.passwordGroup['controls'].passwordRetyped">
-        <mat-hint>Must match password</mat-hint>
+      <mat-label for="passwordRetyped"> Confirm Password </mat-label>
+      <input matInput name="passwordRetyped" type="password" [formControl]="
+          credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+        " />
+      <mat-hint>Must match password</mat-hint>
 
-        <mat-error class="error" *ngIf="(credentialsForm.controls.passwordGroup['controls'].passwordRetyped.invalid || credentialsForm.controls.passwordGroup.invalid) && (credentialsForm.controls.passwordGroup['controls'].passwordRetyped.touched || credentialsForm.controls.passwordGroup['controls'].passwordRetyped.dirty)">
-            <mat-error *ngIf="credentialsForm.controls.passwordGroup['controls'].passwordRetyped.errors?.required">
-                Password confirmaation is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="credentialsForm.controls.passwordGroup['controls'].passwordRetyped.errors?.minlength">
-                Too short. Must be longer than 6 characters
-            </mat-error>
-            <mat-error *ngIf="credentialsForm.controls.passwordGroup.errors?.compareFields">
-                Password missmatch !
-            </mat-error>
+      <mat-error class="error" *ngIf="
+          (credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+            .invalid ||
+            credentialsForm.controls.passwordGroup.invalid) &&
+          (credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+            .touched ||
+            credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+              .dirty)
+        ">
+        <mat-error *ngIf="
+            credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+              .errors?.required
+          ">
+          Password confirmation is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="
+            credentialsForm.controls.passwordGroup['controls'].passwordRetyped
+              .errors?.minlength
+          ">
+          Too short. Min. 6 characters
+        </mat-error>
+        <mat-error *ngIf="credentialsForm.controls.passwordGroup.errors?.compareFields">
+        </mat-error>
+      </mat-error>
     </mat-form-field>
 
     <div>
-        <button mat-raised-button
-            type="submit"
-            color="primary"
-            [disabled]="credentialsForm.invalid">
-            Submit
-        </button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="credentialsForm.invalid">
+        Submit
+      </button>
     </div>
+  </form>
 
-</form>
-
-<!-- <br>
+  <!-- <br>
 <div>
-    Form is Valid ? {{ credentialsForm.valid }}
+Form is Valid ? {{ credentialsForm.valid }}
 </div>
 <pre>
-    {{ credentialsForm.value | json }}
+{{ credentialsForm.value | json }}
 </pre> -->
-
+</div>

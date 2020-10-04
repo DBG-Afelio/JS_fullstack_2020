@@ -1,8 +1,19 @@
-import { IsBoolean, IsEmail, IsEnum, IsNumber, IsOptional, IsString } from "class-validator";
-import { RolesEnum } from "src/enum/roles.enum";
-
+import {
+  IsBoolean,
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+import { RolesEnum } from 'src/enum/roles.enum';
 
 export class UpdateUserDto {
+  @IsNotEmpty()
+  @IsNumber()
+  id: number;
+
   @IsOptional()
   @IsString()
   familyName: string;

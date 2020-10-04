@@ -1,4 +1,5 @@
-import { IsEnum, IsIn, IsNumber, IsOptional } from "class-validator";
+
+import { IsEnum, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 import { StatusEnum } from "src/enum/status.enum";
 
 

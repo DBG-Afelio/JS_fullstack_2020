@@ -15,7 +15,7 @@ export class UserController {
     private readonly userService: UserService,
   ) {}
 
-    @Roles(RolesEnum.MASTER)
+    // @Roles(RolesEnum.MASTER)
     @Get()
     getUserList(
       @Req() req
@@ -24,7 +24,7 @@ export class UserController {
       return this.userService.getAll();
     }
 
-   @Roles(RolesEnum.MASTER)
+  //  @Roles(RolesEnum.MASTER)
     @Get(':id')
     getUser(
         @Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_FOUND })) id: number
@@ -32,7 +32,7 @@ export class UserController {
         return this.userService.getOne(id);
     }
 
-   @Roles(RolesEnum.MASTER)
+  //  @Roles(RolesEnum.MASTER)
     @Patch(':id')
     updateUser(
         @Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_FOUND })) id: number,
@@ -41,7 +41,7 @@ export class UserController {
         return this.userService.update(id, upUser);
     }
 
-    @Roles(RolesEnum.MASTER)
+    // @Roles(RolesEnum.MASTER)
     @Delete(':id')
     removeUser(
     @Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_FOUND })) id: number

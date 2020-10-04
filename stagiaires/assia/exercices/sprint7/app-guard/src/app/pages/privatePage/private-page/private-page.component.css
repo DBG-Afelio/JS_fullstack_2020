@@ -1,11 +1,42 @@
 .error {
-    color: red;
+  color: red;
 }
-.loginList{
-    border: solid;
-    height: 200px;
-    overflow: auto;;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
 
+.loginList {
+  border: solid;
+  height: 200px;
+  overflow: auto;
+  ;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+}
+
+.container {
+  padding: 5px 5px ;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.nav-menu {
+  padding: 5px 5px ;
+  width: 20%;
+  height: 100%;
+  border: solid;
+  margin: 10px 10px;
+}
+.menu-section {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+/* h2 {
+  align-items: center;
+} */
+
+.content {
+  padding: 5px 5px ;
+  width: 70%;
+  height: 100%;
+  border: solid;
+  margin: 10px 10px;
 }

@@ -4,10 +4,10 @@ html, body {
     height: 100%; 
 }
 body { 
-    margin: 0; 
+    margin: 10px 10px ; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     /* background-color: lightgray;  */
-    background-color: gray; 
+    background-color: lightslategray; 
 }
 /* *{
     color: black;

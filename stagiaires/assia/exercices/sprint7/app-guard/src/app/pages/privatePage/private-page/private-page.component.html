@@ -1,19 +1,184 @@
-<p> Page privee - Bonjour </p>
+<div class="container">
+  <div class="nav-menu">
+    <p>
+      {{ currUser?.firstName }} {{ currUser?.familyName | uppercase }} ({{
+        currUser?.role
+      }})
+    </p>
+    <div class="menu-section">
+      <h2>MY PROFIL</h2>
+      <mat-nav-list>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/user/{{ currUser?.id }}"
+          routerLinkActive="active"
+          (click)="onSelectMenu('profil')"
+        >
+          Personal information
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/user/{{ currUser?.id }}/review"
+          routerLinkActive="active"
+          (click)="onSelectMenu('pending-comments')"
+        >
+          Pending comments
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/user/{{ currUser?.id }}/review"
+          routerLinkActive="active"
+          (click)="onSelectMenu('left-comments')"
+        >
+          Left comments
+        </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </div>
 
-<button mat-raised-button
-    color="warn"
-    (click)="logout()"
-    routerLink="">
-    Sign out    
-</button>
+    <div class="menu-section" *ngIf="currUser?.role === 'author'">
+      <h2>MY ARTICLES</h2>
+      <mat-nav-list>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/article/ajouter"
+          routerLinkActive="active"
+          (click)="onSelectMenu('author-new-article')"
+        >
+          Create new article
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/article"
+          routerLinkActive="active"
+          (click)="onSelectMenu('author-draft-articles')"
+        >
+          Work in progress
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/article"
+          routerLinkActive="active"
+          (click)="onSelectMenu('author-pending-articles')"
+        >
+          Pending approval articles
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/article"
+          routerLinkActive="active"
+          (click)="onSelectMenu('author-published-articles')"
+        >
+          Published articles
+        </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </div>
 
-<button mat-raised-button
-    color="primary"
-    routerLink="">
-    Home
-</button>
+    <div class="menu-section" *ngIf="currUser?.role === 'editor'">
+      <h2>ASSESSMENT</h2>
+      <mat-nav-list>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/article"
+          routerLinkActive="active"
+          (click)="onSelectMenu('editor-pending-articles')"
+        >
+          Pending article reviews
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/user"
+          routerLinkActive="active"
+          (click)="onSelectMenu('editor-pending-author')"
+        >
+          Pending author requests
+        </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </div>
+    <div class="menu-section" *ngIf="currUser?.role === 'editor'">
+      <h2>SETTINGS</h2>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <a
+          mat-list-item
+          routerLink="/private/article"
+          routerLinkActive="active"
+          (click)="onSelectMenu('editor-published-articles')"
+        >
+          Articles
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/user"
+          routerLinkActive="active"
+          (click)="onSelectMenu('editor-authors')"
+        >
+          Authors
+        </a>
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item
+          routerLink="/private/tag"
+          routerLinkActive="active"
+          (click)="onSelectMenu('editor-tags')"
+        >
+          Tags
+        </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </div>
+  </div>
 
-<button 
+  <div class="content">
+    content
+    <div></div>
+    <app-user-form
+      *ngIf="selectedMenu === 'profil'"
+      [user]="currUser"
+      (userInfoChange)="saveUser($event)"
+    ></app-user-form>
+    <app-comment-item
+      *ngIf="selectedMenu === 'pending-comments'"
+    ></app-comment-item>
+    <app-comment-item
+      *ngIf="selectedMenu === 'left-comments'"
+    ></app-comment-item>
+    <app-article-form
+      *ngIf="selectedMenu === 'author-new-article'"
+      [article]=""
+      (articleInfoChange)="saveArticle($event)"
+    ></app-article-form>
+    <app-article-item
+      *ngIf="selectedMenu === 'author-draft-articles'"
+    ></app-article-item>
+    <app-article-item
+      *ngIf="selectedMenu === 'author-pending-articles'"
+    ></app-article-item>
+    <app-article-item
+      *ngIf="selectedMenu === 'author-published-articles'"
+    ></app-article-item>
+    <app-article-item
+      *ngIf="selectedMenu === 'editor-pending-articles'"
+    ></app-article-item>
+    <app-article-item
+      *ngIf="selectedMenu === 'author-pending-articles'"
+    ></app-article-item>
+  </div>
+</div>
+
+<!-- <button 
     mat-raised-button
     color="link"
     (click)="getAllLogin()">
@@ -23,13 +188,11 @@
 <div class="loginList" *ngIf="isOkToShow">
     <mat-list *ngFor="let item of list">
         <mat-list-item> {{ item }} </mat-list-item>
-    </mat-list>
+    </mat-nav-list>
     <div *ngIf="list.length === 0">
         The DB is empty, no user registered
     </div>
 </div>
 <div class="error" *ngIf="!isOkToShow">
     {{ error_message }}
-</div>
-
-
+</div> -->

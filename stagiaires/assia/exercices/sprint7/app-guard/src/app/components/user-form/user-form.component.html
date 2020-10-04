@@ -1,0 +1,140 @@
+<div class="container">
+  <form class="mat-form-field" [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="firstName"> Firstname </mat-label>
+      <input
+        matInput
+        type="text"
+        name="firstName"
+        formControlName="firstName"
+      />
+      <mat-hint>Between 3 and 10 characters</mat-hint>
+
+      <mat-error
+        *ngIf="
+          userForm.controls.firstName.invalid &&
+          (userForm.controls.firstName.dirty ||
+            userForm.controls.firstName.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="userForm.controls.firstName.errors.minlength">
+          Too short. Min 3 characters
+        </mat-error>
+        <mat-error *ngIf="userForm.controls.firstName.errors.maxlength">
+          Too long. Max. 10 characters
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="lastName"> Lastname </mat-label>
+      <input matInput type="text" name="lastName" formControlName="lastName" />
+      <mat-hint>Between 3 and 10 characters</mat-hint>
+
+      <mat-error
+        *ngIf="
+          userForm.controls.lastName.invalid &&
+          (userForm.controls.lastName.dirty ||
+            userForm.controls.lastName.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="userForm.controls.lastName.errors.minlength">
+          Too short. Min 3 characters
+        </mat-error>
+        <mat-error *ngIf="userForm.controls.lastName.errors.maxlength">
+          Too long. Max. 10 characters
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="email"> Email </mat-label>
+      <input
+        matInput
+        type="email"
+        name="email"
+        formControlName="email"
+        [readonly]="true"
+      />
+      <mat-hint>Respect email format</mat-hint>
+
+      <mat-error
+        *ngIf="
+          userForm.controls.email.invalid &&
+          (userForm.controls.email.dirty || userForm.controls.email.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="userForm.controls.email.errors.email">
+          Not matching <strong>email pattern</strong>
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="login"> Login </mat-label>
+      <input
+        matInput
+        type="text"
+        name="login"
+        formControlName="login"
+        [readonly]="true"
+      />
+      <mat-hint>Between 3 and 10 characters</mat-hint>
+
+      <mat-error
+        *ngIf="
+          userForm.controls.login.invalid &&
+          (userForm.controls.login.dirty || userForm.controls.login.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="userForm.controls.login.errors.minlength">
+          Too short. Min 3 characters
+        </mat-error>
+        <mat-error *ngIf="userForm.controls.login.errors.maxlength">
+          Too long. Max. 10 characters
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  -->
+    <section>
+      <mat-checkbox formControlName="isBlocked">
+        Checked if account is blocked</mat-checkbox
+      >
+    </section>
+
+    <!--  -->
+    <section>
+      <mat-checkbox formControlName="upgradeRequest">
+        Request author access rights ?</mat-checkbox
+      >
+    </section>
+
+    <div>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="userForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+
+  <!-- <br>
+<div>
+Form is Valid ? {{ userForm.valid }}
+</div>
+<pre>
+{{ userForm.value | json }}
+</pre> -->
+</div>

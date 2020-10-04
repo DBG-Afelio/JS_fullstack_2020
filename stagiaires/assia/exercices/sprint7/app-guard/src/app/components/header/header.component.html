@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <button mat-raised-button color="primary" routerLink="">Home</button>̵
+  </div>
+
+  <div>
+    <button
+      *ngIf="!currentUsertoken"
+      mat-raised-button
+      color="primary"
+      routerLink="/authentication/signin"
+    >
+      Sign-in
+    </button>
+  </div>
+
+  <div *ngIf="currUser"> {{ currUser?.firstName }} ({{ currUser?.role }})</div>
+
+  <div>
+    <button
+      *ngIf="currentUsertoken"
+      mat-raised-button
+      color="primary"
+      routerLink="/private"
+    >
+      My Page
+    </button>
+  </div>
+
+  <div>
+    <button
+      *ngIf="currentUsertoken"
+      mat-raised-button
+      color="warn"
+      (click)="logout()"
+    >
+      Sign-out
+    </button>
+  </div>
+</div>

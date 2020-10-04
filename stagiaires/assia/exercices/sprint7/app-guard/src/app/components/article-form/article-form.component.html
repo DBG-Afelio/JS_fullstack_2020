@@ -1,0 +1,65 @@
+<div class="container">
+  <form
+    class="mat-form-field"
+    [formGroup]="articleForm"
+    (ngSubmit)="submitForm()"
+  >
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="title"> Title </mat-label>
+      <input matInput type="text" name="title" formControlName="title" />
+      <!-- <mat-hint>Between 3 and 10 characters</mat-hint> -->
+
+      <mat-error
+        *ngIf="
+          articleForm.controls.title.invalid &&
+          (articleForm.controls.title.dirty ||
+            articleForm.controls.title.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="articleForm.controls.title.errors.required">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  -->
+    <mat-form-field>
+      <mat-label for="content"> Content </mat-label>
+      <input matInput type="text" name="content" formControlName="content" />
+      <!-- <mat-hint>Between 3 and 10 characters</mat-hint> -->
+
+      <mat-error
+        *ngIf="
+          articleForm.controls.content.invalid &&
+          (articleForm.controls.content.dirty ||
+            articleForm.controls.content.touched)
+        "
+        class="error"
+      >
+        <mat-error *ngIf="articleForm.controls.content.errors.required">
+          Article Content is <strong>required</strong>
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="articleForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+
+  <!-- <br />
+  <div>Form is Valid ? {{ articleForm.valid }}</div>
+  <pre
+    >{{ articleForm.value | json }}
+</pre
+  > -->
+</div>
