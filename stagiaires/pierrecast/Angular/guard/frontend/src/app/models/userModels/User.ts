@@ -5,6 +5,7 @@ export class User {
     public id: number,
     public username: string,
     public email: string,
+    public roles: string,
   ) { }
 
   public toDto(): UserDto {
@@ -12,6 +13,7 @@ export class User {
           id: this.id,
           username: this.username,
           email: this.email,
+          roles: this.roles,
       }
   }
 
@@ -20,6 +22,7 @@ export class User {
         userDto.id, 
         userDto.username,
         userDto.email,
+        userDto.roles,
     );
   }
 }

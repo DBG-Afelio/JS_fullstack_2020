@@ -1,39 +1,42 @@
+
 <h1>Administration des articles</h1>
 
-<div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let article">{{ article.id }}</td>
-    </ng-container>
+<mat-form-field>
+  <input matInput placeholder="Search articles" #input>
+</mat-form-field>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
-      <td mat-cell *matCellDef="let article">{{article.title}}</td>
-    </ng-container>
-
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-      <td mat-cell *matCellDef="let article">{{ article.date }}</td>
-    </ng-container>
-
-    <!-- Author Column -->
-    <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Auteur</th>
-      <td mat-cell *matCellDef="let article">{{ (article.author) ?article.author : '-'}}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator #paginator
-      [length]="dataSource?.data.length"
-      [pageIndex]="0"
-      [pageSize]="50"
-      [pageSizeOptions]="[25, 50, 100, 250]">
-  </mat-paginator>
+<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+  <mat-spinner></mat-spinner>
 </div>
+
+<mat-table class="articles-table mat-elevation-z8" [dataSource]="dataSource"
+         matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
+  <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+      <mat-cell *matCellDef="let article">{{ article.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>Titre</mat-header-cell>
+      <mat-cell class="title-cell"
+                *matCellDef="let article">{{ article.title }}</mat-cell>
+  </ng-container> 
+
+  <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+      <mat-cell class="date-cell"
+                *matCellDef="let article">{{ article.date }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <mat-header-cell *matHeaderCellDef>Auteur</mat-header-cell>
+    <mat-cell class="author-cell"
+              *matCellDef="let article">{{ article.author ? 'ok' : 'KO' }}</mat-cell>
+</ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [length]="listArticles.length" [pageSize]="10"
+             [pageSizeOptions]="[5, 10, 20]"
+></mat-paginator>

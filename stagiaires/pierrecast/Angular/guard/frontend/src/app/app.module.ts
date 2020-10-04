@@ -16,12 +16,20 @@ import { ArticlesAdminComponent } from './pages/articles-admin/articles-admin.co
 import { ArticleAdminComponent } from './pages/article-admin/article-admin.component';
 import { AuthorsAdminComponent } from './pages/authors-admin/authors-admin.component';
 import { AuthorAdminComponent } from './pages/author-admin/author-admin.component';
-import { UsersAdminComponent } from './pages/users-admin/users-admin.component';
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
+import { UsersAdminComponent } from './pages/users-admin/users-admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input'; 
+import { MatButtonModule } from '@angular/material/button';
+ 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -47,10 +55,15 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    
   ],
   exports: [
-
+    MatInputModule, MatButtonModule
   ],
   providers: [LoginGuard, LoginInterceptorProvider],
   bootstrap: [AppComponent]

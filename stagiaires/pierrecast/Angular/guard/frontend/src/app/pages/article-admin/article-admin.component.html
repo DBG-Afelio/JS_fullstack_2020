@@ -52,7 +52,7 @@
             required 
             class="form-control"  formControlName="author">
             <option value="" disabled>Sélectionnez un auteur</option>
-            <option *ngFor="let author of listAuthors" value="{{ author.id }}">{{ author.firstname}} {{ author.lastname}} </option>
+            <option *ngFor="let author of listAuthors" value="{{ author.id }}">{{ author.familyname}} {{ author.firstname}} </option>
         </select>
             
         <div class="error-message-container">

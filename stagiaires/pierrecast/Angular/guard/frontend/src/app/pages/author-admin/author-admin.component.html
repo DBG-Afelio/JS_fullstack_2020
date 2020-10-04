@@ -1,3 +1,100 @@
-<p>author-admin works!</p>
+<h1>Auteur</h1>
 
+<form [formGroup]="authorForm" (ngSubmit) = "onSubmitForm()"  >
+    <div class="form-group form-element form-title">
+       
+        <label for="familyname">Nom</label>
+        <input type="text" name="familyname" id="familyname" data-pristine="true" 
+        placeholder="Nom" required 
+        class="form-control"  formControlName="familyname">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.familyname.pristine || (!authorForm.controls.familyname.errors || !authorForm.controls.familyname.errors.required)'>
+                le nom est requis
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-element form-firstname">
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname" data-pristine="true" 
+        placeholder="Prénom" required 
+        class="form-control"  formControlName="firstname">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.firstname.pristine || (!authorForm.controls.firstname.errors || !authorForm.controls.firstname.errors.required)'>
+                le prénom est requis
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-element form-email">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" data-pristine="true" 
+        placeholder="yyyy-mm-dd" required 
+        class="form-control"  formControlName="email">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.email.pristine || (!authorForm.controls.email.errors || !authorForm.controls.email.errors.required)'>
+                l'email est requis
+            </div>
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.email.pristine || (!authorForm.controls.email.errors || !authorForm.controls.email.errors.email)'>
+                l'email n'a pas le bon format
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-element form-user">
+        <label for="user">Utilisateurs</label>
+        <select  name="user" id="user" 
+            data-pristine="true" 
+            required 
+            class="form-control"  formControlName="user">
+            <option value="" disabled checked>Sélectionnez un utilisateur</option>
+            <option *ngFor="let user of listUsers" value="{{ user.id }}">{{ user.username }}</option>
+        </select>
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.user.pristine || (!authorForm.controls.user.errors || !authorForm.controls.user.errors.required)'>
+                l'utilisateur est requis
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-element form-active">
+        
+        <input type="checkbox"  name="active" id="active" data-pristine="true" 
+        required 
+        class="form-control"  formControlName="active"><label for="active">Publié</label>
+  
+    </div>
+    
+    <div class="form-group form-element form-presentation">
+        <label for="presentation">Presentation</label>
+        <textarea name="presentation" id="presentation" data-pristine="true" 
+        placeholder="Contenu" required 
+        class="form-control"  formControlName="presentation"></textarea>
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.presentation.pristine || (!authorForm.controls.presentation.errors || !authorForm.controls.firstname.errors.required)'>
+                la présentation est requise
+            </div>
+        </div>
+    </div>
+
+    <div class="submit-container">
+        <button type="submit"  
+            class="submit-button"
+            [disabled]="authorForm.invalid"
+        >Envoyer</button>
+    </div>
+
+
+   
+</form>
 

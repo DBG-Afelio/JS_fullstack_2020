@@ -1,41 +1,71 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute} from "@angular/router";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
+import { merge, fromEvent } from "rxjs";
 import { Article } from 'src/app/models/articleModels/Article';
+import { ArticlesDataSource } from './articles-admin-datasource';
 import { ArticleService } from 'src/app/services/articleServices/article.service';
-import { ArticlesAdminDataSource, ArticlesAdminItem } from './articles-admin-datasource';
+
 
 @Component({
-  selector: 'app-articles-admin',
-  templateUrl: './articles-admin.component.html',
-  styleUrls: ['./articles-admin.component.css']
+    selector: 'article',
+    templateUrl: './articles-admin.component.html',
+    styleUrls: ['./articles-admin.component.css']
 })
-export class ArticlesAdminComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<ArticlesAdminItem>;
-  dataSource: ArticlesAdminDataSource;
+export class ArticlesAdminComponent implements OnInit, AfterViewInit {
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'title', 'date', 'author'];
+    public listArticles: Article[];
+    dataSource: ArticlesDataSource;
+    displayedColumns= ["id", "title", "date", "author"];
 
-  public listArticles: Article[];
-  constructor(private articleService: ArticleService) {
-    this.articleService.getList().subscribe(list => {
-      this.listArticles = list
-    });
-  } 
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild('input') input: ElementRef;
 
-  ngOnInit() {
-    this.dataSource = new ArticlesAdminDataSource();
-  }
+    constructor(
+      private route: ActivatedRoute,
+      private articleService: ArticleService
+    ) {
+        this.articleService.getList().subscribe(list=> {
+            this.listArticles = list;
+        })
+     }
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
-  }
+    ngOnInit() {
+        
+        this.dataSource = new ArticlesDataSource(this.articleService);console.log("articleService", this.articleService);
+        this.dataSource.loadArticles('', 'asc', 0, 10);console.log("dataSource", this.dataSource);
+    }
+
+    ngAfterViewInit() {
+        this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+        fromEvent(this.input.nativeElement,'keyup')
+            .pipe(
+                debounceTime(150),
+                distinctUntilChanged(),
+                tap(() => {
+                    this.paginator.pageIndex = 0;
+
+                    this.loadArticlesPage();
+                })
+            )
+            .subscribe();
+
+        merge(this.sort.sortChange, this.paginator.page)
+        .pipe(
+            tap(() => this.loadArticlesPage())
+        )
+        .subscribe();
+
+    }
+
+    loadArticlesPage() {
+        this.dataSource.loadArticles(
+            this.input.nativeElement.value,
+            this.sort.direction,
+            this.paginator.pageIndex,
+            this.paginator.pageSize);
+    }
 }
-
-

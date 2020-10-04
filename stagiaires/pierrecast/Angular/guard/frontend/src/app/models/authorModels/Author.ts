@@ -6,22 +6,20 @@ export class Author {
     
     constructor(
         public id: number,
+        public familyname: string,
         public firstname: string,
-        public lastname: string,
         public email: string,
         public presentation: string, 
         public active: boolean,
         public user: User,
-        public articles: Article[],
     ) {
         this.id = id;
+        this.familyname = familyname;
         this.firstname = firstname;
-        this.lastname = lastname;
         this.email = email;
         this.presentation = presentation;
         this.active = active;
         this.user = user;
-        this.articles = articles; 
     }
 
     public getId(): number {
@@ -29,11 +27,11 @@ export class Author {
     }
 
     public getFistname(): string {
-        return this.firstname;
+        return this.familyname;
     }
 
     public getLastname(): string {
-        return this.lastname;
+        return this.firstname;
     }
 
     public getEmail(): string {
@@ -48,9 +46,7 @@ export class Author {
         return this.user;
     } 
 
-    public getArticles(): Article[] {
-        return this.articles;
-    } 
+    
      
     public isActive(): boolean {
         return this.active;
@@ -59,27 +55,24 @@ export class Author {
     public static fromDto(AuthorDto: AuthorDto): Author {
         return new Author(
             AuthorDto.id, 
-            AuthorDto.firstname,
-            AuthorDto.lastname, 
+            AuthorDto.familyname,
+            AuthorDto.firstname, 
             AuthorDto.email,
             AuthorDto.presentation,
             AuthorDto.active,
             AuthorDto.user,
-            AuthorDto.articles.map(article => Article.fromDto(article)),
-
         );
     }
 
     public toDto(): AuthorDto {
         return {
             id: this.id,
+            familyname: this.familyname,
             firstname: this.firstname,
-            lastname: this.lastname,
             email: this.email,
             presentation: this.presentation,
             active: this.active,
             user: this.user,
-            articles: this.articles.map(article => article.toDto()),
         }
     }
 }

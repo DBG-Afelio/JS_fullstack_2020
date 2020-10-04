@@ -97,4 +97,17 @@ export class ArticleService {
   public navigateToAdmin() {
     this.router.navigateByUrl(`/admin/articles`);
   }
+
+  public findArticles(
+    filter = '', sortOrder = 'asc', pageNumber = 0, pageSize = 3
+  ):  Observable<Article[]> {
+
+   return this.http.get(this.url).pipe(
+      map(res =>  {
+        console.log("res", res );
+        console.log("payload", res["payload"] );
+        return res["payload"]
+      })
+    );
+  }
 }

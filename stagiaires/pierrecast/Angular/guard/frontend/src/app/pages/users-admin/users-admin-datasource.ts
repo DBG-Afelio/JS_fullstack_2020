@@ -1,41 +1,43 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
 import {Observable, BehaviorSubject, of} from "rxjs";
 import {catchError, finalize} from "rxjs/operators";
-import { Article } from 'src/app/models/articleModels/Article';
-import { ArticleService } from 'src/app/services/articleServices/article.service';
+import { User } from 'src/app/models/userModels/User';
+import { UserService } from 'src/app/services/userServices/user.service';
 
-export class ArticlesDataSource implements DataSource<Article> {
-    private articlesSubject = new BehaviorSubject<Article[]>([]);
+
+
+export class UsersDataSource implements DataSource<User> {
+    private usersSubject = new BehaviorSubject<User[]>([]);
     private loadingSubject = new BehaviorSubject<boolean>(false);
     public loading$ = this.loadingSubject.asObservable();
 
     constructor(
-      private articleService: ArticleService
+      private usersService: UserService
     ) {}
 
-    loadArticles(filter:string,
+    loadUsers(filter:string,
                 sortDirection:string,
                 pageIndex:number,
                 pageSize:number) {
 
         this.loadingSubject.next(true);
 
-        this.articleService.findArticles(filter, sortDirection,
+        this.usersService.findUsers(filter, sortDirection,
             pageIndex, pageSize).pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
             )
-            .subscribe(articles => this.articlesSubject.next(articles));
+            .subscribe(users => this.usersSubject.next(users));
 
     }
 
-    connect(collectionViewer: CollectionViewer): Observable<Article[]> {
+    connect(collectionViewer: CollectionViewer): Observable<User[]> {
         console.log("Connecting data source");
-        return this.articlesSubject.asObservable();
+        return this.usersSubject.asObservable();
     }
 
     disconnect(collectionViewer: CollectionViewer): void {
-        this.articlesSubject.complete();
+        this.usersSubject.complete();
         this.loadingSubject.complete();
     }
 }

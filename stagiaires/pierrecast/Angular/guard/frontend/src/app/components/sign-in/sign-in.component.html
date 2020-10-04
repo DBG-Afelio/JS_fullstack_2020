@@ -1,24 +1,26 @@
 <h1>Sign In</h1>
 
 <form [formGroup]="loginForm" (ngSubmit) = "onSubmitForm()"  >
-    <div class="form-group form-element form-username">
-        <label for="username">Pseudo</label>
-        <input type="text" name="username" id="username" data-pristine="true" 
-        placeholder="Choisissez un pseudo (obligatoire)" required 
-        class="form-control"  formControlName="username">
-    </div>
 
-    <div class="form-group form-element form-password">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" data-pristine="true" 
-        placeholder="Mot de passe" required 
+    <mat-form-field appearance="fill" class="mat-field form-group form-element form-username">
+        <mat-label for="username" >Pseudo</mat-label>
+        <input matInput type="text" name="username" id="username" data-pristine="true" 
+         required 
+        class="form-control" formControlName="username">
+        <!--<mat-error *ngIf="matInput.invalid">le Pseudo est requis</mat-error>-->
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill"  class="mat-field example-full-width">
+        <mat-label for="password">Mot de passe</mat-label>
+        <input matInput type="password" name="password" id="password" data-pristine="true" 
+        required 
         class="form-control"  formControlName="password">
-    </div>
-
+        <!--<mat-error *ngIf="matInput.invalid">le mot de passe est requis</mat-error>-->
+    </mat-form-field>
     <div class="form-group">
-        <button type="submit"  
-            class="submit-button"
+        <button mat-button type="submit"  appearance="fill"  color="primary" class="submit-button"
             [disabled]="loginForm.invalid"
         >Envoyer</button>
+    
     </div>
 </form>

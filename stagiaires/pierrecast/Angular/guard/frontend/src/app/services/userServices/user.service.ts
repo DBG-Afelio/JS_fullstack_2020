@@ -1,4 +1,4 @@
-import { Subject, of, Observable, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { User } from 'src/app/models/userModels/User';
@@ -33,10 +33,9 @@ export class UserService {
     ;
   }
 
-  public createUser(username: string, password : string): Observable<User> {
-    console.log('createUser', username, password)
+  public createUser(user: User, password: string): Observable<User> {
     return this.http
-      .post<UserDto>(this.url + "/register", {username, password})
+      .post<UserDto>(this.url + "/register", {user, password})
       .pipe(
         map((userDto:UserDto) => User.fromDto(userDto)),
         catchError((error: any) => throwError(error))
@@ -58,5 +57,15 @@ export class UserService {
       .pipe(
         catchError((error: any) =>  throwError(error))
       );
+  }
+
+  public findUsers(
+     filter = '', sortOrder = 'asc',
+    pageNumber = 0, pageSize = 3
+  ):  Observable<User[]> {
+
+    return this.http.get(this.url).pipe(
+        map(res =>  res["payload"])
+    );
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
+import { User } from 'src/app/models/userModels/User';
 import { UserService } from 'src/app/services/userServices/user.service';
 
 @Component({
@@ -34,13 +36,19 @@ export class SignUpComponent implements OnInit {
 
   onSubmitForm() {
     const formValue = this.userForm.value;
-    
-    this.userService.createUser(formValue['username'],formValue['passwordGroup'].password).subscribe(
+    let newUser = new User(
+      0,
+      formValue['username'],
+      formValue['email'],
+      formValue['roles'],
+    );
+
+    this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(
       (res) => { 
         this.router.navigateByUrl('/');
       }, 
       (error) => {
-        //  renvoyer une erreur ??
+        
       });
       
     console.log('Données du formulaire : ', this.userForm.value);

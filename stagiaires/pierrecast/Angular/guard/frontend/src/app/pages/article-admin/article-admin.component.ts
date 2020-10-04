@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { Article } from 'src/app/models/articleModels/Article';
 import { Author } from 'src/app/models/authorModels/Author';
 import { ArticleService } from 'src/app/services/articleServices/article.service';
@@ -36,35 +36,30 @@ export class ArticleAdminComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       this.initForm(id);
+      
     });
-
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   private initForm(articleId: number) {
-    forkJoin([this.authorService.getList(), this.articleService.getArticleById(articleId)]).subscribe(
-      ([listAuthors, article]: [Author[], Article]) => {
-        this.listAuthors =  listAuthors;
-
-        console.log('init', this.listAuthors)
-        this.articleForm.get('title').setValue(article.title);
-        this.articleForm.get('content').setValue(article.content);
-        this.articleForm.get('date').setValue(article.date); 
-        this.articleForm.get('complete').setValue(article.complete); 
-        this.articleForm.get('published').setValue(article.published);
-        this.articleForm.get('author').setValue(article.author);
-    }); 
-  }
-
- 
-
-  public getArticle(articleId: number) {
-    return this.articleService.getArticleById(articleId).subscribe(article => {
-      this.article = article;
-    });
+    if (articleId !== 0) {
+      forkJoin([this.authorService.getList(), this.articleService.getArticleById(articleId)]).subscribe(
+        ([listAuthors, article]: [Author[], Article]) => {
+          this.listAuthors = listAuthors;
+          this.article = article;
+          this.articleForm.get('title').setValue(article.title);
+          this.articleForm.get('content').setValue(article.content);
+          this.articleForm.get('date').setValue(article.date); 
+          this.articleForm.get('complete').setValue(article.complete); 
+          this.articleForm.get('published').setValue(article.published);
+          this.articleForm.get('author').setValue(article.author.id);
+      }); 
+    } else {
+      this.authorService.getList().subscribe(list => {
+        this.listAuthors = list;
+      })
+    }
   }
 
   onSubmitForm() {
@@ -76,10 +71,11 @@ export class ArticleAdminComponent implements OnInit {
       formValue['date'],
       formValue['published'],
       formValue['complete'],
-      formValue['author']
+      this.listAuthors.find(article => article.id === parseInt(formValue['author']))
     );
     
     console.log('Données du formulaire : ', this.articleForm.value);
+    console.log('newArticle', newArticle);
 
     if (newArticle.id === 0) {
       this.articleService.createArticle(newArticle).subscribe(() => {
