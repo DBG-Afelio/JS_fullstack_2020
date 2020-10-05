@@ -2,23 +2,25 @@
 
 <form [formGroup]="loginForm" (ngSubmit) = "onSubmitForm()"  >
 
-    <mat-form-field appearance="fill" class="mat-field form-group form-element form-username">
+    <mat-form-field appearance="fill" class=" form-group form-element form-username">
         <mat-label for="username" >Pseudo</mat-label>
         <input matInput type="text" name="username" id="username" data-pristine="true" 
          required 
         class="form-control" formControlName="username">
-        <!--<mat-error *ngIf="matInput.invalid">le Pseudo est requis</mat-error>-->
+        <mat-error *ngIf="loginForm.controls.username.invalid">{{ getUsernameErrorMessage() })</mat-error>
     </mat-form-field>
     
-    <mat-form-field appearance="fill"  class="mat-field example-full-width">
+    <mat-form-field appearance="fill"  class=" example-full-width">
         <mat-label for="password">Mot de passe</mat-label>
         <input matInput type="password" name="password" id="password" data-pristine="true" 
         required 
         class="form-control"  formControlName="password">
         <!--<mat-error *ngIf="matInput.invalid">le mot de passe est requis</mat-error>-->
     </mat-form-field>
-    <div class="form-group">
-        <button mat-button type="submit"  appearance="fill"  color="primary" class="submit-button"
+    
+    <div class="form-group"> <!--mat-raised-button--> 
+        <button  
+        type="submit"   class="submit-button"
             [disabled]="loginForm.invalid"
         >Envoyer</button>
     

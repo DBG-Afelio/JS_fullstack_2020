@@ -77,7 +77,7 @@ export class UserAdminComponent implements OnInit {
       );
     }
 
-    this.router.navigateByUrl('/admin/users');
+    //this.router.navigateByUrl('/admin/users');
   }
 }
 

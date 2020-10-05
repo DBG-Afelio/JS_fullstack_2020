@@ -28,13 +28,20 @@ export class SignInComponent implements OnInit {
       formValue['username'], 
       formValue['password']
     ).subscribe(
-      (res) =>  {
+      () =>  {
         this.router.navigateByUrl('/admin');
       }, 
-      (error) => {
+      (error: Error) => {
         alert('Wrong credentials');
         throw new Error(error.message);
       }
     );
+  }
+
+  getUsernameErrorMessage() {
+    if (this.loginForm.controls.username.hasError('required')) {
+      return 'le Pseudo est requis';
+    }
+    return '';
   }
 }

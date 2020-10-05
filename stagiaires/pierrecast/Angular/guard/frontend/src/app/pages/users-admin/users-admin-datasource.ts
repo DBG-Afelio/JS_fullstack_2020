@@ -1,6 +1,6 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
 import {Observable, BehaviorSubject, of} from "rxjs";
-import {catchError, finalize} from "rxjs/operators";
+import {catchError, finalize, map} from "rxjs/operators";
 import { User } from 'src/app/models/userModels/User';
 import { UserService } from 'src/app/services/userServices/user.service';
 
@@ -22,12 +22,13 @@ export class UsersDataSource implements DataSource<User> {
 
         this.loadingSubject.next(true);
 
-        this.usersService.findUsers(filter, sortDirection,
+        return this.usersService.findUsers(filter, sortDirection,
             pageIndex, pageSize).pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
-            )
-            .subscribe(users => this.usersSubject.next(users));
+            ).pipe(
+                map(users => this.usersSubject.next(users))
+            );
 
     }
 

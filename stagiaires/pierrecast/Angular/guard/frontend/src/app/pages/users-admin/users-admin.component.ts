@@ -14,7 +14,7 @@ import { UserService } from 'src/app/services/userServices/user.service';
     templateUrl: './users-admin.component.html',
     styleUrls: ['./users-admin.component.css']
 })
-export class UsersAdminComponent implements OnInit, AfterViewInit {
+export class UsersAdminComponent implements OnInit {
 
     listUsers : User[]
     user: User;
@@ -36,12 +36,12 @@ export class UsersAdminComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.user = this.route.snapshot.data["user"];
+     
         this.dataSource = new UsersDataSource(this.usersService);
-        this.dataSource.loadUsers('', 'asc', 0, 10);
+        this.dataSource.loadUsers('', 'asc', 0, 10).subscribe(() => this.initSort());
     }
 
-    ngAfterViewInit() {
+    initSort() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
         fromEvent(this.input.nativeElement,'keyup')
             .pipe(

@@ -14,7 +14,7 @@ import { ArticleService } from 'src/app/services/articleServices/article.service
     templateUrl: './articles-admin.component.html',
     styleUrls: ['./articles-admin.component.css']
 })
-export class ArticlesAdminComponent implements OnInit, AfterViewInit {
+export class ArticlesAdminComponent implements OnInit {
 
     public listArticles: Article[];
     dataSource: ArticlesDataSource;
@@ -30,16 +30,16 @@ export class ArticlesAdminComponent implements OnInit, AfterViewInit {
     ) {
         this.articleService.getList().subscribe(list=> {
             this.listArticles = list;
-        })
+        });
+
      }
 
     ngOnInit() {
-        
-        this.dataSource = new ArticlesDataSource(this.articleService);console.log("articleService", this.articleService);
-        this.dataSource.loadArticles('', 'asc', 0, 10);console.log("dataSource", this.dataSource);
+        this.dataSource = new ArticlesDataSource(this.articleService);
+        this.dataSource.loadArticles('', 'asc', 0, 10).subscribe(() => this.initSort());
     }
 
-    ngAfterViewInit() {
+    initSort() {
         this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
         fromEvent(this.input.nativeElement,'keyup')
             .pipe(

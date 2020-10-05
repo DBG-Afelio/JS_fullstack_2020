@@ -35,7 +35,7 @@ export class UserService {
 
   public createUser(user: User, password: string): Observable<User> {
     return this.http
-      .post<UserDto>(this.url + "/register", {user, password})
+      .post<UserDto>(this.url + "/register", {...user, password})
       .pipe(
         map((userDto:UserDto) => User.fromDto(userDto)),
         catchError((error: any) => throwError(error))
@@ -61,7 +61,7 @@ export class UserService {
 
   public findUsers(
      filter = '', sortOrder = 'asc',
-    pageNumber = 0, pageSize = 3
+    pageNumber = 0, pageSize = 10
   ):  Observable<User[]> {
 
     return this.http.get(this.url).pipe(

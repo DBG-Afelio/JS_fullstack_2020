@@ -1,6 +1,6 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
 import {Observable, BehaviorSubject, of} from "rxjs";
-import {catchError, finalize} from "rxjs/operators";
+import {catchError, finalize, map} from "rxjs/operators";
 import { Article } from 'src/app/models/articleModels/Article';
 import { ArticleService } from 'src/app/services/articleServices/article.service';
 
@@ -20,12 +20,14 @@ export class ArticlesDataSource implements DataSource<Article> {
 
         this.loadingSubject.next(true);
 
-        this.articleService.findArticles(filter, sortDirection,
+        return this.articleService.findArticles(filter, sortDirection,
             pageIndex, pageSize).pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
             )
-            .subscribe(articles => this.articlesSubject.next(articles));
+            .pipe(
+                map(articles => this.articlesSubject.next(articles))
+            );
 
     }
 

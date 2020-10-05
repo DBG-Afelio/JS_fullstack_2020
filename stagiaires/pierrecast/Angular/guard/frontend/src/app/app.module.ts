@@ -23,9 +23,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
-import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
  
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -58,14 +60,25 @@ export function tokenGetter() {
     MatSortModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    
+    MatInputModule, 
+    MatButtonModule, 
+    MatSelectModule,
+    MatCheckboxModule,
   ],
   exports: [
-    MatInputModule, MatButtonModule
+    /*MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule, 
+    MatButtonModule, 
+    MatSelectModule,
+    MatCheckboxModule,*/
   ],
-  providers: [LoginGuard, LoginInterceptorProvider],
+  providers: [LoginGuard, LoginInterceptorProvider, 
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

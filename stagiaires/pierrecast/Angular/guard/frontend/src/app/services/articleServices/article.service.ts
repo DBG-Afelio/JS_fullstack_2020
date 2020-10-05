@@ -70,6 +70,7 @@ export class ArticleService {
   }
 
   createArticle(payload: Article): Observable<Article> {
+    console.log('payload article', payload)
     return this.http
       .post<Article>(this.url, payload.toDto())
       .pipe(
@@ -99,15 +100,11 @@ export class ArticleService {
   }
 
   public findArticles(
-    filter = '', sortOrder = 'asc', pageNumber = 0, pageSize = 3
+    filter = '', sortOrder = 'asc', pageNumber = 0, pageSize = 10
   ):  Observable<Article[]> {
 
    return this.http.get(this.url).pipe(
-      map(res =>  {
-        console.log("res", res );
-        console.log("payload", res["payload"] );
-        return res["payload"]
-      })
-    );
+     map((items: any[]) => items.map(item => Article.fromDto(item)))
+   );
   }
 }
