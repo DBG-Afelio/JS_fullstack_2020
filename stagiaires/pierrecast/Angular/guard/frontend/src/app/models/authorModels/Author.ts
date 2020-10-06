@@ -12,39 +12,19 @@ export class Author {
         public presentation: string, 
         public active: boolean,
         public user: User,
-    ) {
-        this.id = id;
-        this.familyname = familyname;
-        this.firstname = firstname;
-        this.email = email;
-        this.presentation = presentation;
-        this.active = active;
-        this.user = user;
-    }
+    ) { }
 
-    public static fromDto(AuthorDto: AuthorDto): Author {
+    public static fromDto(authorDto: AuthorDto): Author {
         return new Author(
-            AuthorDto.id, 
-            AuthorDto.familyname,
-            AuthorDto.firstname, 
-            AuthorDto.email,
-            AuthorDto.presentation,
-            AuthorDto.active,
-            User.fromDto(AuthorDto.user),
+            authorDto.id, 
+            authorDto.familyname,
+            authorDto.firstname, 
+            authorDto.email,
+            authorDto.presentation,
+            authorDto.active,
+            User.fromDto(authorDto.user),
         );
     }
-
-    /*public toDto(): AuthorDto {
-        return {
-            id: this.id,
-            familyname: this.familyname,
-            firstname: this.firstname,
-            email: this.email,
-            presentation: this.presentation,
-            active: this.active,
-            user: this.user,
-        }
-    }*/
 
     public toSetDto(): SetAuthorDto {
         return {

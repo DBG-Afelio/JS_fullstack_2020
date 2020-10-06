@@ -13,8 +13,6 @@ import { UserService } from 'src/app/services/userServices/user.service';
   styleUrls: ['./author-admin.component.css']
 })
 export class AuthorAdminComponent implements OnInit {
-
- 
   public author: Author;
   public listUsers: User[];
   public authorForm: FormGroup;
@@ -47,7 +45,6 @@ export class AuthorAdminComponent implements OnInit {
     if (authorId !== 0) {
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorById(authorId)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
-          console.log(author);
           this.listUsers = [author.user, ...listUsers];
           this.author = author;
           this.authorForm.get('familyname').setValue(author.familyname);
@@ -82,14 +79,18 @@ export class AuthorAdminComponent implements OnInit {
     if (!this.author || this.author?.id === 0) {
       this.authorService.createAuthor(newAuthor).subscribe(() => {
         alert('Author ajouté');
-        this.router.navigateByUrl('/admin/authors');
+        this.back();
       });
      
     } else {
       this.authorService.updateAuthor(newAuthor).subscribe(() => {
         alert('Author modifié');
-        this.router.navigateByUrl('/admin/authors');
+        this.back();
       });
     }
+  }
+
+  back() {
+    this.router.navigateByUrl('/admin/authors');
   }
 }

@@ -13,7 +13,6 @@ import { AuthorService } from 'src/app/services/authorServices/author.service';
   styleUrls: ['./article-admin.component.css']
 })
 export class ArticleAdminComponent implements OnInit {
-
   public article: Article;
   public listAuthors: Author[];
   public articleForm: FormGroup;
@@ -42,18 +41,20 @@ export class ArticleAdminComponent implements OnInit {
 
   ngOnInit() {}
 
+
   private initForm(articleId: number) {
     if (articleId !== 0) {
       forkJoin([this.authorService.getList(), this.articleService.getArticleById(articleId)]).subscribe(
         ([listAuthors, article]: [Author[], Article]) => {
-          this.listAuthors = listAuthors;
+          this.listAuthors = [article.author, ...listAuthors];
           this.article = article;
           this.articleForm.get('title').setValue(article.title);
           this.articleForm.get('content').setValue(article.content);
           this.articleForm.get('date').setValue(article.date); 
-          this.articleForm.get('complete').setValue(article.complete); 
-          this.articleForm.get('published').setValue(article.published);
+          this.articleForm.get('published').setValue(article.published); 
+          this.articleForm.get('complete').setValue(article.complete);
           this.articleForm.get('author').setValue(article.author.id);
+         
       }); 
     } else {
       this.authorService.getList().subscribe(list => {
@@ -65,29 +66,32 @@ export class ArticleAdminComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.articleForm.value;
     let newArticle = new Article(
-      this.article ? this.article.id : 0,
+      (this.article) ? this.article.id : 0,
       formValue['title'],
       formValue['content'],
       formValue['date'],
-      formValue['published'],
       formValue['complete'],
-      this.listAuthors.find(article => article.id === parseInt(formValue['author']))
+      formValue['published'],
+      this.listAuthors.find(author => author.id == formValue['author'])
     );
     
     console.log('Données du formulaire : ', this.articleForm.value);
-    console.log('newArticle', newArticle);
 
-    if (newArticle.id === 0) {
+    if (!this.article || this.article?.id === 0) {
       this.articleService.createArticle(newArticle).subscribe(() => {
-        alert('Article ajouté');
+        alert('article ajouté');
+        this.back();
       });
      
     } else {
       this.articleService.updateArticle(newArticle).subscribe(() => {
-        alert('Article modifié');
+        alert('article modifié');
+        this.back();
       });
     }
+  }
 
+  back() {
     this.router.navigateByUrl('/admin/articles');
   }
 }

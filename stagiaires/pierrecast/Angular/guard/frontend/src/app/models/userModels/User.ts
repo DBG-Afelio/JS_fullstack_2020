@@ -1,3 +1,4 @@
+import { SetUserDto } from './SetUserDto';
 import { UserDto } from './UserDto';
 
 export class User {
@@ -8,9 +9,8 @@ export class User {
     public roles: string,
   ) { }
 
-  public toDto(): UserDto {
+  public toDto(): SetUserDto {
       return  {
-          id: this.id,
           username: this.username,
           email: this.email,
           roles: this.roles,

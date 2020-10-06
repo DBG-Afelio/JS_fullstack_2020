@@ -65,17 +65,6 @@ export function tokenGetter() {
     MatSelectModule,
     MatCheckboxModule,
   ],
-  exports: [
-    /*MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule, 
-    MatButtonModule, 
-    MatSelectModule,
-    MatCheckboxModule,*/
-  ],
   providers: [LoginGuard, LoginInterceptorProvider, 
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}
   ],

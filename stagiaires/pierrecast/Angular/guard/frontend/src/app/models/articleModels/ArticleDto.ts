@@ -1,4 +1,4 @@
-import { Author } from '../authorModels/Author';
+import { AuthorDto } from '../authorModels/AuthorDto';
 
 export interface ArticleDto {
     id: number;
@@ -7,5 +7,5 @@ export interface ArticleDto {
     date: Date;
     published: boolean;
     complete: boolean;
-    author: Author;
+    author: AuthorDto;
 }

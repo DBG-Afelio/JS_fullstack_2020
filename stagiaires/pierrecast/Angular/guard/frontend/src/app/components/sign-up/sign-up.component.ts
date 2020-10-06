@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit {
       0,
       formValue['username'],
       formValue['email'],
-      formValue['roles'],
+      'USER',
     );
 
     this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(

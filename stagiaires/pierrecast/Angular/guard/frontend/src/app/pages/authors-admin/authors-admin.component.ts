@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Author } from 'src/app/models/authorModels/Author';
-
 import { AuthorService } from 'src/app/services/authorServices/author.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class AuthorsAdminComponent implements AfterViewInit, OnInit {
 
   constructor(
       private authorService: AuthorService,
-      private router: Router
     ) {
       this.createListAuthors();
   }

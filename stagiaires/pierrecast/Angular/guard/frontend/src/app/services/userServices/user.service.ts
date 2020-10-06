@@ -4,6 +4,7 @@ import { catchError, map } from 'rxjs/operators';
 import { User } from 'src/app/models/userModels/User';
 import { UserDto } from 'src/app/models/userModels/UserDto';
 import { HttpClient } from '@angular/common/http';
+import { SetUserDto } from 'src/app/models/userModels/SetUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -52,11 +53,12 @@ export class UserService {
       );
   }
 
-  public updateUser(payload: User): Observable<User> {
+  public updateUser(payload: User, password: string): Observable<User> {
     return this.http
-      .patch<User>(`${this.url}/${payload.id}`, payload.toDto())
+      .patch<UserDto>(`${this.url}/${payload.id}`, {...payload.toDto(), password})
       .pipe
       (
+        map((userDto:UserDto) => User.fromDto(userDto)),
         catchError((error: any) =>  throwError(error))
       );
   }

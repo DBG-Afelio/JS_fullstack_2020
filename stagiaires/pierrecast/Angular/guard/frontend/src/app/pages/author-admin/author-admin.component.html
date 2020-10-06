@@ -68,7 +68,7 @@
     <div class="form-group form-element form-active">
         
         <input type="checkbox" name="active" id="active" data-pristine="true" 
-        required 
+         
         class="form-control" formControlName="active"><label for="active">Actif</label>
   
     </div>
@@ -88,6 +88,10 @@
     </div>
 
     <div class="submit-container">
+        <button type="button"  
+            (click) = "back()"
+          
+        >Annuler</button>
         <button type="submit"  
             class="submit-button"
             [disabled]="authorForm.invalid"
@@ -95,4 +99,3 @@
     </div>
 
 </form>
-

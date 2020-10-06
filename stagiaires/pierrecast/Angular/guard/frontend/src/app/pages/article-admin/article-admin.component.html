@@ -1,82 +1,86 @@
 <h1>Article</h1>
 
 <form [formGroup]="articleForm" (ngSubmit) = "onSubmitForm()"  >
-    <mat-form-field appearance="fill" class="form-group form-element form-title">
+    <div class="form-group form-element form-title">
        
-        <mat-label for="title">Titre</mat-label>
-        <input matInput type="text" name="title" id="title" data-pristine="true" 
+        <label for="title">Titre</label>
+        <input  type="text" name="title" id="title" data-pristine="true" 
         placeholder="Titre" required class="form-control"  formControlName="title">
             
-        <!--<div class="error-message-container">
+        <div class="error-message-container">
             <div class="errors error-message error-required" 
             [hidden]='articleForm.controls.title.pristine || (!articleForm.controls.title.errors || !articleForm.controls.title.errors.required)'>
                 le titre est requis
             </div>
-        </div>-->
-    </mat-form-field>
+        </div>
+    </div>
 
-    <mat-form-field appearance="fill" class="form-group form-element form-content">
-        <mat-label for="content">Contenu</mat-label>
-        <textarea matInput type="text" name="content" id="content" data-pristine="true" 
+    <div class="form-group form-element form-content">
+        <label for="content">Contenu</label>
+        <textarea  type="text" name="content" id="content" data-pristine="true" 
             placeholder="Contenu" required 
             class="form-control"  formControlName="content">
         </textarea>
             
-        <!--<div class="error-message-container">
+        <div class="error-message-container">
             <div class="errors error-message error-required" 
             [hidden]='articleForm.controls.content.pristine || (!articleForm.controls.content.errors || !articleForm.controls.content.errors.required)'>
                 le contenu est requis
             </div>
-        </div>-->
-    </mat-form-field>
+        </div>
+    </div>
 
-    <mat-form-field appearance="fill" class="form-group form-element form-date">
-        <mat-label for="date">Date</mat-label>
-        <input matInput type="text" name="date" id="date" data-pristine="true" 
+    <div class="form-group form-element form-date">
+        <label for="date">Date</label>
+        <input  type="text" name="date" id="date" data-pristine="true" 
         placeholder="yyyy-mm-dd" required 
         class="form-control"  formControlName="date">
             
-        <!--<div class="error-message-container">
+        <div class="error-message-container">
             <div class="errors error-message error-required" 
             [hidden]='articleForm.controls.date.pristine || (!articleForm.controls.date.errors || !articleForm.controls.date.errors.required)'>
                 la date est requise
             </div>
-        </div>-->
-    </mat-form-field>
+        </div>
+    </div>
 
-    <mat-form-field appearance="fill" class="form-group form-element form-author">
-        <mat-label for="author">Auteur</mat-label>
-        <select matNativeControl name="author" id="author" 
+    <div class="form-group form-element form-author">
+        <label for="author">Auteur</label>
+        <select  name="author" id="author" 
             data-pristine="true" required 
             class="form-control" formControlName="author">
             <option value="" disabled>Sélectionnez un auteur</option>
             <option *ngFor="let author of listAuthors" value="{{ author.id }}">{{ author.familyname}} {{ author.firstname}} </option>
         </select>
             
-       <!--<div class="error-message-container">
+       <div class="error-message-container">
             <div class="errors error-message error-required" 
             [hidden]='articleForm.controls.author.pristine || (!articleForm.controls.author.errors || !articleForm.controls.author.errors.required)'>
                 l'auteur est requis
             </div>
-        </div>-->
-    </mat-form-field>
+        </div>
+    </div>
 
 
-    <mat-form-field appearance="fill" class="form-group form-element form-published">
-        <!--<mat-checkbox class="example-margin">Check me!</mat-checkbox>-->
+    <div class="form-group form-element form-published">
+       
         <input type="checkbox"  name="published" id="published" data-pristine="true" 
         required 
-        class="form-control"  formControlName="published"><mat-label for="published">Publié</mat-label>
-    </mat-form-field>
+        class="form-control"  formControlName="published"><label for="published">Publié</label>
+    </div>
 
-    <mat-form-field appearance="fill" class="form-group form-element form-complete">
+    <div class="form-group form-element form-complete">
         <input type="checkbox"  name="complete" id="complete" data-pristine="true" 
         required 
-        class="form-control"  formControlName="complete"><mat-label for="complete">Complet</mat-label>   
-    </mat-form-field>
+        class="form-control"  formControlName="complete"><label for="complete">Complet</label>   
+    </div>
 
     <div class="submit-container">
-        <button mat-raised-button color="primary" type="submit" matButton 
+        <button type="button"  
+            (click) = "back()"
+          
+        >Annuler</button>
+        <button color="primary" type="submit"  
             class="submit-button"
             [disabled]="articleForm.invalid"
         >Envoyer</button>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { throwError } from 'rxjs';
 import { User } from 'src/app/models/userModels/User';
 import { UserService } from 'src/app/services/userServices/user.service';
 
@@ -62,22 +61,22 @@ export class UserAdminComponent implements OnInit {
     );
     
     console.log('Données du formulaire : ', this.userForm.value);
-    console.log('newUser', newUser);
-
-    if (newUser.id === 0) {
-      this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(
-        () => {alert('User ajouté'),
-        (error: Error) => { throwError(error)}
+    if (!this.user || this.user?.id === 0) {
+      this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(() => {
+        alert('User ajouté');
+        this.back();
       });
      
     } else {
-      this.userService.updateUser(newUser).subscribe(
-        () => {alert('User modifié')},
-        (error: Error) => { throwError(error)}
-      );
+      this.userService.updateUser(newUser, formValue['passwordGroup'].password).subscribe(() => {
+        alert('User modifié');
+        this.back();
+      });
     }
+  }
 
-    //this.router.navigateByUrl('/admin/users');
+  back() {
+    this.router.navigateByUrl('/admin/users');
   }
 }
 

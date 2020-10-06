@@ -1,5 +1,3 @@
-import { User } from '../userModels/User';
-
 export interface SetAuthorDto {
     familyname: string;
     firstname: string;
