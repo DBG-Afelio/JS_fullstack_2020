@@ -10,7 +10,7 @@ export class LoginInterceptor implements HttpInterceptor {
         //console.log('interceptor', req);
         const token = localStorage.getItem('token');
         
-        if (token) {
+        if (token && !req.headers.get('Authorization')) {
             const cloneReq = req.clone({
                 setHeaders : { Authorization: 'Bearer ' + token}
             });

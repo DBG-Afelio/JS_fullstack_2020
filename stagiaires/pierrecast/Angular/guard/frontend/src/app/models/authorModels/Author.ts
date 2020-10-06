@@ -1,6 +1,6 @@
-import { AuthorDto } from './AuthorDto';
-import { Article } from '../articleModels/Article';
 import { User } from '../userModels/User';
+import { AuthorDto } from './AuthorDto';
+import { SetAuthorDto } from './SetAuthorDto';
 
 export class Author {    
     
@@ -22,36 +22,6 @@ export class Author {
         this.user = user;
     }
 
-    public getId(): number {
-        return this.id;
-    }
-
-    public getFistname(): string {
-        return this.familyname;
-    }
-
-    public getLastname(): string {
-        return this.firstname;
-    }
-
-    public getEmail(): string {
-        return this.email;
-    }
-    
-    public getPresentation(): string {
-        return this.presentation;
-    } 
-      
-    public getUser(): User {
-        return this.user;
-    } 
-
-    
-     
-    public isActive(): boolean {
-        return this.active;
-    } 
-
     public static fromDto(AuthorDto: AuthorDto): Author {
         return new Author(
             AuthorDto.id, 
@@ -60,11 +30,11 @@ export class Author {
             AuthorDto.email,
             AuthorDto.presentation,
             AuthorDto.active,
-            AuthorDto.user,
+            User.fromDto(AuthorDto.user),
         );
     }
 
-    public toDto(): AuthorDto {
+    /*public toDto(): AuthorDto {
         return {
             id: this.id,
             familyname: this.familyname,
@@ -73,6 +43,17 @@ export class Author {
             presentation: this.presentation,
             active: this.active,
             user: this.user,
+        }
+    }*/
+
+    public toSetDto(): SetAuthorDto {
+        return {
+            familyname: this.familyname,
+            firstname: this.firstname,
+            email: this.email,
+            presentation: this.presentation,
+            active: this.active,
+            userId: this.user.id,
         }
     }
 }

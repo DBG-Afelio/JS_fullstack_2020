@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/userServices/user.service';
 })
 export class AuthorAdminComponent implements OnInit {
 
+ 
   public author: Author;
   public listUsers: User[];
   public authorForm: FormGroup;
@@ -26,12 +27,12 @@ export class AuthorAdminComponent implements OnInit {
     public router: Router
   ) {
     this.authorForm = this.formBuilder.group({
-      familyname : this.formBuilder.control(this.author?.familyname, [ Validators.required ]),
-      firstname : this.formBuilder.control(this.author?.firstname, [ Validators.required ]),
-      email : this.formBuilder.control(this.author?.email, [ Validators.required , Validators.email]),
-      presentation : this.formBuilder.control(this.author?.presentation, [ Validators.required ]),
-      active : this.formBuilder.control(this.author?.active, [ Validators.required ]),
-      user : this.formBuilder.control(this.author?.user, [ Validators.required ]),
+      familyname : this.formBuilder.control(null, [ Validators.required ]),
+      firstname : this.formBuilder.control(null, [ Validators.required ]),
+      email : this.formBuilder.control(null, [ Validators.required , Validators.email]),
+      presentation : this.formBuilder.control(null, [ Validators.required ]),
+      active : this.formBuilder.control(null ),
+      user : this.formBuilder.control(null, [ Validators.required ]),
     });
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
@@ -44,19 +45,21 @@ export class AuthorAdminComponent implements OnInit {
 
   private initForm(authorId: number) {
     if (authorId !== 0) {
-      forkJoin([this.userService.getList(), this.authorService.getAuthorById(authorId)]).subscribe(
+      forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorById(authorId)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
-          this.listUsers = listUsers;
+          console.log(author);
+          this.listUsers = [author.user, ...listUsers];
           this.author = author;
           this.authorForm.get('familyname').setValue(author.familyname);
           this.authorForm.get('firstname').setValue(author.firstname);
           this.authorForm.get('email').setValue(author.email); 
           this.authorForm.get('presentation').setValue(author.presentation); 
           this.authorForm.get('active').setValue(author.active);
-          this.authorForm.get('author').setValue(author.user.id);
+          this.authorForm.get('user').setValue(author.user.id);
+         
       }); 
     } else {
-      this.userService.getList().subscribe(list => {
+      this.userService.getFreeUsers().subscribe(list => {
         this.listUsers = list;
       })
     }
@@ -65,29 +68,28 @@ export class AuthorAdminComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.authorForm.value;
     let newAuthor = new Author(
-      this.author ? this.author.id : 0,
+      (this.author) ? this.author.id : 0,
       formValue['familyname'],
       formValue['firstname'],
       formValue['email'],
       formValue['presentation'],
       formValue['active'],
-      this.listUsers.find(author => author.id === parseInt(formValue['user']))
+      this.listUsers.find(user => user.id == formValue['user'])
     );
     
     console.log('Données du formulaire : ', this.authorForm.value);
-    console.log('newAuthor', newAuthor);
 
-    if (newAuthor.id === 0) {
+    if (!this.author || this.author?.id === 0) {
       this.authorService.createAuthor(newAuthor).subscribe(() => {
         alert('Author ajouté');
+        this.router.navigateByUrl('/admin/authors');
       });
      
     } else {
       this.authorService.updateAuthor(newAuthor).subscribe(() => {
         alert('Author modifié');
+        this.router.navigateByUrl('/admin/authors');
       });
     }
-
-    this.router.navigateByUrl('/admin/authors');
   }
 }

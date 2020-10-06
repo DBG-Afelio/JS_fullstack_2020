@@ -32,7 +32,7 @@
     <div class="form-group form-element form-email">
         <label for="email">Email</label>
         <input type="text" name="email" id="email" data-pristine="true" 
-        placeholder="yyyy-mm-dd" required 
+        required 
         class="form-control"  formControlName="email">
             
         <div class="error-message-container">
@@ -53,7 +53,7 @@
             data-pristine="true" 
             required 
             class="form-control"  formControlName="user">
-            <option value="" disabled checked>Sélectionnez un utilisateur</option>
+            <option value="" disabled>Sélectionnez un utilisateur</option>
             <option *ngFor="let user of listUsers" value="{{ user.id }}">{{ user.username }}</option>
         </select>
             
@@ -67,9 +67,9 @@
 
     <div class="form-group form-element form-active">
         
-        <input type="checkbox"  name="active" id="active" data-pristine="true" 
+        <input type="checkbox" name="active" id="active" data-pristine="true" 
         required 
-        class="form-control"  formControlName="active"><label for="active">Publié</label>
+        class="form-control" formControlName="active"><label for="active">Actif</label>
   
     </div>
     
@@ -94,7 +94,5 @@
         >Envoyer</button>
     </div>
 
-
-   
 </form>
 

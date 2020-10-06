@@ -37,8 +37,9 @@ export class AuthorService {
   }
 
   createAuthor(payload: Author): Observable<Author> {
+    console.log('pay', payload)
     return this.http
-      .post<Author>(this.url, payload.toDto())
+      .post<Author>(this.url, payload.toSetDto())
       .pipe(
         catchError((error: any) => throwError(error))
       );
@@ -46,7 +47,7 @@ export class AuthorService {
 
   updateAuthor(payload: Author): Observable<Author> {
     return this.http
-      .patch<Author>(`${this.url}/${payload.id}`, payload.toDto())
+      .patch<Author>(`${this.url}/${payload.id}`, payload.toSetDto())
       .pipe
       (
         catchError((error: any) =>  throwError(error))

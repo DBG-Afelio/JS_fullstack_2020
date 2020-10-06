@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { AuthorsAdminDataSource, AuthorsAdminItem } from './authors-admin-datasource';
+import { Router } from '@angular/router';
+import { Author } from 'src/app/models/authorModels/Author';
+
+import { AuthorService } from 'src/app/services/authorServices/author.service';
 
 @Component({
   selector: 'app-authors-admin',
@@ -10,21 +10,35 @@ import { AuthorsAdminDataSource, AuthorsAdminItem } from './authors-admin-dataso
   styleUrls: ['./authors-admin.component.css']
 })
 export class AuthorsAdminComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<AuthorsAdminItem>;
-  dataSource: AuthorsAdminDataSource;
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  public listAuthors: Author[];
 
+  constructor(
+      private authorService: AuthorService,
+      private router: Router
+    ) {
+      this.createListAuthors();
+  }
+
+  createListAuthors() {
+    this.authorService.getList().subscribe(list => { 
+      this.listAuthors = list;
+    });
+  }
+  
   ngOnInit() {
-    this.dataSource = new AuthorsAdminDataSource();
+    
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    
+  }
+
+  public onDelete(author: Author) {
+    if (confirm("Êtes-vous sûr de vousloir supprimer cet auteur")) {
+      this.authorService.removeAuthor(author).subscribe(() => {
+        this.createListAuthors();
+      });
+    }
   }
 }

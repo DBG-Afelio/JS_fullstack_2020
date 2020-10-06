@@ -15,6 +15,16 @@ export class UserService {
 
   }
 
+  public getFreeUsers(): Observable<User[]> {
+    return this.http.get<UserDto[]>(this.url + '/free')
+      .pipe(
+        map((arrayUserDto : UserDto[]) => {
+          return arrayUserDto.map(userDto => User.fromDto(userDto));
+        }),
+      )
+    ;
+  }
+
   public getList(): Observable<User[]> {
     return this.http.get<UserDto[]>(this.url)
       .pipe(

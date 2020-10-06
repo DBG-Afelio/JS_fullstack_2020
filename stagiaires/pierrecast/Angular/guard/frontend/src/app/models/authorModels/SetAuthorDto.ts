@@ -1,11 +1,10 @@
-import { UserDto } from '../userModels/UserDto';
+import { User } from '../userModels/User';
 
-export interface AuthorDto {
-    id: number;
+export interface SetAuthorDto {
     familyname: string;
     firstname: string;
     email: string;
     presentation: string;
     active: boolean;
-    user: UserDto;
+    userId: number;
 }
