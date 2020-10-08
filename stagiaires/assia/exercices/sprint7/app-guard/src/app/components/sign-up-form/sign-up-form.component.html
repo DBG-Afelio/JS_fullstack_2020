@@ -2,7 +2,7 @@
 
   <form class="mat-form-field" [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
     <!-- LOGIN -->
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="login"> Login </mat-label>
       <input matInput type="text" name="login" formControlName="login" />
       <mat-hint>Between 3 and 10 characters</mat-hint>
@@ -23,9 +23,9 @@
         </mat-error>
       </mat-error>
     </mat-form-field>
-
+<br>
     <!-- PASSWORD GROUP -->
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label for="password"> Password </mat-label>
       <input matInput name="password" type="password" [formControl]="
           credentialsForm.controls.passwordGroup['controls'].password
@@ -52,8 +52,8 @@
         </mat-error>
       </mat-error>
     </mat-form-field>
-
-    <mat-form-field>
+<br>
+    <mat-form-field appearance="fill">
       <mat-label for="passwordRetyped"> Confirm Password </mat-label>
       <input matInput name="passwordRetyped" type="password" [formControl]="
           credentialsForm.controls.passwordGroup['controls'].passwordRetyped
@@ -85,7 +85,7 @@
         </mat-error>
       </mat-error>
     </mat-form-field>
-
+<br>
     <div>
       <button mat-raised-button type="submit" color="primary" [disabled]="credentialsForm.invalid">
         Submit

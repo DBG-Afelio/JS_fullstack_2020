@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { User } from '../models/User/User.model';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -9,13 +10,17 @@ import { AuthService } from '../services/auth.service';
 export class LoggedInOnlyGuard implements CanActivate {
 
 
-    public currentUsertoken: string = '';
+    public currentUser: User;
 
     constructor(
         private authService: AuthService,
         private router: Router,
     ){
-        this.authService.currentUsertoken.subscribe((value)=> this.currentUsertoken = value);
+      this.authService.currentUser.subscribe((value) => {
+        this.currentUser = value;
+        console.log('logged in GUARD -- user : ', value);
+      });
+    
     }
 
   canActivate(
@@ -24,7 +29,7 @@ export class LoggedInOnlyGuard implements CanActivate {
         
         let isLoggedIn = true;
         
-        if(!this.currentUsertoken) {
+        if(!this.currentUser) {
             window.alert('Vous n\'avez pas les droits pour visualiser cette page');
             this.router.navigate(['']);
             isLoggedIn = false;

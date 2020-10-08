@@ -1,0 +1,11 @@
+.field-title, .field-content {
+  width: 100%;
+ 
+}
+.field-content {
+  height: 275px;
+}
+
+:disabled {
+  background-color: goldenrod;
+}

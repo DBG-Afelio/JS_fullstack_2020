@@ -6,17 +6,17 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(
-    private authService: AuthService,
+    private injector: Injector,
     private router: Router,
     private _snackBar: MatSnackBar
   ) {}
@@ -25,12 +25,18 @@ export class ErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    let authService = this.injector.get(AuthService);
     return next.handle(req).pipe(
       catchError((err: HttpErrorResponse) => {
         switch (err.status) {
+          case 400: {
+            // bad request
+            this.openSnackBar(err.message);
+            break;
+          }
           case 401: {
             // unauthorized
-            this.authService.removeSessionUser();
+            authService.removeSessionUser();
             this.router.navigate(['/authentication/signin']);
             this.openSnackBar('Wrong login/password ');
             break;
@@ -38,9 +44,9 @@ export class ErrorInterceptor implements HttpInterceptor {
           case 403: {
             // forbidden
             // do smtg ?
-            this.openSnackBar(
-              'Sorry, you are not allowed to perform this action'
-            );
+            // this.openSnackBar(
+            //   'Sorry, you are not allowed to perform this action'
+            // );
             break;
           }
           default: {

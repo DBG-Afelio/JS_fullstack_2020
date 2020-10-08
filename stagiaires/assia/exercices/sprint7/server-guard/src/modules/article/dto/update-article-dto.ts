@@ -24,18 +24,16 @@ export class UpdateArticleDto {
   content: string;
 
   @IsOptional()
-  @IsDateString()
-  publiDate: Date;
-
-  @IsOptional()
   @IsEnum(StatusEnum)
   status: StatusEnum;
 
   @IsOptional()
   @IsString()
-  imageUrl?: string;
+  imageUrl: string;
 
   @IsOptional()
-  @Transform(tagIds => tagIds.map((id: number) => ({ id })))
-  tags?: Partial<TagsEntity>[];
+  @Transform(
+      tagIds => tagIds ? tagIds.map((id: number) => ({ id })) : null
+    )
+  tags: Partial<TagsEntity>[];
 }

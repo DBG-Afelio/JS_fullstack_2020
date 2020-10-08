@@ -5,8 +5,7 @@ export interface SetArticleDto {
   id: number;
   title: string;
   content: string;
-  publiDate: Date;
   status: StatusEnum;
-  imageUrl: string;
-  tags: Tag[];
+  imageUrl?: string;
+  tags?: number[];
 }

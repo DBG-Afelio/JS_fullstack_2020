@@ -5,7 +5,7 @@
 
   <div>
     <button
-      *ngIf="!currentUsertoken"
+      *ngIf="!currUser"
       mat-raised-button
       color="primary"
       routerLink="/authentication/signin"
@@ -14,14 +14,14 @@
     </button>
   </div>
 
-  <div *ngIf="currUser"> {{ currUser?.firstName }} ({{ currUser?.role }})</div>
+  <!-- <div *ngIf="currUser"> {{ currUser?.firstName }} ({{ currUser?.role }})</div> -->
 
   <div>
     <button
-      *ngIf="currentUsertoken"
+      *ngIf="currUser"
       mat-raised-button
       color="primary"
-      routerLink="/private"
+      routerLink="/private/{{ currUser.id }}"
     >
       My Page
     </button>
@@ -29,7 +29,7 @@
 
   <div>
     <button
-      *ngIf="currentUsertoken"
+      *ngIf="currUser"
       mat-raised-button
       color="warn"
       (click)="logout()"

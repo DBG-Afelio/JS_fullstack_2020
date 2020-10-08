@@ -1,11 +1,11 @@
 <div class="container">
   <form
-    class="mat-form-field"
+    class="myform"
     [formGroup]="articleForm"
     (ngSubmit)="submitForm()"
   >
     <!--  -->
-    <mat-form-field>
+    <mat-form-field appearance="fill" class="field-title">
       <mat-label for="title"> Title </mat-label>
       <input matInput type="text" name="title" formControlName="title" />
       <!-- <mat-hint>Between 3 and 10 characters</mat-hint> -->
@@ -25,9 +25,15 @@
     </mat-form-field>
 
     <!--  -->
-    <mat-form-field>
+    <mat-form-field appearance="fill" class="field-content">
       <mat-label for="content"> Content </mat-label>
-      <input matInput type="text" name="content" formControlName="content" />
+      <textarea height='219px'
+        matInput
+        minRows="20"
+        type="text"
+        name="content"
+        formControlName="content"
+      ></textarea>
       <!-- <mat-hint>Between 3 and 10 characters</mat-hint> -->
 
       <mat-error
@@ -42,6 +48,15 @@
           Article Content is <strong>required</strong>
         </mat-error>
       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let statusItem of statusList" [value]="statusItem">
+          {{ statusItem }}</mat-option
+        >
+      </mat-select>
     </mat-form-field>
 
     <div>

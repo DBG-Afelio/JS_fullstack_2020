@@ -1,1 +1,35 @@
-<p>article-item works!</p>
+<!-- list view from left nav menu option selected -->
+<div *ngIf="!isDetailView">
+  <div *ngIf="articleList?.length === 0">Nothing to show</div>
+  <mat-table
+    *ngIf="articleList?.length > 0"
+    [dataSource]="articleList"
+    class="mat-elevation-z8"
+  >
+    <ng-container *ngFor="let column of headerList" [matColumnDef]="column">
+      <mat-header-cell *matHeaderCellDef> {{ column }} </mat-header-cell>
+      <mat-cell
+        *matCellDef="let article"
+        routerLink="/private/{{ currUser?.id }}/articles/{{ article?.id }}"
+        (click)="showDetail(article)"
+      >
+        {{ article[column] }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsToShow"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsToShow"></mat-row>
+  </mat-table>
+</div>
+
+<!-- detail article View -->
+<div>
+  <div *ngIf="isDetailView">
+    <div>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        Back to list
+      </button>
+    </div>
+    <app-article-detail [article]="article" [user]="currUser" (articleChange)="emitChange($event)"></app-article-detail>
+  </div>
+</div>

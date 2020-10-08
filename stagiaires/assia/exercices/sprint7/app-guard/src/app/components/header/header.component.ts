@@ -10,19 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public currentUsertoken: string;
   public currUserSub: Subscription;
   public currUser: User;
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.authService.currentUsertoken.subscribe(
-      (value) => (this.currentUsertoken = value)
-    );
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('current user token : ', this.currentUsertoken);
-    this.currUserSub = this.authService.currentUser.subscribe((value: User) => this.currUser = value);
+    this.currUserSub = this.authService.currentUser.subscribe(
+      (value: User) => (this.currUser = value)
+    );
   }
 
   ngOnDestroy(): void {
@@ -31,6 +27,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public logout(): void {
     this.authService.removeSessionUser();
-    this.router.navigate(['/home/article']);
+    this.router.navigate(['/home/articles']);
   }
 }

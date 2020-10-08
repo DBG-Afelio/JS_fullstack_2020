@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RolesEnum } from 'src/app/enum/roles.enum';
+import { StatusEnum } from 'src/app/enum/status.enum';
 import { Article } from 'src/app/models/Article/Article.model';
 import { User } from 'src/app/models/User/User.model';
 import { ArticlesService } from 'src/app/services/articles.service';
@@ -20,18 +21,24 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
   public currUserSub: Subscription;
   public currUser: User;
   public selectedMenu = '';
+  public articleList: Article[] = [];
+  public filteredList = [];
+  public columnsToShow: string[] = [];
+ 
+  // public article: Article = null;
   constructor(
     private authService: AuthService,
     private userService: UsersService,
     private artService: ArticlesService,
     public router: Router
-  ) {}
+  ) {
+    this.artService.getAll().subscribe((list) => (this.articleList = list));
+  }
 
   ngOnInit(): void {
-    this.currUserSub = this.authService.currentUser.subscribe((value: User) => {
-      this.currUser = value;
-      console.log('private user oninit is : ', this.currUser);
-    });
+    this.currUserSub = this.authService.currentUser.subscribe(
+      (value: User) => (this.currUser = value)
+    );
   }
   ngOnDestroy(): void {
     this.currUserSub.unsubscribe();
@@ -47,12 +54,45 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
       );
   }
 
-  showActiveRoute(): void {
-    console.log('this route is : ', window.location.pathname);
-  }
-
   onSelectMenu(menu: string): void {
     this.selectedMenu = menu;
+    this.setCustomList(menu);
+  }
+
+  public setCustomList(route: string): void {
+    this.filteredList = [];
+    if (this.articleList?.length > 0) {
+      this.columnsToShow = ['title', 'tags', 'author', 'publiDate', 'status'];
+
+      if (route.includes('draft')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) =>
+            art.status === StatusEnum.IN_PROGRESS &&
+            this.currUser.id === art.author.id
+        );
+        this.columnsToShow = ['title', 'tags', 'status'];
+      } else if (route.includes('pending')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) => art.status === StatusEnum.TO_REVIEW
+        );
+        if (this.currUser.role === RolesEnum.AUTHOR) {
+          this.filteredList = this.filteredList.filter(
+            (art: Article) => this.currUser.id === art.author.id
+          );
+          this.columnsToShow = ['title', 'tags', 'publiDate', 'status'];
+        }
+      } else if (route.includes('published')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) => art.status === StatusEnum.PUBLISHED
+        );
+        if (this.currUser.role === RolesEnum.AUTHOR) {
+          this.filteredList = this.filteredList.filter(
+            (art: Article) => this.currUser.id === art.author.id
+          );
+          this.columnsToShow = ['title', 'tags', 'publiDate'];
+        }
+      }
+    } 
   }
 
   saveUser(user: User): void {
@@ -60,6 +100,12 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
   }
 
   saveArticle(article: Article): void {
-    // this.artService.save(article).subscribe();
+    console.log('EMIT 4-------------- submitted article  --- request sent : ', article);
+    if (article.id !== 0) {
+      this.artService.update(article).subscribe();
+
+    } else {
+      this.artService.create(article).subscribe();
+    }
   }
 }

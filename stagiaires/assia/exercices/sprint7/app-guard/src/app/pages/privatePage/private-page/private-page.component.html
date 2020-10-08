@@ -11,8 +11,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/user/{{ currUser?.id }}"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/users/{{ currUser?.id }}"
           (click)="onSelectMenu('profil')"
         >
           Personal information
@@ -20,8 +19,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/user/{{ currUser?.id }}/review"
-          routerLinkActive="active"
+          routerLink="/private/users/{{ currUser?.id }}/comments/pending"
           (click)="onSelectMenu('pending-comments')"
         >
           Pending comments
@@ -29,8 +27,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/user/{{ currUser?.id }}/review"
-          routerLinkActive="active"
+          routerLink="/private/users/{{ currUser?.id }}/comments/published"
           (click)="onSelectMenu('left-comments')"
         >
           Left comments
@@ -45,8 +42,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/article/ajouter"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles/add"
           (click)="onSelectMenu('author-new-article')"
         >
           Create new article
@@ -54,8 +50,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/article"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles/draft"
           (click)="onSelectMenu('author-draft-articles')"
         >
           Work in progress
@@ -63,8 +58,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/article"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles/pending"
           (click)="onSelectMenu('author-pending-articles')"
         >
           Pending approval articles
@@ -72,8 +66,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/article"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles/published"
           (click)="onSelectMenu('author-published-articles')"
         >
           Published articles
@@ -88,8 +81,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/article"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles/pending"
           (click)="onSelectMenu('editor-pending-articles')"
         >
           Pending article reviews
@@ -97,8 +89,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/user"
-          routerLinkActive="active"
+          routerLink="/private/users"
           (click)="onSelectMenu('editor-pending-author')"
         >
           Pending author requests
@@ -112,8 +103,7 @@
       <mat-nav-list>
         <a
           mat-list-item
-          routerLink="/private/article"
-          routerLinkActive="active"
+          routerLink="/private/{{ currUser?.id }}/articles"
           (click)="onSelectMenu('editor-published-articles')"
         >
           Articles
@@ -121,8 +111,7 @@
         <mat-divider></mat-divider>
         <a
           mat-list-item
-          routerLink="/private/user"
-          routerLinkActive="active"
+          routerLink="/private/users"
           (click)="onSelectMenu('editor-authors')"
         >
           Authors
@@ -131,7 +120,6 @@
         <a
           mat-list-item
           routerLink="/private/tag"
-          routerLinkActive="active"
           (click)="onSelectMenu('editor-tags')"
         >
           Tags
@@ -143,7 +131,6 @@
 
   <div class="content">
     content
-    <div></div>
     <app-user-form
       *ngIf="selectedMenu === 'profil'"
       [user]="currUser"
@@ -158,23 +145,24 @@
     <app-article-form
       *ngIf="selectedMenu === 'author-new-article'"
       [article]=""
+      [user]="currUser"
       (articleInfoChange)="saveArticle($event)"
     ></app-article-form>
+
     <app-article-item
-      *ngIf="selectedMenu === 'author-draft-articles'"
-    ></app-article-item>
-    <app-article-item
-      *ngIf="selectedMenu === 'author-pending-articles'"
-    ></app-article-item>
-    <app-article-item
-      *ngIf="selectedMenu === 'author-published-articles'"
-    ></app-article-item>
-    <app-article-item
-      *ngIf="selectedMenu === 'editor-pending-articles'"
-    ></app-article-item>
-    <app-article-item
-      *ngIf="selectedMenu === 'author-pending-articles'"
-    ></app-article-item>
+      *ngIf="
+        selectedMenu === 'author-draft-articles' ||
+        selectedMenu === 'author-pending-articles' ||
+        selectedMenu === 'author-published-articles' ||
+        selectedMenu === 'editor-pending-articles' ||
+        selectedMenu === 'editor-published-articles'
+      "
+      [articleList]="filteredList"
+      [columnsToShow]="columnsToShow"
+      [currUser]="currUser"
+      (articleChange)="saveArticle($event)"
+    >
+    </app-article-item>
   </div>
 </div>
 

@@ -6,11 +6,8 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
-
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -19,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
     if (!req.url.includes('auth')) {
       console.log('intercepted ----------');
       //retrieve token if any, from sessionStorage
-      let sessionToken = this.authService.currentUsertoken.getValue();
+      let sessionToken = sessionStorage.getItem('userToken');
 
       if (sessionToken) {
         //if so, add authorization header with jwt token
@@ -28,9 +25,8 @@ export class JwtInterceptor implements HttpInterceptor {
             Authorization: `Bearer ${sessionToken}`,
           },
         });
-
       }
-    } 
+    }
 
     return next.handle(req);
   }

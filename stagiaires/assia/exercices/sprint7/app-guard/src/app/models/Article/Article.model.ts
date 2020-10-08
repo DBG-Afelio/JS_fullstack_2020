@@ -1,11 +1,11 @@
 import { StatusEnum } from 'src/app/enum/status.enum';
 import { Tag } from '../Tag/Tag.model';
+import { TagDto } from '../Tag/TagDto';
 import { User } from '../User/User.model';
 import { UserComment } from '../UserComment/userComment.model';
 import { GetArticleDto } from './GetArticleDto';
 import { SetArticleDto } from './SetArticleDto';
 import { SetNewArticleDto } from './SetNewArticleDto';
-
 
 export class Article {
   constructor(
@@ -16,8 +16,8 @@ export class Article {
     public publiDate: Date,
     public imageUrl: string,
     public status: StatusEnum,
-    public comments: UserComment[],
-    public tags: Tag[],
+    public comments?: UserComment[],
+    public tags?: Tag[]
   ) {}
 
   public toDto(): SetArticleDto {
@@ -25,10 +25,9 @@ export class Article {
       id: this.id,
       title: this.title,
       content: this.content,
-      publiDate: this.publiDate,
       imageUrl: this.imageUrl,
       status: this.status,
-      tags: this.tags,
+      tags: this.tags ? this.tags?.map((tag: Tag) => tag.id) : null,
     };
   }
 
@@ -36,10 +35,10 @@ export class Article {
     return {
       title: this.title,
       content: this.content,
-      author: this.author,
+      author: this.author.id,
       imageUrl: this.imageUrl,
       status: this.status,
-      tags: this.tags,
+      tags: this.tags ? this.tags?.map((tag: Tag) => tag.id) : null,
     };
   }
 
@@ -48,12 +47,13 @@ export class Article {
       articleDto.id,
       articleDto.title,
       articleDto.content,
-      articleDto.author,
+      User.fromDto(articleDto.author),
       articleDto.publiDate,
       articleDto.imageUrl,
       articleDto.status,
-      articleDto.comments,
-      articleDto.tags,
+      articleDto.comments, // << articleDto.comments.map((comDto: UserCommentDto) => UserComment.fromDto(comDto))
+      articleDto.tags?.map((tagDto: TagDto) => Tag.fromDto(tagDto))
+      // UserComment.fromDto(articleDto.comments),
     );
   }
 }

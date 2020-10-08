@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 
 import {
   ErrorStateMatcher,
@@ -36,6 +37,7 @@ import { TagFormComponent } from './components/tag-form/tag-form.component';
 import { CommentItemComponent } from './components/comment-item/comment-item.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,8 +72,11 @@ import { HeaderComponent } from './components/header/header.component';
     MatDividerModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatTableModule,
   ],
   providers: [
+    AuthService,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
@@ -81,6 +86,7 @@ import { HeaderComponent } from './components/header/header.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true,
+      //deps: [AuthService]
     },
     {
       provide: ErrorStateMatcher,

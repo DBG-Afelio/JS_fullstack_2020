@@ -1,4 +1,13 @@
 .container {
   display: flex;
   flex-flow: wrap row;
+  padding: 20px 20px;
+}
+
+.myForm {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 35%
 }

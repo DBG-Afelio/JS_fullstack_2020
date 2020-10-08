@@ -1,65 +1,72 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Subscribable, Subscription } from 'rxjs';
+import { Article } from 'src/app/models/Article/Article.model';
 import { Credentials } from 'src/app/models/Credentials/Credentials.model';
+import { User } from 'src/app/models/User/User.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-in-form',
   templateUrl: './sign-in-form.component.html',
-  styleUrls: ['./sign-in-form.component.css']
+  styleUrls: ['./sign-in-form.component.css'],
 })
-export class SignInFormComponent implements OnInit {
-    public credentialsForm: FormGroup;
+export class SignInFormComponent implements OnInit, OnDestroy {
+  public credentialsForm: FormGroup;
+  // public connectedUserSub: Subscription;
+  // public connectedUser: User = null;
 
+  constructor(
+    private _formBuilder: FormBuilder,
+    private authService: AuthService,
+    public router: Router,
+    private _snackBar: MatSnackBar
+  ) {
+    this.credentialsForm = _formBuilder.group({
+      login: _formBuilder.control('', [Validators.required]),
+      password: _formBuilder.control('', [Validators.required]),
+    });
+  }
 
-    constructor(
-        private _formBuilder: FormBuilder,
-        private authService: AuthService,
-        public router: Router,
-        private _snackBar: MatSnackBar,
-    ) { 
-        this.credentialsForm = _formBuilder.group({
-            login: _formBuilder.control('',[Validators.required]),
-            password : _formBuilder.control('', [Validators.required]),
-        });
+  ngOnInit(): void {
+    // this.connectedUserSub = this.authService.currentUser.subscribe((value) => {
+    //   this.connectedUser = value;
+    //   console.log('ngOnInit connected USER : ', value);
+    // });
+  }
+
+  ngOnDestroy(): void {
+    // this.connectedUserSub.unsubscribe();
+  }
+
+  public openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
+  public onSubmitForm(): void {
+    if (this.credentialsForm.valid) {
+      const cred = new Credentials(
+        this.credentialsForm.value.login,
+        this.credentialsForm.value.password
+      );
+
+      this.authService
+        .connectUser(cred)
+        .subscribe(
+          (u) => this.router.navigate([`/private/${u.id}`])
+          // (u) => this.router.navigate([`/`])
+        );
     }
-
-    ngOnInit(): void {}
-
-    public openSnackBar(message: string, action?: string) {
-        this._snackBar.open(message, action, {
-            duration: 3000,
-        });
-    }
-
-    public onSubmitForm(): void {
-        if(this.credentialsForm.valid){
-            console.log('credentials submitted for sign-in');
-
-            const cred = new Credentials(
-                this.credentialsForm.value.login,
-                this.credentialsForm.value.password
-            );
-            
-            this.authService.connectUser(cred).subscribe(
-                () => {
-                    this.router.navigate(['/private']);
-                },
-                (error: HttpErrorResponse) => {
-                    console.log('erreur connection : ', error);
-                    // handled by errorInterceptor
-
-                },
-                
-            );
-
-        }
-    }
-
-
+  }
 }
-
-
