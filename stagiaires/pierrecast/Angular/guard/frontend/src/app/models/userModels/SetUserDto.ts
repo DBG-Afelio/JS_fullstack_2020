@@ -1,6 +1,7 @@
 
 export interface SetUserDto {
-    readonly username: string;
-    readonly email: string;
-    readonly roles: string;
+     username: string;
+     email: string;
+     roles: string;
+     password?: string;
 }

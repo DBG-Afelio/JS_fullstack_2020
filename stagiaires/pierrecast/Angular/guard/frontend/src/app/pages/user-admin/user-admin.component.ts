@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/userModels/User';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/userServices/user.service';
 
 @Component({
@@ -14,12 +15,14 @@ export class UserAdminComponent implements OnInit {
   public user: User;
   public listRoles: string[] = [ 'ADMIN', 'AUTHOR', 'USER'];
   public userForm: FormGroup;
-  
+  public currentUser: any;
+
   constructor( 
     private formBuilder: FormBuilder,
     private userService: UserService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
+    public router: Router, 
+    public authService: AuthService,
   ) {
     this.userForm = this.formBuilder.group({
       username : this.formBuilder.control(this.user?.username, [ Validators.required ]),
@@ -30,15 +33,35 @@ export class UserAdminComponent implements OnInit {
         repeat: this.formBuilder.control('')
       }),
     });
-    this.activatedRoute.paramMap.subscribe(params => {
-      let id = Number(params.get('id'));
-      this.initForm(id);
-      
-    });
     
+    this.initCurrentUser();
+    /* 
+      Qui passe ici ?
+      User ou Admin ou Author => mes acces
+      Admin => gestion des users
+    */
+   
+      this.activatedRoute.paramMap.subscribe(params => {  // gestion des users
+        let id = Number(params.get('id'));
+        if (this.currentUser.roles === "ADMIN" && id) {
+          this.initForm(id);
+        } else { // mes acces
+          this.initForm(this.currentUser.id);
+        }
+      });
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.initCurrentUser();
+  }
+
+  initCurrentUser() {
+    this.authService.getCurrentUser().subscribe(
+      (user: any) => {
+        this.currentUser = user;
+      }
+    );
+  }
 
   private initForm(userId: number) {
     if (userId !== 0) {
@@ -58,17 +81,20 @@ export class UserAdminComponent implements OnInit {
       formValue['username'],
       formValue['email'],
       formValue['roles'],
-    );
+     );
+
+    if (formValue['passwordGroup'].password.length !== 0) {
+      newUser.password = formValue['passwordGroup'].password;
+    } 
     
-    console.log('Données du formulaire : ', this.userForm.value);
     if (!this.user || this.user?.id === 0) {
-      this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(() => {
+      this.userService.createUser(newUser).subscribe(() => {
         alert('User ajouté');
         this.back();
       });
      
     } else {
-      this.userService.updateUser(newUser, formValue['passwordGroup'].password).subscribe(() => {
+      this.userService.updateUser(newUser).subscribe(() => {
         alert('User modifié');
         this.back();
       });
@@ -76,7 +102,11 @@ export class UserAdminComponent implements OnInit {
   }
 
   back() {
-    this.router.navigateByUrl('/admin/users');
+    if (this.currentUser.roles === 'ADMIN')  {
+      this.router.navigateByUrl('/admin/users');
+    } else {
+      this.router.navigateByUrl('/admin');
+    }
   }
 }
 

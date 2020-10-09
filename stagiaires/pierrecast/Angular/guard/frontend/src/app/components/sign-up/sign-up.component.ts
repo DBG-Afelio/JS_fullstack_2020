@@ -43,9 +43,9 @@ export class SignUpComponent implements OnInit {
       'USER',
     );
 
-    this.userService.createUser(newUser, formValue['passwordGroup'].password).subscribe(
+    this.userService.createUser(newUser).subscribe(
       (res) => { 
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/admin');
       }, 
       (error) => {
         

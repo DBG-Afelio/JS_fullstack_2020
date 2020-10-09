@@ -10,11 +10,18 @@ export class LoginGuard implements CanActivate {
         state: RouterStateSnapshot
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
     {
-        const user = this.authService.isAuthenticated();
-        if (!user) {
-            this.router.navigate(['/sign-in']);
-        }
-        return (!! user);
+        let permission = true;
+        let roles = route.data.roles as Array<string>; 
+        const user = this.authService.getCurrentUser().subscribe(user => {
+               
+            if (!user || !roles.includes(user.roles)) {
+                    this.router.navigate(['/sign-in']);
+                    permission = false;
+                }
+        });
+
+        
+        return (permission);
     }
 
     constructor(private authService: AuthService, private router: Router) { }  

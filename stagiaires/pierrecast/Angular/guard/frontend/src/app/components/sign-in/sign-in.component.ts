@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
         username: ['', [ Validators.required ] ], 
         password: ['', [ Validators.required ] ], 
       });
-     }
+    }
 
   ngOnInit(): void {
   }
@@ -36,12 +36,5 @@ export class SignInComponent implements OnInit {
         throw new Error(error.message);
       }
     );
-  }
-
-  getUsernameErrorMessage() {
-    if (this.loginForm.controls.username.hasError('required')) {
-      return 'le Pseudo est requis';
-    }
-    return '';
   }
 }

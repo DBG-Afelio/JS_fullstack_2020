@@ -1,27 +1,32 @@
 <nav>
-    <a routerLink=''        >Home</a>
-    <a routerLink='/admin'  >Admin</a>
+    <a routerLink=""        >Home</a>
+    <a routerLink="/admin"  >Admin</a>
 
 
-    <a routerLink='/admin/users'  >USERS</a>
+    <div *ngIf="currentUser && currentUser.roles === 'ADMIN'">
+        <a routerLink="/admin/users"        >USERS</a>
+        <a routerLink="/admin/authors"      >AUTHORS</a>
+        <a routerLink="/admin/articles"     >ARTICLES</a>
+    </div>
+    <div *ngIf="currentUser && currentUser.roles === 'AUTHOR'">
+        <a routerLink="/admin/author/mes-articles">Mes articles</a>
+    </div>
 
-    <a routerLink='/admin/authors'  >AUTHORS</a>
-
-    <a routerLink='/admin/articles'  >ARTICLES</a>
-
-    <div *ngIf="!logged" >
+    <div *ngIf="!currentUser" >
         <button 
             routerLink='/sign-in'
-        >Sign In</button> | 
+        >Sign In</button>
         <button 
             routerLink='/sign-up'
         >Sign Up</button>
     </div>
 
-    <div *ngIf="logged" >
+    <div *ngIf="currentUser">
+        <a class="monProfil" routerLink="/admin/users"        >{{ currentUser.username}} ({{ currentUser.roles}})</a>
         <button 
             (click) = 'logout()'
         >LogOut</button>
     </div>
+
 
 </nav>

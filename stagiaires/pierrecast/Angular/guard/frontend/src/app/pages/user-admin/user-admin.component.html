@@ -20,11 +20,11 @@
         <label for="password">Mot de passe</label>
         <input type="password" name="password" 
             class="form-control"  formControlName="password"
-            data-pristine="true" placeholder="Mot de passe" required>
+            data-pristine="true" placeholder="Mot de passe">
         <label for="repeat">Resaisir le mot de passe</label>
         <input type="password" name="repeat" id="repeat" 
             class="form-control"  formControlName="repeat"
-            data-pristine="true" placeholder="Ressaisissez Mot de passe" required>
+            data-pristine="true" placeholder="Ressaisissez Mot de passe">
         
         <div class="error-message-container">
             <div class="errors error-message error-required" 
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div class="form-group form-element form-roles">
+    <div class="form-group form-element form-roles" *ngIf = "user && this.currentUser.roles === 'ADMIN'">
         <label for="roles">Rôle</label>
         <select  name="roles" id="roles" 
             data-pristine="true" 

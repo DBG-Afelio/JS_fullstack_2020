@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Author } from 'src/app/models/authorModels/Author';
 import { User } from 'src/app/models/userModels/User';
+import { AuthService } from 'src/app/services/auth.service';
 import { AuthorService } from 'src/app/services/authorServices/author.service';
 import { UserService } from 'src/app/services/userServices/user.service';
 
@@ -16,10 +17,12 @@ export class AuthorAdminComponent implements OnInit {
   public author: Author;
   public listUsers: User[];
   public authorForm: FormGroup;
+  public currentUser: any;
 
   constructor( 
     private formBuilder: FormBuilder,
     private authorService: AuthorService,
+    private authService: AuthService,
     private userService: UserService,
     public activatedRoute: ActivatedRoute,
     public router: Router
@@ -32,14 +35,38 @@ export class AuthorAdminComponent implements OnInit {
       active : this.formBuilder.control(null ),
       user : this.formBuilder.control(null, [ Validators.required ]),
     });
+
+    this.initCurrentUser();
+    /* 
+      Qui passe ici ?
+      Author => mes accès
+      Admin => gestion des auteurs
+    */
+
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
-      this.initForm(id);
-      
+      if (this.currentUser.roles === "ADMIN" && id) {
+        this.initForm(id);
+      } else { // mon profil
+        
+       // let authorId = this.authorService.getAuthorByCurrentUser(currentUser.id) // get AuthorId from User 
+        this.initForm(this.currentUser.id);
+      }
     });
+
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.initCurrentUser();
+  }
+
+  initCurrentUser() {
+    this.authService.getCurrentUser().subscribe(
+      (user: any) => {
+        this.currentUser = user;
+      }
+    );
+  }
 
   private initForm(authorId: number) {
     if (authorId !== 0) {
@@ -91,6 +118,10 @@ export class AuthorAdminComponent implements OnInit {
   }
 
   back() {
-    this.router.navigateByUrl('/admin/authors');
+    if (this.currentUser.roles === 'ADMIN')  {
+      this.router.navigateByUrl('/admin/authors');
+    } else {
+      this.router.navigateByUrl('/admin');
+    }
   }
 }

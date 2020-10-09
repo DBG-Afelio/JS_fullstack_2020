@@ -17,6 +17,26 @@ export class ArticleService {
     private router: Router,
   ) { }
 
+  /*public getMyArticles(id:number): Observable<Article[]> {
+    return this.http.get<ArticleDto[]>(this.url)
+      .pipe(
+        map((arrayArticleDto : ArticleDto[]) => {
+          return arrayArticleDto.map(articleDto => Article.fromDto(articleDto));
+        })
+      )
+    ;
+  }*/
+
+  public getMyArticles(): Observable<Article[]> {
+    return this.http.get<ArticleDto[]>(this.url + "/mes-articles")
+      .pipe(
+        map((arrayArticleDto : ArticleDto[]) => {
+          return arrayArticleDto.map(articleDto => Article.fromDto(articleDto));
+        })
+      )
+    ;
+  }
+
   public getList(): Observable<Article[]> {
     return this.http.get<ArticleDto[]>(this.url)
       .pipe(
@@ -70,7 +90,6 @@ export class ArticleService {
   }
 
   createArticle(payload: Article): Observable<Article> {
-    console.log('payload article', payload)
     return this.http
       .post<Article>(this.url, payload.toDto())
       .pipe(

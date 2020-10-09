@@ -28,6 +28,14 @@ export class AuthorService {
     ;
   }
 
+  public getAuthorByCurrentUser(id: number): Observable<Author> {
+    return this.http.get<AuthorDto>(this.url + '/' +id) // cureentUser
+    .pipe(
+      map(authorDto => Author.fromDto(authorDto)),
+    )
+  ;
+  }
+
   public getAuthorById(id: number): Observable<Author> {
     return this.http.get<AuthorDto>(this.url + '/' +id)
       .pipe(
@@ -37,7 +45,6 @@ export class AuthorService {
   }
 
   createAuthor(payload: Author): Observable<Author> {
-    console.log('pay', payload)
     return this.http
       .post<Author>(this.url, payload.toSetDto())
       .pipe(

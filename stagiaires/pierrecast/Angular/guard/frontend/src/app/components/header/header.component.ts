@@ -8,21 +8,25 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  public logged: boolean;
-
+  public currentUser: any;
+  
   constructor (
     private authService: AuthService, 
     private router: Router
   ) { 
-    this.authService.isLogged().subscribe(
-      (auth: boolean) => {
-        this.logged = auth;
-      }
-    );
+    this.initCurrentUser();
   }
 
   ngOnInit(): void {
+    this.initCurrentUser();
+  }
+
+  initCurrentUser() {
+    this.authService.getCurrentUser().subscribe(
+      (user: any) => {
+        this.currentUser = user;
+      }
+    );
   }
 
   isLogged() {

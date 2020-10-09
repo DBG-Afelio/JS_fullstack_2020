@@ -7,6 +7,7 @@ export class User {
     public username: string,
     public email: string,
     public roles: string,
+    public password? : string
   ) { }
 
   public toDto(): SetUserDto {
@@ -14,6 +15,7 @@ export class User {
           username: this.username,
           email: this.email,
           roles: this.roles,
+          password: this.password
       }
   }
 

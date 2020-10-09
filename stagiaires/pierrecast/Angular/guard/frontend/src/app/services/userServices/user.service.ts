@@ -44,18 +44,18 @@ export class UserService {
     ;
   }
 
-  public createUser(user: User, password: string): Observable<User> {
+  public createUser(user: User): Observable<User> {
     return this.http
-      .post<UserDto>(this.url + "/register", {...user, password})
+      .post<UserDto>(this.url + "/register", {...user.toDto()})
       .pipe(
         map((userDto:UserDto) => User.fromDto(userDto)),
         catchError((error: any) => throwError(error))
       );
   }
 
-  public updateUser(payload: User, password: string): Observable<User> {
+  public updateUser(payload: User): Observable<User> {
     return this.http
-      .patch<UserDto>(`${this.url}/${payload.id}`, {...payload.toDto(), password})
+      .patch<UserDto>(`${this.url}/${payload.id}`, payload.toDto())
       .pipe
       (
         map((userDto:UserDto) => User.fromDto(userDto)),

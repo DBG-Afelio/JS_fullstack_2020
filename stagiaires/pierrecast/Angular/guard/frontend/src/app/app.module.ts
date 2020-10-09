@@ -28,7 +28,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
- 
+import { JwtModule } from "@auth0/angular-jwt";
+
 export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
@@ -52,7 +53,14 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:4200"],
+        disallowedRoutes: [""],
+      },
+    }),
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTableModule,
