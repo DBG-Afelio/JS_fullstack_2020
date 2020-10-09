@@ -14,6 +14,6 @@ async function bootstrap() {
     whitelist: true,
     forbidNonWhitelisted: true
   }))
-  await app.listen(process.env.NEST_PORT);
+  await app.listen(12499);
 }
 bootstrap();
