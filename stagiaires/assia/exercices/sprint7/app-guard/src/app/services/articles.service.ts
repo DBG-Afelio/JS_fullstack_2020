@@ -11,8 +11,8 @@ import { SetNewArticleDto } from '../models/Article/SetNewArticleDto';
   providedIn: 'root',
 })
 export class ArticlesService {
-  public url = `http://localhost:3000/articles`;
-
+  //public url = `http://localhost:3000/articles`;
+  public url = `https:api.assia-rachdi.ga`;
   constructor(private _http: HttpClient) {}
 
   public getAll(): Observable<Article[]> {

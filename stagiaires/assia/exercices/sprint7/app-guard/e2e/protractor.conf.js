@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'https://front.assia-rachdi.ga/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
