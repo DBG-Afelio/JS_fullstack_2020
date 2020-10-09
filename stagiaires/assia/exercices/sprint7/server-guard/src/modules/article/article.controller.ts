@@ -23,13 +23,27 @@ import { GetArticleFiltersDto } from './dto/get-article-filters-dto';
 import { UpdateArticleDto } from './dto/update-article-dto';
 import { ArticleEntity } from './entities/article.entity';
 
-// @UseGuards(JwtAuthGuard) //, JwtAuthGuard, RolesGuard
+@UseGuards(JwtAuthGuard) //, JwtAuthGuard, RolesGuard, ACGuard
 @Controller('articles')
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
-  //   @Roles('')
 
+  // example : 
+  // @UseRoles({
+  //   resource: 'video',
+  //   action: 'read',
+  //   possession: 'any',
+  // })
+  // @Get()
+  // root(@UserRoles() userRoles: any) {
+  //   return this.appService.root(userRoles);
+  // }
+
+
+
+
+  // @Roles('')
   @Get()
   getArticleList(
     @Query() myFilters: GetArticleFiltersDto,
@@ -68,9 +82,12 @@ export class ArticleController {
     @Body() createArticle: CreateArticleDto,
   ): Promise<ArticleEntity> {
     console.log('coucou---------------');
-    console.log('-----from articles CTRL, new article reeived = ', createArticle);
-    
-   return this.articleService.addOne(createArticle);
+    console.log(
+      '-----from articles CTRL, new article reeived = ',
+      createArticle,
+    );
+
+    return this.articleService.addOne(createArticle);
   }
 
   //   @Roles(RolesEnum.MASTER, RolesEnum.AUTHOR)

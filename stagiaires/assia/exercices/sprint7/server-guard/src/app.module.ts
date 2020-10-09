@@ -14,9 +14,12 @@ import { TagModule } from './modules/tag/tag.module';
 import { JwtStrategy } from './passport/jwt.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './modules/auth/constants';
+import { AccessControlModule } from 'nest-access-control';
+import { roles } from './constants/roles';
 
 @Module({
   imports: [
+    // AccessControlModule.forRoles(roles), // << a decommenter apres avoir mis en place le roleBuilder et maj les CTRL/services sur les req a controler
       ConfigModule.forRoot({
         isGlobal: true,
       }),

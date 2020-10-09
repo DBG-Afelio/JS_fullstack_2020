@@ -19,7 +19,7 @@ export class RolesGuard implements CanActivate {
             return true;
         }
         console.log('-----------Route restricted');
-        console.log('Roles :', RolesEnum.MASTER);
+        // console.log('Roles :', RolesEnum.MASTER);
         const request = context.switchToHttp().getRequest();
         
         console.log('userPayload : ', request.user);

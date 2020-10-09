@@ -17,6 +17,18 @@ export class AuthService {
         private jwtService: JwtService,
     ){}
 
+  async googleLogin(req: any) {
+    if (!req.user) {
+      return 'No user from google'
+    }
+
+    return {
+      message: 'User information from google',
+      user: req.user
+    }
+  }
+  
+  
     async register(credentials: CreateCredentialsDto): Promise<UsersEntity> {
         let newUser: CreateUserDto = {
             ...credentials,
