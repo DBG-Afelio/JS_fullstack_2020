@@ -1,0 +1,26 @@
+
+<a routerLink="/admin/article/0">Nouvel article</a>
+<div *ngIf="listArticles">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Auteur</th>
+
+      <th>Date</th>
+      <th>Mod.</th>
+      <th>Supp.</th>
+    </tr>
+    <tr *ngFor="let article of listArticles">
+      <td>{{ article.id }}</td>
+      <td>{{ article.title }}</td>
+      <td>{{ article.author.familyname }} {{ article.author.firstname }}</td>
+      <td>{{ article.date | date : 'dd/MM/yyyy' }}</td>
+      <td><button routerLink="/admin/article/{{ article.id }}">Mod.</button></td>
+      <td><button (click) ="onDelete(article)">Supp.</button></td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="!listArticles">
+  Aucun article
+</div>

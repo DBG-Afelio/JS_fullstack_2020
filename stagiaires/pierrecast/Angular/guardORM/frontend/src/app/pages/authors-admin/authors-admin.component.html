@@ -1,0 +1,23 @@
+
+<a routerLink="/admin/author/0">Nouvel auteur</a>
+<div *ngIf="listAuthors">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>name</th>
+      <th>userId</th>
+      <th>Mod.</th>
+      <th>Supp.</th>
+    </tr>
+    <tr *ngFor="let author of listAuthors">
+      <td>{{ author.id}}</td>
+      <td>{{ author.firstname}} {{ author.familyname }}</td>
+      <td>{{ author.user.id}} {{ author.user.username}}</td>
+      <td><button routerLink="/admin/author/{{ author.id }}">Mod.</button></td>
+      <td><button (click) ="onDelete(author)">Supp.</button></td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="!listAuthors">
+  Aucun auteur
+</div>

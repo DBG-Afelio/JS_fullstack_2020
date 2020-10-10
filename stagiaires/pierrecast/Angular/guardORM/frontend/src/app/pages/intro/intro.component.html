@@ -1,0 +1,16 @@
+
+
+<div *ngIf='listArticles' class="listArticles" [style.height]="this.height+'px'">
+    <a class="article" *ngFor="let article of listArticles" routerLink='/myArticle/{{ article.id }}'>
+        <div class="header-title">
+            <div class="header"></div>
+            <div class="title">{{ article.title }}</div>
+        </div>
+        <div class="content">{{ article.content }}</div>
+        <div class="date-author">{{ article.author?.firstname }} {{ article.author?.familyname }} - {{ article.date }}</div>
+    </a>
+</div>
+{{ this.height }}
+<div *ngIf='!listArticles'>
+    Aucun article
+</div>

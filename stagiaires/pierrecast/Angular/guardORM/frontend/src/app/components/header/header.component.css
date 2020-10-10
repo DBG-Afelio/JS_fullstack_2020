@@ -1,0 +1,20 @@
+nav a, nav button {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 10px 0;
+    border-right : 1px solid silver;
+    text-decoration: none;
+    color: #4B4D4D;
+}
+
+nav button {
+    margin: 10px;
+}
+
+nav > div { 
+    display: inline-block;
+}
+
+nav .monProfil {
+    font-weight: bold;
+}

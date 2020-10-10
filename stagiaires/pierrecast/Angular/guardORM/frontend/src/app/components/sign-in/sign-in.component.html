@@ -1,0 +1,28 @@
+<h1>Sign In</h1>
+
+<form [formGroup]="loginForm" (ngSubmit) = "onSubmitForm()"  >
+
+    <mat-form-field appearance="fill" class="form-group form-element form-username">
+        <mat-label for="username" >Pseudo</mat-label>
+        <input matInput type="text" name="username" id="username" data-pristine="true" 
+         required 
+        class="form-control" formControlName="username">
+        <mat-error *ngIf="loginForm.controls.username.invalid">Le pseudo est requis</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill"  class="form-group form-element form-username">
+        <mat-label for="password">Mot de passe</mat-label>
+        <input matInput type="password" name="password" id="password" data-pristine="true" 
+        required 
+        class="form-control"  formControlName="password">
+        <mat-error *ngIf="loginForm.controls.username.invalid">Le mot de passe est requis</mat-error>
+    </mat-form-field>
+    
+    <div class="form-group"> 
+        <button  mat-raised-button
+        type="submit"   class="submit-button"
+            [disabled]="loginForm.invalid"
+        >Envoyer</button>
+    
+    </div>
+</form>

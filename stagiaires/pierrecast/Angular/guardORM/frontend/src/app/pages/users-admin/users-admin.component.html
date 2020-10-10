@@ -1,0 +1,25 @@
+<a routerLink="/admin/user/0">Nouvel utilisateur</a>
+<div *ngIf="listUsers">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Roles</th>
+
+      <th>Mod.</th>
+      <th>Supp.</th>
+    </tr>
+    <tr *ngFor="let user of listUsers">
+      <td>{{ user.id}}</td>
+      <td>{{ user.username}}</td>
+      <td>{{ user.email}}</td>
+      <td>{{ user.roles}}</td>
+      <td><button routerLink="/admin/user/{{ user.id }}">Mod.</button></td>
+      <td><button (click) ="onDelete(user)">Supp.</button></td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="!listUsers">
+  Aucun utilisateur
+</div>
