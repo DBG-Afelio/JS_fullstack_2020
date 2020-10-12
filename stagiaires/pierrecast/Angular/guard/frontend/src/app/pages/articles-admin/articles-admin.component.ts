@@ -23,6 +23,7 @@ export class ArticlesAdminComponent implements AfterViewInit, OnInit {
           
         }
       );
+      this.createListArticles();
   }
 
   createListArticles() {
@@ -30,8 +31,7 @@ export class ArticlesAdminComponent implements AfterViewInit, OnInit {
       this.articleService.getList().subscribe(list => { 
         this.listArticles = list;
       });
-    }
-    if (this.currentUser.roles === 'AUTHOR') {
+    } else if (this.currentUser.roles === 'AUTHOR') {
       this.articleService.getMyArticles().subscribe(list => { 
         this.listArticles = list;
       });
