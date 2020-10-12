@@ -16,7 +16,7 @@ import { Payload } from '../interface/payload';
   providedIn: 'root',
 })
 export class AuthService {
-  public url = `https:api.assia-rachdi.ga/auth`;
+  public url = `https://api.assia-rachdi.ga/auth`;
   public subscriptionUrl = `${this.url}/sign-up`;
   public connexionUrl = `${this.url}/sign-in`;
 

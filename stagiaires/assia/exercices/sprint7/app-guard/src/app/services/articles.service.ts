@@ -6,13 +6,12 @@ import { Article } from '../models/Article/Article.model';
 import { GetArticleDto } from '../models/Article/GetArticleDto';
 import { SetArticleDto } from '../models/Article/SetArticleDto';
 import { SetNewArticleDto } from '../models/Article/SetNewArticleDto';
-
 @Injectable({
   providedIn: 'root',
 })
 export class ArticlesService {
   //public url = `http://localhost:3000/articles`;
-  public url = `https:api.assia-rachdi.ga`;
+  public url = `https://api.assia-rachdi.ga/articles`;
   constructor(private _http: HttpClient) {}
 
   public getAll(): Observable<Article[]> {

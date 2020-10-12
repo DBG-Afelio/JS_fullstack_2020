@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import * as dotenv from 'dotenv';
 import { APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
-dotenv.config()
+dotenv.config();
 import { ConfigModule } from '@nestjs/config';
 import { ArticleModule } from './modules/article/article.module';
 import { CommentModule } from './modules/comment/comment.module';

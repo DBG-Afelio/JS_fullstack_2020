@@ -13,7 +13,7 @@ import { SetUserDto } from '../models/User/SetUserDto';
 })
 export class UsersService {
 
-    public url = `https:api.assia-rachdi.ga/users`;
+    public url = `https://api.assia-rachdi.ga/users`;
 
     constructor(
         private _http: HttpClient,
