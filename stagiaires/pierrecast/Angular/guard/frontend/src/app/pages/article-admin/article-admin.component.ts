@@ -53,7 +53,7 @@ export class ArticleAdminComponent implements OnInit {
           this.articleForm.get('date').setValue(new Date(article.date)); 
           this.articleForm.get('published').setValue(article.published); 
           this.articleForm.get('complete').setValue(article.complete);
-          this.articleForm.get('author').setValue(article.author.familyname+' '+article.author.firstname);
+          this.articleForm.get('author').setValue(article.author.id);
       }); 
     } else {
       this.authorService.getList().subscribe(list => {

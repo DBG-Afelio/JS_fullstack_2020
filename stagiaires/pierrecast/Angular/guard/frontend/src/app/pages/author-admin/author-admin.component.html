@@ -48,25 +48,29 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill"  class="form-group form-element form-user">
-        <mat-label for="user">Utilisateurs</mat-label>
-        <mat-select  name="user" id="user" 
+        <mat-label for="user">Utilisateur</mat-label>
+        <mat-select  name="user" id="user"
             data-pristine="true" 
             required 
             class="form-control"  formControlName="user">
-            <mat-option value="" disabled>Sélectionnez un utilisateur</mat-option>
-            <mat-option *ngFor="let user of listUsers" value="{{ user.id }}">{{ user.username }}</mat-option>
+            <mat-option value=""  disabled>Sélectionnez un utilisateur</mat-option>
+            <mat-option 
+                *ngFor="let user of listUsers" [value]="user.id" 
+                
+                >{{ user.username }}
+            </mat-option>
         </mat-select>
             
-        <div class="error-message-container">
+       <!-- <div class="error-message-container">
             <div class="errors error-message error-required" 
             [hidden]='authorForm.controls.user.pristine || (!authorForm.controls.user.errors || !authorForm.controls.user.errors.required)'>
                 l'utilisateur est requis
             </div>
-        </div>
+        </div>-->
     </mat-form-field>
 
     <section  class="form-group form-element form-active">
-        <mat-checkbox name="active" id="active" data-pristine="true" 
+        <mat-checkbox name="active" id="active"             data-pristine="true" 
             class="form-control" formControlName="active">
             <mat-label for="active">Actif</mat-label>
         </mat-checkbox>
@@ -96,5 +100,3 @@
     </div>
 
 </form>
-
-<pre>{{ authorForm.value|json }}</pre> 

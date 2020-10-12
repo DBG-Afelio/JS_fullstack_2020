@@ -18,6 +18,7 @@ export class AuthorAdminComponent implements OnInit {
   public listUsers: User[];
   public authorForm: FormGroup;
   public currentUser: any;
+  
 
   constructor( 
     private formBuilder: FormBuilder,
@@ -32,7 +33,7 @@ export class AuthorAdminComponent implements OnInit {
       firstname : this.formBuilder.control(null, [ Validators.required ]),
       email : this.formBuilder.control(null, [ Validators.required , Validators.email]),
       presentation : this.formBuilder.control(null, [ Validators.required ]),
-     // active : this.formBuilder.control(false),
+      active : this.formBuilder.control(false),
       user : this.formBuilder.control(null, [ Validators.required ]),
     });
 
@@ -69,7 +70,7 @@ export class AuthorAdminComponent implements OnInit {
   }
 
   private initForm(authorId: number) {
-    if (!authorId) {
+    if (!authorId) { // author 
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorByUserId(this.currentUser.id)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
           this.listUsers = [author.user, ...listUsers];
@@ -79,10 +80,10 @@ export class AuthorAdminComponent implements OnInit {
           this.authorForm.get('email').setValue(author.email); 
           this.authorForm.get('presentation').setValue(author.presentation); 
           this.authorForm.get('active').setValue(author.active);
-          this.authorForm.get('user').setValue(author.user?.username);
-         
+          this.authorForm.get('user').setValue(author.user.id);
+          
       }); 
-    } else if (authorId !== 0) {
+    } else if (authorId !== 0) { // admin
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorById(authorId)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
           this.listUsers = [author.user, ...listUsers];
@@ -92,7 +93,8 @@ export class AuthorAdminComponent implements OnInit {
           this.authorForm.get('email').setValue(author.email); 
           this.authorForm.get('presentation').setValue(author.presentation); 
           this.authorForm.get('active').setValue(author.active);
-          this.authorForm.get('user').setValue(author.user?.username);
+          this.authorForm.get('user').setValue(author.user.id);
+          
       }); 
     } else {
       this.userService.getFreeUsers().subscribe(list => {
@@ -113,7 +115,7 @@ export class AuthorAdminComponent implements OnInit {
       this.listUsers.find(user => user.id == formValue['user'])
     );
     
-    console.log('Données du formulaire : ', this.authorForm.value);
+    console.log('Données du formulaire : ', newAuthor);
 
     if (!this.author || this.author?.id === 0) {
       this.authorService.createAuthor(newAuthor).subscribe(() => {
@@ -122,7 +124,7 @@ export class AuthorAdminComponent implements OnInit {
       });
     } else {
       this.authorService.updateAuthor(newAuthor).subscribe(() => {
-        alert('Author modifié');
+        alert('Author modifié'); 
         this.back();
       });
     }
