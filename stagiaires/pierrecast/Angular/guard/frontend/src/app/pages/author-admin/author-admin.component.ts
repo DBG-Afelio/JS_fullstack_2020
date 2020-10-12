@@ -32,7 +32,7 @@ export class AuthorAdminComponent implements OnInit {
       firstname : this.formBuilder.control(null, [ Validators.required ]),
       email : this.formBuilder.control(null, [ Validators.required , Validators.email]),
       presentation : this.formBuilder.control(null, [ Validators.required ]),
-      active : this.formBuilder.control(null ),
+     // active : this.formBuilder.control(false),
       user : this.formBuilder.control(null, [ Validators.required ]),
     });
 
@@ -49,8 +49,8 @@ export class AuthorAdminComponent implements OnInit {
         this.initForm(id);
       } else { // mon profil
         
-       // let authorId = this.authorService.getAuthorByCurrentUser(currentUser.id) // get AuthorId from User 
-        this.initForm(this.currentUser.id);
+        
+        this.initForm(null);
       }
     });
 
@@ -69,7 +69,20 @@ export class AuthorAdminComponent implements OnInit {
   }
 
   private initForm(authorId: number) {
-    if (authorId !== 0) {
+    if (!authorId) {
+      forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorByUserId(this.currentUser.id)]).subscribe(
+        ([listUsers, author]: [User[], Author]) => {
+          this.listUsers = [author.user, ...listUsers];
+          this.author = author;
+          this.authorForm.get('familyname').setValue(author.familyname);
+          this.authorForm.get('firstname').setValue(author.firstname);
+          this.authorForm.get('email').setValue(author.email); 
+          this.authorForm.get('presentation').setValue(author.presentation); 
+          this.authorForm.get('active').setValue(author.active);
+          this.authorForm.get('user').setValue(author.user?.username);
+         
+      }); 
+    } else if (authorId !== 0) {
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorById(authorId)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
           this.listUsers = [author.user, ...listUsers];
@@ -79,8 +92,7 @@ export class AuthorAdminComponent implements OnInit {
           this.authorForm.get('email').setValue(author.email); 
           this.authorForm.get('presentation').setValue(author.presentation); 
           this.authorForm.get('active').setValue(author.active);
-          this.authorForm.get('user').setValue(author.user.id);
-         
+          this.authorForm.get('user').setValue(author.user?.username);
       }); 
     } else {
       this.userService.getFreeUsers().subscribe(list => {
@@ -108,7 +120,6 @@ export class AuthorAdminComponent implements OnInit {
         alert('Author ajouté');
         this.back();
       });
-     
     } else {
       this.authorService.updateAuthor(newAuthor).subscribe(() => {
         alert('Author modifié');

@@ -26,17 +26,17 @@ export class ArticleAdminComponent implements OnInit {
   ) {
     this.articleForm = this.formBuilder.group({
       title : this.formBuilder.control('', [ Validators.required ]),
-      content : this.formBuilder.control(this.article?.content, [ Validators.required ]),
-      date : this.formBuilder.control(this.article?.title, [ Validators.required ]),
-      published : this.formBuilder.control(this.article?.published, [ Validators.required ]),
-      complete : this.formBuilder.control(this.article?.complete, [ Validators.required ]),
-      author : this.formBuilder.control(this.article?.author, [ Validators.required ]),
+      content : this.formBuilder.control('', [ Validators.required ]),
+      date : this.formBuilder.control('', [ Validators.required ]),
+      published : this.formBuilder.control(false, [ Validators.required ]),
+      complete : this.formBuilder.control(true, [ Validators.required ]),
+      author : this.formBuilder.control(0, [ Validators.required ]),
     });
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
       this.initForm(id);
       
-    });
+    }); 
   }
 
   ngOnInit() {}
@@ -46,21 +46,22 @@ export class ArticleAdminComponent implements OnInit {
     if (articleId !== 0) {
       forkJoin([this.authorService.getList(), this.articleService.getArticleById(articleId)]).subscribe(
         ([listAuthors, article]: [Author[], Article]) => {
-          this.listAuthors = [article.author, ...listAuthors];
+          this.listAuthors = listAuthors;
           this.article = article;
           this.articleForm.get('title').setValue(article.title);
           this.articleForm.get('content').setValue(article.content);
-          this.articleForm.get('date').setValue(article.date); 
+          this.articleForm.get('date').setValue(new Date(article.date)); 
           this.articleForm.get('published').setValue(article.published); 
           this.articleForm.get('complete').setValue(article.complete);
-          this.articleForm.get('author').setValue(article.author.id);
-         
+          this.articleForm.get('author').setValue(article.author.familyname+' '+article.author.firstname);
       }); 
     } else {
       this.authorService.getList().subscribe(list => {
         this.listAuthors = list;
       })
     }
+
+    console.log("form",this.articleForm.controls)
   }
 
   onSubmitForm() {
@@ -75,7 +76,7 @@ export class ArticleAdminComponent implements OnInit {
       this.listAuthors.find(author => author.id == formValue['author'])
     );
     
-    console.log('Données du formulaire : ', this.articleForm.value);
+    console.log('Données du formulaire : ', newArticle);
 
     if (!this.article || this.article?.id === 0) {
       this.articleService.createArticle(newArticle).subscribe(() => {

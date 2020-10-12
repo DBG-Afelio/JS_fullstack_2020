@@ -28,7 +28,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon'; 
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JwtModule } from "@auth0/angular-jwt";
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -72,9 +75,12 @@ export function tokenGetter() {
     MatButtonModule, 
     MatSelectModule,
     MatCheckboxModule,
+    MatIconModule,
+    MatDatepickerModule, 
+    MatNativeDateModule, 
   ],
   providers: [LoginGuard, LoginInterceptorProvider, 
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}},
   ],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/userServices/user.service';
   styleUrls: ['./user-admin.component.css']
 })
 export class UserAdminComponent implements OnInit {
-  
+  public hide: boolean = true;
   public user: User;
   public listRoles: string[] = [ 'ADMIN', 'AUTHOR', 'USER'];
   public userForm: FormGroup;

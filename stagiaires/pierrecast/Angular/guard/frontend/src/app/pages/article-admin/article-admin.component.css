@@ -1,6 +1,13 @@
-.mat-field, .mat-field *, .submit-button {
+.form-element, .submit-container {
     display: block;
     margin: 10px auto;
     max-width: 300px;
-   
+}
+.submit-container {
+    text-align: right;
+}
+
+.submit-button {
+    display: inline-block;
+    margin-left: 30px;
 }

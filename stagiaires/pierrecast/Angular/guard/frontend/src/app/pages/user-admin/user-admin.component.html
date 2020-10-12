@@ -1,11 +1,11 @@
 <h1>Utilisateur</h1>
 
 <form [formGroup]="userForm" (ngSubmit) = "onSubmitForm()"  >
-    <div class="form-group form-element form-title">
+    <mat-form-field appearance="fill"  class="form-group form-element form-username">
        
-        <label for="username">Pseudo</label>
-        <input type="text" name="username" id="username" data-pristine="true" 
-        placeholder="pseudo" required 
+        <mat-label for="username">Pseudo</mat-label>
+        <input  matInput type="text" name="username" id="username" data-pristine="true" 
+        placeholder="Pseudo" required 
         class="form-control"  formControlName="username">
             
         <div class="error-message-container">
@@ -14,33 +14,48 @@
                 le pseudo est requis
             </div>
         </div>
-    </div>
-    <div class="form-group form-element form-password" 
-        formGroupName="passwordGroup">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" 
-            class="form-control"  formControlName="password"
-            data-pristine="true" placeholder="Mot de passe">
-        <label for="repeat">Resaisir le mot de passe</label>
-        <input type="password" name="repeat" id="repeat" 
-            class="form-control"  formControlName="repeat"
-            data-pristine="true" placeholder="Ressaisissez Mot de passe">
-        
-        <div class="error-message-container">
-            <div class="errors error-message error-required" 
-                [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.required)'>
-                le mot de passe est requis
+    </mat-form-field>
+
+    <div class="form-group" formGroupName="passwordGroup">
+        <mat-form-field appearance="fill"  class="form-element form-password">
+            <mat-label for="password">Mot de passe</mat-label>
+            <input   name="password" 
+                class="form-control"  formControlName="password" data-pristine="true" 
+                matInput [type]="hide ? 'password' : 'text'">
+            
+            <button mat-icon-button matSuffix 
+                (click)="hide = !hide" 
+                [attr.aria-label]="'Hide password'" 
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill"  class="form-element form-password">
+            <mat-label for="repeat">Répétez</mat-label>
+            
+            <input  matInput type="password" name="repeat" id="repeat" 
+                class="form-control"  formControlName="repeat"
+                data-pristine="true" >
+
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            <div class="error-message-container">
+                <div class="errors error-message error-required" 
+                    [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.required)'>
+                    le mot de passe est requis
+                </div>
+                <div class="errors error-message error-difference " 
+                    [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.comparePassword)'>
+                    les mots de passe sont différents
+                </div>
             </div>
-            <div class="errors error-message error-difference " 
-                [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.comparePassword)'>
-                les mots de passe sont différents
-            </div>
-        </div>
+        </mat-form-field>
     </div>
 
-    <div class="form-group form-element form-email">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" data-pristine="true" 
+    <mat-form-field appearance="fill"  class="form-group form-element form-email">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="text" name="email" id="email" data-pristine="true" 
         placeholder="Email" required 
         class="form-control"  formControlName="email">
             
@@ -50,17 +65,17 @@
                 le pseudo est requis
             </div>
         </div>
-    </div>
+    </mat-form-field>
 
-    <div class="form-group form-element form-roles" *ngIf = "user && this.currentUser.roles === 'ADMIN'">
-        <label for="roles">Rôle</label>
-        <select  name="roles" id="roles" 
+    <mat-form-field appearance="fill"  class="form-group form-element form-roles" *ngIf = "user && this.currentUser.roles === 'ADMIN'">
+        <mat-label for="roles">Rôle</mat-label>
+        <mat-select  name="roles" id="roles" 
             data-pristine="true" 
             required 
             class="form-control"  formControlName="roles">
-            <option value="" disabled>Sélectionnez un role</option>
-            <option *ngFor="let role of listRoles" value="{{ role }}">{{ role }} </option>
-        </select>
+            <mat-option value="" disabled>Sélectionnez un role</mat-option>
+            <mat-option *ngFor="let role of listRoles" value="{{ role }}">{{ role }} </mat-option>
+        </mat-select>
             
         <div class="error-message-container">
             <div class="errors error-message error-required" 
@@ -68,17 +83,21 @@
                 le rôle est requis
             </div>
         </div>
-    </div>
+    </mat-form-field>
 
-    <div class="submit-container">
-        <button type="button"  
+    <div class="form-group submit-container">
+
+        <button type="button"  class="submit-button"
             (click) = "back()"
-          
+            mat-stroked-button 
         >Annuler</button>
-        <button type="submit"  
+
+        <button type="submit"  class="submit-button"
             class="submit-button"
             [disabled]="userForm.invalid"
+            mat-raised-button
         >Envoyer</button>
+
     </div>
 
 </form>
