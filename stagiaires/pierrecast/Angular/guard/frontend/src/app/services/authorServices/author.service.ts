@@ -72,4 +72,13 @@ export class AuthorService {
   public navigateToAdmin() {
     this.router.navigateByUrl(`/admin/authors`);
   }
+
+  public findAuthors(
+    filter = '', sortOrder = 'asc', pageNumber = 0, pageSize = 10
+  ):  Observable<Author[]> {
+
+   return this.http.get(this.url).pipe(
+     map((items: any[]) => items.map(item => Author.fromDto(item)))
+   );
+  }
 }
