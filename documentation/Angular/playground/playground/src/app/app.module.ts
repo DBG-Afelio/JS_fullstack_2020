@@ -9,6 +9,7 @@ import { MyComponentComponent } from './component/my-component/my-component.comp
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ImageLoaderDirective } from './directives/image-loader.directive';
 import { StructuralImageLoaderDirective } from './directives/structural-image-loader.directive';
+import { FirstDirective } from './directives/first.directive';
 
 @NgModule({
    declarations: [
@@ -16,7 +17,8 @@ import { StructuralImageLoaderDirective } from './directives/structural-image-lo
       MyComponentComponent,
       SideBarComponent,
       ImageLoaderDirective,
-      StructuralImageLoaderDirective
+      StructuralImageLoaderDirective,
+      FirstDirective
    ],
    imports: [
       BrowserModule,

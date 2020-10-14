@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseApiUrl: "http://monsite.be/api"
+  
 };
