@@ -6,7 +6,7 @@
       <mat-card-title>{{ item.title | titlecase }}</mat-card-title>
       <mat-card-subtitle
         >{{ item.author.firstName }} {{ item.author.familyName | uppercase }} -
-        {{ item.publiDate | date: mediumDate }}</mat-card-subtitle
+        {{ item.publiDate | date:mediumDate }}</mat-card-subtitle
       >
     </mat-card-header>
     <img mat-card-image [src]="item.imageUrl" alt="Photo of article" />

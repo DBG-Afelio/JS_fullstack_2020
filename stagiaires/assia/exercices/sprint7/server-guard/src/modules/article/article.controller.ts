@@ -12,7 +12,9 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { ACGuard, UseRoles } from 'nest-access-control';
 import { Observable } from 'rxjs';
+import { roles } from 'src/constants/roles';
 import { RolesEnum } from 'src/enum/roles.enum';
 import { Roles } from 'src/guards/roles.decorator';
 import { RolesGuard } from 'src/guards/roles.guard';
@@ -23,13 +25,12 @@ import { GetArticleFiltersDto } from './dto/get-article-filters-dto';
 import { UpdateArticleDto } from './dto/update-article-dto';
 import { ArticleEntity } from './entities/article.entity';
 
-@UseGuards(JwtAuthGuard) //, JwtAuthGuard, RolesGuard, ACGuard
+//, JwtAuthGuard, RolesGuard, ACGuard
 @Controller('articles')
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
-
-  // example : 
+  // example :
   // @UseRoles({
   //   resource: 'video',
   //   action: 'read',
@@ -39,9 +40,6 @@ export class ArticleController {
   // root(@UserRoles() userRoles: any) {
   //   return this.appService.root(userRoles);
   // }
-
-
-
 
   // @Roles('')
   @Get()
@@ -76,7 +74,7 @@ export class ArticleController {
   //  getPublishedList(): Promise<ArticleEntity[]> {
   //      return this.articleService.getPublishedList();
   //  }
-
+  @UseGuards(JwtAuthGuard, ACGuard) 
   @Post()
   createArticle(
     @Body() createArticle: CreateArticleDto,
@@ -89,10 +87,14 @@ export class ArticleController {
 
     return this.articleService.addOne(createArticle);
   }
-
-  //   @Roles(RolesEnum.MASTER, RolesEnum.AUTHOR)
+  @UseGuards(JwtAuthGuard, ACGuard) 
+  @UseRoles({
+    resource: 'article',
+    action: 'update',
+  })
   @Patch(':id')
   updateArticle(
+    @Req() req,
     @Param(
       'id',
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_FOUND }),
@@ -100,10 +102,23 @@ export class ArticleController {
     id: number,
     @Body() upArticle: UpdateArticleDto,
   ): Promise<ArticleEntity> {
-    return this.articleService.update(id, upArticle);
-  }
+    let art: Promise<ArticleEntity>;
+    const permission = roles.can(req.user.role).updateAny('article');
+    if (permission.granted) {
+      art = this.articleService.updateAsEditor();
+    } else {
+      const permission = roles.can(req.user.role).updateOwn('article');
+      if (permission.granted) {
+        art = this.articleService.updateAsAuthor();
+      } else {
+        throw new Error
+      }
+    }
 
-  //  @Roles(RolesEnum.MASTER, RolesEnum.AUTHOR)
+   // return this.articleService.update(id, upArticle);
+    return art;
+  }
+  @UseGuards(JwtAuthGuard, ACGuard) 
   @Delete(':id')
   removeArticle(
     @Param(

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Article } from '../models/Article/Article.model';
 import { GetArticleDto } from '../models/Article/GetArticleDto';
 import { SetArticleDto } from '../models/Article/SetArticleDto';
@@ -10,8 +11,8 @@ import { SetNewArticleDto } from '../models/Article/SetNewArticleDto';
   providedIn: 'root',
 })
 export class ArticlesService {
-  //public url = `http://localhost:3000/articles`;
-  public url = `https://api.assia-rachdi.ga/articles`;
+  public url = `${environment.baseApiUrl}/articles`;
+ // public url = `https://api.assia-rachdi.ga/articles`;
   constructor(private _http: HttpClient) {}
 
   public getAll(): Observable<Article[]> {

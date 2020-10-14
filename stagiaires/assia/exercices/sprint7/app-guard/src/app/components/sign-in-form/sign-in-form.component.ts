@@ -35,6 +35,12 @@ export class SignInFormComponent implements OnInit, OnDestroy {
       login: _formBuilder.control('', [Validators.required]),
       password: _formBuilder.control('', [Validators.required]),
     });
+
+
+    let popupListener = window.addEventListener('message', (userJwt) => {
+      console.log('userJwt : ', userJwt);
+      //save this token in sessionStorage and renav to Private page
+    });
   }
 
   ngOnInit(): void {
@@ -69,4 +75,15 @@ export class SignInFormComponent implements OnInit, OnDestroy {
         );
     }
   }
+
+  public initGoogleAuth() {
+    // this.authService.initGoogleAuth().subscribe();
+    // window.location.href = 'http://localhost:3000/auth/google';
+
+    window.open('http://localhost:3000/auth/google', 'mywindow', "location=1,status=1,scrollbars=1, width=800,height=800");
+
+  }
+
+
 }
+

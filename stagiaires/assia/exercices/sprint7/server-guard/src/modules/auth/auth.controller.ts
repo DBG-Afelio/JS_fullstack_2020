@@ -20,17 +20,28 @@ import { AuthGuard } from '@nestjs/passport';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-
   @Get('google')
   @UseGuards(AuthGuard('google'))
-  async googleAuth(@Req() req) {
-   // console.log('req', req);
-  }
+  async googleAuth(@Req() req) {}
 
   @Get('google/redirect')
   @UseGuards(AuthGuard('google'))
-  googleAuthRedirect(@Req() req) {
-    return this.authService.googleLogin(req)
+  async googleAuthRedirect(@Req() req): Promise<string> {
+    //renvoit un ptit script JS
+    const user = await this.authService.googleAuth(req.user);
+    const token = await this.authService.generateToken(user);
+    const script: string = `
+    <html>
+      <head></head>
+      <body>
+        <script>
+          window.opener.postMessage(${token.access_token}, 'http://localhost:4200/authentication/signin');
+          window.close();
+        </script>
+      </body>
+    </html>`;
+    console.log('js script with user token : ', script);
+    return script;
   }
 
   @Post('sign-up')

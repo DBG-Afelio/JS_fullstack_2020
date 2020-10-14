@@ -1,4 +1,14 @@
 
+<div>
+  <button
+      mat-raised-button
+      type="button"
+      color="secondary"
+(click)="initGoogleAuth()"
+      >
+      via Google
+    </button>
+</div>
 <form [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
   <!-- LOGIN -->
   <mat-form-field appearance="fill">

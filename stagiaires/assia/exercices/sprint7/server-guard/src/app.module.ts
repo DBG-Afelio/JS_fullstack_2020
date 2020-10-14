@@ -19,7 +19,7 @@ import { roles } from './constants/roles';
 
 @Module({
   imports: [
-    // AccessControlModule.forRoles(roles), // << a decommenter apres avoir mis en place le roleBuilder et maj les CTRL/services sur les req a controler
+    AccessControlModule.forRoles(roles), // << a decommenter apres avoir mis en place le roleBuilder et maj les CTRL/services sur les req a controler
       ConfigModule.forRoot({
         isGlobal: true,
       }),

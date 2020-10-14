@@ -7,13 +7,14 @@ import { User } from '../models/User/User.model';
 import { map, catchError } from 'rxjs/operators'
 import { GetUserDto } from '../models/User/GetUserDto';
 import { SetUserDto } from '../models/User/SetUserDto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-
-    public url = `https://api.assia-rachdi.ga/users`;
+  public url = `${environment.baseApiUrl}/users`;
+    // public url = `https://api.assia-rachdi.ga/users`;
 
     constructor(
         private _http: HttpClient,

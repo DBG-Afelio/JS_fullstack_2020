@@ -27,3 +27,4 @@ import { GoogleStrategy } from 'src/passport/google.strategy';
     controllers: [AuthController]
 })
 export class AuthModule {}
+

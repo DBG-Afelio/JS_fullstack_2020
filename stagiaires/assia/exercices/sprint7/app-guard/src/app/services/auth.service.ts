@@ -11,12 +11,14 @@ import * as jwt_decode from 'jwt-decode';
 import * as JwtDecode from 'jwt-decode';
 import { CustomHttpResponseBody } from '../interface/customHttpResponseBody';
 import { Payload } from '../interface/payload';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  public url = `https://api.assia-rachdi.ga/auth`;
+  public url = `${environment.baseApiUrl}/auth`;
+  // public url = `https://api.assia-rachdi.ga/auth`;
   public subscriptionUrl = `${this.url}/sign-up`;
   public connexionUrl = `${this.url}/sign-in`;
 
@@ -24,6 +26,10 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private userService: UsersService) {
     // this._findSessionUser();
+  }
+
+  public initGoogleAuth() {
+    return this._http.get(`${this.url}/google`);
   }
 
   public registerNewUser(credentials: Credentials): Observable<User> {

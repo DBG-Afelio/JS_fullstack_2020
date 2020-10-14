@@ -21,6 +21,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
+// import { OAuthModule } from 'angular-oauth2-oidc';
+// import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 import {
   ErrorStateMatcher,
@@ -73,6 +75,8 @@ import { AuthService } from './services/auth.service';
     MatSelectModule,
     MatCheckboxModule,
     MatTableModule,
+    // OAuthModule.forRoot(),
+    // SocialLoginModule,
   ],
   providers: [
     AuthService,
