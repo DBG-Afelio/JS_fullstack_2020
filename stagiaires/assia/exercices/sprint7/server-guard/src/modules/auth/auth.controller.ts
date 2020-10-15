@@ -14,11 +14,18 @@ import { CustomHttpResponseBody } from 'src/interfaces/customHttpResponseBody';
 import { Messages } from 'src/enum/messages.enum';
 import { CreateCredentialsDto } from '../user/dto/create-user-dto';
 import { AuthGuard } from '@nestjs/passport';
+import { MailService } from '../mail/mail.service';
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private mailService: MailService) {}
+
+
+  @Get('mail')
+  async sendMail() {
+    await this.mailService.pwdForgotEmail('tssid6@gmail.com');
+    }
 
   @Get('google')
   @UseGuards(AuthGuard('google'))

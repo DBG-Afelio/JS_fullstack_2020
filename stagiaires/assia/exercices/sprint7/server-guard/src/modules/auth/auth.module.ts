@@ -10,6 +10,7 @@ import { JwtStrategy } from 'src/passport/jwt.strategy';
 import { UsersEntity } from '../user/entities/users.entity';
 import { UserService } from '../user/user.service';
 import { GoogleStrategy } from 'src/passport/google.strategy';
+import { MailService } from '../mail/mail.service';
 
 @Module({
     imports: [
@@ -23,7 +24,7 @@ import { GoogleStrategy } from 'src/passport/google.strategy';
         }),
         
     ],
-    providers: [AuthService, UserService, PassportBasicStrategy, JwtStrategy, GoogleStrategy],
+    providers: [AuthService, UserService, PassportBasicStrategy, JwtStrategy, GoogleStrategy, MailService],
     controllers: [AuthController]
 })
 export class AuthModule {}

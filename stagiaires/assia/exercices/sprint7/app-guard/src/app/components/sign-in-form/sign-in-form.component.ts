@@ -75,9 +75,6 @@ export class SignInFormComponent implements OnInit, OnDestroy {
   }
 
   public initGoogleAuth() {
-    // this.authService.initGoogleAuth().subscribe();
-    // window.location.href = 'http://localhost:3000/auth/google';
-
     window.open(
       'http://localhost:3000/auth/google',
       'mywindow',

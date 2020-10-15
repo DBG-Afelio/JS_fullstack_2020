@@ -1,13 +1,12 @@
-
-<div>
+<div class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
   <button
-      mat-raised-button
-      type="button"
-      color="secondary"
-(click)="initGoogleAuth()"
-      >
-      via Google
-    </button>
+    mat-raised-button
+    type="button"
+    color="secondary"
+    (click)="initGoogleAuth()"
+  >
+    via Google
+  </button>
 </div>
 <form [formGroup]="credentialsForm" (ngSubmit)="onSubmitForm()">
   <!-- LOGIN -->
@@ -25,7 +24,7 @@
       Login is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-<br>
+  <br />
   <!-- PASSWORD -->
   <mat-form-field appearance="fill">
     <mat-label for="password"> Password </mat-label>
@@ -46,7 +45,7 @@
       Password is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-<br>
+  <br />
   <div>
     <button
       mat-raised-button
