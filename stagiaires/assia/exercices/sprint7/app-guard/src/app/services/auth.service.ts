@@ -57,10 +57,15 @@ export class AuthService {
       );
   }
 
+  public giveAccess(userJWT: string): Observable<User> {
+    this._saveSessionUser(userJWT);
+    return this.getUserFromJwt(userJWT).pipe(
+      tap((u) => (u ? this.currentUser.next(u) : null))
+    );
+  }
   /***************************************************** session storage */
   private _saveSessionUser(rawJwtToken: string): void {
     sessionStorage.setItem('userToken', rawJwtToken);
-    console.log('rawJWT : ', rawJwtToken);
   }
 
   public removeSessionUser(): void {

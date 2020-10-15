@@ -36,10 +36,10 @@ export class SignInFormComponent implements OnInit, OnDestroy {
       password: _formBuilder.control('', [Validators.required]),
     });
 
-
     let popupListener = window.addEventListener('message', (userJwt) => {
-      console.log('userJwt : ', userJwt);
-      //save this token in sessionStorage and renav to Private page
+      this.authService
+        .giveAccess(userJwt.data)
+        .subscribe((u) => this.router.navigate([`/private/${u.id}`]));
     });
   }
 
@@ -67,12 +67,10 @@ export class SignInFormComponent implements OnInit, OnDestroy {
         this.credentialsForm.value.password
       );
 
-      this.authService
-        .connectUser(cred)
-        .subscribe(
-          (u) => this.router.navigate([`/private/${u.id}`])
-          // (u) => this.router.navigate([`/`])
-        );
+      this.authService.connectUser(cred).subscribe(
+        (u) => this.router.navigate([`/private/${u.id}`])
+        // (u) => this.router.navigate([`/`])
+      );
     }
   }
 
@@ -80,10 +78,10 @@ export class SignInFormComponent implements OnInit, OnDestroy {
     // this.authService.initGoogleAuth().subscribe();
     // window.location.href = 'http://localhost:3000/auth/google';
 
-    window.open('http://localhost:3000/auth/google', 'mywindow', "location=1,status=1,scrollbars=1, width=800,height=800");
-
+    window.open(
+      'http://localhost:3000/auth/google',
+      'mywindow',
+      'location=1,status=1,scrollbars=1, width=800,height=800'
+    );
   }
-
-
 }
-

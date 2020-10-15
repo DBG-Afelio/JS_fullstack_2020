@@ -27,7 +27,6 @@ export class AuthController {
   @Get('google/redirect')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req): Promise<string> {
-    //renvoit un ptit script JS
     const user = await this.authService.googleAuth(req.user);
     const token = await this.authService.generateToken(user);
     const script: string = `
@@ -35,12 +34,11 @@ export class AuthController {
       <head></head>
       <body>
         <script>
-          window.opener.postMessage(${token.access_token}, 'http://localhost:4200/authentication/signin');
+          window.opener.postMessage('${token.access_token}', 'http://localhost:4200/authentication/signin');
           window.close();
         </script>
       </body>
     </html>`;
-    console.log('js script with user token : ', script);
     return script;
   }
 
