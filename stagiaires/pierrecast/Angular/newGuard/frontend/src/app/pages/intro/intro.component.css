@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    font-size: 22px;
+    font-family: "Helvetica", sans-serif;
+    color: #333333;
+  }
+  
+.listArticles {
+    
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap; /* Shorthand – you could use ‘flex-direction: column’ and ‘flex-wrap: wrap’ instead */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  
+.article {
+    background-color: rgba(255,255,255,.8);
+    text-decoration: none;
+    width: 31%;
+    margin: 1%;
+    padding: 10px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,.2);
+}
+  
+.article .header-title {
+    background-color: rgba(0,0,0,.7);
+}
+  
+.article .header-title .header {
+    height: 180px;
+}
+  
+.article .header-title .title {
+    margin: 3px 0;
+    line-height: 1.8;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
+}
+  
+.article .content {
+    padding: 30px 20px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: justify;
+    hyphens: manual;
+}
+  
+.article .date-author {
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
+    padding: 8px;
+}
+  
+.article:nth-child(4n+3) .header-title {
+    background-color:rgba(0,0,0,.3);
+    color: white;
+}
+
+.article:nth-child(4n+3) .header-title .header {
+    height: 350px;
+}
+
+.article:nth-child(3n+2) .header-title {
+        background-color:rgba(0,0,0,.6);
+        color: white;
+        text-decoration: none;
+}
+
+.article:nth-child(3n+2) .header-title .header {
+    height: 160px;
+}
+
+.article:nth-child(5n) .header-title {
+    background-color:rgba(0,0,0,.2);
+    color: white;
+}
+
+.article:nth-child(5n) .header-title .header {
+     height: 260px;
+}
+

@@ -1,0 +1,102 @@
+<h1>Auteur</h1>
+
+<form [formGroup]="authorForm" (ngSubmit) = "onSubmitForm()"  >
+    <mat-form-field appearance="fill" iv class="form-group form-element form-title">
+       
+        <mat-label for="familyname">Nom</mat-label>
+        <input matInput type="text" name="familyname" id="familyname" data-pristine="true" 
+        placeholder="Nom" required 
+        class="form-control"  formControlName="familyname">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.familyname.pristine || (!authorForm.controls.familyname.errors || !authorForm.controls.familyname.errors.required)'>
+                le nom est requis
+            </div>
+        </div>
+    </mat-form-field>
+   <mat-form-field appearance="fill"  class="form-group form-element form-firstname">
+        <mat-label for="firstname">Prénom</mat-label>
+        <input matInput type="text" name="firstname" id="firstname" data-pristine="true" 
+        placeholder="Prénom" required  
+        class="form-control"  formControlName="firstname">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.firstname.pristine || (!authorForm.controls.firstname.errors || !authorForm.controls.firstname.errors.required)'>
+                le prénom est requis
+            </div>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"  class="form-group form-element form-email">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="text" name="email" id="email" data-pristine="true"  
+        required 
+        class="form-control"  formControlName="email">
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.email.pristine || (!authorForm.controls.email.errors || !authorForm.controls.email.errors.required)'>
+                l'email est requis
+            </div>
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.email.pristine || (!authorForm.controls.email.errors || !authorForm.controls.email.errors.email)'>
+                l'email n'a pas le bon format
+            </div>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"  class="form-group form-element form-user">
+        <mat-label for="user">Utilisateur</mat-label>
+        <mat-select  name="user" id="user"
+            data-pristine="true" 
+            required 
+            class="form-control"  formControlName="user">
+            <mat-option value=""  disabled>Sélectionnez un utilisateur</mat-option>
+            <mat-option 
+                *ngFor="let user of listUsers" [value]="user.id" 
+                
+                >{{ user.username }}
+            </mat-option>
+        </mat-select>
+            
+       <!-- <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.user.pristine || (!authorForm.controls.user.errors || !authorForm.controls.user.errors.required)'>
+                l'utilisateur est requis
+            </div>
+        </div>-->
+    </mat-form-field>
+
+    <section  class="form-group form-element form-active">
+        <mat-checkbox name="active" id="active"             data-pristine="true" 
+            class="form-control" formControlName="active">
+            <mat-label for="active">Actif</mat-label>
+        </mat-checkbox>
+    </section>
+  
+    <mat-form-field appearance="fill"  class="form-group form-element form-presentation">
+        <mat-label for="presentation">Presentation</mat-label>
+        <textarea matInput name="presentation" id="presentation" data-pristine="true" 
+        placeholder="Contenu" required 
+        class="form-control"  formControlName="presentation"></textarea>
+            
+        <div class="error-message-container">
+            <div class="errors error-message error-required" 
+            [hidden]='authorForm.controls.presentation.pristine || (!authorForm.controls.presentation.errors || !authorForm.controls.firstname.errors.required)'>
+                la présentation est requise
+            </div>
+        </div>
+    </mat-form-field>
+
+    <div class="submit-container">
+        <button type="button"  class="submit-button"
+            (click) = "back()" mat-stroked-button 
+        >Annuler</button>
+        <button type="submit"  class="submit-button"
+            [disabled]="authorForm.invalid" mat-raised-button
+        >Envoyer</button>
+    </div>
+
+</form>

@@ -1,0 +1,14 @@
+.form-element, .submit-button {
+    display: block;
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+input {
+    border: 1px solid red;
+}
+
+label {
+    border: 1px solid blue;
+}
+
