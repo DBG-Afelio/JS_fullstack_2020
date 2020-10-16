@@ -42,10 +42,12 @@ export class UserAdminComponent implements OnInit {
     */
    
       this.activatedRoute.paramMap.subscribe(params => {  // gestion des users
+        
         let id = Number(params.get('id'));
-        if (this.currentUser.roles === "ADMIN" && id) {
+        if (this.currentUser.roles === "ADMIN" && params.get('id')) {
           this.initForm(id);
-        } else { // mes acces
+        } else { 
+          // mes acces
           this.initForm(this.currentUser.id);
         }
       });

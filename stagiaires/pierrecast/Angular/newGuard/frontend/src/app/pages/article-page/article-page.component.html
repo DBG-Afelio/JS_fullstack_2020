@@ -1,0 +1,11 @@
+
+<div class="container" *ngIf="article">
+    
+    <p>article-page works!</p>
+    <h1>{{ article.title }}</h1>
+
+    <div>{{ article.content }}</div>
+</div>
+<div class="container" *ngIf="!article">
+ Aucun article
+</div>

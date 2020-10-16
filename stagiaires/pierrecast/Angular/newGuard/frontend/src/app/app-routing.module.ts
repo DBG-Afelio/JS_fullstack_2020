@@ -5,6 +5,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginGuard } from './guard/login.guard';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ArticleAdminComponent } from './pages/article-admin/article-admin.component';
+import { ArticlePageComponent } from './pages/article-page/article-page.component';
 import { ArticlesAdminComponent } from './pages/articles-admin/articles-admin.component';
 import { AuthorAdminComponent } from './pages/author-admin/author-admin.component';
 import { AuthorsAdminComponent } from './pages/authors-admin/authors-admin.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
 
   { path: 'admin/articles', component: ArticlesAdminComponent , canActivate: [LoginGuard], data: {roles: ['ADMIN']}},
   { path: 'admin', component: AdminComponent, canActivate: [LoginGuard] , data: {roles: ['AUTHOR', 'ADMIN', 'USER']}},
+  { path: 'article/:id', component: ArticlePageComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: '', component: IntroComponent }

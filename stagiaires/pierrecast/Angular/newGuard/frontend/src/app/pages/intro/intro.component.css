@@ -6,7 +6,7 @@
   }
   
 .listArticles {
-    
+    overflow: hidden;
     padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
@@ -40,6 +40,7 @@
     text-transform: uppercase;
     text-align: center;
     font-weight: bolder;
+    padding: 0 15px;
 }
   
 .article .content {
@@ -49,6 +50,7 @@
     line-height: 1.25;
     text-align: justify;
     hyphens: manual;
+    min-height: 500px;
 }
   
 .article .date-author {

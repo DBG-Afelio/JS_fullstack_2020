@@ -32,6 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JwtModule } from "@auth0/angular-jwt";
 import { MatNativeDateModule } from '@angular/material/core';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { ArticlePageComponent } from './pages/article-page/article-page.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -51,6 +53,8 @@ export function tokenGetter() {
     AuthorAdminComponent,
     UsersAdminComponent,
     UserAdminComponent,
+    TruncatePipe,
+    ArticlePageComponent
   ],
   imports: [
     BrowserModule,

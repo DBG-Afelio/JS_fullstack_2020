@@ -18,12 +18,13 @@ export class IntroComponent implements OnInit {
   ) { 
     this.articleService.getList().subscribe(list => {
       this.listArticles = list;
-      this.height = Math.ceil(this.listArticles.length/3)*750;
+      this.height = Math.ceil(this.listArticles.length/3+1)*850;
     
     });
   }
 
   ngOnInit(): void {
   }
+
 
 }

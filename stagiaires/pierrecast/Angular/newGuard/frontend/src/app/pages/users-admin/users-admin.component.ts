@@ -40,7 +40,6 @@ export class UsersAdminComponent implements  OnInit {
    
       this.dataSource = new UsersDataSource(this.userService);
       this.dataSource.loadUsers('', 'asc', 0, 10).subscribe(() => {
-        console.log(this.dataSource);
         return this.initSort()
       });
   }
@@ -66,11 +65,12 @@ export class UsersAdminComponent implements  OnInit {
   }
 
   loadUsersPage() {
-      this.dataSource.loadUsers(
-          this.input.nativeElement.value,
-          this.sort.direction,
-          this.paginator.pageIndex,
-          this.paginator.pageSize);
+    this.dataSource.loadUsers(
+        this.input.nativeElement.value,
+        this.sort.direction,
+        this.paginator.pageIndex,
+        this.paginator.pageSize
+    );
   }
 
   ngAfterViewInit() {

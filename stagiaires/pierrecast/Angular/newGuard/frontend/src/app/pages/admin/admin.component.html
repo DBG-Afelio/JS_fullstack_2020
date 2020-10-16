@@ -1,16 +1,18 @@
-<h1>{{ currentUser.roles }}</h1>
+<div class="container">
+    <h1>{{ currentUser.roles }}</h1>
 
-<div>
-    <a routerLink="/admin/user/mes-acces">Mes accès</a>
-</div>
+    <div>
+        <a routerLink="/admin/user/mes-acces">Mes accès</a>
+    </div>
 
-<div *ngIf = "currentUser.roles === 'AUTHOR'" >
-    <a routerLink="/admin/author/mon-profil">Mon profil</a>
-    <a routerLink="/admin/author/mes-articles">Mes articles</a>
-</div>
+    <div *ngIf = "currentUser.roles === 'AUTHOR'" >
+        <a routerLink="/admin/author/mon-profil">Mon profil</a>
+        <a routerLink="/admin/author/mes-articles">Mes articles</a>
+    </div>
 
-<div *ngIf = "currentUser.roles === 'ADMIN'" >
-    <a routerLink="/admin/authors">Gestion des auteurs</a>
-    <a routerLink="/admin/users">Gestion des utilisateurs</a>
-    <a routerLink="/admin/articles">Gestion des articles</a>
+    <div *ngIf = "currentUser.roles === 'ADMIN'" >
+        <a routerLink="/admin/authors">Gestion des auteurs</a>
+        <a routerLink="/admin/users">Gestion des utilisateurs</a>
+        <a routerLink="/admin/articles">Gestion des articles</a>
+    </div>
 </div>

@@ -1,3 +1,15 @@
 .full-width-table {
   width: 100%;
 }
+
+
+
+.container {
+  background-color: rgba(255,255,255,.8);
+  width: 90%;
+  min-height: 60%;
+  margin: auto;
+  padding: 50px;
+  box-sizing: border-box;
+  max-width: 1280px;
+}

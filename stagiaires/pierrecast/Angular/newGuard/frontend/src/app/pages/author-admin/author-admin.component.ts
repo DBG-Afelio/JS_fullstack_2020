@@ -46,11 +46,9 @@ export class AuthorAdminComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe(params => {
       let id = Number(params.get('id'));
-      if (this.currentUser.roles === "ADMIN" && id) {
+      if (this.currentUser.roles === "ADMIN" && params.get('id')) {
         this.initForm(id);
       } else { // mon profil
-        
-        
         this.initForm(null);
       }
     });

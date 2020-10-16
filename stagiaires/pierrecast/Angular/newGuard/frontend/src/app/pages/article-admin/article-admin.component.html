@@ -1,87 +1,89 @@
-<h1>Article</h1>
+<div class="container">
+    <h1>Article</h1>
 
-<form [formGroup]="articleForm" (ngSubmit) = "onSubmitForm()"  >
-   <mat-form-field appearance="fill"  class="form-group form-element form-title">
-       
-        <mat-label for="title">Titre</mat-label>
-        <input matInput type="text" name="title" id="title" data-pristine="true" 
-        placeholder="Titre" required class="form-control"  formControlName="title">
-            
-      <!--   <div class="error-message-container">
-            <div class="errors error-message error-required" 
-            [hidden]='articleForm.controls.title.pristine || (!articleForm.controls.title.errors || !articleForm.controls.title.errors.required)'>
-                le titre est requis
-            </div>
-        </div>-->
-    </mat-form-field>
+    <form [formGroup]="articleForm" (ngSubmit) = "onSubmitForm()"  >
+    <mat-form-field appearance="fill"  class="form-group form-element form-title">
+        
+            <mat-label for="title">Titre</mat-label>
+            <input matInput type="text" name="title" id="title" data-pristine="true" 
+            placeholder="Titre" required class="form-control"  formControlName="title">
+                
+        <!--   <div class="error-message-container">
+                <div class="errors error-message error-required" 
+                [hidden]='articleForm.controls.title.pristine || (!articleForm.controls.title.errors || !articleForm.controls.title.errors.required)'>
+                    le titre est requis
+                </div>
+            </div>-->
+        </mat-form-field>
 
-    <mat-form-field appearance="fill"  class="form-group form-element form-content">
-        <mat-label for="content">Contenu</mat-label>
-        <textarea matInput type="text" name="content" id="content" data-pristine="true" 
-            placeholder="Contenu" required 
-            class="form-control"  formControlName="content">
-        </textarea>
-            
-     <!--   <div class="error-message-container">
-            <div class="errors error-message error-required" 
-            [hidden]='articleForm.controls.content.pristine || (!articleForm.controls.content.errors || !articleForm.controls.content.errors.required)'>
-                le contenu est requis
-            </div>
-        </div>-->
-    </mat-form-field>
+        <mat-form-field appearance="fill"  class="form-group form-element form-content">
+            <mat-label for="content">Contenu</mat-label>
+            <textarea matInput type="text" name="content" id="content" data-pristine="true" 
+                placeholder="Contenu" required 
+                class="form-control"  formControlName="content">
+            </textarea>
+                
+        <!--   <div class="error-message-container">
+                <div class="errors error-message error-required" 
+                [hidden]='articleForm.controls.content.pristine || (!articleForm.controls.content.errors || !articleForm.controls.content.errors.required)'>
+                    le contenu est requis
+                </div>
+            </div>-->
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill"  class="form-group form-element form-date">
+                
+            <mat-label for="date">Date</mat-label>
+            <input matInput [matDatepicker]="date" formControlName="date" required >
+            <mat-datepicker-toggle matSuffix [for]="date" ></mat-datepicker-toggle>
+            <mat-datepicker #date  class="form-control"   
+            name="date" id="date" data-pristine="true" 
+            ></mat-datepicker>
+        </mat-form-field>
     
-    <mat-form-field appearance="fill"  class="form-group form-element form-date">
-              
-        <mat-label for="date">Date</mat-label>
-        <input matInput [matDatepicker]="date" formControlName="date" required >
-        <mat-datepicker-toggle matSuffix [for]="date" ></mat-datepicker-toggle>
-        <mat-datepicker #date  class="form-control"   
-        name="date" id="date" data-pristine="true" 
-        ></mat-datepicker>
-    </mat-form-field>
-  
-    <section class="form-group form-element form-published">
-        <mat-checkbox  
-            name="published" id="published" data-pristine="true" 
-            class="form-control"  formControlName="published"
-        ><mat-label for="published">Publié</mat-label></mat-checkbox>
-    </section>
-   
+        <section class="form-group form-element form-published">
+            <mat-checkbox  
+                name="published" id="published" data-pristine="true" 
+                class="form-control"  formControlName="published"
+            ><mat-label for="published">Publié</mat-label></mat-checkbox>
+        </section>
+    
 
-     <section appearance="fill"  class="form-group form-element form-complete">
-        <mat-checkbox   
-            name="complete" id="complete" data-pristine="true" 
-            class="form-control"  formControlName="complete"
-            ><mat-label for="complete">Complet</mat-label>  
-        </mat-checkbox> 
-    </section>
+        <section appearance="fill"  class="form-group form-element form-complete">
+            <mat-checkbox   
+                name="complete" id="complete" data-pristine="true" 
+                class="form-control"  formControlName="complete"
+                ><mat-label for="complete">Complet</mat-label>  
+            </mat-checkbox> 
+        </section>
 
-    <mat-form-field appearance="fill"  class="form-group form-element form-author">
-        <mat-label for="author">Auteur</mat-label>
-        <mat-select  name="author" id="author" 
-            data-pristine="true" required 
-            class="form-control" formControlName="author">
-            <mat-option value="" disabled>Sélectionnez un auteur</mat-option>
-            <mat-option *ngFor="let item of listAuthors" 
-            [value]="item.id" 
-            >{{ item.familyname}} {{ item.firstname}}</mat-option>
-        </mat-select> 
-       <div class="error-message-container">
-            <div class="errors error-message error-required" 
-            [hidden]='articleForm.controls.author.pristine || (!articleForm.controls.author.errors || !articleForm.controls.author.errors.required)'>
-                l'auteur est requis
+        <mat-form-field appearance="fill"  class="form-group form-element form-author">
+            <mat-label for="author">Auteur</mat-label>
+            <mat-select  name="author" id="author" 
+                data-pristine="true" required 
+                class="form-control" formControlName="author">
+                <mat-option value="" disabled>Sélectionnez un auteur</mat-option>
+                <mat-option *ngFor="let item of listAuthors" 
+                [value]="item.id" 
+                >{{ item.familyname}} {{ item.firstname}}</mat-option>
+            </mat-select> 
+        <div class="error-message-container">
+                <div class="errors error-message error-required" 
+                [hidden]='articleForm.controls.author.pristine || (!articleForm.controls.author.errors || !articleForm.controls.author.errors.required)'>
+                    l'auteur est requis
+                </div>
             </div>
+        </mat-form-field> 
+        
+        <div class="submit-container">
+            <button type="button"  class="submit-button"
+                (click) = "back()"
+                mat-stroked-button 
+            >Annuler</button>
+            <button color="primary" type="submit"  
+                class="submit-button"
+                [disabled]="articleForm.invalid" mat-raised-button 
+            >Envoyer</button>
         </div>
-    </mat-form-field> 
-    
-    <div class="submit-container">
-        <button type="button"  class="submit-button"
-            (click) = "back()"
-            mat-stroked-button 
-        >Annuler</button>
-        <button color="primary" type="submit"  
-            class="submit-button"
-            [disabled]="articleForm.invalid" mat-raised-button 
-        >Envoyer</button>
-    </div>
-</form>
+    </form>
+</div>
