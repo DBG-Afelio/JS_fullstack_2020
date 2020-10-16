@@ -15,17 +15,20 @@ import { Messages } from 'src/enum/messages.enum';
 import { CreateCredentialsDto } from '../user/dto/create-user-dto';
 import { AuthGuard } from '@nestjs/passport';
 import { MailService } from '../mail/mail.service';
+import { JwtAuthGuard } from 'src/passport/jwt-auth.guard';
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService, private mailService: MailService) {}
-
+  constructor(
+    private authService: AuthService,
+    private mailService: MailService,
+  ) {}
 
   @Get('mail')
   async sendMail() {
     await this.mailService.pwdForgotEmail('tssid6@gmail.com');
-    }
+  }
 
   @Get('google')
   @UseGuards(AuthGuard('google'))
@@ -69,5 +72,11 @@ export class AuthController {
       customStatusCode: 203,
       message: Messages.CONNECTION_OK,
     };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('sign-out')
+  async googleSignout(@Req() req: any) {
+    return await this.authService.revokeGoogleToken(req.user.id);
   }
 }

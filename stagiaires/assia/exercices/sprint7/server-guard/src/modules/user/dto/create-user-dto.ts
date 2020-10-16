@@ -16,6 +16,10 @@ export class CreateUserDto {
 
   @IsOptional()
   @IsString()
+  googleToken?: string;
+
+  @IsOptional()
+  @IsString()
   login?: string;
 
   @IsOptional()

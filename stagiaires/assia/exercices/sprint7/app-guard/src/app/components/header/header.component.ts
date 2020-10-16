@@ -26,7 +26,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public logout(): void {
-    this.authService.removeSessionUser();
-    this.router.navigate(['/home/articles']);
+    this.authService.loggOutGoogle().subscribe(() => {
+      this.authService.removeSessionUser();
+      this.router.navigate(['/home/articles']);
+    });
+
+
   }
 }

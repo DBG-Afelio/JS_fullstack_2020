@@ -11,7 +11,7 @@ import { UsersEntity } from '../user/entities/users.entity';
 import { UserService } from '../user/user.service';
 import { GoogleStrategy } from 'src/passport/google.strategy';
 import { MailService } from '../mail/mail.service';
-
+import { HttpModule} from '@nestjs/common/http'
 @Module({
     imports: [
         TypeOrmModule.forFeature([
@@ -22,7 +22,7 @@ import { MailService } from '../mail/mail.service';
             secret: jwtConstants.secret,
           signOptions: { expiresIn: '30000s' }
         }),
-        
+        HttpModule,
     ],
     providers: [AuthService, UserService, PassportBasicStrategy, JwtStrategy, GoogleStrategy, MailService],
     controllers: [AuthController]

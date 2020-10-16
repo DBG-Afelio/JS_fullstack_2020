@@ -17,6 +17,12 @@ export class UsersEntity {
 
   @Column({
     nullable: true,
+    unique: true,
+  })
+  googleToken: string;  
+
+  @Column({
+    nullable: true,
   })
   familyName: string;
 

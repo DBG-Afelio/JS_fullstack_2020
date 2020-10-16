@@ -20,6 +20,10 @@ export class UpdateUserDto {
 
   @IsOptional()
   @IsString()
+  googleToken: string;
+
+  @IsOptional()
+  @IsString()
   familyName: string;
 
   @IsOptional()

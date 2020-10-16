@@ -1,6 +1,8 @@
 import {
   BadRequestException,
+  HttpService,
   Injectable,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -15,6 +17,8 @@ import {
   CreateUserDto,
 } from '../user/dto/create-user-dto';
 import { GoogleInfo } from 'src/interfaces/googleInfo';
+import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -23,6 +27,7 @@ export class AuthService {
     private usersRepo: Repository<UsersEntity>,
     private userService: UserService,
     private jwtService: JwtService,
+    private http: HttpService,
   ) {}
 
   async googleAuth(googleInfo: GoogleInfo): Promise<UsersEntity> {
@@ -30,7 +35,8 @@ export class AuthService {
     console.log('check if in DB');
     let userFound: UsersEntity = (await this.userService.getAll()).find(
       (userScreened: UsersEntity) =>
-        userScreened.googleId === googleInfo.googleId || userScreened.email === googleInfo.email,
+        userScreened.googleId === googleInfo.googleId ||
+        userScreened.email === googleInfo.email,
     );
 
     //if not, register user
@@ -38,6 +44,7 @@ export class AuthService {
       console.log('google user not in db yet');
       const newUser: CreateUserDto = {
         googleId: googleInfo.googleId,
+        googleToken: googleInfo.googleToken,
         email: googleInfo.email,
         firstName: googleInfo.firstName,
         familyName: googleInfo.lastName,
@@ -45,6 +52,9 @@ export class AuthService {
       userFound = await this.usersRepo.save(newUser).catch((error: any) => {
         throw new BadRequestException(error.message, error.name);
       });
+    } else {
+      userFound.googleToken = googleInfo.googleToken;
+      userFound = await this.userService.update(userFound.id, userFound);
     }
     console.log('google user registered in db');
     return userFound;
@@ -85,5 +95,27 @@ export class AuthService {
     return {
       access_token: this.jwtService.sign(payload),
     };
+  }
+
+  async revokeGoogleToken(userId: number) {
+    const foundUser = await this.userService.getOne(userId);
+    if (foundUser && foundUser.googleToken.length > 0) {
+      return this.http
+        .post('https://oauth2.googleapis.com/revoke', {
+          token: foundUser.googleToken.trim(),
+        })
+        .pipe(
+          map(async () => {
+            foundUser.googleToken = '';
+            await this.userService.update(foundUser.id, foundUser);
+            return { revoke_Googletoken: 'success' };
+          }),
+          catchError(() => {
+            throw new NotFoundException(`Error Revoking Google token`);
+          }),
+        );
+    } else {
+      throw new NotFoundException(`Error Revoking Google token`);
+    }
   }
 }

@@ -3,4 +3,5 @@ export interface GoogleInfo {
   firstName: string;
   lastName: string;
   googleId: string;
+  googleToken: string;
 }

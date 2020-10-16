@@ -21,6 +21,8 @@ export class AuthService {
   // public url = `https://api.assia-rachdi.ga/auth`;
   public subscriptionUrl = `${this.url}/sign-up`;
   public connexionUrl = `${this.url}/sign-in`;
+  public googleLogoutUrl = `${this.url}/sign-out`;
+
 
   public currentUser: BehaviorSubject<User> = new BehaviorSubject(null); // <<
 
@@ -30,6 +32,10 @@ export class AuthService {
 
   public initGoogleAuth() {
     return this._http.get(`${this.url}/google`);
+  }
+
+  public loggOutGoogle(): Observable<any> {
+    return this._http.get(`${this.googleLogoutUrl}`).pipe();
   }
 
   public registerNewUser(credentials: Credentials): Observable<User> {
