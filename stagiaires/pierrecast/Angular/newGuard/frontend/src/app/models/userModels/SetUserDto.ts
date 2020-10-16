@@ -4,4 +4,5 @@ export interface SetUserDto {
      email: string;
      roles: string;
      password?: string;
+     google?: string
 }

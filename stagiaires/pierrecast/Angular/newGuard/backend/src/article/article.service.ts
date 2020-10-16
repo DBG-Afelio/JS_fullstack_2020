@@ -15,21 +15,8 @@ export class ArticleService {
     }
 
     async getMyArticles(id: number): Promise<ArticleEntity[]> {
-        return await this.articleRepository.find({
-            join: {
-                alias: "article",
-                leftJoinAndSelect: {
-                    author: "article.author",
-                    user: "author.user"
-                }
-            }, 
-            //where: { author : { user : { id : 41 }} }
+        return await this.articleRepository.find({author : { user : { id }}
         });
-       /* return await this.articleRepository.query(`SELECT article.* FROM article 
-        INNER JOIN author ON author.id = article."authorId"
-        INNER JOIN "user" u ON u.id = author."userId"
-        WHERE u.id = ${id}`);
-        */
     }
 
     async getAllArticles(): Promise<ArticleEntity[]> {

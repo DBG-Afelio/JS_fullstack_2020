@@ -71,6 +71,7 @@ export class AuthorAdminComponent implements OnInit {
     if (!authorId) { // author 
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorByUserId(this.currentUser.id)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
+          console.log('initform',listUsers, author);
           this.listUsers = [author.user, ...listUsers];
           this.author = author;
           this.authorForm.get('familyname').setValue(author.familyname);
