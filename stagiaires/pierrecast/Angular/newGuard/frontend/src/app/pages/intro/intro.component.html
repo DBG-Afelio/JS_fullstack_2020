@@ -6,7 +6,7 @@
             <div class="header"></div>
             <div class="title">{{ article.title }}</div>
         </div>
-        <div class="content">{{ article.content | truncate:[800, '...'] }}</div>
+        <div class="content">{{ article.content | truncate:['800', '...'] }}</div>
         <div class="date-author">{{ article.author?.firstname }} {{ article.author?.familyname }} - {{ article.date | date : 'd/M/yyyy' }}</div>
     </a>
 </div>
