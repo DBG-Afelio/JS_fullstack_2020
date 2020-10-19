@@ -21,7 +21,7 @@ export class AuthorController {
     async getMyAuthorProfile(
         @User() user: any
        
-    ): Promise<AuthorEntity[]> {
+    ): Promise<AuthorEntity> {
         
         return await this.authorService.getMyAuthorProfile(user.id);
     }

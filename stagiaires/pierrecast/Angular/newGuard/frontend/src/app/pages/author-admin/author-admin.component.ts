@@ -68,10 +68,10 @@ export class AuthorAdminComponent implements OnInit {
   }
 
   private initForm(authorId: number) {
-    if (!authorId) { // author 
+    if (!authorId) { // author  Mon Profil
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorByUserId(this.currentUser.id)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
-          console.log('initform',listUsers, author);
+          
           this.listUsers = [author.user, ...listUsers];
           this.author = author;
           this.authorForm.get('familyname').setValue(author.familyname);
@@ -82,7 +82,7 @@ export class AuthorAdminComponent implements OnInit {
           this.authorForm.get('user').setValue(author.user.id);
           
       }); 
-    } else if (authorId !== 0) { // admin
+    } else if (authorId !== 0) {  // ADMIN modifie un auteur
       forkJoin([this.userService.getFreeUsers(), this.authorService.getAuthorById(authorId)]).subscribe(
         ([listUsers, author]: [User[], Author]) => {
           this.listUsers = [author.user, ...listUsers];
@@ -95,7 +95,7 @@ export class AuthorAdminComponent implements OnInit {
           this.authorForm.get('user').setValue(author.user.id);
           
       }); 
-    } else {
+    } else { // ADMIN crée un auteur
       this.userService.getFreeUsers().subscribe(list => {
         this.listUsers = list;
       })
