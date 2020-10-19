@@ -15,8 +15,10 @@ export class ArticleService {
     }
 
     async getMyArticles(id: number): Promise<ArticleEntity[]> {
-        return await this.articleRepository.find({author : { user : { id }}
-        });
+        let  query = await this.articleRepository.find({author : { user : { id }}})
+        console.log(query);
+        return query;
+        ;
     }
 
     async getAllArticles(): Promise<ArticleEntity[]> {
