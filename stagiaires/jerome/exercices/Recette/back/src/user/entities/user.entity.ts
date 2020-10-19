@@ -1,5 +1,5 @@
 import { Recipe } from "src/recipe/entities/recipe.entity";
-import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('user')
 export class User {
@@ -22,6 +22,9 @@ export class User {
     @Column()
     role:string;
 
+    @Column()
+    email:string;
+
     @OneToMany(type=>Recipe,
         (recipes)=>recipes.user)
     recipes:Recipe[];
@@ -32,4 +35,13 @@ export class User {
             eager:true
         })
     favoriteRecipes:Recipe[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

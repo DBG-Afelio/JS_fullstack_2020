@@ -1,1 +1,5 @@
-export class CreateStepDto {}
+export class CreateStepDto {
+
+    label:string;
+    description:string;
+}

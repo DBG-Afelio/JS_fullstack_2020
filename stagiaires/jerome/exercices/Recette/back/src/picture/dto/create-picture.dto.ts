@@ -1,1 +1,4 @@
-export class CreatePictureDto {}
+export class CreatePictureDto {
+
+    src:string;
+}

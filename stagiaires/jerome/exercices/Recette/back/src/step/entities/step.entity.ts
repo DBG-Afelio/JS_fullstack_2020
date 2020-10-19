@@ -1,5 +1,5 @@
 import { Recipe } from "src/recipe/entities/recipe.entity";
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 @Entity('step')
@@ -17,4 +17,13 @@ export class Step {
     @ManyToMany(type=>Recipe,
         (recipes)=>recipes.steps)
     recipes:Recipe[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 }

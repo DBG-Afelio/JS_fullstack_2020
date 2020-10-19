@@ -3,7 +3,7 @@ import { Picture } from "src/picture/entities/picture.entity";
 import { Step } from "src/step/entities/step.entity";
 import { Tag } from "src/tag/entities/tag.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 @Entity('recipe')
@@ -68,6 +68,15 @@ export class Recipe {
             eager:true
         })
     ingredients:Ingredient[];
+
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
+
+    @DeleteDateColumn()
+    deletedAt: Date;
 
     
 
