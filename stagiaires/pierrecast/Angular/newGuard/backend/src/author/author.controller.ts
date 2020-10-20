@@ -22,7 +22,7 @@ export class AuthorController {
         @User() user: any
        
     ): Promise<AuthorEntity[]> {
-        
+        console.log('mon profl user  ', user);
         return await this.authorService.getMyAuthorProfile(user.id);
     }
 

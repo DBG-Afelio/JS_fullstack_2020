@@ -41,7 +41,10 @@ export class ArticleService {
     return this.http.get<ArticleDto[]>(this.url)
       .pipe(
         map((arrayArticleDto : ArticleDto[]) => {
-          return arrayArticleDto.map(articleDto => Article.fromDto(articleDto));
+          return arrayArticleDto.map(articleDto => {
+            console.log(Article.fromDto(articleDto));
+            return Article.fromDto(articleDto);
+          });
         })
       )
     ;
