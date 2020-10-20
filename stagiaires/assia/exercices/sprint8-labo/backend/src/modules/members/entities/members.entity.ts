@@ -1,3 +1,4 @@
+import { RessourceEnum } from 'src/enum/ressource.enum';
 import { RatingsEntity } from 'src/modules/ratings/entities/ratings.entity';
 import { RecipesEntity } from 'src/modules/recipes/entities/recipes.entity';
 import { RolesEntity } from 'src/modules/roles/entities/roles.entity';
@@ -12,7 +13,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-@Entity('members')
+@Entity(RessourceEnum.MEMBERS)
 export class MembersEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -68,7 +69,7 @@ export class MembersEntity {
 
   @OneToMany(
     type => RatingsEntity,
-    rating => rating.member, {
+    rating => rating.author, {
       nullable: true,
     }
   )
@@ -78,7 +79,7 @@ export class MembersEntity {
     type => RecipesEntity,
     (recipe) => recipe.author,
     {
-      nullable: true;
+      nullable: true,
     }
   )
   recipes: RecipesEntity[];

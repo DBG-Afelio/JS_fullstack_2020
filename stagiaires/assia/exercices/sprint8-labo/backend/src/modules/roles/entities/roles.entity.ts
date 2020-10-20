@@ -1,15 +1,26 @@
-import { MembersEntity } from "src/modules/members/entities/members.entity";
-import { PermissionsEntity } from "src/modules/permissions/entities/permissions.entity";
-import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { RessourceEnum } from 'src/enum/ressource.enum';
+import { MembersEntity } from 'src/modules/members/entities/members.entity';
+import { PermissionsEntity } from 'src/modules/permissions/entities/permissions.entity';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity('roles')
-export class RolesEntity { 
+@Entity(RessourceEnum.ROLES)
+export class RolesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  name: string;
+
   @ManyToMany(
     type => PermissionsEntity,
-    (permission) => permission.roles,
+    permission => permission.roles,
     {
       cascade: ['insert', 'update', 'remove'],
       eager: true,
@@ -20,7 +31,7 @@ export class RolesEntity {
 
   @OneToMany(
     type => MembersEntity,
-    (member) => member.role,
+    member => member.role,
   )
   members: MembersEntity[];
 }

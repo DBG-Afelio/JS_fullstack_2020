@@ -18,8 +18,10 @@ import { type } from 'os';
 import { MealTypesEntity } from 'src/modules/meal-types/entities/meal-types.entity';
 import { IngredientsEntity } from 'src/modules/ingredients/entities/ingredients.entity';
 import { RatingsEntity } from 'src/modules/ratings/entities/ratings.entity';
+import { IngredientLinesEntity } from 'src/modules/ingredient-lines/entities/ingredient-lines.entity';
+import { RessourceEnum } from 'src/enum/ressource.enum';
 
-@Entity('recipes')
+@Entity(RessourceEnum.RECIPES)
 export class RecipesEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -27,16 +29,15 @@ export class RecipesEntity {
   @Column()
   title: string;
 
-  @ManyToMany(
-    type => IngredientsEntity,
-    ing => ing.recipes,
+  @OneToMany( // or ManyToMany ?
+    type => IngredientLinesEntity,
+    (ingLine) => ingLine.recipe,
     {
-      cascade: ['insert', 'update'],
       eager: true,
+      cascade: ['insert', 'update', 'remove'],
     },
   )
-  @JoinTable()
-  ingredients: IngredientsEntity[];
+  ingredientLines: IngredientLinesEntity[];
 
   @Column()
   instructions: string;
@@ -65,7 +66,7 @@ export class RecipesEntity {
     type => MealTypesEntity,
     mealType => mealType.recipes,
   )
-    @JoinColumn()
+  @JoinColumn()
   mealType: MealTypesEntity;
 
   @Column({
