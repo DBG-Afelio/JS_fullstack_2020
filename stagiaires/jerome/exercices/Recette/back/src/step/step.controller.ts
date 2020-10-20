@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { StepService } from './step.service';
 import { CreateStepDto } from './dto/create-step.dto';
 import { UpdateStepDto } from './dto/update-step.dto';
@@ -18,17 +18,17 @@ export class StepController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.stepService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.stepService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateStepDto: UpdateStepDto) {
-    return this.stepService.update(+id, updateStepDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updateStepDto: UpdateStepDto) {
+    return this.stepService.update(id, updateStepDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.stepService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.stepService.remove(id);
   }
 }

@@ -44,8 +44,8 @@ export class Recipe {
         })
     tags:Tag[];
 
-    @JoinTable()
-    @ManyToMany(type=>Step,
+    @JoinColumn()
+    @OneToMany(type=>Step,
         (step)=>step.recipes,{
             eager:true
         })
@@ -54,7 +54,7 @@ export class Recipe {
     @JoinColumn()
     @ManyToOne(type=>User,
         (user)=>user.recipes,{
-            eager:true
+            eager:false
         })
     user:User;
 

@@ -20,4 +20,4 @@ import { Jwt } from '../strategies/jwt.strategy';
     providers: [AuthenticationService,Basic,JwtGuard,Jwt],
     controllers:[AuthenticationController]
 })
-export class AuthModule { }
+export class AuthenticationModule { }

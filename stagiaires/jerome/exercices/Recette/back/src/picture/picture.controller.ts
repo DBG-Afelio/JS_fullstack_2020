@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { PictureService } from './picture.service';
 import { CreatePictureDto } from './dto/create-picture.dto';
 import { UpdatePictureDto } from './dto/update-picture.dto';
@@ -18,17 +18,17 @@ export class PictureController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pictureService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return this.pictureService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updatePictureDto: UpdatePictureDto) {
-    return this.pictureService.update(+id, updatePictureDto);
+  update(@Param('id',ParseIntPipe) id: number, @Body() updatePictureDto: UpdatePictureDto) {
+    return this.pictureService.update(id, updatePictureDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.pictureService.remove(+id);
+  remove(@Param('id',ParseIntPipe) id: number) {
+    return this.pictureService.remove(id);
   }
 }

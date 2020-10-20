@@ -1,11 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreatePictureDto } from './dto/create-picture.dto';
 import { UpdatePictureDto } from './dto/update-picture.dto';
+import { Picture } from './entities/picture.entity';
 
 @Injectable()
 export class PictureService {
+
+  constructor(@InjectRepository(Picture)
+  private pictureRepository:Repository<Picture>,){}
+
   create(createPictureDto: CreatePictureDto) {
-    return 'This action adds a new picture';
+    const newPicture=new Picture();
+    newPicture.src=createPictureDto.src
+    return this.pictureRepository.save(newPicture);
   }
 
   findAll() {
