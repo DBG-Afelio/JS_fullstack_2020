@@ -17,8 +17,8 @@ export class AuthorService {
         return await this.authorRepository.find();
     }
 
-    async getMyAuthorProfile(id: number): Promise<AuthorEntity> {
-        let query=  await this.authorRepository.findOne({
+    async getMyAuthorProfile(id: number): Promise<AuthorEntity[]> {
+        let query=  await this.authorRepository.find({
              user: {id}
         });
         return query;
