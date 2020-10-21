@@ -5,6 +5,7 @@ import {Recipe} from '../Models/recipe'
 import { map } from 'rxjs/operators';
 import { CreateRecipeDto } from '../Models/Dtos/RecipeDto/create-recipe.dto';
 import { GetRecipeDto } from '../Models/Dtos/RecipeDto/get-recipe.dto'
+import { User } from '../Models/user';
 
 
 @Injectable({
@@ -23,14 +24,36 @@ export class RecipeService {
   getAllRecipes():Observable<Recipe[]>{
 
     return this.http.get<GetRecipeDto[]>(`http://localhost:3000/recipe`)
-      .pipe(
-
-        map(recipeFound => {return Recipe.fromDto(recipeFound)})
-
-      )
+    .pipe(
+      map((arrayRecipeDto:GetRecipeDto[])=> arrayRecipeDto.map((recipeDto:GetRecipeDto)=>{
+     
+        return Recipe.fromDto(recipeDto)
+       }))
+    )
 
   }
 
-  getOneRecipe():
+  getRecipeById(id:number):Observable<Recipe>{
+    return this.http.get<GetRecipeDto>(`http://localhost:3000/recipe/${id}`)
+    .pipe(
+      map((recipe:GetRecipeDto)=>{
+        return Recipe.fromDto(recipe)
+      })
+    )
+  }
+
+  public deleteRecipe(id:number,user:User,recipe:GetRecipeDto){
+
+    if((user.login===recipe.user.login)||(user.role==="ADMIN")){
+
+      return this.http.delete<GetRecipeDto>(`http://localhost:3000/recipe/${id}`);
+
+    }else {
+
+      throw new console.error('Suppression impossible');
+       
+    }
+    
+ }
 
 }

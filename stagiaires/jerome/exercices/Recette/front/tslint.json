@@ -146,6 +146,7 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
   },
+  
   "rulesDirectory": [
     "codelyzer"
   ]

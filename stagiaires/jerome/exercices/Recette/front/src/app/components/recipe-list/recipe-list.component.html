@@ -1,0 +1,30 @@
+<div *ngFor="let recipe of recipes">
+
+    <div *ngFor="let picture of pictures">
+        
+        <img src="{{picture.src}}">
+
+    </div>
+    
+
+    <label>
+        {{recipe.name}}
+    </label>
+
+    <label>
+        {{recipe.preparationTime}}
+    </label>
+
+    <label>
+        {{recipe.cookingTime}}
+    </label>
+
+    <label>
+        {{recipe.preparationTime}}
+    </label>
+
+    <label>
+        {{recipe.people}}
+    </label>
+
+</div>

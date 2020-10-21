@@ -2,6 +2,7 @@ import { Ingredient } from "../../ingredient";
 import { Tag } from "../../tag";
 import { Step } from "../../step";
 import { Picture } from "../../picture";
+import { User } from "../../user";
 
 export class GetRecipeDto{
 
@@ -15,5 +16,6 @@ export class GetRecipeDto{
     tags:Tag[];
     steps:Step[];
     ingredients:Ingredient[];
+    user:User;
     
 }

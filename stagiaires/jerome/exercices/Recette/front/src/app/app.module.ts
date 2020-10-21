@@ -9,6 +9,8 @@ import { LoginComponent } from './Views/login/login.component';
 import { UserNotLoggedGuard } from './Guards/user-not-logged.guard';
 import { UserLoggedGuard } from './Guards/user-logged.guard';
 import { HomeComponent } from './Views/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,15 @@ import { HomeComponent } from './Views/home/home.component';
     RecipeFormComponent,
     UserFormComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RecipeListComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     UserNotLoggedGuard,

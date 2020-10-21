@@ -1,1 +1,80 @@
-<p>recipe-form works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmitForm()">
+
+    <div>
+        <label>
+            Titre :
+        </label>
+        <input type="text" formControlName="name">
+    </div>
+
+    <div>
+        <label>
+            Temps de Préparation :
+        </label>
+        <input type="number" formControlName="preparationTime"><p>Minute(s)</p>
+    </div>
+
+    <div>
+        <label>
+            Temps de Cuisson :
+        </label>
+        <input type="number" formControlName="cookingTime"><p>Minute(s)</p>
+    </div>
+
+    <div>
+        <label>
+            Niveau de difficulté :
+        </label>
+        <input type="number" formControlName="level">
+    </div>
+
+    <div>
+        <label>
+            Nombre de Personne :
+        </label>
+        <input type="number" formControlName="people">
+    </div>
+
+    <div>
+        <label>
+            Enregistrer Des Images :
+        </label>
+        <input type="number" formControlName="picture">
+    </div>
+
+    <div>
+        <label>
+            Etapes :
+        </label>
+        <div *ngFor="let step of steps">
+            <label>
+                {{step.description}}
+            </label>
+        </div>
+        <input type="text" formControlName="step">
+        <button (click)="onButtonPushStep()">Ajouter une étape</button>
+    </div>
+
+    <div>
+        <label>
+            Liste des Ingredients :
+        </label>
+        <input type="text" formControlName="ingredient">
+    </div>
+
+    <div>
+        <label>
+            Tags :
+        </label>
+        <div *ngFor="let tag of tags">
+            <label>
+                {{tag.label}}
+            </label>
+        </div>
+        
+    </div>
+
+    <button type="submit">Soumettre une nouvelle recette!</button>
+
+
+</form>
