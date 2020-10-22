@@ -1,0 +1,33 @@
+<button (click)="onOptionsButtonClick()" class="optionsButton">&#x2630;</button>
+
+<label id="title">
+    Le Salon D'Hiroshima
+</label>
+<label>
+
+    <input class="searchBar">
+    <button class="searchButton"><fa-icon [icon]="faSearch"></fa-icon></button>
+
+</label>
+
+<label id="info">
+    Une Explosion de Saveur
+</label>
+
+<div class="logContainer">
+
+    <button
+    *ngIf="!currentUser"
+    routerLink="./login"
+    class="logButton"
+    (click)="onLoginClick()">
+        login
+    </button>
+    <button
+    *ngIf="currentUser"
+      class="logButton"
+     (click)="onLogoutClick()">
+        logout
+    </button>
+            
+</div>

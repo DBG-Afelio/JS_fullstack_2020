@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
     <div>
         <label>
             Nom :
@@ -26,4 +26,14 @@
         </label>
         <input type="text" formControlName="email">
     </div>
+
+    <div>
+        <label>
+            Type de compte :
+        </label>
+        <input type="radio" name="role" value="premium" isChecked><label>Devenir Premium!</label>
+        <input type="radio" name="role" value="user" ><label>non merci</label>
+    </div>
+    <button type="submit">Enregistrer votre profil</button>
+    <button>Retour</button>
 </form>

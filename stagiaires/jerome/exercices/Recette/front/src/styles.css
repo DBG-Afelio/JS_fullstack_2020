@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("assets/salon-jap.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+ 
+}
+
+:root{
+    --lightPanelsColor:rgba(123, 165, 164, 0.7);
+    --darkBluePanelsColor: rgba(6, 6, 42, 1);
+    --bluePanelsColor: rgba(3, 54, 109, 0.4);
+}
+
+@font-face{
+    font-family: "yozakura";
+    src: url("assets/YozakuraJP-Light.otf");
+}

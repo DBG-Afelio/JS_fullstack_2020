@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, FormArray } from '@angular/forms';
 import { Step } from 'src/app/Models/step';
-import { Tag } from '../../models/tag';
+import { Tag } from '../../Models/tag';
 import { RecipeService } from '../../Services/recipe.service';
 import { TagService } from '../../Services/tag.service'
 
@@ -32,7 +32,7 @@ export class RecipeFormComponent implements OnInit {
       level:formBuilder.control('',[Validators.required]),
       people:formBuilder.control('',[Validators.required]),
       picture:formBuilder.array([]),
-      step:formBuilder.array([]),
+      step:formBuilder.control('',[Validators.required]),
       ingredient:formBuilder.array([]),
       tag:formBuilder.array([])
 
@@ -48,7 +48,8 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onButtonPushStep(){
-    this.steps.push(this.recipeForm.controls.step.value)
+
+    this.steps.push(new Step(this.recipeForm.controls.step.value))
     this.recipeForm.controls.step.setValue('');
   }
 

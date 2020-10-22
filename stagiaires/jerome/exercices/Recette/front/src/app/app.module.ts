@@ -11,6 +11,8 @@ import { UserLoggedGuard } from './Guards/user-logged.guard';
 import { HomeComponent } from './Views/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
     UserFormComponent,
     LoginComponent,
     HomeComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    HeaderBarComponent
   ],
   imports: [
     HttpClientModule,
@@ -27,6 +30,7 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     UserNotLoggedGuard,
