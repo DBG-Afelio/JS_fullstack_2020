@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "blog",
+            "driver": "PostgreSQL",
+            "name": "Blog",
+            "password": "admin",
+            "port": 5432,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "admin"
+        }
+    ]
+}

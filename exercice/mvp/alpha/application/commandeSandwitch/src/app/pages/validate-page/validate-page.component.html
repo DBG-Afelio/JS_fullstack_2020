@@ -1,21 +1,21 @@
 <p class="back-link">
-    <a routerLink="/produit/{{ fullOrder.getProduct().id }}">
-        Retourner vers le produit 
+    <a routerLink="/produit/{{ fullOrder?.getProduct().id }}">
+        Retourner vers le produit
     </a>
 </p>
 <div class="wrap-detail"  *ngIf="creditMax && currentUser && fullOrder">
 
-    
 
-   
-   <!----> 
+
+
+   <!---->
         <div class="outer-detail before-paiement" *ngIf="!fullOrder.isConfirmed()">
-           
+
                 <p>
-                    Votre commande s'élève à {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}} 
+                    Votre commande s'élève à {{ fullOrder.getTotalPrice() | currency: 'EUR':'symbol-narrow'}}
                 </p>
                 <p *ngIf="!isCreditEnough">
-                    Il ne vous reste que {{ creditMax - currentUser.credit | currency: 'EUR':'symbol-narrow' }} sur votre portefeuille de "CREDIT AUTORISE" ({{ creditMax | currency: 'EUR':'symbol-narrow'}}). 
+                    Il ne vous reste que {{ creditMax - currentUser.credit | currency: 'EUR':'symbol-narrow' }} sur votre portefeuille de "CREDIT AUTORISE" ({{ creditMax | currency: 'EUR':'symbol-narrow'}}).
                     Pour confirmer votre commande, merci de payer comptant.
                 </p>
         </div>
@@ -23,31 +23,31 @@
         <div class="after-paiement outer-detail" *ngIf="fullOrder.isConfirmed()">
 
             <p>Paiement acceptée ! Votre commande est en cours de préparation et vous sera livrée avant Midi !</p>
-            
+
             <!-- payé a credit -->
             <p *ngIf="!fullOrder.getOrder().isPayed">
                 Votre solde de crédit s'élève désormais à - {{ currentUser.credit | currency: 'EUR':'symbol-narrow'}}. Pour le rembourser, veuillez prendre contact avec l'administrateur.
             </p>
-    
+
             <p>Merci pour votre achat et à bientôt !</p>
         </div>
-       
+
         <div class="wrap-buttons" *ngIf="!fullOrder.isConfirmed()">
             <button
                 (click)="confirmOrder(true)"
                 [disabled]="!isOnTime">
                 PAYER CASH
             </button>
-            <button 
+            <button
                 [disabled]="!isOnTime || !isCreditEnough"
                 (click)="confirmOrder(false)">
                 PAYER A CREDIT
             </button>
         </div>
-    
+
 
     <!------------------------------------------------------------------- Vue une fois le paiement actée --->
-    
+
 
 </div>
 
