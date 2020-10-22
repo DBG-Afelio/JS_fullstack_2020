@@ -1,1 +1,7 @@
-<p>ingredient-admin works!</p>
+<form [formGroup]="ingredientForm" (ngSubmit) = "onSubmitForm()"  >
+    <label for="name">Nom</label>
+    <input type="text" name="name" formControlName="name"
+        id="name" data-pristine="true" 
+        required class="form-control"  
+    >
+</form>
