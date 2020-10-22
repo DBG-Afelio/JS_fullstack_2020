@@ -19,10 +19,10 @@ import { HistoryAdminPageComponent } from './pages/history-admin-page/history-ad
 
 
 const routes: Routes = [
-  { path : "fournisseur/:id", component: ProductPageComponent },
+  { path : 'fournisseur/:id', component: ProductPageComponent },
   { path : "homepage", component: HomePageComponent },
   { path : "produit/:id", component: ProductDetailPageComponent },
-  { path : "paiement", component: ValidatePageComponent, canActivate: [LoggedInOnlyGuard] }, 
+  { path : "paiement", component: ValidatePageComponent, canActivate: [LoggedInOnlyGuard] },
   { path : "historique", component: HistoryPageComponent, canActivate: [LoggedInOnlyGuard] },
 
   { path : "admin/commande-du-jour", component: AdminOrderTodayPageComponent, canActivate: [AdminOnlyGuard] },

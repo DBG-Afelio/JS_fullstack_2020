@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   public saveChanges(form) {
-    console.log('form: ' ,form);
+    console.log('form: ' , form);
     this.update.emit(this.product);
   }
 
@@ -31,9 +31,9 @@ export class ProductFormComponent implements OnInit {
   }
 
   public createNewOption() {
-    let options = this.product.options;
+    const options = this.product.options;
     let index = 1;
-    options.forEach(option => { 
+    options.forEach(option => {
       if (option.id === index) {
         index++;
       }
@@ -42,7 +42,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   public deleteOptionEvent(option: Option) {
-    let tabOptions = this.product.getOptions().filter(opt => opt.id !== option.id);
+    const tabOptions = this.product.getOptions().filter(opt => opt.id !== option.id);
     this.product.options = tabOptions;
   }
 
