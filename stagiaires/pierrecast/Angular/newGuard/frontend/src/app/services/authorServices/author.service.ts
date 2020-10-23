@@ -29,7 +29,7 @@ export class AuthorService {
   }
 
   public getAuthorByUserId(id: number): Observable<Author> {
-    return this.http.get<AuthorDto>(this.url + '/mon-profil') 
+    return this.http.get<AuthorDto>(this.url + '/user/' +id) 
     .pipe(
       map(authorDto => Author.fromDto(authorDto)),
     )
