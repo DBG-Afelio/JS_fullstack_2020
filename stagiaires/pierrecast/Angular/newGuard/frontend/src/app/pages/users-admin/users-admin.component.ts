@@ -16,12 +16,12 @@ export class UsersAdminComponent implements  OnInit {
 
   public listUsers: User[];
   public user: User;
-  public dataSource: UsersDataSource;
+  //public dataSource: UsersDataSource;
   public displayedColumns= ["id", "username", "email", "roles"];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+/*  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild('input') input: ElementRef;
+  @ViewChild('input') input: ElementRef;*/
   
   
   constructor(
@@ -36,14 +36,14 @@ export class UsersAdminComponent implements  OnInit {
     });
   }
  
-  ngOnInit() {
-   
+ ngOnInit() {
+    /*
       this.dataSource = new UsersDataSource(this.userService);
       this.dataSource.loadUsers('', 'asc', 0, 10).subscribe(() => {
         return this.initSort()
-      });
+      });*/
   }
-
+/*
   initSort() {
       this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
       fromEvent(this.input.nativeElement,'keyup')
@@ -71,7 +71,7 @@ export class UsersAdminComponent implements  OnInit {
         this.paginator.pageIndex,
         this.paginator.pageSize
     );
-  }
+  }*/
 
   ngAfterViewInit() {
     

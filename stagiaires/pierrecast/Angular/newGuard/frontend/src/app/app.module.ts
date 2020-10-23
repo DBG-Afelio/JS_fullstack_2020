@@ -19,21 +19,11 @@ import { AuthorAdminComponent } from './pages/author-admin/author-admin.componen
 import { UserAdminComponent } from './pages/user-admin/user-admin.component';
 import { UsersAdminComponent } from './pages/users-admin/users-admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
-import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field'; 
-import { MatInputModule } from '@angular/material/input'; 
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon'; 
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JwtModule } from "@auth0/angular-jwt";
-import { MatNativeDateModule } from '@angular/material/core';
+
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { ArticlePageComponent } from './pages/article-page/article-page.component';
+import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -70,21 +60,9 @@ export function tokenGetter() {
     }),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule, 
-    MatButtonModule, 
-    MatSelectModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatDatepickerModule, 
-    MatNativeDateModule, 
+    NgbPaginationModule, NgbAlertModule, NgbModule, 
   ],
   providers: [LoginGuard, LoginInterceptorProvider, 
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}},
   ],
   bootstrap: [AppComponent]
 })

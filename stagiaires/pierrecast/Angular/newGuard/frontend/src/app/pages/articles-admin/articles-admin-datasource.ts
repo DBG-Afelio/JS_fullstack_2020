@@ -13,7 +13,7 @@ export class ArticlesDataSource implements DataSource<Article> {
       private articleService: ArticleService
     ) {}
 
-    loadArticles(filter:string,
+   loadArticles(filter:string,
                 sortDirection:string,
                 pageIndex:number,
                 pageSize:number) {

@@ -2,7 +2,7 @@
 
   <a routerLink="/admin/user/0">Nouvel utilisateur</a>
   <div *ngIf="listUsers">
-    <table>
+    <!--<table>
       <tr>
         <th>Id</th>
         <th>Username</th>
@@ -23,9 +23,9 @@
     </table>
 
 
-    <mat-form-field>
+    <div>
       <input matInput placeholder="Search users" #input>
-    </mat-form-field>
+    </div>
     
     <div class="spinner-container" *ngIf="dataSource.loading$ | async">
       <mat-spinner></mat-spinner>
@@ -63,7 +63,7 @@
                 [pageSizeOptions]="[5, 10, 20]"
     ></mat-paginator>
     
-
+  -->
 
   </div>
   <div *ngIf="!listUsers">

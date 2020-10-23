@@ -1,10 +1,10 @@
 <div class="container">
     <h1>Utilisateur</h1>
 
-    <form [formGroup]="userForm" (ngSubmit) = "onSubmitForm()"  >
-        <mat-form-field appearance="fill"  class="form-group form-element form-username">
+   <!-- <form [formGroup]="userForm" (ngSubmit) = "onSubmitForm()"  >
+        <div  class="form-group form-element form-username">
         
-            <mat-label for="username">Pseudo</mat-label>
+            <label for="username">Pseudo</label>
             <input  matInput type="text" name="username" id="username" data-pristine="true" 
             placeholder="Pseudo" required 
             class="form-control"  formControlName="username">
@@ -15,32 +15,25 @@
                     le pseudo est requis
                 </div>
             </div>
-        </mat-form-field>
+        </div>
 
         <div class="form-group" formGroupName="passwordGroup">
-            <mat-form-field appearance="fill"  class="form-element form-password">
-                <mat-label for="password">Mot de passe</mat-label>
+            <div  class="form-element form-password">
+                <label for="password">Mot de passe</label>
                 <input   name="password" 
                     class="form-control"  formControlName="password" data-pristine="true" 
                     matInput [type]="hide ? 'password' : 'text'">
                 
-                <button mat-icon-button matSuffix 
-                    (click)="hide = !hide" 
-                    [attr.aria-label]="'Hide password'" 
-                    [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-            <mat-form-field appearance="fill"  class="form-element form-password">
-                <mat-label for="repeat">Répétez</mat-label>
+             
+            </div>
+            <div  class="form-element form-password">
+                <label for="repeat">Répétez</label>
                 
-                <input  matInput type="password" name="repeat" id="repeat" 
+                <input   type="password" name="repeat" id="repeat" 
                     class="form-control"  formControlName="repeat"
                     data-pristine="true" >
 
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
+                    
                 <div class="error-message-container">
                     <div class="errors error-message error-required" 
                         [hidden]='userForm.controls.passwordGroup.pristine || (!userForm.controls.passwordGroup.errors || !userForm.controls.passwordGroup.errors.required)'>
@@ -51,11 +44,11 @@
                         les mots de passe sont différents
                     </div>
                 </div>
-            </mat-form-field>
+            </div>
         </div>
 
-        <mat-form-field appearance="fill"  class="form-group form-element form-email">
-            <mat-label for="email">Email</mat-label>
+        <div  class="form-group form-element form-email">
+            <label for="email">Email</label>
             <input matInput type="text" name="email" id="email" data-pristine="true" 
             placeholder="Email" required 
             class="form-control"  formControlName="email">
@@ -66,10 +59,10 @@
                     le pseudo est requis
                 </div>
             </div>
-        </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill"  class="form-group form-element form-roles" *ngIf = "user && this.currentUser.roles === 'ADMIN'">
-            <mat-label for="roles">Rôle</mat-label>
+        <div  class="form-group form-element form-roles" *ngIf = "user && this.currentUser.roles === 'ADMIN'">
+            <label for="roles">Rôle</label>
             <mat-select  name="roles" id="roles" 
                 data-pristine="true" 
                 required 
@@ -84,7 +77,7 @@
                     le rôle est requis
                 </div>
             </div>
-        </mat-form-field>
+        </div>
 
         <div class="form-group submit-container">
 
@@ -101,6 +94,6 @@
 
         </div>
 
-    </form>
+    </form>-->
 
 </div>

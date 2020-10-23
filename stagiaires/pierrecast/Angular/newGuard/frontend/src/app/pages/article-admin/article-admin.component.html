@@ -1,51 +1,51 @@
 <div class="container">
     <h1>Article</h1>
 
-    <form [formGroup]="articleForm" (ngSubmit) = "onSubmitForm()"  >
-    <mat-form-field appearance="fill"  class="form-group form-element form-title">
+  <!--  <form [formGroup]="articleForm" (ngSubmit) = "onSubmitForm()"  >
+    <div  class="form-group form-element form-title">
         
-            <mat-label for="title">Titre</mat-label>
+            <label for="title">Titre</label>
             <input matInput type="text" name="title" id="title" data-pristine="true" 
             placeholder="Titre" required class="form-control"  formControlName="title">
                 
-        <!--   <div class="error-message-container">
+         <div class="error-message-container">
                 <div class="errors error-message error-required" 
                 [hidden]='articleForm.controls.title.pristine || (!articleForm.controls.title.errors || !articleForm.controls.title.errors.required)'>
                     le titre est requis
                 </div>
-            </div>-->
-        </mat-form-field>
+            </div>
+        </div>
 
-        <mat-form-field appearance="fill"  class="form-group form-element form-content">
-            <mat-label for="content">Contenu</mat-label>
+        <div  class="form-group form-element form-content">
+            <label for="content">Contenu</label>
             <textarea matInput type="text" name="content" id="content" data-pristine="true" 
                 placeholder="Contenu" required 
                 class="form-control"  formControlName="content">
             </textarea>
                 
-        <!--   <div class="error-message-container">
+          <div class="error-message-container">
                 <div class="errors error-message error-required" 
                 [hidden]='articleForm.controls.content.pristine || (!articleForm.controls.content.errors || !articleForm.controls.content.errors.required)'>
                     le contenu est requis
                 </div>
-            </div>-->
-        </mat-form-field>
+            </div>
+        </div>
         
-        <mat-form-field appearance="fill"  class="form-group form-element form-date">
+        <div  class="form-group form-element form-date">
                 
-            <mat-label for="date">Date</mat-label>
+            <label for="date">Date</label>
             <input matInput [matDatepicker]="date" formControlName="date" required >
             <mat-datepicker-toggle matSuffix [for]="date" ></mat-datepicker-toggle>
             <mat-datepicker #date  class="form-control"   
             name="date" id="date" data-pristine="true" 
             ></mat-datepicker>
-        </mat-form-field>
+        </div>
     
         <section class="form-group form-element form-published">
             <mat-checkbox  
                 name="published" id="published" data-pristine="true" 
                 class="form-control"  formControlName="published"
-            ><mat-label for="published">Publié</mat-label></mat-checkbox>
+            ><label for="published">Publié</label></mat-checkbox>
         </section>
     
 
@@ -53,12 +53,12 @@
             <mat-checkbox   
                 name="complete" id="complete" data-pristine="true" 
                 class="form-control"  formControlName="complete"
-                ><mat-label for="complete">Complet</mat-label>  
+                ><label for="complete">Complet</label>  
             </mat-checkbox> 
         </section>
 
-        <mat-form-field appearance="fill"  class="form-group form-element form-author">
-            <mat-label for="author">Auteur</mat-label>
+        <div  class="form-group form-element form-author">
+            <label for="author">Auteur</label>
             <mat-select  name="author" id="author" 
                 data-pristine="true" required 
                 class="form-control" formControlName="author">
@@ -73,7 +73,7 @@
                     l'auteur est requis
                 </div>
             </div>
-        </mat-form-field> 
+        </div> 
         
         <div class="submit-container">
             <button type="button"  class="submit-button"
@@ -85,5 +85,5 @@
                 [disabled]="articleForm.invalid" mat-raised-button 
             >Envoyer</button>
         </div>
-    </form>
+    </form>-->
 </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <a routerLink="/admin/author/0">Nouvel auteur</a>
-  <div *ngIf="listAuthors">
-    <table>
+ <div *ngIf="listAuthors">
+   <!-- <table>
       <tr>
         <th>Id</th>
         <th>Nom</th>
@@ -19,9 +19,9 @@
     </table>
 
 
-    <mat-form-field>
+    <div>
       <input matInput placeholder="Search authors" #input>
-    </mat-form-field>
+    </div>
     
     <div class="spinner-container" *ngIf="dataSource.loading$ | async">
       <mat-spinner></mat-spinner>
@@ -52,15 +52,15 @@
                   *matCellDef="let author">{{ author.user.username }}</mat-cell>
       </ng-container>
 
-
-
+-->
+<!--
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
+    </mat-table>-->
     
-    <mat-paginator [length]="listAuthors.length" [pageSize]="10"
+  <!--  <mat-paginator [length]="listAuthors.length" [pageSize]="10"
                 [pageSizeOptions]="[5, 10, 20]"
-    ></mat-paginator>
+    ></mat-paginator>-->
     
   </div>
   <div *ngIf="!listAuthors">
