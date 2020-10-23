@@ -2,4 +2,3 @@ node_modules/
 dist/
 .DS_Store
 .vscode/
-stagiaires/pierrecast/Angular/Recettes/backend/.env
