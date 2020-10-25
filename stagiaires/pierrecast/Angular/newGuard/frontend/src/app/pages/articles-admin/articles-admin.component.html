@@ -1,5 +1,12 @@
 <div class="container">
-  <a routerLink="/admin/article/0">Nouvel article</a>
+  <button class="btn btn-secondary" routerLink="/admin/article/0">Nouvel article</button>
+
+  <form>
+    <div class="form-group form-inline">
+        Recherche: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+    </div>
+  </form>
+
   <div *ngIf="listArticles">
     <table class="table table-striped">
       <thead>

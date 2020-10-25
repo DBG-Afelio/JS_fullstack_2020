@@ -1,4 +1,6 @@
+import { DecimalPipe } from '@angular/common';
 import { Component,  OnInit,  } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Article } from 'src/app/models/articleModels/Article';
 import { ArticleService } from 'src/app/services/articleServices/article.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,10 +17,13 @@ export class ArticlesAdminComponent implements  OnInit {
   public pageSize: number = 6;
   public collectionSize: number;
   public currentUser : any;
+  public filter = new FormControl('');
+
 
   constructor(
     private articleService: ArticleService, 
-    private authService: AuthService
+    private authService: AuthService,
+    pipe: DecimalPipe
   ) {
     this.authService.getCurrentUser().subscribe(
       (user: any) => {
@@ -27,6 +32,10 @@ export class ArticlesAdminComponent implements  OnInit {
       }
     );
     this.createListArticles();
+    /*this.countries$ = this.filter.valueChanges.pipe(
+      startWith(''),
+      map(text => search(text, pipe))
+    );*/
   }
 
   createListArticles() {
