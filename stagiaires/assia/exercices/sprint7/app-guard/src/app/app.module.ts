@@ -40,6 +40,8 @@ import { CommentItemComponent } from './components/comment-item/comment-item.com
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthService } from './services/auth.service';
+import { PrivateMenuSectionComponent } from './components/private-menu-section/private-menu-section.component';
+import { PrivateBodySectionComponent } from './components/private-body-section/private-body-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,8 @@ import { AuthService } from './services/auth.service';
     CommentItemComponent,
     CommentFormComponent,
     HeaderComponent,
+    PrivateMenuSectionComponent,
+    PrivateBodySectionComponent,
   ],
   imports: [
     BrowserModule,
