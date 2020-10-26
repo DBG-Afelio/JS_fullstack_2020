@@ -28,6 +28,11 @@ export class IngredientController {
     return this.ingredientService.findOne(id);
   }
 
+  @Get('search/:word')
+  findByWord(@Param('word') word:string){
+    return this.ingredientService.findIngredientsByWord(word)
+  }
+
   @UseGuards(JwtGuard,RoleGuard)
   @Roles(RoleEnum.ADMIN)
   @Put(':id')

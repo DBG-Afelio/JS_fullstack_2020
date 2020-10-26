@@ -13,7 +13,6 @@ export class StepService {
 
   create(createStepDto: CreateStepDto) {
     const newStep= new Step();
-    newStep.label=createStepDto.label;
     newStep.description=createStepDto.description;
     return this.stepRepository.save(newStep);
   }

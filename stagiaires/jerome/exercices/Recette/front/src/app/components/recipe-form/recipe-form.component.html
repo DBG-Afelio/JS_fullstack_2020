@@ -39,42 +39,80 @@
         <label>
             Enregistrer Des Images :
         </label>
-        <input type="number" formControlName="picture">
+        <img class="picture" *ngFor="let picture of pictures" src="{{picture.src}}">
+        <input type="file" (change)="getPicture($event.target.files)" formControlName="picture">
     </div>
 
     <div>
+
         <label>
             Etapes :
         </label>
+
         <div *ngFor="let step of steps">
+
             <label>
                 {{step.description}}
             </label>
+
         </div>
+
         <input type="text" formControlName="step">
         <button (click)="onButtonPushStep()">Ajouter une étape</button>
+
     </div>
 
-    <div>
+    <div id="ingredient">
+
         <label>
             Liste des Ingredients :
         </label>
-        <input type="text" formControlName="ingredient">
-    </div>
 
+        <br>
+
+        <div *ngIf='ingredientsFound.length>0' >
+
+            <app-search-ingredient [ingredients]='ingredientsFound' (addIngredient)='ingredientsRecipe.push($event)'></app-search-ingredient>
+
+        </div>
+
+        <label>
+            Ingrédient Rajouté
+        </label>
+        <div *ngFor='let ingredient of ingredientsRecipe'>
+            <label>
+                {{ingredient.label}}
+            </label>
+        </div>
+
+        <br>
+
+    </div>
+    <input type="text" formControlName="ingredient" placeholder='Chercher un ingredient'   (input)="getWord($event.target.value)">
+
+    <div *ngIf='window===true'>
+
+        <input type="text" placeholder='Entrer un nouvel ingredient' (input)='createNewIngredient($event.target.value)'>
+        <button (click)='createNewIngredient()'>Créer</button>
+        <button (click)='onClickCloseWindow()'>Annuler</button>
+
+    </div>
+    <button (click)='onClickOpenWindow()'>Ajouter un nouvel Ingredient</button>
     <div>
         <label>
             Tags :
         </label>
+
         <div *ngFor="let tag of tags">
-            <label>
+            <input type="checkbox"  name="{{tag.label}}">
+            <label for="{{tag.label}}">
                 {{tag.label}}
             </label>
         </div>
-        
     </div>
 
-    <button type="submit">Soumettre une nouvelle recette!</button>
-
+    <footer>
+        <button type="submit">Soumettre une nouvelle recette!</button>
+    </footer>
 
 </form>

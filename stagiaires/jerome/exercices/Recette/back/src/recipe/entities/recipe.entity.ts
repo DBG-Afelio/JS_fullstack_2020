@@ -30,6 +30,9 @@ export class Recipe {
     @Column()
     evaluation:number;
 
+    @Column()
+    isPublic:boolean;
+
     @JoinColumn()
     @OneToMany(type=>Picture,
         (picture)=>picture.recipe,{

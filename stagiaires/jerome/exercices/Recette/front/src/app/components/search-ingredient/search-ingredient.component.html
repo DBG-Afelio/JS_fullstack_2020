@@ -1,0 +1,11 @@
+<div>
+  <div *ngFor="let ingredient of ingredients" (click)='addIngredientRecipe(ingredient)'>
+
+    <label>
+        {{ingredient.label}}
+    </label>
+    
+  </div>
+  <br>
+  
+</div>

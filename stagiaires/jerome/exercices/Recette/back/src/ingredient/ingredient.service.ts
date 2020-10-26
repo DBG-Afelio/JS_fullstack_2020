@@ -43,6 +43,16 @@ export class IngredientService {
     return this.ingredientRepository.findOne(id);
   }
 
+  async findIngredientsByWord(word:string){
+    
+    const ingredients = await this.ingredientRepository.createQueryBuilder("ingredient")
+    .where("ingredient.label like :label",{ label: `%${word}%` })
+    .getMany();
+
+    return ingredients;
+  }
+
+
   async update(id: number, updateIngredientDto: UpdateIngredientDto) {
     updateIngredientDto.id=id;
     return this.ingredientRepository.save(updateIngredientDto);

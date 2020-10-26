@@ -8,9 +8,6 @@ export class Step {
     @PrimaryGeneratedColumn({type:"int"})
     id:number;
 
-    @Column({type:"varchar",length:25})
-    label:string;
-
     @Column()
     description:string;
 

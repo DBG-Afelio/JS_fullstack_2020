@@ -12,3 +12,12 @@ form{
     height: 70%;
     width: auto;
 }
+
+.picture{
+    width: 100px;
+    height: 100px;
+}
+
+#ingredient{
+    border: 2px solid darkgrey;
+}

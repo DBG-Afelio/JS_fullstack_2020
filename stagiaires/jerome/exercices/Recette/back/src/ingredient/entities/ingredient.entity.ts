@@ -1,5 +1,6 @@
 import { Recipe } from "src/recipe/entities/recipe.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Measure } from "../measure.enum";
 
 
 @Entity('ingredient')
@@ -22,6 +23,15 @@ export class Ingredient {
 
     @Column({ nullable: true })
     carb:number;
+
+    @Column()
+    qte:number;
+
+    @Column()
+    measure:Measure;
+
+    @Column()
+    isChecked:boolean;
 
     @ManyToMany(type=>Recipe,
         (recipe)=>recipe.ingredients)

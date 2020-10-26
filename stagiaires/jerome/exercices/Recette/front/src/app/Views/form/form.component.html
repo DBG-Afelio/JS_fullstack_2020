@@ -1,0 +1,7 @@
+<app-recipe-form 
+                [tags]='tags' 
+                (createRecipe)='createNewRecipe($event)'
+                (changeWord)='searchIngredient($event)'
+                [ingredientsFound]='ingredients'
+                (postNewIngredient)='createNewIngredient($event)'
+></app-recipe-form>

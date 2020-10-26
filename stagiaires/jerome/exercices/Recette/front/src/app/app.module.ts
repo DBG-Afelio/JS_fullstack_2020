@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchIngredientComponent } from './components/search-ingredient/search-ingredient.component';
+import { FormComponent } from './Views/form/form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     HomeComponent,
     RecipeListComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    SearchIngredientComponent,
+    FormComponent
   ],
   imports: [
     HttpClientModule,
