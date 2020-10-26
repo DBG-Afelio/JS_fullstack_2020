@@ -1,4 +1,6 @@
 .container{
   display: flex;
   flex-flow: row nowrap;
+  /* height: 200px;
+  width: 100%; */
 }

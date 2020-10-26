@@ -24,7 +24,7 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
   public articleList: Article[] = [];
   public filteredList = [];
   public columnsToShow: string[] = [];
- 
+
   // public article: Article = null;
   constructor(
     private authService: AuthService,
@@ -36,12 +36,12 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.currUserSub = this.authService.currentUser.subscribe(
+    this.currUserSub = this.authService.currentUser?.subscribe(
       (value: User) => (this.currUser = value)
     );
   }
   ngOnDestroy(): void {
-    this.currUserSub.unsubscribe();
+    this.currUserSub?.unsubscribe();
   }
 
   // just to test the JWT interceptor
@@ -92,7 +92,7 @@ export class PrivatePageComponent implements OnInit, OnDestroy {
           this.columnsToShow = ['title', 'tags', 'publiDate'];
         }
       }
-    } 
+    }
   }
 
   saveUser(user: User): void {

@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { RolesEnum } from 'src/app/enum/roles.enum';
 import { User } from 'src/app/models/User/User.model';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-form',
@@ -9,14 +11,27 @@ import { User } from 'src/app/models/User/User.model';
   styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit {
-  @Input()
-  user: User = null;
   @Output()
   userInfoChange: EventEmitter<User> = new EventEmitter();
+  public user: User = null;
   public userForm: FormGroup;
   public rolesList: any[] = Object.entries(RolesEnum);
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _activRoute: ActivatedRoute,
+    private uService: UsersService
+  ) {
+    this._activRoute.paramMap.subscribe((params) => {
+      let id = Number(params.get('userId'));
+      if (id) {
+        this.uService.getById(id).subscribe((user) => {
+          this.user = user;
+          this._initForm(this.user);
+        });
+      }
+    });
+
     this.userForm = _formBuilder.group({
       firstName: _formBuilder.control('', [
         Validators.minLength(3),
@@ -33,9 +48,7 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this._initForm(this.user);
-  }
+  ngOnInit(): void {}
 
   private _initForm(user: User): void {
     this.userForm.get('firstName').setValue(user?.firstName);

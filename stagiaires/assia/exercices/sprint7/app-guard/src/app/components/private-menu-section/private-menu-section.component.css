@@ -1,0 +1,11 @@
+.nav-menu {
+  padding: 5px 5px ;
+  width: 20%;
+  height: 100%;
+  border: solid;
+  margin: 10px 10px;
+}
+.menu-section {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}

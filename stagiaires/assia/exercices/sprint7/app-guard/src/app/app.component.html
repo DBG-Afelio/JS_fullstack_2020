@@ -3,7 +3,30 @@
 </header>
 
 <main>
-  <router-outlet></router-outlet>
+
+  <!-- <div class="nav-menu" *ngIf="isPrivate">
+    <app-private-menu-section [currUser]="currUser"></app-private-menu-section>
+  </div>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div> -->
+
+  <div class="main-public" *ngIf="!isPrivate">
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="main-private" *ngIf="isPrivate">
+    <div class="nav-menu" *ngIf="isPrivate">
+      <app-private-menu-section [currUser]="currUser"></app-private-menu-section>
+    </div>
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>
+
+
 
 <!-- <footer> Footer </footer> -->
