@@ -14,6 +14,8 @@ export class JwtInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     // Intercepts All except /auth/sign-in and /auth/sign-up
 
+    let urlExclude = ['sign-up', 'sign-in'];
+    if (!urlExclude.find(v => req.url.includes(v))) {
       console.log('intercepted ----------', req.url);
       //retrieve token if any, from sessionStorage
       let sessionToken = sessionStorage.getItem('userToken');
@@ -26,23 +28,11 @@ export class JwtInterceptor implements HttpInterceptor {
           },
         });
       }
+    }
 
 
     return next.handle(req);
   }
 }
 
-// if (!req.url.includes('auth')) {
-//   console.log('intercepted ----------', req.url);
-//   //retrieve token if any, from sessionStorage
-//   let sessionToken = sessionStorage.getItem('userToken');
 
-//   if (sessionToken) {
-//     //if so, add authorization header with jwt token
-//     req = req.clone({
-//       setHeaders: {
-//         Authorization: `Bearer ${sessionToken}`,
-//       },
-//     });
-//   }
-// }

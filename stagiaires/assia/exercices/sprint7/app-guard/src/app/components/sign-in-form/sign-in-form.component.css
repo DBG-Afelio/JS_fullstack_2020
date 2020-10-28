@@ -1,8 +1,8 @@
-.error {
-    color: red;
-}
-
-.message {
-    color: orange;
-    background-color: yellow;
+.container-signin {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  margin: auto;
+  width: 100%;
 }

@@ -31,72 +31,71 @@ const routes: Routes = [
     component: HomePageComponent,
   },
   {
-    path: 'home/articles/articleId',
+    path: 'home/articles/:articleId',
     component: ArticleDetailComponent,
   },
   {
-    path: 'private/:connectedUserId',
+    path: 'private',
     component: PrivatePageComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/users',
+    path: 'private',
     component: UserItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/users/:userId',
+    path: 'private/users/:userId',
     component: UserFormComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/comments/pending',
+    path: 'private/comments/pending',
     component: CommentItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/comments/published',
+    path: 'private/comments/published',
     component: CommentItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/articles',
+    path: 'private/articles',
     component: ArticleItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/articles/:artcileId',
+    path: 'private/articles/add',
+    component: ArticleFormComponent,
+    canActivate: [LoggedInOnlyGuard],
+  },
+  {
+    path: 'private/articles/draft',
+    component: ArticleItemComponent,
+    canActivate: [LoggedInOnlyGuard],
+  },
+  {
+    path: 'private/articles/pending',
+    component: ArticleItemComponent,
+    canActivate: [LoggedInOnlyGuard],
+  },
+  {
+    path: 'private/articles/published',
+    component: ArticleItemComponent,
+    canActivate: [LoggedInOnlyGuard],
+  },
+  {
+    path: 'private/articles/:articleId',
     component: ArticleDetailComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/articles/:artcileId/modifier',
+    path: 'private/articles/:articleId/modifier',
     component: ArticleFormComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/:connectedUserId/articles/add',
-    component: ArticleFormComponent,
-    canActivate: [LoggedInOnlyGuard],
-  },
-  {
-    path: 'private/:connectedUserId/articles/draft',
-    component: ArticleItemComponent,
-    canActivate: [LoggedInOnlyGuard],
-  },
-  {
-    path: 'private/:connectedUserId/articles/pending',
-    component: ArticleItemComponent,
-    canActivate: [LoggedInOnlyGuard],
-  },
-  {
-    path: 'private/:connectedUserId/articles/published',
-    component: ArticleItemComponent,
-    canActivate: [LoggedInOnlyGuard],
-  },
-
-  {
-    path: 'private/:connectedUserId/tags',
+    path: 'private/tags',
     component: TagItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },

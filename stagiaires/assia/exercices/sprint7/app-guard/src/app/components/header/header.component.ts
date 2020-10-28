@@ -30,7 +30,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.authService.removeSessionUser();
       this.router.navigate(['/home/articles']);
     });
-
-
   }
 }

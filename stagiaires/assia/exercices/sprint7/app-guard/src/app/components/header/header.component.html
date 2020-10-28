@@ -3,38 +3,33 @@
     <button mat-raised-button color="primary" routerLink="">Home</button>̵
   </div>
 
-  <div>
-    <button
-      *ngIf="!currUser"
-      mat-raised-button
-      color="primary"
-      routerLink="/authentication/signin"
-    >
-      Sign-in
-    </button>
+  <div class="header-title"> freaking news
   </div>
+  <div class="private-ctrl">
+    <div *ngIf="!currUser">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/authentication/signin"
+      >
+        Sign-in
+      </button>
+    </div>
 
-  <!-- <div *ngIf="currUser"> {{ currUser?.firstName }} ({{ currUser?.role }})</div> -->
+    <div *ngIf="currUser">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/private"
+      >
+        My Page
+      </button>
+    </div>
 
-  <div>
-    <button
-      *ngIf="currUser"
-      mat-raised-button
-      color="primary"
-      routerLink="/private/{{ currUser.id }}"
-    >
-      My Page
-    </button>
-  </div>
-
-  <div>
-    <button
-      *ngIf="currUser"
-      mat-raised-button
-      color="warn"
-      (click)="logout()"
-    >
-      Sign-out
-    </button>
+    <div *ngIf="currUser">
+      <button mat-raised-button color="warn" (click)="logout()">
+        Sign-out
+      </button>
+    </div>
   </div>
 </div>

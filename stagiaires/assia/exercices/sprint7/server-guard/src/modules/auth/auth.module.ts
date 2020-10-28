@@ -17,7 +17,7 @@ import { HttpModule} from '@nestjs/common/http'
         TypeOrmModule.forFeature([
             UsersEntity,
         ]),
-        PassportModule.register({ defaultStrategy: 'google' }), // was 'basic'
+        PassportModule.register({ defaultStrategy: 'basic' }), // test with 'google'
         JwtModule.register({
             secret: jwtConstants.secret,
           signOptions: { expiresIn: '30000s' }

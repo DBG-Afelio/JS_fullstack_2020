@@ -1,33 +1,54 @@
 header {
   margin: 10px auto;
-  height: 200px;
+  height: 150px;
   width: 95%;
   max-width: 1280px;
-  border: dotted;
+  /* border: dotted; */
   box-sizing: border-box;
-
+  background-color: lightgray;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, .3);
+  /* position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 10; */
 }
 
-.main-private, .main-public {
+main {
+  margin: 10px auto;
+  width: 95%;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, .3);
+  background-color: lightgray;
+  max-width: 1280px;
+}
+
+.main-private,
+.main-public {
   margin: 10px auto;
   height: 100%;
-  width: 95%;
+  min-height: 1000px;
+  width: 100%;
   max-width: 1280px;
-  border: dotted;
   box-sizing: border-box;
 }
 
 .main-private {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 300px auto;
 }
 
-.nav-menu, .body {
-  padding: 5px auto ;
+.main-private.nav-menu {
+  width: 90%;
+  height: 90%;
+  margin: 10px auto;
+}
+
+.nav-menu,
+.body {
+  /* padding: 5px auto; */
   width: 100%;
   height: 90%;
-  border: dashed;
+  /* border: dashed; */
   margin: 10px auto;
   box-sizing: border-box;
+  /* box-shadow: 3px 2px 2px rgba(97, 89, 89, 0.3); */
 }
-

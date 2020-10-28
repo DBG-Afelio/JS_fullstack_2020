@@ -1,0 +1,51 @@
+.full-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-flow: column wrap;
+  width: 70%;
+  margin: auto;
+}
+
+.container-article {
+  padding: 20px 20px;
+  background-color: whitesmoke;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, .3);
+  max-height: 700px;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  margin: auto;
+}
+
+.article-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: larger;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.article-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.article-auth-date {
+  font-style: italic;
+}
+
+.container-comments {
+  padding: 20px 20px;
+  background-color: whitesmoke;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, .3);
+  max-height: 200px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+}
+
+p{
+  font-weight: bolder;
+}

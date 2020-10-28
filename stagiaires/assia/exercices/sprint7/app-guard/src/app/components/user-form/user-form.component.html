@@ -1,5 +1,5 @@
-<div class="container">
-  <form class="myForm" [formGroup]="userForm" (ngSubmit)="submitForm()">
+<form class="myForm" [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <div class="row-item">
     <!--  -->
     <mat-form-field>
       <mat-label for="firstName"> Firstname </mat-label>
@@ -50,7 +50,9 @@
         </mat-error>
       </mat-error>
     </mat-form-field>
+  </div>
 
+  <div class="row-item">
     <!--  -->
     <mat-form-field>
       <mat-label for="email"> Email </mat-label>
@@ -103,21 +105,27 @@
         </mat-error>
       </mat-error>
     </mat-form-field>
+  </div>
 
+  <div class="row-item">
     <!--  -->
     <section>
       <mat-checkbox formControlName="isBlocked">
-        Checked if account is blocked</mat-checkbox
-      >
+        If checked : account is blocked
+      </mat-checkbox>
     </section>
+  </div>
 
+  <div class="row-item">
     <!--  -->
     <section>
       <mat-checkbox formControlName="upgradeRequest">
         Request author access rights ?</mat-checkbox
       >
     </section>
+  </div>
 
+  <div class="row-item, btn-save">
     <div>
       <button
         mat-raised-button
@@ -128,13 +136,13 @@
         Save
       </button>
     </div>
-  </form>
+  </div>
+</form>
 
-  <!-- <br>
+<!-- <br>
 <div>
 Form is Valid ? {{ userForm.valid }}
 </div>
 <pre>
 {{ userForm.value | json }}
 </pre> -->
-</div>

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article/Article.model';
 import { User } from 'src/app/models/User/User.model';
+import { ArticlesService } from 'src/app/services/articles.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -9,18 +10,21 @@ import { User } from 'src/app/models/User/User.model';
   styleUrls: ['./article-detail.component.css'],
 })
 export class ArticleDetailComponent implements OnInit {
-  @Input()
   public article: Article = null;
-  @Input()
-  public user: User = null;
-  constructor() {}
-  @Output()
-  public articleChange: EventEmitter<Article> = new EventEmitter();
+  constructor(
+    private _activRoute: ActivatedRoute,
+    private _artService: ArticlesService
+  ) {
+    this._activRoute.paramMap.subscribe((params) => {
+      let id = Number(params.get('articleId'));
+      console.log('id article: ', id)
+      if (id) {
+        this._artService.getById(id).subscribe((art) => {
+          this.article = art;
+        });
+      }
+    });
+  }
 
   ngOnInit(): void {}
-
-  public emitArticleChange(article: Article): void {
-    this.articleChange.emit(article);
-    console.log('EMIT 2-------------- submitted article : ', article);
-  }
 }

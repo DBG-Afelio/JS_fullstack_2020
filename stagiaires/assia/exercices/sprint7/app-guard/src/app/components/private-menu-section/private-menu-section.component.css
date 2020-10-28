@@ -1,11 +1,17 @@
-.nav-menu {
-  padding: 5px 5px ;
-  width: 20%;
-  height: 100%;
-  border: solid;
+.container-sidemenu {
+  width: 95%;
+  min-width: 200px;
+  /* box-shadow: 3px 2px 2px rgba(0, 0, 0, .3); */
+  padding: 5px 5px;
   margin: 10px 10px;
+  /* background-color:gray; */
+  min-height: 800px;
+  color: black;
 }
+
 .menu-section {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin: auto;
+  width: 95%;
 }
+
+

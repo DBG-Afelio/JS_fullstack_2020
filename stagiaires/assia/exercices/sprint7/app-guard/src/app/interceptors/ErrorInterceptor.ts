@@ -38,7 +38,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             // unauthorized
             authService.removeSessionUser();
             this.router.navigate(['/authentication/signin']);
-            this.openSnackBar('Wrong login/password ');
+            // this.openSnackBar('Wrong login/password ');
             break;
           }
           case 403: {

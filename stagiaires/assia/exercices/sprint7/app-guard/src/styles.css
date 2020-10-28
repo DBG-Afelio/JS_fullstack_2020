@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
-    height: 100%; 
+html, body {
+    height: 100%;
 }
-body { 
-    margin: 10px 10px ; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+body {
+    margin: 10px 10px ;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     /* background-color: lightgray;  */
-    background-color: lightslategray; 
+    background-color: rgb(61, 58, 58);
 }
 /* *{
     color: black;
@@ -16,6 +16,7 @@ body {
 mat-form-field {
     padding-top: 15px;
     padding-bottom: 15px;
+    /* background-color: antiquewhite; */
 }
 button {
     margin: 15px 15px;

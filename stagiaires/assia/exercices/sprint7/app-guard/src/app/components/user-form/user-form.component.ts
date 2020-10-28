@@ -11,8 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit {
-  @Output()
-  userInfoChange: EventEmitter<User> = new EventEmitter();
+
   public user: User = null;
   public userForm: FormGroup;
   public rolesList: any[] = Object.entries(RolesEnum);
@@ -72,7 +71,7 @@ export class UserFormComponent implements OnInit {
       this.user.authorAccessRightsRequested = this.userForm.value.upgradeRequet;
       console.log('updated user : ', this.user);
 
-      this.userInfoChange.emit(this.user);
+      this.uService.update(this.user).subscribe();
     }
   }
 }

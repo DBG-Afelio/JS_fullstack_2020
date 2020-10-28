@@ -1,0 +1,12 @@
+.container-auth {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: auto;
+  margin: auto;
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, .3);
+  max-width: 300px;
+  min-height: 400px;
+  background-color: grey;
+}

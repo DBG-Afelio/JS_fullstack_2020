@@ -1,1 +1,19 @@
-<app-article-form [article]="article" [user]="user" (articleInfoChange)="emitArticleChange($event)"></app-article-form>
+<div class="full-container">
+  <div *ngIf="article" class="container-article">
+    <div class="article-title">{{ article.title | uppercase }}</div>
+    <div class="article-img">
+      <img [src]="article.imageUrl" />
+    </div>
+    <div class="article-content">{{ article.content }}</div>
+    <div class="article-auth-date">
+      {{ article.author.firstName.concat(article.author.familyName) }}
+      {{ article.publiDate | date: shortDate }}
+    </div>
+  </div>
+
+  <div class="container-comments">
+    <p>Comments</p>
+    <div>No comments yet</div>
+    <!-- to be added -->
+  </div>
+</div>

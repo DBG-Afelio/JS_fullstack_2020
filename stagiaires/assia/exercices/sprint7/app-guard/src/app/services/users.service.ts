@@ -37,11 +37,11 @@ export class UsersService {
         );
     }
 
-    public update(userToUp: User): Observable<User> {
+  public update(userToUp: User): Observable<User> {
+      console.log('update using--------------')
         return this._http.patch<SetUserDto>(`${this.url}/${userToUp.id}`, userToUp.toDto())
         .pipe(
-            map((userDtoUpdated: GetUserDto) => User.fromDto(userDtoUpdated)),
-            catchError((error: any) => throwError(error))
+            map((userDtoUpdated: GetUserDto) => User.fromDto(userDtoUpdated))
         );
     }
 

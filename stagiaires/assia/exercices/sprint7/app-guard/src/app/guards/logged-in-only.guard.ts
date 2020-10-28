@@ -20,15 +20,15 @@ export class LoggedInOnlyGuard implements CanActivate {
         this.currentUser = value;
         console.log('logged in GUARD -- user : ', value);
       });
-    
+
     }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        
+
         let isLoggedIn = true;
-        
+
         if(!this.currentUser) {
             window.alert('Vous n\'avez pas les droits pour visualiser cette page');
             this.router.navigate(['']);
@@ -36,5 +36,5 @@ export class LoggedInOnlyGuard implements CanActivate {
         }
         return isLoggedIn;
   }
-  
+
 }

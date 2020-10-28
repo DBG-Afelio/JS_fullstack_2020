@@ -1,6 +1,23 @@
 .container{
+  height: 95%;
+  width: 95%;
+  margin: auto;
   display: flex;
   flex-flow: row nowrap;
-  /* height: 200px;
-  width: 100%; */
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.private-ctrl {
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 3rem;
+  font-weight: bolder;
+  font-family: 'Times New Roman';
+  text-transform: capitalize;
 }

@@ -39,7 +39,7 @@ export class SignInFormComponent implements OnInit, OnDestroy {
     let popupListener = window.addEventListener('message', (userJwt) => {
       this.authService
         .giveAccess(userJwt.data)
-        .subscribe((u) => this.router.navigate([`/private/${u.id}`]));
+        .subscribe((u) => this.router.navigate([`/private`]));
     });
   }
 
@@ -68,7 +68,7 @@ export class SignInFormComponent implements OnInit, OnDestroy {
       );
 
       this.authService.connectUser(cred).subscribe(
-        (u) => this.router.navigate([`/private/${u.id}`])
+        (u) => this.router.navigate([`/private`])
         // (u) => this.router.navigate([`/`])
       );
     }

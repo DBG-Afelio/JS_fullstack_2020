@@ -3,32 +3,35 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { RolesEnum } from 'src/app/enum/roles.enum';
+import { StatusEnum } from 'src/app/enum/status.enum';
 
 import { Article } from 'src/app/models/Article/Article.model';
 import { User } from 'src/app/models/User/User.model';
+import { ArticlesService } from 'src/app/services/articles.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-article-item',
   templateUrl: './article-item.component.html',
   styleUrls: ['./article-item.component.css'],
 })
-export class ArticleItemComponent implements OnInit, OnChanges {
-  @Input()
-  public articleList: Article[] = null;
-  @Input()
-  public currUser: User = null;
-  @Input()
+export class ArticleItemComponent implements OnInit, OnDestroy {
+  public currUserSub: Subscription;
+  public currUser: User;
+  public articleList: Article[] = [];
+  public filteredList = [];
   public columnsToShow: string[] = [];
-  @Output()
-  public articleChange: EventEmitter<Article> = new EventEmitter();
 
-  public isDetailView = false;
-  public article: Article = null;
+  // public article: Article = null;
 
   public headerList: string[] = [
     'id',
@@ -42,29 +45,66 @@ export class ArticleItemComponent implements OnInit, OnChanges {
     'tags',
   ];
 
-  public routeBefore: string = '';
-  constructor(private _activRoute: ActivatedRoute, private _router: Router) {}
+  constructor(
+    private _activRoute: ActivatedRoute,
+    private _router: Router,
+    private _artService: ArticlesService,
+    private _authService: AuthService
+  ) {
+    _router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        let currUrl = event['urlAfterRedirects'];
+        this.setCustomList(currUrl);
+      });
 
-  ngOnInit(): void {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.routeBefore = this._router.url;
-    console.log('parent route : ', this.routeBefore);
+      this._artService.getAll().subscribe((list) => (this.articleList = list));
   }
 
-  public showDetail(articleToShow: Article): void {
-    this.article = articleToShow;
-    this.isDetailView = true;
-    console.log('is detail view :', this.isDetailView);
+  ngOnInit(): void {
+    this.currUserSub = this._authService.currentUser.subscribe(
+      (value: User) => (this.currUser = value)
+    );
   }
 
-  public goBack(): void {
-    this.isDetailView = false;
-    this._router.navigate([this.routeBefore]);
+  ngOnDestroy(): void {
+    this.currUserSub.unsubscribe();
   }
 
-  public emitChange(article: Article): void {
-    this.articleChange.emit(article);
-    console.log('EMIT 3-------------- submitted article : ', article);
+
+  public setCustomList(route: string): void {
+    this.filteredList = [];
+    if (this.articleList?.length > 0) {
+      this.columnsToShow = ['title', 'tags', 'author', 'publiDate', 'status'];
+
+      if (route.includes('draft')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) =>
+            art.status === StatusEnum.IN_PROGRESS &&
+            this.currUser.id === art.author.id
+        );
+        this.columnsToShow = ['title', 'tags', 'status'];
+      } else if (route.includes('pending')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) => art.status === StatusEnum.TO_REVIEW
+        );
+        if (this.currUser.role === RolesEnum.AUTHOR) {
+          this.filteredList = this.filteredList.filter(
+            (art: Article) => this.currUser.id === art.author.id
+          );
+          this.columnsToShow = ['title', 'tags', 'publiDate', 'status'];
+        }
+      } else if (route.includes('published')) {
+        this.filteredList = this.articleList.filter(
+          (art: Article) => art.status === StatusEnum.PUBLISHED
+        );
+        if (this.currUser.role === RolesEnum.AUTHOR) {
+          this.filteredList = this.filteredList.filter(
+            (art: Article) => this.currUser.id === art.author.id
+          );
+          this.columnsToShow = ['title', 'tags', 'publiDate'];
+        }
+      }
+    }
   }
 }
