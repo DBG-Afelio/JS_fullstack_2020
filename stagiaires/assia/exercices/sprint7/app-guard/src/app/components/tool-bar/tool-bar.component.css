@@ -1,0 +1,6 @@
+.container {
+  width: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: flex-end;
+}

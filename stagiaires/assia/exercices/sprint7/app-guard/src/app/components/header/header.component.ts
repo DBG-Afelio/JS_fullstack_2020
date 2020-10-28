@@ -26,9 +26,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public logout(): void {
-    this.authService.loggOutGoogle().subscribe(() => {
-      this.authService.removeSessionUser();
-      this.router.navigate(['/home/articles']);
-    });
+    this.authService.removeSessionUser();
+    this.router.navigate(['/home/articles']);
+
+// to fix: 1 main logout that leads to googleLogout or classicLogout
+
+    // this.authService.loggOutGoogle().subscribe(() => {
+    //   this.authService.removeSessionUser();
+    //   this.router.navigate(['/home/articles']);
+    // });
   }
 }

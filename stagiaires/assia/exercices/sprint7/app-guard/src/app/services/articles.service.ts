@@ -12,7 +12,7 @@ import { SetNewArticleDto } from '../models/Article/SetNewArticleDto';
 })
 export class ArticlesService {
   public url = `${environment.baseApiUrl}/articles`;
- // public url = `https://api.assia-rachdi.ga/articles`;
+  // public url = `https://api.assia-rachdi.ga/articles`;
   constructor(private _http: HttpClient) {}
 
   public getAll(): Observable<Article[]> {
@@ -33,31 +33,29 @@ export class ArticlesService {
       .pipe(map((articleDto: GetArticleDto) => Article.fromDto(articleDto)));
   }
 
-  public create(newArticle: Article): Observable<Article> {
-    console.log('artcileDto to create sent from front : ', newArticle.toNewDto());
-    return this._http
-      .post<GetArticleDto>(this.url, newArticle.toNewDto())
-      .pipe(
-        map((createdArticleDto) =>
-          Article.fromDto(createdArticleDto)
-        )
-      );
+  public saveArticle(article: Article): Observable<Article> {
+    console.log('saving article')
+    let ret: Observable<Article> = null;
+    if (article.id === 0) {
+      console.log('new article')
+
+      ret = this._http
+        .post<GetArticleDto>(this.url, article.toNewDto())
+        .pipe(map((createdArticleDto) => Article.fromDto(createdArticleDto)));
+    } else {
+      console.log('update article')
+
+      ret = this._http
+        .patch<GetArticleDto>(`${this.url}/${article.id}`, article.toDto())
+        .pipe(
+          map((articleDtoUpdated: GetArticleDto) =>
+            Article.fromDto(articleDtoUpdated)
+          )
+        );
+    }
+    return ret;
   }
 
-  public update(articleToUp: Article): Observable<Article> {
-    console.log('=============update request sent ! ==================')
-    return this._http
-      .patch<GetArticleDto>(
-        `${this.url}/${articleToUp.id}`,
-        articleToUp.toDto()
-      )
-      .pipe(
-        map((articleDtoUpdated: GetArticleDto) =>
-          Article.fromDto(articleDtoUpdated)
-        ),
-        catchError((error: any) => throwError(error))
-      );
-  }
 
   public delete(articleToDel: Article): Observable<any> {
     return this._http

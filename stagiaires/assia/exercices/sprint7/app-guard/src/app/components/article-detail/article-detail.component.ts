@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/Article/Article.model';
 import { User } from 'src/app/models/User/User.model';
 import { ArticlesService } from 'src/app/services/articles.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -11,13 +12,20 @@ import { ArticlesService } from 'src/app/services/articles.service';
 })
 export class ArticleDetailComponent implements OnInit {
   public article: Article = null;
+  public isPrivate: boolean = true;
+  public currUser: User = null;
+
   constructor(
     private _activRoute: ActivatedRoute,
-    private _artService: ArticlesService
+    private _artService: ArticlesService,
+    private _authService: AuthService,
+    private _router: Router,
   ) {
+    this.currUser = this._authService.currentUser.getValue();
+    this.isPrivate = this._router.url.includes('private');
     this._activRoute.paramMap.subscribe((params) => {
       let id = Number(params.get('articleId'));
-      console.log('id article: ', id)
+
       if (id) {
         this._artService.getById(id).subscribe((art) => {
           this.article = art;
@@ -26,5 +34,6 @@ export class ArticleDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

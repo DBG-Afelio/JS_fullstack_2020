@@ -7,10 +7,14 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { RolesEnum } from 'src/app/enum/roles.enum';
 import { StatusEnum } from 'src/app/enum/status.enum';
 import { Article } from 'src/app/models/Article/Article.model';
 import { User } from 'src/app/models/User/User.model';
+import { ArticlesService } from 'src/app/services/articles.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-article-form',
@@ -18,16 +22,19 @@ import { User } from 'src/app/models/User/User.model';
   styleUrls: ['./article-form.component.css'],
 })
 export class ArticleFormComponent implements OnInit, OnChanges {
-  @Input()
   public article: Article = null;
-  @Output()
-  public articleInfoChange: EventEmitter<Article> = new EventEmitter();
+
   public articleForm: FormGroup;
-  @Input()
+
   public user: User = null;
   public statusList: string[] = Object.values(StatusEnum);
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(
+    private _activRoute: ActivatedRoute,
+    private _artService: ArticlesService,
+    private _authService: AuthService,
+    private _formBuilder: FormBuilder
+  ) {
     this.articleForm = _formBuilder.group({
       title: _formBuilder.control('', [Validators.required]),
       content: _formBuilder.control('', [Validators.required]),
@@ -37,12 +44,20 @@ export class ArticleFormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    // this.article && this.user ? this._initForm(this.article) : null;
+    this.user = this._authService.currentUser.getValue();
+    this._activRoute.paramMap.subscribe((params) => {
+      let id = Number(params.get('articleId'));
+      if (id) {
+        this._artService.getById(id).subscribe((art) => {
+          this.article = art;
+          this._initForm(this.article)
+        });
+      }
+    });
   }
 
   ngOnChanges(): void {
-    this.article ? this._initForm(this.article) : null;
-    // this._initForm(this.article);
+    // this.article ? this._initForm(this.article) : null;
   }
 
   private _initForm(article: Article): void {
@@ -68,8 +83,9 @@ export class ArticleFormComponent implements OnInit, OnChanges {
       this.article.title = this.articleForm.value.title;
       this.article.content = this.articleForm.value.content;
       this.article.status = this.articleForm.value.status;
-      this.articleInfoChange.emit(this.article);
-      console.log('EMIT 1-------------- submitted article : ', this.article);
+      //tags
+
+      this._artService.saveArticle(this.article).subscribe((a)=> console.log('article recieved :', a))
     }
   }
 

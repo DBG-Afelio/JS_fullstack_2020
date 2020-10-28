@@ -59,11 +59,7 @@ const routes: Routes = [
     component: CommentItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
-  {
-    path: 'private/articles',
-    component: ArticleItemComponent,
-    canActivate: [LoggedInOnlyGuard],
-  },
+
   {
     path: 'private/articles/add',
     component: ArticleFormComponent,
@@ -90,8 +86,13 @@ const routes: Routes = [
     canActivate: [LoggedInOnlyGuard],
   },
   {
-    path: 'private/articles/:articleId/modifier',
+    path: 'private/articles/:articleId/update',
     component: ArticleFormComponent,
+    canActivate: [LoggedInOnlyGuard],
+  },
+  {
+    path: 'private/articles',
+    component: ArticleItemComponent,
     canActivate: [LoggedInOnlyGuard],
   },
   {

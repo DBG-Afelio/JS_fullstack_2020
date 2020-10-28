@@ -1,6 +1,11 @@
+.container {
+  background-color: rgba(128, 128, 128, 0.619);
+  padding: 25px;
+  margin: auto;
+}
 .field-title, .field-content {
   width: 100%;
- 
+
 }
 .field-content {
   height: 275px;

@@ -1,9 +1,5 @@
 <div class="container">
-  <form
-    class="myform"
-    [formGroup]="articleForm"
-    (ngSubmit)="submitForm()"
-  >
+  <form class="myform" [formGroup]="articleForm" (ngSubmit)="submitForm()">
     <!--  -->
     <mat-form-field appearance="fill" class="field-title">
       <mat-label for="title"> Title </mat-label>
@@ -27,9 +23,11 @@
     <!--  -->
     <mat-form-field appearance="fill" class="field-content">
       <mat-label for="content"> Content </mat-label>
-      <textarea height='219px'
+      <textarea
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="10"
+        cdkAutosizeMaxRows="25"
         matInput
-        minRows="20"
         type="text"
         name="content"
         formControlName="content"

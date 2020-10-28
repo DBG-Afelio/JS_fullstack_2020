@@ -41,7 +41,7 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
 import { HeaderComponent } from './components/header/header.component';
 import { AuthService } from './services/auth.service';
 import { PrivateMenuSectionComponent } from './components/private-menu-section/private-menu-section.component';
-import { PrivateBodySectionComponent } from './components/private-body-section/private-body-section.component';
+import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +61,7 @@ import { PrivateBodySectionComponent } from './components/private-body-section/p
     CommentFormComponent,
     HeaderComponent,
     PrivateMenuSectionComponent,
-    PrivateBodySectionComponent,
+    ToolBarComponent,
   ],
   imports: [
     BrowserModule,

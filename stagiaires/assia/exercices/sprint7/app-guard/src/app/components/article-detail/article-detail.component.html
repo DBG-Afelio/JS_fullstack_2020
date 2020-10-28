@@ -1,5 +1,9 @@
-<div class="full-container">
-  <div *ngIf="article" class="container-article">
+<div class="full-container" *ngIf="article">
+  <app-tool-bar *ngIf="isPrivate" class="tool-bar"
+    [currObj]="article"
+  ></app-tool-bar>
+
+  <div class="container-article">
     <div class="article-title">{{ article.title | uppercase }}</div>
     <div class="article-img">
       <img [src]="article.imageUrl" />
@@ -11,7 +15,7 @@
     </div>
   </div>
 
-  <div class="container-comments">
+  <div *ngIf="!isPrivate" class="container-comments" >
     <p>Comments</p>
     <div>No comments yet</div>
     <!-- to be added -->

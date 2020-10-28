@@ -105,7 +105,7 @@ export class ArticleService {
     id: number,
     articleUpdated: UpdateArticleDto,
   ): Promise<ArticleEntity> {
-    console.log('update methode in backend --- id - article up : ', id, articleUpdated);
+
     const article: ArticleEntity = await this.getOne(id);
     if (article) {
       let update: ArticleEntity = await this.articlesRepo.preload(articleUpdated);
@@ -115,12 +115,12 @@ export class ArticleService {
     }
   }
 
-  async updateAsAuthor(): Promise<ArticleEntity> {
-    return
-  }
-  async updateAsEditor(): Promise<ArticleEntity> {
-    return 
-  }
+  // async updateAsAuthor(): Promise<ArticleEntity> {
+  //   return
+  // }
+  // async updateAsEditor(): Promise<ArticleEntity> {
+  //   return 
+  // }
 
   async delete(id: number): Promise<ArticleEntity> {
     const article: ArticleEntity = await this.getOne(id);

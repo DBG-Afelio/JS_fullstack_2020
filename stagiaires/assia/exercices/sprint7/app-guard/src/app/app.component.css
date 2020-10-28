@@ -44,11 +44,10 @@ main {
 
 .nav-menu,
 .body {
-  /* padding: 5px auto; */
-  width: 100%;
+  padding: 25px 25px;
+  width: 95%;
   height: 90%;
   /* border: dashed; */
-  margin: 10px auto;
+  margin: auto;
   box-sizing: border-box;
-  /* box-shadow: 3px 2px 2px rgba(97, 89, 89, 0.3); */
 }

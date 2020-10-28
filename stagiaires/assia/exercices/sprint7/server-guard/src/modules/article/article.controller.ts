@@ -69,32 +69,21 @@ export class ArticleController {
     return this.articleService.getOne(id);
   }
 
-  //  //   @Roles()
-  //  @Get('published')
-  //  getPublishedList(): Promise<ArticleEntity[]> {
-  //      return this.articleService.getPublishedList();
-  //  }
-  @UseGuards(JwtAuthGuard, ACGuard) 
+  @UseGuards(JwtAuthGuard) 
   @Post()
   createArticle(
     @Body() createArticle: CreateArticleDto,
   ): Promise<ArticleEntity> {
-    console.log('coucou---------------');
-    console.log(
-      '-----from articles CTRL, new article reeived = ',
-      createArticle,
-    );
-
     return this.articleService.addOne(createArticle);
   }
-  @UseGuards(JwtAuthGuard, ACGuard) 
-  @UseRoles({
-    resource: 'article',
-    action: 'update',
-  })
+  @UseGuards(JwtAuthGuard) 
+  // @UseRoles({
+  //   resource: 'article',
+  //   action: 'update',
+  // })
   @Patch(':id')
   updateArticle(
-    @Req() req,
+    // @Req() req,
     @Param(
       'id',
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_FOUND }),
@@ -102,23 +91,10 @@ export class ArticleController {
     id: number,
     @Body() upArticle: UpdateArticleDto,
   ): Promise<ArticleEntity> {
-    let art: Promise<ArticleEntity>;
-    const permission = roles.can(req.user.role).updateAny('article');
-    if (permission.granted) {
-      art = this.articleService.updateAsEditor();
-    } else {
-      const permission = roles.can(req.user.role).updateOwn('article');
-      if (permission.granted) {
-        art = this.articleService.updateAsAuthor();
-      } else {
-        throw new Error
-      }
-    }
-
-   // return this.articleService.update(id, upArticle);
-    return art;
+    return this.articleService.update(id, upArticle);
+ 
   }
-  @UseGuards(JwtAuthGuard, ACGuard) 
+  @UseGuards(JwtAuthGuard) 
   @Delete(':id')
   removeArticle(
     @Param(

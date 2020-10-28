@@ -1,8 +1,8 @@
 <div>
-  <div *ngIf="articleList?.length === 0">Nothing to show</div>
+  <div *ngIf="filteredList?.length === 0">Nothing to show</div>
   <mat-table
-    *ngIf="articleList?.length > 0"
-    [dataSource]="articleList"
+    *ngIf="filteredList?.length > 0"
+    [dataSource]="filteredList"
     class="mat-elevation-z8"
   >
     <ng-container *ngFor="let column of headerList" [matColumnDef]="column">
