@@ -1,0 +1,33 @@
+<hr>
+<div>
+  <!-- Introduire un chrono qui affiche le temps depuis le début -->
+  <app-chrono [chrono]="time" (start)="startTimerSimple()" (stop)="stopTimerSimple()"></app-chrono>
+</div>
+<hr>
+<div>
+  <!-- Introduire un chrono qui affiche le temps depuis le début -->
+  <app-chrono [chrono]="timer$ | async" (start)="startTimer()" (stop)="stopTimer()"></app-chrono>
+</div>
+<hr>
+<button (click)="addTimerEx3()">Add</button>
+<div *ngFor="let timerEx3$ of timersEx3$; let index = index">
+  <app-chrono [chrono]="timerEx3$ | async" (start)="startTimerEx3(index)" (stop)="stopTimerEx3(index)"></app-chrono>
+</div>
+<button (click)="stopAllEx3()">Stop All</button>
+<hr>
+<div>
+  <!-- Introduire un chrono qui affiche le temps depuis le début -->
+  <app-chrono [chrono]="timerEx4Shared$ | async" (start)="startTimerEx4()" (stop)="stopTimerEx4()"></app-chrono>
+  <app-chrono [chrono]="timerEx4Shared$ | async" (start)="startTimerEx4()" (stop)="stopTimerEx4()"></app-chrono>
+</div>
+<hr>
+<div>
+  <!-- Introduire un chrono qui affiche le temps depuis le début -->
+  <app-chrono [chrono]="timerEx5$ | async" (start)="startTimerEx5()" (stop)="stopTimerEx5()"></app-chrono>
+</div>
+<hr>
+<div>
+  <button (click)="timerService.startMultiWindowTimer('test')"></button>
+  <!-- Introduire un chrono qui affiche le temps depuis le début -->
+  <app-chrono [chrono]="timerEx6$ | async" (start)="startTimerEx5()" (stop)="stopTimerEx5()"></app-chrono>
+</div>
