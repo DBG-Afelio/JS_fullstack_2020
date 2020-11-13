@@ -33,7 +33,7 @@ export class Timer2Component implements OnInit, OnDestroy {
   public timerEx6$: Observable<Time>;
 
   constructor(public timerService: TimerService) {
-
+    this.timerEx6$ = this.timerService.getMultiWindowTimer('test');
   }
 
   ngOnInit() {
@@ -98,18 +98,22 @@ export class Timer2Component implements OnInit, OnDestroy {
 
   // fourth example methods
   /*
-    L'exercice consiste à afficher deux chronos sans déclancher deux fois l'observable
+    L'exercice consiste à afficher deux chronos sans déclencher deux fois l'observable
     ShareReplay
     TakeUntil
   */
   //
   public startTimerEx4() {
     const dateStart = new Date();
-
+    this.timerEx4Shared$ = this.timerService.getTimer(dateStart).pipe(
+      takeUntil(this.timerStopEx4$), shareReplay(1)
+    );
   }
 
   // Stopper le chrono (via subject)
   public stopTimerEx4() {
+    this.timerEx4Shared$ = null;
+    this.timerStopEx4$.next();
   }
 
   // fifth example methods
