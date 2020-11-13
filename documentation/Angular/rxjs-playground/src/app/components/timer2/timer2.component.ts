@@ -14,6 +14,7 @@ export class Timer2Component implements OnInit, OnDestroy {
   // first example variables
   public time: Time;
   public timeSubscription: Subscription;
+  
 
   // second example variables
   public timer$: Observable<Time>;
@@ -32,7 +33,7 @@ export class Timer2Component implements OnInit, OnDestroy {
   public timerEx6$: Observable<Time>;
 
   constructor(public timerService: TimerService) { 
-
+  
   }
 
   ngOnInit() {
@@ -43,11 +44,19 @@ export class Timer2Component implements OnInit, OnDestroy {
   // souscrire au tick et assigner le format time à la variable time
   // retenir la souscription pour arreter le timer
   public startTimerSimple() {
-    const dateStart = new Date();
+    if (!this.timeSubscription) {
+      const dateStart = new Date();
+      this.timeSubscription = this.timerService.tick$.subscribe(() => {
+        this.time = this.timerService.getTimeFromMilliseconds(this.timerService.getMillseconds(dateStart, new Date()))
+      })
+    }
   }
 
   // Arrête le timer
   public stopTimerSimple() {
+    if (this.timeSubscription) {
+      this.timeSubscription.unsubscribe();
+    }
   }
 
   // second example methods
