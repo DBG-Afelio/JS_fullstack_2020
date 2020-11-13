@@ -76,21 +76,24 @@ export class Timer2Component implements OnInit, OnDestroy {
   // third example methods
   // Ajoute une balise chrono
   public addTimerEx3() {
-
+    this.timersEx3$.push(null)
   }
 
   //accroche un timer (getTimer()) à la balise chrono
   public startTimerEx3(index) {
     const dateStart = new Date();
+    this.timersEx3$[index] = this.timerService.getTimer()
   }
 
   //stoppe un timer
   public stopTimerEx3(index) {
+    this.timersEx3$[index] = null
 
   }
 
   // stoppe tous les timers
   public stopAllEx3() {
+    this.timersEx3$ = this.timersEx3$.map(()=>null)
   }
 
   // fourth example methods

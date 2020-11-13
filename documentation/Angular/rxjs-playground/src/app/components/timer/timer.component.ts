@@ -104,10 +104,4 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.stopChrono();
     this.destroy$.complete();
   }
-
-  public stopChrono(){
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 }
