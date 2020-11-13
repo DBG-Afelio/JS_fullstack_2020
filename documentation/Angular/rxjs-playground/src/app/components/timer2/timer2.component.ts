@@ -32,8 +32,7 @@ export class Timer2Component implements OnInit, OnDestroy {
   public timerEx6$: Observable<Time>;
 
   constructor(public timerService: TimerService) { 
-    this.timerStopEx4$.subscribe(()=>console.log("subject emit"));
-    this.timerEx6$ = this.timerService.getMultiWindowTimer('test');
+
   }
 
   ngOnInit() {
@@ -41,78 +40,89 @@ export class Timer2Component implements OnInit, OnDestroy {
 
 
   // first example methods
+  // souscrire au tick et assigner le format time à la variable time
+  // retenir la souscription pour arreter le timer
   public startTimerSimple() {
     const dateStart = new Date();
-    this.timeSubscription = this.timerService.tick$.subscribe((value: any) => {
-      this.time = this.timerService.getTimeFromMilliseconds(this.timerService.getMillseconds(dateStart, new Date()));
-    })
   }
 
+  // Arrête le timer
   public stopTimerSimple() {
-    if (this.timeSubscription) {
-      this.timeSubscription.unsubscribe();
-    }
   }
 
   // second example methods
+  // écouter la méthode getTimer du service
+  // accrocher via le pipe async
   public startTimer() {
     const dateStart = new Date();
-    this.timer$ = this.timerService.getTimer();
   }
 
+  //stopper le timer
   public stopTimer() {
-    if (this.timer$) {
-      this.timer$ = null;
-    }
   }
 
 
   // third example methods
+  // Ajoute une balise chrono
   public addTimerEx3() {
-    this.timersEx3$.push(null);
+    
   }
 
+  //accroche un timer (getTimer()) à la balise chrono
   public startTimerEx3(index) {
     const dateStart = new Date();
-    this.timersEx3$[index] = this.timerService.getTimer();
   }
 
+  //stoppe un timer
   public stopTimerEx3(index) {
-    if (this.timersEx3$[index]) {
-      this.timersEx3$[index] = null;
-    }
+    
   }
 
+  // stoppe tous les timers
   public stopAllEx3() {
-    this.timersEx3$.forEach((obs, index) => this.stopTimerEx3(index));
   }
 
   // fourth example methods
+  /* 
+    L'exercice consiste à afficher deux chronos sans déclancher deux fois l'observable
+    ShareReplay
+    TakeUntil
+  */
+  // 
   public startTimerEx4() {
     const dateStart = new Date();  
-    this.timerEx4Shared$ = this.timerService
-      .getTimer()
-      .pipe(
-        takeUntil(this.timerStopEx4$),
-        shareReplay(1));    
+    
   }
 
+  // Stopper le chrono (via subject)
   public stopTimerEx4() {
-    this.timerStopEx4$.next();
   }
 
   // fifth example methods
+  // démarrer un chrono qui a un maximum de temps exprimer par un Time
+  // implémenter getTimerUntilTime
   public startTimerEx5() {
-    const dateStart = new Date();  
-    this.timerEx5$ = this.timerService
-      .getTimerUntilTime({days:0,hours:0,minutes:0,seconds:5,milliseconds:0})
-        
+    const dateStart = new Date();      
   }
 
   public stopTimerEx5() {
-    this.timerEx5$ = null;
   }
 
+
+  // Sixth example
+  /**
+   * Démarrer un chrono partagé entre plusieurs fenêtres
+   *  - Cas d'utilisation 
+   *  - le timer à déjà démarré (localStorage présent)
+   *  - le timer n'a pas démarré 
+   *    - il démarre dans cette fenêtre 
+   *    - il démarre dans une autre fenêtre
+   * Implémenter les méthodes du service 
+   */
+  public startTimerEx6() {}
+
+
+  // Veiller à ce qu'il ne reste pas de chrono en cours
   ngOnDestroy() {
     this.timerStopEx4$.next();
     this.timerStopEx4$.complete();
