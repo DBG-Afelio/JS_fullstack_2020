@@ -15,10 +15,7 @@ export class TimerService {
 
   constructor() {
     this.tick$ = interval(100).pipe(
-      tap((time) => console.log("timer", time)),
-    )
-    this.multiWindowSubjectStart.pipe(
-      tap((value)=>console.log('subject', value))
+      tap((time) => console.log("timer:", time)),
     )
   }
 
@@ -54,25 +51,26 @@ export class TimerService {
       || time1.milliseconds < time2.milliseconds
       );
   }
+
   //example3
   /**
-   * returns an Observable fron time between first call and now
+   * retourne un time entre une date optionnelle fournie et maintenant
+   * getMillseconds()
+   * getTimeFromMilliseconds()
    */
   public getTimer(dateStart: Date = new Date()): Observable<Time> {
-    return this.tick$.pipe(
-      map((value:any) => this.getMillseconds(dateStart, new Date())),
-      map((milliseconds:any) => this.getTimeFromMilliseconds(milliseconds)),
-    )
+    throw new Error('not Yet implemented')
   }
 
   // Example 5 
-  public getTimerUntilTime(limitTime: Time): Observable<Time> {
-    const dateStart = new Date();
-    return this.tick$.pipe(
-      map((value:any) => this.getMillseconds(dateStart, new Date())),
-      map((milliseconds:any) => this.getTimeFromMilliseconds(milliseconds)),
-      takeWhile((time: Time) => this.lessThan(time,limitTime))
-    )
+  /**
+   * renvoit un Time entre une date et maintenant s'arrète quand le Time donné est dépassé
+   * takeWhile
+   * @param limitTime 
+   */
+  public getTimerUntilTime(limitTime: Time, dateStart: Date = new Date()): Observable<Time> {
+    throw new Error('not Yet implemented')
+    
   }
 
   public getMultiWindowTimer(id: string) : Observable<Time> {
