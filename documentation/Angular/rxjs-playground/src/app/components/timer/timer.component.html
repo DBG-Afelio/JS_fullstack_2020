@@ -1,1 +1,27 @@
-<app-chrono [chrono]="chrono" (start)="startChrono()" (stop)="stopChrono()"></app-chrono>
+<app-chrono [chrono]="chrono" 
+  (start)="startChrono()"
+  (stop)="stopChrono()"
+  ></app-chrono>
+
+  <hr>
+
+  <app-chrono [chrono]="chrono$ | async" 
+  (start)="startChrono2()"
+  (stop)="stopChrono2()"
+  ></app-chrono>
+
+  <hr>
+
+  <app-chrono [chrono]="chrono1$ | async" 
+  (start)="startChrono3(1)"
+  (stop)="stopChrono3(1)"
+  ></app-chrono><br>
+  <app-chrono [chrono]="chrono2$ | async" 
+  (start)="startChrono3(2)"
+  (stop)="stopChrono3(2)"
+  ></app-chrono><br>
+  <app-chrono [chrono]="chrono3$ | async" 
+  (start)="startChrono3(3)"
+  (stop)="stopChrono3(3)"
+  ></app-chrono><br>
+  <button (click)="stopAll()">Stop All</button>
