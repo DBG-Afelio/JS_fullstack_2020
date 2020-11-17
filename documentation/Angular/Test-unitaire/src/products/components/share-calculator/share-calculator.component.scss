@@ -1,0 +1,17 @@
+// .amount {
+//     display: inline-block;
+// }
+
+.calculator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.share__unit {
+    display: block;
+}
+
+.cannot_click {
+    visibility: hidden;
+}

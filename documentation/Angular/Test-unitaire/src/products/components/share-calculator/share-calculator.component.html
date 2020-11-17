@@ -1,0 +1,16 @@
+
+<button [ngClass]="{'cannot_click': !showOperatorLess}" type="button" class="share__minus" name="share-minus" id="calculator-less" (click)="decrease()" (mousedown)="decreaseMousedown()" (mouseup)="decreaseMouseup()" (mouseleave)="decreaseMouseup()">
+    -
+</button>
+
+<div class="share__body">
+    <div class="share__value">
+        <output id="calculator-qty" name="calculator-quantity" class="share__qty">{{partNumber}}</output>
+        <span class="share__unit">part(s)</span>
+    </div>
+    <div id="calculator-currency" class="share__currency">{{ price }}</div>
+</div>
+
+<button [ngClass]="{'cannot_click': !showOperatorPlus}" type="button" class="share__plus" name="share-plus" id="calculator-add" (click)="increase()" (mousedown)="increaseMousedown()" (mouseup)="increaseMouseup()" (mouseleave)="increaseMouseup()">
+    +
+</button>
