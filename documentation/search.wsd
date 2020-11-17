@@ -1,0 +1,77 @@
+@startuml
+    participant Front as F
+    participant Back as B
+    note left F
+        Utilisateur arrive la première fois
+        Il veut voir toutes les recettes
+    end note
+    F->B: [GET] /recipes?from=0&nrperpage=50
+    note right F
+        Va chercher les recettes
+        Prends les 50 premières
+        indique le nombre total de recettes disponibles
+    end note
+    B->F : Envoit JSON
+    note left B
+        {
+            recipes : [
+                {
+                    recipe_id: 1,
+                    ...
+                },
+                ... // les 50 premières recettes
+            ],
+            page:1,
+            total_reciepes : 230
+        }
+    end note
+    F->F : Création de Pagination (5 pages de 50)
+    note left F
+        Utilisateur veut voir la deuxième page
+    end note
+    F->B: [GET] /recipes?from=50&nrperpage=50
+     note right F
+        Va chercher les recettes
+        Prends les 50 suivant la 50ème
+        indique le nombre total de recettes disponibles
+    end note
+    B->F : Envoit JSON
+    note left B
+        {
+            recipes : [
+                {
+                    recipe_id: 155,
+                    ...
+                },
+                ... // les 50 suivantes
+            ],
+            page:2,
+            total_reciepes : 230
+        }
+    end note
+    F->F : Création de Pagination (5 pages de 50)
+    note left F
+        Utilisateur veut voir les recettes contenant le mot pomme
+    end note
+    F->B: [GET] /recipes?from=0&nrperpage=50&title=pomme
+    note right F
+        Va chercher les recettes contenant pomme dans le titre
+        Prends les 50 premières
+        indique le nombre total de recettes disponibles (10)
+    end note
+    B->F : Envoit JSON
+    note left B
+        {
+            recipes : [
+                {
+                    recipe_id: 25,
+                    ...
+                },
+                ... // les 9 suivantes
+            ],
+            page:1,
+            total_reciepes : 10
+        }
+    end note
+    F->F : Création de Pagination (1 pages de 50)
+@enduml

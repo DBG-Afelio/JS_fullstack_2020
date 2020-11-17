@@ -1,0 +1,9 @@
+Options +FollowSymLinks                                                                                                                |Options +FollowSymLinks
+IndexIgnore */*                                                                                                                        |IndexIgnore */*
+RewriteEngine on                                                                                                                       |RewriteEngine on
+                                                                                                                                       |
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]                                                                                     |RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d                                                                                          |RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+                                                                                                                                       |
+RewriteRule ^.*$ - [NC,L]                                                                                                              |RewriteRule ^.*$ - [NC,L]
+RewriteRule ^(.*) index.html [NC,L]
