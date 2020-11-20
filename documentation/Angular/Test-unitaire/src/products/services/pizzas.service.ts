@@ -12,6 +12,7 @@ export class PizzasService {
   constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<Pizza[]> {
+    console.log('get pizza appelé')
     return this.http
       .get<Pizza[]>(`${environment.baseUrl}/pizzas`)
       .pipe(catchError((error: any) => throwError(error.json())));

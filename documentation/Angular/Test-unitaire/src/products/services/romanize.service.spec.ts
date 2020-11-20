@@ -20,6 +20,29 @@ Règles:
   Exemples: https://fr.wikipedia.org/wiki/Num%C3%A9ration_romaine#Exemples
 */
 
-describe('Romanize service', () => {
+describe('Romanize service', () => {  
+  let service;
+
+  beforeEach(() => {
+    service = new RomanizeService();
+  })
+
+  it('Un même symbol n\'est pas employé 4x de suite', () => {
+    expect(service.romanize(4)).not.toBe('IIII');
+    expect(service.romanize(4)).toBe('IV');
+    expect(service.romanize(20)).not.toBe('VVVV');
+    expect(service.romanize(40)).not.toBe('XXXX');
+    expect(service.romanize(19)).not.toBe('XVIIII');
+    expect(service.romanize(4000)).toBe('MMMM');
+  })
+
+  it('should be a number or a number on string format', () =>{
+    expect(service.romanize('bonjour')).toBe('?');
+    expect(service.romanize('123')).not.toBe('?');
+    expect(service.romanize(123)).not.toBe('?');
+  })
+
+
+
 
 });

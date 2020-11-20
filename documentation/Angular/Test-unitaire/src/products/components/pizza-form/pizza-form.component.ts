@@ -93,6 +93,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class PizzaFormComponent implements OnInit, OnChanges, OnDestroy {
   exists = new BehaviorSubject<boolean>(false);
 
+  test = 0;
+
   @Input() pizza: Pizza;
   @Input() toppings: string[];
 
@@ -109,7 +111,12 @@ export class PizzaFormComponent implements OnInit, OnChanges, OnDestroy {
 
   private destroyObservables = new Subject();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+
+    this.test = 1;
+    console.log(this.test);
+    
+  }
 
   get nameControl() {
     return this.form.get('name') as FormControl;
@@ -120,6 +127,7 @@ export class PizzaFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
+    this.test = 2;
     this.form
       .get('toppings')
       .valueChanges.pipe(

@@ -18,18 +18,17 @@
       "name": "The Inferno",
       "toppings": [
         "chili",
-        "bacon",
         "mushroom",
         "basil",
         "pepperoni",
         "olive",
         "sweetcorn",
-        "anchovy",
         "mozzarella",
         "pepper",
         "tomato"
       ],
-      "id": 1
+      "id": 1,
+      "sizes": []
     },
     {
       "name": "Seaside Surfin'",
