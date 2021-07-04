@@ -1,0 +1,36 @@
+DEBUT PROGRAMME
+
+     VARIABLE LOCALES
+
+        var userSaisie :T <- ""
+        var texte-modif :T <- ""
+        var i :N <- 0
+        var j :N <- 0 
+        var nombresDespaces <- 0 
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrez votre texte : ") 
+SAISIR userSaisie
+
+// Si le caractère n'est pas un espace, on le stocke dans le nouveau texte
+
+    POUR i ALLANT DE 1 A longeur(userSaisie) 
+
+        SI caract(userSaisie, i) != " " ALORS 
+            texte-modif <- texte-modif + caract(userSaisie, i)
+        SINON
+            nombresDespaces <- nombresDespaces + 1 
+
+    FINPOUR
+
+// On remet les espaces a la fin
+
+    POUR j ALLANT DE 1 A nombresDespaces 
+
+        texte-modif <- texte-modif + " "
+
+    FINPOUR
+
+
+FIN PROGRAMME
