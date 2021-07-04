@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./circonference.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <title>Circonference</title>
+</head>
+<body>
+
+    <div class="panel-control">
+        <div class="container-radius-entry">
+            <label for="radius-entry">Entrer rayon </label>
+            <input type="text" name="radius-entry" class="radius-entry">
+            <button class="validate-radius">Envoyer</button>
+            <button id="reset">Reset</button>
+            <button id="createNewCircle">Creer cercle</button>
+            
+            <div class="position-container">
+                <span>Definir position</span>
+                <label for="position-x"></label>
+                <input type="number" name="position-x" id="position-x" placeholder="Position X">
+                <label for="position-y"></label>
+                <input type="number" name="position-y" id="position-y"placeholder="positionY">
+                <button id="confirmPosition">Confirmer</button>
+            </div>
+        </div>
+    
+        <div class="rgba-container">
+
+            <div class="container-range">
+
+                <div class="div-range-controls">
+                    <label for="r-range">Rouge</label>
+                    <input type="range" name="r-range" min="0" max="255" id="r-range">
+                </div>
+
+                <div class="div-range-controls">
+                    <label for="g-range">Vert</label>
+                    <input type="range" name="g-range" min="0" max="255" id="g-range">
+                </div>
+
+                <div class="div-range-controls">
+                    <label for="b-range">Blue</label>
+                    <input type="range" name="b-range" min="0" max="255" id="b-range">
+                </div>
+
+                <div class="div-range-controls">
+                    <label for="a-range">Alpha</label>
+                    <input type="range" name="a-range" id="a-range">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./circonference.js"></script>
+</body>
+</html>

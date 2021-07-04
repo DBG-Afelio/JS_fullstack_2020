@@ -1,0 +1,33 @@
+PROGRAMME
+
+    VARIABLE LOCALE
+	
+	var a :N
+	var b :N
+	var x :N 
+
+    FIN VARIABLE LOCALE
+
+AFFICHER("saisir a") 
+SAISIR a
+
+AFFICHER("saisir b") 
+SAISIR b
+	
+	SI(a = 0) 
+	  ALORS x <- b
+	FIN SI
+	
+	SI(b = 0) 
+	  ALORS x <- a * x	
+	FIN SI
+
+	SI (x = 0)
+		ALORS x <- b 
+	SINON 
+		x <- -b / a 
+	FIN SI 
+
+	AFFICHER("la valeur de x est de : ", x)
+
+FIN PROGRAMME
