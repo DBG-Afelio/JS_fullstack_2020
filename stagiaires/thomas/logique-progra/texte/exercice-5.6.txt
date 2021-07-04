@@ -1,0 +1,44 @@
+DEBUT PROGRAMME
+
+    VARIABLE LOCALES
+
+    var userSaisie :T <- ""
+    var texte-modif :T <- ""
+    var i :N <- 0
+    var j :N <- 0 
+    var wordInText :T <- ""
+    var tempReverse :T <- ""
+    var indexTemp :N <- 0
+
+    FIN VARIABLE LOCALES
+
+AFFICHER("Entrer texte : ") 
+SAISIR userSaisie
+
+POUR i ALLANT DE 1 a longeur(userSaisie)
+
+    // On groupe le mot
+    TANTQUE caract(userSaisie, indexTemp) != " " ALORS
+        wordInText <- wordInText + caract(userSaisie, indexTemp)
+        indexTemp <- indexTemp - 1 
+    FINTANTQUE
+    
+    // On reverse le mot
+    POUR j ALLANT DE longeur(wordInText) A 1 PAR PAS DE -1
+        tempReverse <- tempReverse + caract(wordInText, j) + " "
+    FINPOUR
+    
+    // On ajoute le mot reversé
+    texte-modif <- texte-modif + tempReverse
+    
+    // On reset les variables temporaire 
+     wordInText <- ""
+     tempReverse <- "" 
+
+FINPOUR
+
+texte-modif[longeur(texte-modif)] <- ""
+
+AFFICHER(texte-modif)
+
+FIN PROGRAMME
