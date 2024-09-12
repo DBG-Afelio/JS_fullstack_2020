@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="panier.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="pageAllPhotos">
+            <div class="div1">
+                <div>
+                    <button class="panier" id="panier">Panier</button>
+                </div>
+                <div class="totalArticles" id="totalArticle">
+                    <h3 class="totalArticle1" id="totalArticle">
+                        Total articles = 
+                    </h3>
+                    <h3 class="totalArticle2" id="totalArticleNumber">
+                        0
+                    </h3>
+                    <h3 class="totalPriceSelected">
+                        Total price =
+                    </h3 >
+                        
+                    <h3 id="totalOfTotalPriceChosen" class = "totalPriceSelectesVariable">
+                        0
+                    </h3>
+                </div>
+                <nav>
+                    <ul class="classList" id="listImages">
+                    </ul>
+                </nav>
+
+
+                <div>
+                    <nav>
+                        <ul id="imageDetails">
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </div>
+
+            <div class="div2">
+                <img class="imageDetails" id="imageGrand" src="" alt=""></img>
+                <p class="pricDetails" id="detailsPrix"> </p>
+                <p class="titreDetails" id="detailsTitre"> </p>
+                <p class="pays" id="detailsPays"> </p>
+                <p class="commentaireDetails" id="detailsCommentaire"> </p>
+                <p class="auteur" id="detailsAuteur"> </p>
+                <input id="quantity" type="number" step="1" value="0" min="0" max="99999999">
+                <button class="buttonCommander" id="buttonCommander" type="button"> Commander</button>
+            </div>
+        </div>
+        <div id="pagePanier">
+            <h3 id="panierEmpty"> </h3>
+            <nav class="photodDePanier">
+                <ul id="panierList">
+                </ul>
+            </nav>
+            <h3 id="totalPriceOfAll" class="totalPriceOfAllPhoto"> </h3>
+            <button  class="buttonBack" id="backButton"> Revenir à la liste </button>
+            <button class="buttonEmptyingPanier" id="buttonEmptying">Vider le Panier</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="source/sourceJSON.js"></script>
+    <script src="panier.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+.valide-ok {
+    color:greenyellow;
+    display:none;
+}
+.valide-ko {
+    color:red;
+    display:none;
+}
+.form-element.valide .valide-ok{
+    display: block
+}
+.form-element.valide .valide-ko{
+    display: none
+}
+.form-element.invalide .valide-ok{
+    display: none;
+}
+.form-element.invalide .valide-ko{
+    display: block
+}
+input[type=text], input[type=password] , input[type=email],input[type=tel],input[type=date],select {
+    
+    width: 35%;
+    padding: 7px 7px;
+    margin: 1px 1px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }

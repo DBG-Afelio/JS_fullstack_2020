@@ -1,0 +1,158 @@
+img{
+    width: 63px;
+    height: auto;
+}
+p{
+    position: relative;
+    left: 150px;
+    top : -50px;
+
+}
+li{
+   padding: 1px;
+   margin: 1px; 
+    width:25%;
+    border-bottom: 2px solid black;
+    background-color:lightcyan;
+    height: 63px;
+  }
+  
+ 
+ .container {
+     position: relative;
+     top: 50px;
+     padding: 10px ;
+     margin: 20px;
+     width: 1500px;
+     height: 750px;
+    border-style: solid;
+ }
+ /*
+.container {
+    height: 200x;
+    width: 200px;
+    position: relative;
+    top: 10px;
+    left: 1000px;
+    
+}
+*/
+.imageDetails{
+    width: 300px;
+    height: 300px;
+}
+.div2{
+    position: absolute;
+    top: 50px;
+    left:200px;
+}
+
+ul {
+    list-style-type: none;
+      
+ }
+ .div1{
+    position: relative;
+    top: -18px;
+    left: 1100px;
+ }
+ .titreDetails{
+    position: relative;
+    top: -376px;
+    left: 104px;
+}
+ .commentaireDetails{
+    position: relative;
+    top: -50px;
+    left: 20px;
+}
+ 
+ .auteur{
+    position: relative;
+    top: -150px;
+    left: 107px;
+ }
+ .pays{
+    position: relative;
+    top: -83px;
+    left: 187px;
+ }
+ .pricDetails{
+    position: relative;
+    left: 125px;
+    top: 132px;
+ }
+ .panier{
+    position: relative;
+    top: 38px;
+    left: -52px;
+ }
+ .onePhotoPrice{
+    position: relative;
+    left: 218px;
+    top: 0x;
+ }
+.totalPhotoPrice{
+    position: relative;
+    left: 285px;
+    top: -118px;
+}
+.quantityPhoto{
+    position: relative;
+    left: 160px;
+    top: -84px;
+    width: 38px;
+    height: 17px; 
+}
+.total{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+.totalArticle1{
+    position: relative;
+    top: 19px;
+    left: 34px
+}
+.totalArticle2{
+    position: relative;
+    top: -22px;
+    left: 178px;
+}
+.totalArticles{
+    position: relative;
+    top: -30px;
+    left: 40px;
+}
+.classList{
+    position: relative;
+    top: -103px;
+    left: 0px;
+}
+.totalPriceOfAllPhoto{
+    position: relative;
+    top: 5px;
+    left: 291px;
+
+}
+.buttonBack{
+    position: relative;
+    top: 20px;
+    left: 110px;
+}
+.buttonEmptyingPanier{
+    position: relative;
+    top: 20px;
+    left: 145px;
+
+}
+.totalPriceSelected{
+    position: relative;
+    top: -38px;
+    left: 34px; 
+}
+.totalPriceSelectesVariable{
+    position: relative;
+    top: -77px;
+    left: 152px;
+}
