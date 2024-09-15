@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+*{
+    font-family: 'Acme', sans-serif;
+    font-size: 16px;
+}
+body{
+    width:auto;
+    height: auto;
+    background-color: rgb(83, 64, 5, 0.1);
+
+}
+.banner{
+    position:fixed;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 120px;
+    z-index: 10;
+    background-color:rgb(119, 92, 2); /* #def */
+    background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+    radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, 0.3) 99%);
+    background-size:80px 80px;
+    background-position:0 0, 40px 40px;
+}
+.homePage.show, 
+.cartRecapPage.show{
+    display: block;
+}
+
+.cartRecapPage.hide, 
+.homePage.hide{
+    display:none;
+}
+
+form{
+    height: 550px;
+    width: 350px;
+    margin: auto;
+    padding: 10px 10px;
+    
+    position:fixed;
+
+    left: 27%; 
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photo-list{
+    position: fixed;
+    top:115px;
+    right : -5px ;
+    width: 30%;
+    height: 85%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    margin: 5px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-top: 15px;
+    background-color: rgb(83, 64, 5, 0.3);
+    border-radius: 0px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  /*  background-color:rgba(66, 5, 94, 0.678); /* #9AA6B1 */
+}
+
+.photo-list > div{
+
+    display:flex;
+    flex-wrap: nowrap;
+    width: 90%;
+    background-color: rgb(119, 92, 2);
+    color:whitesmoke;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.cart-info {
+    z-index: 35;
+    position: fixed;
+    top: 36px;
+    right: 30px;
+    
+    height: 55px;
+    width: 150px;
+  
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    color: whitesmoke;
+}
+
+.data-input-quantite{
+    width: 22px;
+    text-align: center;
+}
+.btn-commander {
+    height: 30px;
+    width: 30px;
+    background: url("../img/refresh.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    
+}
+
+
+.item.surbrillance {
+    background-color:rgb(253, 253, 253);
+    color: black;
+    font-weight: bolder;
+    
+}
+.recap-list{
+    position: fixed;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    left: 15%; 
+    top: 30%;
+    display:flex;
+    flex-flow: column nowrap;
+    width: 70%;
+    height: 60%;
+    border-style: groove;
+    color:black
+}
+.item, .myItems{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.myItems > *, .item > * {
+    border:none;
+    font-size: large;
+    text-align: center;
+    align-self: center;
+    background-color: none;
+    
+}
+.myItems > .data-item-delete{
+    height: 40px;
+    width: 40px;
+    background: url("../img/trashOne.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+}
+.item-qtte{
+    background-color: transparent;
+    width: 25px;
+}
+
+img{
+    border-radius: 10px;
+}
+.empty-cart-img{
+    position: fixed;
+    left: 35%;
+    top:35%;
+    width: 30%;
+    height:50%;
+}
+.empty-cart-img.show,
+.btn-empty-list.show {
+    display:block;
+}
+.empty-cart-img.hide,
+.btn-empty-list.hide {
+    display:none;
+}
+.cmd-fromCart{
+    z-index: 31;
+    position: fixed;
+    right : 200px;
+    top: 35px;
+    height: 55px;
+    width: 200px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.btn-empty-list{
+    height: 60px;
+    width: 60px;
+    background: url("../img/trashAll.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    text-align: center;
+
+}
+.btn-goBackHome{
+    height: 60px;
+    width: 60px;
+    background: url("../img/home.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    text-align: center;
+}
+
+.data-panier-quantite{
+    height: 60px;
+    width: 60px;
+    background: url("../img/cart.png") no-repeat 0 0;
+    background-size: 100%;
+    align-self: baseline;
+    text-align: center;
+  
+}
