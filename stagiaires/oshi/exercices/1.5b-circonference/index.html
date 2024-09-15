@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>1.5b Circonférence</title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <img src="src/marker.png" alt="Marker" class="marker">
+    <div class="box">
+        <div>
+            <br>
+            <form>
+                <p>Choisir une couleur avec le niveau de rouge, vert, bleu et l'opacité</p>
+                <input class="color_controller" name="i_red" type="range" value="0" max="255" min="0">
+                <input class="color_controller" name="i_green" type="range" value="0" max="255" min="0">
+                <input class="color_controller" name="i_blue" type="range" value="0" max="255" min="0">
+                <input class="color_controller" name="i_alpha" type="range" value="1" max="1" min="0" step="0.01">
+                <svg width="18" height="18">
+                    <rect x="0" y="0" width="18" height="18" fill="black" />
+                </svg><br>
+                <label for="i_size">Rayon du cercle à ajouter :</label>
+                <input name="i_size" id="i_size" type="number" value="100">
+                <input class="button" type="submit">
+            </form>
+            <button class="button" id="clear_board">Nettoyer</button>
+            <svg width="99%" height="700px">
+            </svg>
+            <p>Fait avec 💚 par Oshimia</p>
+        </div>
+    </div>
+    <div class="cover">
+        <div class="notification">
+            <h1></h1>
+            <p></p>
+            <button class="button">OK</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+
+</html>
