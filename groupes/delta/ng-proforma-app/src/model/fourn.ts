@@ -1,0 +1,59 @@
+import { FournDto } from './fournDto';
+import { Product } from './product';
+
+
+export class Fourn {
+
+    products: Product[];
+
+    constructor(public  id : number ,
+        public nom : string ,
+        public description : string , 
+        public ferme : boolean ,
+        public archive : boolean ,
+        public horaire :boolean[] ,
+        public tel : string ){
+
+            this.id = id ;
+            this.nom = nom ;
+            this.description = description ;
+            this.ferme = ferme ; 
+            this.archive = archive ;
+            this.horaire = horaire ;
+            this.tel = tel ; 
+            
+    }
+    static fromDto(fournDto:FournDto):Fourn{
+        return new Fourn(
+            fournDto.id ,
+            fournDto.nom,
+            fournDto.description,
+            fournDto.ferme,
+            fournDto.archive,
+            fournDto.horaire,
+            fournDto.tel
+        )
+    }
+    toDto():FournDto {
+        return { 
+            id : this.id,
+            nom : this.nom , 
+            description : this.description,
+            ferme : this.ferme ,
+            archive:this.archive,
+            horaire : this.horaire,
+            tel : this.tel
+        }
+
+    }
+
+    setProducts(products: Product[]): Fourn {
+        this.products = products;
+        return this;
+    }
+
+    openToday(): boolean {
+        const today = new Date()
+        return this.horaire[today.getDay()] && !this.ferme;
+    }
+}

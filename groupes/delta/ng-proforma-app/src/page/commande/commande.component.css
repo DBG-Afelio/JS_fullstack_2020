@@ -1,0 +1,18 @@
+button{
+    color: #2d545e ;
+    text-transform: uppercase;
+    background: #fff5d7;
+    padding: 20px;
+    border: 4px solid #2d545e;
+    border-radius: 6px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    color: #e1b382 ;
+    border-radius: 50px;
+    border-color: #2d545e ;
+    background-color: #ff5e6c;
+    transition: all 0.3s ease 0s;
+}

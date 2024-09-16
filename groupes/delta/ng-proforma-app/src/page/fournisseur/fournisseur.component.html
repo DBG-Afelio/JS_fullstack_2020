@@ -1,0 +1,48 @@
+
+<div class="container">
+<h2 *ngIf="fournisseur">{{fournisseur.nom}}</h2>
+
+    <nav>
+        <ul class="ulList">
+            <li class="liList" *ngFor="let product of fournisseur?.products ; index as i"
+                [class.selected]="product ===selectedProduct " (click)="select(product)">
+
+                <span class="index">{{i+1}} </span>
+                <span class="titles">:{{product?.nom}}
+                    ({{product.prix}}€). </span>
+
+        </ul>
+    </nav>
+
+<div *ngIf="selectedProduct" class="prductDetails">
+    <table class="tableOfeDetails">
+        <tr>
+            <th>Nome de fournisseur</th>
+            <th>{{fournisseur.nom}}</th>
+        </tr>
+        <tr>
+            <th>Nom de Produit</th>
+            <th>{{selectedProduct?.nom}}</th>
+        </tr>
+        <tr>
+            <th>Prix de produit</th>
+            <th>{{selectedProduct?.prix}}€</th>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <th>{{selectedProduct?.description}}</th>
+        </tr>
+    </table>
+    <app-options 
+        [options]="selectedProduct.options"
+        [selected_options]="selectedOptions"
+        (options_change)="optionsChange($event)"
+        [read_only]="pending_command && pending_command.product !== selectedProduct"
+    ></app-options>
+</div>
+
+<button *ngIf="hour && stillInTime() && selectedProduct && !pending_command || pending_command?.product !== selectedProduct" (click)="checkeOrder(selectedProduct)">Choisir</button>
+
+<p class="message"> {{message}} </p>
+<p class="hour">{{hour?.getHours()}}:{{hour?.getMinutes()}}:{{hour?.getSeconds()}}</p>
+</div>

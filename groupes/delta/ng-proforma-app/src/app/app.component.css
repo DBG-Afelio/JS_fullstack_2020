@@ -1,0 +1,80 @@
+
+img{
+  width: 40px;
+  position: relative;
+}
+
+*, *:before, *:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+nav{
+  position: fixed;
+  height: 100vh;
+  width: 4rem;
+  background: #555;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+nav.pinned{
+  width: 11rem;
+}
+
+nav #logo {
+  background: rgb(92, 178, 248);
+  height: 4rem;
+  line-height: 4rem;
+  padding-left: 0.6rem;
+  padding-top: 0.6rem;
+}
+nav a {
+  color: #eee;
+  text-decoration: none;
+  display: table;
+  width: 11rem;
+}
+
+nav a.active .flat{
+  border-left: 3px solid rgb(92, 178, 248);
+  border-right: 3px solid transparent;
+}
+
+nav a:hover{
+  background: #ff5e6c;
+  color: #bee0ff;
+}
+
+nav a .flat{
+  width: 4rem;
+  display: table-cell;
+  font-size: 2rem;
+  padding: 1rem 0;
+  text-align: initial;
+}
+
+nav a.label{
+  display: table-cell;
+}
+
+.section{
+  display: grid;
+  grid-column: 1/4;
+  padding: 2rem 2rem 2rem 5rem;
+  min-height: 100vh;
+  transition: .4s;
+}
+
+.section-active{
+  grid-column: 3;
+}
+
+.main-container{
+  display: grid;
+  grid-template-columns: 4rem 7rem 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . .";
+  transition: .4s;
+}

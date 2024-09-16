@@ -1,0 +1,59 @@
+<!-- <div class="header">
+    <a routerLink='fournisseurs'>Fournisseurs</a>
+    <a *ngIf="user">{{user.login}}</a>
+    <a *ngIf="user" routerLink='commande/1'>Commande 1</a>
+    <a *ngIf="user" routerLink='commande/2'>Commande 2</a>
+    <a *ngIf="!user" routerLink='login' >Connexion</a>
+    <a *ngIf="user?.admin && user" routerLink='membres' >Membres</a>
+    <a *ngIf="user && pending_command" routerLink='commande/new' >Commande</a>
+    <a *ngIf="user" routerLink='commandes'>Commandes</a>
+    <a *ngIf="user" routerLink='membre/{{user.login}}' >Profil</a>
+    <a *ngIf="user" (click)='disconnect()'>Deconnexion</a>
+    <a *ngIf="user?.admin && user" routerLink='membre/new'>Nouveau</a>
+    <img src="./assets/img/logoProforma.png" class="img">
+</div> -->
+<div class="main-container">
+  <nav [class.pinned]="extend_menu" (click)="checkRoute()">
+    <div id="logo"><img src="./assets/img/logoProforma.png" (click)="switchMenu()"></div>
+    <a routerLink='fournisseurs' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'fournisseur'">
+      <span class="flat flaticon-users"></span>
+      <span class="label">Fournisseurs</span>
+    </a>
+    <a *ngIf="user">
+      <span class="flat flaticon-id-card-4"></span>
+      <span class="label">{{user.login}}</span>
+    </a>
+    <a *ngIf="!user" routerLink='login' routerLinkActive="active" >
+      <span class="flat flaticon-login"></span>
+      <span class="label">Connexion</span>
+    </a>
+    <a *ngIf="user?.admin && user" routerLink='membres' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'membre' || router.url.split('/')[1] === 'membres'">
+      <span class="flat flaticon-users-1"></span>
+      <span class="label">Membres</span>
+    </a>
+    <a *ngIf="user && pending_command" routerLink='commande/new' routerLinkActive="active">
+      <span class="flat flaticon-list"></span>
+      <span class="label">Commande</span>
+    </a>
+    <a *ngIf="user" routerLink='membre/{{user.id}}' routerLinkActive="active">
+      <span class="flat flaticon-resume"></span>
+      <span class="label">Profil</span>
+    </a>
+    <a *ngIf="user" routerLink='commandes' routerLinkActive="active" [class.active]="router.url.split('/')[1] === 'commande'">
+      <span class="flat flaticon-folder-14"></span>
+      <span class="label">Commandes</span>
+    </a>
+    <a *ngIf="user?.admin && user" routerLink='/membre' [class.active]="router.url.split('/')[1] === 'membre' && router.url.split('/').length === 2">
+      <span class="flat flaticon-plus"></span>
+      <span class="label">Nouveau</span>
+    </a>
+    <a *ngIf="user" (click)='disconnect()'>
+      <span class="flat flaticon-power"></span>
+      <span class="label">Deconnexion</span>
+    </a>
+    <span class="timer">{{timer}}</span>
+  </nav>
+  <div class="section" [class.section-active]="extend_menu">
+    <router-outlet></router-outlet>
+  </div>
+</div>
