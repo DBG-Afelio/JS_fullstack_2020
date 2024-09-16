@@ -1,0 +1,21 @@
+
+        .valide-ok {
+            color:greenyellow;
+            display:none;
+        }
+        .valide-ko {
+            color:red;
+            display:none;
+        }
+        .form-element.valide .valide-ok{
+            display: block
+        }
+        .form-element.valide .valide-ko{
+            display: none
+        }
+        .form-element.invalide .valide-ok{
+            display: none;
+        }
+        .form-element.invalide .valide-ko{
+            display: block
+        }

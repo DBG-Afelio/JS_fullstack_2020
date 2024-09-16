@@ -26,9 +26,9 @@ Début ReversedWords
 
     space <- ' '
 
-    POUR i ALLANT DE 1 à 1 par longueur(Utxt)
+    POUR i ALLANT DE 1 à longueur(Utxt) par 1
 
-        SI caract(uTxt, i) <- space
+        SI caract(uTxt, i) = space
 
             ALORS
 
@@ -42,13 +42,13 @@ Début ReversedWords
 
                     wordInversionInc -
 
-                    invertedWord <- ' '
-
                     FIN TANT QUE 
                 
                 nTxt <- nTxt (+) space (+) invertedWord
     
-                start <- 0     
+                start <- 0
+
+                invertedWord <- ' '     
 
         SINON
 
