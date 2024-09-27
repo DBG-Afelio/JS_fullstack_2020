@@ -1,0 +1,122 @@
+{
+  "toppings": [
+    "anchovy",
+    "bacon",
+    "basil",
+    "chili",
+    "mozzarella",
+    "mushroom",
+    "olive",
+    "onion",
+    "pepper",
+    "pepperoni",
+    "sweetcorn",
+    "tomato"
+  ],
+  "pizzas": [
+    {
+      "name": "The Inferno DB",
+      "toppings": [
+        "chili",
+        "pepperoni",
+        "anchovy",
+        "mozzarella",
+        "pepper",
+        "tomato",
+        "sweetcorn"
+      ],
+      "id": 1,
+      "sizes": [],
+      "favorite": true
+    },
+    {
+      "name": "Seaside Surfin'",
+      "toppings": [
+        "mozzarella",
+        "mushroom",
+        "anchovy",
+        "pepper",
+        "onion",
+        "sweetcorn",
+        "tomato"
+      ],
+      "id": 2,
+      "favorite": false
+    },
+    {
+      "name": "My Favorite",
+      "toppings": [
+        "anchovy",
+        "bacon",
+        "sweetcorn",
+        "mushroom"
+      ],
+      "sizes": [],
+      "id": 8,
+      "favorite": false
+    },
+    {
+      "id": 10,
+      "name": "Gourmande",
+      "toppings": [
+        "olive",
+        "sweetcorn",
+        "tomato",
+        "pepper",
+        "pepperoni",
+        "mushroom",
+        "bacon",
+        "anchovy",
+        "mozzarella",
+        "onion",
+        "basil",
+        "chili"
+      ],
+      "favorite": false
+    },
+    {
+      "id": 11,
+      "name": "Nicoise",
+      "toppings": [
+        "pepper",
+        "tomato",
+        "mozzarella",
+        "anchovy",
+        "onion",
+        "basil",
+        "mushroom",
+        "olive"
+      ],
+      "favorite": true
+    },
+    {
+      "id": 12,
+      "name": "TEX-MEX",
+      "toppings": [
+        "pepperoni",
+        "pepper",
+        "mushroom",
+        "olive",
+        "tomato",
+        "onion",
+        "chili",
+        "sweetcorn"
+      ],
+      "favorite": true
+    },
+    {
+      "id": 13,
+      "name": "tarte au citron ",
+      "toppings": [],
+      "favorite": false
+    },
+    {
+      "id": 14,
+      "name": "tarte au citron meringuee",
+      "toppings": [
+        "mozzarella"
+      ],
+      "favorite": true
+    }
+  ]
+}
